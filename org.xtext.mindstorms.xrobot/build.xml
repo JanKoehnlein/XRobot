@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="org.lejos.ev3.example" default="upload">
+	<property environment="env" />
+	<property file="local.properties" />
+    <property file="build.properties" />
+
+    <path id="libraries.path">    
+        <fileset dir="${ev3.home}/lib">
+        	<include name="**/*.jar"/>
+        </fileset>
+    	<fileset dir="lib">
+    		<include name="**/*.jar"/>
+    	</fileset>
+    </path>
+
+    <target name="clean" description="delete old files">
+        <delete dir="${build.dir}"/>
+    </target>
+
+	<target name="compile" depends="clean" description="compile the source ">
+		<!-- Compile the java code from ${source.dir} to ${classes.dir}  -->
+		<mkdir dir="${classes.dir}" />
+		<javac
+			srcdir="${source.dir}"
+			includes="${source.include}"
+			excludes="${source.exclude}"
+			encoding="${source.encoding}"
+			source="${source.version}"
+			target="${target.version}"
+			destdir="${classes.dir}"
+			debug="true"
+			includeAntRuntime="false"
+			includeJavaRuntime="false"
+			verbose="false"
+		>
+			<classpath refid="libraries.path" />
+			<!-- enable warnings -->
+			<compilerarg value="-Xlint:${source.warn}" />
+		</javac>
+	</target>
+	
+	<target name="copy.resources" depends="compile" description="copy resources to classes folder">
+		<copy todir="${classes.dir}">
+			<fileset dir="${resources.dir}"/>
+		</copy>
+	</target>
+
+    <target name="jar" depends="copy.resources">
+        <jar destfile="${output.jar}" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+                <attribute name="Class-Path" value="${class.path}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="upload" depends="jar">
+    	<scp todir="${credentials}@${ev3.host}:${programs.dir}" password="" trust="true">
+    	    <fileset file="${output.jar}"/>
+    	</scp>
+    </target>
+    
+    <!-- generate javadocs -->
+	<target name="docs" description="generate javadocs">
+		<delete dir="${docs.dir}" />
+    	<mkdir dir="${docs.dir}" />
+		<javadoc
+			destdir="${docs.dir}"
+			source="${source.version}"
+			encoding="${source.encoding}"
+			charset="utf-8"
+			locale="en_US"
+			author="true"
+			access="protected"
+			windowtitle="Project documentation"
+			verbose="false"
+		>
+			<classpath refid="libraries.path" />
+			
+			<packageset	dir="${source.dir}"
+				includes="${source.include}"
+				excludes="${source.exclude}"
+			/>
+		</javadoc>
+	</target>
+	
+		<!-- zip the project -->
+	<target name="dist.zip" description="generate zip of sources">
+    	<zip
+    		destfile="${dist.zip}"
+    		basedir="${basedir}"
+    		includes="${dist.include}"
+    		excludes="${dist.exclude}"
+    	/>
+	</target>
+</project>

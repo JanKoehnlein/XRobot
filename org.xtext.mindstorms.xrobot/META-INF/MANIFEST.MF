@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Class-Path: /home/root/lejos/lib/ev3classes.jar /home/root/lejos/lib/d
+ busjava.jar /home/root/lejos/libjna/usr/share/java/jna.jar /home/lejo
+ s/programs/org.eclipse.xtext.xbase.lib.slim-2.7.0-SNAPSHOT.jar
+Main-Class: org.xtext.mindstorms.Main
+
