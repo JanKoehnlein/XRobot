@@ -1,5 +1,7 @@
 package org.xtext.mindstorms.xrobot.geometry
 
+import org.eclipse.xtend.lib.annotations.Data
+
 @Data
 class Point {
 	double x

@@ -1,67 +1,46 @@
 package org.xtext.mindstorms.xrobot.geometry;
 
-import org.eclipse.xtend.lib.Data;
-import org.eclipse.xtext.xbase.lib.util.ToStringHelper;
+import org.eclipse.xtend.lib.annotations.Data;
+import org.eclipse.xtext.xbase.lib.Pure;
+import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
 
 @Data
 @SuppressWarnings("all")
 public class Point {
-  private final double _x;
+  private final double x;
   
-  public double getX() {
-    return this._x;
-  }
-  
-  private final double _y;
-  
-  public double getY() {
-    return this._y;
-  }
+  private final double y;
   
   public Point operator_plus(final Point other) {
-    double _x = other.getX();
-    double _x_1 = this.getX();
-    double _plus = (_x + _x_1);
-    double _y = other.getY();
-    double _y_1 = this.getY();
-    double _plus_1 = (_y + _y_1);
-    return new Point(_plus, _plus_1);
+    return new Point((other.x + this.x), (other.y + this.y));
   }
   
   public Point operator_minus(final Point other) {
-    double _x = this.getX();
-    double _x_1 = other.getX();
-    double _minus = (_x - _x_1);
-    double _y = this.getY();
-    double _y_1 = other.getY();
-    double _minus_1 = (_y - _y_1);
-    return new Point(_minus, _minus_1);
+    return new Point((this.x - other.x), (this.y - other.y));
   }
   
   public Point operator_multiply(final double scale) {
-    double _x = this.getX();
-    double _multiply = (_x * scale);
-    double _y = this.getY();
-    double _multiply_1 = (_y * scale);
-    return new Point(_multiply, _multiply_1);
+    return new Point((this.x * scale), (this.y * scale));
   }
   
   public Point(final double x, final double y) {
     super();
-    this._x = x;
-    this._y = y;
+    this.x = x;
+    this.y = y;
   }
   
   @Override
+  @Pure
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + (int) (Double.doubleToLongBits(this._x) ^ (Double.doubleToLongBits(this._x) >>> 32));
-    result = prime * result + (int) (Double.doubleToLongBits(this._y) ^ (Double.doubleToLongBits(this._y) >>> 32));
+    result = prime * result + (int) (Double.doubleToLongBits(this.x) ^ (Double.doubleToLongBits(this.x) >>> 32));
+    result = prime * result + (int) (Double.doubleToLongBits(this.y) ^ (Double.doubleToLongBits(this.y) >>> 32));
     return result;
   }
   
   @Override
+  @Pure
   public boolean equals(final Object obj) {
     if (this == obj)
       return true;
@@ -70,16 +49,29 @@ public class Point {
     if (getClass() != obj.getClass())
       return false;
     Point other = (Point) obj;
-    if (Double.doubleToLongBits(other._x) != Double.doubleToLongBits(this._x))
-      return false;
-    if (Double.doubleToLongBits(other._y) != Double.doubleToLongBits(this._y))
-      return false;
+    if (Double.doubleToLongBits(other.x) != Double.doubleToLongBits(this.x))
+      return false; 
+    if (Double.doubleToLongBits(other.y) != Double.doubleToLongBits(this.y))
+      return false; 
     return true;
   }
   
   @Override
+  @Pure
   public String toString() {
-    String result = new ToStringHelper().toString(this);
-    return result;
+    ToStringBuilder b = new ToStringBuilder(this);
+    b.add("x", this.x);
+    b.add("y", this.y);
+    return b.toString();
+  }
+  
+  @Pure
+  public double getX() {
+    return this.x;
+  }
+  
+  @Pure
+  public double getY() {
+    return this.y;
   }
 }

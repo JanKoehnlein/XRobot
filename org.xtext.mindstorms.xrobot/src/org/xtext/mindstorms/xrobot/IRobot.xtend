@@ -1,32 +1,44 @@
 package org.xtext.mindstorms.xrobot
 
-import org.xtext.mindstorms.xrobot.geometry.Point
 import org.xtext.mindstorms.xrobot.geometry.Polar
 
 interface IRobot {
-	
-	def Point getPosition()
-	
-	def double getBearing()
-	
-	/**
-	 * @param angle in degrees
-	 */
-	def void rotate(double angle)
-	
-	/**
-	 * @param distance in cm
-	 */
+
 	def void forward(double distance)
 
-	/**
-	 * @param distance in cm
-	 */
 	def void backward(double distance)
+
+	def void setTravelSpeed(double speed)
+
+	def double getTravelSpeed()
+
+	def double getMaxTravelSpeed()
+
+	def void rotate(double angle)
+
+	def void setRotateSpeed(double speed)
+
+	def double getRotateSpeed()
+
+	def double getRotateMaxSpeed()
+
+	def void curveForward(double radius, double angle)
+
+	def void curveBackward(double radius, double angle)
 	
-	def double measureDistance()
+	def void curveTo(Polar bearing)
 	
+	def void stop()
+
+	def float measureDistance()
+
 	def Polar measureEnemyBearing()
+
+	def float measureGroundColor()
+
+	def float measureShieldContact()
+
+	def boolean escapePressed()
 	
-	def double measureGroundColor()
+	def void fireWeapon()
 }

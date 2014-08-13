@@ -49,20 +49,15 @@ public class SoundUtil {
         ByteArrayOutputStream _byteArrayOutputStream = new ByteArrayOutputStream();
         out = _byteArrayOutputStream;
         byte[] buffer = new byte[2048];
-        int size = 0;
-        int _read = in.read(buffer);
-        int _size = size = _read;
-        boolean _greaterThan = (_size > 0);
-        boolean _while = _greaterThan;
-        while (_while) {
-          out.write(buffer, 0, size);
-          int _read_1 = in.read(buffer);
-          int _size_1 = size = _read_1;
-          boolean _greaterThan_1 = (_size_1 > 0);
-          _while = _greaterThan_1;
+        while (true) {
+          {
+            int read = in.read(buffer);
+            if ((read < 0)) {
+              return out.toByteArray();
+            }
+            out.write(buffer, 0, read);
+          }
         }
-        out.flush();
-        return out.toByteArray();
       } finally {
         if (in!=null) {
           in.close();
