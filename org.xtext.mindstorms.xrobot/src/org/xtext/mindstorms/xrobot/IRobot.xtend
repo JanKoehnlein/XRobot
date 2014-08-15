@@ -1,9 +1,11 @@
 package org.xtext.mindstorms.xrobot
 
-import org.xtext.mindstorms.xrobot.geometry.Polar
+import org.xtext.mindstorms.xrobot.data.SensorSample
 
 interface IRobot {
-
+	
+	def String getName()
+	
 	def void forward(double distance)
 
 	def void backward(double distance)
@@ -25,20 +27,15 @@ interface IRobot {
 	def void curveForward(double radius, double angle)
 
 	def void curveBackward(double radius, double angle)
-	
-	def void curveTo(Polar bearing)
+
+	def void curveTo(double angle, double distance)
 	
 	def void stop()
 
-	def float measureDistance()
-
-	def Polar measureEnemyBearing()
-
-	def float measureGroundColor()
-
-	def float measureShieldContact()
+	def SensorSample sample()
 
 	def boolean escapePressed()
 	
 	def void fireWeapon()
+	
 }

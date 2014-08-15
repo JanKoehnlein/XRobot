@@ -49,9 +49,9 @@ class XRobot {
 			}
 			
 			override checkCondition(IRobot robot) {
-				val enemyBearing = robot.measureEnemyBearing
-				return (abs(enemyBearing.angle) < 3 && enemyBearing.distance < 10)
-					|| robot.measureShieldContact > 0.5
+				val sample = robot.sample
+				return (abs(sample.enemyAngle) < 3 && sample.enemyDistance < 20)
+					|| sample.contact > 0.5
 				
 			}
 			
@@ -74,8 +74,8 @@ class XRobot {
 			}
 			
 			override checkCondition(IRobot robot) {
-				val enemyBearing = robot.measureEnemyBearing
-				enemyBearing.valid && abs(enemyBearing.angle) < 12
+				val sample = robot.sample
+				sample.enemyDetected && abs(sample.enemyAngle) < 12
 			}
 			
 			override getPriority() {
@@ -83,8 +83,8 @@ class XRobot {
 			}
 			
 			override run(IRobot robot) {
-				val enemyBearing = robot.measureEnemyBearing
-				robot.curveTo(enemyBearing)
+				val sample = robot.sample
+				robot.curveTo(sample.enemyAngleInDegrees, sample.enemyDistanceInCentimeter)
 			}
 			
 			override stop(IRobot robot) {
@@ -98,8 +98,7 @@ class XRobot {
 			}
 			
 			override checkCondition(IRobot robot) {
-				val enemyBearing = robot.measureEnemyBearing
-				enemyBearing.valid
+				robot.sample.enemyDetected
 			}
 			
 			override getPriority() {
@@ -107,7 +106,7 @@ class XRobot {
 			}
 			
 			override run(IRobot robot) {
-				val angle = robot.measureEnemyBearing.angle
+				val angle = robot.sample.enemyAngleInDegrees
 				robot.rotate(-90 * angle / 25)
 			}
 			
@@ -119,5 +118,4 @@ class XRobot {
 		program.run(robot)
 		Button.waitForAnyPress
 	}
-	
 }

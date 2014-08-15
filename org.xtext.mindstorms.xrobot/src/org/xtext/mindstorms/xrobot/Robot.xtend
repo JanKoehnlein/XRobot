@@ -2,14 +2,15 @@ package org.xtext.mindstorms.xrobot
 
 import lejos.hardware.Brick
 import lejos.hardware.Key
+import lejos.hardware.LED
 import lejos.hardware.motor.NXTRegulatedMotor
 import lejos.hardware.sensor.EV3ColorSensor
 import lejos.hardware.sensor.EV3IRSensor
+import lejos.hardware.sensor.EV3TouchSensor
 import lejos.robotics.navigation.DifferentialPilot
-import org.xtext.mindstorms.xrobot.geometry.Polar
+import org.xtext.mindstorms.xrobot.data.SensorSample
 
 import static extension java.lang.Math.*
-import lejos.hardware.sensor.EV3TouchSensor
 
 class Robot implements IRobot {
 	
@@ -22,11 +23,17 @@ class Robot implements IRobot {
 	EV3ColorSensor colorSensor
 
 	EV3TouchSensor touchSensor
+	
+	LED led
 
 	Key escapeKey
+	
+	String name
+	
+	int channel
 
 	new(Brick brick) {
-		pilot = new DifferentialPilot(4.32, 13.30, 
+		pilot = new DifferentialPilot(4.32, 9.50, 
 			new NXTRegulatedMotor(brick.getPort('B')), 
 			new NXTRegulatedMotor(brick.getPort('C')))
 		weaponMotor = new NXTRegulatedMotor(brick.getPort('A'))
@@ -34,35 +41,38 @@ class Robot implements IRobot {
 		colorSensor = new EV3ColorSensor(brick.getPort('S3'))
 		touchSensor = new EV3TouchSensor(brick.getPort('S1'))	
 		escapeKey = brick.getKey('Escape')
+		led = brick.LED
+		name = brick.name
+		this.channel = if(name == 'Xtend') 1 else 2
+	}
+	
+	override getName() {
+		name
 	}
 	
 	override escapePressed() {
 		escapeKey.down
 	}
 	
-	override measureDistance() {
+	def measureDistance() {
 		val sample = newFloatArrayOfSize(1)
 		irSensor.distanceMode.fetchSample(sample, 0)
 		return sample.get(0) 
 	}
 	
-	override measureEnemyBearing() {
+	def float[] measureEnemyBearings() {
 		val sample = newFloatArrayOfSize(8)
 		irSensor.seekMode.fetchSample(sample, 0)
-		for(var i=1; i<8; i+=2) {
-			if(sample.get(i) < 128) 
-				return new Polar(3 * sample.get(i-1), 2 * sample.get(i))
-		}
-		return Polar.INVALID
+		return sample
 	}
 	
-	override measureGroundColor() {
+	def measureGroundColor() {
 		val sample = newFloatArrayOfSize(1)
 		colorSensor.redMode.fetchSample(sample, 0)
 		return sample.get(0)
 	}
 	
-	override measureShieldContact() {
+	def measureShieldContact() {
 		val sample = newFloatArrayOfSize(1)
 		touchSensor.touchMode.fetchSample(sample, 0)
 		return sample.get(0)
@@ -112,11 +122,19 @@ class Robot implements IRobot {
 		pilot.arc(radius, -angle)
 	}
 	
-	override curveTo(Polar bearing) {
-		val angle = bearing.angle.toRadians
-		val radius = 0.5 * bearing.distance * cos(0.5 * PI - angle)
+	override curveTo(double angle, double distance) {
+		val radius = 0.5 * distance * cos(0.5 * PI - angle.toRadians)
 		curveForward(radius, angle)
 	}
+	
+	override sample() {
+		val time = System.currentTimeMillis
+		val bearings = measureEnemyBearings
+		val enemyIndex = (2 - channel) * 2
+		new SensorSample(time, 
+			bearings.get(enemyIndex), bearings.get(enemyIndex + 1),
+			measureDistance, measureGroundColor, measureShieldContact)
+	}	
 	
 	override stop() {
 		pilot.stop
@@ -124,8 +142,12 @@ class Robot implements IRobot {
 	
 	override fireWeapon() {
 		weaponMotor.speed = weaponMotor.maxSpeed
-		weaponMotor.rotateTo(140)
+		weaponMotor.rotateTo(180)
 		weaponMotor.rotateTo(0)
+	}
+	
+	def setLed(int pattern) {
+		led.pattern = pattern
 	}
 	
 }

@@ -11,7 +11,7 @@ class Program implements IProgram {
 	ISubProgram activeSub
 
 	new() {
-		addSubProgram(new GameOverSub(this))		
+		addSubProgram(new Program.GameOverSub(this))		
 	}
 	
 	override run(IRobot robot) {
@@ -69,8 +69,8 @@ class Program implements IProgram {
 		}
 		
 		override checkCondition(IRobot robot) {
-			val groundColor = robot.measureGroundColor
-			groundColor > 0.2 || robot.escapePressed
+			// TODO: check ground color
+			robot.escapePressed
 		}
 		
 		override getPriority() {
