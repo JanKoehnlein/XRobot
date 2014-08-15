@@ -1,4 +1,4 @@
-package org.xtext.mindstorms.xrobot.net
+package org.xtext.mindstorms.xrobot.client
 
 import java.io.DataInputStream
 import java.io.DataOutputStream
@@ -9,8 +9,9 @@ import lejos.hardware.BrickFinder
 import org.xtext.mindstorms.xrobot.Robot
 
 import static org.xtext.mindstorms.xrobot.util.LEDPatterns.*
+import org.xtext.mindstorms.xrobot.server.ServerConfig
 
-class BrickConnector {
+class BrickConnector implements ServerConfig {
 	
 	Socket socket
 	
@@ -33,7 +34,7 @@ class BrickConnector {
 		println('Connecting to server...')
 		robot.led = ORANGE_BLINK
 		socket = new Socket()
-		socket.connect(new InetSocketAddress('10.0.1.10', 4444), 5000)
+		socket.connect(new InetSocketAddress(SERVER_ADDRESS, SERVER_PORT), 5000)
 		input = new DataInputStream(socket.inputStream)
 		output = new DataOutputStream(socket.outputStream)
 		println('...connected!')
@@ -56,7 +57,7 @@ class BrickConnector {
 				if(robot.escapePressed)
 					return;
 				connect
-				val executor = new BrickExecutor(input, output, robot)
+				val executor = new RobotExecutor(input, output, robot)
 				while(!isStopped) {
 					isStopped = !executor.executeNext
 				}

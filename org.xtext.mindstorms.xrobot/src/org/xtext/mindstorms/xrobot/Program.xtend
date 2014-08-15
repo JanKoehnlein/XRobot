@@ -1,6 +1,7 @@
 package org.xtext.mindstorms.xrobot
 
 import java.util.List
+import org.xtext.mindstorms.xrobot.api.IRobot
 
 class Program implements IProgram {
 

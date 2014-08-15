@@ -11,15 +11,18 @@ import lejos.robotics.navigation.DifferentialPilot
 import org.xtext.mindstorms.xrobot.data.SensorSample
 
 import static extension java.lang.Math.*
+import org.xtext.mindstorms.xrobot.annotations.SimpleRMI
+import org.xtext.mindstorms.xrobot.annotations.SimpleRMINoAPI
 
-class Robot implements IRobot {
+@SimpleRMI
+class Robot {
 	
 	DifferentialPilot pilot
 
 	NXTRegulatedMotor weaponMotor
 
 	EV3IRSensor irSensor
-	
+	 
 	EV3ColorSensor colorSensor
 
 	EV3TouchSensor touchSensor
@@ -54,25 +57,25 @@ class Robot implements IRobot {
 		escapeKey.down
 	}
 	
-	def measureDistance() {
+	protected def measureDistance() {
 		val sample = newFloatArrayOfSize(1)
 		irSensor.distanceMode.fetchSample(sample, 0)
 		return sample.get(0) 
 	}
 	
-	def float[] measureEnemyBearings() {
+	protected def float[] measureEnemyBearings() {
 		val sample = newFloatArrayOfSize(8)
 		irSensor.seekMode.fetchSample(sample, 0)
 		return sample
 	}
 	
-	def measureGroundColor() {
+	protected def measureGroundColor() {
 		val sample = newFloatArrayOfSize(1)
 		colorSensor.redMode.fetchSample(sample, 0)
 		return sample.get(0)
 	}
 	
-	def measureShieldContact() {
+	protected def measureShieldContact() {
 		val sample = newFloatArrayOfSize(1)
 		touchSensor.touchMode.fetchSample(sample, 0)
 		return sample.get(0)
@@ -146,6 +149,7 @@ class Robot implements IRobot {
 		weaponMotor.rotateTo(0)
 	}
 	
+	@SimpleRMINoAPI
 	def setLed(int pattern) {
 		led.pattern = pattern
 	}

@@ -1,4 +1,4 @@
-package org.xtext.mindstorms.xrobot.net
+package org.xtext.mindstorms.xrobot.server
 
 import java.io.BufferedReader
 import java.io.InputStreamReader

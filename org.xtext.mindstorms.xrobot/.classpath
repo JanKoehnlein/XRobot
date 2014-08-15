@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.xtext.xbase.lib.slim-2.7.0-SNAPSHOT.jar"/>
 	<classpathentry kind="con" path="org.eclipse.xtend.XTEND_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.paho.client.mqttv3-1.0.0.jar" sourcepath="/org.eclipse.paho.client.mqttv3/src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.xtext.mindstorms.xrobot.annotations"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

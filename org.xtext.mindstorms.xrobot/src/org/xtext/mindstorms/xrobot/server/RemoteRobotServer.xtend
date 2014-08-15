@@ -1,10 +1,10 @@
-package org.xtext.mindstorms.xrobot.net
+package org.xtext.mindstorms.xrobot.server
 
 import java.net.ServerSocket
 import java.net.SocketTimeoutException
 import java.util.Map
 
-class RemoteRobotServer extends Thread {
+class RemoteRobotServer extends Thread implements ServerConfig {
 
 	Map<String, RemoteRobotProxy> name2robot = newHashMap
 	
@@ -12,7 +12,7 @@ class RemoteRobotServer extends Thread {
 	
 	override void run() {
 		isStopped = false
-		val server = new ServerSocket(4444)
+		val server = new ServerSocket(SERVER_PORT)
 		server.soTimeout = 5000
 		while(!isStopped) {
 			try {

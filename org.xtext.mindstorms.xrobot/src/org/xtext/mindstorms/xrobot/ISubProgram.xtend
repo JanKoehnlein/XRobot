@@ -1,5 +1,7 @@
 package org.xtext.mindstorms.xrobot
 
+import org.xtext.mindstorms.xrobot.api.IRobot
+
 interface ISubProgram {
 	
 	def String getName()

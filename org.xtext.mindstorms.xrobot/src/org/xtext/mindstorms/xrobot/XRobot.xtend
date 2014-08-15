@@ -2,6 +2,7 @@ package org.xtext.mindstorms.xrobot
 
 import lejos.hardware.BrickFinder
 import lejos.hardware.Button
+import org.xtext.mindstorms.xrobot.api.IRobot
 import org.xtext.mindstorms.xrobot.util.SoundUtil
 
 import static java.lang.Math.*
