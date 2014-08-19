@@ -15,9 +15,13 @@ class AbstractExecutor {
 	}
 	
 	def boolean executeNext() {
-		val messagesType = input.readInt
-		println(messagesType)
-		switch messagesType {
+		val messageType = input.readInt
+//		println(messageType)
+		execute(messageType);
+	}
+	
+	protected def execute(int messageType) {
+		switch messageType {
 			case -1: {
 				output.writeBoolean(true)
 				output.flush
@@ -26,6 +30,9 @@ class AbstractExecutor {
 			case -2: {
 				output.writeBoolean(true)
 				output.flush
+			}
+			default: {
+				println("Illegal messageType " + messageType)
 			}
 		}
 		return true

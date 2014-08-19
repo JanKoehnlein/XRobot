@@ -59,11 +59,12 @@ class BrickConnector implements ServerConfig {
 				connect
 				val executor = new RobotExecutor(input, output, robot)
 				while(!isStopped) {
-					isStopped = !executor.executeNext
+					isStopped = !executor.dispatchAndExecute
 				}
 				disconnect
 			} catch(IOException exc) {
 				println('Error: ' + exc.message)
+				robot.stop
 				try {
 					disconnect
 				} catch(Exception e) {}

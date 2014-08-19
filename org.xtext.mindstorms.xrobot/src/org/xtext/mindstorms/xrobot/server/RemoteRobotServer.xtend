@@ -3,7 +3,9 @@ package org.xtext.mindstorms.xrobot.server
 import java.net.ServerSocket
 import java.net.SocketTimeoutException
 import java.util.Map
+import com.google.inject.Singleton
 
+@Singleton
 class RemoteRobotServer extends Thread implements ServerConfig {
 
 	Map<String, RemoteRobotProxy> name2robot = newHashMap
@@ -24,7 +26,7 @@ class RemoteRobotServer extends Thread implements ServerConfig {
 				} catch(Exception exc) {
 					System.err.println('Error closing stale socket ' + name + ': ' + exc.message)
 				}
-				val remoteRobotProxy = new RemoteRobotProxy(client)
+				val remoteRobotProxy = new RemoteRobotProxy(client, 0)
 				name2robot.put(remoteRobotProxy.name, remoteRobotProxy)
 			} catch (SocketTimeoutException e) {
 				// ignore

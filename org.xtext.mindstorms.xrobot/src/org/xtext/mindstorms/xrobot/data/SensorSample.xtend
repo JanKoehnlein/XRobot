@@ -11,7 +11,7 @@ class SensorSample {
 	double enemyDistance
 	double distance  
 	double groundColor
-	double contact
+//	double contact
 	
 	def isEnemyDetected() {
 		enemyDistance < 128
