@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.xtext.xrobot.dsl/src-gen" editDirectory="/org.xtext.xrobot.dsl.edit/src"
+    editorDirectory="/org.xtext.xrobot.dsl.editor/src" modelPluginID="org.xtext.xrobot.dsl"
+    forceOverwrite="true" modelName="XRobotDSL" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.xtext.xrobot.dsl.edit"
+    editorPluginID="org.xtext.xrobot.dsl.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase">
+  <genPackages prefix="XRobotDSL" basePackage="org.xtext.xrobot.dsl" disposableProviderFactory="true"
+      fileExtensions="xrobot" ecorePackage="XRobotDSL.ecore#/">
+    <genClasses ecoreClass="XRobotDSL.ecore#//Program">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Program/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/main"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/subs"/>
+    </genClasses>
+    <genClasses ecoreClass="XRobotDSL.ecore#//Main">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Main/body"/>
+    </genClasses>
+    <genClasses ecoreClass="XRobotDSL.ecore#//Sub">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Sub/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Sub/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Sub/body"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

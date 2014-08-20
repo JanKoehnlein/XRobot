@@ -1,0 +1,17 @@
+grammar org.xtext.xrobot.dsl.XRobotDSL with org.eclipse.xtext.xbase.Xbase
+
+generate xRobotDSL "http://www.xtext.org/xrobot/dsl/XRobotDSL"
+
+Program:
+	'program' name=ID
+	main=Main
+	subs+=Sub*;
+
+Main:
+	'main' body=XBlockExpression;
+	
+Sub:
+	'sub' name=ID 
+	'(' (parameters+=JvmFormalParameter (',' parameters+=JvmFormalParameter)*)? ')' 
+	body=XBlockExpression;
+
