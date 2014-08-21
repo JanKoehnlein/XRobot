@@ -5,7 +5,7 @@ import java.lang.annotation.ElementType
 import java.lang.annotation.Retention
 import java.lang.annotation.RetentionPolicy
 import java.lang.annotation.Target
-import java.net.Socket
+import java.nio.channels.SocketChannel
 import org.eclipse.xtend.lib.macro.AbstractClassProcessor
 import org.eclipse.xtend.lib.macro.Active
 import org.eclipse.xtend.lib.macro.RegisterGlobalsContext
@@ -49,7 +49,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		serverImpl.implementedInterfaces = #[clientInterface.newTypeReference]
 		serverImpl.addConstructor [
 			primarySourceElement = annotatedClass
-			addParameter('socket', Socket.newTypeReference)
+			addParameter('socket', SocketChannel.newTypeReference)
 			addParameter('componentID', int.newTypeReference)
 			body = '''
 				super(socket, componentID);
@@ -79,17 +79,16 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				]
 				serverMethod.returnType = sourceMethod.returnType
 				serverMethod.body = '''
-					try {
-						output.writeInt(componentID);
-						output.writeInt(«i»);
-						«FOR p: sourceMethod.parameters»
-							«getWriteCalls(p.type, p.simpleName)»
-						«ENDFOR»
-						output.flush();
-						«IF !sourceMethod.returnType.isVoid»return «ENDIF»«sourceMethod.returnType.readCall»;
-					} catch («IOException.newTypeReference» exc) {
-						throw new RuntimeException(exc);
-					}
+					output.writeInt(componentID);
+					output.writeInt(«i»);
+					«FOR p: sourceMethod.parameters»
+						«getWriteCalls(p.type, p.simpleName)»
+					«ENDFOR»
+					output.send();
+					«IF !sourceMethod.returnType.isVoid»
+						input.receiveBlocking();
+						return «sourceMethod.returnType.readCall»;
+					«ENDIF»
 				'''
 			])
 		]
@@ -138,8 +137,8 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		}
 		clientExecutor.addConstructor[
 			primarySourceElement = annotatedClass
-			addParameter('input', 'java.io.DataInputStream'.newTypeReference)
-			addParameter('output', 'java.io.DataOutputStream'.newTypeReference)
+			addParameter('input', 'org.xtext.mindstorms.xrobot.net.SocketInputBuffer'.newTypeReference)
+			addParameter('output', 'org.xtext.mindstorms.xrobot.net.SocketOutputBuffer'.newTypeReference)
 			addParameter('client', annotatedClass.newTypeReference)
 			body = '''
 				super(input, output);
@@ -187,30 +186,28 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			returnType = boolean.newTypeReference
 			visibility = Visibility.PROTECTED
 			body = '''
-				try {
-					switch (messageType) {
-						«var i = 0»
-						«FOR sourceMethod: sourceMethods»
-						case «i++»: {
-							«IF !sourceMethod.returnType.isVoid
-								»«sourceMethod.returnType.typeName» result = «
-							 ENDIF
-							»client.«sourceMethod.simpleName»(«
-								FOR p: sourceMethod.parameters SEPARATOR ', '
-								»«p.type.readCall»«
-								ENDFOR»);
+				switch (messageType) {
+					«var i = 0»
+					«FOR sourceMethod: sourceMethods»
+					case «i++»: {
+						«IF !sourceMethod.returnType.isVoid
+							»«sourceMethod.returnType.typeName» result = «
+						 ENDIF
+						»client.«sourceMethod.simpleName»(«
+							FOR p: sourceMethod.parameters SEPARATOR ', '
+							»«p.type.readCall»«
+							ENDFOR»);
+						«IF !sourceMethod.returnType.isVoid»
 							«sourceMethod.returnType.getWriteCalls('result')»
-							output.flush();
-							break;
-						}
-						«ENDFOR»
-						default:
-							return super.execute(messageType);
+							output.send();
+						«ENDIF»
+						break;
 					}
-					return true;
-				} catch(«IOException.newTypeReference» exc) {
-					throw new RuntimeException(exc);
+					«ENDFOR»
+					default:
+						return super.execute(messageType);
 				}
+				return true;
 			'''
 		])
 	}
@@ -246,7 +243,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 					input.readBoolean()
 				'''
 			case 'String': '''
-					input.readUTF()
+					input.readString()
 				'''
 			case 'SensorSample': '''
 					new «returnType.typeName»(input.readLong(), 
@@ -265,7 +262,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 					output.writeBoolean(true);
 				'''
 			case 'String': '''
-					output.writeUTF(«variableName»);
+					output.writeString(«variableName»);
 				'''
 			case 'SensorSample': '''
 					output.writeLong(«variableName».getTimestamp());

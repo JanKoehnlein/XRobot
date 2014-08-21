@@ -1,40 +1,42 @@
 package org.xtext.mindstorms.xrobot.server
 
-import java.io.DataInputStream
-import java.io.DataOutputStream
-import java.net.Socket
+import java.nio.channels.SocketChannel
+import org.xtext.mindstorms.xrobot.net.SocketInputBuffer
+import org.xtext.mindstorms.xrobot.net.SocketOutputBuffer
 
 abstract class AbstractRemoteProxy {
 	
-	protected Socket socket
+	protected SocketChannel socket
 	
-	protected DataInputStream input
+	protected SocketInputBuffer input
 	
-	protected DataOutputStream output
+	protected SocketOutputBuffer output
 	
 	protected int componentID
 	
-	protected new(Socket socket, int componentID) {
+	protected new(SocketChannel socket, int componentID) {
 		this.socket = socket
-		this.input = new DataInputStream(socket.inputStream) 
-		this.output = new DataOutputStream(socket.outputStream)
+		this.input = new SocketInputBuffer(socket) 
+		this.output = new SocketOutputBuffer(socket)
 		this.componentID = componentID
 	}
 	
 	def shutdown() {
 		output.writeInt(componentID)
 		output.writeInt(-1)
-		output.flush
+		output.send
+		input.receive
 		input.readBoolean
 		closeSocket
 	}
 	
 	def isAlive() {
 		output.writeInt(componentID)
-		if(socket != null && socket.closed)
+		if(socket != null && !socket.connected)
 			return false
 		output.writeInt(-2)
-		output.flush
+		output.send
+		input.receive
 		input.readBoolean
 	}
 

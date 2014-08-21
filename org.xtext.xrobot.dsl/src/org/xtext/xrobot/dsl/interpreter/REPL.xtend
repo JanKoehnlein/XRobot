@@ -130,7 +130,14 @@ class REPL {
 			for(i:0..<indent)
 				print('  ')
 		} else {
-			print((currentRobot?.name ?:'(unconnected)') + ' > ')
+			var robotName = '(unconnected)'
+			try {
+				if(currentRobot != null)
+					robotName = currentRobot.name
+			} catch(Exception exc) {
+				_currentRobot = null
+			}
+			print(robotName + ' > ')
 		}
 	}
 	

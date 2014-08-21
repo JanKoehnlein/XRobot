@@ -1,15 +1,15 @@
 package org.xtext.mindstorms.xrobot.client
 
-import java.io.DataInputStream
-import java.io.DataOutputStream
+import org.xtext.mindstorms.xrobot.net.SocketInputBuffer
+import org.xtext.mindstorms.xrobot.net.SocketOutputBuffer
 
 class AbstractExecutor {
 	
-	protected DataInputStream input
+	protected SocketInputBuffer input
 	
-	protected DataOutputStream output
+	protected SocketOutputBuffer output
 	
-	new(DataInputStream input, DataOutputStream output) {
+	new(SocketInputBuffer input, SocketOutputBuffer output) {
 		this.input = input
 		this.output = output
 	}
@@ -24,12 +24,12 @@ class AbstractExecutor {
 		switch messageType {
 			case -1: {
 				output.writeBoolean(true)
-				output.flush
+				output.send
 				return false
 			}
 			case -2: {
 				output.writeBoolean(true)
-				output.flush
+				output.send
 			}
 			default: {
 				println("Illegal messageType " + messageType)

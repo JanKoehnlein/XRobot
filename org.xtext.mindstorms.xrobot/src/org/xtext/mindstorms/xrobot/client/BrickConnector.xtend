@@ -1,25 +1,27 @@
 package org.xtext.mindstorms.xrobot.client
 
-import java.io.DataInputStream
-import java.io.DataOutputStream
 import java.io.IOException
 import java.net.InetSocketAddress
-import java.net.Socket
+import java.nio.channels.SelectionKey
+import java.nio.channels.Selector
+import java.nio.channels.SocketChannel
 import lejos.hardware.BrickFinder
 import org.xtext.mindstorms.xrobot.Robot
+import org.xtext.mindstorms.xrobot.net.SocketInputBuffer
+import org.xtext.mindstorms.xrobot.net.SocketOutputBuffer
 
 import static org.xtext.mindstorms.xrobot.util.LEDPatterns.*
-import org.xtext.mindstorms.xrobot.server.ServerConfig
+import org.xtext.mindstorms.xrobot.server.IServerConfig
 
-class BrickConnector implements ServerConfig {
+class BrickConnector implements IServerConfig {
 	
-	Socket socket
+	SocketChannel socket
 	
 	Robot robot
 	
-	DataInputStream input
+	SocketInputBuffer input
 	
-	DataOutputStream output
+	SocketOutputBuffer output
 	
 	def static void main(String[] args) {
 		new BrickConnector(new Robot(BrickFinder.getLocal)).run
@@ -33,10 +35,16 @@ class BrickConnector implements ServerConfig {
 	def connect() {
 		println('Connecting to server...')
 		robot.led = ORANGE_BLINK
-		socket = new Socket()
-		socket.connect(new InetSocketAddress(SERVER_ADDRESS, SERVER_PORT), 5000)
-		input = new DataInputStream(socket.inputStream)
-		output = new DataOutputStream(socket.outputStream)
+		socket = SocketChannel.open()
+		socket.configureBlocking(false)
+		if(!socket.connect(new InetSocketAddress(SERVER_ADDRESS, SERVER_PORT))) {
+			val selector = Selector.open
+			socket.register(selector, SelectionKey.OP_CONNECT)
+			while (selector.select(5000) == 0) {}
+			socket.finishConnect
+		}
+		input = new SocketInputBuffer(socket)
+		output = new SocketOutputBuffer(socket)
 		println('...connected!')
 		robot.led =  GREEN
 	}
@@ -57,9 +65,21 @@ class BrickConnector implements ServerConfig {
 				if(robot.escapePressed)
 					return;
 				connect
+				val selector = Selector.open()
+				socket.register(selector, SelectionKey.OP_READ + SelectionKey.OP_WRITE)
 				val executor = new RobotExecutor(input, output, robot)
 				while(!isStopped) {
-					isStopped = !executor.dispatchAndExecute
+					selector.select(1000)
+					if(robot.escapePressed) {
+						isStopped = true
+					} else {
+						for(key: selector.selectedKeys) {
+							if(key.readable) {
+								input.receive
+								isStopped = !executor.dispatchAndExecute
+							}
+						}
+					}
 				}
 				disconnect
 			} catch(IOException exc) {
