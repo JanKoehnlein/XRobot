@@ -3,9 +3,6 @@ package org.xtext.mindstorms.xrobot.net
 import java.nio.ByteBuffer
 import java.nio.channels.SocketChannel
 import java.nio.charset.Charset
-import java.nio.channels.Selector
-import java.nio.channels.SelectionKey
-import java.net.SocketTimeoutException
 
 class SocketInputBuffer {
 	
@@ -13,31 +10,18 @@ class SocketInputBuffer {
 	
 	SocketChannel socketChannel
 	
-	Selector selector
-	
 	new(SocketChannel socketChannel) {
 		this.socketChannel = socketChannel
-		selector = Selector.open
-		socketChannel.register(selector, SelectionKey.OP_READ)	
 	}
 	
 	def receive() {
 		buffer.rewind
+		buffer.limit = 2048
 		socketChannel.read(buffer)
+		buffer.limit = buffer.position
 		buffer.rewind
 	}
 
-	def receiveBlocking() {
-		selector.select(1000)
-		for(key: selector.selectedKeys) {
-			if(key.readable) {
-				receive
-				return				
-			}
-		}
-		throw new SocketTimeoutException()
-	}
-	
 	def readBoolean() {
 		val b = buffer.get as int
 		switch b {
@@ -68,5 +52,9 @@ class SocketInputBuffer {
 		val b = newByteArrayOfSize(length)
 		buffer.get(b)
 		new String(b, Charset.forName('UTF-8'))
+	}
+	
+	def hasMore() {
+		buffer.position < buffer.limit
 	}
 }

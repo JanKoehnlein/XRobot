@@ -25,21 +25,9 @@ abstract class AbstractRemoteProxy {
 		output.writeInt(componentID)
 		output.writeInt(-1)
 		output.send
-		input.receive
-		input.readBoolean
 		closeSocket
 	}
 	
-	def isAlive() {
-		output.writeInt(componentID)
-		if(socket != null && !socket.connected)
-			return false
-		output.writeInt(-2)
-		output.send
-		input.receive
-		input.readBoolean
-	}
-
 	def closeSocket() {
 		socket?.close
 	}

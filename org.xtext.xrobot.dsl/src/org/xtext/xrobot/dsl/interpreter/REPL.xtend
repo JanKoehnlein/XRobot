@@ -99,6 +99,7 @@ class REPL {
 		}
 		println('Exiting REPL...')
 		currentRobot?.stop
+		currentRobot?.shutdown
 		server.shutdown
 		server.join
 		println('...finished')

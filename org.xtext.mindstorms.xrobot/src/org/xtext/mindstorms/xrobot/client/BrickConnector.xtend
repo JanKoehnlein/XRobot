@@ -1,6 +1,5 @@
 package org.xtext.mindstorms.xrobot.client
 
-import java.io.IOException
 import java.net.InetSocketAddress
 import java.nio.channels.SelectionKey
 import java.nio.channels.Selector
@@ -8,10 +7,9 @@ import java.nio.channels.SocketChannel
 import lejos.hardware.BrickFinder
 import org.xtext.mindstorms.xrobot.Robot
 import org.xtext.mindstorms.xrobot.net.SocketInputBuffer
-import org.xtext.mindstorms.xrobot.net.SocketOutputBuffer
+import org.xtext.mindstorms.xrobot.server.IServerConfig
 
 import static org.xtext.mindstorms.xrobot.util.LEDPatterns.*
-import org.xtext.mindstorms.xrobot.server.IServerConfig
 
 class BrickConnector implements IServerConfig {
 	
@@ -21,7 +19,7 @@ class BrickConnector implements IServerConfig {
 	
 	SocketInputBuffer input
 	
-	SocketOutputBuffer output
+	StateSender stateSender
 	
 	def static void main(String[] args) {
 		new BrickConnector(new Robot(BrickFinder.getLocal)).run
@@ -44,7 +42,6 @@ class BrickConnector implements IServerConfig {
 			socket.finishConnect
 		}
 		input = new SocketInputBuffer(socket)
-		output = new SocketOutputBuffer(socket)
 		println('...connected!')
 		robot.led =  GREEN
 	}
@@ -67,8 +64,10 @@ class BrickConnector implements IServerConfig {
 				connect
 				val selector = Selector.open()
 				socket.register(selector, SelectionKey.OP_READ + SelectionKey.OP_WRITE)
-				val executor = new RobotExecutor(input, output, robot)
-				while(!isStopped) {
+				val executor = new RobotExecutor(input, robot)
+				stateSender = new StateSender(robot, socket)
+				stateSender.start
+				while(!isStopped && stateSender.alive) {
 					selector.select(1000)
 					if(robot.escapePressed) {
 						isStopped = true
@@ -76,14 +75,17 @@ class BrickConnector implements IServerConfig {
 						for(key: selector.selectedKeys) {
 							if(key.readable) {
 								input.receive
-								isStopped = !executor.dispatchAndExecute
+								if(input.hasMore)
+									isStopped = !executor.dispatchAndExecute
 							}
 						}
 					}
 				}
+				stateSender.shutdown
 				disconnect
-			} catch(IOException exc) {
+			} catch(Exception exc) {
 				println('Error: ' + exc.message)
+				stateSender?.shutdown
 				robot.stop
 				try {
 					disconnect

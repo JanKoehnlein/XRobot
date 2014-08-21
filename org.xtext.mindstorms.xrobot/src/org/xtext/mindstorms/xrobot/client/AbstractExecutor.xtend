@@ -1,36 +1,37 @@
 package org.xtext.mindstorms.xrobot.client
 
 import org.xtext.mindstorms.xrobot.net.SocketInputBuffer
-import org.xtext.mindstorms.xrobot.net.SocketOutputBuffer
+import java.io.IOException
 
-class AbstractExecutor {
+abstract class AbstractExecutor {
 	
 	protected SocketInputBuffer input
 	
-	protected SocketOutputBuffer output
-	
-	new(SocketInputBuffer input, SocketOutputBuffer output) {
+	new(SocketInputBuffer input) {
 		this.input = input
-		this.output = output
 	}
 	
-	def boolean executeNext() {
+	def dispatchAndExecute() throws IOException {
+		val componentID = input.readInt
+		val subComponent = getSubComponent(componentID)
+		if(subComponent != null)
+			return subComponent.executeNext
+		else
+			return true
+	}
+	
+	abstract def AbstractExecutor getSubComponent(int comonentID)
+	
+	protected def boolean executeNext() {
 		val messageType = input.readInt
 //		println(messageType)
 		execute(messageType);
 	}
-	
+
 	protected def execute(int messageType) {
 		switch messageType {
-			case -1: {
-				output.writeBoolean(true)
-				output.send
+			case -1: 
 				return false
-			}
-			case -2: {
-				output.writeBoolean(true)
-				output.send
-			}
 			default: {
 				println("Illegal messageType " + messageType)
 			}

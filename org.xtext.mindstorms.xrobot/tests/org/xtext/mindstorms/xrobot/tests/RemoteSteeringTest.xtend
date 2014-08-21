@@ -1,7 +1,6 @@
 package org.xtext.mindstorms.xrobot.tests
 
 import lejos.hardware.BrickFinder
-import lejos.hardware.motor.NXTRegulatedMotor
 import lejos.hardware.sensor.EV3ColorSensor
 
 class RemoteSteeringTest {

@@ -29,11 +29,15 @@ class RemoteRobotServer extends Thread implements IServerConfig {
 					if(client != null) {
 						client.configureBlocking(false)
 						val remoteRobotProxy = new RemoteRobotProxy(client, 0)
+						val stateReceiver = new StateReceiver(remoteRobotProxy, client)
+						stateReceiver.start
+						while(remoteRobotProxy.state == null) 
+							Thread.sleep(20)
 						val robotName = remoteRobotProxy.name
-						val staleClient = name2robot.put(robotName, remoteRobotProxy)
+						val staleClientData = name2robot.put(robotName, remoteRobotProxy)
 						System.err.println()
 						System.err.println('Connected to ' + robotName + ' at ' + (client.remoteAddress as InetSocketAddress).address)
-						staleClient?.closeSocket
+						staleClientData?.closeSocket
 					}
 				} 
 			}

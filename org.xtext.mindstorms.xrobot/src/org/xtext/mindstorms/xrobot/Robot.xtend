@@ -11,7 +11,6 @@ import lejos.robotics.navigation.DifferentialPilot
 import org.xtext.mindstorms.xrobot.annotations.NoAPI
 import org.xtext.mindstorms.xrobot.annotations.SimpleRMI
 import org.xtext.mindstorms.xrobot.annotations.SubComponent
-import org.xtext.mindstorms.xrobot.data.SensorSample
 import org.xtext.mindstorms.xrobot.util.SoundUtil
 
 import static extension java.lang.Math.*
@@ -25,8 +24,6 @@ class Robot {
 	 
 	EV3ColorSensor colorSensor
 
-//	EV3TouchSensor touchSensor
-	
 	LED led
 
 	Key escapeKey
@@ -52,7 +49,6 @@ class Robot {
 		scoopMotor = new Motor(new NXTRegulatedMotor(brick.getPort('A')))
 		irSensor = new EV3IRSensor(brick.getPort('S2'))
 		colorSensor = new EV3ColorSensor(brick.getPort('S3'))
-//		touchSensor = new EV3TouchSensor(brick.getPort('S1'))	
 		escapeKey = brick.getKey('Escape')
 		led = brick.LED
 		audio = brick.audio
@@ -61,113 +57,101 @@ class Robot {
 		scoopMotor.speed = scoopMotor.maxSpeed as int
 	}
 	
-	override getName() {
+	override String getName() {
 		name
 	}
 	
-	override getTime() {
-		System.currentTimeMillis
-	}
-	override escapePressed() {
+	override boolean isEscapePressed() {
 		escapeKey.down
 	}
 	
-	override measureDistance() {
+	override double getDistance() {
 		val sample = newFloatArrayOfSize(1)
 		irSensor.distanceMode.fetchSample(sample, 0)
 		return sample.get(0) 
 	}
 	
-	protected def float[] measureEnemyBearings() {
+	protected def float[] getEnemyBearings() {
 		val sample = newFloatArrayOfSize(8)
 		irSensor.seekMode.fetchSample(sample, 0)
 		return sample
 	}
 	
-	override measureGroundColor() {
+	override double getGroundColor() {
 		val sample = newFloatArrayOfSize(1)
 		colorSensor.redMode.fetchSample(sample, 0)
 		return sample.get(0)
 	}
 	
-//	override measureShieldContact() {
-//		val sample = newFloatArrayOfSize(1)
-//		touchSensor.touchMode.fetchSample(sample, 0)
-//		return sample.get(0)
-//	}
-	
-	override forward(double distance) {
+	override void forward(double distance) {
 		pilot.travel(distance, true)
 	}
 	
-	override backward(double distance) {
+	override void backward(double distance) {
 		pilot.travel(-distance, true)
 	}
 	
-	override setTravelSpeed(double speed) {
+	override void setTravelSpeed(double speed) {
 		pilot.travelSpeed = speed
 	}
 	
-	override getTravelSpeed() {
+	override double getTravelSpeed() {
 		pilot.travelSpeed
 	}
 	
-	override getMaxTravelSpeed() {
+	override double getMaxTravelSpeed() {
 		pilot.maxTravelSpeed
 	}
 	
-	override rotate(double angle) {
+	override void rotate(double angle) {
 		pilot.rotate(angle, true)
 	}
 	
-	override setRotateSpeed(double speed) {
+	override void setRotateSpeed(double speed) {
 		pilot.rotateSpeed = rotateSpeed
 	}
 	
-	override getRotateSpeed() {
+	override double getRotateSpeed() {
 		pilot.rotateSpeed
 	}
 	
-	override getRotateMaxSpeed() {
+	override double getMaxRotateSpeed() {
 		pilot.rotateMaxSpeed
 	}
 	
-	override curveForward(double radius, double angle) {
+	override void curveForward(double radius, double angle) {
 		pilot.arc(radius, angle, true)
 	}
 	
-	override curveBackward(double radius, double angle) {
+	override void curveBackward(double radius, double angle) {
 		pilot.arc(radius, -angle, true)
 	}
 	
-	override curveTo(double angle, double distance) {
+	override void curveTo(double angle, double distance) {
 		val radius = 0.5 * distance * cos(0.5 * PI - angle.toRadians)
 		curveForward(radius, angle)
 	}
 	
-	override sample() {
-		val time = System.currentTimeMillis
-		val bearings = measureEnemyBearings
-		val enemyIndex = (2 - channel) * 2
-		new SensorSample(time, 
-			bearings.get(enemyIndex), bearings.get(enemyIndex + 1),
-			0/*measureDistance*/, measureGroundColor/* , measureShieldContact*/)
-	}	
+	override void waitComplete() {
+		leftMotor.waitComplete
+		rightMotor.waitComplete
+		scoopMotor.waitComplete
+	}
 	
-	override stop() {
+	override void stop() {
 		pilot.stop
 	}
 	
-	override scoop(double angle) {
+	override void scoop(double angle) {
 		scoopMotor.rotate(angle as int)
 	}
 	
-	override playSample(String fileName, int volume) {
+	override void playSample(String fileName, int volume) {
 		audio.playSample('samples/' + fileName + '.wav', volume)
 	}	
 	
 	@NoAPI
-	def setLed(int pattern) {
+	def void setLed(int pattern) {
 		led.pattern = pattern
 	}
 	

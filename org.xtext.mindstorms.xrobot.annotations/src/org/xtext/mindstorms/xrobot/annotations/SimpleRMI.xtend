@@ -15,6 +15,7 @@ import org.eclipse.xtend.lib.macro.declaration.MutableClassDeclaration
 import org.eclipse.xtend.lib.macro.declaration.Type
 import org.eclipse.xtend.lib.macro.declaration.TypeReference
 import org.eclipse.xtend.lib.macro.declaration.Visibility
+import org.eclipse.xtend.lib.macro.declaration.MethodDeclaration
 
 @Target(ElementType.TYPE)
 @Active(SimpleRemoteProcessor)
@@ -38,11 +39,15 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		context.registerInterface(annotatedClass.clientInterfaceName)
 		context.registerClass(annotatedClass.serverImplName)
 		context.registerClass(annotatedClass.clientExecutorName)
+		context.registerClass(annotatedClass.clientStateName)
+		context.registerClass(annotatedClass.serverStateName)
 	}
 	
 	override doTransform(MutableClassDeclaration annotatedClass, extension TransformationContext context) {
 		val clientInterface = annotatedClass.clientInterfaceName.findInterface
 		annotatedClass.implementedInterfaces = annotatedClass.implementedInterfaces + #[clientInterface.newTypeReference]
+		val clientStateClass = findClass(annotatedClass.clientStateName)
+		val serverStateClass = findClass(annotatedClass.serverStateName)
 
 		val serverImpl = annotatedClass.serverImplName.findClass
 		serverImpl.extendedClass = 'org.xtext.mindstorms.xrobot.server.AbstractRemoteProxy'.newTypeReference
@@ -55,7 +60,21 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				super(socket, componentID);
 			'''
 		]
-		
+		serverImpl.addField('state') [
+			type = serverStateClass.newTypeReference
+		]
+		serverImpl.addMethod('setState') [
+			addParameter('state', serverStateClass.newTypeReference)
+			body = '''
+				this.state = state;
+			'''
+		]
+		serverImpl.addMethod('getState') [
+			returnType = serverStateClass.newTypeReference
+			body = '''
+				return state;
+			'''
+		]
 		val noApiAnnotation = NoAPI.findTypeGlobally
 		val sourceMethods = annotatedClass
 					.declaredMethods
@@ -71,6 +90,20 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 					ciMethod.returnType = sourceMethod.returnType
 				])
 			}
+			if(!sourceMethod.returnType.isVoid) {
+				clientStateClass.addField(sourceMethod.fieldName) [
+					type = sourceMethod.returnType
+				]
+				serverStateClass.addField(sourceMethod.fieldName) [
+					type = sourceMethod.returnType
+				]
+				serverStateClass.addMethod('get' + sourceMethod.fieldName.toFirstUpper) [
+					returnType = sourceMethod.returnType
+					body = '''
+						return «sourceMethod.fieldName»;
+					'''
+				]
+			}
 			serverImpl.addMethod(sourceMethod.simpleName, [
 				serverMethod |
 				serverMethod.primarySourceElement = sourceMethod 
@@ -78,18 +111,19 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 					serverMethod.addParameter(it.simpleName, it.type)
 				]
 				serverMethod.returnType = sourceMethod.returnType
-				serverMethod.body = '''
-					output.writeInt(componentID);
-					output.writeInt(«i»);
-					«FOR p: sourceMethod.parameters»
-						«getWriteCalls(p.type, p.simpleName)»
-					«ENDFOR»
-					output.send();
-					«IF !sourceMethod.returnType.isVoid»
-						input.receiveBlocking();
-						return «sourceMethod.returnType.readCall»;
-					«ENDIF»
-				'''
+				if (!serverMethod.returnType.isVoid)
+					serverMethod.body = '''
+						return state.get«serverMethod.fieldName.toFirstUpper»();
+					'''
+				else
+					serverMethod.body = '''
+						output.writeInt(componentID);
+						output.writeInt(«i»);
+						«FOR p: sourceMethod.parameters»
+							«getWriteCalls(p.type, p.simpleName)»
+						«ENDFOR»
+						output.send();
+					'''
 			])
 		]
 		var componentID = 1
@@ -134,17 +168,28 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				primarySourceElement = subComponent
 				type = newTypeReference(subComponent.type.type.clientExecutorName)
 			])
+			clientStateClass.addField(subComponent.simpleName + 'State') [
+				type = subComponent.type.type.clientStateName.newTypeReference
+				initializer = '''
+					new «subComponent.type.type.clientStateName.newTypeReference»()
+				'''
+			]
+			serverStateClass.addField(subComponent.simpleName + 'State') [
+				type = subComponent.type.type.serverStateName.newTypeReference
+				initializer = '''
+					new «subComponent.type.type.serverStateName.newTypeReference»()
+				'''
+			]
 		}
 		clientExecutor.addConstructor[
 			primarySourceElement = annotatedClass
 			addParameter('input', 'org.xtext.mindstorms.xrobot.net.SocketInputBuffer'.newTypeReference)
-			addParameter('output', 'org.xtext.mindstorms.xrobot.net.SocketOutputBuffer'.newTypeReference)
 			addParameter('client', annotatedClass.newTypeReference)
 			body = '''
-				super(input, output);
+				super(input);
 				this.client = client;
 				«FOR subComponent: subComponentFields»
-					«subComponent.simpleName» = new «newTypeReference(subComponent.type.type.clientExecutorName)»(input, output, client.get«subComponent.simpleName.toFirstUpper»());
+					«subComponent.simpleName» = new «newTypeReference(subComponent.type.type.clientExecutorName)»(input, client.get«subComponent.simpleName.toFirstUpper»());
 				«ENDFOR»
 			'''
 		]
@@ -167,20 +212,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				}
 			''' 
 		])		
-		clientExecutor.addMethod('dispatchAndExecute', [
-			primarySourceElement = annotatedClass
-			returnType = boolean.newTypeReference
-			exceptions = #[IOException.newTypeReference()]
-			body = '''
-				int componentID = input.readInt();
-				AbstractExecutor subComponent = getSubComponent(componentID);
-				if(subComponent != null)
-					return subComponent.executeNext();
-				else
-					return true;
-			'''	
-		])
-		clientExecutor.addMethod('execute', [
+		clientExecutor.addMethod('execute') [
 			primarySourceElement = annotatedClass
 			addParameter("messageType", int.newTypeReference)
 			returnType = boolean.newTypeReference
@@ -189,27 +221,68 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				switch (messageType) {
 					«var i = 0»
 					«FOR sourceMethod: sourceMethods»
-					case «i++»: {
-						«IF !sourceMethod.returnType.isVoid
-							»«sourceMethod.returnType.typeName» result = «
-						 ENDIF
-						»client.«sourceMethod.simpleName»(«
-							FOR p: sourceMethod.parameters SEPARATOR ', '
-							»«p.type.readCall»«
-							ENDFOR»);
-						«IF !sourceMethod.returnType.isVoid»
-							«sourceMethod.returnType.getWriteCalls('result')»
-							output.send();
+						«IF sourceMethod.returnType.isVoid»
+							case «i»: {
+								client.«sourceMethod.simpleName»(«
+								FOR p: sourceMethod.parameters SEPARATOR ', '
+									»«p.type.readCall»«
+								ENDFOR»);
+								break;
+							}
 						«ENDIF»
-						break;
-					}
+						«{i++; ''}»
 					«ENDFOR»
 					default:
 						return super.execute(messageType);
 				}
 				return true;
 			'''
-		])
+		]
+		clientStateClass.addMethod('sample') [
+			addParameter('robot', clientInterface.newTypeReference)
+			body = '''
+				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
+					«sourceMethod.fieldName» = robot.«sourceMethod.simpleName»();
+				«ENDFOR»
+				«FOR subComponent: subComponentFields»
+					«subComponent.simpleName»State.sample(robot.get«subComponent.simpleName.toFirstUpper»());
+				«ENDFOR»
+			'''
+		]
+		clientStateClass.addMethod('write') [
+			addParameter('output', 'org.xtext.mindstorms.xrobot.net.SocketOutputBuffer'.newTypeReference)
+			body = '''
+				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
+					«getWriteCalls(sourceMethod.returnType, sourceMethod.fieldName)»
+				«ENDFOR»
+				«FOR subComponent: subComponentFields»
+					«subComponent.simpleName»State.write(output);
+				«ENDFOR»
+			'''
+		]
+		serverStateClass.addMethod('read') [
+			addParameter('input', 'org.xtext.mindstorms.xrobot.net.SocketInputBuffer'.newTypeReference)
+			body = '''
+				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
+					«sourceMethod.fieldName» = «getReadCall(sourceMethod.returnType)»;
+				«ENDFOR»
+				«FOR subComponent: subComponentFields»
+					«subComponent.simpleName»State.read(input);
+				«ENDFOR»
+				
+			'''
+		]
+	}
+	
+	private def getFieldName(MethodDeclaration accessor) {
+		val accessorName = accessor.simpleName
+		return (if(accessorName.startsWith('get'))
+			accessorName.substring(3)
+		else if(accessorName.startsWith('is')) 
+			accessorName.substring(2)
+		else 
+			accessorName).toFirstLower
+			
 	}
 	
 	private def getClientInterfaceName(Type it) {
@@ -222,6 +295,14 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 	
 	private def getClientExecutorName(Type it) {
 		packageName + '.client.' + simpleName + 'Executor'
+	}
+	
+	private def getClientStateName(Type it) {
+		packageName + '.client.' + simpleName + 'ClientState'
+	}
+	
+	private def getServerStateName(Type it) {
+		packageName + '.server.' + simpleName + 'ServerState'
 	}
 	
 	private def getPackageName(Type c) {
