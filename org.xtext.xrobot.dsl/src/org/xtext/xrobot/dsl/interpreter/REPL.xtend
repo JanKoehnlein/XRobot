@@ -77,7 +77,13 @@ class REPL {
 						val program = parse(model)
 						if(program != null) {
 							val startTime = System.currentTimeMillis
-							val result = interpreter.execute(program, currentRobot)
+							var Object result = null
+							try {
+								result = interpreter.execute(program, currentRobot)
+							} catch (StoppedException exc) {
+								System.err.println('Stopped by user')
+								_currentRobot?.stop
+							}
 							val duration = System.currentTimeMillis - startTime
 							if(result != null) 
 								println(result)
