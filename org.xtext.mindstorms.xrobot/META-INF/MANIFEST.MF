@@ -7,6 +7,8 @@ Bundle-ClassPath: lib/org.eclipse.xtext.xbase.lib.slim-2.7.0-SNAPSHOT.jar
 Export-Package: org.xtext.mindstorms.xrobot,
  org.xtext.mindstorms.xrobot.api,
  org.xtext.mindstorms.xrobot.client,
+ org.xtext.mindstorms.xrobot.dynamic,
+ org.xtext.mindstorms.xrobot.net,
  org.xtext.mindstorms.xrobot.server,
  org.xtext.mindstorms.xrobot.tests,
  org.xtext.mindstorms.xrobot.tests.base,

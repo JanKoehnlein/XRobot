@@ -5,6 +5,7 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.xtext.mindstorms.xrobot.api.IRobot
+import org.xtext.mindstorms.xrobot.dynamic.IScript
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 
 /**
@@ -21,6 +22,7 @@ class XRobotDSLJvmModelInferrer extends AbstractModelInferrer {
    		acceptor
    			.accept(program.toClass("org.xtext.xrobot.dsl." + program.name))
    			.initializeLater [
+   				superTypes += newTypeRef(IScript)
    				for (sub : program.subs) {
    					members += sub.toMethod(sub.name, sub.body.inferredType) [
    						parameters += sub.parameters.map [ toParameter(name, parameterType) ]
@@ -28,7 +30,7 @@ class XRobotDSLJvmModelInferrer extends AbstractModelInferrer {
    					]
    				}
    				val main = program.main
-   				members += main.toMethod('main', null) [
+   				members += main.toMethod('run', null) [
    					parameters += main.toParameter('it', main.newTypeRef(IRobot))
    					body = main.body
    				]

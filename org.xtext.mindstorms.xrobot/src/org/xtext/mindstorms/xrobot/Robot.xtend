@@ -4,9 +4,11 @@ import lejos.hardware.Audio
 import lejos.hardware.Brick
 import lejos.hardware.Key
 import lejos.hardware.LED
+import lejos.hardware.Power
 import lejos.hardware.motor.NXTRegulatedMotor
 import lejos.hardware.sensor.EV3ColorSensor
 import lejos.hardware.sensor.EV3IRSensor
+import lejos.hardware.sensor.SensorMode
 import lejos.robotics.navigation.DifferentialPilot
 import org.xtext.mindstorms.xrobot.annotations.NoAPI
 import org.xtext.mindstorms.xrobot.annotations.SimpleRMI
@@ -20,15 +22,13 @@ class Robot {
 	
 	DifferentialPilot pilot
 
-	EV3IRSensor irSensor
-	 
-	EV3ColorSensor colorSensor
-
-	LED led
-
+	SensorMode irSensor
+	SensorMode colorSensor
 	Key escapeKey
 	
+	LED led
 	Audio audio
+	Power power
 	
 	String name
 	
@@ -47,14 +47,15 @@ class Robot {
 		rightMotor = new Motor(rightRegMotor)
 		pilot = new DifferentialPilot(4.32, 9.50, leftRegMotor, rightRegMotor)
 		scoopMotor = new Motor(new NXTRegulatedMotor(brick.getPort('A')))
-		irSensor = new EV3IRSensor(brick.getPort('S2'))
-		colorSensor = new EV3ColorSensor(brick.getPort('S3'))
+		irSensor = new EV3IRSensor(brick.getPort('S2')).seekMode
+		colorSensor = new EV3ColorSensor(brick.getPort('S3')).redMode
 		escapeKey = brick.getKey('Escape')
 		led = brick.LED
 		audio = brick.audio
 		name = brick.name
 		this.channel = if(name == 'Xtend') 1 else 2
 		scoopMotor.speed = scoopMotor.maxSpeed as int
+		power = brick.power
 	}
 	
 	override String getName() {
@@ -65,21 +66,16 @@ class Robot {
 		escapeKey.down
 	}
 	
-	override double getDistance() {
-		val sample = newFloatArrayOfSize(1)
-		irSensor.distanceMode.fetchSample(sample, 0)
-		return sample.get(0) 
-	}
-	
-	protected def float[] getEnemyBearings() {
+	override OpponentPosition getOpponentPosition() {
 		val sample = newFloatArrayOfSize(8)
-		irSensor.seekMode.fetchSample(sample, 0)
-		return sample
+		irSensor.fetchSample(sample, 0)
+		val opponentIndex = (2-channel)*2
+		return new OpponentPosition(sample.get(opponentIndex), sample.get(opponentIndex + 1))
 	}
 	
 	override double getGroundColor() {
 		val sample = newFloatArrayOfSize(1)
-		colorSensor.redMode.fetchSample(sample, 0)
+		colorSensor.fetchSample(sample, 0)
 		return sample.get(0)
 	}
 	
@@ -155,4 +151,8 @@ class Robot {
 		led.pattern = pattern
 	}
 	
+	@NoAPI 
+	def double getBatteryState() {
+		power.voltage / 9.0
+	}
 }

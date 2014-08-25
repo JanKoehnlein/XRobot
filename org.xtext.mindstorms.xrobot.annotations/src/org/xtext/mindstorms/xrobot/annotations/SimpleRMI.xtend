@@ -1,6 +1,5 @@
 package org.xtext.mindstorms.xrobot.annotations
 
-import java.io.IOException
 import java.lang.annotation.ElementType
 import java.lang.annotation.Retention
 import java.lang.annotation.RetentionPolicy
@@ -11,11 +10,11 @@ import org.eclipse.xtend.lib.macro.Active
 import org.eclipse.xtend.lib.macro.RegisterGlobalsContext
 import org.eclipse.xtend.lib.macro.TransformationContext
 import org.eclipse.xtend.lib.macro.declaration.ClassDeclaration
+import org.eclipse.xtend.lib.macro.declaration.MethodDeclaration
 import org.eclipse.xtend.lib.macro.declaration.MutableClassDeclaration
 import org.eclipse.xtend.lib.macro.declaration.Type
 import org.eclipse.xtend.lib.macro.declaration.TypeReference
 import org.eclipse.xtend.lib.macro.declaration.Visibility
-import org.eclipse.xtend.lib.macro.declaration.MethodDeclaration
 
 @Target(ElementType.TYPE)
 @Active(SimpleRemoteProcessor)
@@ -26,6 +25,11 @@ annotation SimpleRMI {
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
 annotation NoAPI {
+}
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+annotation Calculated {
 }
 
 @Target(ElementType.FIELD)
@@ -238,9 +242,13 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				return true;
 			'''
 		]
+		clientStateClass.addField('sampleTime') [
+			type = long.newTypeReference()
+		]
 		clientStateClass.addMethod('sample') [
-			addParameter('robot', clientInterface.newTypeReference)
+			addParameter('robot', annotatedClass.newTypeReference)
 			body = '''
+				sampleTime = System.currentTimeMillis();
 				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
 					«sourceMethod.fieldName» = robot.«sourceMethod.simpleName»();
 				«ENDFOR»
@@ -252,6 +260,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		clientStateClass.addMethod('write') [
 			addParameter('output', 'org.xtext.mindstorms.xrobot.net.SocketOutputBuffer'.newTypeReference)
 			body = '''
+				output.writeLong(sampleTime);
 				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
 					«getWriteCalls(sourceMethod.returnType, sourceMethod.fieldName)»
 				«ENDFOR»
@@ -260,9 +269,19 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				«ENDFOR»
 			'''
 		]
+		serverStateClass.addField('sampleTime') [
+			type = long.newTypeReference()
+		]
+		serverStateClass.addMethod('getSampleTime') [
+			returnType = long.newTypeReference()
+			body = '''
+				return sampleTime;
+			'''
+		]
 		serverStateClass.addMethod('read') [
 			addParameter('input', 'org.xtext.mindstorms.xrobot.net.SocketInputBuffer'.newTypeReference)
 			body = '''
+				sampleTime = input.readLong();
 				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
 					«sourceMethod.fieldName» = «getReadCall(sourceMethod.returnType)»;
 				«ENDFOR»
@@ -326,10 +345,8 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			case 'String': '''
 					input.readString()
 				'''
-			case 'SensorSample': '''
-					new «returnType.typeName»(input.readLong(), 
-						input.readDouble(), input.readDouble(), 
-						input.readDouble(), input.readDouble()/*, input.readDouble()*/)
+			case 'OpponentPosition': '''
+					new «returnType.typeName»(input.readDouble(), input.readDouble())
 				'''
 			default: '''
 					input.read«toFirstUpper»()
@@ -345,13 +362,9 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			case 'String': '''
 					output.writeString(«variableName»);
 				'''
-			case 'SensorSample': '''
-					output.writeLong(«variableName».getTimestamp());
-					output.writeDouble(«variableName».getEnemyAngle());
-					output.writeDouble(«variableName».getEnemyDistance());
-					output.writeDouble(«variableName».getDistance());
-					output.writeDouble(«variableName».getGroundColor());
-					//output.writeDouble(«variableName».getContact());
+			case 'OpponentPosition': '''
+					output.writeDouble(«variableName».getRawAngular());
+					output.writeDouble(«variableName».getRawDistance());
 				'''
 			default: '''
 					output.write«toFirstUpper»(«variableName»);
