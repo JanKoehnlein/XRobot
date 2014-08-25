@@ -4,18 +4,18 @@ import com.google.inject.Provider
 import com.google.inject.Singleton
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import java.util.regex.Pattern
 import javax.inject.Inject
 import org.eclipse.emf.common.util.BasicDiagnostic
 import org.eclipse.emf.common.util.Diagnostic
 import org.eclipse.emf.common.util.URI
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.util.StringInputStream
-import org.xtext.mindstorms.xrobot.server.RemoteRobot
-import org.xtext.mindstorms.xrobot.server.RemoteRobotServer
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 import org.xtext.xrobot.dsl.validation.XRobotDSLValidator
 import org.xtext.xrobot.dsl.xRobotDSL.Program
-import java.util.regex.Pattern
+import org.xtext.xrobot.server.RemoteRobot
+import org.xtext.xrobot.server.RemoteRobotServer
 
 @Singleton
 class REPL {

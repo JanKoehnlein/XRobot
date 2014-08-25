@@ -7,9 +7,9 @@ import org.eclipse.xtext.xbase.interpreter.IEvaluationContext
 import org.eclipse.xtext.xbase.interpreter.impl.DefaultEvaluationContext
 import org.eclipse.xtext.xbase.interpreter.impl.EvaluationException
 import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter
-import org.xtext.mindstorms.xrobot.net.INetConfig
-import org.xtext.mindstorms.xrobot.server.RemoteRobot
 import org.xtext.xrobot.dsl.xRobotDSL.Program
+import org.xtext.xrobot.net.INetConfig
+import org.xtext.xrobot.server.RemoteRobot
 
 class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 	

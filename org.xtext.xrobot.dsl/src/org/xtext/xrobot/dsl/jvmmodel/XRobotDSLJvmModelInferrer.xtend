@@ -4,9 +4,9 @@ import com.google.inject.Inject
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import org.xtext.mindstorms.xrobot.api.IRobot
-import org.xtext.mindstorms.xrobot.dynamic.IScript
+import org.xtext.xrobot.api.IRobot
 import org.xtext.xrobot.dsl.xRobotDSL.Program
+import org.xtext.xrobot.dynamic.IScript
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
