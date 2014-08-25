@@ -6,12 +6,12 @@ import java.nio.channels.Selector
 import java.nio.channels.SocketChannel
 import lejos.hardware.BrickFinder
 import org.xtext.mindstorms.xrobot.Robot
+import org.xtext.mindstorms.xrobot.net.INetConfig
 import org.xtext.mindstorms.xrobot.net.SocketInputBuffer
-import org.xtext.mindstorms.xrobot.server.IServerConfig
 
 import static org.xtext.mindstorms.xrobot.util.LEDPatterns.*
 
-class BrickConnector implements IServerConfig {
+class BrickConnector implements INetConfig {
 	
 	SocketChannel socket
 	
@@ -38,7 +38,7 @@ class BrickConnector implements IServerConfig {
 		if(!socket.connect(new InetSocketAddress(SERVER_ADDRESS, SERVER_PORT))) {
 			val selector = Selector.open
 			socket.register(selector, SelectionKey.OP_CONNECT)
-			while (selector.select(5000) == 0) {}
+			while (selector.select(SOCKET_TIMEOUT) == 0) {}
 			socket.finishConnect
 		}
 		input = new SocketInputBuffer(socket)
@@ -68,15 +68,17 @@ class BrickConnector implements IServerConfig {
 				stateSender = new StateSender(robot, socket)
 				stateSender.start
 				while(!isStopped && stateSender.alive) {
-					selector.select(1000)
+					selector.select(SOCKET_TIMEOUT)
 					if(robot.escapePressed) {
 						isStopped = true
 					} else {
 						for(key: selector.selectedKeys) {
 							if(key.readable) {
 								input.receive
-								if(input.hasMore)
+								if(input.hasMore) {
+									Thread.yield									
 									isStopped = !executor.dispatchAndExecute
+								}
 							}
 						}
 					}

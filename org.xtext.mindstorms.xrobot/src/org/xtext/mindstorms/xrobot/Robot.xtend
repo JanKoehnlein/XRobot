@@ -18,7 +18,7 @@ import org.xtext.mindstorms.xrobot.util.SoundUtil
 import static extension java.lang.Math.*
 
 @SimpleRMI
-class Robot {
+class Robot implements IRobotGeometry {
 	
 	DifferentialPilot pilot
 
@@ -45,7 +45,7 @@ class Robot {
 		val rightRegMotor = new NXTRegulatedMotor(brick.getPort('C'))
 		leftMotor = new Motor(leftRegMotor)
 		rightMotor = new Motor(rightRegMotor)
-		pilot = new DifferentialPilot(4.32, 9.50, leftRegMotor, rightRegMotor)
+		pilot = new DifferentialPilot(WHEEL_DIAMETER, WHEEL_DISTANCE, leftRegMotor, rightRegMotor)
 		scoopMotor = new Motor(new NXTRegulatedMotor(brick.getPort('A')))
 		irSensor = new EV3IRSensor(brick.getPort('S2')).seekMode
 		colorSensor = new EV3ColorSensor(brick.getPort('S3')).redMode
@@ -79,11 +79,24 @@ class Robot {
 		return sample.get(0)
 	}
 	
-	override void forward(double distance) {
+	override void setSpeeds(double leftSpeed, double rightSpeed) {
+		leftMotor.speed = (360 * abs(leftSpeed) / WHEEL_DIAMETER) as int 
+		rightMotor.speed = (360 * abs(rightSpeed) / WHEEL_DIAMETER) as int
+		if(leftSpeed < 0)
+			leftMotor.backward
+		else
+			leftMotor.forward
+		if(rightSpeed < 0)
+			rightMotor.backward
+		else
+			rightMotor.forward
+	}
+	
+	override void travelForward(double distance) {
 		pilot.travel(distance, true)
 	}
 	
-	override void backward(double distance) {
+	override void travelBackward(double distance) {
 		pilot.travel(-distance, true)
 	}
 	
@@ -116,22 +129,22 @@ class Robot {
 	}
 	
 	override void curveForward(double radius, double angle) {
-		pilot.arc(radius, angle, true)
+		if(angle < 0) 
+			pilot.arc(-abs(radius), angle, true)
+		else
+			pilot.arc(abs(radius), angle, true)
 	}
 	
 	override void curveBackward(double radius, double angle) {
-		pilot.arc(radius, -angle, true)
+		if(angle < 0)
+			pilot.arc(abs(radius), angle, true)
+		else
+			pilot.arc(-abs(radius), angle, true)
 	}
 	
 	override void curveTo(double angle, double distance) {
 		val radius = 0.5 * distance * cos(0.5 * PI - angle.toRadians)
 		curveForward(radius, angle)
-	}
-	
-	override void waitComplete() {
-		leftMotor.waitComplete
-		rightMotor.waitComplete
-		scoopMotor.waitComplete
 	}
 	
 	override void stop() {
@@ -151,8 +164,7 @@ class Robot {
 		led.pattern = pattern
 	}
 	
-	@NoAPI 
-	def double getBatteryState() {
+	override double getBatteryState() {
 		power.voltage / 9.0
 	}
 }

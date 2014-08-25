@@ -6,9 +6,10 @@ import java.nio.channels.SelectionKey
 import java.nio.channels.Selector
 import java.nio.channels.ServerSocketChannel
 import java.util.Map
+import org.xtext.mindstorms.xrobot.net.INetConfig
 
 @Singleton
-class RemoteRobotServer extends Thread implements IServerConfig {
+class RemoteRobotServer extends Thread implements INetConfig {
 
 	Map<String, RemoteRobotProxy> name2robot = newHashMap
 	
@@ -22,7 +23,7 @@ class RemoteRobotServer extends Thread implements IServerConfig {
 		val selector = Selector.open
 		server.register(selector, SelectionKey.OP_ACCEPT)
 		while(!isStopped) {
-			selector.select(2000)
+			selector.select(SOCKET_TIMEOUT)
 			for(key: selector.selectedKeys) {
 				if(key.acceptable) {
 					val client = server.accept()

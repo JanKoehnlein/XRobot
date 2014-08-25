@@ -4,9 +4,9 @@ import java.nio.ByteBuffer
 import java.nio.channels.SocketChannel
 import java.nio.charset.Charset
 
-class SocketInputBuffer {
+class SocketInputBuffer implements INetConfig {
 	
-	ByteBuffer buffer = ByteBuffer.allocate(2048)
+	ByteBuffer buffer = ByteBuffer.allocate(BUFFER_SIZE)
 	
 	SocketChannel socketChannel
 	
@@ -16,7 +16,7 @@ class SocketInputBuffer {
 	
 	def receive() {
 		buffer.rewind
-		buffer.limit = 2048
+		buffer.limit = BUFFER_SIZE
 		socketChannel.read(buffer)
 		buffer.limit = buffer.position
 		buffer.rewind

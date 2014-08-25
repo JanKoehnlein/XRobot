@@ -15,6 +15,7 @@ import org.eclipse.xtend.lib.macro.declaration.MutableClassDeclaration
 import org.eclipse.xtend.lib.macro.declaration.Type
 import org.eclipse.xtend.lib.macro.declaration.TypeReference
 import org.eclipse.xtend.lib.macro.declaration.Visibility
+import java.io.IOException
 
 @Target(ElementType.TYPE)
 @Active(SimpleRemoteProcessor)
@@ -25,11 +26,6 @@ annotation SimpleRMI {
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
 annotation NoAPI {
-}
-
-@Target(ElementType.METHOD)
-@Retention(RetentionPolicy.SOURCE)
-annotation Calculated {
 }
 
 @Target(ElementType.FIELD)
@@ -52,31 +48,69 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		annotatedClass.implementedInterfaces = annotatedClass.implementedInterfaces + #[clientInterface.newTypeReference]
 		val clientStateClass = findClass(annotatedClass.clientStateName)
 		val serverStateClass = findClass(annotatedClass.serverStateName)
+		val subCompontentAnnotation = SubComponent.findTypeGlobally
+		val subComponentFields = annotatedClass.declaredFields.filter[findAnnotation(subCompontentAnnotation) != null]
 
 		val serverImpl = annotatedClass.serverImplName.findClass
-		serverImpl.extendedClass = 'org.xtext.mindstorms.xrobot.server.AbstractRemoteProxy'.newTypeReference
 		serverImpl.implementedInterfaces = #[clientInterface.newTypeReference]
+		serverImpl.addField('state') [
+			type = serverStateClass.newTypeReference
+		]
+		serverImpl.addField('socket') [
+			type = SocketChannel.newTypeReference
+		]
+		serverImpl.addField('componentID') [
+			type = int.newTypeReference
+		]
+		serverImpl.addField('input') [
+			type = 'org.xtext.mindstorms.xrobot.net.SocketInputBuffer'.newTypeReference
+		]
+		serverImpl.addField('output') [
+			type = 'org.xtext.mindstorms.xrobot.net.SocketOutputBuffer'.newTypeReference
+		]
 		serverImpl.addConstructor [
 			primarySourceElement = annotatedClass
 			addParameter('socket', SocketChannel.newTypeReference)
 			addParameter('componentID', int.newTypeReference)
 			body = '''
-				super(socket, componentID);
+				this.socket = socket;
+				this.componentID = componentID;
+				this.input = new SocketInputBuffer(socket); 
+				this.output = new SocketOutputBuffer(socket);
 			'''
-		]
-		serverImpl.addField('state') [
-			type = serverStateClass.newTypeReference
 		]
 		serverImpl.addMethod('setState') [
 			addParameter('state', serverStateClass.newTypeReference)
 			body = '''
 				this.state = state;
+				«FOR subComponent: subComponentFields» 
+					«subComponent.simpleName».setState(state.get«subComponent.simpleName.toFirstUpper()»State());
+				«ENDFOR»
 			'''
 		]
 		serverImpl.addMethod('getState') [
 			returnType = serverStateClass.newTypeReference
 			body = '''
 				return state;
+			'''
+		]
+		serverImpl.addMethod('shutdown') [
+			body = '''
+				output.writeInt(this.componentID);
+				output.writeInt((-1));
+				output.send();
+				if(socket != null) 
+					closeSocket();
+			'''
+		]
+		serverImpl.addMethod('closeSocket') [
+			body = '''
+				try {
+					if(socket != null) 
+						socket.close();
+				} catch («IOException.newTypeReference» exc) {
+					throw new RuntimeException(exc);
+				}
 			'''
 		]
 		val noApiAnnotation = NoAPI.findTypeGlobally
@@ -131,8 +165,6 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			])
 		]
 		var componentID = 1
-		val subCompontentAnnotation = SubComponent.findTypeGlobally
-		val subComponentFields = annotatedClass.declaredFields.filter[findAnnotation(subCompontentAnnotation) != null]
 		for(subComponent: subComponentFields) {
 			val finalID = componentID++
 			annotatedClass.addMethod('get' + subComponent.simpleName.toFirstUpper, [
@@ -182,6 +214,12 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				type = subComponent.type.type.serverStateName.newTypeReference
 				initializer = '''
 					new «subComponent.type.type.serverStateName.newTypeReference»()
+				'''
+			]
+			serverStateClass.addMethod('get' + subComponent.simpleName.toFirstUpper + 'State') [
+				returnType = subComponent.type.type.serverStateName.newTypeReference
+				body = '''
+					return «subComponent.simpleName»State;
 				'''
 			]
 		}

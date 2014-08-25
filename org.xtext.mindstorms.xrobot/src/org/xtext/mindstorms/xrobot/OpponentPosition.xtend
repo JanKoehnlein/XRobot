@@ -23,7 +23,7 @@ class OpponentPosition {
 	double rawDistance
 	
 	def boolean isDetected() {
-		rawDistance < 128
+		rawDistance < 100 
 	}
 	
 	/** 
@@ -36,7 +36,7 @@ class OpponentPosition {
 	/** 
 	 * The approximate measured sensor to remote distance in cm.
 	 */
-	def double getDistanceInCentimeter() {
+	def double getDistanceInCentimeters() {
 		2 * rawDistance
 	}
 }

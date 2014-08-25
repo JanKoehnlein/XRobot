@@ -4,9 +4,9 @@ import java.nio.ByteBuffer
 import java.nio.channels.SocketChannel
 import java.nio.charset.Charset
 
-class SocketOutputBuffer {
+class SocketOutputBuffer implements INetConfig {
 		
-	ByteBuffer buffer = ByteBuffer.allocate(2048)
+	ByteBuffer buffer = ByteBuffer.allocate(BUFFER_SIZE)
 	
 	SocketChannel channel
 	
@@ -19,7 +19,7 @@ class SocketOutputBuffer {
 		buffer.rewind
 		channel.write(buffer)
 		buffer.rewind
-		buffer.limit = 2048
+		buffer.limit = BUFFER_SIZE
 	}
 	
 	def writeBoolean(boolean b) {

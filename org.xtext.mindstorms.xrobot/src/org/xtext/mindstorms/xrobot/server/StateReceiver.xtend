@@ -1,12 +1,13 @@
 package org.xtext.mindstorms.xrobot.server
 
-import org.xtext.mindstorms.xrobot.net.SocketInputBuffer
+import java.nio.channels.ClosedSelectorException
+import java.nio.channels.SelectionKey
 import java.nio.channels.Selector
 import java.nio.channels.SocketChannel
-import java.nio.channels.SelectionKey
-import java.nio.channels.ClosedSelectorException
+import org.xtext.mindstorms.xrobot.net.INetConfig
+import org.xtext.mindstorms.xrobot.net.SocketInputBuffer
 
-class StateReceiver extends Thread {
+class StateReceiver extends Thread implements INetConfig {
 	
 	RemoteRobotProxy robot	
 	SocketInputBuffer input
@@ -26,7 +27,7 @@ class StateReceiver extends Thread {
 	override run() {
 		while(!isStopped) {
 			try {
-				selector.select(2000)
+				selector.select(SOCKET_TIMEOUT)
 				for(key: selector.selectedKeys) {
 					if(key.isReadable) {
 						input.receive
@@ -40,6 +41,7 @@ class StateReceiver extends Thread {
 				return
 			} catch(Exception e) {
 				System.err.println(e.message)
+				e.printStackTrace
 			}
 		}
 	}

@@ -1,11 +1,11 @@
 - server discovery
 - exit / shutdown
-- play audio
-- better API
 - send class to execute
 
 
 DONE
+- play audio
 - enemyBearing
 - sample time
 - battery
+- better API

@@ -6,10 +6,9 @@ import java.nio.channels.SocketChannel
 import java.nio.channels.Selector
 import java.nio.channels.SelectionKey
 import java.nio.channels.ClosedSelectorException
+import org.xtext.mindstorms.xrobot.net.INetConfig
 
-class StateSender extends Thread {
-	
-	public static val UPDATE_INTERVAL = 30 
+class StateSender extends Thread implements INetConfig {
 	
 	Robot robot	
 	SocketOutputBuffer output
