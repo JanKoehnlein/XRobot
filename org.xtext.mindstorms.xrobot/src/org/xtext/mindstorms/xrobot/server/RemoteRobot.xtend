@@ -9,10 +9,14 @@ class RemoteRobot extends RemoteRobotProxy implements INetConfig {
 		super(socket, componentID)
 	}
 	
-	def void waitForUpdate() {
-		val last = state.sampleTime
-		while(state.sampleTime == last)
-			Thread.sleep(UPDATE_INTERVAL / 2)
+	def void shutdown() {
+		output.writeInt(componentID)
+		output.writeInt(-1)
+		output.send
+		closeSocket
 	}
 	
+	def void closeSocket() {
+		socket ?.close
+	}
 }

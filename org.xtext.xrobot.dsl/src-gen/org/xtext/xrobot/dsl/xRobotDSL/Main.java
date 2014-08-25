@@ -14,6 +14,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Main#isLoop <em>Loop</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Main#getBody <em>Body</em>}</li>
  * </ul>
  * </p>
@@ -24,6 +25,32 @@ import org.eclipse.xtext.xbase.XExpression;
  */
 public interface Main extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Loop</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Loop</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Loop</em>' attribute.
+   * @see #setLoop(boolean)
+   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getMain_Loop()
+   * @model
+   * @generated
+   */
+  boolean isLoop();
+
+  /**
+   * Sets the value of the '{@link org.xtext.xrobot.dsl.xRobotDSL.Main#isLoop <em>Loop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Loop</em>' attribute.
+   * @see #isLoop()
+   * @generated
+   */
+  void setLoop(boolean value);
+
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.
    * <!-- begin-user-doc -->

@@ -2269,6 +2269,30 @@ finally {
 
 
 
+rule__Main__Alternatives_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getMainAccess().getMainKeyword_0_0()); }
+
+	'main' 
+
+{ after(grammarAccess.getMainAccess().getMainKeyword_0_0()); }
+)
+
+    |(
+{ before(grammarAccess.getMainAccess().getLoopAssignment_0_1()); }
+(rule__Main__LoopAssignment_0_1)
+{ after(grammarAccess.getMainAccess().getLoopAssignment_0_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__XAssignment__Alternatives
     @init {
 		int stackSize = keepStackSize();
@@ -3612,11 +3636,9 @@ rule__Main__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getMainAccess().getMainKeyword_0()); }
-
-	'main' 
-
-{ after(grammarAccess.getMainAccess().getMainKeyword_0()); }
+{ before(grammarAccess.getMainAccess().getAlternatives_0()); }
+(rule__Main__Alternatives_0)
+{ after(grammarAccess.getMainAccess().getAlternatives_0()); }
 )
 
 ;
@@ -17136,6 +17158,29 @@ rule__Program__SubsAssignment_3
 (
 { before(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_3_0()); }
 	ruleSub{ after(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Main__LoopAssignment_0_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getMainAccess().getLoopLoopKeyword_0_1_0()); }
+(
+{ before(grammarAccess.getMainAccess().getLoopLoopKeyword_0_1_0()); }
+
+	'loop' 
+
+{ after(grammarAccess.getMainAccess().getLoopLoopKeyword_0_1_0()); }
+)
+
+{ after(grammarAccess.getMainAccess().getLoopLoopKeyword_0_1_0()); }
 )
 
 ;

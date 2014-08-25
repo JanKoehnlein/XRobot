@@ -156,23 +156,39 @@ ruleMain returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='main' 
+((	otherlv_0='main' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getMainAccess().getMainKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getMainAccess().getMainKeyword_0_0());
     }
+
+    |(
 (
+		lv_loop_1_0=	'loop' 
+    {
+        newLeafNode(lv_loop_1_0, grammarAccess.getMainAccess().getLoopLoopKeyword_0_1_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMainRule());
+	        }
+       		setWithLastConsumed($current, "loop", true, "loop");
+	    }
+
+)
+))(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getMainAccess().getBodyXBlockExpressionParserRuleCall_1_0()); 
 	    }
-		lv_body_1_0=ruleXBlockExpression		{
+		lv_body_2_0=ruleXBlockExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMainRule());
 	        }
        		set(
        			$current, 
        			"body",
-        		lv_body_1_0, 
+        		lv_body_2_0, 
         		"XBlockExpression");
 	        afterParserOrEnumRuleCall();
 	    }

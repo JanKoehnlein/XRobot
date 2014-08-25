@@ -8,7 +8,7 @@ Program:
 	subs+=Sub*;
 
 Main:
-	'main' body=XBlockExpression;
+	('main'|loop?='loop') body=XBlockExpression;
 	
 Sub:
 	'sub' name=ID 

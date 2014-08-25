@@ -37,6 +37,7 @@ public class XRobotDSLParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getMainAccess().getAlternatives_0(), "rule__Main__Alternatives_0");
 					put(grammarAccess.getXAssignmentAccess().getAlternatives(), "rule__XAssignment__Alternatives");
 					put(grammarAccess.getOpMultiAssignAccess().getAlternatives(), "rule__OpMultiAssign__Alternatives");
 					put(grammarAccess.getOpEqualityAccess().getAlternatives(), "rule__OpEquality__Alternatives");
@@ -258,6 +259,7 @@ public class XRobotDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProgramAccess().getNameAssignment_1(), "rule__Program__NameAssignment_1");
 					put(grammarAccess.getProgramAccess().getMainAssignment_2(), "rule__Program__MainAssignment_2");
 					put(grammarAccess.getProgramAccess().getSubsAssignment_3(), "rule__Program__SubsAssignment_3");
+					put(grammarAccess.getMainAccess().getLoopAssignment_0_1(), "rule__Main__LoopAssignment_0_1");
 					put(grammarAccess.getMainAccess().getBodyAssignment_1(), "rule__Main__BodyAssignment_1");
 					put(grammarAccess.getSubAccess().getNameAssignment_1(), "rule__Sub__NameAssignment_1");
 					put(grammarAccess.getSubAccess().getParametersAssignment_3_0(), "rule__Sub__ParametersAssignment_3_0");

@@ -13,6 +13,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/subs"/>
     </genClasses>
     <genClasses ecoreClass="XRobotDSL.ecore#//Main">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Main/loop"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Main/body"/>
     </genClasses>
     <genClasses ecoreClass="XRobotDSL.ecore#//Sub">

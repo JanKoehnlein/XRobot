@@ -113,13 +113,22 @@ public interface XRobotDSLPackage extends EPackage
   int MAIN = 1;
 
   /**
+   * The feature id for the '<em><b>Loop</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAIN__LOOP = 0;
+
+  /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN__BODY = 0;
+  int MAIN__BODY = 1;
 
   /**
    * The number of structural features of the '<em>Main</em>' class.
@@ -128,7 +137,7 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAIN_FEATURE_COUNT = 1;
+  int MAIN_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.SubImpl <em>Sub</em>}' class.
@@ -229,6 +238,17 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    */
   EClass getMain();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.xrobot.dsl.xRobotDSL.Main#isLoop <em>Loop</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Loop</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Main#isLoop()
+   * @see #getMain()
+   * @generated
+   */
+  EAttribute getMain_Loop();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.xrobot.dsl.xRobotDSL.Main#getBody <em>Body</em>}'.
@@ -350,6 +370,14 @@ public interface XRobotDSLPackage extends EPackage
      * @generated
      */
     EClass MAIN = eINSTANCE.getMain();
+
+    /**
+     * The meta object literal for the '<em><b>Loop</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAIN__LOOP = eINSTANCE.getMain_Loop();
 
     /**
      * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.

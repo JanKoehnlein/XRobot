@@ -15,7 +15,6 @@ import org.eclipse.xtend.lib.macro.declaration.MutableClassDeclaration
 import org.eclipse.xtend.lib.macro.declaration.Type
 import org.eclipse.xtend.lib.macro.declaration.TypeReference
 import org.eclipse.xtend.lib.macro.declaration.Visibility
-import java.io.IOException
 
 @Target(ElementType.TYPE)
 @Active(SimpleRemoteProcessor)
@@ -58,15 +57,19 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		]
 		serverImpl.addField('socket') [
 			type = SocketChannel.newTypeReference
+			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addField('componentID') [
 			type = int.newTypeReference
+			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addField('input') [
 			type = 'org.xtext.mindstorms.xrobot.net.SocketInputBuffer'.newTypeReference
+			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addField('output') [
 			type = 'org.xtext.mindstorms.xrobot.net.SocketOutputBuffer'.newTypeReference
+			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addConstructor [
 			primarySourceElement = annotatedClass
@@ -92,25 +95,6 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			returnType = serverStateClass.newTypeReference
 			body = '''
 				return state;
-			'''
-		]
-		serverImpl.addMethod('shutdown') [
-			body = '''
-				output.writeInt(this.componentID);
-				output.writeInt((-1));
-				output.send();
-				if(socket != null) 
-					closeSocket();
-			'''
-		]
-		serverImpl.addMethod('closeSocket') [
-			body = '''
-				try {
-					if(socket != null) 
-						socket.close();
-				} catch («IOException.newTypeReference» exc) {
-					throw new RuntimeException(exc);
-				}
 			'''
 		]
 		val noApiAnnotation = NoAPI.findTypeGlobally

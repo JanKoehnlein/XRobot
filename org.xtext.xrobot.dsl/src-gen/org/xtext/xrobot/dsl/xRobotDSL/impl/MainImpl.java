@@ -23,6 +23,7 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.MainImpl#isLoop <em>Loop</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.MainImpl#getBody <em>Body</em>}</li>
  * </ul>
  * </p>
@@ -31,6 +32,26 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
  */
 public class MainImpl extends MinimalEObjectImpl.Container implements Main
 {
+  /**
+   * The default value of the '{@link #isLoop() <em>Loop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isLoop()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean LOOP_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isLoop() <em>Loop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isLoop()
+   * @generated
+   * @ordered
+   */
+  protected boolean loop = LOOP_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -60,6 +81,29 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
   protected EClass eStaticClass()
   {
     return XRobotDSLPackage.Literals.MAIN;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isLoop()
+  {
+    return loop;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLoop(boolean newLoop)
+  {
+    boolean oldLoop = loop;
+    loop = newLoop;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.MAIN__LOOP, oldLoop, loop));
   }
 
   /**
@@ -136,6 +180,8 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
+      case XRobotDSLPackage.MAIN__LOOP:
+        return isLoop();
       case XRobotDSLPackage.MAIN__BODY:
         return getBody();
     }
@@ -152,6 +198,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
+      case XRobotDSLPackage.MAIN__LOOP:
+        setLoop((Boolean)newValue);
+        return;
       case XRobotDSLPackage.MAIN__BODY:
         setBody((XExpression)newValue);
         return;
@@ -169,6 +218,9 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
+      case XRobotDSLPackage.MAIN__LOOP:
+        setLoop(LOOP_EDEFAULT);
+        return;
       case XRobotDSLPackage.MAIN__BODY:
         setBody((XExpression)null);
         return;
@@ -186,10 +238,29 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
   {
     switch (featureID)
     {
+      case XRobotDSLPackage.MAIN__LOOP:
+        return loop != LOOP_EDEFAULT;
       case XRobotDSLPackage.MAIN__BODY:
         return body != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (loop: ");
+    result.append(loop);
+    result.append(')');
+    return result.toString();
   }
 
 } //MainImpl

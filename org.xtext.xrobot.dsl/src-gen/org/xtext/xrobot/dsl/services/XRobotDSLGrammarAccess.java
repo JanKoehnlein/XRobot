@@ -62,19 +62,31 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 	public class MainElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Main");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMainKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cMainKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Assignment cLoopAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
+		private final Keyword cLoopLoopKeyword_0_1_0 = (Keyword)cLoopAssignment_0_1.eContents().get(0);
 		private final Assignment cBodyAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cBodyXBlockExpressionParserRuleCall_1_0 = (RuleCall)cBodyAssignment_1.eContents().get(0);
 		
 		//Main:
-		//	"main" body=XBlockExpression;
+		//	("main" | loop?="loop") body=XBlockExpression;
 		public ParserRule getRule() { return rule; }
 
-		//"main" body=XBlockExpression
+		//("main" | loop?="loop") body=XBlockExpression
 		public Group getGroup() { return cGroup; }
 
+		//"main" | loop?="loop"
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+
 		//"main"
-		public Keyword getMainKeyword_0() { return cMainKeyword_0; }
+		public Keyword getMainKeyword_0_0() { return cMainKeyword_0_0; }
+
+		//loop?="loop"
+		public Assignment getLoopAssignment_0_1() { return cLoopAssignment_0_1; }
+
+		//"loop"
+		public Keyword getLoopLoopKeyword_0_1_0() { return cLoopLoopKeyword_0_1_0; }
 
 		//body=XBlockExpression
 		public Assignment getBodyAssignment_1() { return cBodyAssignment_1; }
@@ -208,7 +220,7 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Main:
-	//	"main" body=XBlockExpression;
+	//	("main" | loop?="loop") body=XBlockExpression;
 	public MainElements getMainAccess() {
 		return pMain;
 	}

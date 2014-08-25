@@ -169,9 +169,19 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getMain_Loop()
+  {
+    return (EAttribute)mainEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getMain_Body()
   {
-    return (EReference)mainEClass.getEStructuralFeatures().get(0);
+    return (EReference)mainEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -250,6 +260,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     createEReference(programEClass, PROGRAM__SUBS);
 
     mainEClass = createEClass(MAIN);
+    createEAttribute(mainEClass, MAIN__LOOP);
     createEReference(mainEClass, MAIN__BODY);
 
     subEClass = createEClass(SUB);
@@ -299,6 +310,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     initEReference(getProgram_Subs(), this.getSub(), null, "subs", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mainEClass, Main.class, "Main", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMain_Loop(), ecorePackage.getEBoolean(), "loop", null, 0, 1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMain_Body(), theXbasePackage.getXExpression(), null, "body", null, 0, 1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(subEClass, Sub.class, "Sub", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

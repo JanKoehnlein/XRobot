@@ -10,11 +10,12 @@ import org.eclipse.emf.common.util.Diagnostic
 import org.eclipse.emf.common.util.URI
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.util.StringInputStream
-import org.xtext.mindstorms.xrobot.server.RemoteRobotProxy
+import org.xtext.mindstorms.xrobot.server.RemoteRobot
 import org.xtext.mindstorms.xrobot.server.RemoteRobotServer
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 import org.xtext.xrobot.dsl.validation.XRobotDSLValidator
 import org.xtext.xrobot.dsl.xRobotDSL.Program
+import java.util.regex.Pattern
 
 @Singleton
 class REPL {
@@ -32,9 +33,11 @@ class REPL {
 
 	@Inject XRobotInterpreter interpreter
 
-	RemoteRobotProxy _currentRobot
+	RemoteRobot _currentRobot
 
 	var indent = 0 
+
+	val loopPattern = Pattern.compile('loop\\s*\\{')
 
 	def run() {
 		server.start
@@ -67,11 +70,14 @@ class REPL {
 					if(indent < 0) 
 						throw new Exception('Mismatched curly braces')	
 					if(indent == 0) {
-						val model = '''
-							program MyProg main {
-								«lines»
-							}
-						'''
+						val runLoop = loopPattern.matcher(lines).find
+						val model = if(runLoop) '''
+								program MyProg «lines»
+							''' else '''
+								program MyProg main {
+									«lines»
+								}
+							'''
 						println(model)
 						lines = ''
 						val program = parse(model)
@@ -111,12 +117,12 @@ class REPL {
 			case null,
 			case 'help':
 				println('''
-					$help          print this text
-					$robot <name>  switch current robot
-					$list          list connected robots
-					$exit|$quit    exit REPL
-					<expression>   execute Xbase expression on current robot 'it'
-					$              re-execute previous expression
+					$help               print this text
+					$robot <name>       switch current robot
+					$list               list connected robots
+					$exit|$quit         exit REPL
+					<expression>        execute Xbase expression on current robot 'it'
+					$                   re-execute previous expression
 				''')
 			case 'robot':
 				_currentRobot = server.getRobot(commands.get(1))

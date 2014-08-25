@@ -9,14 +9,14 @@ import org.xtext.mindstorms.xrobot.net.SocketInputBuffer
 
 class StateReceiver extends Thread implements INetConfig {
 	
-	RemoteRobotProxy robot	
+	RemoteRobot robot	
 	SocketInputBuffer input
 
 	Selector selector
 	
 	volatile boolean isStopped = false
 	
-	new(RemoteRobotProxy robot, SocketChannel socket) {
+	new(RemoteRobot robot, SocketChannel socket) {
 		this.robot = robot
 		this.input = new SocketInputBuffer(socket)
 		this.selector = Selector.open

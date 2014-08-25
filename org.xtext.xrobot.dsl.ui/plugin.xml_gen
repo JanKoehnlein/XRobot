@@ -467,17 +467,29 @@
    </extension>
    <extension point="org.eclipse.ui.popupMenus">
       <viewerContribution
-         targetID="example.rulerContextMenuId"
+         targetID="org.xtext.xrobot.dsl.XRobotDSL.ide.rulerContextMenu"
          id="org.xtext.xrobot.dsl.XRobotDSL.ide.RulerPopupActions">
          <action
             label="Toggle Breakpoint"
             class="org.xtext.xrobot.dsl.ui.XRobotDSLExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
-            menubarPath="additions"
+            menubarPath="debug"
             id="org.xtext.xrobot.dsl.XRobotDSL.ide.rulerContextMenu.toggleBreakpointAction">
+         </action>
+         <action
+            label="Not used"
+            class="org.xtext.xrobot.dsl.ui.XRobotDSLExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerEnableDisableBreakpointActionDelegate"
+            menubarPath="debug"
+            id="org.xtext.xrobot.dsl.XRobotDSL.ide.rulerContextMenu.enableDisableBreakpointAction">
+         </action>
+         <action>
+           label="Breakpoint Properties"
+           helpContextId="breakpoint_properties_action_context"
+           class="org.xtext.xrobot.dsl.ui.XRobotDSLExecutableExtensionFactory:org.eclipse.jdt.debug.ui.actions.JavaBreakpointPropertiesRulerActionDelegate"
+           menubarPath="group.properties"
+           id="org.xtext.xrobot.dsl.XRobotDSL.ide.rulerContextMenu.openBreapointPropertiesAction">
          </action>
       </viewerContribution>
    </extension>
-   
     <!-- Introduce Local Variable Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler 

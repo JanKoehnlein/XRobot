@@ -11,7 +11,7 @@ import org.xtext.mindstorms.xrobot.net.INetConfig
 @Singleton
 class RemoteRobotServer extends Thread implements INetConfig {
 
-	Map<String, RemoteRobotProxy> name2robot = newHashMap
+	Map<String, RemoteRobot> name2robot = newHashMap
 	
 	volatile boolean isStopped
 	
@@ -29,13 +29,13 @@ class RemoteRobotServer extends Thread implements INetConfig {
 					val client = server.accept()
 					if(client != null) {
 						client.configureBlocking(false)
-						val remoteRobotProxy = new RemoteRobotProxy(client, 0)
-						val stateReceiver = new StateReceiver(remoteRobotProxy, client)
+						val remoteRobot = new RemoteRobot(client, 0)
+						val stateReceiver = new StateReceiver(remoteRobot, client)
 						stateReceiver.start
-						while(remoteRobotProxy.state == null) 
+						while(remoteRobot.state == null) 
 							Thread.sleep(20)
-						val robotName = remoteRobotProxy.name
-						val staleClientData = name2robot.put(robotName, remoteRobotProxy)
+						val robotName = remoteRobot.name
+						val staleClientData = name2robot.put(robotName, remoteRobot)
 						System.err.println()
 						System.err.println('Connected to ' + robotName + ' at ' + (client.remoteAddress as InetSocketAddress).address)
 						staleClientData?.closeSocket
