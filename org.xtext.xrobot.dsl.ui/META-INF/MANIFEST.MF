@@ -18,11 +18,13 @@ Require-Bundle: org.xtext.xrobot.dsl;visibility:=reexport,
  org.eclipse.xtext.common.types.ui,
  org.eclipse.xtext.ui.codetemplates.ui,
  org.eclipse.compare,
- org.eclipse.jdt.debug.ui
+ org.eclipse.jdt.debug.ui,
+ org.xtext.xrobot;bundle-version="1.0.0"
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: org.xtext.xrobot.dsl.ui.quickfix,
- org.xtext.xrobot.dsl.ui.contentassist,
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.xtext.xrobot.dsl.ui.contentassist,
  org.xtext.xrobot.dsl.ui.contentassist.antlr,
- org.xtext.xrobot.dsl.ui.internal
+ org.xtext.xrobot.dsl.ui.internal,
+ org.xtext.xrobot.dsl.ui.quickfix,
+ org.xtext.xrobot.dsl.ui.run
 Bundle-Activator: org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator

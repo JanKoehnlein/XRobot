@@ -10,16 +10,16 @@ import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.net.SocketInputBuffer
 
 import static org.xtext.xrobot.util.LEDPatterns.*
+import java.nio.channels.ServerSocketChannel
 
 class BrickConnector implements INetConfig {
 	
-	SocketChannel socket
-	
+	ServerSocketChannel server
+	Selector serverSelector
+
 	Robot robot
 	
-	SocketInputBuffer input
-	
-	StateSender stateSender
+	boolean isStopped = false
 	
 	def static void main(String[] args) {
 		new BrickConnector(new Robot(BrickFinder.getLocal)).run
@@ -28,69 +28,91 @@ class BrickConnector implements INetConfig {
 	new(Robot robot) {
 		this.robot = robot
 		robot.led = ORANGE
+		server = ServerSocketChannel.open
+		server.configureBlocking(false)
+		server.bind(new InetSocketAddress(SERVER_PORT))
+		serverSelector = Selector.open
+		server.register(serverSelector, SelectionKey.OP_ACCEPT)
 	}
 	
 	def connect() {
-		println('Connecting to server...')
 		robot.led = ORANGE_BLINK
-		socket = SocketChannel.open()
-		socket.configureBlocking(false)
-		if(!socket.connect(new InetSocketAddress(SERVER_ADDRESS, SERVER_PORT))) {
-			val selector = Selector.open
-			socket.register(selector, SelectionKey.OP_CONNECT)
-			while (selector.select(SOCKET_TIMEOUT) == 0) {}
-			socket.finishConnect
+		println('Accepting connections...')
+		isStopped = false
+		while(!isStopped) {
+			serverSelector.select(SOCKET_TIMEOUT)
+			for(key: serverSelector.selectedKeys) {
+				if(robot.escapePressed) 
+					isStopped = true
+				else if(key.acceptable) {
+					val socket = server.accept()
+					if(socket != null) {
+						socket.configureBlocking(false)
+						System.err.println()
+						System.err.println('Connected to ' + (socket.remoteAddress as InetSocketAddress).address)
+						robot.led =  GREEN
+						return socket
+					}
+				} 
+			}
 		}
-		input = new SocketInputBuffer(socket)
-		println('...connected!')
-		robot.led =  GREEN
+		System.err.println('Shutting down server...')
+		try {
+			server?.close
+		} finally {
+			System.err.println('...done.')
+		}
+		return null
 	}
 	
-	def disconnect() {
+	def disconnect(SocketChannel socket) {
 		try {
 			robot.led = ORANGE_BLINK
-			socket.close
+			socket?.close
 		} finally {
 			robot.led = ORANGE
 		}
 	}	
 	
 	def run() {
-		var isStopped = false
-		while(!isStopped) {
+		var isDisconnect = false
+		while(!isDisconnect) {
+			var SocketChannel socket = null
+			var StateSender stateSender = null
 			try {
 				if(robot.escapePressed)
 					return;
-				connect
+				socket = connect
+				val input = new SocketInputBuffer(socket)
 				val selector = Selector.open()
 				socket.register(selector, SelectionKey.OP_READ + SelectionKey.OP_WRITE)
 				val executor = new RobotExecutor(input, robot)
 				stateSender = new StateSender(robot, socket)
 				stateSender.start
-				while(!isStopped && stateSender.alive) {
+				while(!isDisconnect && stateSender.alive) {
 					selector.select(SOCKET_TIMEOUT)
 					if(robot.escapePressed) {
-						isStopped = true
+						isDisconnect = true
 					} else {
 						for(key: selector.selectedKeys) {
 							if(key.readable) {
 								input.receive
 								if(input.hasMore) {
 									Thread.yield									
-									isStopped = !executor.dispatchAndExecute
+									isDisconnect = !executor.dispatchAndExecute
 								}
 							}
 						}
 					}
 				}
 				stateSender.shutdown
-				disconnect
+				socket.disconnect
 			} catch(Exception exc) {
 				println('Error: ' + exc.message)
 				stateSender?.shutdown
 				robot.stop
 				try {
-					disconnect
+					socket.disconnect
 				} catch(Exception e) {}
 				Thread.sleep(5000)
 			}

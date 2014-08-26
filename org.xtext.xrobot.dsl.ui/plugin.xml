@@ -546,5 +546,60 @@
             extensions="xrobot">
     </provider>
   </extension>
-
+  <extension
+        point="org.eclipse.ui.handlers">
+     <handler
+           class="org.xtext.xrobot.dsl.ui.XRobotDSLExecutableExtensionFactory:org.xtext.xrobot.dsl.ui.run.ExecuteScriptHandler"
+           commandId="org.xtext.xrobot.dsl.XRobotDSL.runScript">
+           <activeWhen>
+           	 	<reference
+	                definitionId="org.xtext.xrobot.dsl.XRobotDSL.Editor.opened">
+	            </reference>
+           </activeWhen>
+     </handler>
+  </extension>
+  <extension
+        point="org.eclipse.ui.commands">
+        <command 
+        	description="Run script on robot"
+       		id="org.xtext.xrobot.dsl.XRobotDSL.runScript"
+        	name="runScript">
+        	<commandParameter
+               id="org.xtext.xrobot.dsl.ui.robotParameter"
+               name="robotParameter">
+        	</commandParameter>
+        </command>
+  </extension>
+  <extension point="org.eclipse.ui.menus">
+    <menuContribution locationURI="popup:#TextEditorContext?after=group.edit">
+         <command
+               commandId="org.xtext.xrobot.dsl.XRobotDSL.runScript"
+               label="Run Script on Robot &apos;Xtend&apos;"
+               style="push"
+               tooltip="Run script on robot &apos;Xtend&apos;">
+	        <visibleWhen checkEnabled="false">
+	            <reference
+	                definitionId="org.xtext.xrobot.dsl.XRobotDSL.Editor.opened">
+	            </reference>
+	        </visibleWhen>
+	        <parameter
+            	name="org.xtext.xrobot.dsl.ui.robotParameter" value="0">
+            </parameter>
+     	</command>  
+         <command
+               commandId="org.xtext.xrobot.dsl.XRobotDSL.runScript"
+               label="Run Script on Robot &apos;Xtext&apos;"
+               style="push"
+               tooltip="Run script on robot &apos;Xtext&apos;">
+	        <visibleWhen checkEnabled="false">
+	            <reference
+	                definitionId="org.xtext.xrobot.dsl.XRobotDSL.Editor.opened">
+	            </reference>
+	        </visibleWhen>
+	        <parameter
+            	name="org.xtext.xrobot.dsl.ui.robotParameter" value="1">
+            </parameter>
+     	</command>  
+  	</menuContribution>
+  </extension>
 </plugin>

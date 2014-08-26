@@ -1,0 +1,50 @@
+package org.xtext.xrobot.dsl.interpreter
+
+import com.google.inject.Inject
+import com.google.inject.Provider
+import org.eclipse.emf.common.util.BasicDiagnostic
+import org.eclipse.emf.common.util.Diagnostic
+import org.eclipse.emf.common.util.URI
+import org.eclipse.xtext.resource.XtextResourceSet
+import org.eclipse.xtext.util.StringInputStream
+import org.xtext.xrobot.dsl.validation.XRobotDSLValidator
+import org.xtext.xrobot.dsl.xRobotDSL.Program
+import org.xtext.xrobot.server.RemoteRobot
+import org.eclipse.xtext.util.CancelIndicator
+
+class ScriptRunner {
+
+	@Inject Provider<XtextResourceSet> resourceSetProvider
+
+	@Inject XRobotDSLValidator validator
+
+	@Inject XRobotInterpreter interpreter
+	
+	def run(RemoteRobot robot, String model, CancelIndicator cancelIndicator) {
+		val program = model.parse
+		if(program != null && robot != null) {
+			var Object result = null
+			try {
+				result = interpreter.execute(program, robot, cancelIndicator)
+			} catch (StoppedException exc) {
+				System.err.println('Stopped by user')
+				robot?.stop
+			}
+			return result
+		}
+	}
+
+	private def Program parse(String model) {
+		val resourceSet = resourceSetProvider.get
+		val resource = resourceSet.createResource(URI.createURI('dummy.xrobot'))
+		resource.load(new StringInputStream(model), null)
+		if (!resource.errors.empty)
+			throw new Exception('Syntax Error:\n' + resource.errors.map[message].join('\n'))
+		val program = resource.contents.head() as Program
+		val diagnostic = new BasicDiagnostic
+		validator.validate(program, diagnostic, null)
+		if (diagnostic.severity == Diagnostic.ERROR)
+			throw new Exception('Error:\n' + diagnostic)
+		return program
+	}
+}

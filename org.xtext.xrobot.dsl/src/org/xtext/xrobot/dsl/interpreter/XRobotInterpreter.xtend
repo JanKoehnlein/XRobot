@@ -13,9 +13,13 @@ import org.xtext.xrobot.server.RemoteRobot
 
 class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 	
-	def Object execute(Program program, RemoteRobot robot) {
+	static val CANCEL_INDICATOR = QualifiedName.create('cancelIndicator')
+	static val IT = QualifiedName.create('it')
+
+	def Object execute(Program program, RemoteRobot robot, CancelIndicator cancelIndicator) {
 		val evaluationContext = new DefaultEvaluationContext
-		evaluationContext.newValue(QualifiedName.create('it'), robot)
+		evaluationContext.newValue(IT, robot)
+		evaluationContext.newValue(CANCEL_INDICATOR, cancelIndicator)
 		val main = program.main
 		var Object result = null
 		do {
@@ -27,8 +31,9 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 		return result
 	}
 	
+	
 	override protected internalEvaluate(XExpression expression, IEvaluationContext context, CancelIndicator indicator) throws EvaluationException {
-		if(System.in.available > 0)
+		if((context.getValue(CANCEL_INDICATOR) as CancelIndicator).isCanceled) 
 			throw new StoppedException()
 		super.internalEvaluate(expression, context, indicator)
 	}

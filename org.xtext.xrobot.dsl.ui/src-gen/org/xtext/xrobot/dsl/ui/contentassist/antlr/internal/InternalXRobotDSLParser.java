@@ -25,94 +25,94 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "'||'", "'&&'", "'main'", "'+='", "'-='", "'*='", "'/='", "'%='", "'=='", "'!='", "'==='", "'!=='", "'>='", "'>'", "'<'", "'->'", "'..<'", "'..'", "'=>'", "'<>'", "'?:'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'++'", "'--'", "'.'", "'val'", "'extends'", "'static'", "'import'", "'extension'", "'super'", "'false'", "'program'", "'sub'", "'('", "')'", "','", "'instanceof'", "'as'", "'#'", "'{'", "'}'", "'['", "']'", "';'", "'if'", "'else'", "'switch'", "':'", "'default'", "'case'", "'for'", "'while'", "'do'", "'new'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'synchronized'", "'catch'", "'?'", "'&'", "'loop'", "'::'", "'?.'", "'|'", "'var'", "'true'"
     };
-    public static final int RULE_HEX=5;
-    public static final int T__50=50;
-    public static final int T__90=90;
-    public static final int T__19=19;
-    public static final int T__15=15;
-    public static final int T__59=59;
-    public static final int T__16=16;
-    public static final int T__17=17;
-    public static final int T__18=18;
+    public static final int T__68=68;
+    public static final int T__69=69;
+    public static final int RULE_ID=4;
+    public static final int T__66=66;
+    public static final int T__67=67;
+    public static final int T__64=64;
+    public static final int T__29=29;
+    public static final int T__65=65;
+    public static final int T__28=28;
+    public static final int T__62=62;
+    public static final int T__27=27;
+    public static final int T__63=63;
+    public static final int T__26=26;
+    public static final int T__25=25;
+    public static final int T__24=24;
+    public static final int T__23=23;
+    public static final int T__22=22;
+    public static final int RULE_ANY_OTHER=12;
+    public static final int T__21=21;
+    public static final int T__20=20;
+    public static final int T__61=61;
+    public static final int T__60=60;
+    public static final int EOF=-1;
     public static final int T__55=55;
     public static final int T__56=56;
-    public static final int T__13=13;
+    public static final int T__19=19;
     public static final int T__57=57;
-    public static final int T__14=14;
+    public static final int RULE_HEX=5;
     public static final int T__58=58;
+    public static final int T__16=16;
     public static final int T__51=51;
+    public static final int T__90=90;
     public static final int T__52=52;
+    public static final int T__15=15;
     public static final int T__53=53;
+    public static final int T__18=18;
     public static final int T__54=54;
-    public static final int T__60=60;
-    public static final int T__61=61;
-    public static final int RULE_ID=4;
-    public static final int RULE_DECIMAL=7;
-    public static final int T__26=26;
-    public static final int T__27=27;
-    public static final int T__28=28;
+    public static final int T__17=17;
+    public static final int T__14=14;
+    public static final int T__13=13;
+    public static final int T__59=59;
     public static final int RULE_INT=6;
-    public static final int T__29=29;
-    public static final int T__22=22;
-    public static final int T__66=66;
-    public static final int RULE_ML_COMMENT=9;
-    public static final int T__23=23;
-    public static final int T__67=67;
-    public static final int T__24=24;
-    public static final int T__68=68;
-    public static final int T__25=25;
-    public static final int T__69=69;
-    public static final int T__62=62;
-    public static final int T__63=63;
-    public static final int T__20=20;
-    public static final int T__64=64;
-    public static final int T__21=21;
-    public static final int T__65=65;
-    public static final int T__70=70;
-    public static final int T__71=71;
-    public static final int T__72=72;
-    public static final int RULE_STRING=8;
+    public static final int RULE_DECIMAL=7;
+    public static final int T__50=50;
+    public static final int T__42=42;
+    public static final int T__43=43;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__80=80;
+    public static final int T__46=46;
+    public static final int T__81=81;
+    public static final int T__47=47;
+    public static final int T__82=82;
+    public static final int T__44=44;
+    public static final int T__83=83;
+    public static final int T__45=45;
+    public static final int T__48=48;
+    public static final int T__49=49;
+    public static final int T__85=85;
     public static final int RULE_SL_COMMENT=10;
+    public static final int T__84=84;
+    public static final int T__87=87;
+    public static final int T__86=86;
+    public static final int T__89=89;
+    public static final int T__88=88;
+    public static final int RULE_ML_COMMENT=9;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int RULE_STRING=8;
+    public static final int T__32=32;
+    public static final int T__71=71;
+    public static final int T__33=33;
+    public static final int T__72=72;
+    public static final int T__34=34;
+    public static final int T__35=35;
+    public static final int T__70=70;
+    public static final int T__36=36;
     public static final int T__37=37;
     public static final int T__38=38;
     public static final int T__39=39;
-    public static final int T__33=33;
-    public static final int T__77=77;
-    public static final int T__34=34;
-    public static final int T__78=78;
-    public static final int T__35=35;
-    public static final int T__79=79;
-    public static final int T__36=36;
-    public static final int T__73=73;
-    public static final int EOF=-1;
-    public static final int T__30=30;
-    public static final int T__74=74;
-    public static final int T__31=31;
-    public static final int T__75=75;
-    public static final int T__32=32;
-    public static final int T__76=76;
-    public static final int T__80=80;
-    public static final int T__81=81;
-    public static final int T__82=82;
-    public static final int T__83=83;
     public static final int RULE_WS=11;
-    public static final int RULE_ANY_OTHER=12;
-    public static final int T__48=48;
-    public static final int T__49=49;
-    public static final int T__44=44;
-    public static final int T__88=88;
-    public static final int T__45=45;
-    public static final int T__89=89;
-    public static final int T__46=46;
-    public static final int T__47=47;
-    public static final int T__40=40;
-    public static final int T__84=84;
-    public static final int T__41=41;
-    public static final int T__85=85;
-    public static final int T__42=42;
-    public static final int T__86=86;
-    public static final int T__43=43;
-    public static final int T__87=87;
+    public static final int T__76=76;
+    public static final int T__75=75;
+    public static final int T__74=74;
+    public static final int T__73=73;
+    public static final int T__79=79;
+    public static final int T__78=78;
+    public static final int T__77=77;
 
     // delegates
     // delegators
@@ -6919,11 +6919,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                 {
                 int LA3_2 = input.LA(2);
 
-                if ( (LA3_2==EOF||(LA3_2>=RULE_ID && LA3_2<=RULE_STRING)||(LA3_2>=14 && LA3_2<=15)||(LA3_2>=17 && LA3_2<=51)||(LA3_2>=54 && LA3_2<=82)||(LA3_2>=86 && LA3_2<=87)||(LA3_2>=89 && LA3_2<=90)) ) {
-                    alt3=2;
-                }
-                else if ( (LA3_2==13) ) {
+                if ( (LA3_2==13) ) {
                     alt3=1;
+                }
+                else if ( (LA3_2==EOF||(LA3_2>=RULE_ID && LA3_2<=RULE_STRING)||(LA3_2>=14 && LA3_2<=15)||(LA3_2>=17 && LA3_2<=51)||(LA3_2>=54 && LA3_2<=82)||(LA3_2>=86 && LA3_2<=87)||(LA3_2>=89 && LA3_2<=90)) ) {
+                    alt3=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -6957,11 +6957,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                 {
                 int LA3_4 = input.LA(2);
 
-                if ( (LA3_4==EOF||(LA3_4>=RULE_ID && LA3_4<=RULE_STRING)||(LA3_4>=14 && LA3_4<=15)||(LA3_4>=17 && LA3_4<=51)||(LA3_4>=54 && LA3_4<=82)||(LA3_4>=86 && LA3_4<=87)||(LA3_4>=89 && LA3_4<=90)) ) {
-                    alt3=2;
-                }
-                else if ( (LA3_4==13) ) {
+                if ( (LA3_4==13) ) {
                     alt3=1;
+                }
+                else if ( (LA3_4==EOF||(LA3_4>=RULE_ID && LA3_4<=RULE_STRING)||(LA3_4>=14 && LA3_4<=15)||(LA3_4>=17 && LA3_4<=51)||(LA3_4>=54 && LA3_4<=82)||(LA3_4>=86 && LA3_4<=87)||(LA3_4>=89 && LA3_4<=90)) ) {
+                    alt3=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -56463,137 +56463,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
     // Delegated rules
 
-    public final boolean synpred120_InternalXRobotDSL() {
+    public final boolean synpred93_InternalXRobotDSL() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred120_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred133_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred133_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred90_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred90_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred88_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred88_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred110_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred110_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred98_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred98_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred48_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred48_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred139_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred139_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred150_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred150_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred140_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred140_InternalXRobotDSL_fragment(); // can never throw exception
+            synpred93_InternalXRobotDSL_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -56617,20 +56491,6 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         state.failed=false;
         return success;
     }
-    public final boolean synpred146_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred146_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
     public final boolean synpred62_InternalXRobotDSL() {
         state.backtracking++;
         int start = input.mark();
@@ -56645,221 +56505,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         state.failed=false;
         return success;
     }
-    public final boolean synpred99_InternalXRobotDSL() {
+    public final boolean synpred48_InternalXRobotDSL() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred99_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred154_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred154_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred73_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred73_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred40_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred40_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred134_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred134_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred93_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred93_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred147_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred147_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred66_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred66_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred49_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred49_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred96_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred96_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred26_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred26_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred117_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred117_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred97_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred97_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred101_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred101_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred91_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred91_InternalXRobotDSL_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred94_InternalXRobotDSL() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred94_InternalXRobotDSL_fragment(); // can never throw exception
+            synpred48_InternalXRobotDSL_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -56883,11 +56533,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         state.failed=false;
         return success;
     }
-    public final boolean synpred145_InternalXRobotDSL() {
+    public final boolean synpred26_InternalXRobotDSL() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred145_InternalXRobotDSL_fragment(); // can never throw exception
+            synpred26_InternalXRobotDSL_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -56897,11 +56547,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         state.failed=false;
         return success;
     }
-    public final boolean synpred67_InternalXRobotDSL() {
+    public final boolean synpred101_InternalXRobotDSL() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred67_InternalXRobotDSL_fragment(); // can never throw exception
+            synpred101_InternalXRobotDSL_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -56911,11 +56561,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         state.failed=false;
         return success;
     }
-    public final boolean synpred138_InternalXRobotDSL() {
+    public final boolean synpred120_InternalXRobotDSL() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred138_InternalXRobotDSL_fragment(); // can never throw exception
+            synpred120_InternalXRobotDSL_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -56939,6 +56589,244 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         state.failed=false;
         return success;
     }
+    public final boolean synpred138_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred138_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred96_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred96_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred154_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred154_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred94_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred94_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred150_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred150_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred73_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred73_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred134_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred134_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred66_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred66_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred145_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred145_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred147_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred147_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred133_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred133_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred99_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred99_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred98_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred98_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred140_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred140_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred110_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred110_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred49_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred49_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred40_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred40_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
     public final boolean synpred27_InternalXRobotDSL() {
         state.backtracking++;
         int start = input.mark();
@@ -56953,11 +56841,123 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         state.failed=false;
         return success;
     }
+    public final boolean synpred67_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred67_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred97_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred97_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred90_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred90_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
     public final boolean synpred102_InternalXRobotDSL() {
         state.backtracking++;
         int start = input.mark();
         try {
             synpred102_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred146_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred146_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred91_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred91_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred139_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred139_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred88_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred88_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred117_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred117_InternalXRobotDSL_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -56999,14 +56999,14 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     static final String DFA8_maxS =
         "\1\42\2\uffff\1\37\7\uffff";
     static final String DFA8_acceptS =
-        "\1\uffff\1\1\1\2\1\uffff\1\4\1\5\1\7\1\10\1\11\1\6\1\3";
+        "\1\uffff\1\1\1\2\1\uffff\1\4\1\5\1\7\1\10\1\11\1\3\1\6";
     static final String DFA8_specialS =
         "\13\uffff}>";
     static final String[] DFA8_transitionS = {
             "\1\3\1\6\1\1\1\2\1\4\1\5\1\7\1\10",
             "",
             "",
-            "\1\11\3\uffff\1\12",
+            "\1\12\3\uffff\1\11",
             "",
             "",
             "",
@@ -57760,7 +57760,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     static final String DFA45_acceptS =
         "\10\uffff\1\2\1\1";
     static final String DFA45_specialS =
-        "\1\uffff\1\3\1\5\1\0\1\2\1\4\1\6\1\1\2\uffff}>";
+        "\1\uffff\1\1\1\2\1\6\1\5\1\4\1\3\1\0\2\uffff}>";
     static final String[] DFA45_transitionS = {
             "\5\10\5\uffff\2\10\1\uffff\1\1\1\2\1\3\1\4\1\5\5\10\1\7\1\6\27\10\2\uffff\35\10\3\uffff\2\10\1\uffff\2\10",
             "\1\uffff",
@@ -57811,21 +57811,6 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA45_3 = input.LA(1);
-
-                         
-                        int index45_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred88_InternalXRobotDSL()) ) {s = 9;}
-
-                        else if ( (true) ) {s = 8;}
-
-                         
-                        input.seek(index45_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
                         int LA45_7 = input.LA(1);
 
                          
@@ -57840,22 +57825,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                         input.seek(index45_7);
                         if ( s>=0 ) return s;
                         break;
-                    case 2 : 
-                        int LA45_4 = input.LA(1);
-
-                         
-                        int index45_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred88_InternalXRobotDSL()) ) {s = 9;}
-
-                        else if ( (true) ) {s = 8;}
-
-                         
-                        input.seek(index45_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
+                    case 1 : 
                         int LA45_1 = input.LA(1);
 
                          
@@ -57868,6 +57838,36 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
                          
                         input.seek(index45_1);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA45_2 = input.LA(1);
+
+                         
+                        int index45_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred88_InternalXRobotDSL()) ) {s = 9;}
+
+                        else if ( (true) ) {s = 8;}
+
+                         
+                        input.seek(index45_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA45_6 = input.LA(1);
+
+                         
+                        int index45_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred88_InternalXRobotDSL()) ) {s = 9;}
+
+                        else if ( (true) ) {s = 8;}
+
+                         
+                        input.seek(index45_6);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
@@ -57886,10 +57886,10 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA45_2 = input.LA(1);
+                        int LA45_4 = input.LA(1);
 
                          
-                        int index45_2 = input.index();
+                        int index45_4 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred88_InternalXRobotDSL()) ) {s = 9;}
@@ -57897,14 +57897,14 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                         else if ( (true) ) {s = 8;}
 
                          
-                        input.seek(index45_2);
+                        input.seek(index45_4);
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA45_6 = input.LA(1);
+                        int LA45_3 = input.LA(1);
 
                          
-                        int index45_6 = input.index();
+                        int index45_3 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred88_InternalXRobotDSL()) ) {s = 9;}
@@ -57912,7 +57912,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                         else if ( (true) ) {s = 8;}
 
                          
-                        input.seek(index45_6);
+                        input.seek(index45_3);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -57934,7 +57934,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     static final String DFA51_acceptS =
         "\1\uffff\1\2\10\uffff\1\1";
     static final String DFA51_specialS =
-        "\2\uffff\1\0\1\4\1\7\1\1\1\3\1\6\1\5\1\2\1\uffff}>";
+        "\2\uffff\1\7\1\4\1\5\1\1\1\6\1\0\1\3\1\2\1\uffff}>";
     static final String[] DFA51_transitionS = {
             "\5\1\5\uffff\2\1\1\uffff\12\1\1\3\1\2\1\4\1\5\1\6\1\7\1\10\1\11\21\1\2\uffff\35\1\3\uffff\2\1\1\uffff\2\1",
             "",
@@ -57986,10 +57986,10 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA51_2 = input.LA(1);
+                        int LA51_7 = input.LA(1);
 
                          
-                        int index51_2 = input.index();
+                        int index51_7 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred94_InternalXRobotDSL()) ) {s = 10;}
@@ -57997,7 +57997,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index51_2);
+                        input.seek(index51_7);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
@@ -58031,10 +58031,10 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA51_6 = input.LA(1);
+                        int LA51_8 = input.LA(1);
 
                          
-                        int index51_6 = input.index();
+                        int index51_8 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred94_InternalXRobotDSL()) ) {s = 10;}
@@ -58042,7 +58042,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index51_6);
+                        input.seek(index51_8);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
@@ -58061,36 +58061,6 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA51_8 = input.LA(1);
-
-                         
-                        int index51_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred94_InternalXRobotDSL()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index51_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA51_7 = input.LA(1);
-
-                         
-                        int index51_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred94_InternalXRobotDSL()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index51_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
                         int LA51_4 = input.LA(1);
 
                          
@@ -58103,6 +58073,36 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
                          
                         input.seek(index51_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA51_6 = input.LA(1);
+
+                         
+                        int index51_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred94_InternalXRobotDSL()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index51_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA51_2 = input.LA(1);
+
+                         
+                        int index51_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred94_InternalXRobotDSL()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index51_2);
                         if ( s>=0 ) return s;
                         break;
             }

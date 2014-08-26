@@ -22,15 +22,16 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.xtext.xrobot;bundle-version="1.0.0",
  org.eclipse.core.runtime;bundle-version="3.10.0"
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.xtext.xrobot.dsl,
- org.xtext.xrobot.dsl.services,
- org.xtext.xrobot.dsl.xRobotDSL,
- org.xtext.xrobot.dsl.xRobotDSL.impl,
- org.xtext.xrobot.dsl.xRobotDSL.util,
- org.xtext.xrobot.dsl.serializer,
+ org.xtext.xrobot.dsl.formatting,
+ org.xtext.xrobot.dsl.interpreter,
+ org.xtext.xrobot.dsl.jvmmodel,
  org.xtext.xrobot.dsl.parser.antlr,
  org.xtext.xrobot.dsl.parser.antlr.internal,
+ org.xtext.xrobot.dsl.serializer,
+ org.xtext.xrobot.dsl.services,
  org.xtext.xrobot.dsl.validation,
- org.xtext.xrobot.dsl.formatting,
- org.xtext.xrobot.dsl.jvmmodel
+ org.xtext.xrobot.dsl.xRobotDSL,
+ org.xtext.xrobot.dsl.xRobotDSL.impl,
+ org.xtext.xrobot.dsl.xRobotDSL.util

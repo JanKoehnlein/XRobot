@@ -1,7 +1,9 @@
 package org.xtext.xrobot.net
 
 interface INetConfig {
-	static val SERVER_ADDRESS = '10.0.1.10'
+	static val DISCOVERY_PORT = 3016
+	static val DISCOVERY_PACKET_SIZE = 32
+	
 	static val SERVER_PORT = 4444
 	
 	static val SOCKET_TIMEOUT = 1000

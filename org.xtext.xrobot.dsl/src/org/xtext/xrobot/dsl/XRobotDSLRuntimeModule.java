@@ -3,9 +3,15 @@
  */
 package org.xtext.xrobot.dsl;
 
+import org.eclipse.xtext.xbase.scoping.batch.ImplicitlyImportedFeatures;
+import org.xtext.xrobot.dsl.scoping.XRobotImplicitlyImportedFeatures;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class XRobotDSLRuntimeModule extends org.xtext.xrobot.dsl.AbstractXRobotDSLRuntimeModule {
 
+	public Class<? extends ImplicitlyImportedFeatures> bindImplicitlyImportedFeatures() {
+		return XRobotImplicitlyImportedFeatures.class;
+	}
 }
