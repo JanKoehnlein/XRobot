@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Xrobot
 Bundle-SymbolicName: org.xtext.xrobot
 Bundle-Version: 1.0.0
-Bundle-ClassPath: lib/org.eclipse.xtext.xbase.lib.slim-2.7.0-SNAPSHOT.jar
 Export-Package: org.xtext.xrobot,
  org.xtext.xrobot.api,
  org.xtext.xrobot.client,

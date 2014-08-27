@@ -20,22 +20,22 @@ class XRobotDSLJvmModelInferrer extends AbstractModelInferrer {
 
    	def dispatch void infer(Program program, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
    		acceptor
-   			.accept(program.toClass("org.xtext.xrobot.dsl." + program.name))
-   			.initializeLater [
-   				superTypes += newTypeRef(IScript)
+   			.accept(program.toClass("org.xtext.xrobot.dsl." + program.name,
+   			[
+   				superTypes += typeRef(IScript)
    				for(field: program.fields) {
-   					var fieldType = field.type ?: field.initializer.inferredType ?: field.newTypeRef(Object)  
+   					var fieldType = field.type ?: field.initializer.inferredType ?: Object.typeRef  
    					members += field.toField(field.name, fieldType) [
    						initializer = field.initializer
    					]
    				}
    				val main = program.main
    				members += main.toMethod('doRun', null) [
-   					parameters += main.toParameter('it', main.newTypeRef(IRobot))
+   					parameters += main.toParameter('it', IRobot.typeRef)
    					body = main.body
    				]
    				members += main.toMethod('run', null) [
-   					parameters += main.toParameter('it', main.newTypeRef(IRobot))
+   					parameters += main.toParameter('it', IRobot.typeRef)
    					body = '''
    						«IF main.isLoop»
    							do {
@@ -54,6 +54,7 @@ class XRobotDSLJvmModelInferrer extends AbstractModelInferrer {
    					]
    				}
    			]
+   		))
    	}
 }
 

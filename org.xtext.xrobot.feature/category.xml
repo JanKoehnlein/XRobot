@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.xtext.xrobot.dsl.sdk_1.0.0.qualifier.jar" id="org.xtext.xrobot.dsl.sdk" version="1.0.0.qualifier"/>
-   <category-def name="new_category_1" label="XRobot"/>
+   <feature url="features/org.xtext.xrobot.feature_1.0.0.jar" id="org.xtext.xrobot.feature" version="1.0.0">
+      <category name="org.xtext.xrobot"/>
+   </feature>
+   <category-def name="org.xtext.xrobot" label="XRobot"/>
 </site>

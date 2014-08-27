@@ -16,8 +16,25 @@
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="org.xtext.xrobot.dsl.sdk"
-         version="0.0.0"/>
+   <plugin
+         id="org.xtext.xrobot"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.xtext.xrobot.dsl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.xtext.xrobot.dsl.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
