@@ -9,15 +9,18 @@ import org.xtext.xrobot.net.SocketInputBuffer
 
 class StateReceiver extends Thread implements INetConfig {
 	
-	RemoteRobot robot	
 	SocketInputBuffer input
 
 	Selector selector
 	
 	volatile boolean isStopped = false
 	
-	new(RemoteRobot robot, SocketChannel socket) {
-		this.robot = robot
+	long failureCount 
+	long successCount
+	
+	var RobotServerState lastState
+	
+	new(SocketChannel socket) {
 		this.input = new SocketInputBuffer(socket)
 		this.selector = Selector.open
 		socket.register(selector, SelectionKey.OP_READ)	
@@ -32,9 +35,18 @@ class StateReceiver extends Thread implements INetConfig {
 					if(key.isReadable) {
 						input.receive
 						val state = new RobotServerState
-						while(input.hasMore)
-							state.read(input)
-						robot.state = state
+						while(input.hasMore) {
+							try {
+								state.read(input)
+								successCount++
+							} catch(Exception exc) {
+								failureCount++  
+							}							
+						}
+						if((failureCount + successCount) % 100l == 0) {
+							System.err.println('State read failure rate ' + failureCount as double / (failureCount + successCount))
+						}
+						lastState = state
 					} 
 				}
 			} catch(ClosedSelectorException e) {
@@ -45,8 +57,13 @@ class StateReceiver extends Thread implements INetConfig {
 			}
 		}
 	}
+
+	def getLastState() {
+		lastState
+	}	
 	
 	def shutdown() {
 		isStopped = true
+		join(SOCKET_TIMEOUT)
 	}
 }

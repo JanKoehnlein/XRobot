@@ -5,7 +5,7 @@ generate xRobotDSL "http://www.xtext.org/xrobot/dsl/XRobotDSL"
 Program:
 	'program' name=ID
 	main=Main
-	subs+=Sub*;
+	(subs+=Sub | fields+=Field)*;
 
 Main:
 	('main'|loop?='loop') body=XBlockExpression;
@@ -14,4 +14,7 @@ Sub:
 	'sub' name=ID 
 	'(' (parameters+=JvmFormalParameter (',' parameters+=JvmFormalParameter)*)? ')' 
 	body=XBlockExpression;
+	
+Field:
+	'var' (type=JvmTypeReference)? name=ID ('=' initializer=XExpression)?;
 

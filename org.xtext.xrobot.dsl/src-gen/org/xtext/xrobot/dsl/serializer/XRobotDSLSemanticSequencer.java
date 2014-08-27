@@ -55,6 +55,7 @@ import org.eclipse.xtext.xtype.XImportDeclaration;
 import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.xtext.xrobot.dsl.services.XRobotDSLGrammarAccess;
+import org.xtext.xrobot.dsl.xRobotDSL.Field;
 import org.xtext.xrobot.dsl.xRobotDSL.Main;
 import org.xtext.xrobot.dsl.xRobotDSL.Program;
 import org.xtext.xrobot.dsl.xRobotDSL.Sub;
@@ -130,6 +131,12 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 				else break;
 			}
 		else if(semanticObject.eClass().getEPackage() == XRobotDSLPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case XRobotDSLPackage.FIELD:
+				if(context == grammarAccess.getFieldRule()) {
+					sequence_Field(context, (Field) semanticObject); 
+					return; 
+				}
+				else break;
 			case XRobotDSLPackage.MAIN:
 				if(context == grammarAccess.getMainRule()) {
 					sequence_Main(context, (Main) semanticObject); 
@@ -1188,6 +1195,15 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (type=JvmTypeReference? name=ID initializer=XExpression?)
+	 */
+	protected void sequence_Field(EObject context, Field semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (loop?='loop'? body=XBlockExpression)
 	 */
 	protected void sequence_Main(EObject context, Main semanticObject) {
@@ -1197,7 +1213,7 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID main=Main subs+=Sub*)
+	 *     (name=ID main=Main (subs+=Sub | fields+=Field)*)
 	 */
 	protected void sequence_Program(EObject context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

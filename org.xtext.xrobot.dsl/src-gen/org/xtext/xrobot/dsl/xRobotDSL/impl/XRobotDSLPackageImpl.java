@@ -13,6 +13,7 @@ import org.eclipse.xtext.common.types.TypesPackage;
 
 import org.eclipse.xtext.xbase.XbasePackage;
 
+import org.xtext.xrobot.dsl.xRobotDSL.Field;
 import org.xtext.xrobot.dsl.xRobotDSL.Main;
 import org.xtext.xrobot.dsl.xRobotDSL.Program;
 import org.xtext.xrobot.dsl.xRobotDSL.Sub;
@@ -47,6 +48,13 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * @generated
    */
   private EClass subEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fieldEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -159,6 +167,16 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getProgram_Fields()
+  {
+    return (EReference)programEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMain()
   {
     return mainEClass;
@@ -229,6 +247,46 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getField()
+  {
+    return fieldEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getField_Type()
+  {
+    return (EReference)fieldEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getField_Name()
+  {
+    return (EAttribute)fieldEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getField_Initializer()
+  {
+    return (EReference)fieldEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public XRobotDSLFactory getXRobotDSLFactory()
   {
     return (XRobotDSLFactory)getEFactoryInstance();
@@ -258,6 +316,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     createEAttribute(programEClass, PROGRAM__NAME);
     createEReference(programEClass, PROGRAM__MAIN);
     createEReference(programEClass, PROGRAM__SUBS);
+    createEReference(programEClass, PROGRAM__FIELDS);
 
     mainEClass = createEClass(MAIN);
     createEAttribute(mainEClass, MAIN__LOOP);
@@ -267,6 +326,11 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     createEAttribute(subEClass, SUB__NAME);
     createEReference(subEClass, SUB__PARAMETERS);
     createEReference(subEClass, SUB__BODY);
+
+    fieldEClass = createEClass(FIELD);
+    createEReference(fieldEClass, FIELD__TYPE);
+    createEAttribute(fieldEClass, FIELD__NAME);
+    createEReference(fieldEClass, FIELD__INITIALIZER);
   }
 
   /**
@@ -308,6 +372,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Main(), this.getMain(), null, "main", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Subs(), this.getSub(), null, "subs", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProgram_Fields(), this.getField(), null, "fields", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mainEClass, Main.class, "Main", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMain_Loop(), ecorePackage.getEBoolean(), "loop", null, 0, 1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -317,6 +382,11 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     initEAttribute(getSub_Name(), ecorePackage.getEString(), "name", null, 0, 1, Sub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSub_Parameters(), theTypesPackage.getJvmFormalParameter(), null, "parameters", null, 0, -1, Sub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSub_Body(), theXbasePackage.getXExpression(), null, "body", null, 0, 1, Sub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getField_Type(), theTypesPackage.getJvmTypeReference(), null, "type", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getField_Name(), ecorePackage.getEString(), "name", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getField_Initializer(), theXbasePackage.getXExpression(), null, "initializer", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

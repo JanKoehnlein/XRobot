@@ -4,12 +4,12 @@ import com.google.inject.Singleton
 import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.InetSocketAddress
+import java.net.SocketTimeoutException
 import java.nio.channels.SelectionKey
 import java.nio.channels.Selector
 import java.nio.channels.SocketChannel
 import java.util.Map
 import org.xtext.xrobot.net.INetConfig
-import java.net.SocketTimeoutException
 
 @Singleton
 class RemoteRobotConnector implements INetConfig {
@@ -33,16 +33,16 @@ class RemoteRobotConnector implements INetConfig {
 			}
 			socket.finishConnect
 		}
-		val remoteRobot = new RemoteRobot(socket, 0)
-		val stateReceiver = new StateReceiver(remoteRobot, socket)
-		stateReceiver.start
-		while(remoteRobot.state == null) 
-			Thread.sleep(20)
-		val staleClientData = name2robot.put(robotName, remoteRobot)
-		System.err.println()
-		System.err.println('Connected to ' + robotName + ' at ' + (socket.remoteAddress as InetSocketAddress).address)
-		staleClientData?.closeSocket
-		remoteRobot
+		try {
+			val remoteRobot = new RemoteRobot(socket, 0)
+			remoteRobot.waitForUpdate(SOCKET_TIMEOUT)
+			System.err.println()
+			System.err.println('Connected to ' + robotName + ' at ' + (socket.remoteAddress as InetSocketAddress).address)
+			remoteRobot
+		} catch(Exception exc) {
+			socket?.close
+			throw exc
+		}
 	}
 	
 	private def getIPAddress(String robotName) {
@@ -53,15 +53,20 @@ class RemoteRobotConnector implements INetConfig {
 	def getRobot(String name) {
 		val connectedRobot = name2robot.get(name)
 		if(connectedRobot != null) {
-			return connectedRobot
-		} else {
-			val newRobot = connect(name)
-			if(newRobot != null) {
-				name2robot.put(name, newRobot)
-				return newRobot		
+			if(connectedRobot.isAlive) {
+				return connectedRobot
+			} else {
+				try {
+					connectedRobot.release
+				} catch(Exception exc) {
+					// ignore
+				}
 			}
 		}
-		return null
+		val newRobot = connect(name)
+		name2robot.put(name, newRobot)
+		return newRobot
+
 	}
 	
 	def getRobotNames() {

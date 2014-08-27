@@ -75,8 +75,7 @@ class BrickConnector implements INetConfig {
 	}	
 	
 	def run() {
-		var isDisconnect = false
-		while(!isDisconnect) {
+		while(!isStopped) {
 			var SocketChannel socket = null
 			var StateSender stateSender = null
 			try {
@@ -89,17 +88,18 @@ class BrickConnector implements INetConfig {
 				val executor = new RobotExecutor(input, robot)
 				stateSender = new StateSender(robot, socket)
 				stateSender.start
-				while(!isDisconnect && stateSender.alive) {
+				var isRelease = false
+				while(!isRelease && stateSender.alive) {
 					selector.select(SOCKET_TIMEOUT)
 					if(robot.escapePressed) {
-						isDisconnect = true
+						isRelease = true
 					} else {
 						for(key: selector.selectedKeys) {
 							if(key.readable) {
 								input.receive
 								if(input.hasMore) {
 									Thread.yield									
-									isDisconnect = !executor.dispatchAndExecute
+									isRelease = !executor.dispatchAndExecute
 								}
 							}
 						}

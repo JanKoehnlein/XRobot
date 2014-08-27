@@ -1,27 +1,24 @@
 package org.xtext.xrobot.dsl.interpreter
 
 import com.google.inject.Inject
-import com.google.inject.Provider
 import org.eclipse.emf.common.util.BasicDiagnostic
 import org.eclipse.emf.common.util.Diagnostic
 import org.eclipse.emf.common.util.URI
 import org.eclipse.xtext.resource.XtextResourceSet
+import org.eclipse.xtext.util.CancelIndicator
 import org.eclipse.xtext.util.StringInputStream
 import org.xtext.xrobot.dsl.validation.XRobotDSLValidator
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.RemoteRobot
-import org.eclipse.xtext.util.CancelIndicator
 
 class ScriptRunner {
-
-	@Inject Provider<XtextResourceSet> resourceSetProvider
 
 	@Inject XRobotDSLValidator validator
 
 	@Inject XRobotInterpreter interpreter
 	
-	def run(RemoteRobot robot, String model, CancelIndicator cancelIndicator) {
-		val program = model.parse
+	def run(RemoteRobot robot, String model, XtextResourceSet resourceSet, CancelIndicator cancelIndicator) {
+		val program = model.parse(resourceSet)
 		if(program != null && robot != null) {
 			var Object result = null
 			try {
@@ -34,8 +31,7 @@ class ScriptRunner {
 		}
 	}
 
-	private def Program parse(String model) {
-		val resourceSet = resourceSetProvider.get
+	private def Program parse(String model, XtextResourceSet resourceSet) {
 		val resource = resourceSet.createResource(URI.createURI('dummy.xrobot'))
 		resource.load(new StringInputStream(model), null)
 		if (!resource.errors.empty)

@@ -11,6 +11,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Program/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/main"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/subs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/fields"/>
     </genClasses>
     <genClasses ecoreClass="XRobotDSL.ecore#//Main">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Main/loop"/>
@@ -20,6 +21,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Sub/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Sub/parameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Sub/body"/>
+    </genClasses>
+    <genClasses ecoreClass="XRobotDSL.ecore#//Field">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Field/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Field/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Field/initializer"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -9,6 +9,8 @@ import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 import org.xtext.xrobot.server.RemoteRobot
 import org.xtext.xrobot.server.RemoteRobotConnector
+import com.google.inject.Provider
+import org.eclipse.xtext.resource.XtextResourceSet
 
 @Singleton
 class REPL {
@@ -21,6 +23,8 @@ class REPL {
 	@Inject RemoteRobotConnector connector
 	
 	@Inject ScriptRunner runner
+	
+	@Inject Provider<XtextResourceSet> resourceSetProvider;
 
 	RemoteRobot currentRobot
 
@@ -49,7 +53,7 @@ class REPL {
 					lines += '\n'
 					if(line.contains('{') || line.contains('}')) {
 						line.toCharArray.forEach [ 
-							switch it {
+							switch it as int {
 								case 123: indent++
 								case 125: indent--
 							}
@@ -69,7 +73,7 @@ class REPL {
 						println(model)
 						lines = ''
 						val startTime = System.currentTimeMillis
-						val result = runner.run(currentRobot, model, new CancelIndicator() {
+						val result = runner.run(currentRobot, model, resourceSetProvider.get(), new CancelIndicator() {
 							override isCanceled() {
 								System.in.available > 0
 							}
@@ -87,8 +91,7 @@ class REPL {
 			}
 		}
 		println('Exiting REPL...')
-		currentRobot?.stop
-		currentRobot?.shutdown
+		currentRobot?.release
 		println('...finished')
 	}
 	

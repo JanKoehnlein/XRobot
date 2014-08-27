@@ -152,7 +152,7 @@ class Robot implements IRobotGeometry {
 	}
 	
 	override void scoop(double angle) {
-		scoopMotor.rotate(angle as int)
+		scoopMotor.rotateTo(angle as int)
 	}
 	
 	override void playSample(String fileName, int volume) {

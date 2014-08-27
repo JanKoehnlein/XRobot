@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.xrobot.dsl.xRobotDSL.Field;
 import org.xtext.xrobot.dsl.xRobotDSL.Main;
 import org.xtext.xrobot.dsl.xRobotDSL.Program;
 import org.xtext.xrobot.dsl.xRobotDSL.Sub;
@@ -33,6 +34,7 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getMain <em>Main</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getSubs <em>Subs</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getFields <em>Fields</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +81,16 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * @ordered
    */
   protected EList<Sub> subs;
+
+  /**
+   * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFields()
+   * @generated
+   * @ordered
+   */
+  protected EList<Field> fields;
 
   /**
    * <!-- begin-user-doc -->
@@ -191,6 +203,20 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Field> getFields()
+  {
+    if (fields == null)
+    {
+      fields = new EObjectContainmentEList<Field>(Field.class, this, XRobotDSLPackage.PROGRAM__FIELDS);
+    }
+    return fields;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -200,6 +226,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
         return basicSetMain(null, msgs);
       case XRobotDSLPackage.PROGRAM__SUBS:
         return ((InternalEList<?>)getSubs()).basicRemove(otherEnd, msgs);
+      case XRobotDSLPackage.PROGRAM__FIELDS:
+        return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -220,6 +248,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
         return getMain();
       case XRobotDSLPackage.PROGRAM__SUBS:
         return getSubs();
+      case XRobotDSLPackage.PROGRAM__FIELDS:
+        return getFields();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -245,6 +275,10 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
         getSubs().clear();
         getSubs().addAll((Collection<? extends Sub>)newValue);
         return;
+      case XRobotDSLPackage.PROGRAM__FIELDS:
+        getFields().clear();
+        getFields().addAll((Collection<? extends Field>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -268,6 +302,9 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
       case XRobotDSLPackage.PROGRAM__SUBS:
         getSubs().clear();
         return;
+      case XRobotDSLPackage.PROGRAM__FIELDS:
+        getFields().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -288,6 +325,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
         return main != null;
       case XRobotDSLPackage.PROGRAM__SUBS:
         return subs != null && !subs.isEmpty();
+      case XRobotDSLPackage.PROGRAM__FIELDS:
+        return fields != null && !fields.isEmpty();
     }
     return super.eIsSet(featureID);
   }

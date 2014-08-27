@@ -27,14 +27,17 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cMainAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cMainMainParserRuleCall_2_0 = (RuleCall)cMainAssignment_2.eContents().get(0);
-		private final Assignment cSubsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cSubsSubParserRuleCall_3_0 = (RuleCall)cSubsAssignment_3.eContents().get(0);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Assignment cSubsAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
+		private final RuleCall cSubsSubParserRuleCall_3_0_0 = (RuleCall)cSubsAssignment_3_0.eContents().get(0);
+		private final Assignment cFieldsAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final RuleCall cFieldsFieldParserRuleCall_3_1_0 = (RuleCall)cFieldsAssignment_3_1.eContents().get(0);
 		
 		//Program:
-		//	"program" name=ID main=Main subs+=Sub*;
+		//	"program" name=ID main=Main (subs+=Sub | fields+=Field)*;
 		public ParserRule getRule() { return rule; }
 
-		//"program" name=ID main=Main subs+=Sub*
+		//"program" name=ID main=Main (subs+=Sub | fields+=Field)*
 		public Group getGroup() { return cGroup; }
 
 		//"program"
@@ -52,11 +55,20 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//Main
 		public RuleCall getMainMainParserRuleCall_2_0() { return cMainMainParserRuleCall_2_0; }
 
-		//subs+=Sub*
-		public Assignment getSubsAssignment_3() { return cSubsAssignment_3; }
+		//(subs+=Sub | fields+=Field)*
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+
+		//subs+=Sub
+		public Assignment getSubsAssignment_3_0() { return cSubsAssignment_3_0; }
 
 		//Sub
-		public RuleCall getSubsSubParserRuleCall_3_0() { return cSubsSubParserRuleCall_3_0; }
+		public RuleCall getSubsSubParserRuleCall_3_0_0() { return cSubsSubParserRuleCall_3_0_0; }
+
+		//fields+=Field
+		public Assignment getFieldsAssignment_3_1() { return cFieldsAssignment_3_1; }
+
+		//Field
+		public RuleCall getFieldsFieldParserRuleCall_3_1_0() { return cFieldsFieldParserRuleCall_3_1_0; }
 	}
 
 	public class MainElements extends AbstractParserRuleElementFinder {
@@ -162,11 +174,60 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//XBlockExpression
 		public RuleCall getBodyXBlockExpressionParserRuleCall_5_0() { return cBodyXBlockExpressionParserRuleCall_5_0; }
 	}
+
+	public class FieldElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Field");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cVarKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeJvmTypeReferenceParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cInitializerAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cInitializerXExpressionParserRuleCall_3_1_0 = (RuleCall)cInitializerAssignment_3_1.eContents().get(0);
+		
+		//Field:
+		//	"var" type=JvmTypeReference? name=ID ("=" initializer=XExpression)?;
+		public ParserRule getRule() { return rule; }
+
+		//"var" type=JvmTypeReference? name=ID ("=" initializer=XExpression)?
+		public Group getGroup() { return cGroup; }
+
+		//"var"
+		public Keyword getVarKeyword_0() { return cVarKeyword_0; }
+
+		//type=JvmTypeReference?
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+
+		//JvmTypeReference
+		public RuleCall getTypeJvmTypeReferenceParserRuleCall_1_0() { return cTypeJvmTypeReferenceParserRuleCall_1_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//("=" initializer=XExpression)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_3_0() { return cEqualsSignKeyword_3_0; }
+
+		//initializer=XExpression
+		public Assignment getInitializerAssignment_3_1() { return cInitializerAssignment_3_1; }
+
+		//XExpression
+		public RuleCall getInitializerXExpressionParserRuleCall_3_1_0() { return cInitializerXExpressionParserRuleCall_3_1_0; }
+	}
 	
 	
 	private final ProgramElements pProgram;
 	private final MainElements pMain;
 	private final SubElements pSub;
+	private final FieldElements pField;
 	
 	private final Grammar grammar;
 
@@ -180,6 +241,7 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pProgram = new ProgramElements();
 		this.pMain = new MainElements();
 		this.pSub = new SubElements();
+		this.pField = new FieldElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -210,7 +272,7 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Program:
-	//	"program" name=ID main=Main subs+=Sub*;
+	//	"program" name=ID main=Main (subs+=Sub | fields+=Field)*;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
 	}
@@ -237,6 +299,16 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSubRule() {
 		return getSubAccess().getRule();
+	}
+
+	//Field:
+	//	"var" type=JvmTypeReference? name=ID ("=" initializer=XExpression)?;
+	public FieldElements getFieldAccess() {
+		return pField;
+	}
+	
+	public ParserRule getFieldRule() {
+		return getFieldAccess().getRule();
 	}
 
 	//XExpression:

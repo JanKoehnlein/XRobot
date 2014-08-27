@@ -3,6 +3,7 @@ package org.xtext.xrobot.net
 import java.nio.ByteBuffer
 import java.nio.channels.SocketChannel
 import java.nio.charset.Charset
+import java.nio.BufferOverflowException
 
 class SocketInputBuffer implements INetConfig {
 	
@@ -49,6 +50,8 @@ class SocketInputBuffer implements INetConfig {
 	
 	def readString() {
 		val length = buffer.int
+		if(length + buffer.position > buffer.limit) 
+			throw new BufferOverflowException
 		val b = newByteArrayOfSize(length)
 		buffer.get(b)
 		new String(b, Charset.forName('UTF-8'))

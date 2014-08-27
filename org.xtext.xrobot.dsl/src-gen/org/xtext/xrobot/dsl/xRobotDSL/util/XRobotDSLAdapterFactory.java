@@ -90,6 +90,11 @@ public class XRobotDSLAdapterFactory extends AdapterFactoryImpl
         return createSubAdapter();
       }
       @Override
+      public Adapter caseField(Field object)
+      {
+        return createFieldAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -152,6 +157,21 @@ public class XRobotDSLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSubAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.xrobot.dsl.xRobotDSL.Field <em>Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Field
+   * @generated
+   */
+  public Adapter createFieldAdapter()
   {
     return null;
   }

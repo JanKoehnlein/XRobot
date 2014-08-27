@@ -94,13 +94,22 @@ public interface XRobotDSLPackage extends EPackage
   int PROGRAM__SUBS = 2;
 
   /**
+   * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__FIELDS = 3;
+
+  /**
    * The number of structural features of the '<em>Program</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROGRAM_FEATURE_COUNT = 3;
+  int PROGRAM_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.MainImpl <em>Main</em>}' class.
@@ -185,6 +194,52 @@ public interface XRobotDSLPackage extends EPackage
    */
   int SUB_FEATURE_COUNT = 3;
 
+  /**
+   * The meta object id for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FieldImpl <em>Field</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.xrobot.dsl.xRobotDSL.impl.FieldImpl
+   * @see org.xtext.xrobot.dsl.xRobotDSL.impl.XRobotDSLPackageImpl#getField()
+   * @generated
+   */
+  int FIELD = 3;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Initializer</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD__INITIALIZER = 2;
+
+  /**
+   * The number of structural features of the '<em>Field</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_FEATURE_COUNT = 3;
+
 
   /**
    * Returns the meta object for class '{@link org.xtext.xrobot.dsl.xRobotDSL.Program <em>Program</em>}'.
@@ -228,6 +283,17 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    */
   EReference getProgram_Subs();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getFields <em>Fields</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Fields</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Program#getFields()
+   * @see #getProgram()
+   * @generated
+   */
+  EReference getProgram_Fields();
 
   /**
    * Returns the meta object for class '{@link org.xtext.xrobot.dsl.xRobotDSL.Main <em>Main</em>}'.
@@ -305,6 +371,49 @@ public interface XRobotDSLPackage extends EPackage
   EReference getSub_Body();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.xrobot.dsl.xRobotDSL.Field <em>Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Field</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Field
+   * @generated
+   */
+  EClass getField();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.xrobot.dsl.xRobotDSL.Field#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Field#getType()
+   * @see #getField()
+   * @generated
+   */
+  EReference getField_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.xrobot.dsl.xRobotDSL.Field#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Field#getName()
+   * @see #getField()
+   * @generated
+   */
+  EAttribute getField_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.xrobot.dsl.xRobotDSL.Field#getInitializer <em>Initializer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Initializer</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Field#getInitializer()
+   * @see #getField()
+   * @generated
+   */
+  EReference getField_Initializer();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -360,6 +469,14 @@ public interface XRobotDSLPackage extends EPackage
      * @generated
      */
     EReference PROGRAM__SUBS = eINSTANCE.getProgram_Subs();
+
+    /**
+     * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROGRAM__FIELDS = eINSTANCE.getProgram_Fields();
 
     /**
      * The meta object literal for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.MainImpl <em>Main</em>}' class.
@@ -420,6 +537,40 @@ public interface XRobotDSLPackage extends EPackage
      * @generated
      */
     EReference SUB__BODY = eINSTANCE.getSub_Body();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FieldImpl <em>Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.xrobot.dsl.xRobotDSL.impl.FieldImpl
+     * @see org.xtext.xrobot.dsl.xRobotDSL.impl.XRobotDSLPackageImpl#getField()
+     * @generated
+     */
+    EClass FIELD = eINSTANCE.getField();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIELD__TYPE = eINSTANCE.getField_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD__NAME = eINSTANCE.getField_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Initializer</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIELD__INITIALIZER = eINSTANCE.getField_Initializer();
 
   }
 

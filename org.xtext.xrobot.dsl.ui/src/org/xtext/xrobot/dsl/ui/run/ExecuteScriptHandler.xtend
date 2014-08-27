@@ -11,7 +11,10 @@ import org.eclipse.core.runtime.IStatus
 import org.eclipse.core.runtime.Status
 import org.eclipse.core.runtime.jobs.Job
 import org.eclipse.jface.dialogs.MessageDialog
+import org.eclipse.ui.IFileEditorInput
+import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.ui.editor.utils.EditorUtils
+import org.eclipse.xtext.ui.resource.IResourceSetProvider
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.dsl.interpreter.ScriptRunner
 import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
@@ -22,6 +25,10 @@ import org.xtext.xrobot.server.RemoteRobotConnector
 class ExecuteScriptHandler extends AbstractHandler {
 
 	@Inject RemoteRobotConnector connector	
+	
+	@Inject ScriptRunner scriptRunner
+	
+	@Inject IResourceSetProvider resourceSetProvider
 	
 	Map<String, Job> name2controller = newHashMap
 	
@@ -49,16 +56,17 @@ class ExecuteScriptHandler extends AbstractHandler {
 			if(robot == null) {
 				MessageDialog.openError(xtextEditor.editorSite.shell, 'Error', 'Could not locate robot \'' + robotName + '\'')
 			} else {
-				val document = xtextEditor.document 
+				val document = xtextEditor.document
 				val scriptName = document.readOnly [
 					(contents.head as Program)?.name
-				] 
+				]
+				val project = (xtextEditor.editorInput as IFileEditorInput).file.project
+				val resourceSet = resourceSetProvider.get(project) as XtextResourceSet
 				val model = document.get
 				val job = new Job('Running script \'' + scriptName + '\' on robot \'' + robotName + '\'') {
 					override protected run(IProgressMonitor monitor) {
 						try {
-							val runner = new ScriptRunner()
-							runner.run(robot, model, new CancelIndicator() {
+							scriptRunner.run(robot, model, resourceSet, new CancelIndicator() {
 								override isCanceled() {
 									monitor.isCanceled
 								}
@@ -66,6 +74,10 @@ class ExecuteScriptHandler extends AbstractHandler {
 							return Status.OK_STATUS
 						} catch(Exception exc) {
 							return new Status(IStatus.ERROR, XRobotDSLActivator.ORG_XTEXT_XROBOT_DSL_XROBOTDSL, exc.message, exc)
+						} finally {
+							try {
+								robot.release
+							} catch(Exception exc) {}
 						}
 					}
 				}

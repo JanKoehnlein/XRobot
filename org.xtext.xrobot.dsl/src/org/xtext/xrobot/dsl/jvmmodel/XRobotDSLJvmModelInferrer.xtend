@@ -23,17 +23,36 @@ class XRobotDSLJvmModelInferrer extends AbstractModelInferrer {
    			.accept(program.toClass("org.xtext.xrobot.dsl." + program.name))
    			.initializeLater [
    				superTypes += newTypeRef(IScript)
+   				for(field: program.fields) {
+   					var fieldType = field.type ?: field.initializer.inferredType ?: field.newTypeRef(Object)  
+   					members += field.toField(field.name, fieldType) [
+   						initializer = field.initializer
+   					]
+   				}
+   				val main = program.main
+   				members += main.toMethod('doRun', null) [
+   					parameters += main.toParameter('it', main.newTypeRef(IRobot))
+   					body = main.body
+   				]
+   				members += main.toMethod('run', null) [
+   					parameters += main.toParameter('it', main.newTypeRef(IRobot))
+   					body = '''
+   						«IF main.isLoop»
+   							do {
+   								doRun(it);
+   								waitForUpdate(1000);
+   							} while(true)
+   						«ELSE»
+   							doRun(it);
+   						«ENDIF»
+   					'''
+   				]
    				for (sub : program.subs) {
    					members += sub.toMethod(sub.name, sub.body.inferredType) [
    						parameters += sub.parameters.map [ toParameter(name, parameterType) ]
    						body = sub.body
    					]
    				}
-   				val main = program.main
-   				members += main.toMethod('run', null) [
-   					parameters += main.toParameter('it', main.newTypeRef(IRobot))
-   					body = main.body
-   				]
    			]
    	}
 }

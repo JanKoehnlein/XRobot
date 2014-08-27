@@ -67,6 +67,7 @@ public class XRobotDSLFactoryImpl extends EFactoryImpl implements XRobotDSLFacto
       case XRobotDSLPackage.PROGRAM: return createProgram();
       case XRobotDSLPackage.MAIN: return createMain();
       case XRobotDSLPackage.SUB: return createSub();
+      case XRobotDSLPackage.FIELD: return createField();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -103,6 +104,17 @@ public class XRobotDSLFactoryImpl extends EFactoryImpl implements XRobotDSLFacto
   {
     SubImpl sub = new SubImpl();
     return sub;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Field createField()
+  {
+    FieldImpl field = new FieldImpl();
+    return field;
   }
 
   /**
