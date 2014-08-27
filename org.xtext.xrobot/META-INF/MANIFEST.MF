@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Xrobot
 Bundle-SymbolicName: org.xtext.xrobot
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.0
 Bundle-ClassPath: lib/org.eclipse.xtext.xbase.lib.slim-2.7.0-SNAPSHOT.jar
 Export-Package: org.xtext.xrobot,
  org.xtext.xrobot.api,
@@ -14,5 +14,6 @@ Export-Package: org.xtext.xrobot,
  org.xtext.xrobot.tests.base,
  org.xtext.xrobot.util
 Require-Bundle: com.google.inject;bundle-version="3.0.0",
- org.eclipse.xtend.lib;bundle-version="2.7.0"
+ org.eclipse.xtend.lib;bundle-version="2.7.0",
+ org.xtext.xrobot.annotations;bundle-version="1.0.0";resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
