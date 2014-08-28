@@ -49,6 +49,7 @@ class XRobotDSLJvmModelInferrer extends AbstractModelInferrer {
    				]
    				for (sub : program.subs) {
    					members += sub.toMethod(sub.name, sub.body.inferredType) [
+   						parameters += sub.toParameter('it', IRobot.typeRef)
    						parameters += sub.parameters.map [ toParameter(name, parameterType) ]
    						body = sub.body
    					]

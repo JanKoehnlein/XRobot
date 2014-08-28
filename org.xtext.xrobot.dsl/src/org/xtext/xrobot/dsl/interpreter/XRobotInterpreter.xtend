@@ -34,12 +34,11 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 				baseContext.newValue(QualifiedName.create(field.name), initialValue.result)
 			}
 		}
-		val evaluationContext = baseContext.fork
-		evaluationContext.newValue(IT, robot)
+		baseContext.newValue(IT, robot)
 		val main = program.main
 		var Object result = null
 		do {
-			result = main.body.evaluate(evaluationContext, cancelIndicator).result
+			result = main.body.evaluate(baseContext, cancelIndicator).result
 			robot.waitForUpdate(SOCKET_TIMEOUT)
 		} while(main.isLoop)
 		return result
