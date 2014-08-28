@@ -43,7 +43,7 @@ class StateReceiver extends Thread implements INetConfig {
 								failureCount++  
 							}							
 						}
-						if((failureCount + successCount) % 100l == 0) {
+						if(failureCount > 0 && (failureCount + successCount) % 100l == 0) {
 							System.err.println('State read failure rate ' + failureCount as double / (failureCount + successCount))
 						}
 						lastState = state

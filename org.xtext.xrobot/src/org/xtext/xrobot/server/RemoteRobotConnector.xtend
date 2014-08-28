@@ -78,7 +78,7 @@ class RemoteRobotConnector implements INetConfig {
 		val result = newHashMap
 		try {
 			socket = new DatagramSocket(DISCOVERY_PORT)
-			socket.setSoTimeout(2 * SOCKET_TIMEOUT);
+			socket.setSoTimeout(4 * SOCKET_TIMEOUT);
 	        val packet = new DatagramPacket (newByteArrayOfSize(DISCOVERY_PACKET_SIZE), DISCOVERY_PACKET_SIZE)
 	        val start = System.currentTimeMillis
 	        while ((System.currentTimeMillis - start) < 2 * SOCKET_TIMEOUT) {

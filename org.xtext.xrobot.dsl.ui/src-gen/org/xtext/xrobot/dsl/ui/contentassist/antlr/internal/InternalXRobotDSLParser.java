@@ -7085,11 +7085,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                 {
                 int LA4_1 = input.LA(2);
 
-                if ( (LA4_1==EOF||(LA4_1>=RULE_ID && LA4_1<=RULE_STRING)||(LA4_1>=14 && LA4_1<=15)||(LA4_1>=17 && LA4_1<=51)||(LA4_1>=53 && LA4_1<=83)||(LA4_1>=87 && LA4_1<=88)||LA4_1==90) ) {
-                    alt4=2;
-                }
-                else if ( (LA4_1==13) ) {
+                if ( (LA4_1==13) ) {
                     alt4=1;
+                }
+                else if ( (LA4_1==EOF||(LA4_1>=RULE_ID && LA4_1<=RULE_STRING)||(LA4_1>=14 && LA4_1<=15)||(LA4_1>=17 && LA4_1<=51)||(LA4_1>=53 && LA4_1<=83)||(LA4_1>=87 && LA4_1<=88)||LA4_1==90) ) {
+                    alt4=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -7123,11 +7123,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                 {
                 int LA4_3 = input.LA(2);
 
-                if ( (LA4_3==EOF||(LA4_3>=RULE_ID && LA4_3<=RULE_STRING)||(LA4_3>=14 && LA4_3<=15)||(LA4_3>=17 && LA4_3<=51)||(LA4_3>=53 && LA4_3<=83)||(LA4_3>=87 && LA4_3<=88)||LA4_3==90) ) {
-                    alt4=2;
-                }
-                else if ( (LA4_3==13) ) {
+                if ( (LA4_3==13) ) {
                     alt4=1;
+                }
+                else if ( (LA4_3==EOF||(LA4_3>=RULE_ID && LA4_3<=RULE_STRING)||(LA4_3>=14 && LA4_3<=15)||(LA4_3>=17 && LA4_3<=51)||(LA4_3>=53 && LA4_3<=83)||(LA4_3>=87 && LA4_3<=88)||LA4_3==90) ) {
+                    alt4=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -7142,11 +7142,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                 {
                 int LA4_4 = input.LA(2);
 
-                if ( (LA4_4==EOF||(LA4_4>=RULE_ID && LA4_4<=RULE_STRING)||(LA4_4>=14 && LA4_4<=15)||(LA4_4>=17 && LA4_4<=51)||(LA4_4>=53 && LA4_4<=83)||(LA4_4>=87 && LA4_4<=88)||LA4_4==90) ) {
-                    alt4=2;
-                }
-                else if ( (LA4_4==13) ) {
+                if ( (LA4_4==13) ) {
                     alt4=1;
+                }
+                else if ( (LA4_4==EOF||(LA4_4>=RULE_ID && LA4_4<=RULE_STRING)||(LA4_4>=14 && LA4_4<=15)||(LA4_4>=17 && LA4_4<=51)||(LA4_4>=53 && LA4_4<=83)||(LA4_4>=87 && LA4_4<=88)||LA4_4==90) ) {
+                    alt4=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -7161,11 +7161,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                 {
                 int LA4_5 = input.LA(2);
 
-                if ( (LA4_5==EOF||(LA4_5>=RULE_ID && LA4_5<=RULE_STRING)||(LA4_5>=14 && LA4_5<=15)||(LA4_5>=17 && LA4_5<=51)||(LA4_5>=53 && LA4_5<=83)||(LA4_5>=87 && LA4_5<=88)||LA4_5==90) ) {
-                    alt4=2;
-                }
-                else if ( (LA4_5==13) ) {
+                if ( (LA4_5==13) ) {
                     alt4=1;
+                }
+                else if ( (LA4_5==EOF||(LA4_5>=RULE_ID && LA4_5<=RULE_STRING)||(LA4_5>=14 && LA4_5<=15)||(LA4_5>=17 && LA4_5<=51)||(LA4_5>=53 && LA4_5<=83)||(LA4_5>=87 && LA4_5<=88)||LA4_5==90) ) {
+                    alt4=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -7766,11 +7766,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                 {
                 int LA8_2 = input.LA(2);
 
-                if ( (LA8_2==13) ) {
-                    alt8=2;
-                }
-                else if ( (LA8_2==EOF||(LA8_2>=RULE_ID && LA8_2<=RULE_STRING)||LA8_2==28||(LA8_2>=35 && LA8_2<=36)||LA8_2==41||(LA8_2>=46 && LA8_2<=51)||LA8_2==54||(LA8_2>=60 && LA8_2<=61)||LA8_2==63||LA8_2==66||LA8_2==68||(LA8_2>=72 && LA8_2<=80)||LA8_2==82||LA8_2==90) ) {
+                if ( (LA8_2==EOF||(LA8_2>=RULE_ID && LA8_2<=RULE_STRING)||LA8_2==28||(LA8_2>=35 && LA8_2<=36)||LA8_2==41||(LA8_2>=46 && LA8_2<=51)||LA8_2==54||(LA8_2>=60 && LA8_2<=61)||LA8_2==63||LA8_2==66||LA8_2==68||(LA8_2>=72 && LA8_2<=80)||LA8_2==82||LA8_2==90) ) {
                     alt8=4;
+                }
+                else if ( (LA8_2==13) ) {
+                    alt8=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -9875,11 +9875,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             if ( (LA23_0==60) ) {
                 int LA23_1 = input.LA(2);
 
-                if ( (LA23_1==63) ) {
-                    alt23=2;
-                }
-                else if ( (LA23_1==61) ) {
+                if ( (LA23_1==61) ) {
                     alt23=1;
+                }
+                else if ( (LA23_1==63) ) {
+                    alt23=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -47078,17 +47078,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1__3"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16409:1: rule__JvmParameterizedTypeReference__Group_1__3 : rule__JvmParameterizedTypeReference__Group_1__3__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16409:1: rule__JvmParameterizedTypeReference__Group_1__3 : rule__JvmParameterizedTypeReference__Group_1__3__Impl rule__JvmParameterizedTypeReference__Group_1__4 ;
     public final void rule__JvmParameterizedTypeReference__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16413:1: ( rule__JvmParameterizedTypeReference__Group_1__3__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16414:2: rule__JvmParameterizedTypeReference__Group_1__3__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16413:1: ( rule__JvmParameterizedTypeReference__Group_1__3__Impl rule__JvmParameterizedTypeReference__Group_1__4 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16414:2: rule__JvmParameterizedTypeReference__Group_1__3__Impl rule__JvmParameterizedTypeReference__Group_1__4
             {
             pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1__3__Impl_in_rule__JvmParameterizedTypeReference__Group_1__333052);
             rule__JvmParameterizedTypeReference__Group_1__3__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1__4_in_rule__JvmParameterizedTypeReference__Group_1__333055);
+            rule__JvmParameterizedTypeReference__Group_1__4();
 
             state._fsp--;
             if (state.failed) return ;
@@ -47111,22 +47116,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1__3__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16420:1: rule__JvmParameterizedTypeReference__Group_1__3__Impl : ( '>' ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16421:1: rule__JvmParameterizedTypeReference__Group_1__3__Impl : ( '>' ) ;
     public final void rule__JvmParameterizedTypeReference__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16424:1: ( ( '>' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16425:1: ( '>' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16425:1: ( ( '>' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16426:1: ( '>' )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16425:1: ( '>' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16426:1: '>'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16426:1: ( '>' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16427:1: '>'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGreaterThanSignKeyword_1_3()); 
             }
-            match(input,27,FOLLOW_27_in_rule__JvmParameterizedTypeReference__Group_1__3__Impl33080); if (state.failed) return ;
+            match(input,27,FOLLOW_27_in_rule__JvmParameterizedTypeReference__Group_1__3__Impl33083); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGreaterThanSignKeyword_1_3()); 
             }
@@ -47151,22 +47156,136 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1__3__Impl"
 
 
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1__4"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16440:1: rule__JvmParameterizedTypeReference__Group_1__4 : rule__JvmParameterizedTypeReference__Group_1__4__Impl ;
+    public final void rule__JvmParameterizedTypeReference__Group_1__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16444:1: ( rule__JvmParameterizedTypeReference__Group_1__4__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16445:2: rule__JvmParameterizedTypeReference__Group_1__4__Impl
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1__4__Impl_in_rule__JvmParameterizedTypeReference__Group_1__433114);
+            rule__JvmParameterizedTypeReference__Group_1__4__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1__4"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1__4__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16451:1: rule__JvmParameterizedTypeReference__Group_1__4__Impl : ( ( rule__JvmParameterizedTypeReference__Group_1_4__0 )* ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16455:1: ( ( ( rule__JvmParameterizedTypeReference__Group_1_4__0 )* ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16456:1: ( ( rule__JvmParameterizedTypeReference__Group_1_4__0 )* )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16456:1: ( ( rule__JvmParameterizedTypeReference__Group_1_4__0 )* )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16457:1: ( rule__JvmParameterizedTypeReference__Group_1_4__0 )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGroup_1_4()); 
+            }
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16458:1: ( rule__JvmParameterizedTypeReference__Group_1_4__0 )*
+            loop116:
+            do {
+                int alt116=2;
+                int LA116_0 = input.LA(1);
+
+                if ( (LA116_0==44) ) {
+                    int LA116_2 = input.LA(2);
+
+                    if ( (LA116_2==RULE_ID) ) {
+                        int LA116_3 = input.LA(3);
+
+                        if ( (synpred159_InternalXRobotDSL()) ) {
+                            alt116=1;
+                        }
+
+
+                    }
+
+
+                }
+
+
+                switch (alt116) {
+            	case 1 :
+            	    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16458:2: rule__JvmParameterizedTypeReference__Group_1_4__0
+            	    {
+            	    pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__0_in_rule__JvmParameterizedTypeReference__Group_1__4__Impl33141);
+            	    rule__JvmParameterizedTypeReference__Group_1_4__0();
+
+            	    state._fsp--;
+            	    if (state.failed) return ;
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop116;
+                }
+            } while (true);
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGroup_1_4()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1__4__Impl"
+
+
     // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_2__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16447:1: rule__JvmParameterizedTypeReference__Group_1_2__0 : rule__JvmParameterizedTypeReference__Group_1_2__0__Impl rule__JvmParameterizedTypeReference__Group_1_2__1 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16478:1: rule__JvmParameterizedTypeReference__Group_1_2__0 : rule__JvmParameterizedTypeReference__Group_1_2__0__Impl rule__JvmParameterizedTypeReference__Group_1_2__1 ;
     public final void rule__JvmParameterizedTypeReference__Group_1_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16451:1: ( rule__JvmParameterizedTypeReference__Group_1_2__0__Impl rule__JvmParameterizedTypeReference__Group_1_2__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16452:2: rule__JvmParameterizedTypeReference__Group_1_2__0__Impl rule__JvmParameterizedTypeReference__Group_1_2__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16482:1: ( rule__JvmParameterizedTypeReference__Group_1_2__0__Impl rule__JvmParameterizedTypeReference__Group_1_2__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16483:2: rule__JvmParameterizedTypeReference__Group_1_2__0__Impl rule__JvmParameterizedTypeReference__Group_1_2__1
             {
-            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_2__033119);
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_2__033182);
             rule__JvmParameterizedTypeReference__Group_1_2__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__1_in_rule__JvmParameterizedTypeReference__Group_1_2__033122);
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__1_in_rule__JvmParameterizedTypeReference__Group_1_2__033185);
             rule__JvmParameterizedTypeReference__Group_1_2__1();
 
             state._fsp--;
@@ -47190,22 +47309,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_2__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16459:1: rule__JvmParameterizedTypeReference__Group_1_2__0__Impl : ( ',' ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16490:1: rule__JvmParameterizedTypeReference__Group_1_2__0__Impl : ( ',' ) ;
     public final void rule__JvmParameterizedTypeReference__Group_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16463:1: ( ( ',' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16464:1: ( ',' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16494:1: ( ( ',' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16495:1: ( ',' )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16464:1: ( ',' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16465:1: ','
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16495:1: ( ',' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16496:1: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getCommaKeyword_1_2_0()); 
             }
-            match(input,56,FOLLOW_56_in_rule__JvmParameterizedTypeReference__Group_1_2__0__Impl33150); if (state.failed) return ;
+            match(input,56,FOLLOW_56_in_rule__JvmParameterizedTypeReference__Group_1_2__0__Impl33213); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getCommaKeyword_1_2_0()); 
             }
@@ -47231,16 +47350,16 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_2__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16478:1: rule__JvmParameterizedTypeReference__Group_1_2__1 : rule__JvmParameterizedTypeReference__Group_1_2__1__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16509:1: rule__JvmParameterizedTypeReference__Group_1_2__1 : rule__JvmParameterizedTypeReference__Group_1_2__1__Impl ;
     public final void rule__JvmParameterizedTypeReference__Group_1_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16482:1: ( rule__JvmParameterizedTypeReference__Group_1_2__1__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16483:2: rule__JvmParameterizedTypeReference__Group_1_2__1__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16513:1: ( rule__JvmParameterizedTypeReference__Group_1_2__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16514:2: rule__JvmParameterizedTypeReference__Group_1_2__1__Impl
             {
-            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__1__Impl_in_rule__JvmParameterizedTypeReference__Group_1_2__133181);
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__1__Impl_in_rule__JvmParameterizedTypeReference__Group_1_2__133244);
             rule__JvmParameterizedTypeReference__Group_1_2__1__Impl();
 
             state._fsp--;
@@ -47264,25 +47383,25 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_2__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16489:1: rule__JvmParameterizedTypeReference__Group_1_2__1__Impl : ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16520:1: rule__JvmParameterizedTypeReference__Group_1_2__1__Impl : ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 ) ) ;
     public final void rule__JvmParameterizedTypeReference__Group_1_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16493:1: ( ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16494:1: ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16524:1: ( ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16525:1: ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16494:1: ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16495:1: ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16525:1: ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16526:1: ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsAssignment_1_2_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16496:1: ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16496:2: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16527:1: ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16527:2: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1
             {
-            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1_in_rule__JvmParameterizedTypeReference__Group_1_2__1__Impl33208);
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1_in_rule__JvmParameterizedTypeReference__Group_1_2__1__Impl33271);
             rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1();
 
             state._fsp--;
@@ -47314,22 +47433,1046 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_2__1__Impl"
 
 
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4__0"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16541:1: rule__JvmParameterizedTypeReference__Group_1_4__0 : rule__JvmParameterizedTypeReference__Group_1_4__0__Impl rule__JvmParameterizedTypeReference__Group_1_4__1 ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16545:1: ( rule__JvmParameterizedTypeReference__Group_1_4__0__Impl rule__JvmParameterizedTypeReference__Group_1_4__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16546:2: rule__JvmParameterizedTypeReference__Group_1_4__0__Impl rule__JvmParameterizedTypeReference__Group_1_4__1
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4__033305);
+            rule__JvmParameterizedTypeReference__Group_1_4__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__1_in_rule__JvmParameterizedTypeReference__Group_1_4__033308);
+            rule__JvmParameterizedTypeReference__Group_1_4__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4__0"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4__0__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16553:1: rule__JvmParameterizedTypeReference__Group_1_4__0__Impl : ( ( rule__JvmParameterizedTypeReference__Group_1_4_0__0 ) ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16557:1: ( ( ( rule__JvmParameterizedTypeReference__Group_1_4_0__0 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16558:1: ( ( rule__JvmParameterizedTypeReference__Group_1_4_0__0 ) )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16558:1: ( ( rule__JvmParameterizedTypeReference__Group_1_4_0__0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16559:1: ( rule__JvmParameterizedTypeReference__Group_1_4_0__0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGroup_1_4_0()); 
+            }
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16560:1: ( rule__JvmParameterizedTypeReference__Group_1_4_0__0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16560:2: rule__JvmParameterizedTypeReference__Group_1_4_0__0
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_0__0_in_rule__JvmParameterizedTypeReference__Group_1_4__0__Impl33335);
+            rule__JvmParameterizedTypeReference__Group_1_4_0__0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGroup_1_4_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4__0__Impl"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4__1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16570:1: rule__JvmParameterizedTypeReference__Group_1_4__1 : rule__JvmParameterizedTypeReference__Group_1_4__1__Impl rule__JvmParameterizedTypeReference__Group_1_4__2 ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16574:1: ( rule__JvmParameterizedTypeReference__Group_1_4__1__Impl rule__JvmParameterizedTypeReference__Group_1_4__2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16575:2: rule__JvmParameterizedTypeReference__Group_1_4__1__Impl rule__JvmParameterizedTypeReference__Group_1_4__2
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__1__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4__133365);
+            rule__JvmParameterizedTypeReference__Group_1_4__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__2_in_rule__JvmParameterizedTypeReference__Group_1_4__133368);
+            rule__JvmParameterizedTypeReference__Group_1_4__2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4__1"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4__1__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16582:1: rule__JvmParameterizedTypeReference__Group_1_4__1__Impl : ( ( rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1 ) ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16586:1: ( ( ( rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16587:1: ( ( rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1 ) )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16587:1: ( ( rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16588:1: ( rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getTypeAssignment_1_4_1()); 
+            }
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16589:1: ( rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16589:2: rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1_in_rule__JvmParameterizedTypeReference__Group_1_4__1__Impl33395);
+            rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getTypeAssignment_1_4_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4__1__Impl"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4__2"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16599:1: rule__JvmParameterizedTypeReference__Group_1_4__2 : rule__JvmParameterizedTypeReference__Group_1_4__2__Impl ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16603:1: ( rule__JvmParameterizedTypeReference__Group_1_4__2__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16604:2: rule__JvmParameterizedTypeReference__Group_1_4__2__Impl
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__2__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4__233425);
+            rule__JvmParameterizedTypeReference__Group_1_4__2__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4__2"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4__2__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16610:1: rule__JvmParameterizedTypeReference__Group_1_4__2__Impl : ( ( rule__JvmParameterizedTypeReference__Group_1_4_2__0 )? ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16614:1: ( ( ( rule__JvmParameterizedTypeReference__Group_1_4_2__0 )? ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16615:1: ( ( rule__JvmParameterizedTypeReference__Group_1_4_2__0 )? )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16615:1: ( ( rule__JvmParameterizedTypeReference__Group_1_4_2__0 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16616:1: ( rule__JvmParameterizedTypeReference__Group_1_4_2__0 )?
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGroup_1_4_2()); 
+            }
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16617:1: ( rule__JvmParameterizedTypeReference__Group_1_4_2__0 )?
+            int alt117=2;
+            alt117 = dfa117.predict(input);
+            switch (alt117) {
+                case 1 :
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16617:2: rule__JvmParameterizedTypeReference__Group_1_4_2__0
+                    {
+                    pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__0_in_rule__JvmParameterizedTypeReference__Group_1_4__2__Impl33452);
+                    rule__JvmParameterizedTypeReference__Group_1_4_2__0();
+
+                    state._fsp--;
+                    if (state.failed) return ;
+
+                    }
+                    break;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGroup_1_4_2()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4__2__Impl"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_0__0"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16633:1: rule__JvmParameterizedTypeReference__Group_1_4_0__0 : rule__JvmParameterizedTypeReference__Group_1_4_0__0__Impl ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_0__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16637:1: ( rule__JvmParameterizedTypeReference__Group_1_4_0__0__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16638:2: rule__JvmParameterizedTypeReference__Group_1_4_0__0__Impl
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_0__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_0__033489);
+            rule__JvmParameterizedTypeReference__Group_1_4_0__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_0__0"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_0__0__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16644:1: rule__JvmParameterizedTypeReference__Group_1_4_0__0__Impl : ( ( rule__JvmParameterizedTypeReference__Group_1_4_0_0__0 ) ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_0__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16648:1: ( ( ( rule__JvmParameterizedTypeReference__Group_1_4_0_0__0 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16649:1: ( ( rule__JvmParameterizedTypeReference__Group_1_4_0_0__0 ) )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16649:1: ( ( rule__JvmParameterizedTypeReference__Group_1_4_0_0__0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16650:1: ( rule__JvmParameterizedTypeReference__Group_1_4_0_0__0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGroup_1_4_0_0()); 
+            }
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16651:1: ( rule__JvmParameterizedTypeReference__Group_1_4_0_0__0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16651:2: rule__JvmParameterizedTypeReference__Group_1_4_0_0__0
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_0_0__0_in_rule__JvmParameterizedTypeReference__Group_1_4_0__0__Impl33516);
+            rule__JvmParameterizedTypeReference__Group_1_4_0_0__0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGroup_1_4_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_0__0__Impl"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_0_0__0"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16663:1: rule__JvmParameterizedTypeReference__Group_1_4_0_0__0 : rule__JvmParameterizedTypeReference__Group_1_4_0_0__0__Impl rule__JvmParameterizedTypeReference__Group_1_4_0_0__1 ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_0_0__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16667:1: ( rule__JvmParameterizedTypeReference__Group_1_4_0_0__0__Impl rule__JvmParameterizedTypeReference__Group_1_4_0_0__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16668:2: rule__JvmParameterizedTypeReference__Group_1_4_0_0__0__Impl rule__JvmParameterizedTypeReference__Group_1_4_0_0__1
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_0_0__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_0_0__033548);
+            rule__JvmParameterizedTypeReference__Group_1_4_0_0__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_0_0__1_in_rule__JvmParameterizedTypeReference__Group_1_4_0_0__033551);
+            rule__JvmParameterizedTypeReference__Group_1_4_0_0__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_0_0__0"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_0_0__0__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16675:1: rule__JvmParameterizedTypeReference__Group_1_4_0_0__0__Impl : ( () ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_0_0__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16679:1: ( ( () ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16680:1: ( () )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16680:1: ( () )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16681:1: ()
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getJvmInnerTypeReferenceOuterAction_1_4_0_0_0()); 
+            }
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16682:1: ()
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16684:1: 
+            {
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getJvmInnerTypeReferenceOuterAction_1_4_0_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_0_0__0__Impl"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_0_0__1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16694:1: rule__JvmParameterizedTypeReference__Group_1_4_0_0__1 : rule__JvmParameterizedTypeReference__Group_1_4_0_0__1__Impl ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_0_0__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16698:1: ( rule__JvmParameterizedTypeReference__Group_1_4_0_0__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16699:2: rule__JvmParameterizedTypeReference__Group_1_4_0_0__1__Impl
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_0_0__1__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_0_0__133609);
+            rule__JvmParameterizedTypeReference__Group_1_4_0_0__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_0_0__1"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_0_0__1__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16705:1: rule__JvmParameterizedTypeReference__Group_1_4_0_0__1__Impl : ( '.' ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_0_0__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16709:1: ( ( '.' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16710:1: ( '.' )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16710:1: ( '.' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16711:1: '.'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getFullStopKeyword_1_4_0_0_1()); 
+            }
+            match(input,44,FOLLOW_44_in_rule__JvmParameterizedTypeReference__Group_1_4_0_0__1__Impl33637); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getFullStopKeyword_1_4_0_0_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_0_0__1__Impl"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_2__0"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16728:1: rule__JvmParameterizedTypeReference__Group_1_4_2__0 : rule__JvmParameterizedTypeReference__Group_1_4_2__0__Impl rule__JvmParameterizedTypeReference__Group_1_4_2__1 ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_2__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16732:1: ( rule__JvmParameterizedTypeReference__Group_1_4_2__0__Impl rule__JvmParameterizedTypeReference__Group_1_4_2__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16733:2: rule__JvmParameterizedTypeReference__Group_1_4_2__0__Impl rule__JvmParameterizedTypeReference__Group_1_4_2__1
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_2__033672);
+            rule__JvmParameterizedTypeReference__Group_1_4_2__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__1_in_rule__JvmParameterizedTypeReference__Group_1_4_2__033675);
+            rule__JvmParameterizedTypeReference__Group_1_4_2__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_2__0"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_2__0__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16740:1: rule__JvmParameterizedTypeReference__Group_1_4_2__0__Impl : ( ( '<' ) ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_2__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16744:1: ( ( ( '<' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16745:1: ( ( '<' ) )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16745:1: ( ( '<' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16746:1: ( '<' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getLessThanSignKeyword_1_4_2_0()); 
+            }
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16747:1: ( '<' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16748:2: '<'
+            {
+            match(input,28,FOLLOW_28_in_rule__JvmParameterizedTypeReference__Group_1_4_2__0__Impl33704); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getLessThanSignKeyword_1_4_2_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_2__0__Impl"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_2__1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16759:1: rule__JvmParameterizedTypeReference__Group_1_4_2__1 : rule__JvmParameterizedTypeReference__Group_1_4_2__1__Impl rule__JvmParameterizedTypeReference__Group_1_4_2__2 ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_2__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16763:1: ( rule__JvmParameterizedTypeReference__Group_1_4_2__1__Impl rule__JvmParameterizedTypeReference__Group_1_4_2__2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16764:2: rule__JvmParameterizedTypeReference__Group_1_4_2__1__Impl rule__JvmParameterizedTypeReference__Group_1_4_2__2
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__1__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_2__133736);
+            rule__JvmParameterizedTypeReference__Group_1_4_2__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__2_in_rule__JvmParameterizedTypeReference__Group_1_4_2__133739);
+            rule__JvmParameterizedTypeReference__Group_1_4_2__2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_2__1"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_2__1__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16771:1: rule__JvmParameterizedTypeReference__Group_1_4_2__1__Impl : ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1 ) ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_2__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16775:1: ( ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16776:1: ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1 ) )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16776:1: ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16777:1: ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsAssignment_1_4_2_1()); 
+            }
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16778:1: ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16778:2: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1_in_rule__JvmParameterizedTypeReference__Group_1_4_2__1__Impl33766);
+            rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsAssignment_1_4_2_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_2__1__Impl"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_2__2"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16788:1: rule__JvmParameterizedTypeReference__Group_1_4_2__2 : rule__JvmParameterizedTypeReference__Group_1_4_2__2__Impl rule__JvmParameterizedTypeReference__Group_1_4_2__3 ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_2__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16792:1: ( rule__JvmParameterizedTypeReference__Group_1_4_2__2__Impl rule__JvmParameterizedTypeReference__Group_1_4_2__3 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16793:2: rule__JvmParameterizedTypeReference__Group_1_4_2__2__Impl rule__JvmParameterizedTypeReference__Group_1_4_2__3
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__2__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_2__233796);
+            rule__JvmParameterizedTypeReference__Group_1_4_2__2__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__3_in_rule__JvmParameterizedTypeReference__Group_1_4_2__233799);
+            rule__JvmParameterizedTypeReference__Group_1_4_2__3();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_2__2"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_2__2__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16800:1: rule__JvmParameterizedTypeReference__Group_1_4_2__2__Impl : ( ( rule__JvmParameterizedTypeReference__Group_1_4_2_2__0 )* ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_2__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16804:1: ( ( ( rule__JvmParameterizedTypeReference__Group_1_4_2_2__0 )* ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16805:1: ( ( rule__JvmParameterizedTypeReference__Group_1_4_2_2__0 )* )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16805:1: ( ( rule__JvmParameterizedTypeReference__Group_1_4_2_2__0 )* )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16806:1: ( rule__JvmParameterizedTypeReference__Group_1_4_2_2__0 )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGroup_1_4_2_2()); 
+            }
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16807:1: ( rule__JvmParameterizedTypeReference__Group_1_4_2_2__0 )*
+            loop118:
+            do {
+                int alt118=2;
+                int LA118_0 = input.LA(1);
+
+                if ( (LA118_0==56) ) {
+                    alt118=1;
+                }
+
+
+                switch (alt118) {
+            	case 1 :
+            	    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16807:2: rule__JvmParameterizedTypeReference__Group_1_4_2_2__0
+            	    {
+            	    pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2_2__0_in_rule__JvmParameterizedTypeReference__Group_1_4_2__2__Impl33826);
+            	    rule__JvmParameterizedTypeReference__Group_1_4_2_2__0();
+
+            	    state._fsp--;
+            	    if (state.failed) return ;
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop118;
+                }
+            } while (true);
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGroup_1_4_2_2()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_2__2__Impl"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_2__3"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16817:1: rule__JvmParameterizedTypeReference__Group_1_4_2__3 : rule__JvmParameterizedTypeReference__Group_1_4_2__3__Impl ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_2__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16821:1: ( rule__JvmParameterizedTypeReference__Group_1_4_2__3__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16822:2: rule__JvmParameterizedTypeReference__Group_1_4_2__3__Impl
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__3__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_2__333857);
+            rule__JvmParameterizedTypeReference__Group_1_4_2__3__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_2__3"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_2__3__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16828:1: rule__JvmParameterizedTypeReference__Group_1_4_2__3__Impl : ( '>' ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_2__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16832:1: ( ( '>' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16833:1: ( '>' )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16833:1: ( '>' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16834:1: '>'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGreaterThanSignKeyword_1_4_2_3()); 
+            }
+            match(input,27,FOLLOW_27_in_rule__JvmParameterizedTypeReference__Group_1_4_2__3__Impl33885); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getGreaterThanSignKeyword_1_4_2_3()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_2__3__Impl"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_2_2__0"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16855:1: rule__JvmParameterizedTypeReference__Group_1_4_2_2__0 : rule__JvmParameterizedTypeReference__Group_1_4_2_2__0__Impl rule__JvmParameterizedTypeReference__Group_1_4_2_2__1 ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_2_2__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16859:1: ( rule__JvmParameterizedTypeReference__Group_1_4_2_2__0__Impl rule__JvmParameterizedTypeReference__Group_1_4_2_2__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16860:2: rule__JvmParameterizedTypeReference__Group_1_4_2_2__0__Impl rule__JvmParameterizedTypeReference__Group_1_4_2_2__1
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2_2__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_2_2__033924);
+            rule__JvmParameterizedTypeReference__Group_1_4_2_2__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2_2__1_in_rule__JvmParameterizedTypeReference__Group_1_4_2_2__033927);
+            rule__JvmParameterizedTypeReference__Group_1_4_2_2__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_2_2__0"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_2_2__0__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16867:1: rule__JvmParameterizedTypeReference__Group_1_4_2_2__0__Impl : ( ',' ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_2_2__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16871:1: ( ( ',' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16872:1: ( ',' )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16872:1: ( ',' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16873:1: ','
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getCommaKeyword_1_4_2_2_0()); 
+            }
+            match(input,56,FOLLOW_56_in_rule__JvmParameterizedTypeReference__Group_1_4_2_2__0__Impl33955); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getCommaKeyword_1_4_2_2_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_2_2__0__Impl"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_2_2__1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16886:1: rule__JvmParameterizedTypeReference__Group_1_4_2_2__1 : rule__JvmParameterizedTypeReference__Group_1_4_2_2__1__Impl ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_2_2__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16890:1: ( rule__JvmParameterizedTypeReference__Group_1_4_2_2__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16891:2: rule__JvmParameterizedTypeReference__Group_1_4_2_2__1__Impl
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2_2__1__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_2_2__133986);
+            rule__JvmParameterizedTypeReference__Group_1_4_2_2__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_2_2__1"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__Group_1_4_2_2__1__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16897:1: rule__JvmParameterizedTypeReference__Group_1_4_2_2__1__Impl : ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1 ) ) ;
+    public final void rule__JvmParameterizedTypeReference__Group_1_4_2_2__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16901:1: ( ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16902:1: ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1 ) )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16902:1: ( ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16903:1: ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsAssignment_1_4_2_2_1()); 
+            }
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16904:1: ( rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16904:2: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1
+            {
+            pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1_in_rule__JvmParameterizedTypeReference__Group_1_4_2_2__1__Impl34013);
+            rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsAssignment_1_4_2_2_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__Group_1_4_2_2__1__Impl"
+
+
     // $ANTLR start "rule__JvmWildcardTypeReference__Group__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16510:1: rule__JvmWildcardTypeReference__Group__0 : rule__JvmWildcardTypeReference__Group__0__Impl rule__JvmWildcardTypeReference__Group__1 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16918:1: rule__JvmWildcardTypeReference__Group__0 : rule__JvmWildcardTypeReference__Group__0__Impl rule__JvmWildcardTypeReference__Group__1 ;
     public final void rule__JvmWildcardTypeReference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16514:1: ( rule__JvmWildcardTypeReference__Group__0__Impl rule__JvmWildcardTypeReference__Group__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16515:2: rule__JvmWildcardTypeReference__Group__0__Impl rule__JvmWildcardTypeReference__Group__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16922:1: ( rule__JvmWildcardTypeReference__Group__0__Impl rule__JvmWildcardTypeReference__Group__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16923:2: rule__JvmWildcardTypeReference__Group__0__Impl rule__JvmWildcardTypeReference__Group__1
             {
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group__0__Impl_in_rule__JvmWildcardTypeReference__Group__033242);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group__0__Impl_in_rule__JvmWildcardTypeReference__Group__034047);
             rule__JvmWildcardTypeReference__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group__1_in_rule__JvmWildcardTypeReference__Group__033245);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group__1_in_rule__JvmWildcardTypeReference__Group__034050);
             rule__JvmWildcardTypeReference__Group__1();
 
             state._fsp--;
@@ -47353,23 +48496,23 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16522:1: rule__JvmWildcardTypeReference__Group__0__Impl : ( () ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16930:1: rule__JvmWildcardTypeReference__Group__0__Impl : ( () ) ;
     public final void rule__JvmWildcardTypeReference__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16526:1: ( ( () ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16527:1: ( () )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16934:1: ( ( () ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16935:1: ( () )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16527:1: ( () )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16528:1: ()
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16935:1: ( () )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16936:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getJvmWildcardTypeReferenceAction_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16529:1: ()
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16531:1: 
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16937:1: ()
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16939:1: 
             {
             }
 
@@ -47394,21 +48537,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16541:1: rule__JvmWildcardTypeReference__Group__1 : rule__JvmWildcardTypeReference__Group__1__Impl rule__JvmWildcardTypeReference__Group__2 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16949:1: rule__JvmWildcardTypeReference__Group__1 : rule__JvmWildcardTypeReference__Group__1__Impl rule__JvmWildcardTypeReference__Group__2 ;
     public final void rule__JvmWildcardTypeReference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16545:1: ( rule__JvmWildcardTypeReference__Group__1__Impl rule__JvmWildcardTypeReference__Group__2 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16546:2: rule__JvmWildcardTypeReference__Group__1__Impl rule__JvmWildcardTypeReference__Group__2
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16953:1: ( rule__JvmWildcardTypeReference__Group__1__Impl rule__JvmWildcardTypeReference__Group__2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16954:2: rule__JvmWildcardTypeReference__Group__1__Impl rule__JvmWildcardTypeReference__Group__2
             {
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group__1__Impl_in_rule__JvmWildcardTypeReference__Group__133303);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group__1__Impl_in_rule__JvmWildcardTypeReference__Group__134108);
             rule__JvmWildcardTypeReference__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group__2_in_rule__JvmWildcardTypeReference__Group__133306);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group__2_in_rule__JvmWildcardTypeReference__Group__134111);
             rule__JvmWildcardTypeReference__Group__2();
 
             state._fsp--;
@@ -47432,22 +48575,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16553:1: rule__JvmWildcardTypeReference__Group__1__Impl : ( '?' ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16961:1: rule__JvmWildcardTypeReference__Group__1__Impl : ( '?' ) ;
     public final void rule__JvmWildcardTypeReference__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16557:1: ( ( '?' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16558:1: ( '?' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16965:1: ( ( '?' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16966:1: ( '?' )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16558:1: ( '?' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16559:1: '?'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16966:1: ( '?' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16967:1: '?'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getQuestionMarkKeyword_1()); 
             }
-            match(input,84,FOLLOW_84_in_rule__JvmWildcardTypeReference__Group__1__Impl33334); if (state.failed) return ;
+            match(input,84,FOLLOW_84_in_rule__JvmWildcardTypeReference__Group__1__Impl34139); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getJvmWildcardTypeReferenceAccess().getQuestionMarkKeyword_1()); 
             }
@@ -47473,16 +48616,16 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group__2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16572:1: rule__JvmWildcardTypeReference__Group__2 : rule__JvmWildcardTypeReference__Group__2__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16980:1: rule__JvmWildcardTypeReference__Group__2 : rule__JvmWildcardTypeReference__Group__2__Impl ;
     public final void rule__JvmWildcardTypeReference__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16576:1: ( rule__JvmWildcardTypeReference__Group__2__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16577:2: rule__JvmWildcardTypeReference__Group__2__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16984:1: ( rule__JvmWildcardTypeReference__Group__2__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16985:2: rule__JvmWildcardTypeReference__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group__2__Impl_in_rule__JvmWildcardTypeReference__Group__233365);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group__2__Impl_in_rule__JvmWildcardTypeReference__Group__234170);
             rule__JvmWildcardTypeReference__Group__2__Impl();
 
             state._fsp--;
@@ -47506,33 +48649,33 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group__2__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16583:1: rule__JvmWildcardTypeReference__Group__2__Impl : ( ( rule__JvmWildcardTypeReference__Alternatives_2 )? ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16991:1: rule__JvmWildcardTypeReference__Group__2__Impl : ( ( rule__JvmWildcardTypeReference__Alternatives_2 )? ) ;
     public final void rule__JvmWildcardTypeReference__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16587:1: ( ( ( rule__JvmWildcardTypeReference__Alternatives_2 )? ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16588:1: ( ( rule__JvmWildcardTypeReference__Alternatives_2 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16995:1: ( ( ( rule__JvmWildcardTypeReference__Alternatives_2 )? ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16996:1: ( ( rule__JvmWildcardTypeReference__Alternatives_2 )? )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16588:1: ( ( rule__JvmWildcardTypeReference__Alternatives_2 )? )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16589:1: ( rule__JvmWildcardTypeReference__Alternatives_2 )?
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16996:1: ( ( rule__JvmWildcardTypeReference__Alternatives_2 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16997:1: ( rule__JvmWildcardTypeReference__Alternatives_2 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getAlternatives_2()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16590:1: ( rule__JvmWildcardTypeReference__Alternatives_2 )?
-            int alt116=2;
-            int LA116_0 = input.LA(1);
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16998:1: ( rule__JvmWildcardTypeReference__Alternatives_2 )?
+            int alt119=2;
+            int LA119_0 = input.LA(1);
 
-            if ( (LA116_0==46||LA116_0==50) ) {
-                alt116=1;
+            if ( (LA119_0==46||LA119_0==50) ) {
+                alt119=1;
             }
-            switch (alt116) {
+            switch (alt119) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16590:2: rule__JvmWildcardTypeReference__Alternatives_2
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16998:2: rule__JvmWildcardTypeReference__Alternatives_2
                     {
-                    pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Alternatives_2_in_rule__JvmWildcardTypeReference__Group__2__Impl33392);
+                    pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Alternatives_2_in_rule__JvmWildcardTypeReference__Group__2__Impl34197);
                     rule__JvmWildcardTypeReference__Alternatives_2();
 
                     state._fsp--;
@@ -47568,21 +48711,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group_2_0__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16606:1: rule__JvmWildcardTypeReference__Group_2_0__0 : rule__JvmWildcardTypeReference__Group_2_0__0__Impl rule__JvmWildcardTypeReference__Group_2_0__1 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17014:1: rule__JvmWildcardTypeReference__Group_2_0__0 : rule__JvmWildcardTypeReference__Group_2_0__0__Impl rule__JvmWildcardTypeReference__Group_2_0__1 ;
     public final void rule__JvmWildcardTypeReference__Group_2_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16610:1: ( rule__JvmWildcardTypeReference__Group_2_0__0__Impl rule__JvmWildcardTypeReference__Group_2_0__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16611:2: rule__JvmWildcardTypeReference__Group_2_0__0__Impl rule__JvmWildcardTypeReference__Group_2_0__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17018:1: ( rule__JvmWildcardTypeReference__Group_2_0__0__Impl rule__JvmWildcardTypeReference__Group_2_0__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17019:2: rule__JvmWildcardTypeReference__Group_2_0__0__Impl rule__JvmWildcardTypeReference__Group_2_0__1
             {
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group_2_0__0__Impl_in_rule__JvmWildcardTypeReference__Group_2_0__033429);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group_2_0__0__Impl_in_rule__JvmWildcardTypeReference__Group_2_0__034234);
             rule__JvmWildcardTypeReference__Group_2_0__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group_2_0__1_in_rule__JvmWildcardTypeReference__Group_2_0__033432);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group_2_0__1_in_rule__JvmWildcardTypeReference__Group_2_0__034237);
             rule__JvmWildcardTypeReference__Group_2_0__1();
 
             state._fsp--;
@@ -47606,25 +48749,25 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group_2_0__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16618:1: rule__JvmWildcardTypeReference__Group_2_0__0__Impl : ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17026:1: rule__JvmWildcardTypeReference__Group_2_0__0__Impl : ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 ) ) ;
     public final void rule__JvmWildcardTypeReference__Group_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16622:1: ( ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16623:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17030:1: ( ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17031:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16623:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16624:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17031:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17032:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsAssignment_2_0_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16625:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16625:2: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17033:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17033:2: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0
             {
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0_in_rule__JvmWildcardTypeReference__Group_2_0__0__Impl33459);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0_in_rule__JvmWildcardTypeReference__Group_2_0__0__Impl34264);
             rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0();
 
             state._fsp--;
@@ -47657,16 +48800,16 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group_2_0__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16635:1: rule__JvmWildcardTypeReference__Group_2_0__1 : rule__JvmWildcardTypeReference__Group_2_0__1__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17043:1: rule__JvmWildcardTypeReference__Group_2_0__1 : rule__JvmWildcardTypeReference__Group_2_0__1__Impl ;
     public final void rule__JvmWildcardTypeReference__Group_2_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16639:1: ( rule__JvmWildcardTypeReference__Group_2_0__1__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16640:2: rule__JvmWildcardTypeReference__Group_2_0__1__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17047:1: ( rule__JvmWildcardTypeReference__Group_2_0__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17048:2: rule__JvmWildcardTypeReference__Group_2_0__1__Impl
             {
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group_2_0__1__Impl_in_rule__JvmWildcardTypeReference__Group_2_0__133489);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group_2_0__1__Impl_in_rule__JvmWildcardTypeReference__Group_2_0__134294);
             rule__JvmWildcardTypeReference__Group_2_0__1__Impl();
 
             state._fsp--;
@@ -47690,37 +48833,37 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group_2_0__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16646:1: rule__JvmWildcardTypeReference__Group_2_0__1__Impl : ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 )* ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17054:1: rule__JvmWildcardTypeReference__Group_2_0__1__Impl : ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 )* ) ;
     public final void rule__JvmWildcardTypeReference__Group_2_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16650:1: ( ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 )* ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16651:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 )* )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17058:1: ( ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 )* ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17059:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 )* )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16651:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 )* )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16652:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 )*
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17059:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 )* )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17060:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsAssignment_2_0_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16653:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 )*
-            loop117:
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17061:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 )*
+            loop120:
             do {
-                int alt117=2;
-                int LA117_0 = input.LA(1);
+                int alt120=2;
+                int LA120_0 = input.LA(1);
 
-                if ( (LA117_0==85) ) {
-                    alt117=1;
+                if ( (LA120_0==85) ) {
+                    alt120=1;
                 }
 
 
-                switch (alt117) {
+                switch (alt120) {
             	case 1 :
-            	    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16653:2: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1
+            	    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17061:2: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1
             	    {
-            	    pushFollow(FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1_in_rule__JvmWildcardTypeReference__Group_2_0__1__Impl33516);
+            	    pushFollow(FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1_in_rule__JvmWildcardTypeReference__Group_2_0__1__Impl34321);
             	    rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1();
 
             	    state._fsp--;
@@ -47730,7 +48873,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop117;
+            	    break loop120;
                 }
             } while (true);
 
@@ -47759,21 +48902,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group_2_1__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16667:1: rule__JvmWildcardTypeReference__Group_2_1__0 : rule__JvmWildcardTypeReference__Group_2_1__0__Impl rule__JvmWildcardTypeReference__Group_2_1__1 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17075:1: rule__JvmWildcardTypeReference__Group_2_1__0 : rule__JvmWildcardTypeReference__Group_2_1__0__Impl rule__JvmWildcardTypeReference__Group_2_1__1 ;
     public final void rule__JvmWildcardTypeReference__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16671:1: ( rule__JvmWildcardTypeReference__Group_2_1__0__Impl rule__JvmWildcardTypeReference__Group_2_1__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16672:2: rule__JvmWildcardTypeReference__Group_2_1__0__Impl rule__JvmWildcardTypeReference__Group_2_1__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17079:1: ( rule__JvmWildcardTypeReference__Group_2_1__0__Impl rule__JvmWildcardTypeReference__Group_2_1__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17080:2: rule__JvmWildcardTypeReference__Group_2_1__0__Impl rule__JvmWildcardTypeReference__Group_2_1__1
             {
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group_2_1__0__Impl_in_rule__JvmWildcardTypeReference__Group_2_1__033551);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group_2_1__0__Impl_in_rule__JvmWildcardTypeReference__Group_2_1__034356);
             rule__JvmWildcardTypeReference__Group_2_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group_2_1__1_in_rule__JvmWildcardTypeReference__Group_2_1__033554);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group_2_1__1_in_rule__JvmWildcardTypeReference__Group_2_1__034359);
             rule__JvmWildcardTypeReference__Group_2_1__1();
 
             state._fsp--;
@@ -47797,25 +48940,25 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group_2_1__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16679:1: rule__JvmWildcardTypeReference__Group_2_1__0__Impl : ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17087:1: rule__JvmWildcardTypeReference__Group_2_1__0__Impl : ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 ) ) ;
     public final void rule__JvmWildcardTypeReference__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16683:1: ( ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16684:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17091:1: ( ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17092:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16684:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16685:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17092:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17093:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsAssignment_2_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16686:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16686:2: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17094:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17094:2: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0
             {
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0_in_rule__JvmWildcardTypeReference__Group_2_1__0__Impl33581);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0_in_rule__JvmWildcardTypeReference__Group_2_1__0__Impl34386);
             rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0();
 
             state._fsp--;
@@ -47848,16 +48991,16 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group_2_1__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16696:1: rule__JvmWildcardTypeReference__Group_2_1__1 : rule__JvmWildcardTypeReference__Group_2_1__1__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17104:1: rule__JvmWildcardTypeReference__Group_2_1__1 : rule__JvmWildcardTypeReference__Group_2_1__1__Impl ;
     public final void rule__JvmWildcardTypeReference__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16700:1: ( rule__JvmWildcardTypeReference__Group_2_1__1__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16701:2: rule__JvmWildcardTypeReference__Group_2_1__1__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17108:1: ( rule__JvmWildcardTypeReference__Group_2_1__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17109:2: rule__JvmWildcardTypeReference__Group_2_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group_2_1__1__Impl_in_rule__JvmWildcardTypeReference__Group_2_1__133611);
+            pushFollow(FOLLOW_rule__JvmWildcardTypeReference__Group_2_1__1__Impl_in_rule__JvmWildcardTypeReference__Group_2_1__134416);
             rule__JvmWildcardTypeReference__Group_2_1__1__Impl();
 
             state._fsp--;
@@ -47881,37 +49024,37 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__Group_2_1__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16707:1: rule__JvmWildcardTypeReference__Group_2_1__1__Impl : ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 )* ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17115:1: rule__JvmWildcardTypeReference__Group_2_1__1__Impl : ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 )* ) ;
     public final void rule__JvmWildcardTypeReference__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16711:1: ( ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 )* ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16712:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 )* )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17119:1: ( ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 )* ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17120:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 )* )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16712:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 )* )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16713:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 )*
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17120:1: ( ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 )* )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17121:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsAssignment_2_1_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16714:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 )*
-            loop118:
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17122:1: ( rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 )*
+            loop121:
             do {
-                int alt118=2;
-                int LA118_0 = input.LA(1);
+                int alt121=2;
+                int LA121_0 = input.LA(1);
 
-                if ( (LA118_0==85) ) {
-                    alt118=1;
+                if ( (LA121_0==85) ) {
+                    alt121=1;
                 }
 
 
-                switch (alt118) {
+                switch (alt121) {
             	case 1 :
-            	    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16714:2: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1
+            	    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17122:2: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1
             	    {
-            	    pushFollow(FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1_in_rule__JvmWildcardTypeReference__Group_2_1__1__Impl33638);
+            	    pushFollow(FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1_in_rule__JvmWildcardTypeReference__Group_2_1__1__Impl34443);
             	    rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1();
 
             	    state._fsp--;
@@ -47921,7 +49064,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop118;
+            	    break loop121;
                 }
             } while (true);
 
@@ -47950,21 +49093,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmUpperBound__Group__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16728:1: rule__JvmUpperBound__Group__0 : rule__JvmUpperBound__Group__0__Impl rule__JvmUpperBound__Group__1 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17136:1: rule__JvmUpperBound__Group__0 : rule__JvmUpperBound__Group__0__Impl rule__JvmUpperBound__Group__1 ;
     public final void rule__JvmUpperBound__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16732:1: ( rule__JvmUpperBound__Group__0__Impl rule__JvmUpperBound__Group__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16733:2: rule__JvmUpperBound__Group__0__Impl rule__JvmUpperBound__Group__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17140:1: ( rule__JvmUpperBound__Group__0__Impl rule__JvmUpperBound__Group__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17141:2: rule__JvmUpperBound__Group__0__Impl rule__JvmUpperBound__Group__1
             {
-            pushFollow(FOLLOW_rule__JvmUpperBound__Group__0__Impl_in_rule__JvmUpperBound__Group__033673);
+            pushFollow(FOLLOW_rule__JvmUpperBound__Group__0__Impl_in_rule__JvmUpperBound__Group__034478);
             rule__JvmUpperBound__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__JvmUpperBound__Group__1_in_rule__JvmUpperBound__Group__033676);
+            pushFollow(FOLLOW_rule__JvmUpperBound__Group__1_in_rule__JvmUpperBound__Group__034481);
             rule__JvmUpperBound__Group__1();
 
             state._fsp--;
@@ -47988,22 +49131,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmUpperBound__Group__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16740:1: rule__JvmUpperBound__Group__0__Impl : ( 'extends' ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17148:1: rule__JvmUpperBound__Group__0__Impl : ( 'extends' ) ;
     public final void rule__JvmUpperBound__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16744:1: ( ( 'extends' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16745:1: ( 'extends' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17152:1: ( ( 'extends' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17153:1: ( 'extends' )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16745:1: ( 'extends' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16746:1: 'extends'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17153:1: ( 'extends' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17154:1: 'extends'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmUpperBoundAccess().getExtendsKeyword_0()); 
             }
-            match(input,46,FOLLOW_46_in_rule__JvmUpperBound__Group__0__Impl33704); if (state.failed) return ;
+            match(input,46,FOLLOW_46_in_rule__JvmUpperBound__Group__0__Impl34509); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getJvmUpperBoundAccess().getExtendsKeyword_0()); 
             }
@@ -48029,16 +49172,16 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmUpperBound__Group__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16759:1: rule__JvmUpperBound__Group__1 : rule__JvmUpperBound__Group__1__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17167:1: rule__JvmUpperBound__Group__1 : rule__JvmUpperBound__Group__1__Impl ;
     public final void rule__JvmUpperBound__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16763:1: ( rule__JvmUpperBound__Group__1__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16764:2: rule__JvmUpperBound__Group__1__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17171:1: ( rule__JvmUpperBound__Group__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17172:2: rule__JvmUpperBound__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__JvmUpperBound__Group__1__Impl_in_rule__JvmUpperBound__Group__133735);
+            pushFollow(FOLLOW_rule__JvmUpperBound__Group__1__Impl_in_rule__JvmUpperBound__Group__134540);
             rule__JvmUpperBound__Group__1__Impl();
 
             state._fsp--;
@@ -48062,25 +49205,25 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmUpperBound__Group__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16770:1: rule__JvmUpperBound__Group__1__Impl : ( ( rule__JvmUpperBound__TypeReferenceAssignment_1 ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17178:1: rule__JvmUpperBound__Group__1__Impl : ( ( rule__JvmUpperBound__TypeReferenceAssignment_1 ) ) ;
     public final void rule__JvmUpperBound__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16774:1: ( ( ( rule__JvmUpperBound__TypeReferenceAssignment_1 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16775:1: ( ( rule__JvmUpperBound__TypeReferenceAssignment_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17182:1: ( ( ( rule__JvmUpperBound__TypeReferenceAssignment_1 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17183:1: ( ( rule__JvmUpperBound__TypeReferenceAssignment_1 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16775:1: ( ( rule__JvmUpperBound__TypeReferenceAssignment_1 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16776:1: ( rule__JvmUpperBound__TypeReferenceAssignment_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17183:1: ( ( rule__JvmUpperBound__TypeReferenceAssignment_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17184:1: ( rule__JvmUpperBound__TypeReferenceAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmUpperBoundAccess().getTypeReferenceAssignment_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16777:1: ( rule__JvmUpperBound__TypeReferenceAssignment_1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16777:2: rule__JvmUpperBound__TypeReferenceAssignment_1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17185:1: ( rule__JvmUpperBound__TypeReferenceAssignment_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17185:2: rule__JvmUpperBound__TypeReferenceAssignment_1
             {
-            pushFollow(FOLLOW_rule__JvmUpperBound__TypeReferenceAssignment_1_in_rule__JvmUpperBound__Group__1__Impl33762);
+            pushFollow(FOLLOW_rule__JvmUpperBound__TypeReferenceAssignment_1_in_rule__JvmUpperBound__Group__1__Impl34567);
             rule__JvmUpperBound__TypeReferenceAssignment_1();
 
             state._fsp--;
@@ -48113,21 +49256,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmUpperBoundAnded__Group__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16791:1: rule__JvmUpperBoundAnded__Group__0 : rule__JvmUpperBoundAnded__Group__0__Impl rule__JvmUpperBoundAnded__Group__1 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17199:1: rule__JvmUpperBoundAnded__Group__0 : rule__JvmUpperBoundAnded__Group__0__Impl rule__JvmUpperBoundAnded__Group__1 ;
     public final void rule__JvmUpperBoundAnded__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16795:1: ( rule__JvmUpperBoundAnded__Group__0__Impl rule__JvmUpperBoundAnded__Group__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16796:2: rule__JvmUpperBoundAnded__Group__0__Impl rule__JvmUpperBoundAnded__Group__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17203:1: ( rule__JvmUpperBoundAnded__Group__0__Impl rule__JvmUpperBoundAnded__Group__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17204:2: rule__JvmUpperBoundAnded__Group__0__Impl rule__JvmUpperBoundAnded__Group__1
             {
-            pushFollow(FOLLOW_rule__JvmUpperBoundAnded__Group__0__Impl_in_rule__JvmUpperBoundAnded__Group__033796);
+            pushFollow(FOLLOW_rule__JvmUpperBoundAnded__Group__0__Impl_in_rule__JvmUpperBoundAnded__Group__034601);
             rule__JvmUpperBoundAnded__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__JvmUpperBoundAnded__Group__1_in_rule__JvmUpperBoundAnded__Group__033799);
+            pushFollow(FOLLOW_rule__JvmUpperBoundAnded__Group__1_in_rule__JvmUpperBoundAnded__Group__034604);
             rule__JvmUpperBoundAnded__Group__1();
 
             state._fsp--;
@@ -48151,22 +49294,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmUpperBoundAnded__Group__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16803:1: rule__JvmUpperBoundAnded__Group__0__Impl : ( '&' ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17211:1: rule__JvmUpperBoundAnded__Group__0__Impl : ( '&' ) ;
     public final void rule__JvmUpperBoundAnded__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16807:1: ( ( '&' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16808:1: ( '&' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17215:1: ( ( '&' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17216:1: ( '&' )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16808:1: ( '&' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16809:1: '&'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17216:1: ( '&' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17217:1: '&'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmUpperBoundAndedAccess().getAmpersandKeyword_0()); 
             }
-            match(input,85,FOLLOW_85_in_rule__JvmUpperBoundAnded__Group__0__Impl33827); if (state.failed) return ;
+            match(input,85,FOLLOW_85_in_rule__JvmUpperBoundAnded__Group__0__Impl34632); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getJvmUpperBoundAndedAccess().getAmpersandKeyword_0()); 
             }
@@ -48192,16 +49335,16 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmUpperBoundAnded__Group__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16822:1: rule__JvmUpperBoundAnded__Group__1 : rule__JvmUpperBoundAnded__Group__1__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17230:1: rule__JvmUpperBoundAnded__Group__1 : rule__JvmUpperBoundAnded__Group__1__Impl ;
     public final void rule__JvmUpperBoundAnded__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16826:1: ( rule__JvmUpperBoundAnded__Group__1__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16827:2: rule__JvmUpperBoundAnded__Group__1__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17234:1: ( rule__JvmUpperBoundAnded__Group__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17235:2: rule__JvmUpperBoundAnded__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__JvmUpperBoundAnded__Group__1__Impl_in_rule__JvmUpperBoundAnded__Group__133858);
+            pushFollow(FOLLOW_rule__JvmUpperBoundAnded__Group__1__Impl_in_rule__JvmUpperBoundAnded__Group__134663);
             rule__JvmUpperBoundAnded__Group__1__Impl();
 
             state._fsp--;
@@ -48225,25 +49368,25 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmUpperBoundAnded__Group__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16833:1: rule__JvmUpperBoundAnded__Group__1__Impl : ( ( rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17241:1: rule__JvmUpperBoundAnded__Group__1__Impl : ( ( rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 ) ) ;
     public final void rule__JvmUpperBoundAnded__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16837:1: ( ( ( rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16838:1: ( ( rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17245:1: ( ( ( rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17246:1: ( ( rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16838:1: ( ( rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16839:1: ( rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17246:1: ( ( rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17247:1: ( rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmUpperBoundAndedAccess().getTypeReferenceAssignment_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16840:1: ( rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16840:2: rule__JvmUpperBoundAnded__TypeReferenceAssignment_1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17248:1: ( rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17248:2: rule__JvmUpperBoundAnded__TypeReferenceAssignment_1
             {
-            pushFollow(FOLLOW_rule__JvmUpperBoundAnded__TypeReferenceAssignment_1_in_rule__JvmUpperBoundAnded__Group__1__Impl33885);
+            pushFollow(FOLLOW_rule__JvmUpperBoundAnded__TypeReferenceAssignment_1_in_rule__JvmUpperBoundAnded__Group__1__Impl34690);
             rule__JvmUpperBoundAnded__TypeReferenceAssignment_1();
 
             state._fsp--;
@@ -48276,21 +49419,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmLowerBound__Group__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16854:1: rule__JvmLowerBound__Group__0 : rule__JvmLowerBound__Group__0__Impl rule__JvmLowerBound__Group__1 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17262:1: rule__JvmLowerBound__Group__0 : rule__JvmLowerBound__Group__0__Impl rule__JvmLowerBound__Group__1 ;
     public final void rule__JvmLowerBound__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16858:1: ( rule__JvmLowerBound__Group__0__Impl rule__JvmLowerBound__Group__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16859:2: rule__JvmLowerBound__Group__0__Impl rule__JvmLowerBound__Group__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17266:1: ( rule__JvmLowerBound__Group__0__Impl rule__JvmLowerBound__Group__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17267:2: rule__JvmLowerBound__Group__0__Impl rule__JvmLowerBound__Group__1
             {
-            pushFollow(FOLLOW_rule__JvmLowerBound__Group__0__Impl_in_rule__JvmLowerBound__Group__033919);
+            pushFollow(FOLLOW_rule__JvmLowerBound__Group__0__Impl_in_rule__JvmLowerBound__Group__034724);
             rule__JvmLowerBound__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__JvmLowerBound__Group__1_in_rule__JvmLowerBound__Group__033922);
+            pushFollow(FOLLOW_rule__JvmLowerBound__Group__1_in_rule__JvmLowerBound__Group__034727);
             rule__JvmLowerBound__Group__1();
 
             state._fsp--;
@@ -48314,22 +49457,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmLowerBound__Group__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16866:1: rule__JvmLowerBound__Group__0__Impl : ( 'super' ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17274:1: rule__JvmLowerBound__Group__0__Impl : ( 'super' ) ;
     public final void rule__JvmLowerBound__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16870:1: ( ( 'super' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16871:1: ( 'super' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17278:1: ( ( 'super' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17279:1: ( 'super' )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16871:1: ( 'super' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16872:1: 'super'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17279:1: ( 'super' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17280:1: 'super'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmLowerBoundAccess().getSuperKeyword_0()); 
             }
-            match(input,50,FOLLOW_50_in_rule__JvmLowerBound__Group__0__Impl33950); if (state.failed) return ;
+            match(input,50,FOLLOW_50_in_rule__JvmLowerBound__Group__0__Impl34755); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getJvmLowerBoundAccess().getSuperKeyword_0()); 
             }
@@ -48355,16 +49498,16 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmLowerBound__Group__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16885:1: rule__JvmLowerBound__Group__1 : rule__JvmLowerBound__Group__1__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17293:1: rule__JvmLowerBound__Group__1 : rule__JvmLowerBound__Group__1__Impl ;
     public final void rule__JvmLowerBound__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16889:1: ( rule__JvmLowerBound__Group__1__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16890:2: rule__JvmLowerBound__Group__1__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17297:1: ( rule__JvmLowerBound__Group__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17298:2: rule__JvmLowerBound__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__JvmLowerBound__Group__1__Impl_in_rule__JvmLowerBound__Group__133981);
+            pushFollow(FOLLOW_rule__JvmLowerBound__Group__1__Impl_in_rule__JvmLowerBound__Group__134786);
             rule__JvmLowerBound__Group__1__Impl();
 
             state._fsp--;
@@ -48388,25 +49531,25 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmLowerBound__Group__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16896:1: rule__JvmLowerBound__Group__1__Impl : ( ( rule__JvmLowerBound__TypeReferenceAssignment_1 ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17304:1: rule__JvmLowerBound__Group__1__Impl : ( ( rule__JvmLowerBound__TypeReferenceAssignment_1 ) ) ;
     public final void rule__JvmLowerBound__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16900:1: ( ( ( rule__JvmLowerBound__TypeReferenceAssignment_1 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16901:1: ( ( rule__JvmLowerBound__TypeReferenceAssignment_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17308:1: ( ( ( rule__JvmLowerBound__TypeReferenceAssignment_1 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17309:1: ( ( rule__JvmLowerBound__TypeReferenceAssignment_1 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16901:1: ( ( rule__JvmLowerBound__TypeReferenceAssignment_1 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16902:1: ( rule__JvmLowerBound__TypeReferenceAssignment_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17309:1: ( ( rule__JvmLowerBound__TypeReferenceAssignment_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17310:1: ( rule__JvmLowerBound__TypeReferenceAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmLowerBoundAccess().getTypeReferenceAssignment_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16903:1: ( rule__JvmLowerBound__TypeReferenceAssignment_1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16903:2: rule__JvmLowerBound__TypeReferenceAssignment_1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17311:1: ( rule__JvmLowerBound__TypeReferenceAssignment_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17311:2: rule__JvmLowerBound__TypeReferenceAssignment_1
             {
-            pushFollow(FOLLOW_rule__JvmLowerBound__TypeReferenceAssignment_1_in_rule__JvmLowerBound__Group__1__Impl34008);
+            pushFollow(FOLLOW_rule__JvmLowerBound__TypeReferenceAssignment_1_in_rule__JvmLowerBound__Group__1__Impl34813);
             rule__JvmLowerBound__TypeReferenceAssignment_1();
 
             state._fsp--;
@@ -48439,21 +49582,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmLowerBoundAnded__Group__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16917:1: rule__JvmLowerBoundAnded__Group__0 : rule__JvmLowerBoundAnded__Group__0__Impl rule__JvmLowerBoundAnded__Group__1 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17325:1: rule__JvmLowerBoundAnded__Group__0 : rule__JvmLowerBoundAnded__Group__0__Impl rule__JvmLowerBoundAnded__Group__1 ;
     public final void rule__JvmLowerBoundAnded__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16921:1: ( rule__JvmLowerBoundAnded__Group__0__Impl rule__JvmLowerBoundAnded__Group__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16922:2: rule__JvmLowerBoundAnded__Group__0__Impl rule__JvmLowerBoundAnded__Group__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17329:1: ( rule__JvmLowerBoundAnded__Group__0__Impl rule__JvmLowerBoundAnded__Group__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17330:2: rule__JvmLowerBoundAnded__Group__0__Impl rule__JvmLowerBoundAnded__Group__1
             {
-            pushFollow(FOLLOW_rule__JvmLowerBoundAnded__Group__0__Impl_in_rule__JvmLowerBoundAnded__Group__034042);
+            pushFollow(FOLLOW_rule__JvmLowerBoundAnded__Group__0__Impl_in_rule__JvmLowerBoundAnded__Group__034847);
             rule__JvmLowerBoundAnded__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__JvmLowerBoundAnded__Group__1_in_rule__JvmLowerBoundAnded__Group__034045);
+            pushFollow(FOLLOW_rule__JvmLowerBoundAnded__Group__1_in_rule__JvmLowerBoundAnded__Group__034850);
             rule__JvmLowerBoundAnded__Group__1();
 
             state._fsp--;
@@ -48477,22 +49620,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmLowerBoundAnded__Group__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16929:1: rule__JvmLowerBoundAnded__Group__0__Impl : ( '&' ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17337:1: rule__JvmLowerBoundAnded__Group__0__Impl : ( '&' ) ;
     public final void rule__JvmLowerBoundAnded__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16933:1: ( ( '&' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16934:1: ( '&' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17341:1: ( ( '&' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17342:1: ( '&' )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16934:1: ( '&' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16935:1: '&'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17342:1: ( '&' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17343:1: '&'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmLowerBoundAndedAccess().getAmpersandKeyword_0()); 
             }
-            match(input,85,FOLLOW_85_in_rule__JvmLowerBoundAnded__Group__0__Impl34073); if (state.failed) return ;
+            match(input,85,FOLLOW_85_in_rule__JvmLowerBoundAnded__Group__0__Impl34878); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getJvmLowerBoundAndedAccess().getAmpersandKeyword_0()); 
             }
@@ -48518,16 +49661,16 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmLowerBoundAnded__Group__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16948:1: rule__JvmLowerBoundAnded__Group__1 : rule__JvmLowerBoundAnded__Group__1__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17356:1: rule__JvmLowerBoundAnded__Group__1 : rule__JvmLowerBoundAnded__Group__1__Impl ;
     public final void rule__JvmLowerBoundAnded__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16952:1: ( rule__JvmLowerBoundAnded__Group__1__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16953:2: rule__JvmLowerBoundAnded__Group__1__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17360:1: ( rule__JvmLowerBoundAnded__Group__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17361:2: rule__JvmLowerBoundAnded__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__JvmLowerBoundAnded__Group__1__Impl_in_rule__JvmLowerBoundAnded__Group__134104);
+            pushFollow(FOLLOW_rule__JvmLowerBoundAnded__Group__1__Impl_in_rule__JvmLowerBoundAnded__Group__134909);
             rule__JvmLowerBoundAnded__Group__1__Impl();
 
             state._fsp--;
@@ -48551,25 +49694,25 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmLowerBoundAnded__Group__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16959:1: rule__JvmLowerBoundAnded__Group__1__Impl : ( ( rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17367:1: rule__JvmLowerBoundAnded__Group__1__Impl : ( ( rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 ) ) ;
     public final void rule__JvmLowerBoundAnded__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16963:1: ( ( ( rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16964:1: ( ( rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17371:1: ( ( ( rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17372:1: ( ( rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16964:1: ( ( rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16965:1: ( rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17372:1: ( ( rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17373:1: ( rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmLowerBoundAndedAccess().getTypeReferenceAssignment_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16966:1: ( rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16966:2: rule__JvmLowerBoundAnded__TypeReferenceAssignment_1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17374:1: ( rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17374:2: rule__JvmLowerBoundAnded__TypeReferenceAssignment_1
             {
-            pushFollow(FOLLOW_rule__JvmLowerBoundAnded__TypeReferenceAssignment_1_in_rule__JvmLowerBoundAnded__Group__1__Impl34131);
+            pushFollow(FOLLOW_rule__JvmLowerBoundAnded__TypeReferenceAssignment_1_in_rule__JvmLowerBoundAnded__Group__1__Impl34936);
             rule__JvmLowerBoundAnded__TypeReferenceAssignment_1();
 
             state._fsp--;
@@ -48602,21 +49745,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16982:1: rule__QualifiedNameWithWildcard__Group__0 : rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17390:1: rule__QualifiedNameWithWildcard__Group__0 : rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1 ;
     public final void rule__QualifiedNameWithWildcard__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16986:1: ( rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16987:2: rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17394:1: ( rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17395:2: rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1
             {
-            pushFollow(FOLLOW_rule__QualifiedNameWithWildcard__Group__0__Impl_in_rule__QualifiedNameWithWildcard__Group__034167);
+            pushFollow(FOLLOW_rule__QualifiedNameWithWildcard__Group__0__Impl_in_rule__QualifiedNameWithWildcard__Group__034972);
             rule__QualifiedNameWithWildcard__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__QualifiedNameWithWildcard__Group__1_in_rule__QualifiedNameWithWildcard__Group__034170);
+            pushFollow(FOLLOW_rule__QualifiedNameWithWildcard__Group__1_in_rule__QualifiedNameWithWildcard__Group__034975);
             rule__QualifiedNameWithWildcard__Group__1();
 
             state._fsp--;
@@ -48640,22 +49783,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16994:1: rule__QualifiedNameWithWildcard__Group__0__Impl : ( ruleQualifiedName ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17402:1: rule__QualifiedNameWithWildcard__Group__0__Impl : ( ruleQualifiedName ) ;
     public final void rule__QualifiedNameWithWildcard__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16998:1: ( ( ruleQualifiedName ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16999:1: ( ruleQualifiedName )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17406:1: ( ( ruleQualifiedName ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17407:1: ( ruleQualifiedName )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16999:1: ( ruleQualifiedName )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17000:1: ruleQualifiedName
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17407:1: ( ruleQualifiedName )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17408:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQualifiedNameWithWildcardAccess().getQualifiedNameParserRuleCall_0()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__QualifiedNameWithWildcard__Group__0__Impl34197);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__QualifiedNameWithWildcard__Group__0__Impl35002);
             ruleQualifiedName();
 
             state._fsp--;
@@ -48685,21 +49828,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17011:1: rule__QualifiedNameWithWildcard__Group__1 : rule__QualifiedNameWithWildcard__Group__1__Impl rule__QualifiedNameWithWildcard__Group__2 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17419:1: rule__QualifiedNameWithWildcard__Group__1 : rule__QualifiedNameWithWildcard__Group__1__Impl rule__QualifiedNameWithWildcard__Group__2 ;
     public final void rule__QualifiedNameWithWildcard__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17015:1: ( rule__QualifiedNameWithWildcard__Group__1__Impl rule__QualifiedNameWithWildcard__Group__2 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17016:2: rule__QualifiedNameWithWildcard__Group__1__Impl rule__QualifiedNameWithWildcard__Group__2
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17423:1: ( rule__QualifiedNameWithWildcard__Group__1__Impl rule__QualifiedNameWithWildcard__Group__2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17424:2: rule__QualifiedNameWithWildcard__Group__1__Impl rule__QualifiedNameWithWildcard__Group__2
             {
-            pushFollow(FOLLOW_rule__QualifiedNameWithWildcard__Group__1__Impl_in_rule__QualifiedNameWithWildcard__Group__134226);
+            pushFollow(FOLLOW_rule__QualifiedNameWithWildcard__Group__1__Impl_in_rule__QualifiedNameWithWildcard__Group__135031);
             rule__QualifiedNameWithWildcard__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__QualifiedNameWithWildcard__Group__2_in_rule__QualifiedNameWithWildcard__Group__134229);
+            pushFollow(FOLLOW_rule__QualifiedNameWithWildcard__Group__2_in_rule__QualifiedNameWithWildcard__Group__135034);
             rule__QualifiedNameWithWildcard__Group__2();
 
             state._fsp--;
@@ -48723,22 +49866,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17023:1: rule__QualifiedNameWithWildcard__Group__1__Impl : ( '.' ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17431:1: rule__QualifiedNameWithWildcard__Group__1__Impl : ( '.' ) ;
     public final void rule__QualifiedNameWithWildcard__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17027:1: ( ( '.' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17028:1: ( '.' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17435:1: ( ( '.' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17436:1: ( '.' )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17028:1: ( '.' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17029:1: '.'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17436:1: ( '.' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17437:1: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQualifiedNameWithWildcardAccess().getFullStopKeyword_1()); 
             }
-            match(input,44,FOLLOW_44_in_rule__QualifiedNameWithWildcard__Group__1__Impl34257); if (state.failed) return ;
+            match(input,44,FOLLOW_44_in_rule__QualifiedNameWithWildcard__Group__1__Impl35062); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQualifiedNameWithWildcardAccess().getFullStopKeyword_1()); 
             }
@@ -48764,16 +49907,16 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17042:1: rule__QualifiedNameWithWildcard__Group__2 : rule__QualifiedNameWithWildcard__Group__2__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17450:1: rule__QualifiedNameWithWildcard__Group__2 : rule__QualifiedNameWithWildcard__Group__2__Impl ;
     public final void rule__QualifiedNameWithWildcard__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17046:1: ( rule__QualifiedNameWithWildcard__Group__2__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17047:2: rule__QualifiedNameWithWildcard__Group__2__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17454:1: ( rule__QualifiedNameWithWildcard__Group__2__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17455:2: rule__QualifiedNameWithWildcard__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__QualifiedNameWithWildcard__Group__2__Impl_in_rule__QualifiedNameWithWildcard__Group__234288);
+            pushFollow(FOLLOW_rule__QualifiedNameWithWildcard__Group__2__Impl_in_rule__QualifiedNameWithWildcard__Group__235093);
             rule__QualifiedNameWithWildcard__Group__2__Impl();
 
             state._fsp--;
@@ -48797,22 +49940,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__2__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17053:1: rule__QualifiedNameWithWildcard__Group__2__Impl : ( '*' ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17461:1: rule__QualifiedNameWithWildcard__Group__2__Impl : ( '*' ) ;
     public final void rule__QualifiedNameWithWildcard__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17057:1: ( ( '*' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17058:1: ( '*' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17465:1: ( ( '*' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17466:1: ( '*' )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17058:1: ( '*' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17059:1: '*'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17466:1: ( '*' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17467:1: '*'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQualifiedNameWithWildcardAccess().getAsteriskKeyword_2()); 
             }
-            match(input,37,FOLLOW_37_in_rule__QualifiedNameWithWildcard__Group__2__Impl34316); if (state.failed) return ;
+            match(input,37,FOLLOW_37_in_rule__QualifiedNameWithWildcard__Group__2__Impl35121); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQualifiedNameWithWildcardAccess().getAsteriskKeyword_2()); 
             }
@@ -48838,21 +49981,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17078:1: rule__XImportDeclaration__Group__0 : rule__XImportDeclaration__Group__0__Impl rule__XImportDeclaration__Group__1 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17486:1: rule__XImportDeclaration__Group__0 : rule__XImportDeclaration__Group__0__Impl rule__XImportDeclaration__Group__1 ;
     public final void rule__XImportDeclaration__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17082:1: ( rule__XImportDeclaration__Group__0__Impl rule__XImportDeclaration__Group__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17083:2: rule__XImportDeclaration__Group__0__Impl rule__XImportDeclaration__Group__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17490:1: ( rule__XImportDeclaration__Group__0__Impl rule__XImportDeclaration__Group__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17491:2: rule__XImportDeclaration__Group__0__Impl rule__XImportDeclaration__Group__1
             {
-            pushFollow(FOLLOW_rule__XImportDeclaration__Group__0__Impl_in_rule__XImportDeclaration__Group__034353);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Group__0__Impl_in_rule__XImportDeclaration__Group__035158);
             rule__XImportDeclaration__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__XImportDeclaration__Group__1_in_rule__XImportDeclaration__Group__034356);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Group__1_in_rule__XImportDeclaration__Group__035161);
             rule__XImportDeclaration__Group__1();
 
             state._fsp--;
@@ -48876,22 +50019,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17090:1: rule__XImportDeclaration__Group__0__Impl : ( 'import' ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17498:1: rule__XImportDeclaration__Group__0__Impl : ( 'import' ) ;
     public final void rule__XImportDeclaration__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17094:1: ( ( 'import' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17095:1: ( 'import' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17502:1: ( ( 'import' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17503:1: ( 'import' )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17095:1: ( 'import' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17096:1: 'import'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17503:1: ( 'import' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17504:1: 'import'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getImportKeyword_0()); 
             }
-            match(input,48,FOLLOW_48_in_rule__XImportDeclaration__Group__0__Impl34384); if (state.failed) return ;
+            match(input,48,FOLLOW_48_in_rule__XImportDeclaration__Group__0__Impl35189); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXImportDeclarationAccess().getImportKeyword_0()); 
             }
@@ -48917,21 +50060,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17109:1: rule__XImportDeclaration__Group__1 : rule__XImportDeclaration__Group__1__Impl rule__XImportDeclaration__Group__2 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17517:1: rule__XImportDeclaration__Group__1 : rule__XImportDeclaration__Group__1__Impl rule__XImportDeclaration__Group__2 ;
     public final void rule__XImportDeclaration__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17113:1: ( rule__XImportDeclaration__Group__1__Impl rule__XImportDeclaration__Group__2 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17114:2: rule__XImportDeclaration__Group__1__Impl rule__XImportDeclaration__Group__2
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17521:1: ( rule__XImportDeclaration__Group__1__Impl rule__XImportDeclaration__Group__2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17522:2: rule__XImportDeclaration__Group__1__Impl rule__XImportDeclaration__Group__2
             {
-            pushFollow(FOLLOW_rule__XImportDeclaration__Group__1__Impl_in_rule__XImportDeclaration__Group__134415);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Group__1__Impl_in_rule__XImportDeclaration__Group__135220);
             rule__XImportDeclaration__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__XImportDeclaration__Group__2_in_rule__XImportDeclaration__Group__134418);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Group__2_in_rule__XImportDeclaration__Group__135223);
             rule__XImportDeclaration__Group__2();
 
             state._fsp--;
@@ -48955,25 +50098,25 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17121:1: rule__XImportDeclaration__Group__1__Impl : ( ( rule__XImportDeclaration__Alternatives_1 ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17529:1: rule__XImportDeclaration__Group__1__Impl : ( ( rule__XImportDeclaration__Alternatives_1 ) ) ;
     public final void rule__XImportDeclaration__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17125:1: ( ( ( rule__XImportDeclaration__Alternatives_1 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17126:1: ( ( rule__XImportDeclaration__Alternatives_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17533:1: ( ( ( rule__XImportDeclaration__Alternatives_1 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17534:1: ( ( rule__XImportDeclaration__Alternatives_1 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17126:1: ( ( rule__XImportDeclaration__Alternatives_1 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17127:1: ( rule__XImportDeclaration__Alternatives_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17534:1: ( ( rule__XImportDeclaration__Alternatives_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17535:1: ( rule__XImportDeclaration__Alternatives_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getAlternatives_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17128:1: ( rule__XImportDeclaration__Alternatives_1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17128:2: rule__XImportDeclaration__Alternatives_1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17536:1: ( rule__XImportDeclaration__Alternatives_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17536:2: rule__XImportDeclaration__Alternatives_1
             {
-            pushFollow(FOLLOW_rule__XImportDeclaration__Alternatives_1_in_rule__XImportDeclaration__Group__1__Impl34445);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Alternatives_1_in_rule__XImportDeclaration__Group__1__Impl35250);
             rule__XImportDeclaration__Alternatives_1();
 
             state._fsp--;
@@ -49006,16 +50149,16 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group__2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17138:1: rule__XImportDeclaration__Group__2 : rule__XImportDeclaration__Group__2__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17546:1: rule__XImportDeclaration__Group__2 : rule__XImportDeclaration__Group__2__Impl ;
     public final void rule__XImportDeclaration__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17142:1: ( rule__XImportDeclaration__Group__2__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17143:2: rule__XImportDeclaration__Group__2__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17550:1: ( rule__XImportDeclaration__Group__2__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17551:2: rule__XImportDeclaration__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__XImportDeclaration__Group__2__Impl_in_rule__XImportDeclaration__Group__234475);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Group__2__Impl_in_rule__XImportDeclaration__Group__235280);
             rule__XImportDeclaration__Group__2__Impl();
 
             state._fsp--;
@@ -49039,33 +50182,33 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group__2__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17149:1: rule__XImportDeclaration__Group__2__Impl : ( ( ';' )? ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17557:1: rule__XImportDeclaration__Group__2__Impl : ( ( ';' )? ) ;
     public final void rule__XImportDeclaration__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17153:1: ( ( ( ';' )? ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17154:1: ( ( ';' )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17561:1: ( ( ( ';' )? ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17562:1: ( ( ';' )? )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17154:1: ( ( ';' )? )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17155:1: ( ';' )?
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17562:1: ( ( ';' )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17563:1: ( ';' )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getSemicolonKeyword_2()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17156:1: ( ';' )?
-            int alt119=2;
-            int LA119_0 = input.LA(1);
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17564:1: ( ';' )?
+            int alt122=2;
+            int LA122_0 = input.LA(1);
 
-            if ( (LA119_0==65) ) {
-                alt119=1;
+            if ( (LA122_0==65) ) {
+                alt122=1;
             }
-            switch (alt119) {
+            switch (alt122) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17157:2: ';'
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17565:2: ';'
                     {
-                    match(input,65,FOLLOW_65_in_rule__XImportDeclaration__Group__2__Impl34504); if (state.failed) return ;
+                    match(input,65,FOLLOW_65_in_rule__XImportDeclaration__Group__2__Impl35309); if (state.failed) return ;
 
                     }
                     break;
@@ -49097,21 +50240,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group_1_0__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17174:1: rule__XImportDeclaration__Group_1_0__0 : rule__XImportDeclaration__Group_1_0__0__Impl rule__XImportDeclaration__Group_1_0__1 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17582:1: rule__XImportDeclaration__Group_1_0__0 : rule__XImportDeclaration__Group_1_0__0__Impl rule__XImportDeclaration__Group_1_0__1 ;
     public final void rule__XImportDeclaration__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17178:1: ( rule__XImportDeclaration__Group_1_0__0__Impl rule__XImportDeclaration__Group_1_0__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17179:2: rule__XImportDeclaration__Group_1_0__0__Impl rule__XImportDeclaration__Group_1_0__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17586:1: ( rule__XImportDeclaration__Group_1_0__0__Impl rule__XImportDeclaration__Group_1_0__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17587:2: rule__XImportDeclaration__Group_1_0__0__Impl rule__XImportDeclaration__Group_1_0__1
             {
-            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__0__Impl_in_rule__XImportDeclaration__Group_1_0__034543);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__0__Impl_in_rule__XImportDeclaration__Group_1_0__035348);
             rule__XImportDeclaration__Group_1_0__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__1_in_rule__XImportDeclaration__Group_1_0__034546);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__1_in_rule__XImportDeclaration__Group_1_0__035351);
             rule__XImportDeclaration__Group_1_0__1();
 
             state._fsp--;
@@ -49135,25 +50278,25 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group_1_0__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17186:1: rule__XImportDeclaration__Group_1_0__0__Impl : ( ( rule__XImportDeclaration__StaticAssignment_1_0_0 ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17594:1: rule__XImportDeclaration__Group_1_0__0__Impl : ( ( rule__XImportDeclaration__StaticAssignment_1_0_0 ) ) ;
     public final void rule__XImportDeclaration__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17190:1: ( ( ( rule__XImportDeclaration__StaticAssignment_1_0_0 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17191:1: ( ( rule__XImportDeclaration__StaticAssignment_1_0_0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17598:1: ( ( ( rule__XImportDeclaration__StaticAssignment_1_0_0 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17599:1: ( ( rule__XImportDeclaration__StaticAssignment_1_0_0 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17191:1: ( ( rule__XImportDeclaration__StaticAssignment_1_0_0 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17192:1: ( rule__XImportDeclaration__StaticAssignment_1_0_0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17599:1: ( ( rule__XImportDeclaration__StaticAssignment_1_0_0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17600:1: ( rule__XImportDeclaration__StaticAssignment_1_0_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getStaticAssignment_1_0_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17193:1: ( rule__XImportDeclaration__StaticAssignment_1_0_0 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17193:2: rule__XImportDeclaration__StaticAssignment_1_0_0
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17601:1: ( rule__XImportDeclaration__StaticAssignment_1_0_0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17601:2: rule__XImportDeclaration__StaticAssignment_1_0_0
             {
-            pushFollow(FOLLOW_rule__XImportDeclaration__StaticAssignment_1_0_0_in_rule__XImportDeclaration__Group_1_0__0__Impl34573);
+            pushFollow(FOLLOW_rule__XImportDeclaration__StaticAssignment_1_0_0_in_rule__XImportDeclaration__Group_1_0__0__Impl35378);
             rule__XImportDeclaration__StaticAssignment_1_0_0();
 
             state._fsp--;
@@ -49186,21 +50329,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group_1_0__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17203:1: rule__XImportDeclaration__Group_1_0__1 : rule__XImportDeclaration__Group_1_0__1__Impl rule__XImportDeclaration__Group_1_0__2 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17611:1: rule__XImportDeclaration__Group_1_0__1 : rule__XImportDeclaration__Group_1_0__1__Impl rule__XImportDeclaration__Group_1_0__2 ;
     public final void rule__XImportDeclaration__Group_1_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17207:1: ( rule__XImportDeclaration__Group_1_0__1__Impl rule__XImportDeclaration__Group_1_0__2 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17208:2: rule__XImportDeclaration__Group_1_0__1__Impl rule__XImportDeclaration__Group_1_0__2
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17615:1: ( rule__XImportDeclaration__Group_1_0__1__Impl rule__XImportDeclaration__Group_1_0__2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17616:2: rule__XImportDeclaration__Group_1_0__1__Impl rule__XImportDeclaration__Group_1_0__2
             {
-            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__1__Impl_in_rule__XImportDeclaration__Group_1_0__134603);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__1__Impl_in_rule__XImportDeclaration__Group_1_0__135408);
             rule__XImportDeclaration__Group_1_0__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__2_in_rule__XImportDeclaration__Group_1_0__134606);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__2_in_rule__XImportDeclaration__Group_1_0__135411);
             rule__XImportDeclaration__Group_1_0__2();
 
             state._fsp--;
@@ -49224,33 +50367,33 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group_1_0__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17215:1: rule__XImportDeclaration__Group_1_0__1__Impl : ( ( rule__XImportDeclaration__ExtensionAssignment_1_0_1 )? ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17623:1: rule__XImportDeclaration__Group_1_0__1__Impl : ( ( rule__XImportDeclaration__ExtensionAssignment_1_0_1 )? ) ;
     public final void rule__XImportDeclaration__Group_1_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17219:1: ( ( ( rule__XImportDeclaration__ExtensionAssignment_1_0_1 )? ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17220:1: ( ( rule__XImportDeclaration__ExtensionAssignment_1_0_1 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17627:1: ( ( ( rule__XImportDeclaration__ExtensionAssignment_1_0_1 )? ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17628:1: ( ( rule__XImportDeclaration__ExtensionAssignment_1_0_1 )? )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17220:1: ( ( rule__XImportDeclaration__ExtensionAssignment_1_0_1 )? )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17221:1: ( rule__XImportDeclaration__ExtensionAssignment_1_0_1 )?
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17628:1: ( ( rule__XImportDeclaration__ExtensionAssignment_1_0_1 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17629:1: ( rule__XImportDeclaration__ExtensionAssignment_1_0_1 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getExtensionAssignment_1_0_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17222:1: ( rule__XImportDeclaration__ExtensionAssignment_1_0_1 )?
-            int alt120=2;
-            int LA120_0 = input.LA(1);
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17630:1: ( rule__XImportDeclaration__ExtensionAssignment_1_0_1 )?
+            int alt123=2;
+            int LA123_0 = input.LA(1);
 
-            if ( (LA120_0==49) ) {
-                alt120=1;
+            if ( (LA123_0==49) ) {
+                alt123=1;
             }
-            switch (alt120) {
+            switch (alt123) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17222:2: rule__XImportDeclaration__ExtensionAssignment_1_0_1
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17630:2: rule__XImportDeclaration__ExtensionAssignment_1_0_1
                     {
-                    pushFollow(FOLLOW_rule__XImportDeclaration__ExtensionAssignment_1_0_1_in_rule__XImportDeclaration__Group_1_0__1__Impl34633);
+                    pushFollow(FOLLOW_rule__XImportDeclaration__ExtensionAssignment_1_0_1_in_rule__XImportDeclaration__Group_1_0__1__Impl35438);
                     rule__XImportDeclaration__ExtensionAssignment_1_0_1();
 
                     state._fsp--;
@@ -49286,21 +50429,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group_1_0__2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17232:1: rule__XImportDeclaration__Group_1_0__2 : rule__XImportDeclaration__Group_1_0__2__Impl rule__XImportDeclaration__Group_1_0__3 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17640:1: rule__XImportDeclaration__Group_1_0__2 : rule__XImportDeclaration__Group_1_0__2__Impl rule__XImportDeclaration__Group_1_0__3 ;
     public final void rule__XImportDeclaration__Group_1_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17236:1: ( rule__XImportDeclaration__Group_1_0__2__Impl rule__XImportDeclaration__Group_1_0__3 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17237:2: rule__XImportDeclaration__Group_1_0__2__Impl rule__XImportDeclaration__Group_1_0__3
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17644:1: ( rule__XImportDeclaration__Group_1_0__2__Impl rule__XImportDeclaration__Group_1_0__3 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17645:2: rule__XImportDeclaration__Group_1_0__2__Impl rule__XImportDeclaration__Group_1_0__3
             {
-            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__2__Impl_in_rule__XImportDeclaration__Group_1_0__234664);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__2__Impl_in_rule__XImportDeclaration__Group_1_0__235469);
             rule__XImportDeclaration__Group_1_0__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__3_in_rule__XImportDeclaration__Group_1_0__234667);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__3_in_rule__XImportDeclaration__Group_1_0__235472);
             rule__XImportDeclaration__Group_1_0__3();
 
             state._fsp--;
@@ -49324,25 +50467,25 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group_1_0__2__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17244:1: rule__XImportDeclaration__Group_1_0__2__Impl : ( ( rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17652:1: rule__XImportDeclaration__Group_1_0__2__Impl : ( ( rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 ) ) ;
     public final void rule__XImportDeclaration__Group_1_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17248:1: ( ( ( rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17249:1: ( ( rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17656:1: ( ( ( rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17657:1: ( ( rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17249:1: ( ( rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17250:1: ( rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17657:1: ( ( rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17658:1: ( rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_1_0_2()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17251:1: ( rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17251:2: rule__XImportDeclaration__ImportedTypeAssignment_1_0_2
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17659:1: ( rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17659:2: rule__XImportDeclaration__ImportedTypeAssignment_1_0_2
             {
-            pushFollow(FOLLOW_rule__XImportDeclaration__ImportedTypeAssignment_1_0_2_in_rule__XImportDeclaration__Group_1_0__2__Impl34694);
+            pushFollow(FOLLOW_rule__XImportDeclaration__ImportedTypeAssignment_1_0_2_in_rule__XImportDeclaration__Group_1_0__2__Impl35499);
             rule__XImportDeclaration__ImportedTypeAssignment_1_0_2();
 
             state._fsp--;
@@ -49375,16 +50518,16 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group_1_0__3"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17261:1: rule__XImportDeclaration__Group_1_0__3 : rule__XImportDeclaration__Group_1_0__3__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17669:1: rule__XImportDeclaration__Group_1_0__3 : rule__XImportDeclaration__Group_1_0__3__Impl ;
     public final void rule__XImportDeclaration__Group_1_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17265:1: ( rule__XImportDeclaration__Group_1_0__3__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17266:2: rule__XImportDeclaration__Group_1_0__3__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17673:1: ( rule__XImportDeclaration__Group_1_0__3__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17674:2: rule__XImportDeclaration__Group_1_0__3__Impl
             {
-            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__3__Impl_in_rule__XImportDeclaration__Group_1_0__334724);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Group_1_0__3__Impl_in_rule__XImportDeclaration__Group_1_0__335529);
             rule__XImportDeclaration__Group_1_0__3__Impl();
 
             state._fsp--;
@@ -49408,25 +50551,25 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__Group_1_0__3__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17272:1: rule__XImportDeclaration__Group_1_0__3__Impl : ( ( rule__XImportDeclaration__Alternatives_1_0_3 ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17680:1: rule__XImportDeclaration__Group_1_0__3__Impl : ( ( rule__XImportDeclaration__Alternatives_1_0_3 ) ) ;
     public final void rule__XImportDeclaration__Group_1_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17276:1: ( ( ( rule__XImportDeclaration__Alternatives_1_0_3 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17277:1: ( ( rule__XImportDeclaration__Alternatives_1_0_3 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17684:1: ( ( ( rule__XImportDeclaration__Alternatives_1_0_3 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17685:1: ( ( rule__XImportDeclaration__Alternatives_1_0_3 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17277:1: ( ( rule__XImportDeclaration__Alternatives_1_0_3 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17278:1: ( rule__XImportDeclaration__Alternatives_1_0_3 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17685:1: ( ( rule__XImportDeclaration__Alternatives_1_0_3 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17686:1: ( rule__XImportDeclaration__Alternatives_1_0_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getAlternatives_1_0_3()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17279:1: ( rule__XImportDeclaration__Alternatives_1_0_3 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17279:2: rule__XImportDeclaration__Alternatives_1_0_3
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17687:1: ( rule__XImportDeclaration__Alternatives_1_0_3 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17687:2: rule__XImportDeclaration__Alternatives_1_0_3
             {
-            pushFollow(FOLLOW_rule__XImportDeclaration__Alternatives_1_0_3_in_rule__XImportDeclaration__Group_1_0__3__Impl34751);
+            pushFollow(FOLLOW_rule__XImportDeclaration__Alternatives_1_0_3_in_rule__XImportDeclaration__Group_1_0__3__Impl35556);
             rule__XImportDeclaration__Alternatives_1_0_3();
 
             state._fsp--;
@@ -49459,21 +50602,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedNameInStaticImport__Group__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17297:1: rule__QualifiedNameInStaticImport__Group__0 : rule__QualifiedNameInStaticImport__Group__0__Impl rule__QualifiedNameInStaticImport__Group__1 ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17705:1: rule__QualifiedNameInStaticImport__Group__0 : rule__QualifiedNameInStaticImport__Group__0__Impl rule__QualifiedNameInStaticImport__Group__1 ;
     public final void rule__QualifiedNameInStaticImport__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17301:1: ( rule__QualifiedNameInStaticImport__Group__0__Impl rule__QualifiedNameInStaticImport__Group__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17302:2: rule__QualifiedNameInStaticImport__Group__0__Impl rule__QualifiedNameInStaticImport__Group__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17709:1: ( rule__QualifiedNameInStaticImport__Group__0__Impl rule__QualifiedNameInStaticImport__Group__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17710:2: rule__QualifiedNameInStaticImport__Group__0__Impl rule__QualifiedNameInStaticImport__Group__1
             {
-            pushFollow(FOLLOW_rule__QualifiedNameInStaticImport__Group__0__Impl_in_rule__QualifiedNameInStaticImport__Group__034789);
+            pushFollow(FOLLOW_rule__QualifiedNameInStaticImport__Group__0__Impl_in_rule__QualifiedNameInStaticImport__Group__035594);
             rule__QualifiedNameInStaticImport__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__QualifiedNameInStaticImport__Group__1_in_rule__QualifiedNameInStaticImport__Group__034792);
+            pushFollow(FOLLOW_rule__QualifiedNameInStaticImport__Group__1_in_rule__QualifiedNameInStaticImport__Group__035597);
             rule__QualifiedNameInStaticImport__Group__1();
 
             state._fsp--;
@@ -49497,22 +50640,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedNameInStaticImport__Group__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17309:1: rule__QualifiedNameInStaticImport__Group__0__Impl : ( ruleValidID ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17717:1: rule__QualifiedNameInStaticImport__Group__0__Impl : ( ruleValidID ) ;
     public final void rule__QualifiedNameInStaticImport__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17313:1: ( ( ruleValidID ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17314:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17721:1: ( ( ruleValidID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17722:1: ( ruleValidID )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17314:1: ( ruleValidID )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17315:1: ruleValidID
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17722:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17723:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQualifiedNameInStaticImportAccess().getValidIDParserRuleCall_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__QualifiedNameInStaticImport__Group__0__Impl34819);
+            pushFollow(FOLLOW_ruleValidID_in_rule__QualifiedNameInStaticImport__Group__0__Impl35624);
             ruleValidID();
 
             state._fsp--;
@@ -49542,16 +50685,16 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedNameInStaticImport__Group__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17326:1: rule__QualifiedNameInStaticImport__Group__1 : rule__QualifiedNameInStaticImport__Group__1__Impl ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17734:1: rule__QualifiedNameInStaticImport__Group__1 : rule__QualifiedNameInStaticImport__Group__1__Impl ;
     public final void rule__QualifiedNameInStaticImport__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17330:1: ( rule__QualifiedNameInStaticImport__Group__1__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17331:2: rule__QualifiedNameInStaticImport__Group__1__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17738:1: ( rule__QualifiedNameInStaticImport__Group__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17739:2: rule__QualifiedNameInStaticImport__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__QualifiedNameInStaticImport__Group__1__Impl_in_rule__QualifiedNameInStaticImport__Group__134848);
+            pushFollow(FOLLOW_rule__QualifiedNameInStaticImport__Group__1__Impl_in_rule__QualifiedNameInStaticImport__Group__135653);
             rule__QualifiedNameInStaticImport__Group__1__Impl();
 
             state._fsp--;
@@ -49575,22 +50718,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedNameInStaticImport__Group__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17337:1: rule__QualifiedNameInStaticImport__Group__1__Impl : ( '.' ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17745:1: rule__QualifiedNameInStaticImport__Group__1__Impl : ( '.' ) ;
     public final void rule__QualifiedNameInStaticImport__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17341:1: ( ( '.' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17342:1: ( '.' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17749:1: ( ( '.' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17750:1: ( '.' )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17342:1: ( '.' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17343:1: '.'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17750:1: ( '.' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17751:1: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getQualifiedNameInStaticImportAccess().getFullStopKeyword_1()); 
             }
-            match(input,44,FOLLOW_44_in_rule__QualifiedNameInStaticImport__Group__1__Impl34876); if (state.failed) return ;
+            match(input,44,FOLLOW_44_in_rule__QualifiedNameInStaticImport__Group__1__Impl35681); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getQualifiedNameInStaticImportAccess().getFullStopKeyword_1()); 
             }
@@ -49616,22 +50759,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__NameAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17361:1: rule__Program__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17769:1: rule__Program__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Program__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17365:1: ( ( RULE_ID ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17366:1: ( RULE_ID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17773:1: ( ( RULE_ID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17774:1: ( RULE_ID )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17366:1: ( RULE_ID )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17367:1: RULE_ID
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17774:1: ( RULE_ID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17775:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getProgramAccess().getNameIDTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Program__NameAssignment_134916); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Program__NameAssignment_135721); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getProgramAccess().getNameIDTerminalRuleCall_1_0()); 
             }
@@ -49657,22 +50800,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__MainAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17376:1: rule__Program__MainAssignment_2 : ( ruleMain ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17784:1: rule__Program__MainAssignment_2 : ( ruleMain ) ;
     public final void rule__Program__MainAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17380:1: ( ( ruleMain ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17381:1: ( ruleMain )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17788:1: ( ( ruleMain ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17789:1: ( ruleMain )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17381:1: ( ruleMain )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17382:1: ruleMain
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17789:1: ( ruleMain )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17790:1: ruleMain
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getProgramAccess().getMainMainParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleMain_in_rule__Program__MainAssignment_234947);
+            pushFollow(FOLLOW_ruleMain_in_rule__Program__MainAssignment_235752);
             ruleMain();
 
             state._fsp--;
@@ -49702,22 +50845,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__SubsAssignment_3_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17391:1: rule__Program__SubsAssignment_3_0 : ( ruleSub ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17799:1: rule__Program__SubsAssignment_3_0 : ( ruleSub ) ;
     public final void rule__Program__SubsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17395:1: ( ( ruleSub ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17396:1: ( ruleSub )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17803:1: ( ( ruleSub ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17804:1: ( ruleSub )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17396:1: ( ruleSub )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17397:1: ruleSub
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17804:1: ( ruleSub )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17805:1: ruleSub
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_3_0_0()); 
             }
-            pushFollow(FOLLOW_ruleSub_in_rule__Program__SubsAssignment_3_034978);
+            pushFollow(FOLLOW_ruleSub_in_rule__Program__SubsAssignment_3_035783);
             ruleSub();
 
             state._fsp--;
@@ -49747,22 +50890,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__FieldsAssignment_3_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17406:1: rule__Program__FieldsAssignment_3_1 : ( ruleField ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17814:1: rule__Program__FieldsAssignment_3_1 : ( ruleField ) ;
     public final void rule__Program__FieldsAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17410:1: ( ( ruleField ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17411:1: ( ruleField )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17818:1: ( ( ruleField ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17819:1: ( ruleField )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17411:1: ( ruleField )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17412:1: ruleField
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17819:1: ( ruleField )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17820:1: ruleField
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getProgramAccess().getFieldsFieldParserRuleCall_3_1_0()); 
             }
-            pushFollow(FOLLOW_ruleField_in_rule__Program__FieldsAssignment_3_135009);
+            pushFollow(FOLLOW_ruleField_in_rule__Program__FieldsAssignment_3_135814);
             ruleField();
 
             state._fsp--;
@@ -49792,28 +50935,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Main__LoopAssignment_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17421:1: rule__Main__LoopAssignment_0_1 : ( ( 'loop' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17829:1: rule__Main__LoopAssignment_0_1 : ( ( 'loop' ) ) ;
     public final void rule__Main__LoopAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17425:1: ( ( ( 'loop' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17426:1: ( ( 'loop' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17833:1: ( ( ( 'loop' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17834:1: ( ( 'loop' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17426:1: ( ( 'loop' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17427:1: ( 'loop' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getMainAccess().getLoopLoopKeyword_0_1_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17428:1: ( 'loop' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17429:1: 'loop'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17834:1: ( ( 'loop' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17835:1: ( 'loop' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMainAccess().getLoopLoopKeyword_0_1_0()); 
             }
-            match(input,86,FOLLOW_86_in_rule__Main__LoopAssignment_0_135045); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17836:1: ( 'loop' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17837:1: 'loop'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getMainAccess().getLoopLoopKeyword_0_1_0()); 
+            }
+            match(input,86,FOLLOW_86_in_rule__Main__LoopAssignment_0_135850); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMainAccess().getLoopLoopKeyword_0_1_0()); 
             }
@@ -49845,22 +50988,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Main__BodyAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17444:1: rule__Main__BodyAssignment_1 : ( ruleXBlockExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17852:1: rule__Main__BodyAssignment_1 : ( ruleXBlockExpression ) ;
     public final void rule__Main__BodyAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17448:1: ( ( ruleXBlockExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17449:1: ( ruleXBlockExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17856:1: ( ( ruleXBlockExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17857:1: ( ruleXBlockExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17449:1: ( ruleXBlockExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17450:1: ruleXBlockExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17857:1: ( ruleXBlockExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17858:1: ruleXBlockExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMainAccess().getBodyXBlockExpressionParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXBlockExpression_in_rule__Main__BodyAssignment_135084);
+            pushFollow(FOLLOW_ruleXBlockExpression_in_rule__Main__BodyAssignment_135889);
             ruleXBlockExpression();
 
             state._fsp--;
@@ -49890,22 +51033,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sub__NameAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17459:1: rule__Sub__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17867:1: rule__Sub__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Sub__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17463:1: ( ( RULE_ID ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17464:1: ( RULE_ID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17871:1: ( ( RULE_ID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17872:1: ( RULE_ID )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17464:1: ( RULE_ID )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17465:1: RULE_ID
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17872:1: ( RULE_ID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17873:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSubAccess().getNameIDTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Sub__NameAssignment_135115); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Sub__NameAssignment_135920); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSubAccess().getNameIDTerminalRuleCall_1_0()); 
             }
@@ -49931,22 +51074,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sub__ParametersAssignment_3_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17474:1: rule__Sub__ParametersAssignment_3_0 : ( ruleJvmFormalParameter ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17882:1: rule__Sub__ParametersAssignment_3_0 : ( ruleJvmFormalParameter ) ;
     public final void rule__Sub__ParametersAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17478:1: ( ( ruleJvmFormalParameter ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17479:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17886:1: ( ( ruleJvmFormalParameter ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17887:1: ( ruleJvmFormalParameter )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17479:1: ( ruleJvmFormalParameter )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17480:1: ruleJvmFormalParameter
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17887:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17888:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSubAccess().getParametersJvmFormalParameterParserRuleCall_3_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__Sub__ParametersAssignment_3_035146);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__Sub__ParametersAssignment_3_035951);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -49976,22 +51119,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sub__ParametersAssignment_3_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17489:1: rule__Sub__ParametersAssignment_3_1_1 : ( ruleJvmFormalParameter ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17897:1: rule__Sub__ParametersAssignment_3_1_1 : ( ruleJvmFormalParameter ) ;
     public final void rule__Sub__ParametersAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17493:1: ( ( ruleJvmFormalParameter ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17494:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17901:1: ( ( ruleJvmFormalParameter ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17902:1: ( ruleJvmFormalParameter )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17494:1: ( ruleJvmFormalParameter )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17495:1: ruleJvmFormalParameter
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17902:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17903:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSubAccess().getParametersJvmFormalParameterParserRuleCall_3_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__Sub__ParametersAssignment_3_1_135177);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__Sub__ParametersAssignment_3_1_135982);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -50021,22 +51164,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Sub__BodyAssignment_5"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17504:1: rule__Sub__BodyAssignment_5 : ( ruleXBlockExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17912:1: rule__Sub__BodyAssignment_5 : ( ruleXBlockExpression ) ;
     public final void rule__Sub__BodyAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17508:1: ( ( ruleXBlockExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17509:1: ( ruleXBlockExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17916:1: ( ( ruleXBlockExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17917:1: ( ruleXBlockExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17509:1: ( ruleXBlockExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17510:1: ruleXBlockExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17917:1: ( ruleXBlockExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17918:1: ruleXBlockExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSubAccess().getBodyXBlockExpressionParserRuleCall_5_0()); 
             }
-            pushFollow(FOLLOW_ruleXBlockExpression_in_rule__Sub__BodyAssignment_535208);
+            pushFollow(FOLLOW_ruleXBlockExpression_in_rule__Sub__BodyAssignment_536013);
             ruleXBlockExpression();
 
             state._fsp--;
@@ -50066,22 +51209,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Field__TypeAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17519:1: rule__Field__TypeAssignment_1 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17927:1: rule__Field__TypeAssignment_1 : ( ruleJvmTypeReference ) ;
     public final void rule__Field__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17523:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17524:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17931:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17932:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17524:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17525:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17932:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17933:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldAccess().getTypeJvmTypeReferenceParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__Field__TypeAssignment_135239);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__Field__TypeAssignment_136044);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -50111,22 +51254,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Field__NameAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17534:1: rule__Field__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17942:1: rule__Field__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__Field__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17538:1: ( ( RULE_ID ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17539:1: ( RULE_ID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17946:1: ( ( RULE_ID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17947:1: ( RULE_ID )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17539:1: ( RULE_ID )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17540:1: RULE_ID
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17947:1: ( RULE_ID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17948:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldAccess().getNameIDTerminalRuleCall_2_0()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Field__NameAssignment_235270); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Field__NameAssignment_236075); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFieldAccess().getNameIDTerminalRuleCall_2_0()); 
             }
@@ -50152,22 +51295,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Field__InitializerAssignment_3_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17549:1: rule__Field__InitializerAssignment_3_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17957:1: rule__Field__InitializerAssignment_3_1 : ( ruleXExpression ) ;
     public final void rule__Field__InitializerAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17553:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17554:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17961:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17962:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17554:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17555:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17962:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17963:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFieldAccess().getInitializerXExpressionParserRuleCall_3_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__Field__InitializerAssignment_3_135301);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__Field__InitializerAssignment_3_136106);
             ruleXExpression();
 
             state._fsp--;
@@ -50197,28 +51340,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XAssignment__FeatureAssignment_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17564:1: rule__XAssignment__FeatureAssignment_0_1 : ( ( ruleFeatureCallID ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17972:1: rule__XAssignment__FeatureAssignment_0_1 : ( ( ruleFeatureCallID ) ) ;
     public final void rule__XAssignment__FeatureAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17568:1: ( ( ( ruleFeatureCallID ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17569:1: ( ( ruleFeatureCallID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17976:1: ( ( ( ruleFeatureCallID ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17977:1: ( ( ruleFeatureCallID ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17569:1: ( ( ruleFeatureCallID ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17570:1: ( ruleFeatureCallID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17977:1: ( ( ruleFeatureCallID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17978:1: ( ruleFeatureCallID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAssignmentAccess().getFeatureJvmIdentifiableElementCrossReference_0_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17571:1: ( ruleFeatureCallID )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17572:1: ruleFeatureCallID
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17979:1: ( ruleFeatureCallID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17980:1: ruleFeatureCallID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAssignmentAccess().getFeatureJvmIdentifiableElementFeatureCallIDParserRuleCall_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleFeatureCallID_in_rule__XAssignment__FeatureAssignment_0_135336);
+            pushFollow(FOLLOW_ruleFeatureCallID_in_rule__XAssignment__FeatureAssignment_0_136141);
             ruleFeatureCallID();
 
             state._fsp--;
@@ -50254,22 +51397,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XAssignment__ValueAssignment_0_3"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17583:1: rule__XAssignment__ValueAssignment_0_3 : ( ruleXAssignment ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17991:1: rule__XAssignment__ValueAssignment_0_3 : ( ruleXAssignment ) ;
     public final void rule__XAssignment__ValueAssignment_0_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17587:1: ( ( ruleXAssignment ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17588:1: ( ruleXAssignment )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17995:1: ( ( ruleXAssignment ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17996:1: ( ruleXAssignment )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17588:1: ( ruleXAssignment )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17589:1: ruleXAssignment
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17996:1: ( ruleXAssignment )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17997:1: ruleXAssignment
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAssignmentAccess().getValueXAssignmentParserRuleCall_0_3_0()); 
             }
-            pushFollow(FOLLOW_ruleXAssignment_in_rule__XAssignment__ValueAssignment_0_335371);
+            pushFollow(FOLLOW_ruleXAssignment_in_rule__XAssignment__ValueAssignment_0_336176);
             ruleXAssignment();
 
             state._fsp--;
@@ -50299,28 +51442,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XAssignment__FeatureAssignment_1_1_0_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17598:1: rule__XAssignment__FeatureAssignment_1_1_0_0_1 : ( ( ruleOpMultiAssign ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18006:1: rule__XAssignment__FeatureAssignment_1_1_0_0_1 : ( ( ruleOpMultiAssign ) ) ;
     public final void rule__XAssignment__FeatureAssignment_1_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17602:1: ( ( ( ruleOpMultiAssign ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17603:1: ( ( ruleOpMultiAssign ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18010:1: ( ( ( ruleOpMultiAssign ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18011:1: ( ( ruleOpMultiAssign ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17603:1: ( ( ruleOpMultiAssign ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17604:1: ( ruleOpMultiAssign )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18011:1: ( ( ruleOpMultiAssign ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18012:1: ( ruleOpMultiAssign )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAssignmentAccess().getFeatureJvmIdentifiableElementCrossReference_1_1_0_0_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17605:1: ( ruleOpMultiAssign )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17606:1: ruleOpMultiAssign
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18013:1: ( ruleOpMultiAssign )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18014:1: ruleOpMultiAssign
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAssignmentAccess().getFeatureJvmIdentifiableElementOpMultiAssignParserRuleCall_1_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpMultiAssign_in_rule__XAssignment__FeatureAssignment_1_1_0_0_135406);
+            pushFollow(FOLLOW_ruleOpMultiAssign_in_rule__XAssignment__FeatureAssignment_1_1_0_0_136211);
             ruleOpMultiAssign();
 
             state._fsp--;
@@ -50356,22 +51499,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XAssignment__RightOperandAssignment_1_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17617:1: rule__XAssignment__RightOperandAssignment_1_1_1 : ( ruleXAssignment ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18025:1: rule__XAssignment__RightOperandAssignment_1_1_1 : ( ruleXAssignment ) ;
     public final void rule__XAssignment__RightOperandAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17621:1: ( ( ruleXAssignment ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17622:1: ( ruleXAssignment )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18029:1: ( ( ruleXAssignment ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18030:1: ( ruleXAssignment )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17622:1: ( ruleXAssignment )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17623:1: ruleXAssignment
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18030:1: ( ruleXAssignment )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18031:1: ruleXAssignment
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAssignmentAccess().getRightOperandXAssignmentParserRuleCall_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXAssignment_in_rule__XAssignment__RightOperandAssignment_1_1_135441);
+            pushFollow(FOLLOW_ruleXAssignment_in_rule__XAssignment__RightOperandAssignment_1_1_136246);
             ruleXAssignment();
 
             state._fsp--;
@@ -50401,28 +51544,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XOrExpression__FeatureAssignment_1_0_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17632:1: rule__XOrExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpOr ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18040:1: rule__XOrExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpOr ) ) ;
     public final void rule__XOrExpression__FeatureAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17636:1: ( ( ( ruleOpOr ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17637:1: ( ( ruleOpOr ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18044:1: ( ( ( ruleOpOr ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18045:1: ( ( ruleOpOr ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17637:1: ( ( ruleOpOr ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17638:1: ( ruleOpOr )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18045:1: ( ( ruleOpOr ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18046:1: ( ruleOpOr )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXOrExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17639:1: ( ruleOpOr )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17640:1: ruleOpOr
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18047:1: ( ruleOpOr )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18048:1: ruleOpOr
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXOrExpressionAccess().getFeatureJvmIdentifiableElementOpOrParserRuleCall_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpOr_in_rule__XOrExpression__FeatureAssignment_1_0_0_135476);
+            pushFollow(FOLLOW_ruleOpOr_in_rule__XOrExpression__FeatureAssignment_1_0_0_136281);
             ruleOpOr();
 
             state._fsp--;
@@ -50458,22 +51601,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XOrExpression__RightOperandAssignment_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17651:1: rule__XOrExpression__RightOperandAssignment_1_1 : ( ruleXAndExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18059:1: rule__XOrExpression__RightOperandAssignment_1_1 : ( ruleXAndExpression ) ;
     public final void rule__XOrExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17655:1: ( ( ruleXAndExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17656:1: ( ruleXAndExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18063:1: ( ( ruleXAndExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18064:1: ( ruleXAndExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17656:1: ( ruleXAndExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17657:1: ruleXAndExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18064:1: ( ruleXAndExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18065:1: ruleXAndExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXOrExpressionAccess().getRightOperandXAndExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXAndExpression_in_rule__XOrExpression__RightOperandAssignment_1_135511);
+            pushFollow(FOLLOW_ruleXAndExpression_in_rule__XOrExpression__RightOperandAssignment_1_136316);
             ruleXAndExpression();
 
             state._fsp--;
@@ -50503,28 +51646,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XAndExpression__FeatureAssignment_1_0_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17666:1: rule__XAndExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpAnd ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18074:1: rule__XAndExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpAnd ) ) ;
     public final void rule__XAndExpression__FeatureAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17670:1: ( ( ( ruleOpAnd ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17671:1: ( ( ruleOpAnd ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18078:1: ( ( ( ruleOpAnd ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18079:1: ( ( ruleOpAnd ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17671:1: ( ( ruleOpAnd ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17672:1: ( ruleOpAnd )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18079:1: ( ( ruleOpAnd ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18080:1: ( ruleOpAnd )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAndExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17673:1: ( ruleOpAnd )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17674:1: ruleOpAnd
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18081:1: ( ruleOpAnd )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18082:1: ruleOpAnd
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAndExpressionAccess().getFeatureJvmIdentifiableElementOpAndParserRuleCall_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpAnd_in_rule__XAndExpression__FeatureAssignment_1_0_0_135546);
+            pushFollow(FOLLOW_ruleOpAnd_in_rule__XAndExpression__FeatureAssignment_1_0_0_136351);
             ruleOpAnd();
 
             state._fsp--;
@@ -50560,22 +51703,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XAndExpression__RightOperandAssignment_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17685:1: rule__XAndExpression__RightOperandAssignment_1_1 : ( ruleXEqualityExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18093:1: rule__XAndExpression__RightOperandAssignment_1_1 : ( ruleXEqualityExpression ) ;
     public final void rule__XAndExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17689:1: ( ( ruleXEqualityExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17690:1: ( ruleXEqualityExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18097:1: ( ( ruleXEqualityExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18098:1: ( ruleXEqualityExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17690:1: ( ruleXEqualityExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17691:1: ruleXEqualityExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18098:1: ( ruleXEqualityExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18099:1: ruleXEqualityExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAndExpressionAccess().getRightOperandXEqualityExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXEqualityExpression_in_rule__XAndExpression__RightOperandAssignment_1_135581);
+            pushFollow(FOLLOW_ruleXEqualityExpression_in_rule__XAndExpression__RightOperandAssignment_1_136386);
             ruleXEqualityExpression();
 
             state._fsp--;
@@ -50605,28 +51748,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XEqualityExpression__FeatureAssignment_1_0_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17700:1: rule__XEqualityExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpEquality ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18108:1: rule__XEqualityExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpEquality ) ) ;
     public final void rule__XEqualityExpression__FeatureAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17704:1: ( ( ( ruleOpEquality ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17705:1: ( ( ruleOpEquality ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18112:1: ( ( ( ruleOpEquality ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18113:1: ( ( ruleOpEquality ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17705:1: ( ( ruleOpEquality ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17706:1: ( ruleOpEquality )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18113:1: ( ( ruleOpEquality ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18114:1: ( ruleOpEquality )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXEqualityExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17707:1: ( ruleOpEquality )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17708:1: ruleOpEquality
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18115:1: ( ruleOpEquality )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18116:1: ruleOpEquality
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXEqualityExpressionAccess().getFeatureJvmIdentifiableElementOpEqualityParserRuleCall_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpEquality_in_rule__XEqualityExpression__FeatureAssignment_1_0_0_135616);
+            pushFollow(FOLLOW_ruleOpEquality_in_rule__XEqualityExpression__FeatureAssignment_1_0_0_136421);
             ruleOpEquality();
 
             state._fsp--;
@@ -50662,22 +51805,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XEqualityExpression__RightOperandAssignment_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17719:1: rule__XEqualityExpression__RightOperandAssignment_1_1 : ( ruleXRelationalExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18127:1: rule__XEqualityExpression__RightOperandAssignment_1_1 : ( ruleXRelationalExpression ) ;
     public final void rule__XEqualityExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17723:1: ( ( ruleXRelationalExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17724:1: ( ruleXRelationalExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18131:1: ( ( ruleXRelationalExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18132:1: ( ruleXRelationalExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17724:1: ( ruleXRelationalExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17725:1: ruleXRelationalExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18132:1: ( ruleXRelationalExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18133:1: ruleXRelationalExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXEqualityExpressionAccess().getRightOperandXRelationalExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXRelationalExpression_in_rule__XEqualityExpression__RightOperandAssignment_1_135651);
+            pushFollow(FOLLOW_ruleXRelationalExpression_in_rule__XEqualityExpression__RightOperandAssignment_1_136456);
             ruleXRelationalExpression();
 
             state._fsp--;
@@ -50707,22 +51850,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XRelationalExpression__TypeAssignment_1_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17734:1: rule__XRelationalExpression__TypeAssignment_1_0_1 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18142:1: rule__XRelationalExpression__TypeAssignment_1_0_1 : ( ruleJvmTypeReference ) ;
     public final void rule__XRelationalExpression__TypeAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17738:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17739:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18146:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18147:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17739:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17740:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18147:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18148:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXRelationalExpressionAccess().getTypeJvmTypeReferenceParserRuleCall_1_0_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XRelationalExpression__TypeAssignment_1_0_135682);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XRelationalExpression__TypeAssignment_1_0_136487);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -50752,28 +51895,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XRelationalExpression__FeatureAssignment_1_1_0_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17749:1: rule__XRelationalExpression__FeatureAssignment_1_1_0_0_1 : ( ( ruleOpCompare ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18157:1: rule__XRelationalExpression__FeatureAssignment_1_1_0_0_1 : ( ( ruleOpCompare ) ) ;
     public final void rule__XRelationalExpression__FeatureAssignment_1_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17753:1: ( ( ( ruleOpCompare ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17754:1: ( ( ruleOpCompare ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18161:1: ( ( ( ruleOpCompare ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18162:1: ( ( ruleOpCompare ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17754:1: ( ( ruleOpCompare ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17755:1: ( ruleOpCompare )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18162:1: ( ( ruleOpCompare ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18163:1: ( ruleOpCompare )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXRelationalExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_1_0_0_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17756:1: ( ruleOpCompare )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17757:1: ruleOpCompare
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18164:1: ( ruleOpCompare )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18165:1: ruleOpCompare
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXRelationalExpressionAccess().getFeatureJvmIdentifiableElementOpCompareParserRuleCall_1_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpCompare_in_rule__XRelationalExpression__FeatureAssignment_1_1_0_0_135717);
+            pushFollow(FOLLOW_ruleOpCompare_in_rule__XRelationalExpression__FeatureAssignment_1_1_0_0_136522);
             ruleOpCompare();
 
             state._fsp--;
@@ -50809,22 +51952,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XRelationalExpression__RightOperandAssignment_1_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17768:1: rule__XRelationalExpression__RightOperandAssignment_1_1_1 : ( ruleXOtherOperatorExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18176:1: rule__XRelationalExpression__RightOperandAssignment_1_1_1 : ( ruleXOtherOperatorExpression ) ;
     public final void rule__XRelationalExpression__RightOperandAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17772:1: ( ( ruleXOtherOperatorExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17773:1: ( ruleXOtherOperatorExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18180:1: ( ( ruleXOtherOperatorExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18181:1: ( ruleXOtherOperatorExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17773:1: ( ruleXOtherOperatorExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17774:1: ruleXOtherOperatorExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18181:1: ( ruleXOtherOperatorExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18182:1: ruleXOtherOperatorExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXRelationalExpressionAccess().getRightOperandXOtherOperatorExpressionParserRuleCall_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXOtherOperatorExpression_in_rule__XRelationalExpression__RightOperandAssignment_1_1_135752);
+            pushFollow(FOLLOW_ruleXOtherOperatorExpression_in_rule__XRelationalExpression__RightOperandAssignment_1_1_136557);
             ruleXOtherOperatorExpression();
 
             state._fsp--;
@@ -50854,28 +51997,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17783:1: rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpOther ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18191:1: rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpOther ) ) ;
     public final void rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17787:1: ( ( ( ruleOpOther ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17788:1: ( ( ruleOpOther ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18195:1: ( ( ( ruleOpOther ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18196:1: ( ( ruleOpOther ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17788:1: ( ( ruleOpOther ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17789:1: ( ruleOpOther )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18196:1: ( ( ruleOpOther ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18197:1: ( ruleOpOther )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXOtherOperatorExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17790:1: ( ruleOpOther )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17791:1: ruleOpOther
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18198:1: ( ruleOpOther )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18199:1: ruleOpOther
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXOtherOperatorExpressionAccess().getFeatureJvmIdentifiableElementOpOtherParserRuleCall_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpOther_in_rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_135787);
+            pushFollow(FOLLOW_ruleOpOther_in_rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_136592);
             ruleOpOther();
 
             state._fsp--;
@@ -50911,22 +52054,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XOtherOperatorExpression__RightOperandAssignment_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17802:1: rule__XOtherOperatorExpression__RightOperandAssignment_1_1 : ( ruleXAdditiveExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18210:1: rule__XOtherOperatorExpression__RightOperandAssignment_1_1 : ( ruleXAdditiveExpression ) ;
     public final void rule__XOtherOperatorExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17806:1: ( ( ruleXAdditiveExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17807:1: ( ruleXAdditiveExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18214:1: ( ( ruleXAdditiveExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18215:1: ( ruleXAdditiveExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17807:1: ( ruleXAdditiveExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17808:1: ruleXAdditiveExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18215:1: ( ruleXAdditiveExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18216:1: ruleXAdditiveExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXOtherOperatorExpressionAccess().getRightOperandXAdditiveExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXAdditiveExpression_in_rule__XOtherOperatorExpression__RightOperandAssignment_1_135822);
+            pushFollow(FOLLOW_ruleXAdditiveExpression_in_rule__XOtherOperatorExpression__RightOperandAssignment_1_136627);
             ruleXAdditiveExpression();
 
             state._fsp--;
@@ -50956,28 +52099,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XAdditiveExpression__FeatureAssignment_1_0_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17817:1: rule__XAdditiveExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpAdd ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18225:1: rule__XAdditiveExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpAdd ) ) ;
     public final void rule__XAdditiveExpression__FeatureAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17821:1: ( ( ( ruleOpAdd ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17822:1: ( ( ruleOpAdd ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18229:1: ( ( ( ruleOpAdd ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18230:1: ( ( ruleOpAdd ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17822:1: ( ( ruleOpAdd ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17823:1: ( ruleOpAdd )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18230:1: ( ( ruleOpAdd ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18231:1: ( ruleOpAdd )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAdditiveExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17824:1: ( ruleOpAdd )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17825:1: ruleOpAdd
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18232:1: ( ruleOpAdd )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18233:1: ruleOpAdd
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAdditiveExpressionAccess().getFeatureJvmIdentifiableElementOpAddParserRuleCall_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpAdd_in_rule__XAdditiveExpression__FeatureAssignment_1_0_0_135857);
+            pushFollow(FOLLOW_ruleOpAdd_in_rule__XAdditiveExpression__FeatureAssignment_1_0_0_136662);
             ruleOpAdd();
 
             state._fsp--;
@@ -51013,22 +52156,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XAdditiveExpression__RightOperandAssignment_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17836:1: rule__XAdditiveExpression__RightOperandAssignment_1_1 : ( ruleXMultiplicativeExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18244:1: rule__XAdditiveExpression__RightOperandAssignment_1_1 : ( ruleXMultiplicativeExpression ) ;
     public final void rule__XAdditiveExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17840:1: ( ( ruleXMultiplicativeExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17841:1: ( ruleXMultiplicativeExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18248:1: ( ( ruleXMultiplicativeExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18249:1: ( ruleXMultiplicativeExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17841:1: ( ruleXMultiplicativeExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17842:1: ruleXMultiplicativeExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18249:1: ( ruleXMultiplicativeExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18250:1: ruleXMultiplicativeExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAdditiveExpressionAccess().getRightOperandXMultiplicativeExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXMultiplicativeExpression_in_rule__XAdditiveExpression__RightOperandAssignment_1_135892);
+            pushFollow(FOLLOW_ruleXMultiplicativeExpression_in_rule__XAdditiveExpression__RightOperandAssignment_1_136697);
             ruleXMultiplicativeExpression();
 
             state._fsp--;
@@ -51058,28 +52201,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17851:1: rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpMulti ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18259:1: rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpMulti ) ) ;
     public final void rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17855:1: ( ( ( ruleOpMulti ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17856:1: ( ( ruleOpMulti ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18263:1: ( ( ( ruleOpMulti ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18264:1: ( ( ruleOpMulti ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17856:1: ( ( ruleOpMulti ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17857:1: ( ruleOpMulti )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18264:1: ( ( ruleOpMulti ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18265:1: ( ruleOpMulti )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMultiplicativeExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17858:1: ( ruleOpMulti )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17859:1: ruleOpMulti
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18266:1: ( ruleOpMulti )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18267:1: ruleOpMulti
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMultiplicativeExpressionAccess().getFeatureJvmIdentifiableElementOpMultiParserRuleCall_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpMulti_in_rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_135927);
+            pushFollow(FOLLOW_ruleOpMulti_in_rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_136732);
             ruleOpMulti();
 
             state._fsp--;
@@ -51115,22 +52258,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMultiplicativeExpression__RightOperandAssignment_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17870:1: rule__XMultiplicativeExpression__RightOperandAssignment_1_1 : ( ruleXUnaryOperation ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18278:1: rule__XMultiplicativeExpression__RightOperandAssignment_1_1 : ( ruleXUnaryOperation ) ;
     public final void rule__XMultiplicativeExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17874:1: ( ( ruleXUnaryOperation ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17875:1: ( ruleXUnaryOperation )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18282:1: ( ( ruleXUnaryOperation ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18283:1: ( ruleXUnaryOperation )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17875:1: ( ruleXUnaryOperation )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17876:1: ruleXUnaryOperation
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18283:1: ( ruleXUnaryOperation )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18284:1: ruleXUnaryOperation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMultiplicativeExpressionAccess().getRightOperandXUnaryOperationParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXUnaryOperation_in_rule__XMultiplicativeExpression__RightOperandAssignment_1_135962);
+            pushFollow(FOLLOW_ruleXUnaryOperation_in_rule__XMultiplicativeExpression__RightOperandAssignment_1_136767);
             ruleXUnaryOperation();
 
             state._fsp--;
@@ -51160,28 +52303,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XUnaryOperation__FeatureAssignment_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17885:1: rule__XUnaryOperation__FeatureAssignment_0_1 : ( ( ruleOpUnary ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18293:1: rule__XUnaryOperation__FeatureAssignment_0_1 : ( ( ruleOpUnary ) ) ;
     public final void rule__XUnaryOperation__FeatureAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17889:1: ( ( ( ruleOpUnary ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17890:1: ( ( ruleOpUnary ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18297:1: ( ( ( ruleOpUnary ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18298:1: ( ( ruleOpUnary ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17890:1: ( ( ruleOpUnary ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17891:1: ( ruleOpUnary )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18298:1: ( ( ruleOpUnary ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18299:1: ( ruleOpUnary )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXUnaryOperationAccess().getFeatureJvmIdentifiableElementCrossReference_0_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17892:1: ( ruleOpUnary )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17893:1: ruleOpUnary
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18300:1: ( ruleOpUnary )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18301:1: ruleOpUnary
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXUnaryOperationAccess().getFeatureJvmIdentifiableElementOpUnaryParserRuleCall_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpUnary_in_rule__XUnaryOperation__FeatureAssignment_0_135997);
+            pushFollow(FOLLOW_ruleOpUnary_in_rule__XUnaryOperation__FeatureAssignment_0_136802);
             ruleOpUnary();
 
             state._fsp--;
@@ -51217,22 +52360,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XUnaryOperation__OperandAssignment_0_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17904:1: rule__XUnaryOperation__OperandAssignment_0_2 : ( ruleXUnaryOperation ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18312:1: rule__XUnaryOperation__OperandAssignment_0_2 : ( ruleXUnaryOperation ) ;
     public final void rule__XUnaryOperation__OperandAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17908:1: ( ( ruleXUnaryOperation ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17909:1: ( ruleXUnaryOperation )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18316:1: ( ( ruleXUnaryOperation ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18317:1: ( ruleXUnaryOperation )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17909:1: ( ruleXUnaryOperation )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17910:1: ruleXUnaryOperation
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18317:1: ( ruleXUnaryOperation )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18318:1: ruleXUnaryOperation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXUnaryOperationAccess().getOperandXUnaryOperationParserRuleCall_0_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXUnaryOperation_in_rule__XUnaryOperation__OperandAssignment_0_236032);
+            pushFollow(FOLLOW_ruleXUnaryOperation_in_rule__XUnaryOperation__OperandAssignment_0_236837);
             ruleXUnaryOperation();
 
             state._fsp--;
@@ -51262,22 +52405,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XCastedExpression__TypeAssignment_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17919:1: rule__XCastedExpression__TypeAssignment_1_1 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18327:1: rule__XCastedExpression__TypeAssignment_1_1 : ( ruleJvmTypeReference ) ;
     public final void rule__XCastedExpression__TypeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17923:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17924:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18331:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18332:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17924:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17925:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18332:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18333:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCastedExpressionAccess().getTypeJvmTypeReferenceParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XCastedExpression__TypeAssignment_1_136063);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XCastedExpression__TypeAssignment_1_136868);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -51307,28 +52450,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XPostfixOperation__FeatureAssignment_1_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17934:1: rule__XPostfixOperation__FeatureAssignment_1_0_1 : ( ( ruleOpPostfix ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18342:1: rule__XPostfixOperation__FeatureAssignment_1_0_1 : ( ( ruleOpPostfix ) ) ;
     public final void rule__XPostfixOperation__FeatureAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17938:1: ( ( ( ruleOpPostfix ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17939:1: ( ( ruleOpPostfix ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18346:1: ( ( ( ruleOpPostfix ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18347:1: ( ( ruleOpPostfix ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17939:1: ( ( ruleOpPostfix ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17940:1: ( ruleOpPostfix )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18347:1: ( ( ruleOpPostfix ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18348:1: ( ruleOpPostfix )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXPostfixOperationAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17941:1: ( ruleOpPostfix )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17942:1: ruleOpPostfix
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18349:1: ( ruleOpPostfix )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18350:1: ruleOpPostfix
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXPostfixOperationAccess().getFeatureJvmIdentifiableElementOpPostfixParserRuleCall_1_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpPostfix_in_rule__XPostfixOperation__FeatureAssignment_1_0_136098);
+            pushFollow(FOLLOW_ruleOpPostfix_in_rule__XPostfixOperation__FeatureAssignment_1_0_136903);
             ruleOpPostfix();
 
             state._fsp--;
@@ -51364,28 +52507,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__ExplicitStaticAssignment_1_0_0_0_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17953:1: rule__XMemberFeatureCall__ExplicitStaticAssignment_1_0_0_0_1_1 : ( ( '::' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18361:1: rule__XMemberFeatureCall__ExplicitStaticAssignment_1_0_0_0_1_1 : ( ( '::' ) ) ;
     public final void rule__XMemberFeatureCall__ExplicitStaticAssignment_1_0_0_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17957:1: ( ( ( '::' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17958:1: ( ( '::' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18365:1: ( ( ( '::' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18366:1: ( ( '::' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17958:1: ( ( '::' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17959:1: ( '::' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXMemberFeatureCallAccess().getExplicitStaticColonColonKeyword_1_0_0_0_1_1_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17960:1: ( '::' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17961:1: '::'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18366:1: ( ( '::' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18367:1: ( '::' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getExplicitStaticColonColonKeyword_1_0_0_0_1_1_0()); 
             }
-            match(input,87,FOLLOW_87_in_rule__XMemberFeatureCall__ExplicitStaticAssignment_1_0_0_0_1_136138); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18368:1: ( '::' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18369:1: '::'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXMemberFeatureCallAccess().getExplicitStaticColonColonKeyword_1_0_0_0_1_1_0()); 
+            }
+            match(input,87,FOLLOW_87_in_rule__XMemberFeatureCall__ExplicitStaticAssignment_1_0_0_0_1_136943); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXMemberFeatureCallAccess().getExplicitStaticColonColonKeyword_1_0_0_0_1_1_0()); 
             }
@@ -51417,28 +52560,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17976:1: rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_2 : ( ( ruleFeatureCallID ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18384:1: rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_2 : ( ( ruleFeatureCallID ) ) ;
     public final void rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17980:1: ( ( ( ruleFeatureCallID ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17981:1: ( ( ruleFeatureCallID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18388:1: ( ( ( ruleFeatureCallID ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18389:1: ( ( ruleFeatureCallID ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17981:1: ( ( ruleFeatureCallID ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17982:1: ( ruleFeatureCallID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18389:1: ( ( ruleFeatureCallID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18390:1: ( ruleFeatureCallID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_0_2_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17983:1: ( ruleFeatureCallID )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17984:1: ruleFeatureCallID
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18391:1: ( ruleFeatureCallID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18392:1: ruleFeatureCallID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getFeatureJvmIdentifiableElementFeatureCallIDParserRuleCall_1_0_0_0_2_0_1()); 
             }
-            pushFollow(FOLLOW_ruleFeatureCallID_in_rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_236181);
+            pushFollow(FOLLOW_ruleFeatureCallID_in_rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_236986);
             ruleFeatureCallID();
 
             state._fsp--;
@@ -51474,22 +52617,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__ValueAssignment_1_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17995:1: rule__XMemberFeatureCall__ValueAssignment_1_0_1 : ( ruleXAssignment ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18403:1: rule__XMemberFeatureCall__ValueAssignment_1_0_1 : ( ruleXAssignment ) ;
     public final void rule__XMemberFeatureCall__ValueAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:17999:1: ( ( ruleXAssignment ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18000:1: ( ruleXAssignment )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18407:1: ( ( ruleXAssignment ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18408:1: ( ruleXAssignment )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18000:1: ( ruleXAssignment )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18001:1: ruleXAssignment
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18408:1: ( ruleXAssignment )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18409:1: ruleXAssignment
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getValueXAssignmentParserRuleCall_1_0_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXAssignment_in_rule__XMemberFeatureCall__ValueAssignment_1_0_136216);
+            pushFollow(FOLLOW_ruleXAssignment_in_rule__XMemberFeatureCall__ValueAssignment_1_0_137021);
             ruleXAssignment();
 
             state._fsp--;
@@ -51519,28 +52662,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18010:1: rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_1 : ( ( '?.' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18418:1: rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_1 : ( ( '?.' ) ) ;
     public final void rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18014:1: ( ( ( '?.' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18015:1: ( ( '?.' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18422:1: ( ( ( '?.' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18423:1: ( ( '?.' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18015:1: ( ( '?.' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18016:1: ( '?.' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXMemberFeatureCallAccess().getNullSafeQuestionMarkFullStopKeyword_1_1_0_0_1_1_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18017:1: ( '?.' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18018:1: '?.'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18423:1: ( ( '?.' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18424:1: ( '?.' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getNullSafeQuestionMarkFullStopKeyword_1_1_0_0_1_1_0()); 
             }
-            match(input,88,FOLLOW_88_in_rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_136252); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18425:1: ( '?.' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18426:1: '?.'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXMemberFeatureCallAccess().getNullSafeQuestionMarkFullStopKeyword_1_1_0_0_1_1_0()); 
+            }
+            match(input,88,FOLLOW_88_in_rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_137057); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXMemberFeatureCallAccess().getNullSafeQuestionMarkFullStopKeyword_1_1_0_0_1_1_0()); 
             }
@@ -51572,28 +52715,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__ExplicitStaticAssignment_1_1_0_0_1_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18033:1: rule__XMemberFeatureCall__ExplicitStaticAssignment_1_1_0_0_1_2 : ( ( '::' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18441:1: rule__XMemberFeatureCall__ExplicitStaticAssignment_1_1_0_0_1_2 : ( ( '::' ) ) ;
     public final void rule__XMemberFeatureCall__ExplicitStaticAssignment_1_1_0_0_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18037:1: ( ( ( '::' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18038:1: ( ( '::' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18445:1: ( ( ( '::' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18446:1: ( ( '::' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18038:1: ( ( '::' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18039:1: ( '::' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXMemberFeatureCallAccess().getExplicitStaticColonColonKeyword_1_1_0_0_1_2_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18040:1: ( '::' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18041:1: '::'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18446:1: ( ( '::' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18447:1: ( '::' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getExplicitStaticColonColonKeyword_1_1_0_0_1_2_0()); 
             }
-            match(input,87,FOLLOW_87_in_rule__XMemberFeatureCall__ExplicitStaticAssignment_1_1_0_0_1_236296); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18448:1: ( '::' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18449:1: '::'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXMemberFeatureCallAccess().getExplicitStaticColonColonKeyword_1_1_0_0_1_2_0()); 
+            }
+            match(input,87,FOLLOW_87_in_rule__XMemberFeatureCall__ExplicitStaticAssignment_1_1_0_0_1_237101); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXMemberFeatureCallAccess().getExplicitStaticColonColonKeyword_1_1_0_0_1_2_0()); 
             }
@@ -51625,22 +52768,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18056:1: rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18464:1: rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18060:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18061:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18468:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18469:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18061:1: ( ruleJvmArgumentTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18062:1: ruleJvmArgumentTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18469:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18470:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_1_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_136335);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_137140);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -51670,22 +52813,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18071:1: rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18479:1: rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18075:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18076:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18483:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18484:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18076:1: ( ruleJvmArgumentTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18077:1: ruleJvmArgumentTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18484:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18485:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_1_1_1_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_136366);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_137171);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -51715,28 +52858,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__FeatureAssignment_1_1_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18086:1: rule__XMemberFeatureCall__FeatureAssignment_1_1_2 : ( ( ruleIdOrSuper ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18494:1: rule__XMemberFeatureCall__FeatureAssignment_1_1_2 : ( ( ruleIdOrSuper ) ) ;
     public final void rule__XMemberFeatureCall__FeatureAssignment_1_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18090:1: ( ( ( ruleIdOrSuper ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18091:1: ( ( ruleIdOrSuper ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18498:1: ( ( ( ruleIdOrSuper ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18499:1: ( ( ruleIdOrSuper ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18091:1: ( ( ruleIdOrSuper ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18092:1: ( ruleIdOrSuper )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18499:1: ( ( ruleIdOrSuper ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18500:1: ( ruleIdOrSuper )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getFeatureJvmIdentifiableElementCrossReference_1_1_2_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18093:1: ( ruleIdOrSuper )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18094:1: ruleIdOrSuper
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18501:1: ( ruleIdOrSuper )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18502:1: ruleIdOrSuper
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getFeatureJvmIdentifiableElementIdOrSuperParserRuleCall_1_1_2_0_1()); 
             }
-            pushFollow(FOLLOW_ruleIdOrSuper_in_rule__XMemberFeatureCall__FeatureAssignment_1_1_236401);
+            pushFollow(FOLLOW_ruleIdOrSuper_in_rule__XMemberFeatureCall__FeatureAssignment_1_1_237206);
             ruleIdOrSuper();
 
             state._fsp--;
@@ -51772,28 +52915,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18105:1: rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_0 : ( ( '(' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18513:1: rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_0 : ( ( '(' ) ) ;
     public final void rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18109:1: ( ( ( '(' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18110:1: ( ( '(' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18517:1: ( ( ( '(' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18518:1: ( ( '(' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18110:1: ( ( '(' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18111:1: ( '(' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXMemberFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_3_0_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18112:1: ( '(' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18113:1: '('
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18518:1: ( ( '(' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18519:1: ( '(' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_3_0_0()); 
             }
-            match(input,54,FOLLOW_54_in_rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_036441); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18520:1: ( '(' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18521:1: '('
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXMemberFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_3_0_0()); 
+            }
+            match(input,54,FOLLOW_54_in_rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_037246); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXMemberFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_3_0_0()); 
             }
@@ -51825,22 +52968,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18128:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_0 : ( ruleXShortClosure ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18536:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_0 : ( ruleXShortClosure ) ;
     public final void rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18132:1: ( ( ruleXShortClosure ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18133:1: ( ruleXShortClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18540:1: ( ( ruleXShortClosure ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18541:1: ( ruleXShortClosure )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18133:1: ( ruleXShortClosure )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18134:1: ruleXShortClosure
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18541:1: ( ruleXShortClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18542:1: ruleXShortClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getMemberCallArgumentsXShortClosureParserRuleCall_1_1_3_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXShortClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_036480);
+            pushFollow(FOLLOW_ruleXShortClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_037285);
             ruleXShortClosure();
 
             state._fsp--;
@@ -51870,22 +53013,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18143:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_0 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18551:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_0 : ( ruleXExpression ) ;
     public final void rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18147:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18148:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18555:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18556:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18148:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18149:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18556:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18557:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getMemberCallArgumentsXExpressionParserRuleCall_1_1_3_1_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_036511);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_037316);
             ruleXExpression();
 
             state._fsp--;
@@ -51915,22 +53058,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18158:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18566:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_1 : ( ruleXExpression ) ;
     public final void rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18162:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18163:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18570:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18571:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18163:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18164:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18571:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18572:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getMemberCallArgumentsXExpressionParserRuleCall_1_1_3_1_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_136542);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_137347);
             ruleXExpression();
 
             state._fsp--;
@@ -51960,22 +53103,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_4"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18173:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_4 : ( ruleXClosure ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18581:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_4 : ( ruleXClosure ) ;
     public final void rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18177:1: ( ( ruleXClosure ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18178:1: ( ruleXClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18585:1: ( ( ruleXClosure ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18586:1: ( ruleXClosure )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18178:1: ( ruleXClosure )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18179:1: ruleXClosure
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18586:1: ( ruleXClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18587:1: ruleXClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getMemberCallArgumentsXClosureParserRuleCall_1_1_4_0()); 
             }
-            pushFollow(FOLLOW_ruleXClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_436573);
+            pushFollow(FOLLOW_ruleXClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_437378);
             ruleXClosure();
 
             state._fsp--;
@@ -52005,22 +53148,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XSetLiteral__ElementsAssignment_3_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18188:1: rule__XSetLiteral__ElementsAssignment_3_0 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18596:1: rule__XSetLiteral__ElementsAssignment_3_0 : ( ruleXExpression ) ;
     public final void rule__XSetLiteral__ElementsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18192:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18193:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18600:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18601:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18193:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18194:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18601:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18602:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSetLiteralAccess().getElementsXExpressionParserRuleCall_3_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XSetLiteral__ElementsAssignment_3_036604);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XSetLiteral__ElementsAssignment_3_037409);
             ruleXExpression();
 
             state._fsp--;
@@ -52050,22 +53193,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XSetLiteral__ElementsAssignment_3_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18203:1: rule__XSetLiteral__ElementsAssignment_3_1_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18611:1: rule__XSetLiteral__ElementsAssignment_3_1_1 : ( ruleXExpression ) ;
     public final void rule__XSetLiteral__ElementsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18207:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18208:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18615:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18616:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18208:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18209:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18616:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18617:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSetLiteralAccess().getElementsXExpressionParserRuleCall_3_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XSetLiteral__ElementsAssignment_3_1_136635);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XSetLiteral__ElementsAssignment_3_1_137440);
             ruleXExpression();
 
             state._fsp--;
@@ -52095,22 +53238,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XListLiteral__ElementsAssignment_3_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18218:1: rule__XListLiteral__ElementsAssignment_3_0 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18626:1: rule__XListLiteral__ElementsAssignment_3_0 : ( ruleXExpression ) ;
     public final void rule__XListLiteral__ElementsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18222:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18223:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18630:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18631:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18223:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18224:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18631:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18632:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXListLiteralAccess().getElementsXExpressionParserRuleCall_3_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XListLiteral__ElementsAssignment_3_036666);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XListLiteral__ElementsAssignment_3_037471);
             ruleXExpression();
 
             state._fsp--;
@@ -52140,22 +53283,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XListLiteral__ElementsAssignment_3_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18233:1: rule__XListLiteral__ElementsAssignment_3_1_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18641:1: rule__XListLiteral__ElementsAssignment_3_1_1 : ( ruleXExpression ) ;
     public final void rule__XListLiteral__ElementsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18237:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18238:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18645:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18646:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18238:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18239:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18646:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18647:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXListLiteralAccess().getElementsXExpressionParserRuleCall_3_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XListLiteral__ElementsAssignment_3_1_136697);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XListLiteral__ElementsAssignment_3_1_137502);
             ruleXExpression();
 
             state._fsp--;
@@ -52185,22 +53328,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18248:1: rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_0 : ( ruleJvmFormalParameter ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18656:1: rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_0 : ( ruleJvmFormalParameter ) ;
     public final void rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18252:1: ( ( ruleJvmFormalParameter ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18253:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18660:1: ( ( ruleJvmFormalParameter ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18661:1: ( ruleJvmFormalParameter )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18253:1: ( ruleJvmFormalParameter )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18254:1: ruleJvmFormalParameter
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18661:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18662:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXClosureAccess().getDeclaredFormalParametersJvmFormalParameterParserRuleCall_1_0_0_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_036728);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_037533);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -52230,22 +53373,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18263:1: rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_1 : ( ruleJvmFormalParameter ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18671:1: rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_1 : ( ruleJvmFormalParameter ) ;
     public final void rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18267:1: ( ( ruleJvmFormalParameter ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18268:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18675:1: ( ( ruleJvmFormalParameter ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18676:1: ( ruleJvmFormalParameter )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18268:1: ( ruleJvmFormalParameter )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18269:1: ruleJvmFormalParameter
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18676:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18677:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXClosureAccess().getDeclaredFormalParametersJvmFormalParameterParserRuleCall_1_0_0_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_136759);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_137564);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -52275,28 +53418,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XClosure__ExplicitSyntaxAssignment_1_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18278:1: rule__XClosure__ExplicitSyntaxAssignment_1_0_1 : ( ( '|' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18686:1: rule__XClosure__ExplicitSyntaxAssignment_1_0_1 : ( ( '|' ) ) ;
     public final void rule__XClosure__ExplicitSyntaxAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18282:1: ( ( ( '|' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18283:1: ( ( '|' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18690:1: ( ( ( '|' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18691:1: ( ( '|' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18283:1: ( ( '|' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18284:1: ( '|' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXClosureAccess().getExplicitSyntaxVerticalLineKeyword_1_0_1_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18285:1: ( '|' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18286:1: '|'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18691:1: ( ( '|' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18692:1: ( '|' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXClosureAccess().getExplicitSyntaxVerticalLineKeyword_1_0_1_0()); 
             }
-            match(input,89,FOLLOW_89_in_rule__XClosure__ExplicitSyntaxAssignment_1_0_136795); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18693:1: ( '|' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18694:1: '|'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXClosureAccess().getExplicitSyntaxVerticalLineKeyword_1_0_1_0()); 
+            }
+            match(input,89,FOLLOW_89_in_rule__XClosure__ExplicitSyntaxAssignment_1_0_137600); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXClosureAccess().getExplicitSyntaxVerticalLineKeyword_1_0_1_0()); 
             }
@@ -52328,22 +53471,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XClosure__ExpressionAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18301:1: rule__XClosure__ExpressionAssignment_2 : ( ruleXExpressionInClosure ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18709:1: rule__XClosure__ExpressionAssignment_2 : ( ruleXExpressionInClosure ) ;
     public final void rule__XClosure__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18305:1: ( ( ruleXExpressionInClosure ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18306:1: ( ruleXExpressionInClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18713:1: ( ( ruleXExpressionInClosure ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18714:1: ( ruleXExpressionInClosure )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18306:1: ( ruleXExpressionInClosure )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18307:1: ruleXExpressionInClosure
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18714:1: ( ruleXExpressionInClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18715:1: ruleXExpressionInClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXClosureAccess().getExpressionXExpressionInClosureParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpressionInClosure_in_rule__XClosure__ExpressionAssignment_236834);
+            pushFollow(FOLLOW_ruleXExpressionInClosure_in_rule__XClosure__ExpressionAssignment_237639);
             ruleXExpressionInClosure();
 
             state._fsp--;
@@ -52373,22 +53516,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XExpressionInClosure__ExpressionsAssignment_1_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18316:1: rule__XExpressionInClosure__ExpressionsAssignment_1_0 : ( ruleXExpressionOrVarDeclaration ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18724:1: rule__XExpressionInClosure__ExpressionsAssignment_1_0 : ( ruleXExpressionOrVarDeclaration ) ;
     public final void rule__XExpressionInClosure__ExpressionsAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18320:1: ( ( ruleXExpressionOrVarDeclaration ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18321:1: ( ruleXExpressionOrVarDeclaration )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18728:1: ( ( ruleXExpressionOrVarDeclaration ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18729:1: ( ruleXExpressionOrVarDeclaration )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18321:1: ( ruleXExpressionOrVarDeclaration )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18322:1: ruleXExpressionOrVarDeclaration
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18729:1: ( ruleXExpressionOrVarDeclaration )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18730:1: ruleXExpressionOrVarDeclaration
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXExpressionInClosureAccess().getExpressionsXExpressionOrVarDeclarationParserRuleCall_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XExpressionInClosure__ExpressionsAssignment_1_036865);
+            pushFollow(FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XExpressionInClosure__ExpressionsAssignment_1_037670);
             ruleXExpressionOrVarDeclaration();
 
             state._fsp--;
@@ -52418,22 +53561,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18331:1: rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_0 : ( ruleJvmFormalParameter ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18739:1: rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_0 : ( ruleJvmFormalParameter ) ;
     public final void rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18335:1: ( ( ruleJvmFormalParameter ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18336:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18743:1: ( ( ruleJvmFormalParameter ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18744:1: ( ruleJvmFormalParameter )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18336:1: ( ruleJvmFormalParameter )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18337:1: ruleJvmFormalParameter
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18744:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18745:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXShortClosureAccess().getDeclaredFormalParametersJvmFormalParameterParserRuleCall_0_0_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_036896);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_037701);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -52463,22 +53606,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18346:1: rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_1 : ( ruleJvmFormalParameter ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18754:1: rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_1 : ( ruleJvmFormalParameter ) ;
     public final void rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18350:1: ( ( ruleJvmFormalParameter ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18351:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18758:1: ( ( ruleJvmFormalParameter ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18759:1: ( ruleJvmFormalParameter )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18351:1: ( ruleJvmFormalParameter )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18352:1: ruleJvmFormalParameter
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18759:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18760:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXShortClosureAccess().getDeclaredFormalParametersJvmFormalParameterParserRuleCall_0_0_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_136927);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_137732);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -52508,28 +53651,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XShortClosure__ExplicitSyntaxAssignment_0_0_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18361:1: rule__XShortClosure__ExplicitSyntaxAssignment_0_0_2 : ( ( '|' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18769:1: rule__XShortClosure__ExplicitSyntaxAssignment_0_0_2 : ( ( '|' ) ) ;
     public final void rule__XShortClosure__ExplicitSyntaxAssignment_0_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18365:1: ( ( ( '|' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18366:1: ( ( '|' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18773:1: ( ( ( '|' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18774:1: ( ( '|' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18366:1: ( ( '|' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18367:1: ( '|' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXShortClosureAccess().getExplicitSyntaxVerticalLineKeyword_0_0_2_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18368:1: ( '|' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18369:1: '|'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18774:1: ( ( '|' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18775:1: ( '|' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXShortClosureAccess().getExplicitSyntaxVerticalLineKeyword_0_0_2_0()); 
             }
-            match(input,89,FOLLOW_89_in_rule__XShortClosure__ExplicitSyntaxAssignment_0_0_236963); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18776:1: ( '|' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18777:1: '|'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXShortClosureAccess().getExplicitSyntaxVerticalLineKeyword_0_0_2_0()); 
+            }
+            match(input,89,FOLLOW_89_in_rule__XShortClosure__ExplicitSyntaxAssignment_0_0_237768); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXShortClosureAccess().getExplicitSyntaxVerticalLineKeyword_0_0_2_0()); 
             }
@@ -52561,22 +53704,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XShortClosure__ExpressionAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18384:1: rule__XShortClosure__ExpressionAssignment_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18792:1: rule__XShortClosure__ExpressionAssignment_1 : ( ruleXExpression ) ;
     public final void rule__XShortClosure__ExpressionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18388:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18389:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18796:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18797:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18389:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18390:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18797:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18798:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXShortClosureAccess().getExpressionXExpressionParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XShortClosure__ExpressionAssignment_137002);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XShortClosure__ExpressionAssignment_137807);
             ruleXExpression();
 
             state._fsp--;
@@ -52606,22 +53749,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XIfExpression__IfAssignment_3"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18399:1: rule__XIfExpression__IfAssignment_3 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18807:1: rule__XIfExpression__IfAssignment_3 : ( ruleXExpression ) ;
     public final void rule__XIfExpression__IfAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18403:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18404:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18811:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18812:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18404:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18405:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18812:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18813:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXIfExpressionAccess().getIfXExpressionParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XIfExpression__IfAssignment_337033);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XIfExpression__IfAssignment_337838);
             ruleXExpression();
 
             state._fsp--;
@@ -52651,22 +53794,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XIfExpression__ThenAssignment_5"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18414:1: rule__XIfExpression__ThenAssignment_5 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18822:1: rule__XIfExpression__ThenAssignment_5 : ( ruleXExpression ) ;
     public final void rule__XIfExpression__ThenAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18418:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18419:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18826:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18827:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18419:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18420:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18827:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18828:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXIfExpressionAccess().getThenXExpressionParserRuleCall_5_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XIfExpression__ThenAssignment_537064);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XIfExpression__ThenAssignment_537869);
             ruleXExpression();
 
             state._fsp--;
@@ -52696,22 +53839,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XIfExpression__ElseAssignment_6_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18429:1: rule__XIfExpression__ElseAssignment_6_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18837:1: rule__XIfExpression__ElseAssignment_6_1 : ( ruleXExpression ) ;
     public final void rule__XIfExpression__ElseAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18433:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18434:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18841:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18842:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18434:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18435:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18842:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18843:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXIfExpressionAccess().getElseXExpressionParserRuleCall_6_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XIfExpression__ElseAssignment_6_137095);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XIfExpression__ElseAssignment_6_137900);
             ruleXExpression();
 
             state._fsp--;
@@ -52741,22 +53884,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XSwitchExpression__DeclaredParamAssignment_2_0_0_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18444:1: rule__XSwitchExpression__DeclaredParamAssignment_2_0_0_0_1 : ( ruleJvmFormalParameter ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18852:1: rule__XSwitchExpression__DeclaredParamAssignment_2_0_0_0_1 : ( ruleJvmFormalParameter ) ;
     public final void rule__XSwitchExpression__DeclaredParamAssignment_2_0_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18448:1: ( ( ruleJvmFormalParameter ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18449:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18856:1: ( ( ruleJvmFormalParameter ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18857:1: ( ruleJvmFormalParameter )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18449:1: ( ruleJvmFormalParameter )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18450:1: ruleJvmFormalParameter
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18857:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18858:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSwitchExpressionAccess().getDeclaredParamJvmFormalParameterParserRuleCall_2_0_0_0_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XSwitchExpression__DeclaredParamAssignment_2_0_0_0_137126);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XSwitchExpression__DeclaredParamAssignment_2_0_0_0_137931);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -52786,22 +53929,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XSwitchExpression__SwitchAssignment_2_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18459:1: rule__XSwitchExpression__SwitchAssignment_2_0_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18867:1: rule__XSwitchExpression__SwitchAssignment_2_0_1 : ( ruleXExpression ) ;
     public final void rule__XSwitchExpression__SwitchAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18463:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18464:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18871:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18872:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18464:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18465:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18872:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18873:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSwitchExpressionAccess().getSwitchXExpressionParserRuleCall_2_0_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_0_137157);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_0_137962);
             ruleXExpression();
 
             state._fsp--;
@@ -52831,22 +53974,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XSwitchExpression__DeclaredParamAssignment_2_1_0_0_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18474:1: rule__XSwitchExpression__DeclaredParamAssignment_2_1_0_0_0 : ( ruleJvmFormalParameter ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18882:1: rule__XSwitchExpression__DeclaredParamAssignment_2_1_0_0_0 : ( ruleJvmFormalParameter ) ;
     public final void rule__XSwitchExpression__DeclaredParamAssignment_2_1_0_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18478:1: ( ( ruleJvmFormalParameter ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18479:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18886:1: ( ( ruleJvmFormalParameter ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18887:1: ( ruleJvmFormalParameter )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18479:1: ( ruleJvmFormalParameter )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18480:1: ruleJvmFormalParameter
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18887:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18888:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSwitchExpressionAccess().getDeclaredParamJvmFormalParameterParserRuleCall_2_1_0_0_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XSwitchExpression__DeclaredParamAssignment_2_1_0_0_037188);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XSwitchExpression__DeclaredParamAssignment_2_1_0_0_037993);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -52876,22 +54019,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XSwitchExpression__SwitchAssignment_2_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18489:1: rule__XSwitchExpression__SwitchAssignment_2_1_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18897:1: rule__XSwitchExpression__SwitchAssignment_2_1_1 : ( ruleXExpression ) ;
     public final void rule__XSwitchExpression__SwitchAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18493:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18494:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18901:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18902:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18494:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18495:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18902:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18903:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSwitchExpressionAccess().getSwitchXExpressionParserRuleCall_2_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_1_137219);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_1_138024);
             ruleXExpression();
 
             state._fsp--;
@@ -52921,22 +54064,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XSwitchExpression__CasesAssignment_4"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18504:1: rule__XSwitchExpression__CasesAssignment_4 : ( ruleXCasePart ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18912:1: rule__XSwitchExpression__CasesAssignment_4 : ( ruleXCasePart ) ;
     public final void rule__XSwitchExpression__CasesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18508:1: ( ( ruleXCasePart ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18509:1: ( ruleXCasePart )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18916:1: ( ( ruleXCasePart ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18917:1: ( ruleXCasePart )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18509:1: ( ruleXCasePart )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18510:1: ruleXCasePart
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18917:1: ( ruleXCasePart )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18918:1: ruleXCasePart
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSwitchExpressionAccess().getCasesXCasePartParserRuleCall_4_0()); 
             }
-            pushFollow(FOLLOW_ruleXCasePart_in_rule__XSwitchExpression__CasesAssignment_437250);
+            pushFollow(FOLLOW_ruleXCasePart_in_rule__XSwitchExpression__CasesAssignment_438055);
             ruleXCasePart();
 
             state._fsp--;
@@ -52966,22 +54109,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XSwitchExpression__DefaultAssignment_5_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18519:1: rule__XSwitchExpression__DefaultAssignment_5_2 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18927:1: rule__XSwitchExpression__DefaultAssignment_5_2 : ( ruleXExpression ) ;
     public final void rule__XSwitchExpression__DefaultAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18523:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18524:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18931:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18932:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18524:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18525:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18932:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18933:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSwitchExpressionAccess().getDefaultXExpressionParserRuleCall_5_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XSwitchExpression__DefaultAssignment_5_237281);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XSwitchExpression__DefaultAssignment_5_238086);
             ruleXExpression();
 
             state._fsp--;
@@ -53011,22 +54154,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XCasePart__TypeGuardAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18534:1: rule__XCasePart__TypeGuardAssignment_1 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18942:1: rule__XCasePart__TypeGuardAssignment_1 : ( ruleJvmTypeReference ) ;
     public final void rule__XCasePart__TypeGuardAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18538:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18539:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18946:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18947:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18539:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18540:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18947:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18948:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCasePartAccess().getTypeGuardJvmTypeReferenceParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XCasePart__TypeGuardAssignment_137312);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XCasePart__TypeGuardAssignment_138117);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -53056,22 +54199,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XCasePart__CaseAssignment_2_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18549:1: rule__XCasePart__CaseAssignment_2_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18957:1: rule__XCasePart__CaseAssignment_2_1 : ( ruleXExpression ) ;
     public final void rule__XCasePart__CaseAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18553:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18554:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18961:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18962:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18554:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18555:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18962:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18963:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCasePartAccess().getCaseXExpressionParserRuleCall_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XCasePart__CaseAssignment_2_137343);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XCasePart__CaseAssignment_2_138148);
             ruleXExpression();
 
             state._fsp--;
@@ -53101,22 +54244,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XCasePart__ThenAssignment_3_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18564:1: rule__XCasePart__ThenAssignment_3_0_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18972:1: rule__XCasePart__ThenAssignment_3_0_1 : ( ruleXExpression ) ;
     public final void rule__XCasePart__ThenAssignment_3_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18568:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18569:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18976:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18977:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18569:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18570:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18977:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18978:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCasePartAccess().getThenXExpressionParserRuleCall_3_0_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XCasePart__ThenAssignment_3_0_137374);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XCasePart__ThenAssignment_3_0_138179);
             ruleXExpression();
 
             state._fsp--;
@@ -53146,28 +54289,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XCasePart__FallThroughAssignment_3_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18579:1: rule__XCasePart__FallThroughAssignment_3_1 : ( ( ',' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18987:1: rule__XCasePart__FallThroughAssignment_3_1 : ( ( ',' ) ) ;
     public final void rule__XCasePart__FallThroughAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18583:1: ( ( ( ',' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18584:1: ( ( ',' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18991:1: ( ( ( ',' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18992:1: ( ( ',' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18584:1: ( ( ',' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18585:1: ( ',' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXCasePartAccess().getFallThroughCommaKeyword_3_1_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18586:1: ( ',' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18587:1: ','
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18992:1: ( ( ',' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18993:1: ( ',' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCasePartAccess().getFallThroughCommaKeyword_3_1_0()); 
             }
-            match(input,56,FOLLOW_56_in_rule__XCasePart__FallThroughAssignment_3_137410); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18994:1: ( ',' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18995:1: ','
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXCasePartAccess().getFallThroughCommaKeyword_3_1_0()); 
+            }
+            match(input,56,FOLLOW_56_in_rule__XCasePart__FallThroughAssignment_3_138215); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXCasePartAccess().getFallThroughCommaKeyword_3_1_0()); 
             }
@@ -53199,22 +54342,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XForLoopExpression__DeclaredParamAssignment_0_0_3"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18602:1: rule__XForLoopExpression__DeclaredParamAssignment_0_0_3 : ( ruleJvmFormalParameter ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19010:1: rule__XForLoopExpression__DeclaredParamAssignment_0_0_3 : ( ruleJvmFormalParameter ) ;
     public final void rule__XForLoopExpression__DeclaredParamAssignment_0_0_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18606:1: ( ( ruleJvmFormalParameter ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18607:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19014:1: ( ( ruleJvmFormalParameter ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19015:1: ( ruleJvmFormalParameter )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18607:1: ( ruleJvmFormalParameter )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18608:1: ruleJvmFormalParameter
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19015:1: ( ruleJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19016:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXForLoopExpressionAccess().getDeclaredParamJvmFormalParameterParserRuleCall_0_0_3_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XForLoopExpression__DeclaredParamAssignment_0_0_337449);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XForLoopExpression__DeclaredParamAssignment_0_0_338254);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -53244,22 +54387,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XForLoopExpression__ForExpressionAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18617:1: rule__XForLoopExpression__ForExpressionAssignment_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19025:1: rule__XForLoopExpression__ForExpressionAssignment_1 : ( ruleXExpression ) ;
     public final void rule__XForLoopExpression__ForExpressionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18621:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18622:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19029:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19030:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18622:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18623:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19030:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19031:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXForLoopExpressionAccess().getForExpressionXExpressionParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XForLoopExpression__ForExpressionAssignment_137480);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XForLoopExpression__ForExpressionAssignment_138285);
             ruleXExpression();
 
             state._fsp--;
@@ -53289,22 +54432,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XForLoopExpression__EachExpressionAssignment_3"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18632:1: rule__XForLoopExpression__EachExpressionAssignment_3 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19040:1: rule__XForLoopExpression__EachExpressionAssignment_3 : ( ruleXExpression ) ;
     public final void rule__XForLoopExpression__EachExpressionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18636:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18637:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19044:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19045:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18637:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18638:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19045:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19046:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXForLoopExpressionAccess().getEachExpressionXExpressionParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XForLoopExpression__EachExpressionAssignment_337511);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XForLoopExpression__EachExpressionAssignment_338316);
             ruleXExpression();
 
             state._fsp--;
@@ -53334,22 +54477,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XBasicForLoopExpression__InitExpressionsAssignment_3_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18647:1: rule__XBasicForLoopExpression__InitExpressionsAssignment_3_0 : ( ruleXExpressionOrVarDeclaration ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19055:1: rule__XBasicForLoopExpression__InitExpressionsAssignment_3_0 : ( ruleXExpressionOrVarDeclaration ) ;
     public final void rule__XBasicForLoopExpression__InitExpressionsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18651:1: ( ( ruleXExpressionOrVarDeclaration ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18652:1: ( ruleXExpressionOrVarDeclaration )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19059:1: ( ( ruleXExpressionOrVarDeclaration ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19060:1: ( ruleXExpressionOrVarDeclaration )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18652:1: ( ruleXExpressionOrVarDeclaration )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18653:1: ruleXExpressionOrVarDeclaration
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19060:1: ( ruleXExpressionOrVarDeclaration )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19061:1: ruleXExpressionOrVarDeclaration
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXBasicForLoopExpressionAccess().getInitExpressionsXExpressionOrVarDeclarationParserRuleCall_3_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XBasicForLoopExpression__InitExpressionsAssignment_3_037542);
+            pushFollow(FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XBasicForLoopExpression__InitExpressionsAssignment_3_038347);
             ruleXExpressionOrVarDeclaration();
 
             state._fsp--;
@@ -53379,22 +54522,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XBasicForLoopExpression__InitExpressionsAssignment_3_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18662:1: rule__XBasicForLoopExpression__InitExpressionsAssignment_3_1_1 : ( ruleXExpressionOrVarDeclaration ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19070:1: rule__XBasicForLoopExpression__InitExpressionsAssignment_3_1_1 : ( ruleXExpressionOrVarDeclaration ) ;
     public final void rule__XBasicForLoopExpression__InitExpressionsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18666:1: ( ( ruleXExpressionOrVarDeclaration ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18667:1: ( ruleXExpressionOrVarDeclaration )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19074:1: ( ( ruleXExpressionOrVarDeclaration ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19075:1: ( ruleXExpressionOrVarDeclaration )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18667:1: ( ruleXExpressionOrVarDeclaration )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18668:1: ruleXExpressionOrVarDeclaration
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19075:1: ( ruleXExpressionOrVarDeclaration )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19076:1: ruleXExpressionOrVarDeclaration
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXBasicForLoopExpressionAccess().getInitExpressionsXExpressionOrVarDeclarationParserRuleCall_3_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XBasicForLoopExpression__InitExpressionsAssignment_3_1_137573);
+            pushFollow(FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XBasicForLoopExpression__InitExpressionsAssignment_3_1_138378);
             ruleXExpressionOrVarDeclaration();
 
             state._fsp--;
@@ -53424,22 +54567,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XBasicForLoopExpression__ExpressionAssignment_5"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18677:1: rule__XBasicForLoopExpression__ExpressionAssignment_5 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19085:1: rule__XBasicForLoopExpression__ExpressionAssignment_5 : ( ruleXExpression ) ;
     public final void rule__XBasicForLoopExpression__ExpressionAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18681:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18682:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19089:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19090:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18682:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18683:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19090:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19091:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXBasicForLoopExpressionAccess().getExpressionXExpressionParserRuleCall_5_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__ExpressionAssignment_537604);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__ExpressionAssignment_538409);
             ruleXExpression();
 
             state._fsp--;
@@ -53469,22 +54612,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18692:1: rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_0 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19100:1: rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_0 : ( ruleXExpression ) ;
     public final void rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18696:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18697:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19104:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19105:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18697:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18698:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19105:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19106:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXBasicForLoopExpressionAccess().getUpdateExpressionsXExpressionParserRuleCall_7_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_037635);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_038440);
             ruleXExpression();
 
             state._fsp--;
@@ -53514,22 +54657,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18707:1: rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_1_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19115:1: rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_1_1 : ( ruleXExpression ) ;
     public final void rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18711:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18712:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19119:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19120:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18712:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18713:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19120:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19121:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXBasicForLoopExpressionAccess().getUpdateExpressionsXExpressionParserRuleCall_7_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_1_137666);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_1_138471);
             ruleXExpression();
 
             state._fsp--;
@@ -53559,22 +54702,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XBasicForLoopExpression__EachExpressionAssignment_9"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18722:1: rule__XBasicForLoopExpression__EachExpressionAssignment_9 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19130:1: rule__XBasicForLoopExpression__EachExpressionAssignment_9 : ( ruleXExpression ) ;
     public final void rule__XBasicForLoopExpression__EachExpressionAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18726:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18727:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19134:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19135:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18727:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18728:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19135:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19136:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXBasicForLoopExpressionAccess().getEachExpressionXExpressionParserRuleCall_9_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__EachExpressionAssignment_937697);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__EachExpressionAssignment_938502);
             ruleXExpression();
 
             state._fsp--;
@@ -53604,22 +54747,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XWhileExpression__PredicateAssignment_3"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18737:1: rule__XWhileExpression__PredicateAssignment_3 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19145:1: rule__XWhileExpression__PredicateAssignment_3 : ( ruleXExpression ) ;
     public final void rule__XWhileExpression__PredicateAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18741:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18742:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19149:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19150:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18742:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18743:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19150:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19151:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXWhileExpressionAccess().getPredicateXExpressionParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XWhileExpression__PredicateAssignment_337728);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XWhileExpression__PredicateAssignment_338533);
             ruleXExpression();
 
             state._fsp--;
@@ -53649,22 +54792,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XWhileExpression__BodyAssignment_5"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18752:1: rule__XWhileExpression__BodyAssignment_5 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19160:1: rule__XWhileExpression__BodyAssignment_5 : ( ruleXExpression ) ;
     public final void rule__XWhileExpression__BodyAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18756:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18757:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19164:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19165:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18757:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18758:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19165:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19166:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXWhileExpressionAccess().getBodyXExpressionParserRuleCall_5_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XWhileExpression__BodyAssignment_537759);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XWhileExpression__BodyAssignment_538564);
             ruleXExpression();
 
             state._fsp--;
@@ -53694,22 +54837,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XDoWhileExpression__BodyAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18767:1: rule__XDoWhileExpression__BodyAssignment_2 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19175:1: rule__XDoWhileExpression__BodyAssignment_2 : ( ruleXExpression ) ;
     public final void rule__XDoWhileExpression__BodyAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18771:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18772:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19179:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19180:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18772:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18773:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19180:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19181:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXDoWhileExpressionAccess().getBodyXExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__BodyAssignment_237790);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__BodyAssignment_238595);
             ruleXExpression();
 
             state._fsp--;
@@ -53739,22 +54882,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XDoWhileExpression__PredicateAssignment_5"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18782:1: rule__XDoWhileExpression__PredicateAssignment_5 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19190:1: rule__XDoWhileExpression__PredicateAssignment_5 : ( ruleXExpression ) ;
     public final void rule__XDoWhileExpression__PredicateAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18786:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18787:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19194:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19195:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18787:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18788:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19195:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19196:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXDoWhileExpressionAccess().getPredicateXExpressionParserRuleCall_5_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__PredicateAssignment_537821);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__PredicateAssignment_538626);
             ruleXExpression();
 
             state._fsp--;
@@ -53784,22 +54927,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XBlockExpression__ExpressionsAssignment_2_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18797:1: rule__XBlockExpression__ExpressionsAssignment_2_0 : ( ruleXExpressionOrVarDeclaration ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19205:1: rule__XBlockExpression__ExpressionsAssignment_2_0 : ( ruleXExpressionOrVarDeclaration ) ;
     public final void rule__XBlockExpression__ExpressionsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18801:1: ( ( ruleXExpressionOrVarDeclaration ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18802:1: ( ruleXExpressionOrVarDeclaration )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19209:1: ( ( ruleXExpressionOrVarDeclaration ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19210:1: ( ruleXExpressionOrVarDeclaration )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18802:1: ( ruleXExpressionOrVarDeclaration )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18803:1: ruleXExpressionOrVarDeclaration
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19210:1: ( ruleXExpressionOrVarDeclaration )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19211:1: ruleXExpressionOrVarDeclaration
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXBlockExpressionAccess().getExpressionsXExpressionOrVarDeclarationParserRuleCall_2_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XBlockExpression__ExpressionsAssignment_2_037852);
+            pushFollow(FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XBlockExpression__ExpressionsAssignment_2_038657);
             ruleXExpressionOrVarDeclaration();
 
             state._fsp--;
@@ -53829,28 +54972,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XVariableDeclaration__WriteableAssignment_1_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18812:1: rule__XVariableDeclaration__WriteableAssignment_1_0 : ( ( 'var' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19220:1: rule__XVariableDeclaration__WriteableAssignment_1_0 : ( ( 'var' ) ) ;
     public final void rule__XVariableDeclaration__WriteableAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18816:1: ( ( ( 'var' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18817:1: ( ( 'var' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19224:1: ( ( ( 'var' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19225:1: ( ( 'var' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18817:1: ( ( 'var' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18818:1: ( 'var' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXVariableDeclarationAccess().getWriteableVarKeyword_1_0_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18819:1: ( 'var' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18820:1: 'var'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19225:1: ( ( 'var' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19226:1: ( 'var' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXVariableDeclarationAccess().getWriteableVarKeyword_1_0_0()); 
             }
-            match(input,57,FOLLOW_57_in_rule__XVariableDeclaration__WriteableAssignment_1_037888); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19227:1: ( 'var' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19228:1: 'var'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXVariableDeclarationAccess().getWriteableVarKeyword_1_0_0()); 
+            }
+            match(input,57,FOLLOW_57_in_rule__XVariableDeclaration__WriteableAssignment_1_038693); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXVariableDeclarationAccess().getWriteableVarKeyword_1_0_0()); 
             }
@@ -53882,22 +55025,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XVariableDeclaration__TypeAssignment_2_0_0_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18835:1: rule__XVariableDeclaration__TypeAssignment_2_0_0_0 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19243:1: rule__XVariableDeclaration__TypeAssignment_2_0_0_0 : ( ruleJvmTypeReference ) ;
     public final void rule__XVariableDeclaration__TypeAssignment_2_0_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18839:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18840:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19247:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19248:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18840:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18841:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19248:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19249:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXVariableDeclarationAccess().getTypeJvmTypeReferenceParserRuleCall_2_0_0_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XVariableDeclaration__TypeAssignment_2_0_0_037927);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XVariableDeclaration__TypeAssignment_2_0_0_038732);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -53927,22 +55070,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XVariableDeclaration__NameAssignment_2_0_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18850:1: rule__XVariableDeclaration__NameAssignment_2_0_0_1 : ( ruleValidID ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19258:1: rule__XVariableDeclaration__NameAssignment_2_0_0_1 : ( ruleValidID ) ;
     public final void rule__XVariableDeclaration__NameAssignment_2_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18854:1: ( ( ruleValidID ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18855:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19262:1: ( ( ruleValidID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19263:1: ( ruleValidID )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18855:1: ( ruleValidID )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18856:1: ruleValidID
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19263:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19264:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXVariableDeclarationAccess().getNameValidIDParserRuleCall_2_0_0_1_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_0_0_137958);
+            pushFollow(FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_0_0_138763);
             ruleValidID();
 
             state._fsp--;
@@ -53972,22 +55115,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XVariableDeclaration__NameAssignment_2_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18865:1: rule__XVariableDeclaration__NameAssignment_2_1 : ( ruleValidID ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19273:1: rule__XVariableDeclaration__NameAssignment_2_1 : ( ruleValidID ) ;
     public final void rule__XVariableDeclaration__NameAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18869:1: ( ( ruleValidID ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18870:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19277:1: ( ( ruleValidID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19278:1: ( ruleValidID )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18870:1: ( ruleValidID )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18871:1: ruleValidID
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19278:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19279:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXVariableDeclarationAccess().getNameValidIDParserRuleCall_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_137989);
+            pushFollow(FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_138794);
             ruleValidID();
 
             state._fsp--;
@@ -54017,22 +55160,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XVariableDeclaration__RightAssignment_3_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18880:1: rule__XVariableDeclaration__RightAssignment_3_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19288:1: rule__XVariableDeclaration__RightAssignment_3_1 : ( ruleXExpression ) ;
     public final void rule__XVariableDeclaration__RightAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18884:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18885:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19292:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19293:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18885:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18886:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19293:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19294:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXVariableDeclarationAccess().getRightXExpressionParserRuleCall_3_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XVariableDeclaration__RightAssignment_3_138020);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XVariableDeclaration__RightAssignment_3_138825);
             ruleXExpression();
 
             state._fsp--;
@@ -54062,22 +55205,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmFormalParameter__ParameterTypeAssignment_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18895:1: rule__JvmFormalParameter__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19303:1: rule__JvmFormalParameter__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
     public final void rule__JvmFormalParameter__ParameterTypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18899:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18900:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19307:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19308:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18900:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18901:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19308:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19309:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmFormalParameterAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmFormalParameter__ParameterTypeAssignment_038051);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmFormalParameter__ParameterTypeAssignment_038856);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -54107,22 +55250,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmFormalParameter__NameAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18910:1: rule__JvmFormalParameter__NameAssignment_1 : ( ruleValidID ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19318:1: rule__JvmFormalParameter__NameAssignment_1 : ( ruleValidID ) ;
     public final void rule__JvmFormalParameter__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18914:1: ( ( ruleValidID ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18915:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19322:1: ( ( ruleValidID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19323:1: ( ruleValidID )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18915:1: ( ruleValidID )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18916:1: ruleValidID
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19323:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19324:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmFormalParameterAccess().getNameValidIDParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__JvmFormalParameter__NameAssignment_138082);
+            pushFollow(FOLLOW_ruleValidID_in_rule__JvmFormalParameter__NameAssignment_138887);
             ruleValidID();
 
             state._fsp--;
@@ -54152,22 +55295,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__FullJvmFormalParameter__ParameterTypeAssignment_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18925:1: rule__FullJvmFormalParameter__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19333:1: rule__FullJvmFormalParameter__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
     public final void rule__FullJvmFormalParameter__ParameterTypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18929:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18930:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19337:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19338:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18930:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18931:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19338:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19339:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFullJvmFormalParameterAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__FullJvmFormalParameter__ParameterTypeAssignment_038113);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__FullJvmFormalParameter__ParameterTypeAssignment_038918);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -54197,22 +55340,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__FullJvmFormalParameter__NameAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18940:1: rule__FullJvmFormalParameter__NameAssignment_1 : ( ruleValidID ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19348:1: rule__FullJvmFormalParameter__NameAssignment_1 : ( ruleValidID ) ;
     public final void rule__FullJvmFormalParameter__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18944:1: ( ( ruleValidID ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18945:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19352:1: ( ( ruleValidID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19353:1: ( ruleValidID )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18945:1: ( ruleValidID )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18946:1: ruleValidID
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19353:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19354:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFullJvmFormalParameterAccess().getNameValidIDParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__FullJvmFormalParameter__NameAssignment_138144);
+            pushFollow(FOLLOW_ruleValidID_in_rule__FullJvmFormalParameter__NameAssignment_138949);
             ruleValidID();
 
             state._fsp--;
@@ -54242,22 +55385,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XFeatureCall__TypeArgumentsAssignment_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18955:1: rule__XFeatureCall__TypeArgumentsAssignment_1_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19363:1: rule__XFeatureCall__TypeArgumentsAssignment_1_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__XFeatureCall__TypeArgumentsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18959:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18960:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19367:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19368:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18960:1: ( ruleJvmArgumentTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18961:1: ruleJvmArgumentTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19368:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19369:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_1_138175);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_1_138980);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -54287,22 +55430,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XFeatureCall__TypeArgumentsAssignment_1_2_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18970:1: rule__XFeatureCall__TypeArgumentsAssignment_1_2_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19378:1: rule__XFeatureCall__TypeArgumentsAssignment_1_2_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__XFeatureCall__TypeArgumentsAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18974:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18975:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19382:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19383:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18975:1: ( ruleJvmArgumentTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18976:1: ruleJvmArgumentTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19383:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19384:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_1_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_1_2_138206);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_1_2_139011);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -54332,28 +55475,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XFeatureCall__FeatureAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18985:1: rule__XFeatureCall__FeatureAssignment_2 : ( ( ruleIdOrSuper ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19393:1: rule__XFeatureCall__FeatureAssignment_2 : ( ( ruleIdOrSuper ) ) ;
     public final void rule__XFeatureCall__FeatureAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18989:1: ( ( ( ruleIdOrSuper ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18990:1: ( ( ruleIdOrSuper ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19397:1: ( ( ( ruleIdOrSuper ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19398:1: ( ( ruleIdOrSuper ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18990:1: ( ( ruleIdOrSuper ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18991:1: ( ruleIdOrSuper )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19398:1: ( ( ruleIdOrSuper ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19399:1: ( ruleIdOrSuper )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getFeatureJvmIdentifiableElementCrossReference_2_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18992:1: ( ruleIdOrSuper )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18993:1: ruleIdOrSuper
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19400:1: ( ruleIdOrSuper )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19401:1: ruleIdOrSuper
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getFeatureJvmIdentifiableElementIdOrSuperParserRuleCall_2_0_1()); 
             }
-            pushFollow(FOLLOW_ruleIdOrSuper_in_rule__XFeatureCall__FeatureAssignment_238241);
+            pushFollow(FOLLOW_ruleIdOrSuper_in_rule__XFeatureCall__FeatureAssignment_239046);
             ruleIdOrSuper();
 
             state._fsp--;
@@ -54389,28 +55532,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XFeatureCall__ExplicitOperationCallAssignment_3_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19004:1: rule__XFeatureCall__ExplicitOperationCallAssignment_3_0 : ( ( '(' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19412:1: rule__XFeatureCall__ExplicitOperationCallAssignment_3_0 : ( ( '(' ) ) ;
     public final void rule__XFeatureCall__ExplicitOperationCallAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19008:1: ( ( ( '(' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19009:1: ( ( '(' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19416:1: ( ( ( '(' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19417:1: ( ( '(' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19009:1: ( ( '(' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19010:1: ( '(' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_3_0_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19011:1: ( '(' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19012:1: '('
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19417:1: ( ( '(' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19418:1: ( '(' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_3_0_0()); 
             }
-            match(input,54,FOLLOW_54_in_rule__XFeatureCall__ExplicitOperationCallAssignment_3_038281); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19419:1: ( '(' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19420:1: '('
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_3_0_0()); 
+            }
+            match(input,54,FOLLOW_54_in_rule__XFeatureCall__ExplicitOperationCallAssignment_3_039086); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_3_0_0()); 
             }
@@ -54442,22 +55585,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19027:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_0 : ( ruleXShortClosure ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19435:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_0 : ( ruleXShortClosure ) ;
     public final void rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19031:1: ( ( ruleXShortClosure ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19032:1: ( ruleXShortClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19439:1: ( ( ruleXShortClosure ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19440:1: ( ruleXShortClosure )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19032:1: ( ruleXShortClosure )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19033:1: ruleXShortClosure
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19440:1: ( ruleXShortClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19441:1: ruleXShortClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getFeatureCallArgumentsXShortClosureParserRuleCall_3_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXShortClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_038320);
+            pushFollow(FOLLOW_ruleXShortClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_039125);
             ruleXShortClosure();
 
             state._fsp--;
@@ -54487,22 +55630,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19042:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_0 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19450:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_0 : ( ruleXExpression ) ;
     public final void rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19046:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19047:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19454:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19455:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19047:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19048:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19455:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19456:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getFeatureCallArgumentsXExpressionParserRuleCall_3_1_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_038351);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_039156);
             ruleXExpression();
 
             state._fsp--;
@@ -54532,22 +55675,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19057:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_1_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19465:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_1_1 : ( ruleXExpression ) ;
     public final void rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19061:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19062:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19469:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19470:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19062:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19063:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19470:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19471:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getFeatureCallArgumentsXExpressionParserRuleCall_3_1_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_1_138382);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_1_139187);
             ruleXExpression();
 
             state._fsp--;
@@ -54577,22 +55720,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XFeatureCall__FeatureCallArgumentsAssignment_4"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19072:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_4 : ( ruleXClosure ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19480:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_4 : ( ruleXClosure ) ;
     public final void rule__XFeatureCall__FeatureCallArgumentsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19076:1: ( ( ruleXClosure ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19077:1: ( ruleXClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19484:1: ( ( ruleXClosure ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19485:1: ( ruleXClosure )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19077:1: ( ruleXClosure )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19078:1: ruleXClosure
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19485:1: ( ruleXClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19486:1: ruleXClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getFeatureCallArgumentsXClosureParserRuleCall_4_0()); 
             }
-            pushFollow(FOLLOW_ruleXClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_438413);
+            pushFollow(FOLLOW_ruleXClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_439218);
             ruleXClosure();
 
             state._fsp--;
@@ -54622,28 +55765,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XConstructorCall__ConstructorAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19087:1: rule__XConstructorCall__ConstructorAssignment_2 : ( ( ruleQualifiedName ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19495:1: rule__XConstructorCall__ConstructorAssignment_2 : ( ( ruleQualifiedName ) ) ;
     public final void rule__XConstructorCall__ConstructorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19091:1: ( ( ( ruleQualifiedName ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19092:1: ( ( ruleQualifiedName ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19499:1: ( ( ( ruleQualifiedName ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19500:1: ( ( ruleQualifiedName ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19092:1: ( ( ruleQualifiedName ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19093:1: ( ruleQualifiedName )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19500:1: ( ( ruleQualifiedName ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19501:1: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getConstructorJvmConstructorCrossReference_2_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19094:1: ( ruleQualifiedName )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19095:1: ruleQualifiedName
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19502:1: ( ruleQualifiedName )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19503:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getConstructorJvmConstructorQualifiedNameParserRuleCall_2_0_1()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__XConstructorCall__ConstructorAssignment_238448);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__XConstructorCall__ConstructorAssignment_239253);
             ruleQualifiedName();
 
             state._fsp--;
@@ -54679,22 +55822,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XConstructorCall__TypeArgumentsAssignment_3_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19106:1: rule__XConstructorCall__TypeArgumentsAssignment_3_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19514:1: rule__XConstructorCall__TypeArgumentsAssignment_3_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__XConstructorCall__TypeArgumentsAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19110:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19111:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19518:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19519:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19111:1: ( ruleJvmArgumentTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19112:1: ruleJvmArgumentTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19519:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19520:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_3_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_138483);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_139288);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -54724,22 +55867,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XConstructorCall__TypeArgumentsAssignment_3_2_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19121:1: rule__XConstructorCall__TypeArgumentsAssignment_3_2_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19529:1: rule__XConstructorCall__TypeArgumentsAssignment_3_2_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__XConstructorCall__TypeArgumentsAssignment_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19125:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19126:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19533:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19534:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19126:1: ( ruleJvmArgumentTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19127:1: ruleJvmArgumentTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19534:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19535:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_3_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_2_138514);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_2_139319);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -54769,28 +55912,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XConstructorCall__ExplicitConstructorCallAssignment_4_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19136:1: rule__XConstructorCall__ExplicitConstructorCallAssignment_4_0 : ( ( '(' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19544:1: rule__XConstructorCall__ExplicitConstructorCallAssignment_4_0 : ( ( '(' ) ) ;
     public final void rule__XConstructorCall__ExplicitConstructorCallAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19140:1: ( ( ( '(' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19141:1: ( ( '(' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19548:1: ( ( ( '(' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19549:1: ( ( '(' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19141:1: ( ( '(' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19142:1: ( '(' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXConstructorCallAccess().getExplicitConstructorCallLeftParenthesisKeyword_4_0_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19143:1: ( '(' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19144:1: '('
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19549:1: ( ( '(' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19550:1: ( '(' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getExplicitConstructorCallLeftParenthesisKeyword_4_0_0()); 
             }
-            match(input,54,FOLLOW_54_in_rule__XConstructorCall__ExplicitConstructorCallAssignment_4_038550); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19551:1: ( '(' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19552:1: '('
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXConstructorCallAccess().getExplicitConstructorCallLeftParenthesisKeyword_4_0_0()); 
+            }
+            match(input,54,FOLLOW_54_in_rule__XConstructorCall__ExplicitConstructorCallAssignment_4_039355); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXConstructorCallAccess().getExplicitConstructorCallLeftParenthesisKeyword_4_0_0()); 
             }
@@ -54822,22 +55965,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XConstructorCall__ArgumentsAssignment_4_1_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19159:1: rule__XConstructorCall__ArgumentsAssignment_4_1_0 : ( ruleXShortClosure ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19567:1: rule__XConstructorCall__ArgumentsAssignment_4_1_0 : ( ruleXShortClosure ) ;
     public final void rule__XConstructorCall__ArgumentsAssignment_4_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19163:1: ( ( ruleXShortClosure ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19164:1: ( ruleXShortClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19571:1: ( ( ruleXShortClosure ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19572:1: ( ruleXShortClosure )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19164:1: ( ruleXShortClosure )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19165:1: ruleXShortClosure
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19572:1: ( ruleXShortClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19573:1: ruleXShortClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getArgumentsXShortClosureParserRuleCall_4_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXShortClosure_in_rule__XConstructorCall__ArgumentsAssignment_4_1_038589);
+            pushFollow(FOLLOW_ruleXShortClosure_in_rule__XConstructorCall__ArgumentsAssignment_4_1_039394);
             ruleXShortClosure();
 
             state._fsp--;
@@ -54867,22 +56010,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XConstructorCall__ArgumentsAssignment_4_1_1_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19174:1: rule__XConstructorCall__ArgumentsAssignment_4_1_1_0 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19582:1: rule__XConstructorCall__ArgumentsAssignment_4_1_1_0 : ( ruleXExpression ) ;
     public final void rule__XConstructorCall__ArgumentsAssignment_4_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19178:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19179:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19586:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19587:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19179:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19180:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19587:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19588:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getArgumentsXExpressionParserRuleCall_4_1_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_038620);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_039425);
             ruleXExpression();
 
             state._fsp--;
@@ -54912,22 +56055,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19189:1: rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19597:1: rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_1 : ( ruleXExpression ) ;
     public final void rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19193:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19194:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19601:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19602:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19194:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19195:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19602:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19603:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getArgumentsXExpressionParserRuleCall_4_1_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_138651);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_139456);
             ruleXExpression();
 
             state._fsp--;
@@ -54957,22 +56100,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XConstructorCall__ArgumentsAssignment_5"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19204:1: rule__XConstructorCall__ArgumentsAssignment_5 : ( ruleXClosure ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19612:1: rule__XConstructorCall__ArgumentsAssignment_5 : ( ruleXClosure ) ;
     public final void rule__XConstructorCall__ArgumentsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19208:1: ( ( ruleXClosure ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19209:1: ( ruleXClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19616:1: ( ( ruleXClosure ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19617:1: ( ruleXClosure )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19209:1: ( ruleXClosure )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19210:1: ruleXClosure
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19617:1: ( ruleXClosure )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19618:1: ruleXClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getArgumentsXClosureParserRuleCall_5_0()); 
             }
-            pushFollow(FOLLOW_ruleXClosure_in_rule__XConstructorCall__ArgumentsAssignment_538682);
+            pushFollow(FOLLOW_ruleXClosure_in_rule__XConstructorCall__ArgumentsAssignment_539487);
             ruleXClosure();
 
             state._fsp--;
@@ -55002,28 +56145,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XBooleanLiteral__IsTrueAssignment_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19219:1: rule__XBooleanLiteral__IsTrueAssignment_1_1 : ( ( 'true' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19627:1: rule__XBooleanLiteral__IsTrueAssignment_1_1 : ( ( 'true' ) ) ;
     public final void rule__XBooleanLiteral__IsTrueAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19223:1: ( ( ( 'true' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19224:1: ( ( 'true' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19631:1: ( ( ( 'true' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19632:1: ( ( 'true' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19224:1: ( ( 'true' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19225:1: ( 'true' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXBooleanLiteralAccess().getIsTrueTrueKeyword_1_1_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19226:1: ( 'true' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19227:1: 'true'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19632:1: ( ( 'true' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19633:1: ( 'true' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXBooleanLiteralAccess().getIsTrueTrueKeyword_1_1_0()); 
             }
-            match(input,90,FOLLOW_90_in_rule__XBooleanLiteral__IsTrueAssignment_1_138718); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19634:1: ( 'true' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19635:1: 'true'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXBooleanLiteralAccess().getIsTrueTrueKeyword_1_1_0()); 
+            }
+            match(input,90,FOLLOW_90_in_rule__XBooleanLiteral__IsTrueAssignment_1_139523); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXBooleanLiteralAccess().getIsTrueTrueKeyword_1_1_0()); 
             }
@@ -55055,22 +56198,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XNumberLiteral__ValueAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19242:1: rule__XNumberLiteral__ValueAssignment_1 : ( ruleNumber ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19650:1: rule__XNumberLiteral__ValueAssignment_1 : ( ruleNumber ) ;
     public final void rule__XNumberLiteral__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19246:1: ( ( ruleNumber ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19247:1: ( ruleNumber )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19654:1: ( ( ruleNumber ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19655:1: ( ruleNumber )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19247:1: ( ruleNumber )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19248:1: ruleNumber
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19655:1: ( ruleNumber )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19656:1: ruleNumber
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXNumberLiteralAccess().getValueNumberParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleNumber_in_rule__XNumberLiteral__ValueAssignment_138757);
+            pushFollow(FOLLOW_ruleNumber_in_rule__XNumberLiteral__ValueAssignment_139562);
             ruleNumber();
 
             state._fsp--;
@@ -55100,22 +56243,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XStringLiteral__ValueAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19257:1: rule__XStringLiteral__ValueAssignment_1 : ( RULE_STRING ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19665:1: rule__XStringLiteral__ValueAssignment_1 : ( RULE_STRING ) ;
     public final void rule__XStringLiteral__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19261:1: ( ( RULE_STRING ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19262:1: ( RULE_STRING )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19669:1: ( ( RULE_STRING ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19670:1: ( RULE_STRING )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19262:1: ( RULE_STRING )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19263:1: RULE_STRING
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19670:1: ( RULE_STRING )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19671:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXStringLiteralAccess().getValueSTRINGTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__XStringLiteral__ValueAssignment_138788); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__XStringLiteral__ValueAssignment_139593); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXStringLiteralAccess().getValueSTRINGTerminalRuleCall_1_0()); 
             }
@@ -55141,28 +56284,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XTypeLiteral__TypeAssignment_3"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19272:1: rule__XTypeLiteral__TypeAssignment_3 : ( ( ruleQualifiedName ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19680:1: rule__XTypeLiteral__TypeAssignment_3 : ( ( ruleQualifiedName ) ) ;
     public final void rule__XTypeLiteral__TypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19276:1: ( ( ( ruleQualifiedName ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19277:1: ( ( ruleQualifiedName ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19684:1: ( ( ( ruleQualifiedName ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19685:1: ( ( ruleQualifiedName ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19277:1: ( ( ruleQualifiedName ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19278:1: ( ruleQualifiedName )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19685:1: ( ( ruleQualifiedName ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19686:1: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTypeLiteralAccess().getTypeJvmTypeCrossReference_3_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19279:1: ( ruleQualifiedName )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19280:1: ruleQualifiedName
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19687:1: ( ruleQualifiedName )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19688:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTypeLiteralAccess().getTypeJvmTypeQualifiedNameParserRuleCall_3_0_1()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__XTypeLiteral__TypeAssignment_338823);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__XTypeLiteral__TypeAssignment_339628);
             ruleQualifiedName();
 
             state._fsp--;
@@ -55198,22 +56341,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XTypeLiteral__ArrayDimensionsAssignment_4"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19291:1: rule__XTypeLiteral__ArrayDimensionsAssignment_4 : ( ruleArrayBrackets ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19699:1: rule__XTypeLiteral__ArrayDimensionsAssignment_4 : ( ruleArrayBrackets ) ;
     public final void rule__XTypeLiteral__ArrayDimensionsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19295:1: ( ( ruleArrayBrackets ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19296:1: ( ruleArrayBrackets )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19703:1: ( ( ruleArrayBrackets ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19704:1: ( ruleArrayBrackets )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19296:1: ( ruleArrayBrackets )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19297:1: ruleArrayBrackets
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19704:1: ( ruleArrayBrackets )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19705:1: ruleArrayBrackets
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTypeLiteralAccess().getArrayDimensionsArrayBracketsParserRuleCall_4_0()); 
             }
-            pushFollow(FOLLOW_ruleArrayBrackets_in_rule__XTypeLiteral__ArrayDimensionsAssignment_438858);
+            pushFollow(FOLLOW_ruleArrayBrackets_in_rule__XTypeLiteral__ArrayDimensionsAssignment_439663);
             ruleArrayBrackets();
 
             state._fsp--;
@@ -55243,22 +56386,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XThrowExpression__ExpressionAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19306:1: rule__XThrowExpression__ExpressionAssignment_2 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19714:1: rule__XThrowExpression__ExpressionAssignment_2 : ( ruleXExpression ) ;
     public final void rule__XThrowExpression__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19310:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19311:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19718:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19719:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19311:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19312:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19719:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19720:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXThrowExpressionAccess().getExpressionXExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XThrowExpression__ExpressionAssignment_238889);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XThrowExpression__ExpressionAssignment_239694);
             ruleXExpression();
 
             state._fsp--;
@@ -55288,22 +56431,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XReturnExpression__ExpressionAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19321:1: rule__XReturnExpression__ExpressionAssignment_2 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19729:1: rule__XReturnExpression__ExpressionAssignment_2 : ( ruleXExpression ) ;
     public final void rule__XReturnExpression__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19325:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19326:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19733:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19734:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19326:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19327:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19734:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19735:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXReturnExpressionAccess().getExpressionXExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XReturnExpression__ExpressionAssignment_238920);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XReturnExpression__ExpressionAssignment_239725);
             ruleXExpression();
 
             state._fsp--;
@@ -55333,22 +56476,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XTryCatchFinallyExpression__ExpressionAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19336:1: rule__XTryCatchFinallyExpression__ExpressionAssignment_2 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19744:1: rule__XTryCatchFinallyExpression__ExpressionAssignment_2 : ( ruleXExpression ) ;
     public final void rule__XTryCatchFinallyExpression__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19340:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19341:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19748:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19749:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19341:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19342:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19749:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19750:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTryCatchFinallyExpressionAccess().getExpressionXExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__ExpressionAssignment_238951);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__ExpressionAssignment_239756);
             ruleXExpression();
 
             state._fsp--;
@@ -55378,22 +56521,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19351:1: rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_0 : ( ruleXCatchClause ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19759:1: rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_0 : ( ruleXCatchClause ) ;
     public final void rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19355:1: ( ( ruleXCatchClause ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19356:1: ( ruleXCatchClause )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19763:1: ( ( ruleXCatchClause ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19764:1: ( ruleXCatchClause )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19356:1: ( ruleXCatchClause )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19357:1: ruleXCatchClause
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19764:1: ( ruleXCatchClause )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19765:1: ruleXCatchClause
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTryCatchFinallyExpressionAccess().getCatchClausesXCatchClauseParserRuleCall_3_0_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXCatchClause_in_rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_038982);
+            pushFollow(FOLLOW_ruleXCatchClause_in_rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_039787);
             ruleXCatchClause();
 
             state._fsp--;
@@ -55423,22 +56566,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19366:1: rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19774:1: rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_1 : ( ruleXExpression ) ;
     public final void rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19370:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19371:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19778:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19779:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19371:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19372:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19779:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19780:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTryCatchFinallyExpressionAccess().getFinallyExpressionXExpressionParserRuleCall_3_0_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_139013);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_139818);
             ruleXExpression();
 
             state._fsp--;
@@ -55468,22 +56611,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19381:1: rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19789:1: rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_1 : ( ruleXExpression ) ;
     public final void rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19385:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19386:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19793:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19794:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19386:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19387:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19794:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19795:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTryCatchFinallyExpressionAccess().getFinallyExpressionXExpressionParserRuleCall_3_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_139044);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_139849);
             ruleXExpression();
 
             state._fsp--;
@@ -55513,22 +56656,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XSynchronizedExpression__ParamAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19396:1: rule__XSynchronizedExpression__ParamAssignment_1 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19804:1: rule__XSynchronizedExpression__ParamAssignment_1 : ( ruleXExpression ) ;
     public final void rule__XSynchronizedExpression__ParamAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19400:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19401:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19808:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19809:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19401:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19402:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19809:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19810:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSynchronizedExpressionAccess().getParamXExpressionParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XSynchronizedExpression__ParamAssignment_139075);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XSynchronizedExpression__ParamAssignment_139880);
             ruleXExpression();
 
             state._fsp--;
@@ -55558,22 +56701,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XSynchronizedExpression__ExpressionAssignment_3"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19411:1: rule__XSynchronizedExpression__ExpressionAssignment_3 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19819:1: rule__XSynchronizedExpression__ExpressionAssignment_3 : ( ruleXExpression ) ;
     public final void rule__XSynchronizedExpression__ExpressionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19415:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19416:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19823:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19824:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19416:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19417:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19824:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19825:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSynchronizedExpressionAccess().getExpressionXExpressionParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XSynchronizedExpression__ExpressionAssignment_339106);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XSynchronizedExpression__ExpressionAssignment_339911);
             ruleXExpression();
 
             state._fsp--;
@@ -55603,22 +56746,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XCatchClause__DeclaredParamAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19426:1: rule__XCatchClause__DeclaredParamAssignment_2 : ( ruleFullJvmFormalParameter ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19834:1: rule__XCatchClause__DeclaredParamAssignment_2 : ( ruleFullJvmFormalParameter ) ;
     public final void rule__XCatchClause__DeclaredParamAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19430:1: ( ( ruleFullJvmFormalParameter ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19431:1: ( ruleFullJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19838:1: ( ( ruleFullJvmFormalParameter ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19839:1: ( ruleFullJvmFormalParameter )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19431:1: ( ruleFullJvmFormalParameter )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19432:1: ruleFullJvmFormalParameter
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19839:1: ( ruleFullJvmFormalParameter )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19840:1: ruleFullJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCatchClauseAccess().getDeclaredParamFullJvmFormalParameterParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleFullJvmFormalParameter_in_rule__XCatchClause__DeclaredParamAssignment_239137);
+            pushFollow(FOLLOW_ruleFullJvmFormalParameter_in_rule__XCatchClause__DeclaredParamAssignment_239942);
             ruleFullJvmFormalParameter();
 
             state._fsp--;
@@ -55648,22 +56791,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XCatchClause__ExpressionAssignment_4"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19441:1: rule__XCatchClause__ExpressionAssignment_4 : ( ruleXExpression ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19849:1: rule__XCatchClause__ExpressionAssignment_4 : ( ruleXExpression ) ;
     public final void rule__XCatchClause__ExpressionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19445:1: ( ( ruleXExpression ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19446:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19853:1: ( ( ruleXExpression ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19854:1: ( ruleXExpression )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19446:1: ( ruleXExpression )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19447:1: ruleXExpression
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19854:1: ( ruleXExpression )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19855:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCatchClauseAccess().getExpressionXExpressionParserRuleCall_4_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XCatchClause__ExpressionAssignment_439168);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XCatchClause__ExpressionAssignment_439973);
             ruleXExpression();
 
             state._fsp--;
@@ -55693,22 +56836,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XFunctionTypeRef__ParamTypesAssignment_0_1_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19456:1: rule__XFunctionTypeRef__ParamTypesAssignment_0_1_0 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19864:1: rule__XFunctionTypeRef__ParamTypesAssignment_0_1_0 : ( ruleJvmTypeReference ) ;
     public final void rule__XFunctionTypeRef__ParamTypesAssignment_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19460:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19461:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19868:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19869:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19461:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19462:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19869:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19870:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFunctionTypeRefAccess().getParamTypesJvmTypeReferenceParserRuleCall_0_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_039199);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_040004);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -55738,22 +56881,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19471:1: rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_1 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19879:1: rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_1 : ( ruleJvmTypeReference ) ;
     public final void rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19475:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19476:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19883:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19884:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19476:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19477:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19884:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19885:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFunctionTypeRefAccess().getParamTypesJvmTypeReferenceParserRuleCall_0_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_139230);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_140035);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -55783,22 +56926,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XFunctionTypeRef__ReturnTypeAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19486:1: rule__XFunctionTypeRef__ReturnTypeAssignment_2 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19894:1: rule__XFunctionTypeRef__ReturnTypeAssignment_2 : ( ruleJvmTypeReference ) ;
     public final void rule__XFunctionTypeRef__ReturnTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19490:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19491:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19898:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19899:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19491:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19492:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19899:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19900:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFunctionTypeRefAccess().getReturnTypeJvmTypeReferenceParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ReturnTypeAssignment_239261);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ReturnTypeAssignment_240066);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -55828,28 +56971,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmParameterizedTypeReference__TypeAssignment_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19501:1: rule__JvmParameterizedTypeReference__TypeAssignment_0 : ( ( ruleQualifiedName ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19909:1: rule__JvmParameterizedTypeReference__TypeAssignment_0 : ( ( ruleQualifiedName ) ) ;
     public final void rule__JvmParameterizedTypeReference__TypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19505:1: ( ( ( ruleQualifiedName ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19506:1: ( ( ruleQualifiedName ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19913:1: ( ( ( ruleQualifiedName ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19914:1: ( ( ruleQualifiedName ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19506:1: ( ( ruleQualifiedName ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19507:1: ( ruleQualifiedName )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19914:1: ( ( ruleQualifiedName ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19915:1: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getTypeJvmTypeCrossReference_0_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19508:1: ( ruleQualifiedName )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19509:1: ruleQualifiedName
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19916:1: ( ruleQualifiedName )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19917:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__JvmParameterizedTypeReference__TypeAssignment_039296);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__JvmParameterizedTypeReference__TypeAssignment_040101);
             ruleQualifiedName();
 
             state._fsp--;
@@ -55885,22 +57028,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19520:1: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19928:1: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19524:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19525:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19932:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19933:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19525:1: ( ruleJvmArgumentTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19526:1: ruleJvmArgumentTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19933:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19934:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsJvmArgumentTypeReferenceParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_139331);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_140136);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -55930,22 +57073,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19535:1: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19943:1: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19539:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19540:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19947:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19948:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19540:1: ( ruleJvmArgumentTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19541:1: ruleJvmArgumentTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19948:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19949:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsJvmArgumentTypeReferenceParserRuleCall_1_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_139362);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_140167);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -55974,23 +57117,170 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1"
 
 
+    // $ANTLR start "rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19958:1: rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1 : ( ( ruleValidID ) ) ;
+    public final void rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19962:1: ( ( ( ruleValidID ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19963:1: ( ( ruleValidID ) )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19963:1: ( ( ruleValidID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19964:1: ( ruleValidID )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getTypeJvmTypeCrossReference_1_4_1_0()); 
+            }
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19965:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19966:1: ruleValidID
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getTypeJvmTypeValidIDParserRuleCall_1_4_1_0_1()); 
+            }
+            pushFollow(FOLLOW_ruleValidID_in_rule__JvmParameterizedTypeReference__TypeAssignment_1_4_140202);
+            ruleValidID();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getTypeJvmTypeValidIDParserRuleCall_1_4_1_0_1()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getTypeJvmTypeCrossReference_1_4_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19977:1: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1 : ( ruleJvmArgumentTypeReference ) ;
+    public final void rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19981:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19982:1: ( ruleJvmArgumentTypeReference )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19982:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19983:1: ruleJvmArgumentTypeReference
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsJvmArgumentTypeReferenceParserRuleCall_1_4_2_1_0()); 
+            }
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_140237);
+            ruleJvmArgumentTypeReference();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsJvmArgumentTypeReferenceParserRuleCall_1_4_2_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1"
+
+
+    // $ANTLR start "rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19992:1: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1 : ( ruleJvmArgumentTypeReference ) ;
+    public final void rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19996:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19997:1: ( ruleJvmArgumentTypeReference )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19997:1: ( ruleJvmArgumentTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19998:1: ruleJvmArgumentTypeReference
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsJvmArgumentTypeReferenceParserRuleCall_1_4_2_2_1_0()); 
+            }
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_140268);
+            ruleJvmArgumentTypeReference();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsJvmArgumentTypeReferenceParserRuleCall_1_4_2_2_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1"
+
+
     // $ANTLR start "rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19550:1: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 : ( ruleJvmUpperBound ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20007:1: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0 : ( ruleJvmUpperBound ) ;
     public final void rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19554:1: ( ( ruleJvmUpperBound ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19555:1: ( ruleJvmUpperBound )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20011:1: ( ( ruleJvmUpperBound ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20012:1: ( ruleJvmUpperBound )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19555:1: ( ruleJvmUpperBound )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19556:1: ruleJvmUpperBound
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20012:1: ( ruleJvmUpperBound )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20013:1: ruleJvmUpperBound
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsJvmUpperBoundParserRuleCall_2_0_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmUpperBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_039393);
+            pushFollow(FOLLOW_ruleJvmUpperBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_040299);
             ruleJvmUpperBound();
 
             state._fsp--;
@@ -56020,22 +57310,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19565:1: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 : ( ruleJvmUpperBoundAnded ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20022:1: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1 : ( ruleJvmUpperBoundAnded ) ;
     public final void rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19569:1: ( ( ruleJvmUpperBoundAnded ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19570:1: ( ruleJvmUpperBoundAnded )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20026:1: ( ( ruleJvmUpperBoundAnded ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20027:1: ( ruleJvmUpperBoundAnded )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19570:1: ( ruleJvmUpperBoundAnded )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19571:1: ruleJvmUpperBoundAnded
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20027:1: ( ruleJvmUpperBoundAnded )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20028:1: ruleJvmUpperBoundAnded
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsJvmUpperBoundAndedParserRuleCall_2_0_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmUpperBoundAnded_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_139424);
+            pushFollow(FOLLOW_ruleJvmUpperBoundAnded_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_140330);
             ruleJvmUpperBoundAnded();
 
             state._fsp--;
@@ -56065,22 +57355,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19580:1: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 : ( ruleJvmLowerBound ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20037:1: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0 : ( ruleJvmLowerBound ) ;
     public final void rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19584:1: ( ( ruleJvmLowerBound ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19585:1: ( ruleJvmLowerBound )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20041:1: ( ( ruleJvmLowerBound ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20042:1: ( ruleJvmLowerBound )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19585:1: ( ruleJvmLowerBound )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19586:1: ruleJvmLowerBound
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20042:1: ( ruleJvmLowerBound )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20043:1: ruleJvmLowerBound
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsJvmLowerBoundParserRuleCall_2_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmLowerBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_039455);
+            pushFollow(FOLLOW_ruleJvmLowerBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_040361);
             ruleJvmLowerBound();
 
             state._fsp--;
@@ -56110,22 +57400,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19595:1: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 : ( ruleJvmLowerBoundAnded ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20052:1: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1 : ( ruleJvmLowerBoundAnded ) ;
     public final void rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19599:1: ( ( ruleJvmLowerBoundAnded ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19600:1: ( ruleJvmLowerBoundAnded )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20056:1: ( ( ruleJvmLowerBoundAnded ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20057:1: ( ruleJvmLowerBoundAnded )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19600:1: ( ruleJvmLowerBoundAnded )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19601:1: ruleJvmLowerBoundAnded
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20057:1: ( ruleJvmLowerBoundAnded )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20058:1: ruleJvmLowerBoundAnded
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsJvmLowerBoundAndedParserRuleCall_2_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmLowerBoundAnded_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_139486);
+            pushFollow(FOLLOW_ruleJvmLowerBoundAnded_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_140392);
             ruleJvmLowerBoundAnded();
 
             state._fsp--;
@@ -56155,22 +57445,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmUpperBound__TypeReferenceAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19610:1: rule__JvmUpperBound__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20067:1: rule__JvmUpperBound__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
     public final void rule__JvmUpperBound__TypeReferenceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19614:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19615:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20071:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20072:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19615:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19616:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20072:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20073:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmUpperBoundAccess().getTypeReferenceJvmTypeReferenceParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBound__TypeReferenceAssignment_139517);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBound__TypeReferenceAssignment_140423);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -56200,22 +57490,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmUpperBoundAnded__TypeReferenceAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19625:1: rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20082:1: rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
     public final void rule__JvmUpperBoundAnded__TypeReferenceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19629:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19630:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20086:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20087:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19630:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19631:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20087:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20088:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmUpperBoundAndedAccess().getTypeReferenceJvmTypeReferenceParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBoundAnded__TypeReferenceAssignment_139548);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBoundAnded__TypeReferenceAssignment_140454);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -56245,22 +57535,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmLowerBound__TypeReferenceAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19640:1: rule__JvmLowerBound__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20097:1: rule__JvmLowerBound__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
     public final void rule__JvmLowerBound__TypeReferenceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19644:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19645:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20101:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20102:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19645:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19646:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20102:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20103:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmLowerBoundAccess().getTypeReferenceJvmTypeReferenceParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmLowerBound__TypeReferenceAssignment_139579);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmLowerBound__TypeReferenceAssignment_140485);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -56290,22 +57580,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__JvmLowerBoundAnded__TypeReferenceAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19655:1: rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20112:1: rule__JvmLowerBoundAnded__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
     public final void rule__JvmLowerBoundAnded__TypeReferenceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19659:1: ( ( ruleJvmTypeReference ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19660:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20116:1: ( ( ruleJvmTypeReference ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20117:1: ( ruleJvmTypeReference )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19660:1: ( ruleJvmTypeReference )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19661:1: ruleJvmTypeReference
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20117:1: ( ruleJvmTypeReference )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20118:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmLowerBoundAndedAccess().getTypeReferenceJvmTypeReferenceParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmLowerBoundAnded__TypeReferenceAssignment_139610);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmLowerBoundAnded__TypeReferenceAssignment_140516);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -56335,28 +57625,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__StaticAssignment_1_0_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19674:1: rule__XImportDeclaration__StaticAssignment_1_0_0 : ( ( 'static' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20131:1: rule__XImportDeclaration__StaticAssignment_1_0_0 : ( ( 'static' ) ) ;
     public final void rule__XImportDeclaration__StaticAssignment_1_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19678:1: ( ( ( 'static' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19679:1: ( ( 'static' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20135:1: ( ( ( 'static' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20136:1: ( ( 'static' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19679:1: ( ( 'static' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19680:1: ( 'static' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXImportDeclarationAccess().getStaticStaticKeyword_1_0_0_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19681:1: ( 'static' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19682:1: 'static'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20136:1: ( ( 'static' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20137:1: ( 'static' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getStaticStaticKeyword_1_0_0_0()); 
             }
-            match(input,47,FOLLOW_47_in_rule__XImportDeclaration__StaticAssignment_1_0_039650); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20138:1: ( 'static' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20139:1: 'static'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXImportDeclarationAccess().getStaticStaticKeyword_1_0_0_0()); 
+            }
+            match(input,47,FOLLOW_47_in_rule__XImportDeclaration__StaticAssignment_1_0_040556); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXImportDeclarationAccess().getStaticStaticKeyword_1_0_0_0()); 
             }
@@ -56388,28 +57678,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__ExtensionAssignment_1_0_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19697:1: rule__XImportDeclaration__ExtensionAssignment_1_0_1 : ( ( 'extension' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20154:1: rule__XImportDeclaration__ExtensionAssignment_1_0_1 : ( ( 'extension' ) ) ;
     public final void rule__XImportDeclaration__ExtensionAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19701:1: ( ( ( 'extension' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19702:1: ( ( 'extension' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20158:1: ( ( ( 'extension' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20159:1: ( ( 'extension' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19702:1: ( ( 'extension' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19703:1: ( 'extension' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXImportDeclarationAccess().getExtensionExtensionKeyword_1_0_1_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19704:1: ( 'extension' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19705:1: 'extension'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20159:1: ( ( 'extension' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20160:1: ( 'extension' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getExtensionExtensionKeyword_1_0_1_0()); 
             }
-            match(input,49,FOLLOW_49_in_rule__XImportDeclaration__ExtensionAssignment_1_0_139694); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20161:1: ( 'extension' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20162:1: 'extension'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXImportDeclarationAccess().getExtensionExtensionKeyword_1_0_1_0()); 
+            }
+            match(input,49,FOLLOW_49_in_rule__XImportDeclaration__ExtensionAssignment_1_0_140600); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXImportDeclarationAccess().getExtensionExtensionKeyword_1_0_1_0()); 
             }
@@ -56441,28 +57731,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__ImportedTypeAssignment_1_0_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19720:1: rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 : ( ( ruleQualifiedNameInStaticImport ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20177:1: rule__XImportDeclaration__ImportedTypeAssignment_1_0_2 : ( ( ruleQualifiedNameInStaticImport ) ) ;
     public final void rule__XImportDeclaration__ImportedTypeAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19724:1: ( ( ( ruleQualifiedNameInStaticImport ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19725:1: ( ( ruleQualifiedNameInStaticImport ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20181:1: ( ( ( ruleQualifiedNameInStaticImport ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20182:1: ( ( ruleQualifiedNameInStaticImport ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19725:1: ( ( ruleQualifiedNameInStaticImport ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19726:1: ( ruleQualifiedNameInStaticImport )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20182:1: ( ( ruleQualifiedNameInStaticImport ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20183:1: ( ruleQualifiedNameInStaticImport )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getImportedTypeJvmDeclaredTypeCrossReference_1_0_2_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19727:1: ( ruleQualifiedNameInStaticImport )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19728:1: ruleQualifiedNameInStaticImport
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20184:1: ( ruleQualifiedNameInStaticImport )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20185:1: ruleQualifiedNameInStaticImport
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getImportedTypeJvmDeclaredTypeQualifiedNameInStaticImportParserRuleCall_1_0_2_0_1()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedNameInStaticImport_in_rule__XImportDeclaration__ImportedTypeAssignment_1_0_239737);
+            pushFollow(FOLLOW_ruleQualifiedNameInStaticImport_in_rule__XImportDeclaration__ImportedTypeAssignment_1_0_240643);
             ruleQualifiedNameInStaticImport();
 
             state._fsp--;
@@ -56498,28 +57788,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__WildcardAssignment_1_0_3_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19739:1: rule__XImportDeclaration__WildcardAssignment_1_0_3_0 : ( ( '*' ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20196:1: rule__XImportDeclaration__WildcardAssignment_1_0_3_0 : ( ( '*' ) ) ;
     public final void rule__XImportDeclaration__WildcardAssignment_1_0_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19743:1: ( ( ( '*' ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19744:1: ( ( '*' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20200:1: ( ( ( '*' ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20201:1: ( ( '*' ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19744:1: ( ( '*' ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19745:1: ( '*' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXImportDeclarationAccess().getWildcardAsteriskKeyword_1_0_3_0_0()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19746:1: ( '*' )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19747:1: '*'
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20201:1: ( ( '*' ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20202:1: ( '*' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getWildcardAsteriskKeyword_1_0_3_0_0()); 
             }
-            match(input,37,FOLLOW_37_in_rule__XImportDeclaration__WildcardAssignment_1_0_3_039777); if (state.failed) return ;
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20203:1: ( '*' )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20204:1: '*'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXImportDeclarationAccess().getWildcardAsteriskKeyword_1_0_3_0_0()); 
+            }
+            match(input,37,FOLLOW_37_in_rule__XImportDeclaration__WildcardAssignment_1_0_3_040683); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXImportDeclarationAccess().getWildcardAsteriskKeyword_1_0_3_0_0()); 
             }
@@ -56551,22 +57841,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__MemberNameAssignment_1_0_3_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19762:1: rule__XImportDeclaration__MemberNameAssignment_1_0_3_1 : ( ruleValidID ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20219:1: rule__XImportDeclaration__MemberNameAssignment_1_0_3_1 : ( ruleValidID ) ;
     public final void rule__XImportDeclaration__MemberNameAssignment_1_0_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19766:1: ( ( ruleValidID ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19767:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20223:1: ( ( ruleValidID ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20224:1: ( ruleValidID )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19767:1: ( ruleValidID )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19768:1: ruleValidID
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20224:1: ( ruleValidID )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20225:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getMemberNameValidIDParserRuleCall_1_0_3_1_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__XImportDeclaration__MemberNameAssignment_1_0_3_139816);
+            pushFollow(FOLLOW_ruleValidID_in_rule__XImportDeclaration__MemberNameAssignment_1_0_3_140722);
             ruleValidID();
 
             state._fsp--;
@@ -56596,28 +57886,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__ImportedTypeAssignment_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19777:1: rule__XImportDeclaration__ImportedTypeAssignment_1_1 : ( ( ruleQualifiedName ) ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20234:1: rule__XImportDeclaration__ImportedTypeAssignment_1_1 : ( ( ruleQualifiedName ) ) ;
     public final void rule__XImportDeclaration__ImportedTypeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19781:1: ( ( ( ruleQualifiedName ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19782:1: ( ( ruleQualifiedName ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20238:1: ( ( ( ruleQualifiedName ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20239:1: ( ( ruleQualifiedName ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19782:1: ( ( ruleQualifiedName ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19783:1: ( ruleQualifiedName )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20239:1: ( ( ruleQualifiedName ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20240:1: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getImportedTypeJvmDeclaredTypeCrossReference_1_1_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19784:1: ( ruleQualifiedName )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19785:1: ruleQualifiedName
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20241:1: ( ruleQualifiedName )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20242:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getImportedTypeJvmDeclaredTypeQualifiedNameParserRuleCall_1_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__XImportDeclaration__ImportedTypeAssignment_1_139851);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__XImportDeclaration__ImportedTypeAssignment_1_140757);
             ruleQualifiedName();
 
             state._fsp--;
@@ -56653,22 +57943,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XImportDeclaration__ImportedNamespaceAssignment_1_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19796:1: rule__XImportDeclaration__ImportedNamespaceAssignment_1_2 : ( ruleQualifiedNameWithWildcard ) ;
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20253:1: rule__XImportDeclaration__ImportedNamespaceAssignment_1_2 : ( ruleQualifiedNameWithWildcard ) ;
     public final void rule__XImportDeclaration__ImportedNamespaceAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19800:1: ( ( ruleQualifiedNameWithWildcard ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19801:1: ( ruleQualifiedNameWithWildcard )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20257:1: ( ( ruleQualifiedNameWithWildcard ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20258:1: ( ruleQualifiedNameWithWildcard )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19801:1: ( ruleQualifiedNameWithWildcard )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:19802:1: ruleQualifiedNameWithWildcard
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20258:1: ( ruleQualifiedNameWithWildcard )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:20259:1: ruleQualifiedNameWithWildcard
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXImportDeclarationAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_2_0()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedNameWithWildcard_in_rule__XImportDeclaration__ImportedNamespaceAssignment_1_239886);
+            pushFollow(FOLLOW_ruleQualifiedNameWithWildcard_in_rule__XImportDeclaration__ImportedNamespaceAssignment_1_240792);
             ruleQualifiedNameWithWildcard();
 
             state._fsp--;
@@ -57355,8 +58645,52 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     }
     // $ANTLR end synpred157_InternalXRobotDSL
 
+    // $ANTLR start synpred159_InternalXRobotDSL
+    public final void synpred159_InternalXRobotDSL_fragment() throws RecognitionException {   
+        // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16458:2: ( rule__JvmParameterizedTypeReference__Group_1_4__0 )
+        // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16458:2: rule__JvmParameterizedTypeReference__Group_1_4__0
+        {
+        pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__0_in_synpred159_InternalXRobotDSL33141);
+        rule__JvmParameterizedTypeReference__Group_1_4__0();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred159_InternalXRobotDSL
+
+    // $ANTLR start synpred160_InternalXRobotDSL
+    public final void synpred160_InternalXRobotDSL_fragment() throws RecognitionException {   
+        // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16617:2: ( rule__JvmParameterizedTypeReference__Group_1_4_2__0 )
+        // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:16617:2: rule__JvmParameterizedTypeReference__Group_1_4_2__0
+        {
+        pushFollow(FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__0_in_synpred160_InternalXRobotDSL33452);
+        rule__JvmParameterizedTypeReference__Group_1_4_2__0();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred160_InternalXRobotDSL
+
     // Delegated rules
 
+    public final boolean synpred159_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred159_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
     public final boolean synpred93_InternalXRobotDSL() {
         state.backtracking++;
         int start = input.mark();
@@ -57586,6 +58920,20 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         int start = input.mark();
         try {
             synpred41_InternalXRobotDSL_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred160_InternalXRobotDSL() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred160_InternalXRobotDSL_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -57884,6 +59232,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     protected DFA100 dfa100 = new DFA100(this);
     protected DFA105 dfa105 = new DFA105(this);
     protected DFA114 dfa114 = new DFA114(this);
+    protected DFA117 dfa117 = new DFA117(this);
     static final String DFA9_eotS =
         "\13\uffff";
     static final String DFA9_eofS =
@@ -58591,23 +59940,23 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     static final String DFA41_eotS =
         "\7\uffff";
     static final String DFA41_eofS =
-        "\2\uffff\1\4\3\uffff\1\4";
+        "\2\uffff\1\4\2\uffff\1\4\1\uffff";
     static final String DFA41_minS =
-        "\1\4\1\uffff\1\54\1\4\2\uffff\1\54";
+        "\1\4\1\uffff\1\54\1\4\1\uffff\1\54\1\uffff";
     static final String DFA41_maxS =
-        "\1\57\1\uffff\1\101\1\45\2\uffff\1\101";
+        "\1\57\1\uffff\1\101\1\45\1\uffff\1\101\1\uffff";
     static final String DFA41_acceptS =
-        "\1\uffff\1\1\2\uffff\1\2\1\3\1\uffff";
+        "\1\uffff\1\1\2\uffff\1\2\1\uffff\1\3";
     static final String DFA41_specialS =
         "\7\uffff}>";
     static final String[] DFA41_transitionS = {
             "\1\2\52\uffff\1\1",
             "",
             "\1\3\24\uffff\1\4",
-            "\1\6\40\uffff\1\5",
+            "\1\5\40\uffff\1\6",
             "",
-            "",
-            "\1\3\24\uffff\1\4"
+            "\1\3\24\uffff\1\4",
+            ""
     };
 
     static final short[] DFA41_eot = DFA.unpackEncodedString(DFA41_eotS);
@@ -58654,7 +60003,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     static final String DFA48_acceptS =
         "\10\uffff\1\2\1\1";
     static final String DFA48_specialS =
-        "\1\uffff\1\6\1\4\1\1\1\3\1\2\1\5\1\0\2\uffff}>";
+        "\1\uffff\1\5\1\4\1\3\1\2\1\0\1\1\1\6\2\uffff}>";
     static final String[] DFA48_transitionS = {
             "\5\10\5\uffff\2\10\1\uffff\1\1\1\2\1\3\1\4\1\5\5\10\1\7\1\6\27\10\1\uffff\37\10\3\uffff\2\10\1\uffff\1\10",
             "\1\uffff",
@@ -58705,36 +60054,6 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA48_7 = input.LA(1);
-
-                         
-                        int index48_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred91_InternalXRobotDSL()) ) {s = 9;}
-
-                        else if ( (true) ) {s = 8;}
-
-                         
-                        input.seek(index48_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA48_3 = input.LA(1);
-
-                         
-                        int index48_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred91_InternalXRobotDSL()) ) {s = 9;}
-
-                        else if ( (true) ) {s = 8;}
-
-                         
-                        input.seek(index48_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
                         int LA48_5 = input.LA(1);
 
                          
@@ -58749,7 +60068,22 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                         input.seek(index48_5);
                         if ( s>=0 ) return s;
                         break;
-                    case 3 : 
+                    case 1 : 
+                        int LA48_6 = input.LA(1);
+
+                         
+                        int index48_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred91_InternalXRobotDSL()) ) {s = 9;}
+
+                        else if ( (true) ) {s = 8;}
+
+                         
+                        input.seek(index48_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA48_4 = input.LA(1);
 
                          
@@ -58762,6 +60096,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
                          
                         input.seek(index48_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA48_3 = input.LA(1);
+
+                         
+                        int index48_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred91_InternalXRobotDSL()) ) {s = 9;}
+
+                        else if ( (true) ) {s = 8;}
+
+                         
+                        input.seek(index48_3);
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
@@ -58780,21 +60129,6 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA48_6 = input.LA(1);
-
-                         
-                        int index48_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred91_InternalXRobotDSL()) ) {s = 9;}
-
-                        else if ( (true) ) {s = 8;}
-
-                         
-                        input.seek(index48_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
                         int LA48_1 = input.LA(1);
 
                          
@@ -58807,6 +60141,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
                          
                         input.seek(index48_1);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA48_7 = input.LA(1);
+
+                         
+                        int index48_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred91_InternalXRobotDSL()) ) {s = 9;}
+
+                        else if ( (true) ) {s = 8;}
+
+                         
+                        input.seek(index48_7);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -58828,7 +60177,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     static final String DFA54_acceptS =
         "\1\uffff\1\2\10\uffff\1\1";
     static final String DFA54_specialS =
-        "\2\uffff\1\5\1\4\1\1\1\2\1\7\1\0\1\6\1\3\1\uffff}>";
+        "\2\uffff\1\2\1\7\1\6\1\3\1\4\1\1\1\0\1\5\1\uffff}>";
     static final String[] DFA54_transitionS = {
             "\5\1\5\uffff\2\1\1\uffff\12\1\1\3\1\2\1\4\1\5\1\6\1\7\1\10\1\11\21\1\1\uffff\37\1\3\uffff\2\1\1\uffff\1\1",
             "",
@@ -58880,96 +60229,6 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA54_7 = input.LA(1);
-
-                         
-                        int index54_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred97_InternalXRobotDSL()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index54_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA54_4 = input.LA(1);
-
-                         
-                        int index54_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred97_InternalXRobotDSL()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index54_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA54_5 = input.LA(1);
-
-                         
-                        int index54_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred97_InternalXRobotDSL()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index54_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA54_9 = input.LA(1);
-
-                         
-                        int index54_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred97_InternalXRobotDSL()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index54_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA54_3 = input.LA(1);
-
-                         
-                        int index54_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred97_InternalXRobotDSL()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index54_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA54_2 = input.LA(1);
-
-                         
-                        int index54_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred97_InternalXRobotDSL()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index54_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
                         int LA54_8 = input.LA(1);
 
                          
@@ -58984,7 +60243,52 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                         input.seek(index54_8);
                         if ( s>=0 ) return s;
                         break;
-                    case 7 : 
+                    case 1 : 
+                        int LA54_7 = input.LA(1);
+
+                         
+                        int index54_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred97_InternalXRobotDSL()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index54_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA54_2 = input.LA(1);
+
+                         
+                        int index54_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred97_InternalXRobotDSL()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index54_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA54_5 = input.LA(1);
+
+                         
+                        int index54_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred97_InternalXRobotDSL()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index54_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
                         int LA54_6 = input.LA(1);
 
                          
@@ -58997,6 +60301,51 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
                          
                         input.seek(index54_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA54_9 = input.LA(1);
+
+                         
+                        int index54_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred97_InternalXRobotDSL()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index54_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA54_4 = input.LA(1);
+
+                         
+                        int index54_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred97_InternalXRobotDSL()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index54_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA54_3 = input.LA(1);
+
+                         
+                        int index54_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred97_InternalXRobotDSL()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index54_3);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -61100,6 +62449,160 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             throw nvae;
         }
     }
+    static final String DFA117_eotS =
+        "\120\uffff";
+    static final String DFA117_eofS =
+        "\1\2\117\uffff";
+    static final String DFA117_minS =
+        "\1\4\1\0\116\uffff";
+    static final String DFA117_maxS =
+        "\1\132\1\0\116\uffff";
+    static final String DFA117_acceptS =
+        "\2\uffff\1\2\114\uffff\1\1";
+    static final String DFA117_specialS =
+        "\1\uffff\1\0\116\uffff}>";
+    static final String[] DFA117_transitionS = {
+            "\5\2\5\uffff\2\2\1\uffff\13\2\1\1\27\2\1\uffff\37\2\1\uffff\1\2\1\uffff\2\2\1\uffff\1\2",
+            "\1\uffff",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+    };
+
+    static final short[] DFA117_eot = DFA.unpackEncodedString(DFA117_eotS);
+    static final short[] DFA117_eof = DFA.unpackEncodedString(DFA117_eofS);
+    static final char[] DFA117_min = DFA.unpackEncodedStringToUnsignedChars(DFA117_minS);
+    static final char[] DFA117_max = DFA.unpackEncodedStringToUnsignedChars(DFA117_maxS);
+    static final short[] DFA117_accept = DFA.unpackEncodedString(DFA117_acceptS);
+    static final short[] DFA117_special = DFA.unpackEncodedString(DFA117_specialS);
+    static final short[][] DFA117_transition;
+
+    static {
+        int numStates = DFA117_transitionS.length;
+        DFA117_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA117_transition[i] = DFA.unpackEncodedString(DFA117_transitionS[i]);
+        }
+    }
+
+    class DFA117 extends DFA {
+
+        public DFA117(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 117;
+            this.eot = DFA117_eot;
+            this.eof = DFA117_eof;
+            this.min = DFA117_min;
+            this.max = DFA117_max;
+            this.accept = DFA117_accept;
+            this.special = DFA117_special;
+            this.transition = DFA117_transition;
+        }
+        public String getDescription() {
+            return "16617:1: ( rule__JvmParameterizedTypeReference__Group_1_4_2__0 )?";
+        }
+        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+            TokenStream input = (TokenStream)_input;
+        	int _s = s;
+            switch ( s ) {
+                    case 0 : 
+                        int LA117_1 = input.LA(1);
+
+                         
+                        int index117_1 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred160_InternalXRobotDSL()) ) {s = 79;}
+
+                        else if ( (true) ) {s = 2;}
+
+                         
+                        input.seek(index117_1);
+                        if ( s>=0 ) return s;
+                        break;
+            }
+            if (state.backtracking>0) {state.failed=true; return -1;}
+            NoViableAltException nvae =
+                new NoViableAltException(getDescription(), 117, _s, input);
+            error(nvae);
+            throw nvae;
+        }
+    }
  
 
     public static final BitSet FOLLOW_ruleProgram_in_entryRuleProgram67 = new BitSet(new long[]{0x0000000000000000L});
@@ -62490,232 +63993,268 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1__2__Impl_in_rule__JvmParameterizedTypeReference__Group_1__232991 = new BitSet(new long[]{0x0100000008000000L});
     public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1__3_in_rule__JvmParameterizedTypeReference__Group_1__232994 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__0_in_rule__JvmParameterizedTypeReference__Group_1__2__Impl33021 = new BitSet(new long[]{0x0100000000000002L});
-    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1__3__Impl_in_rule__JvmParameterizedTypeReference__Group_1__333052 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_rule__JvmParameterizedTypeReference__Group_1__3__Impl33080 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_2__033119 = new BitSet(new long[]{0x0040000100000010L,0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__1_in_rule__JvmParameterizedTypeReference__Group_1_2__033122 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_rule__JvmParameterizedTypeReference__Group_1_2__0__Impl33150 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__1__Impl_in_rule__JvmParameterizedTypeReference__Group_1_2__133181 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1_in_rule__JvmParameterizedTypeReference__Group_1_2__1__Impl33208 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group__0__Impl_in_rule__JvmWildcardTypeReference__Group__033242 = new BitSet(new long[]{0x0040000100000010L,0x0000000000100000L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group__1_in_rule__JvmWildcardTypeReference__Group__033245 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group__1__Impl_in_rule__JvmWildcardTypeReference__Group__133303 = new BitSet(new long[]{0x0004400000000000L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group__2_in_rule__JvmWildcardTypeReference__Group__133306 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_84_in_rule__JvmWildcardTypeReference__Group__1__Impl33334 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group__2__Impl_in_rule__JvmWildcardTypeReference__Group__233365 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Alternatives_2_in_rule__JvmWildcardTypeReference__Group__2__Impl33392 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group_2_0__0__Impl_in_rule__JvmWildcardTypeReference__Group_2_0__033429 = new BitSet(new long[]{0x0000000000000000L,0x0000000000200000L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group_2_0__1_in_rule__JvmWildcardTypeReference__Group_2_0__033432 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0_in_rule__JvmWildcardTypeReference__Group_2_0__0__Impl33459 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group_2_0__1__Impl_in_rule__JvmWildcardTypeReference__Group_2_0__133489 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1_in_rule__JvmWildcardTypeReference__Group_2_0__1__Impl33516 = new BitSet(new long[]{0x0000000000000002L,0x0000000000200000L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group_2_1__0__Impl_in_rule__JvmWildcardTypeReference__Group_2_1__033551 = new BitSet(new long[]{0x0000000000000000L,0x0000000000200000L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group_2_1__1_in_rule__JvmWildcardTypeReference__Group_2_1__033554 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0_in_rule__JvmWildcardTypeReference__Group_2_1__0__Impl33581 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group_2_1__1__Impl_in_rule__JvmWildcardTypeReference__Group_2_1__133611 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1_in_rule__JvmWildcardTypeReference__Group_2_1__1__Impl33638 = new BitSet(new long[]{0x0000000000000002L,0x0000000000200000L});
-    public static final BitSet FOLLOW_rule__JvmUpperBound__Group__0__Impl_in_rule__JvmUpperBound__Group__033673 = new BitSet(new long[]{0x0040000100000010L});
-    public static final BitSet FOLLOW_rule__JvmUpperBound__Group__1_in_rule__JvmUpperBound__Group__033676 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_rule__JvmUpperBound__Group__0__Impl33704 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmUpperBound__Group__1__Impl_in_rule__JvmUpperBound__Group__133735 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmUpperBound__TypeReferenceAssignment_1_in_rule__JvmUpperBound__Group__1__Impl33762 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmUpperBoundAnded__Group__0__Impl_in_rule__JvmUpperBoundAnded__Group__033796 = new BitSet(new long[]{0x0040000100000010L});
-    public static final BitSet FOLLOW_rule__JvmUpperBoundAnded__Group__1_in_rule__JvmUpperBoundAnded__Group__033799 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_85_in_rule__JvmUpperBoundAnded__Group__0__Impl33827 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmUpperBoundAnded__Group__1__Impl_in_rule__JvmUpperBoundAnded__Group__133858 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmUpperBoundAnded__TypeReferenceAssignment_1_in_rule__JvmUpperBoundAnded__Group__1__Impl33885 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmLowerBound__Group__0__Impl_in_rule__JvmLowerBound__Group__033919 = new BitSet(new long[]{0x0040000100000010L});
-    public static final BitSet FOLLOW_rule__JvmLowerBound__Group__1_in_rule__JvmLowerBound__Group__033922 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_rule__JvmLowerBound__Group__0__Impl33950 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmLowerBound__Group__1__Impl_in_rule__JvmLowerBound__Group__133981 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmLowerBound__TypeReferenceAssignment_1_in_rule__JvmLowerBound__Group__1__Impl34008 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmLowerBoundAnded__Group__0__Impl_in_rule__JvmLowerBoundAnded__Group__034042 = new BitSet(new long[]{0x0040000100000010L});
-    public static final BitSet FOLLOW_rule__JvmLowerBoundAnded__Group__1_in_rule__JvmLowerBoundAnded__Group__034045 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_85_in_rule__JvmLowerBoundAnded__Group__0__Impl34073 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmLowerBoundAnded__Group__1__Impl_in_rule__JvmLowerBoundAnded__Group__134104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__JvmLowerBoundAnded__TypeReferenceAssignment_1_in_rule__JvmLowerBoundAnded__Group__1__Impl34131 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedNameWithWildcard__Group__0__Impl_in_rule__QualifiedNameWithWildcard__Group__034167 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_rule__QualifiedNameWithWildcard__Group__1_in_rule__QualifiedNameWithWildcard__Group__034170 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__QualifiedNameWithWildcard__Group__0__Impl34197 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedNameWithWildcard__Group__1__Impl_in_rule__QualifiedNameWithWildcard__Group__134226 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_rule__QualifiedNameWithWildcard__Group__2_in_rule__QualifiedNameWithWildcard__Group__134229 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_rule__QualifiedNameWithWildcard__Group__1__Impl34257 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedNameWithWildcard__Group__2__Impl_in_rule__QualifiedNameWithWildcard__Group__234288 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_rule__QualifiedNameWithWildcard__Group__2__Impl34316 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Group__0__Impl_in_rule__XImportDeclaration__Group__034353 = new BitSet(new long[]{0x0000800000000010L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Group__1_in_rule__XImportDeclaration__Group__034356 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_rule__XImportDeclaration__Group__0__Impl34384 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Group__1__Impl_in_rule__XImportDeclaration__Group__134415 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Group__2_in_rule__XImportDeclaration__Group__134418 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Alternatives_1_in_rule__XImportDeclaration__Group__1__Impl34445 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Group__2__Impl_in_rule__XImportDeclaration__Group__234475 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_rule__XImportDeclaration__Group__2__Impl34504 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__0__Impl_in_rule__XImportDeclaration__Group_1_0__034543 = new BitSet(new long[]{0x0002000000000010L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__1_in_rule__XImportDeclaration__Group_1_0__034546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__StaticAssignment_1_0_0_in_rule__XImportDeclaration__Group_1_0__0__Impl34573 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__1__Impl_in_rule__XImportDeclaration__Group_1_0__134603 = new BitSet(new long[]{0x0002000000000010L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__2_in_rule__XImportDeclaration__Group_1_0__134606 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__ExtensionAssignment_1_0_1_in_rule__XImportDeclaration__Group_1_0__1__Impl34633 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__2__Impl_in_rule__XImportDeclaration__Group_1_0__234664 = new BitSet(new long[]{0x0000002000000010L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__3_in_rule__XImportDeclaration__Group_1_0__234667 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__ImportedTypeAssignment_1_0_2_in_rule__XImportDeclaration__Group_1_0__2__Impl34694 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__3__Impl_in_rule__XImportDeclaration__Group_1_0__334724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__XImportDeclaration__Alternatives_1_0_3_in_rule__XImportDeclaration__Group_1_0__3__Impl34751 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedNameInStaticImport__Group__0__Impl_in_rule__QualifiedNameInStaticImport__Group__034789 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_rule__QualifiedNameInStaticImport__Group__1_in_rule__QualifiedNameInStaticImport__Group__034792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__QualifiedNameInStaticImport__Group__0__Impl34819 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedNameInStaticImport__Group__1__Impl_in_rule__QualifiedNameInStaticImport__Group__134848 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_rule__QualifiedNameInStaticImport__Group__1__Impl34876 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Program__NameAssignment_134916 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMain_in_rule__Program__MainAssignment_234947 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSub_in_rule__Program__SubsAssignment_3_034978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleField_in_rule__Program__FieldsAssignment_3_135009 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_86_in_rule__Main__LoopAssignment_0_135045 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXBlockExpression_in_rule__Main__BodyAssignment_135084 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Sub__NameAssignment_135115 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__Sub__ParametersAssignment_3_035146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__Sub__ParametersAssignment_3_1_135177 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXBlockExpression_in_rule__Sub__BodyAssignment_535208 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__Field__TypeAssignment_135239 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Field__NameAssignment_235270 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__Field__InitializerAssignment_3_135301 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFeatureCallID_in_rule__XAssignment__FeatureAssignment_0_135336 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXAssignment_in_rule__XAssignment__ValueAssignment_0_335371 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpMultiAssign_in_rule__XAssignment__FeatureAssignment_1_1_0_0_135406 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXAssignment_in_rule__XAssignment__RightOperandAssignment_1_1_135441 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpOr_in_rule__XOrExpression__FeatureAssignment_1_0_0_135476 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXAndExpression_in_rule__XOrExpression__RightOperandAssignment_1_135511 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpAnd_in_rule__XAndExpression__FeatureAssignment_1_0_0_135546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXEqualityExpression_in_rule__XAndExpression__RightOperandAssignment_1_135581 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpEquality_in_rule__XEqualityExpression__FeatureAssignment_1_0_0_135616 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXRelationalExpression_in_rule__XEqualityExpression__RightOperandAssignment_1_135651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XRelationalExpression__TypeAssignment_1_0_135682 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpCompare_in_rule__XRelationalExpression__FeatureAssignment_1_1_0_0_135717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXOtherOperatorExpression_in_rule__XRelationalExpression__RightOperandAssignment_1_1_135752 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpOther_in_rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_135787 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXAdditiveExpression_in_rule__XOtherOperatorExpression__RightOperandAssignment_1_135822 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpAdd_in_rule__XAdditiveExpression__FeatureAssignment_1_0_0_135857 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXMultiplicativeExpression_in_rule__XAdditiveExpression__RightOperandAssignment_1_135892 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpMulti_in_rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_135927 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXUnaryOperation_in_rule__XMultiplicativeExpression__RightOperandAssignment_1_135962 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpUnary_in_rule__XUnaryOperation__FeatureAssignment_0_135997 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXUnaryOperation_in_rule__XUnaryOperation__OperandAssignment_0_236032 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XCastedExpression__TypeAssignment_1_136063 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpPostfix_in_rule__XPostfixOperation__FeatureAssignment_1_0_136098 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_87_in_rule__XMemberFeatureCall__ExplicitStaticAssignment_1_0_0_0_1_136138 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFeatureCallID_in_rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_236181 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXAssignment_in_rule__XMemberFeatureCall__ValueAssignment_1_0_136216 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_88_in_rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_136252 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_87_in_rule__XMemberFeatureCall__ExplicitStaticAssignment_1_1_0_0_1_236296 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_136335 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_136366 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIdOrSuper_in_rule__XMemberFeatureCall__FeatureAssignment_1_1_236401 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_036441 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXShortClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_036480 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_036511 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_136542 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_436573 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSetLiteral__ElementsAssignment_3_036604 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSetLiteral__ElementsAssignment_3_1_136635 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XListLiteral__ElementsAssignment_3_036666 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XListLiteral__ElementsAssignment_3_1_136697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_036728 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_136759 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_89_in_rule__XClosure__ExplicitSyntaxAssignment_1_0_136795 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpressionInClosure_in_rule__XClosure__ExpressionAssignment_236834 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XExpressionInClosure__ExpressionsAssignment_1_036865 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_036896 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_136927 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_89_in_rule__XShortClosure__ExplicitSyntaxAssignment_0_0_236963 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XShortClosure__ExpressionAssignment_137002 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XIfExpression__IfAssignment_337033 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XIfExpression__ThenAssignment_537064 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XIfExpression__ElseAssignment_6_137095 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XSwitchExpression__DeclaredParamAssignment_2_0_0_0_137126 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_0_137157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XSwitchExpression__DeclaredParamAssignment_2_1_0_0_037188 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_1_137219 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXCasePart_in_rule__XSwitchExpression__CasesAssignment_437250 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSwitchExpression__DefaultAssignment_5_237281 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XCasePart__TypeGuardAssignment_137312 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XCasePart__CaseAssignment_2_137343 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XCasePart__ThenAssignment_3_0_137374 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_rule__XCasePart__FallThroughAssignment_3_137410 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XForLoopExpression__DeclaredParamAssignment_0_0_337449 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XForLoopExpression__ForExpressionAssignment_137480 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XForLoopExpression__EachExpressionAssignment_337511 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XBasicForLoopExpression__InitExpressionsAssignment_3_037542 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XBasicForLoopExpression__InitExpressionsAssignment_3_1_137573 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__ExpressionAssignment_537604 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_037635 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_1_137666 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__EachExpressionAssignment_937697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XWhileExpression__PredicateAssignment_337728 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XWhileExpression__BodyAssignment_537759 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__BodyAssignment_237790 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__PredicateAssignment_537821 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XBlockExpression__ExpressionsAssignment_2_037852 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_rule__XVariableDeclaration__WriteableAssignment_1_037888 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XVariableDeclaration__TypeAssignment_2_0_0_037927 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_0_0_137958 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_137989 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XVariableDeclaration__RightAssignment_3_138020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmFormalParameter__ParameterTypeAssignment_038051 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__JvmFormalParameter__NameAssignment_138082 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__FullJvmFormalParameter__ParameterTypeAssignment_038113 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__FullJvmFormalParameter__NameAssignment_138144 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_1_138175 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_1_2_138206 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIdOrSuper_in_rule__XFeatureCall__FeatureAssignment_238241 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_rule__XFeatureCall__ExplicitOperationCallAssignment_3_038281 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXShortClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_038320 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_038351 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_1_138382 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_438413 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__XConstructorCall__ConstructorAssignment_238448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_138483 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_2_138514 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_rule__XConstructorCall__ExplicitConstructorCallAssignment_4_038550 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXShortClosure_in_rule__XConstructorCall__ArgumentsAssignment_4_1_038589 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_038620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_138651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXClosure_in_rule__XConstructorCall__ArgumentsAssignment_538682 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_90_in_rule__XBooleanLiteral__IsTrueAssignment_1_138718 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumber_in_rule__XNumberLiteral__ValueAssignment_138757 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__XStringLiteral__ValueAssignment_138788 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__XTypeLiteral__TypeAssignment_338823 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleArrayBrackets_in_rule__XTypeLiteral__ArrayDimensionsAssignment_438858 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XThrowExpression__ExpressionAssignment_238889 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XReturnExpression__ExpressionAssignment_238920 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__ExpressionAssignment_238951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXCatchClause_in_rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_038982 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_139013 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_139044 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSynchronizedExpression__ParamAssignment_139075 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSynchronizedExpression__ExpressionAssignment_339106 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFullJvmFormalParameter_in_rule__XCatchClause__DeclaredParamAssignment_239137 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XCatchClause__ExpressionAssignment_439168 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_039199 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_139230 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ReturnTypeAssignment_239261 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__JvmParameterizedTypeReference__TypeAssignment_039296 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_139331 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_139362 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmUpperBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_039393 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmUpperBoundAnded_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_139424 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmLowerBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_039455 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmLowerBoundAnded_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_139486 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBound__TypeReferenceAssignment_139517 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBoundAnded__TypeReferenceAssignment_139548 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmLowerBound__TypeReferenceAssignment_139579 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmLowerBoundAnded__TypeReferenceAssignment_139610 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_rule__XImportDeclaration__StaticAssignment_1_0_039650 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_rule__XImportDeclaration__ExtensionAssignment_1_0_139694 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedNameInStaticImport_in_rule__XImportDeclaration__ImportedTypeAssignment_1_0_239737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_rule__XImportDeclaration__WildcardAssignment_1_0_3_039777 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__XImportDeclaration__MemberNameAssignment_1_0_3_139816 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__XImportDeclaration__ImportedTypeAssignment_1_139851 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_rule__XImportDeclaration__ImportedNamespaceAssignment_1_239886 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1__3__Impl_in_rule__JvmParameterizedTypeReference__Group_1__333052 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1__4_in_rule__JvmParameterizedTypeReference__Group_1__333055 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_rule__JvmParameterizedTypeReference__Group_1__3__Impl33083 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1__4__Impl_in_rule__JvmParameterizedTypeReference__Group_1__433114 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__0_in_rule__JvmParameterizedTypeReference__Group_1__4__Impl33141 = new BitSet(new long[]{0x0000100000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_2__033182 = new BitSet(new long[]{0x0040000100000010L,0x0000000000100000L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__1_in_rule__JvmParameterizedTypeReference__Group_1_2__033185 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_rule__JvmParameterizedTypeReference__Group_1_2__0__Impl33213 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_2__1__Impl_in_rule__JvmParameterizedTypeReference__Group_1_2__133244 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1_in_rule__JvmParameterizedTypeReference__Group_1_2__1__Impl33271 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4__033305 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__1_in_rule__JvmParameterizedTypeReference__Group_1_4__033308 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_0__0_in_rule__JvmParameterizedTypeReference__Group_1_4__0__Impl33335 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__1__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4__133365 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__2_in_rule__JvmParameterizedTypeReference__Group_1_4__133368 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__TypeAssignment_1_4_1_in_rule__JvmParameterizedTypeReference__Group_1_4__1__Impl33395 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__2__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4__233425 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__0_in_rule__JvmParameterizedTypeReference__Group_1_4__2__Impl33452 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_0__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_0__033489 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_0_0__0_in_rule__JvmParameterizedTypeReference__Group_1_4_0__0__Impl33516 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_0_0__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_0_0__033548 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_0_0__1_in_rule__JvmParameterizedTypeReference__Group_1_4_0_0__033551 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_0_0__1__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_0_0__133609 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_rule__JvmParameterizedTypeReference__Group_1_4_0_0__1__Impl33637 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_2__033672 = new BitSet(new long[]{0x0040000100000010L,0x0000000000100000L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__1_in_rule__JvmParameterizedTypeReference__Group_1_4_2__033675 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_rule__JvmParameterizedTypeReference__Group_1_4_2__0__Impl33704 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__1__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_2__133736 = new BitSet(new long[]{0x0100000008000000L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__2_in_rule__JvmParameterizedTypeReference__Group_1_4_2__133739 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_1_in_rule__JvmParameterizedTypeReference__Group_1_4_2__1__Impl33766 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__2__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_2__233796 = new BitSet(new long[]{0x0100000008000000L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__3_in_rule__JvmParameterizedTypeReference__Group_1_4_2__233799 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2_2__0_in_rule__JvmParameterizedTypeReference__Group_1_4_2__2__Impl33826 = new BitSet(new long[]{0x0100000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__3__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_2__333857 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_rule__JvmParameterizedTypeReference__Group_1_4_2__3__Impl33885 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2_2__0__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_2_2__033924 = new BitSet(new long[]{0x0040000100000010L,0x0000000000100000L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2_2__1_in_rule__JvmParameterizedTypeReference__Group_1_4_2_2__033927 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_rule__JvmParameterizedTypeReference__Group_1_4_2_2__0__Impl33955 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2_2__1__Impl_in_rule__JvmParameterizedTypeReference__Group_1_4_2_2__133986 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_1_in_rule__JvmParameterizedTypeReference__Group_1_4_2_2__1__Impl34013 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group__0__Impl_in_rule__JvmWildcardTypeReference__Group__034047 = new BitSet(new long[]{0x0040000100000010L,0x0000000000100000L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group__1_in_rule__JvmWildcardTypeReference__Group__034050 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group__1__Impl_in_rule__JvmWildcardTypeReference__Group__134108 = new BitSet(new long[]{0x0004400000000000L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group__2_in_rule__JvmWildcardTypeReference__Group__134111 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_84_in_rule__JvmWildcardTypeReference__Group__1__Impl34139 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group__2__Impl_in_rule__JvmWildcardTypeReference__Group__234170 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Alternatives_2_in_rule__JvmWildcardTypeReference__Group__2__Impl34197 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group_2_0__0__Impl_in_rule__JvmWildcardTypeReference__Group_2_0__034234 = new BitSet(new long[]{0x0000000000000000L,0x0000000000200000L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group_2_0__1_in_rule__JvmWildcardTypeReference__Group_2_0__034237 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_0_in_rule__JvmWildcardTypeReference__Group_2_0__0__Impl34264 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group_2_0__1__Impl_in_rule__JvmWildcardTypeReference__Group_2_0__134294 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_1_in_rule__JvmWildcardTypeReference__Group_2_0__1__Impl34321 = new BitSet(new long[]{0x0000000000000002L,0x0000000000200000L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group_2_1__0__Impl_in_rule__JvmWildcardTypeReference__Group_2_1__034356 = new BitSet(new long[]{0x0000000000000000L,0x0000000000200000L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group_2_1__1_in_rule__JvmWildcardTypeReference__Group_2_1__034359 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_0_in_rule__JvmWildcardTypeReference__Group_2_1__0__Impl34386 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__Group_2_1__1__Impl_in_rule__JvmWildcardTypeReference__Group_2_1__134416 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_1_in_rule__JvmWildcardTypeReference__Group_2_1__1__Impl34443 = new BitSet(new long[]{0x0000000000000002L,0x0000000000200000L});
+    public static final BitSet FOLLOW_rule__JvmUpperBound__Group__0__Impl_in_rule__JvmUpperBound__Group__034478 = new BitSet(new long[]{0x0040000100000010L});
+    public static final BitSet FOLLOW_rule__JvmUpperBound__Group__1_in_rule__JvmUpperBound__Group__034481 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_rule__JvmUpperBound__Group__0__Impl34509 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmUpperBound__Group__1__Impl_in_rule__JvmUpperBound__Group__134540 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmUpperBound__TypeReferenceAssignment_1_in_rule__JvmUpperBound__Group__1__Impl34567 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmUpperBoundAnded__Group__0__Impl_in_rule__JvmUpperBoundAnded__Group__034601 = new BitSet(new long[]{0x0040000100000010L});
+    public static final BitSet FOLLOW_rule__JvmUpperBoundAnded__Group__1_in_rule__JvmUpperBoundAnded__Group__034604 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_85_in_rule__JvmUpperBoundAnded__Group__0__Impl34632 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmUpperBoundAnded__Group__1__Impl_in_rule__JvmUpperBoundAnded__Group__134663 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmUpperBoundAnded__TypeReferenceAssignment_1_in_rule__JvmUpperBoundAnded__Group__1__Impl34690 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmLowerBound__Group__0__Impl_in_rule__JvmLowerBound__Group__034724 = new BitSet(new long[]{0x0040000100000010L});
+    public static final BitSet FOLLOW_rule__JvmLowerBound__Group__1_in_rule__JvmLowerBound__Group__034727 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_rule__JvmLowerBound__Group__0__Impl34755 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmLowerBound__Group__1__Impl_in_rule__JvmLowerBound__Group__134786 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmLowerBound__TypeReferenceAssignment_1_in_rule__JvmLowerBound__Group__1__Impl34813 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmLowerBoundAnded__Group__0__Impl_in_rule__JvmLowerBoundAnded__Group__034847 = new BitSet(new long[]{0x0040000100000010L});
+    public static final BitSet FOLLOW_rule__JvmLowerBoundAnded__Group__1_in_rule__JvmLowerBoundAnded__Group__034850 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_85_in_rule__JvmLowerBoundAnded__Group__0__Impl34878 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmLowerBoundAnded__Group__1__Impl_in_rule__JvmLowerBoundAnded__Group__134909 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmLowerBoundAnded__TypeReferenceAssignment_1_in_rule__JvmLowerBoundAnded__Group__1__Impl34936 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedNameWithWildcard__Group__0__Impl_in_rule__QualifiedNameWithWildcard__Group__034972 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_rule__QualifiedNameWithWildcard__Group__1_in_rule__QualifiedNameWithWildcard__Group__034975 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__QualifiedNameWithWildcard__Group__0__Impl35002 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedNameWithWildcard__Group__1__Impl_in_rule__QualifiedNameWithWildcard__Group__135031 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_rule__QualifiedNameWithWildcard__Group__2_in_rule__QualifiedNameWithWildcard__Group__135034 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_rule__QualifiedNameWithWildcard__Group__1__Impl35062 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedNameWithWildcard__Group__2__Impl_in_rule__QualifiedNameWithWildcard__Group__235093 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_rule__QualifiedNameWithWildcard__Group__2__Impl35121 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Group__0__Impl_in_rule__XImportDeclaration__Group__035158 = new BitSet(new long[]{0x0000800000000010L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Group__1_in_rule__XImportDeclaration__Group__035161 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_rule__XImportDeclaration__Group__0__Impl35189 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Group__1__Impl_in_rule__XImportDeclaration__Group__135220 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Group__2_in_rule__XImportDeclaration__Group__135223 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Alternatives_1_in_rule__XImportDeclaration__Group__1__Impl35250 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Group__2__Impl_in_rule__XImportDeclaration__Group__235280 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_rule__XImportDeclaration__Group__2__Impl35309 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__0__Impl_in_rule__XImportDeclaration__Group_1_0__035348 = new BitSet(new long[]{0x0002000000000010L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__1_in_rule__XImportDeclaration__Group_1_0__035351 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__StaticAssignment_1_0_0_in_rule__XImportDeclaration__Group_1_0__0__Impl35378 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__1__Impl_in_rule__XImportDeclaration__Group_1_0__135408 = new BitSet(new long[]{0x0002000000000010L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__2_in_rule__XImportDeclaration__Group_1_0__135411 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__ExtensionAssignment_1_0_1_in_rule__XImportDeclaration__Group_1_0__1__Impl35438 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__2__Impl_in_rule__XImportDeclaration__Group_1_0__235469 = new BitSet(new long[]{0x0000002000000010L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__3_in_rule__XImportDeclaration__Group_1_0__235472 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__ImportedTypeAssignment_1_0_2_in_rule__XImportDeclaration__Group_1_0__2__Impl35499 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Group_1_0__3__Impl_in_rule__XImportDeclaration__Group_1_0__335529 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__XImportDeclaration__Alternatives_1_0_3_in_rule__XImportDeclaration__Group_1_0__3__Impl35556 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedNameInStaticImport__Group__0__Impl_in_rule__QualifiedNameInStaticImport__Group__035594 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_rule__QualifiedNameInStaticImport__Group__1_in_rule__QualifiedNameInStaticImport__Group__035597 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__QualifiedNameInStaticImport__Group__0__Impl35624 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedNameInStaticImport__Group__1__Impl_in_rule__QualifiedNameInStaticImport__Group__135653 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_rule__QualifiedNameInStaticImport__Group__1__Impl35681 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Program__NameAssignment_135721 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMain_in_rule__Program__MainAssignment_235752 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSub_in_rule__Program__SubsAssignment_3_035783 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleField_in_rule__Program__FieldsAssignment_3_135814 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_86_in_rule__Main__LoopAssignment_0_135850 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXBlockExpression_in_rule__Main__BodyAssignment_135889 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Sub__NameAssignment_135920 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__Sub__ParametersAssignment_3_035951 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__Sub__ParametersAssignment_3_1_135982 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXBlockExpression_in_rule__Sub__BodyAssignment_536013 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__Field__TypeAssignment_136044 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Field__NameAssignment_236075 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__Field__InitializerAssignment_3_136106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFeatureCallID_in_rule__XAssignment__FeatureAssignment_0_136141 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXAssignment_in_rule__XAssignment__ValueAssignment_0_336176 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpMultiAssign_in_rule__XAssignment__FeatureAssignment_1_1_0_0_136211 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXAssignment_in_rule__XAssignment__RightOperandAssignment_1_1_136246 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpOr_in_rule__XOrExpression__FeatureAssignment_1_0_0_136281 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXAndExpression_in_rule__XOrExpression__RightOperandAssignment_1_136316 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpAnd_in_rule__XAndExpression__FeatureAssignment_1_0_0_136351 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXEqualityExpression_in_rule__XAndExpression__RightOperandAssignment_1_136386 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpEquality_in_rule__XEqualityExpression__FeatureAssignment_1_0_0_136421 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXRelationalExpression_in_rule__XEqualityExpression__RightOperandAssignment_1_136456 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XRelationalExpression__TypeAssignment_1_0_136487 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpCompare_in_rule__XRelationalExpression__FeatureAssignment_1_1_0_0_136522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXOtherOperatorExpression_in_rule__XRelationalExpression__RightOperandAssignment_1_1_136557 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpOther_in_rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_136592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXAdditiveExpression_in_rule__XOtherOperatorExpression__RightOperandAssignment_1_136627 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpAdd_in_rule__XAdditiveExpression__FeatureAssignment_1_0_0_136662 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXMultiplicativeExpression_in_rule__XAdditiveExpression__RightOperandAssignment_1_136697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpMulti_in_rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_136732 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXUnaryOperation_in_rule__XMultiplicativeExpression__RightOperandAssignment_1_136767 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpUnary_in_rule__XUnaryOperation__FeatureAssignment_0_136802 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXUnaryOperation_in_rule__XUnaryOperation__OperandAssignment_0_236837 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XCastedExpression__TypeAssignment_1_136868 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpPostfix_in_rule__XPostfixOperation__FeatureAssignment_1_0_136903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_87_in_rule__XMemberFeatureCall__ExplicitStaticAssignment_1_0_0_0_1_136943 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFeatureCallID_in_rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_236986 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXAssignment_in_rule__XMemberFeatureCall__ValueAssignment_1_0_137021 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_88_in_rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_137057 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_87_in_rule__XMemberFeatureCall__ExplicitStaticAssignment_1_1_0_0_1_237101 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_137140 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_137171 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIdOrSuper_in_rule__XMemberFeatureCall__FeatureAssignment_1_1_237206 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_037246 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXShortClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_037285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_037316 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_137347 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_437378 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSetLiteral__ElementsAssignment_3_037409 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSetLiteral__ElementsAssignment_3_1_137440 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XListLiteral__ElementsAssignment_3_037471 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XListLiteral__ElementsAssignment_3_1_137502 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_037533 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_137564 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_89_in_rule__XClosure__ExplicitSyntaxAssignment_1_0_137600 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpressionInClosure_in_rule__XClosure__ExpressionAssignment_237639 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XExpressionInClosure__ExpressionsAssignment_1_037670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_037701 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_137732 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_89_in_rule__XShortClosure__ExplicitSyntaxAssignment_0_0_237768 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XShortClosure__ExpressionAssignment_137807 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XIfExpression__IfAssignment_337838 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XIfExpression__ThenAssignment_537869 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XIfExpression__ElseAssignment_6_137900 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XSwitchExpression__DeclaredParamAssignment_2_0_0_0_137931 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_0_137962 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XSwitchExpression__DeclaredParamAssignment_2_1_0_0_037993 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_1_138024 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXCasePart_in_rule__XSwitchExpression__CasesAssignment_438055 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSwitchExpression__DefaultAssignment_5_238086 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XCasePart__TypeGuardAssignment_138117 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XCasePart__CaseAssignment_2_138148 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XCasePart__ThenAssignment_3_0_138179 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_rule__XCasePart__FallThroughAssignment_3_138215 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XForLoopExpression__DeclaredParamAssignment_0_0_338254 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XForLoopExpression__ForExpressionAssignment_138285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XForLoopExpression__EachExpressionAssignment_338316 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XBasicForLoopExpression__InitExpressionsAssignment_3_038347 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XBasicForLoopExpression__InitExpressionsAssignment_3_1_138378 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__ExpressionAssignment_538409 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_038440 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__UpdateExpressionsAssignment_7_1_138471 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XBasicForLoopExpression__EachExpressionAssignment_938502 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XWhileExpression__PredicateAssignment_338533 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XWhileExpression__BodyAssignment_538564 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__BodyAssignment_238595 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__PredicateAssignment_538626 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpressionOrVarDeclaration_in_rule__XBlockExpression__ExpressionsAssignment_2_038657 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_rule__XVariableDeclaration__WriteableAssignment_1_038693 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XVariableDeclaration__TypeAssignment_2_0_0_038732 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_0_0_138763 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_138794 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XVariableDeclaration__RightAssignment_3_138825 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmFormalParameter__ParameterTypeAssignment_038856 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__JvmFormalParameter__NameAssignment_138887 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__FullJvmFormalParameter__ParameterTypeAssignment_038918 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__FullJvmFormalParameter__NameAssignment_138949 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_1_138980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_1_2_139011 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIdOrSuper_in_rule__XFeatureCall__FeatureAssignment_239046 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_rule__XFeatureCall__ExplicitOperationCallAssignment_3_039086 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXShortClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_039125 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_039156 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_3_1_1_1_139187 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_439218 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__XConstructorCall__ConstructorAssignment_239253 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_139288 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_2_139319 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_rule__XConstructorCall__ExplicitConstructorCallAssignment_4_039355 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXShortClosure_in_rule__XConstructorCall__ArgumentsAssignment_4_1_039394 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_039425 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_139456 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXClosure_in_rule__XConstructorCall__ArgumentsAssignment_539487 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_90_in_rule__XBooleanLiteral__IsTrueAssignment_1_139523 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumber_in_rule__XNumberLiteral__ValueAssignment_139562 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__XStringLiteral__ValueAssignment_139593 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__XTypeLiteral__TypeAssignment_339628 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleArrayBrackets_in_rule__XTypeLiteral__ArrayDimensionsAssignment_439663 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XThrowExpression__ExpressionAssignment_239694 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XReturnExpression__ExpressionAssignment_239725 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__ExpressionAssignment_239756 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXCatchClause_in_rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_039787 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_139818 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_139849 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSynchronizedExpression__ParamAssignment_139880 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSynchronizedExpression__ExpressionAssignment_339911 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFullJvmFormalParameter_in_rule__XCatchClause__DeclaredParamAssignment_239942 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XCatchClause__ExpressionAssignment_439973 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_040004 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_140035 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ReturnTypeAssignment_240066 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__JvmParameterizedTypeReference__TypeAssignment_040101 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_140136 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_140167 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__JvmParameterizedTypeReference__TypeAssignment_1_4_140202 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_140237 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_4_2_2_140268 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmUpperBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_040299 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmUpperBoundAnded_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0_140330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmLowerBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_040361 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmLowerBoundAnded_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1_140392 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBound__TypeReferenceAssignment_140423 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBoundAnded__TypeReferenceAssignment_140454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmLowerBound__TypeReferenceAssignment_140485 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmLowerBoundAnded__TypeReferenceAssignment_140516 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_rule__XImportDeclaration__StaticAssignment_1_0_040556 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_rule__XImportDeclaration__ExtensionAssignment_1_0_140600 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedNameInStaticImport_in_rule__XImportDeclaration__ImportedTypeAssignment_1_0_240643 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_rule__XImportDeclaration__WildcardAssignment_1_0_3_040683 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__XImportDeclaration__MemberNameAssignment_1_0_3_140722 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__XImportDeclaration__ImportedTypeAssignment_1_140757 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_rule__XImportDeclaration__ImportedNamespaceAssignment_1_240792 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__OpOther__Group_6_1_0__0_in_synpred27_InternalXRobotDSL5639 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_28_in_synpred28_InternalXRobotDSL5658 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_0_in_synpred41_InternalXRobotDSL6217 = new BitSet(new long[]{0x0000000000000002L});
@@ -62752,5 +64291,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0_in_synpred151_InternalXRobotDSL31295 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__JvmTypeReference__Group_0_1__0_in_synpred153_InternalXRobotDSL31786 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1__0_in_synpred157_InternalXRobotDSL32832 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4__0_in_synpred159_InternalXRobotDSL33141 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__JvmParameterizedTypeReference__Group_1_4_2__0_in_synpred160_InternalXRobotDSL33452 = new BitSet(new long[]{0x0000000000000002L});
 
 }

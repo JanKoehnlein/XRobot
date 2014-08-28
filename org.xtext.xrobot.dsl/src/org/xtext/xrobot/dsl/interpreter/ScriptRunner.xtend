@@ -10,19 +10,20 @@ import org.eclipse.xtext.util.StringInputStream
 import org.xtext.xrobot.dsl.validation.XRobotDSLValidator
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.RemoteRobot
+import com.google.inject.Provider
 
 class ScriptRunner {
 
 	@Inject XRobotDSLValidator validator
 
-	@Inject XRobotInterpreter interpreter
+	@Inject Provider<XRobotInterpreter> interpreterProvider
 	
 	def run(RemoteRobot robot, String model, XtextResourceSet resourceSet, CancelIndicator cancelIndicator) {
 		val program = model.parse(resourceSet)
 		if(program != null && robot != null) {
 			var Object result = null
 			try {
-				result = interpreter.execute(program, robot, cancelIndicator)
+				result = interpreterProvider.get.execute(program, robot, cancelIndicator)
 			} catch (StoppedException exc) {
 				System.err.println('Stopped by user')
 				robot?.stop

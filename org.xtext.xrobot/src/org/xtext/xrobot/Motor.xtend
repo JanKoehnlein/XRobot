@@ -37,7 +37,7 @@ class Motor {
 	}
 
 	override void rotateTo(int angle) {
-		motor.rotate(angle, true)
+		motor.rotateTo(angle, true)
 	}
 
 	override int getTargetAngle() {

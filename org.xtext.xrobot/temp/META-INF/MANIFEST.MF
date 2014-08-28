@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: /home/root/lejos/lib/ev3classes.jar /home/root/lejos/lib/d
+ busjava.jar /home/root/lejos/libjna/usr/share/java/jna.jar /home/lejo
+ s/programs/org.eclipse.xtext.xbase.lib_2.7.0.v201408180851.jar /home/
+ lejos/programs/com.google.guava_15.0.0.v201403281430
+Main-Class: org.xtext.xrobot.client.BrickConnector
+

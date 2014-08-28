@@ -481,7 +481,7 @@
             menubarPath="debug"
             id="org.xtext.xrobot.dsl.XRobotDSL.ide.rulerContextMenu.enableDisableBreakpointAction">
          </action>
-         <action>
+         <action
            label="Breakpoint Properties"
            helpContextId="breakpoint_properties_action_context"
            class="org.xtext.xrobot.dsl.ui.XRobotDSLExecutableExtensionFactory:org.eclipse.jdt.debug.ui.actions.JavaBreakpointPropertiesRulerActionDelegate"
