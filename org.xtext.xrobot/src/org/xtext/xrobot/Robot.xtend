@@ -16,6 +16,7 @@ import org.xtext.xrobot.annotations.SubComponent
 import org.xtext.xrobot.util.SoundUtil
 
 import static extension java.lang.Math.*
+import org.xtext.xrobot.annotations.Blocking
 
 @SimpleRMI
 class Robot implements IRobotGeometry {
@@ -33,7 +34,7 @@ class Robot implements IRobotGeometry {
 	String name
 	
 	int channel
-
+	
 	extension SoundUtil = new SoundUtil
 		
 	@SubComponent Motor leftMotor
@@ -92,11 +93,13 @@ class Robot implements IRobotGeometry {
 			rightMotor.forward
 	}
 	
-	override void travelForward(double distance) {
+	@Blocking
+	override void forward(double distance) {
 		pilot.travel(distance, true)
 	}
 	
-	override void travelBackward(double distance) {
+	@Blocking
+	override void backward(double distance) {
 		pilot.travel(-distance, true)
 	}
 	
@@ -112,6 +115,7 @@ class Robot implements IRobotGeometry {
 		pilot.maxTravelSpeed
 	}
 	
+	@Blocking
 	override void rotate(double angle) {
 		pilot.rotate(angle, true)
 	}
@@ -128,6 +132,7 @@ class Robot implements IRobotGeometry {
 		pilot.rotateMaxSpeed
 	}
 	
+	@Blocking
 	override void curveForward(double radius, double angle) {
 		if(angle < 0) 
 			pilot.arc(-abs(radius), angle, true)
@@ -135,6 +140,7 @@ class Robot implements IRobotGeometry {
 			pilot.arc(abs(radius), angle, true)
 	}
 	
+	@Blocking
 	override void curveBackward(double radius, double angle) {
 		if(angle < 0)
 			pilot.arc(abs(radius), angle, true)
@@ -142,15 +148,21 @@ class Robot implements IRobotGeometry {
 			pilot.arc(-abs(radius), angle, true)
 	}
 	
+	@Blocking
 	override void curveTo(double angle, double distance) {
 		val radius = 0.5 * distance * cos(0.5 * PI - angle.toRadians)
 		curveForward(radius, angle)
+	}
+	
+	override boolean isMoving() {
+		pilot.isMoving
 	}
 	
 	override void stop() {
 		pilot.stop
 	}
 	
+	@Blocking
 	override void scoop(double angle) {
 		scoopMotor.rotateTo(angle as int)
 	}

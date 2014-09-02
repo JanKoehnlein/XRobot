@@ -57,7 +57,7 @@ import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.xtext.xrobot.dsl.services.XRobotDSLGrammarAccess;
 import org.xtext.xrobot.dsl.xRobotDSL.Field;
-import org.xtext.xrobot.dsl.xRobotDSL.Main;
+import org.xtext.xrobot.dsl.xRobotDSL.Mode;
 import org.xtext.xrobot.dsl.xRobotDSL.Program;
 import org.xtext.xrobot.dsl.xRobotDSL.Sub;
 import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
@@ -149,9 +149,9 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
-			case XRobotDSLPackage.MAIN:
-				if(context == grammarAccess.getMainRule()) {
-					sequence_Main(context, (Main) semanticObject); 
+			case XRobotDSLPackage.MODE:
+				if(context == grammarAccess.getModeRule()) {
+					sequence_Mode(context, (Mode) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1216,16 +1216,16 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (loop?='loop'? body=XBlockExpression)
+	 *     (name=ID condition=XExpression? action=XBlockExpression whenCanceled=XBlockExpression?)
 	 */
-	protected void sequence_Main(EObject context, Main semanticObject) {
+	protected void sequence_Mode(EObject context, Mode semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID main=Main (subs+=Sub | fields+=Field)*)
+	 *     (subs+=Sub | fields+=Field | modes+=Mode)*
 	 */
 	protected void sequence_Program(EObject context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1234,7 +1234,7 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (parameters+=JvmFormalParameter parameters+=JvmFormalParameter*)? body=XBlockExpression)
+	 *     (returnType=JvmTypeReference? name=ID (parameters+=JvmFormalParameter parameters+=JvmFormalParameter*)? body=XBlockExpression)
 	 */
 	protected void sequence_Sub(EObject context, Sub semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

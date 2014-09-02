@@ -65,7 +65,7 @@ public class XRobotDSLFactoryImpl extends EFactoryImpl implements XRobotDSLFacto
     switch (eClass.getClassifierID())
     {
       case XRobotDSLPackage.PROGRAM: return createProgram();
-      case XRobotDSLPackage.MAIN: return createMain();
+      case XRobotDSLPackage.MODE: return createMode();
       case XRobotDSLPackage.SUB: return createSub();
       case XRobotDSLPackage.FIELD: return createField();
       default:
@@ -89,10 +89,10 @@ public class XRobotDSLFactoryImpl extends EFactoryImpl implements XRobotDSLFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Main createMain()
+  public Mode createMode()
   {
-    MainImpl main = new MainImpl();
-    return main;
+    ModeImpl mode = new ModeImpl();
+    return mode;
   }
 
   /**

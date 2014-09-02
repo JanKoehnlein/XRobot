@@ -37,8 +37,7 @@ public class XRobotDSLParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getProgramAccess().getAlternatives_3(), "rule__Program__Alternatives_3");
-					put(grammarAccess.getMainAccess().getAlternatives_0(), "rule__Main__Alternatives_0");
+					put(grammarAccess.getProgramAccess().getAlternatives(), "rule__Program__Alternatives");
 					put(grammarAccess.getXAssignmentAccess().getAlternatives(), "rule__XAssignment__Alternatives");
 					put(grammarAccess.getOpMultiAssignAccess().getAlternatives(), "rule__OpMultiAssign__Alternatives");
 					put(grammarAccess.getOpEqualityAccess().getAlternatives(), "rule__OpEquality__Alternatives");
@@ -78,11 +77,12 @@ public class XRobotDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJvmWildcardTypeReferenceAccess().getAlternatives_2(), "rule__JvmWildcardTypeReference__Alternatives_2");
 					put(grammarAccess.getXImportDeclarationAccess().getAlternatives_1(), "rule__XImportDeclaration__Alternatives_1");
 					put(grammarAccess.getXImportDeclarationAccess().getAlternatives_1_0_3(), "rule__XImportDeclaration__Alternatives_1_0_3");
-					put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
-					put(grammarAccess.getMainAccess().getGroup(), "rule__Main__Group__0");
+					put(grammarAccess.getModeAccess().getGroup(), "rule__Mode__Group__0");
+					put(grammarAccess.getModeAccess().getGroup_1(), "rule__Mode__Group_1__0");
+					put(grammarAccess.getModeAccess().getGroup_3(), "rule__Mode__Group_3__0");
 					put(grammarAccess.getSubAccess().getGroup(), "rule__Sub__Group__0");
-					put(grammarAccess.getSubAccess().getGroup_3(), "rule__Sub__Group_3__0");
-					put(grammarAccess.getSubAccess().getGroup_3_1(), "rule__Sub__Group_3_1__0");
+					put(grammarAccess.getSubAccess().getGroup_4(), "rule__Sub__Group_4__0");
+					put(grammarAccess.getSubAccess().getGroup_4_1(), "rule__Sub__Group_4_1__0");
 					put(grammarAccess.getFieldAccess().getGroup(), "rule__Field__Group__0");
 					put(grammarAccess.getFieldAccess().getGroup_3(), "rule__Field__Group_3__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_0(), "rule__XAssignment__Group_0__0");
@@ -264,16 +264,18 @@ public class XRobotDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getXImportDeclarationAccess().getGroup(), "rule__XImportDeclaration__Group__0");
 					put(grammarAccess.getXImportDeclarationAccess().getGroup_1_0(), "rule__XImportDeclaration__Group_1_0__0");
 					put(grammarAccess.getQualifiedNameInStaticImportAccess().getGroup(), "rule__QualifiedNameInStaticImport__Group__0");
-					put(grammarAccess.getProgramAccess().getNameAssignment_1(), "rule__Program__NameAssignment_1");
-					put(grammarAccess.getProgramAccess().getMainAssignment_2(), "rule__Program__MainAssignment_2");
-					put(grammarAccess.getProgramAccess().getSubsAssignment_3_0(), "rule__Program__SubsAssignment_3_0");
-					put(grammarAccess.getProgramAccess().getFieldsAssignment_3_1(), "rule__Program__FieldsAssignment_3_1");
-					put(grammarAccess.getMainAccess().getLoopAssignment_0_1(), "rule__Main__LoopAssignment_0_1");
-					put(grammarAccess.getMainAccess().getBodyAssignment_1(), "rule__Main__BodyAssignment_1");
-					put(grammarAccess.getSubAccess().getNameAssignment_1(), "rule__Sub__NameAssignment_1");
-					put(grammarAccess.getSubAccess().getParametersAssignment_3_0(), "rule__Sub__ParametersAssignment_3_0");
-					put(grammarAccess.getSubAccess().getParametersAssignment_3_1_1(), "rule__Sub__ParametersAssignment_3_1_1");
-					put(grammarAccess.getSubAccess().getBodyAssignment_5(), "rule__Sub__BodyAssignment_5");
+					put(grammarAccess.getProgramAccess().getSubsAssignment_0(), "rule__Program__SubsAssignment_0");
+					put(grammarAccess.getProgramAccess().getFieldsAssignment_1(), "rule__Program__FieldsAssignment_1");
+					put(grammarAccess.getProgramAccess().getModesAssignment_2(), "rule__Program__ModesAssignment_2");
+					put(grammarAccess.getModeAccess().getNameAssignment_0(), "rule__Mode__NameAssignment_0");
+					put(grammarAccess.getModeAccess().getConditionAssignment_1_1(), "rule__Mode__ConditionAssignment_1_1");
+					put(grammarAccess.getModeAccess().getActionAssignment_2(), "rule__Mode__ActionAssignment_2");
+					put(grammarAccess.getModeAccess().getWhenCanceledAssignment_3_2(), "rule__Mode__WhenCanceledAssignment_3_2");
+					put(grammarAccess.getSubAccess().getReturnTypeAssignment_1(), "rule__Sub__ReturnTypeAssignment_1");
+					put(grammarAccess.getSubAccess().getNameAssignment_2(), "rule__Sub__NameAssignment_2");
+					put(grammarAccess.getSubAccess().getParametersAssignment_4_0(), "rule__Sub__ParametersAssignment_4_0");
+					put(grammarAccess.getSubAccess().getParametersAssignment_4_1_1(), "rule__Sub__ParametersAssignment_4_1_1");
+					put(grammarAccess.getSubAccess().getBodyAssignment_6(), "rule__Sub__BodyAssignment_6");
 					put(grammarAccess.getFieldAccess().getTypeAssignment_1(), "rule__Field__TypeAssignment_1");
 					put(grammarAccess.getFieldAccess().getNameAssignment_2(), "rule__Field__NameAssignment_2");
 					put(grammarAccess.getFieldAccess().getInitializerAssignment_3_1(), "rule__Field__InitializerAssignment_3_1");

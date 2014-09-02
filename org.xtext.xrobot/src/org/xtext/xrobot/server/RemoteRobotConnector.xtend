@@ -14,7 +14,7 @@ import org.xtext.xrobot.net.INetConfig
 @Singleton
 class RemoteRobotConnector implements INetConfig {
 
-	Map<String, RemoteRobot> name2robot = newHashMap
+	Map<String, RemoteRobotFactory> name2robot = newHashMap
 	
 	private def connect(String robotName) {
 		val ipAddress = robotName.getIPAddress
@@ -34,11 +34,10 @@ class RemoteRobotConnector implements INetConfig {
 			socket.finishConnect
 		}
 		try {
-			val remoteRobot = new RemoteRobot(socket, 0)
-			remoteRobot.waitForUpdate(SOCKET_TIMEOUT)
+			val remoteRobotFactory = new RemoteRobotFactory(robotName, socket)
 			System.err.println()
 			System.err.println('Connected to ' + robotName + ' at ' + (socket.remoteAddress as InetSocketAddress).address)
-			remoteRobot
+			remoteRobotFactory
 		} catch(Exception exc) {
 			socket?.close
 			throw exc
@@ -50,7 +49,7 @@ class RemoteRobotConnector implements INetConfig {
 		return map.get(robotName)
 	}
 	
-	def getRobot(String name) {
+	def getRobotFactory(String name) {
 		val connectedRobot = name2robot.get(name)
 		if(connectedRobot != null) {
 			if(connectedRobot.isAlive) {
@@ -66,7 +65,6 @@ class RemoteRobotConnector implements INetConfig {
 		val newRobot = connect(name)
 		name2robot.put(name, newRobot)
 		return newRobot
-
 	}
 	
 	def getRobotNames() {

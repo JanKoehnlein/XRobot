@@ -67,31 +67,13 @@ public interface XRobotDSLPackage extends EPackage
   int PROGRAM = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROGRAM__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Main</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROGRAM__MAIN = 1;
-
-  /**
    * The feature id for the '<em><b>Subs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROGRAM__SUBS = 2;
+  int PROGRAM__SUBS = 0;
 
   /**
    * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -100,7 +82,16 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM__FIELDS = 3;
+  int PROGRAM__FIELDS = 1;
+
+  /**
+   * The feature id for the '<em><b>Modes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__MODES = 2;
 
   /**
    * The number of structural features of the '<em>Program</em>' class.
@@ -109,44 +100,62 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM_FEATURE_COUNT = 4;
+  int PROGRAM_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.MainImpl <em>Main</em>}' class.
+   * The meta object id for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl <em>Mode</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.xrobot.dsl.xRobotDSL.impl.MainImpl
-   * @see org.xtext.xrobot.dsl.xRobotDSL.impl.XRobotDSLPackageImpl#getMain()
+   * @see org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl
+   * @see org.xtext.xrobot.dsl.xRobotDSL.impl.XRobotDSLPackageImpl#getMode()
    * @generated
    */
-  int MAIN = 1;
+  int MODE = 1;
 
   /**
-   * The feature id for the '<em><b>Loop</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAIN__LOOP = 0;
-
-  /**
-   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN__BODY = 1;
+  int MODE__NAME = 0;
 
   /**
-   * The number of structural features of the '<em>Main</em>' class.
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN_FEATURE_COUNT = 2;
+  int MODE__CONDITION = 1;
+
+  /**
+   * The feature id for the '<em><b>Action</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODE__ACTION = 2;
+
+  /**
+   * The feature id for the '<em><b>When Canceled</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODE__WHEN_CANCELED = 3;
+
+  /**
+   * The number of structural features of the '<em>Mode</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.SubImpl <em>Sub</em>}' class.
@@ -159,13 +168,22 @@ public interface XRobotDSLPackage extends EPackage
   int SUB = 2;
 
   /**
+   * The feature id for the '<em><b>Return Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB__RETURN_TYPE = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUB__NAME = 0;
+  int SUB__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -174,7 +192,7 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SUB__PARAMETERS = 1;
+  int SUB__PARAMETERS = 2;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -183,7 +201,7 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SUB__BODY = 2;
+  int SUB__BODY = 3;
 
   /**
    * The number of structural features of the '<em>Sub</em>' class.
@@ -192,7 +210,7 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SUB_FEATURE_COUNT = 3;
+  int SUB_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FieldImpl <em>Field</em>}' class.
@@ -252,28 +270,6 @@ public interface XRobotDSLPackage extends EPackage
   EClass getProgram();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.xrobot.dsl.xRobotDSL.Program#getName()
-   * @see #getProgram()
-   * @generated
-   */
-  EAttribute getProgram_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getMain <em>Main</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Main</em>'.
-   * @see org.xtext.xrobot.dsl.xRobotDSL.Program#getMain()
-   * @see #getProgram()
-   * @generated
-   */
-  EReference getProgram_Main();
-
-  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getSubs <em>Subs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -296,36 +292,69 @@ public interface XRobotDSLPackage extends EPackage
   EReference getProgram_Fields();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.xrobot.dsl.xRobotDSL.Main <em>Main</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getModes <em>Modes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Main</em>'.
-   * @see org.xtext.xrobot.dsl.xRobotDSL.Main
+   * @return the meta object for the containment reference list '<em>Modes</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Program#getModes()
+   * @see #getProgram()
    * @generated
    */
-  EClass getMain();
+  EReference getProgram_Modes();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.xrobot.dsl.xRobotDSL.Main#isLoop <em>Loop</em>}'.
+   * Returns the meta object for class '{@link org.xtext.xrobot.dsl.xRobotDSL.Mode <em>Mode</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Loop</em>'.
-   * @see org.xtext.xrobot.dsl.xRobotDSL.Main#isLoop()
-   * @see #getMain()
+   * @return the meta object for class '<em>Mode</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Mode
    * @generated
    */
-  EAttribute getMain_Loop();
+  EClass getMode();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.xrobot.dsl.xRobotDSL.Main#getBody <em>Body</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Body</em>'.
-   * @see org.xtext.xrobot.dsl.xRobotDSL.Main#getBody()
-   * @see #getMain()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Mode#getName()
+   * @see #getMode()
    * @generated
    */
-  EReference getMain_Body();
+  EAttribute getMode_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Mode#getCondition()
+   * @see #getMode()
+   * @generated
+   */
+  EReference getMode_Condition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getAction <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Action</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Mode#getAction()
+   * @see #getMode()
+   * @generated
+   */
+  EReference getMode_Action();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getWhenCanceled <em>When Canceled</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>When Canceled</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Mode#getWhenCanceled()
+   * @see #getMode()
+   * @generated
+   */
+  EReference getMode_WhenCanceled();
 
   /**
    * Returns the meta object for class '{@link org.xtext.xrobot.dsl.xRobotDSL.Sub <em>Sub</em>}'.
@@ -336,6 +365,17 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    */
   EClass getSub();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.xrobot.dsl.xRobotDSL.Sub#getReturnType <em>Return Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Return Type</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Sub#getReturnType()
+   * @see #getSub()
+   * @generated
+   */
+  EReference getSub_ReturnType();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.xrobot.dsl.xRobotDSL.Sub#getName <em>Name</em>}'.
@@ -447,22 +487,6 @@ public interface XRobotDSLPackage extends EPackage
     EClass PROGRAM = eINSTANCE.getProgram();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PROGRAM__NAME = eINSTANCE.getProgram_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Main</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PROGRAM__MAIN = eINSTANCE.getProgram_Main();
-
-    /**
      * The meta object literal for the '<em><b>Subs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -479,30 +503,54 @@ public interface XRobotDSLPackage extends EPackage
     EReference PROGRAM__FIELDS = eINSTANCE.getProgram_Fields();
 
     /**
-     * The meta object literal for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.MainImpl <em>Main</em>}' class.
+     * The meta object literal for the '<em><b>Modes</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.xrobot.dsl.xRobotDSL.impl.MainImpl
-     * @see org.xtext.xrobot.dsl.xRobotDSL.impl.XRobotDSLPackageImpl#getMain()
      * @generated
      */
-    EClass MAIN = eINSTANCE.getMain();
+    EReference PROGRAM__MODES = eINSTANCE.getProgram_Modes();
 
     /**
-     * The meta object literal for the '<em><b>Loop</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl <em>Mode</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl
+     * @see org.xtext.xrobot.dsl.xRobotDSL.impl.XRobotDSLPackageImpl#getMode()
      * @generated
      */
-    EAttribute MAIN__LOOP = eINSTANCE.getMain_Loop();
+    EClass MODE = eINSTANCE.getMode();
 
     /**
-     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MAIN__BODY = eINSTANCE.getMain_Body();
+    EAttribute MODE__NAME = eINSTANCE.getMode_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODE__CONDITION = eINSTANCE.getMode_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>Action</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODE__ACTION = eINSTANCE.getMode_Action();
+
+    /**
+     * The meta object literal for the '<em><b>When Canceled</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODE__WHEN_CANCELED = eINSTANCE.getMode_WhenCanceled();
 
     /**
      * The meta object literal for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.SubImpl <em>Sub</em>}' class.
@@ -513,6 +561,14 @@ public interface XRobotDSLPackage extends EPackage
      * @generated
      */
     EClass SUB = eINSTANCE.getSub();
+
+    /**
+     * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SUB__RETURN_TYPE = eINSTANCE.getSub_ReturnType();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

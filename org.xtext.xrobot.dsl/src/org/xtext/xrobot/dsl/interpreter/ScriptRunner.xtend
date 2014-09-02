@@ -1,6 +1,7 @@
 package org.xtext.xrobot.dsl.interpreter
 
 import com.google.inject.Inject
+import com.google.inject.Provider
 import org.eclipse.emf.common.util.BasicDiagnostic
 import org.eclipse.emf.common.util.Diagnostic
 import org.eclipse.emf.common.util.URI
@@ -9,8 +10,9 @@ import org.eclipse.xtext.util.CancelIndicator
 import org.eclipse.xtext.util.StringInputStream
 import org.xtext.xrobot.dsl.validation.XRobotDSLValidator
 import org.xtext.xrobot.dsl.xRobotDSL.Program
-import org.xtext.xrobot.server.RemoteRobot
-import com.google.inject.Provider
+import org.xtext.xrobot.server.RemoteRobotFactory
+import org.xtext.xrobot.server.CanceledException
+import java.util.concurrent.CopyOnWriteArrayList
 
 class ScriptRunner {
 
@@ -18,22 +20,25 @@ class ScriptRunner {
 
 	@Inject Provider<XRobotInterpreter> interpreterProvider
 	
-	def run(RemoteRobot robot, String model, XtextResourceSet resourceSet, CancelIndicator cancelIndicator) {
+	val listeners = new CopyOnWriteArrayList<IRobotListener>
+
+	def addRobotListener(IRobotListener listener) {
+		listeners += listener
+	}
+
+	def void run(RemoteRobotFactory robotFactory, String model, XtextResourceSet resourceSet, CancelIndicator cancelIndicator) {
 		val program = model.parse(resourceSet)
-		if(program != null && robot != null) {
-			var Object result = null
+		if(program != null && robotFactory != null) {
 			try {
-				result = interpreterProvider.get.execute(program, robot, cancelIndicator)
-			} catch (StoppedException exc) {
-				System.err.println('Stopped by user')
-				robot?.stop
+				interpreterProvider.get.execute(program, robotFactory, listeners, cancelIndicator)
+			} catch (CanceledException exc) {
+				System.err.println('Canceled')
 			}
-			return result
 		}
 	}
 
 	private def Program parse(String model, XtextResourceSet resourceSet) {
-		val resource = resourceSet.createResource(URI.createURI('dummy.xrobot'))
+		val resource = resourceSet.createResource(URI.createURI('Dummy.xrobot'))
 		resource.load(new StringInputStream(model), null)
 		if (!resource.errors.empty)
 			throw new Exception('Syntax Error:\n' + resource.errors.map[message].join('\n'))

@@ -7,7 +7,7 @@ import java.nio.channels.SocketChannel
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.net.SocketInputBuffer
 
-class StateReceiver extends Thread implements INetConfig {
+class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 	
 	SocketInputBuffer input
 
@@ -18,16 +18,20 @@ class StateReceiver extends Thread implements INetConfig {
 	long failureCount 
 	long successCount
 	
-	var RobotServerState lastState
+	volatile RobotServerState lastState
+	
+	Thread thread
 	
 	new(SocketChannel socket) {
 		this.input = new SocketInputBuffer(socket)
 		this.selector = Selector.open
 		socket.register(selector, SelectionKey.OP_READ)	
-		daemon = true
+		this.thread = new Thread [ run ] => [
+			daemon = true
+		]
 	}
 
-	override run() {
+	private def run() {
 		while(!isStopped) {
 			try {
 				selector.select(SOCKET_TIMEOUT)
@@ -35,18 +39,17 @@ class StateReceiver extends Thread implements INetConfig {
 					if(key.isReadable) {
 						input.receive
 						val state = new RobotServerState
-						while(input.hasMore) {
-							try {
+						try {
+							while(input.hasMore) {
 								state.read(input)
 								successCount++
-							} catch(Exception exc) {
-								failureCount++  
-							}							
-						}
-						if(failureCount > 0 && (failureCount + successCount) % 100l == 0) {
-							System.err.println('State read failure rate ' + failureCount as double / (failureCount + successCount))
-						}
-						lastState = state
+							}
+							lastState = state
+						} catch(Exception exc) {
+							failureCount++  
+							System.err.println('State read failures ' + failureCount + " succeses " + successCount)
+//							System.err.println('State read failure rate ' + failureCount as double / (failureCount + successCount))
+						}							
 					} 
 				}
 			} catch(ClosedSelectorException e) {
@@ -57,13 +60,21 @@ class StateReceiver extends Thread implements INetConfig {
 			}
 		}
 	}
+	
+	def start() {
+		thread.start
+	}
 
-	def getLastState() {
+	def isAlive() {
+		thread.alive
+	}
+
+	override getState() {
 		lastState
 	}	
 	
 	def shutdown() {
 		isStopped = true
-		join(SOCKET_TIMEOUT)
+		thread.join(SOCKET_TIMEOUT)
 	}
 }

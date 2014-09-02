@@ -1,5 +1,6 @@
 package org.xtext.xrobot.annotations
 
+import java.io.IOException
 import java.lang.annotation.ElementType
 import java.lang.annotation.Retention
 import java.lang.annotation.RetentionPolicy
@@ -27,10 +28,17 @@ annotation SimpleRMI {
 annotation NoAPI {
 }
 
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
+annotation Blocking {
+}
+
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.SOURCE)
 annotation SubComponent {
 }
+
+
 
 class SimpleRemoteProcessor extends AbstractClassProcessor {
 	
@@ -51,9 +59,10 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		val subComponentFields = annotatedClass.declaredFields.filter[findAnnotation(subCompontentAnnotation) != null]
 
 		val serverImpl = annotatedClass.serverImplName.findClass
-		serverImpl.implementedInterfaces = #[clientInterface.newTypeReference]
+		serverImpl.implementedInterfaces = #[clientInterface.newTypeReference, 'org.xtext.xrobot.net.INetConfig'.newTypeReference]
 		serverImpl.addField('state') [
 			type = serverStateClass.newTypeReference
+			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addField('socket') [
 			type = SocketChannel.newTypeReference
@@ -61,6 +70,10 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		]
 		serverImpl.addField('componentID') [
 			type = int.newTypeReference
+			visibility = Visibility.PROTECTED
+		]
+		serverImpl.addField('stateProvider') [
+			type = 'org.xtext.xrobot.server.StateProvider'.newTypeReference(serverStateClass.newTypeReference)
 			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addField('input') [
@@ -71,15 +84,42 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			type = 'org.xtext.xrobot.net.SocketOutputBuffer'.newTypeReference
 			visibility = Visibility.PROTECTED
 		]
+		serverImpl.addField('nextCommandSerialNr') [
+			type = int.newTypeReference
+			visibility = Visibility.PROTECTED
+		] 
+		serverImpl.addField('cancelIndicator') [
+			type = 'org.eclipse.xtext.util.CancelIndicator'.newTypeReference
+			visibility = Visibility.PROTECTED
+		] 
 		serverImpl.addConstructor [
 			primarySourceElement = annotatedClass
-			addParameter('socket', SocketChannel.newTypeReference)
 			addParameter('componentID', int.newTypeReference)
+			addParameter('nextCommandSerialNr', int.newTypeReference)
+			addParameter('socket', SocketChannel.newTypeReference)
+			addParameter('stateProvider', 'org.xtext.xrobot.server.StateProvider'.newTypeReference(serverStateClass.newTypeReference))
+			addParameter('cancelIndicator', 'org.eclipse.xtext.util.CancelIndicator'.newTypeReference)
 			body = '''
-				this.socket = socket;
 				this.componentID = componentID;
+				this.nextCommandSerialNr = nextCommandSerialNr;
+				this.socket = socket;
+				this.stateProvider = stateProvider;
+				this.cancelIndicator = cancelIndicator;
 				this.input = new SocketInputBuffer(socket); 
 				this.output = new SocketOutputBuffer(socket);
+				«var id = 1»
+				«FOR subComponent: subComponentFields»
+					this.«subComponent.simpleName» = new «subComponent.type.type.serverImplName.newTypeReference»(«id++», nextCommandSerialNr, socket, new «'org.xtext.xrobot.server.StateProvider'.newTypeReference(subComponent.type.type.serverStateName.newTypeReference())»() {
+						public «subComponent.type.type.serverStateName.newTypeReference()» getState() {
+							return state.get«subComponent.simpleName.toFirstUpper»State();
+						}
+					}, cancelIndicator);
+				«ENDFOR»
+			'''
+		]
+		serverImpl.addMethod('update') [
+			body = '''
+				setState(stateProvider.getState());
 			'''
 		]
 		serverImpl.addMethod('setState') [
@@ -91,10 +131,25 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				«ENDFOR»
 			'''
 		]
-		serverImpl.addMethod('getState') [
-			returnType = serverStateClass.newTypeReference
+		serverImpl.addMethod('checkCanceled') [
+			visibility = Visibility.PROTECTED
 			body = '''
-				return state;
+				if(cancelIndicator.isCanceled()) 
+					throw new CanceledException();
+			'''
+		]
+		serverImpl.addMethod('waitFinished') [
+			visibility = Visibility.PROTECTED
+			addParameter('commandSerialNr', int.newTypeReference())
+			body = '''
+				«serverStateClass.newTypeReference» newState = stateProvider.getState();
+				while(newState.getLastExecutedCommandSerialNr() < commandSerialNr
+					|| (newState.getLastExecutedCommandSerialNr() == commandSerialNr 
+					&& newState.getMoving())) {
+					checkCanceled();
+					Thread.yield();
+					newState = stateProvider.getState();
+				}
 			'''
 		]
 		val noApiAnnotation = NoAPI.findTypeGlobally
@@ -135,22 +190,27 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				serverMethod.returnType = sourceMethod.returnType
 				if (!serverMethod.returnType.isVoid)
 					serverMethod.body = '''
+						checkCanceled();
 						return state.get«serverMethod.fieldName.toFirstUpper»();
 					'''
 				else
 					serverMethod.body = '''
+						checkCanceled();
 						output.writeInt(componentID);
 						output.writeInt(«i»);
 						«FOR p: sourceMethod.parameters»
 							«getWriteCalls(p.type, p.simpleName)»
 						«ENDFOR»
+						int commandSerialNr = nextCommandSerialNr++;
+						output.writeInt(commandSerialNr);
 						output.send();
+						«IF sourceMethod.isBlocking(context)»
+							waitFinished(commandSerialNr);
+						«ENDIF»
 					'''
 			])
 		]
-		var componentID = 1
 		for(subComponent: subComponentFields) {
-			val finalID = componentID++
 			annotatedClass.addMethod('get' + subComponent.simpleName.toFirstUpper, [
 				primarySourceElement = subComponent
 				returnType = newTypeReference(subComponent.type.type)
@@ -165,9 +225,6 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			serverImpl.addField(subComponent.simpleName, [
 				primarySourceElement = subComponent
 				type = newTypeReference(subComponent.type.type.serverImplName)
-				initializer = '''
-					new «type»(socket, «finalID»)
-				'''
 			])
 			serverImpl.addMethod('get' + subComponent.simpleName.toFirstUpper, [
 				primarySourceElement = subComponent
@@ -264,13 +321,27 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				return true;
 			'''
 		]
+		clientExecutor.addMethod('dispatchAndExecute') [
+			returnType = boolean.newTypeReference
+			exceptions = IOException.newTypeReference
+			body = '''
+				boolean result = super.dispatchAndExecute();
+				client.setLastExecutedCommandSerialNr(input.readInt());
+				System.out.println("CommandNr " + client.getLastExecutedCommandSerialNr());
+				return result;
+			'''
+		]
 		clientStateClass.addField('sampleTime') [
 			type = long.newTypeReference()
+		]
+		clientStateClass.addField('lastExecutedCommandSerialNr') [
+			type = int.newTypeReference()
 		]
 		clientStateClass.addMethod('sample') [
 			addParameter('robot', annotatedClass.newTypeReference)
 			body = '''
 				sampleTime = System.currentTimeMillis();
+				lastExecutedCommandSerialNr = robot.getLastExecutedCommandSerialNr(); 
 				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
 					«sourceMethod.fieldName» = robot.«sourceMethod.simpleName»();
 				«ENDFOR»
@@ -283,6 +354,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			addParameter('output', 'org.xtext.xrobot.net.SocketOutputBuffer'.newTypeReference)
 			body = '''
 				output.writeLong(sampleTime);
+				output.writeInt(lastExecutedCommandSerialNr);
 				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
 					«getWriteCalls(sourceMethod.returnType, sourceMethod.fieldName)»
 				«ENDFOR»
@@ -294,16 +366,26 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		serverStateClass.addField('sampleTime') [
 			type = long.newTypeReference()
 		]
+		serverStateClass.addField('lastExecutedCommandSerialNr') [
+			type = int.newTypeReference()
+		]
 		serverStateClass.addMethod('getSampleTime') [
 			returnType = long.newTypeReference()
 			body = '''
 				return sampleTime;
 			'''
 		]
+		serverStateClass.addMethod('getLastExecutedCommandSerialNr') [
+			returnType = int.newTypeReference()
+			body = '''
+				return lastExecutedCommandSerialNr;
+			'''
+		]
 		serverStateClass.addMethod('read') [
 			addParameter('input', 'org.xtext.xrobot.net.SocketInputBuffer'.newTypeReference)
 			body = '''
 				sampleTime = input.readLong();
+				lastExecutedCommandSerialNr = input.readInt();
 				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
 					«sourceMethod.fieldName» = «getReadCall(sourceMethod.returnType)»;
 				«ENDFOR»
@@ -313,7 +395,28 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				
 			'''
 		]
+		annotatedClass.addField('lastExecutedCommandSerialNr') [
+			type = int.newTypeReference()
+		]
+		annotatedClass.addMethod('setLastExecutedCommandSerialNr') [
+			addParameter('lastExecutedCommandSerialNr', int.newTypeReference)
+			body = '''
+				this.lastExecutedCommandSerialNr = lastExecutedCommandSerialNr;
+			'''
+		]
+		annotatedClass.addMethod('getLastExecutedCommandSerialNr') [
+			returnType = int.newTypeReference
+			body = '''
+				return lastExecutedCommandSerialNr;
+			'''
+		]
+		
 	}
+	
+	private def isBlocking(MethodDeclaration method, extension TransformationContext context) {
+		method.findAnnotation(Blocking.findTypeGlobally) != null
+	}
+	
 	
 	private def getFieldName(MethodDeclaration accessor) {
 		val accessorName = accessor.simpleName

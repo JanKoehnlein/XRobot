@@ -80,9 +80,9 @@ public class XRobotDSLAdapterFactory extends AdapterFactoryImpl
         return createProgramAdapter();
       }
       @Override
-      public Adapter caseMain(Main object)
+      public Adapter caseMode(Mode object)
       {
-        return createMainAdapter();
+        return createModeAdapter();
       }
       @Override
       public Adapter caseSub(Sub object)
@@ -132,16 +132,16 @@ public class XRobotDSLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.xrobot.dsl.xRobotDSL.Main <em>Main</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.xrobot.dsl.xRobotDSL.Mode <em>Mode</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.xrobot.dsl.xRobotDSL.Main
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Mode
    * @generated
    */
-  public Adapter createMainAdapter()
+  public Adapter createModeAdapter()
   {
     return null;
   }

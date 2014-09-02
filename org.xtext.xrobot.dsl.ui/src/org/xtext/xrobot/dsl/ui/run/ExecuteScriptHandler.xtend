@@ -3,6 +3,7 @@ package org.xtext.xrobot.dsl.ui.run
 import com.google.inject.Inject
 import com.google.inject.Singleton
 import java.util.Map
+import org.apache.log4j.Logger
 import org.eclipse.core.commands.AbstractHandler
 import org.eclipse.core.commands.ExecutionEvent
 import org.eclipse.core.commands.ExecutionException
@@ -16,14 +17,17 @@ import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.ui.editor.utils.EditorUtils
 import org.eclipse.xtext.ui.resource.IResourceSetProvider
 import org.eclipse.xtext.util.CancelIndicator
+import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.interpreter.ScriptRunner
 import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
-import org.xtext.xrobot.dsl.xRobotDSL.Program
+import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.server.RemoteRobotConnector
 
 @Singleton
 class ExecuteScriptHandler extends AbstractHandler {
 
+	static val LOG = Logger.getLogger(ExecuteScriptHandler)
+	
 	@Inject RemoteRobotConnector connector	
 	
 	@Inject ScriptRunner scriptRunner
@@ -52,21 +56,32 @@ class ExecuteScriptHandler extends AbstractHandler {
 					MessageDialog.openError(xtextEditor.editorSite.shell, 'Error', 'Error canceling running job')
 				}
 			}
-			val robot = connector.getRobot(robotName)
-			if(robot == null) {
+			val robotFactory = connector.getRobotFactory(robotName)
+			if(robotFactory == null) {
 				MessageDialog.openError(xtextEditor.editorSite.shell, 'Error', 'Could not locate robot \'' + robotName + '\'')
 			} else {
 				val document = xtextEditor.document
 				val scriptName = document.readOnly [
-					(contents.head as Program)?.name
+					URI.trimFileExtension.lastSegment
 				]
 				val project = (xtextEditor.editorInput as IFileEditorInput).file.project
 				val resourceSet = resourceSetProvider.get(project) as XtextResourceSet
 				val model = document.get
+				scriptRunner.addRobotListener(new IRobotListener() {
+					
+					override modeChanged(Mode newMode) {
+						LOG.warn('New mode ' + newMode?.name)
+					}
+					
+					override lineChanged(int line) {
+						val region = xtextEditor.document.getLineInformation(line-1)
+						xtextEditor.setHighlightRange(region.offset, region.length, false)
+					}
+				})
 				val job = new Job('Running script \'' + scriptName + '\' on robot \'' + robotName + '\'') {
 					override protected run(IProgressMonitor monitor) {
 						try {
-							scriptRunner.run(robot, model, resourceSet, new CancelIndicator() {
+							scriptRunner.run(robotFactory, model, resourceSet, new CancelIndicator() {
 								override isCanceled() {
 									monitor.isCanceled
 								}
@@ -76,7 +91,7 @@ class ExecuteScriptHandler extends AbstractHandler {
 							return new Status(IStatus.ERROR, XRobotDSLActivator.ORG_XTEXT_XROBOT_DSL_XROBOTDSL, exc.message, exc)
 						} finally {
 							try {
-								robot.release
+								robotFactory.release
 							} catch(Exception exc) {}
 						}
 					}

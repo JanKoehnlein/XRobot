@@ -32,13 +32,13 @@ public interface XRobotDSLFactory extends EFactory
   Program createProgram();
 
   /**
-   * Returns a new object of class '<em>Main</em>'.
+   * Returns a new object of class '<em>Mode</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Main</em>'.
+   * @return a new object of class '<em>Mode</em>'.
    * @generated
    */
-  Main createMain();
+  Mode createMode();
 
   /**
    * Returns a new object of class '<em>Sub</em>'.

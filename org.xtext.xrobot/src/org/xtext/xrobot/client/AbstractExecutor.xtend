@@ -24,7 +24,8 @@ abstract class AbstractExecutor {
 	
 	protected def boolean executeNext() {
 		val messageType = input.readInt
-		execute(messageType);
+		println(messageType)
+		execute(messageType)
 	}
 
 	protected def execute(int messageType) {

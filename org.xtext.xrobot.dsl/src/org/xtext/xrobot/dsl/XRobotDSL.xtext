@@ -3,18 +3,18 @@ grammar org.xtext.xrobot.dsl.XRobotDSL with org.eclipse.xtext.xbase.Xbase
 generate xRobotDSL "http://www.xtext.org/xrobot/dsl/XRobotDSL"
 
 Program:
-	'program' name=ID
-	main=Main
-	(subs+=Sub | fields+=Field)*;
-
-Main:
-	('main'|loop?='loop') body=XBlockExpression;
+	(subs+=Sub | fields+=Field | modes+=Mode)*;
+	
+Mode:
+	name=ID ('on' condition=XExpression)?
+	action=XBlockExpression
+	('when' 'canceled' whenCanceled=XBlockExpression)?;
+	
 	
 Sub:
-	'sub' name=ID 
+	'sub' returnType=JvmTypeReference? name=ID 
 	'(' (parameters+=JvmFormalParameter (',' parameters+=JvmFormalParameter)*)? ')' 
 	body=XBlockExpression;
 	
 Field:
-	'var' (type=JvmTypeReference)? name=ID ('=' initializer=XExpression)?;
-
+	'var' type=JvmTypeReference? name=ID ('=' initializer=XExpression)?;

@@ -41,6 +41,7 @@
 '['=59
 ']'=60
 'as'=50
+'canceled'=15
 'case'=68
 'catch'=88
 'default'=67
@@ -54,11 +55,9 @@
 'if'=63
 'import'=75
 'instanceof'=36
-'loop'=15
-'main'=14
 'new'=78
 'null'=81
-'program'=13
+'on'=13
 'return'=84
 'static'=74
 'sub'=16
@@ -71,6 +70,7 @@
 'typeof'=82
 'val'=72
 'var'=20
+'when'=14
 'while'=70
 '{'=57
 '|'=61

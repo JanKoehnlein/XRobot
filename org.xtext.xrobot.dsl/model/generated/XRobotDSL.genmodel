@@ -8,16 +8,18 @@
   <genPackages prefix="XRobotDSL" basePackage="org.xtext.xrobot.dsl" disposableProviderFactory="true"
       fileExtensions="xrobot" ecorePackage="XRobotDSL.ecore#/">
     <genClasses ecoreClass="XRobotDSL.ecore#//Program">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Program/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/main"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/subs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/fields"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/modes"/>
     </genClasses>
-    <genClasses ecoreClass="XRobotDSL.ecore#//Main">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Main/loop"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Main/body"/>
+    <genClasses ecoreClass="XRobotDSL.ecore#//Mode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Mode/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Mode/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Mode/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Mode/whenCanceled"/>
     </genClasses>
     <genClasses ecoreClass="XRobotDSL.ecore#//Sub">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Sub/returnType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Sub/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Sub/parameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Sub/body"/>

@@ -6,7 +6,6 @@ import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.xtext.xrobot.api.IRobot
 import org.xtext.xrobot.dsl.xRobotDSL.Program
-import org.xtext.xrobot.dynamic.IScript
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -20,36 +19,32 @@ class XRobotDSLJvmModelInferrer extends AbstractModelInferrer {
 
    	def dispatch void infer(Program program, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
    		acceptor
-   			.accept(program.toClass("org.xtext.xrobot.dsl." + program.name,
+   			.accept(program.toClass("org.xtext.xrobot.dsl." +program.eResource.URI.trimFileExtension.lastSegment,
    			[
-   				superTypes += typeRef(IScript)
+   				superTypes += typeRef(IRobot)
    				for(field: program.fields) {
-   					var fieldType = field.type ?: field.initializer.inferredType ?: Object.typeRef  
+   					var fieldType = field.type ?: field?.initializer?.inferredType ?: Object.typeRef  
    					members += field.toField(field.name, fieldType) [
    						initializer = field.initializer
    					]
    				}
-   				val main = program.main
-   				members += main.toMethod('doRun', null) [
-   					parameters += main.toParameter('it', IRobot.typeRef)
-   					body = main.body
-   				]
-   				members += main.toMethod('run', null) [
-   					parameters += main.toParameter('it', IRobot.typeRef)
-   					body = '''
-   						«IF main.isLoop»
-   							do {
-   								doRun(it);
-   								waitForUpdate(1000);
-   							} while(true)
-   						«ELSE»
-   							doRun(it);
-   						«ENDIF»
-   					'''
-   				]
+   				for(mode: program.modes) {
+	   				members += mode.toMethod('_' + mode.name + '_action', void.typeRef) [
+	   					body = mode.action
+	   				]
+	   				if(mode.condition != null) {
+		   				members += mode.toMethod('_' + mode.name + '_condition', boolean.typeRef) [
+		   					body = mode.condition
+		   				]
+	   				}
+	   				if(mode.whenCanceled != null) {
+			   			members += mode.toMethod('_' + mode.name + '_whenCanceled', void.typeRef) [
+		   					body = mode.whenCanceled
+	   					]
+	   				} 
+   				}
    				for (sub : program.subs) {
-   					members += sub.toMethod(sub.name, sub.body.inferredType) [
-   						parameters += sub.toParameter('it', IRobot.typeRef)
+   					members += sub.toMethod(sub.name, sub.returnType ?: sub.body.inferredType) [
    						parameters += sub.parameters.map [ toParameter(name, parameterType) ]
    						body = sub.body
    					]

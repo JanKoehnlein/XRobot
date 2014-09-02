@@ -58,6 +58,7 @@ class SocketInputBuffer implements INetConfig {
 	}
 	
 	def hasMore() {
+//		println('Recevied ' + (buffer.limit-buffer.position) + ' bytes')
 		buffer.position < buffer.limit
 	}
 }

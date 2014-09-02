@@ -1,16 +1,17 @@
 package org.xtext.xrobot.dsl.interpreter
 
+import com.google.inject.Provider
 import com.google.inject.Singleton
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.util.regex.Pattern
 import javax.inject.Inject
+import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
-import org.xtext.xrobot.server.RemoteRobot
 import org.xtext.xrobot.server.RemoteRobotConnector
-import com.google.inject.Provider
-import org.eclipse.xtext.resource.XtextResourceSet
+import org.xtext.xrobot.server.RemoteRobotFactory
+import org.xtext.xrobot.server.CanceledException
 
 @Singleton
 class REPL {
@@ -26,11 +27,9 @@ class REPL {
 	
 	@Inject Provider<XtextResourceSet> resourceSetProvider;
 
-	RemoteRobot currentRobot
+	RemoteRobotFactory currentRobotFactory
 
 	var indent = 0 
-
-	val loopPattern = Pattern.compile('loop\\s*\\{')
 
 	def run() {
 		val reader = new BufferedReader(new InputStreamReader(System.in))
@@ -61,37 +60,35 @@ class REPL {
 					}
 					if(indent < 0) 
 						throw new Exception('Mismatched curly braces')	
-					if(indent == 0) {
-						val runLoop = loopPattern.matcher(lines).find
-						val model = if(runLoop) '''
-								program MyProg «lines»
-							''' else '''
-								program MyProg main {
-									«lines»
-								}
-							'''
+					if(indent == 0 && !lines.trim.empty) {
+						val model = '''
+							MyProg on true {
+								«lines»
+							}
+						''' 
 						println(model)
 						lines = ''
-						val startTime = System.currentTimeMillis
-						val result = runner.run(currentRobot, model, resourceSetProvider.get(), new CancelIndicator() {
+						val cancelIndicator = new CancelIndicator() {
+							volatile boolean canceled
 							override isCanceled() {
-								System.in.available > 0
+								canceled = canceled || System.in.available > 0 
 							}
-						})					
-						val duration = System.currentTimeMillis - startTime
-						if (result != null)
-							println(result)
-						println('(' + duration + 'ms)')
+						}
+						try {
+							runner.run(currentRobotFactory, model, resourceSetProvider.get(), cancelIndicator)					
+						} catch (CanceledException exc) {
+						}
 					}
 				}
 			} catch (Exception exc) {
 				System.err.println('Error: ' +  exc.message)
+				exc.printStackTrace
 				indent = 0
 				lines = ''	
 			}
 		}
 		println('Exiting REPL...')
-		currentRobot?.release
+		currentRobotFactory?.release
 		println('...finished')
 	}
 	
@@ -109,7 +106,7 @@ class REPL {
 					$                   re-execute previous expression
 				''')
 			case 'robot':
-				currentRobot = connector.getRobot(commands.get(1))
+				currentRobotFactory = connector.getRobotFactory(commands.get(1))
 			case 'exit',
 			case 'quit':
 				return false
@@ -129,12 +126,12 @@ class REPL {
 		} else {
 			var robotName = '(unconnected)'
 			try {
-				if(currentRobot == null)
-					currentRobot = connector.getRobot(connector.robotNames.head)
-				if(currentRobot != null)
-					robotName = currentRobot.name
+				if(currentRobotFactory == null)
+					currentRobotFactory = connector.getRobotFactory(connector.robotNames.head)
+				if(currentRobotFactory != null)
+					robotName = currentRobotFactory.name
 			} catch(Exception exc) {
-				currentRobot = null
+				currentRobotFactory = null
 			}
 			print(robotName + ' > ')
 		}

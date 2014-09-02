@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.xtext.common.types.JvmFormalParameter;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -32,6 +33,7 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.SubImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.SubImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.SubImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.SubImpl#getBody <em>Body</em>}</li>
@@ -42,6 +44,16 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
  */
 public class SubImpl extends MinimalEObjectImpl.Container implements Sub
 {
+  /**
+   * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReturnType()
+   * @generated
+   * @ordered
+   */
+  protected JvmTypeReference returnType;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -101,6 +113,54 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   protected EClass eStaticClass()
   {
     return XRobotDSLPackage.Literals.SUB;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public JvmTypeReference getReturnType()
+  {
+    return returnType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetReturnType(JvmTypeReference newReturnType, NotificationChain msgs)
+  {
+    JvmTypeReference oldReturnType = returnType;
+    returnType = newReturnType;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.SUB__RETURN_TYPE, oldReturnType, newReturnType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReturnType(JvmTypeReference newReturnType)
+  {
+    if (newReturnType != returnType)
+    {
+      NotificationChain msgs = null;
+      if (returnType != null)
+        msgs = ((InternalEObject)returnType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.SUB__RETURN_TYPE, null, msgs);
+      if (newReturnType != null)
+        msgs = ((InternalEObject)newReturnType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.SUB__RETURN_TYPE, null, msgs);
+      msgs = basicSetReturnType(newReturnType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.SUB__RETURN_TYPE, newReturnType, newReturnType));
   }
 
   /**
@@ -198,6 +258,8 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   {
     switch (featureID)
     {
+      case XRobotDSLPackage.SUB__RETURN_TYPE:
+        return basicSetReturnType(null, msgs);
       case XRobotDSLPackage.SUB__PARAMETERS:
         return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
       case XRobotDSLPackage.SUB__BODY:
@@ -216,6 +278,8 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   {
     switch (featureID)
     {
+      case XRobotDSLPackage.SUB__RETURN_TYPE:
+        return getReturnType();
       case XRobotDSLPackage.SUB__NAME:
         return getName();
       case XRobotDSLPackage.SUB__PARAMETERS:
@@ -237,6 +301,9 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   {
     switch (featureID)
     {
+      case XRobotDSLPackage.SUB__RETURN_TYPE:
+        setReturnType((JvmTypeReference)newValue);
+        return;
       case XRobotDSLPackage.SUB__NAME:
         setName((String)newValue);
         return;
@@ -261,6 +328,9 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   {
     switch (featureID)
     {
+      case XRobotDSLPackage.SUB__RETURN_TYPE:
+        setReturnType((JvmTypeReference)null);
+        return;
       case XRobotDSLPackage.SUB__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -284,6 +354,8 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   {
     switch (featureID)
     {
+      case XRobotDSLPackage.SUB__RETURN_TYPE:
+        return returnType != null;
       case XRobotDSLPackage.SUB__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case XRobotDSLPackage.SUB__PARAMETERS:

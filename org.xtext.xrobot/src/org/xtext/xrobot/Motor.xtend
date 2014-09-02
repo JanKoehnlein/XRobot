@@ -2,6 +2,7 @@ package org.xtext.xrobot
 
 import lejos.hardware.motor.NXTRegulatedMotor
 import org.xtext.xrobot.annotations.SimpleRMI
+import org.xtext.xrobot.annotations.Blocking
 
 @SimpleRMI
 class Motor {
@@ -24,18 +25,12 @@ class Motor {
 		motor.flt(isFloat)
 	}
 
-	/**
-	 * Wait until the current movement operation is complete (this can include
-	 * the motor stalling).
-	 */
-	override void waitComplete() {
-		motor.waitComplete
-	}
-
-	override void rotate(int angle) {
+	@Blocking
+	override void rotateBy(int angle) {
 		motor.rotate(angle, true)
 	}
 
+	@Blocking
 	override void rotateTo(int angle) {
 		motor.rotateTo(angle, true)
 	}
@@ -65,7 +60,7 @@ class Motor {
 	}
 
 	/**
-	 * Returns the maximim speed of the motor.
+	 * Returns the maximum speed of the motor.
 	 * 
 	 * @return the maximum speed of the Motor in degrees per second.
 	 */
@@ -74,7 +69,7 @@ class Motor {
 	}
 
 	/**
-	 * returns true if motor is stalled
+	 * Returns true if motor is stalled
 	 * @return true if stalled
 	 */
 	override boolean isStalled() {
