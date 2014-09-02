@@ -31,13 +31,14 @@ import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.server.IRobotState
 import org.xtext.xrobot.server.RemoteRobotConnector
+import com.google.inject.Provider
 
 @Singleton
 class ExecuteScriptHandler extends AbstractHandler {
 
 	@Inject RemoteRobotConnector connector
 
-	@Inject ScriptRunner scriptRunner
+	@Inject Provider<ScriptRunner> scriptRunnerProvider
 
 	@Inject IResourceSetProvider resourceSetProvider
 
@@ -76,6 +77,7 @@ class ExecuteScriptHandler extends AbstractHandler {
 				val resourceSet = resourceSetProvider.get(project) as XtextResourceSet
 				val model = document.get
 				val dialog = new StateDialog(xtextEditor)
+				val scriptRunner = scriptRunnerProvider.get
 				scriptRunner.addRobotListener(dialog)
 				val job = new Job('Running script \'' + scriptName + '\' on robot \'' + robotName + '\'') {
 					override protected run(IProgressMonitor monitor) {
