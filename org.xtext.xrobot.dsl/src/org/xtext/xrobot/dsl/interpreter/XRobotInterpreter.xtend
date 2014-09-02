@@ -49,6 +49,8 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 			if(field.initializer != null) {
 				val initialValue = field.initializer.evaluate(baseContext, cancelIndicator)
 				baseContext.newValue(QualifiedName.create(field.name), initialValue.result)
+			} else {
+				baseContext.newValue(QualifiedName.create(field.name), null)
 			}
 		}
 		conditionRobot = robotFactory.newRobot(cancelIndicator)
@@ -136,6 +138,7 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 		val executable = operation.sourceElements.head
 		if (executable instanceof Sub) {
 			val newContext = baseContext.fork
+			newContext.newValue(ROBOT, context.getValue(ROBOT))
 			var index = 0
 			for (param : operation.parameters) {
 				newContext.newValue(QualifiedName.create(param.name), argumentValues.get(index))
