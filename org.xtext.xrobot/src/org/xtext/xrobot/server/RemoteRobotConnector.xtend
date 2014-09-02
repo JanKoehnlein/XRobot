@@ -10,16 +10,19 @@ import java.nio.channels.Selector
 import java.nio.channels.SocketChannel
 import java.util.Map
 import org.xtext.xrobot.net.INetConfig
+import org.apache.log4j.Logger
 
 @Singleton
 class RemoteRobotConnector implements INetConfig {
+
+	static val LOG = Logger.getLogger(RemoteRobotConnector)
 
 	Map<String, RemoteRobotFactory> name2robot = newHashMap
 	
 	private def connect(String robotName) {
 		val ipAddress = robotName.getIPAddress
 		if(ipAddress == null) {
-			System.err.println('Brick \'' + robotName + '\' not located')			
+			LOG.error('Brick \'' + robotName + '\' not located')			
 			return null
 		} 
 		val socket = SocketChannel.open()
@@ -28,15 +31,14 @@ class RemoteRobotConnector implements INetConfig {
 			val selector = Selector.open
 			socket.register(selector, SelectionKey.OP_CONNECT)
 			if(selector.select(SOCKET_TIMEOUT) == 0) {
-				System.err.println('Timeout connecting to  \'' + robotName + '\'')
+				LOG.error('Timeout connecting to  \'' + robotName + '\'')
 				return null
 			}
 			socket.finishConnect
 		}
 		try {
 			val remoteRobotFactory = new RemoteRobotFactory(robotName, socket)
-			System.err.println()
-			System.err.println('Connected to ' + robotName + ' at ' + (socket.remoteAddress as InetSocketAddress).address)
+			LOG.info('Connected to ' + robotName + ' at ' + (socket.remoteAddress as InetSocketAddress).address)
 			remoteRobotFactory
 		} catch(Exception exc) {
 			socket?.close

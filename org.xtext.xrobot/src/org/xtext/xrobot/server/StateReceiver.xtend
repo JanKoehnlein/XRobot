@@ -6,8 +6,11 @@ import java.nio.channels.Selector
 import java.nio.channels.SocketChannel
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.net.SocketInputBuffer
+import org.apache.log4j.Logger
 
 class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
+	
+	static val LOG = Logger.getLogger(StateReceiver)
 	
 	SocketInputBuffer input
 
@@ -47,15 +50,15 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 							lastState = state
 						} catch(Exception exc) {
 							failureCount++  
-							System.err.println('State read failures ' + failureCount + " succeses " + successCount)
-//							System.err.println('State read failure rate ' + failureCount as double / (failureCount + successCount))
+							LOG.error('State read failures ' + failureCount + " succeses " + successCount)
+//							LOG.error('State read failure rate ' + failureCount as double / (failureCount + successCount))
 						}							
 					} 
 				}
 			} catch(ClosedSelectorException e) {
 				return
 			} catch(Exception e) {
-				System.err.println(e.message)
+				LOG.error(e.message)
 				e.printStackTrace
 			}
 		}

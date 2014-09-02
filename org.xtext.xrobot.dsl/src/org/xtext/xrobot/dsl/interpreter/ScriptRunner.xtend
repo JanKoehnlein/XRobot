@@ -3,6 +3,7 @@ package org.xtext.xrobot.dsl.interpreter
 import com.google.inject.Inject
 import com.google.inject.Provider
 import java.util.concurrent.CopyOnWriteArrayList
+import org.apache.log4j.Logger
 import org.eclipse.emf.common.util.BasicDiagnostic
 import org.eclipse.emf.common.util.Diagnostic
 import org.eclipse.emf.common.util.URI
@@ -15,6 +16,8 @@ import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.RemoteRobotFactory
 
 class ScriptRunner {
+
+	static val LOG = Logger.getLogger(ScriptRunner)
 
 	@Inject XRobotDSLValidator validator
 
@@ -32,7 +35,7 @@ class ScriptRunner {
 			try {
 				interpreterProvider.get.execute(program, robotFactory, listeners, cancelIndicator)
 			} catch (CanceledException exc) {
-				System.err.println('Canceled')
+				LOG.info('Canceled')
 			}
 		}
 	}

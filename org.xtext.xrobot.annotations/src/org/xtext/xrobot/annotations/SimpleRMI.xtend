@@ -341,7 +341,6 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			body = '''
 				boolean result = super.dispatchAndExecute();
 				client.setLastExecutedCommandSerialNr(input.readInt());
-				System.out.println("CommandNr " + client.getLastExecutedCommandSerialNr());
 				return result;
 			'''
 		]
