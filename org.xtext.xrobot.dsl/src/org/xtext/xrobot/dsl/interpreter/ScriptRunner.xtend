@@ -2,6 +2,7 @@ package org.xtext.xrobot.dsl.interpreter
 
 import com.google.inject.Inject
 import com.google.inject.Provider
+import java.util.concurrent.CopyOnWriteArrayList
 import org.eclipse.emf.common.util.BasicDiagnostic
 import org.eclipse.emf.common.util.Diagnostic
 import org.eclipse.emf.common.util.URI
@@ -10,9 +11,8 @@ import org.eclipse.xtext.util.CancelIndicator
 import org.eclipse.xtext.util.StringInputStream
 import org.xtext.xrobot.dsl.validation.XRobotDSLValidator
 import org.xtext.xrobot.dsl.xRobotDSL.Program
-import org.xtext.xrobot.server.RemoteRobotFactory
 import org.xtext.xrobot.server.CanceledException
-import java.util.concurrent.CopyOnWriteArrayList
+import org.xtext.xrobot.server.RemoteRobotFactory
 
 class ScriptRunner {
 

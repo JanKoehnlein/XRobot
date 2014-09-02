@@ -48,13 +48,15 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		context.registerClass(annotatedClass.clientExecutorName)
 		context.registerClass(annotatedClass.clientStateName)
 		context.registerClass(annotatedClass.serverStateName)
+		context.registerInterface(annotatedClass.stateInterfaceName)
 	}
 	
 	override doTransform(MutableClassDeclaration annotatedClass, extension TransformationContext context) {
 		val clientInterface = annotatedClass.clientInterfaceName.findInterface
 		annotatedClass.implementedInterfaces = annotatedClass.implementedInterfaces + #[clientInterface.newTypeReference]
-		val clientStateClass = findClass(annotatedClass.clientStateName)
-		val serverStateClass = findClass(annotatedClass.serverStateName)
+		val clientStateClass = annotatedClass.clientStateName.findClass
+		val serverStateClass = annotatedClass.serverStateName.findClass
+		val stateInterface = annotatedClass.stateInterfaceName.findInterface
 		val subCompontentAnnotation = SubComponent.findTypeGlobally
 		val subComponentFields = annotatedClass.declaredFields.filter[findAnnotation(subCompontentAnnotation) != null]
 
@@ -109,7 +111,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				this.output = new SocketOutputBuffer(socket);
 				«var id = 1»
 				«FOR subComponent: subComponentFields»
-					this.«subComponent.simpleName» = new «subComponent.type.type.serverImplName.newTypeReference»(«id++», nextCommandSerialNr, socket, new «'org.xtext.xrobot.server.StateProvider'.newTypeReference(subComponent.type.type.serverStateName.newTypeReference())»() {
+					this.«subComponent.simpleName» = new «subComponent.type.type.serverImplName»(«id++», nextCommandSerialNr, socket, new «'org.xtext.xrobot.server.StateProvider'.newTypeReference(subComponent.type.type.serverStateName.newTypeReference())»() {
 						public «subComponent.type.type.serverStateName.newTypeReference()» getState() {
 							return state.get«subComponent.simpleName.toFirstUpper»State();
 						}
@@ -129,6 +131,12 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				«FOR subComponent: subComponentFields» 
 					«subComponent.simpleName».setState(state.get«subComponent.simpleName.toFirstUpper()»State());
 				«ENDFOR»
+			'''
+		]
+		serverImpl.addMethod('getState') [
+			returnType = annotatedClass.stateInterfaceName.newTypeReference
+			body = '''
+				return state;
 			'''
 		]
 		serverImpl.addMethod('checkCanceled') [
@@ -173,6 +181,9 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				]
 				serverStateClass.addField(sourceMethod.fieldName) [
 					type = sourceMethod.returnType
+				]
+				stateInterface.addMethod('get' + sourceMethod.fieldName.toFirstUpper) [
+					returnType = sourceMethod.returnType
 				]
 				serverStateClass.addMethod('get' + sourceMethod.fieldName.toFirstUpper) [
 					returnType = sourceMethod.returnType
@@ -262,6 +273,9 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				body = '''
 					return «subComponent.simpleName»State;
 				'''
+			]
+			stateInterface.addMethod('get' + subComponent.simpleName.toFirstUpper + 'State') [
+				returnType = subComponent.type.type.stateInterfaceName.newTypeReference
 			]
 		}
 		clientExecutor.addConstructor[
@@ -363,6 +377,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				«ENDFOR»
 			'''
 		]
+		serverStateClass.implementedInterfaces = #[ stateInterface.newTypeReference ]
 		serverStateClass.addField('sampleTime') [
 			type = long.newTypeReference()
 		]
@@ -447,6 +462,10 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 	
 	private def getServerStateName(Type it) {
 		packageName + '.server.' + simpleName + 'ServerState'
+	}
+	
+	private def getStateInterfaceName(Type it) {
+		packageName + '.server.I' + simpleName + 'State'
 	}
 	
 	private def getPackageName(Type c) {

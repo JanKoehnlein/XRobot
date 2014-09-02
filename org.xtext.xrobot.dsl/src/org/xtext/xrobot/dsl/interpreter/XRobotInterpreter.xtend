@@ -21,8 +21,11 @@ import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.RemoteRobot
 import org.xtext.xrobot.server.RemoteRobotFactory
+import org.apache.log4j.Logger
 
 class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
+	
+	static val LOG = Logger.getLogger(XRobotInterpreter)
 	
 	static val ROBOT = QualifiedName.create('Dummy')
 	static val CURRENT_LINE = QualifiedName.create('currentLine')
@@ -68,6 +71,9 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 					override run() {
 						try {
 							currentMode.execute(modeContext, currentModeCancelIndicator)
+						} catch (CanceledException exc) {
+						} catch (Exception exc) {
+							LOG.error('Error executing mode ' + newMode.name, exc)
 						} finally {
 							currentModeCancelIndicator.cancel
 						}
@@ -81,7 +87,10 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 	
 	protected def execute(Mode mode, IEvaluationContext context, CancelIndicator cancelIndicator) {
 		try {
-			listeners.forEach[modeChanged(mode)]
+			listeners.forEach[
+				modeChanged(mode)
+				stateChanged((context.getValue(ROBOT) as RemoteRobot).state)
+			]
 			mode.action.evaluate(context, cancelIndicator)
 		} catch(CanceledException exc) {
 			mode.whenCanceled?.evaluate(context, cancelIndicator)

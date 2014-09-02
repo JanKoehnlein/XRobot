@@ -1,11 +1,4 @@
-- server discovery
-- exit / shutdown
-- send class to execute
-
-
-DONE
-- play audio
-- enemyBearing
-- sample time
-- battery
-- better API
+-extract IRobotState interface (in SimpleRMI)
+-refactor SimpleRMI
+-buffer underruns
+-implement status client

@@ -4,14 +4,13 @@ import com.google.inject.Provider
 import com.google.inject.Singleton
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.util.regex.Pattern
 import javax.inject.Inject
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
+import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.RemoteRobotConnector
 import org.xtext.xrobot.server.RemoteRobotFactory
-import org.xtext.xrobot.server.CanceledException
 
 @Singleton
 class REPL {
