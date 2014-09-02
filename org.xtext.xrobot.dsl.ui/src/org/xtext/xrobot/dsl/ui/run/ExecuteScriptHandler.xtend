@@ -171,7 +171,7 @@ class ExecuteScriptHandler extends AbstractHandler {
 			Display.getDefault.asyncExec [
 				opponentDistance.text = newState.opponentPosition.rawDistance.toString
 				opponentAngle.text = newState.opponentPosition.rawAngular.toString
-				battery.text = (newState.batteryState * 100 as int).toString +'%'
+				battery.text = ((newState.batteryState * 100) as int).toString +'%'
 				isMoving.text = newState.moving.toString
 			]
 		}

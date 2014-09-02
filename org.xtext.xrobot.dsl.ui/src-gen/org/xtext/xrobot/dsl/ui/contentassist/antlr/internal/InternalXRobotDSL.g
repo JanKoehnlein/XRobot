@@ -73,9 +73,9 @@ ruleProgram
     }
 	:
 (
-{ before(grammarAccess.getProgramAccess().getAlternatives()); }
-(rule__Program__Alternatives)*
-{ after(grammarAccess.getProgramAccess().getAlternatives()); }
+{ before(grammarAccess.getProgramAccess().getGroup()); }
+(rule__Program__Group__0)
+{ after(grammarAccess.getProgramAccess().getGroup()); }
 )
 
 ;
@@ -2231,6 +2231,39 @@ finally {
 
 
 
+// Entry rule entryRuleXImportSection
+entryRuleXImportSection 
+:
+{ before(grammarAccess.getXImportSectionRule()); }
+	 ruleXImportSection
+{ after(grammarAccess.getXImportSectionRule()); } 
+	 EOF 
+;
+
+// Rule XImportSection
+ruleXImportSection
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+(
+{ before(grammarAccess.getXImportSectionAccess().getImportDeclarationsAssignment()); }
+(rule__XImportSection__ImportDeclarationsAssignment)
+{ after(grammarAccess.getXImportSectionAccess().getImportDeclarationsAssignment()); }
+)
+(
+{ before(grammarAccess.getXImportSectionAccess().getImportDeclarationsAssignment()); }
+(rule__XImportSection__ImportDeclarationsAssignment)*
+{ after(grammarAccess.getXImportSectionAccess().getImportDeclarationsAssignment()); }
+)
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 
 
 // Entry rule entryRuleXImportDeclaration
@@ -2297,27 +2330,27 @@ finally {
 
 
 
-rule__Program__Alternatives
+rule__Program__Alternatives_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getProgramAccess().getSubsAssignment_0()); }
-(rule__Program__SubsAssignment_0)
-{ after(grammarAccess.getProgramAccess().getSubsAssignment_0()); }
+{ before(grammarAccess.getProgramAccess().getSubsAssignment_1_0()); }
+(rule__Program__SubsAssignment_1_0)
+{ after(grammarAccess.getProgramAccess().getSubsAssignment_1_0()); }
 )
 
     |(
-{ before(grammarAccess.getProgramAccess().getFieldsAssignment_1()); }
-(rule__Program__FieldsAssignment_1)
-{ after(grammarAccess.getProgramAccess().getFieldsAssignment_1()); }
+{ before(grammarAccess.getProgramAccess().getFieldsAssignment_1_1()); }
+(rule__Program__FieldsAssignment_1_1)
+{ after(grammarAccess.getProgramAccess().getFieldsAssignment_1_1()); }
 )
 
     |(
-{ before(grammarAccess.getProgramAccess().getModesAssignment_2()); }
-(rule__Program__ModesAssignment_2)
-{ after(grammarAccess.getProgramAccess().getModesAssignment_2()); }
+{ before(grammarAccess.getProgramAccess().getModesAssignment_1_2()); }
+(rule__Program__ModesAssignment_1_2)
+{ after(grammarAccess.getProgramAccess().getModesAssignment_1_2()); }
 )
 
 ;
@@ -3522,6 +3555,67 @@ rule__XImportDeclaration__Alternatives_1_0_3
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+
+rule__Program__Group__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Program__Group__0__Impl
+	rule__Program__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Program__Group__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getProgramAccess().getImportsAssignment_0()); }
+(rule__Program__ImportsAssignment_0)?
+{ after(grammarAccess.getProgramAccess().getImportsAssignment_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Program__Group__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Program__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Program__Group__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getProgramAccess().getAlternatives_1()); }
+(rule__Program__Alternatives_1)*
+{ after(grammarAccess.getProgramAccess().getAlternatives_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 
 
 
@@ -17875,14 +17969,14 @@ finally {
 
 
 
-rule__Program__SubsAssignment_0
+rule__Program__ImportsAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_0_0()); }
-	ruleSub{ after(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_0_0()); }
+{ before(grammarAccess.getProgramAccess().getImportsXImportSectionParserRuleCall_0_0()); }
+	ruleXImportSection{ after(grammarAccess.getProgramAccess().getImportsXImportSectionParserRuleCall_0_0()); }
 )
 
 ;
@@ -17890,14 +17984,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Program__FieldsAssignment_1
+rule__Program__SubsAssignment_1_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getProgramAccess().getFieldsFieldParserRuleCall_1_0()); }
-	ruleField{ after(grammarAccess.getProgramAccess().getFieldsFieldParserRuleCall_1_0()); }
+{ before(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_1_0_0()); }
+	ruleSub{ after(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_1_0_0()); }
 )
 
 ;
@@ -17905,14 +17999,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Program__ModesAssignment_2
+rule__Program__FieldsAssignment_1_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getProgramAccess().getModesModeParserRuleCall_2_0()); }
-	ruleMode{ after(grammarAccess.getProgramAccess().getModesModeParserRuleCall_2_0()); }
+{ before(grammarAccess.getProgramAccess().getFieldsFieldParserRuleCall_1_1_0()); }
+	ruleField{ after(grammarAccess.getProgramAccess().getFieldsFieldParserRuleCall_1_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Program__ModesAssignment_1_2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getProgramAccess().getModesModeParserRuleCall_1_2_0()); }
+	ruleMode{ after(grammarAccess.getProgramAccess().getModesModeParserRuleCall_1_2_0()); }
 )
 
 ;
@@ -20258,6 +20367,20 @@ finally {
 
 
 
+rule__XImportSection__ImportDeclarationsAssignment
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getXImportSectionAccess().getImportDeclarationsXImportDeclarationParserRuleCall_0()); }
+	ruleXImportDeclaration{ after(grammarAccess.getXImportSectionAccess().getImportDeclarationsXImportDeclarationParserRuleCall_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 rule__XImportDeclaration__StaticAssignment_1_0_0
     @init {

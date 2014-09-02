@@ -13,6 +13,8 @@ import org.eclipse.xtext.common.types.TypesPackage;
 
 import org.eclipse.xtext.xbase.XbasePackage;
 
+import org.eclipse.xtext.xtype.XtypePackage;
+
 import org.xtext.xrobot.dsl.xRobotDSL.Field;
 import org.xtext.xrobot.dsl.xRobotDSL.Mode;
 import org.xtext.xrobot.dsl.xRobotDSL.Program;
@@ -106,6 +108,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
 
     // Initialize simple dependencies
     XbasePackage.eINSTANCE.eClass();
+    XtypePackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theXRobotDSLPackage.createPackageContents();
@@ -137,7 +140,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProgram_Subs()
+  public EReference getProgram_Imports()
   {
     return (EReference)programEClass.getEStructuralFeatures().get(0);
   }
@@ -147,7 +150,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProgram_Fields()
+  public EReference getProgram_Subs()
   {
     return (EReference)programEClass.getEStructuralFeatures().get(1);
   }
@@ -157,9 +160,19 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProgram_Modes()
+  public EReference getProgram_Fields()
   {
     return (EReference)programEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProgram_Modes()
+  {
+    return (EReference)programEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -333,6 +346,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
 
     // Create classes and their features
     programEClass = createEClass(PROGRAM);
+    createEReference(programEClass, PROGRAM__IMPORTS);
     createEReference(programEClass, PROGRAM__SUBS);
     createEReference(programEClass, PROGRAM__FIELDS);
     createEReference(programEClass, PROGRAM__MODES);
@@ -380,6 +394,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     setNsURI(eNS_URI);
 
     // Obtain other dependent packages
+    XtypePackage theXtypePackage = (XtypePackage)EPackage.Registry.INSTANCE.getEPackage(XtypePackage.eNS_URI);
     XbasePackage theXbasePackage = (XbasePackage)EPackage.Registry.INSTANCE.getEPackage(XbasePackage.eNS_URI);
     TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 
@@ -391,6 +406,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
 
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getProgram_Imports(), theXtypePackage.getXImportSection(), null, "imports", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Subs(), this.getSub(), null, "subs", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Fields(), this.getField(), null, "fields", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Modes(), this.getMode(), null, "modes", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

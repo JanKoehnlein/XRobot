@@ -80,16 +80,34 @@ ruleProgram returns [EObject current=null]
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getProgramAccess().getImportsXImportSectionParserRuleCall_0_0()); 
 	    }
-		lv_subs_0_0=ruleSub		{
+		lv_imports_0_0=ruleXImportSection		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getProgramRule());
+	        }
+       		set(
+       			$current, 
+       			"imports",
+        		lv_imports_0_0, 
+        		"XImportSection");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_1_0_0()); 
+	    }
+		lv_subs_1_0=ruleSub		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProgramRule());
 	        }
        		add(
        			$current, 
        			"subs",
-        		lv_subs_0_0, 
+        		lv_subs_1_0, 
         		"Sub");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -99,16 +117,16 @@ ruleProgram returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProgramAccess().getFieldsFieldParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getProgramAccess().getFieldsFieldParserRuleCall_1_1_0()); 
 	    }
-		lv_fields_1_0=ruleField		{
+		lv_fields_2_0=ruleField		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProgramRule());
 	        }
        		add(
        			$current, 
        			"fields",
-        		lv_fields_1_0, 
+        		lv_fields_2_0, 
         		"Field");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -118,22 +136,22 @@ ruleProgram returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProgramAccess().getModesModeParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getProgramAccess().getModesModeParserRuleCall_1_2_0()); 
 	    }
-		lv_modes_2_0=ruleMode		{
+		lv_modes_3_0=ruleMode		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProgramRule());
 	        }
        		add(
        			$current, 
        			"modes",
-        		lv_modes_2_0, 
+        		lv_modes_3_0, 
         		"Mode");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*
+))*)
 ;
 
 
@@ -6225,6 +6243,43 @@ ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
     ;
 
 
+
+
+
+// Entry rule entryRuleXImportSection
+entryRuleXImportSection returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getXImportSectionRule()); }
+	 iv_ruleXImportSection=ruleXImportSection 
+	 { $current=$iv_ruleXImportSection.current; } 
+	 EOF 
+;
+
+// Rule XImportSection
+ruleXImportSection returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getXImportSectionAccess().getImportDeclarationsXImportDeclarationParserRuleCall_0()); 
+	    }
+		lv_importDeclarations_0_0=ruleXImportDeclaration		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getXImportSectionRule());
+	        }
+       		add(
+       			$current, 
+       			"importDeclarations",
+        		lv_importDeclarations_0_0, 
+        		"XImportDeclaration");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+
+;
 
 
 

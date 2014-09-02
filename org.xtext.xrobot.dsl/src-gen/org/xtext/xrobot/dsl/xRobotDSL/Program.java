@@ -6,6 +6,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.xtext.xtype.XImportSection;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Program</b></em>'.
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getImports <em>Imports</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getSubs <em>Subs</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getFields <em>Fields</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getModes <em>Modes</em>}</li>
@@ -26,6 +29,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Program extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Imports</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Imports</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Imports</em>' containment reference.
+   * @see #setImports(XImportSection)
+   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getProgram_Imports()
+   * @model containment="true"
+   * @generated
+   */
+  XImportSection getImports();
+
+  /**
+   * Sets the value of the '{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getImports <em>Imports</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Imports</em>' containment reference.
+   * @see #getImports()
+   * @generated
+   */
+  void setImports(XImportSection value);
+
   /**
    * Returns the value of the '<em><b>Subs</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.xrobot.dsl.xRobotDSL.Sub}.

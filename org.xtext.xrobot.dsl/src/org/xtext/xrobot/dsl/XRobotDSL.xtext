@@ -3,6 +3,7 @@ grammar org.xtext.xrobot.dsl.XRobotDSL with org.eclipse.xtext.xbase.Xbase
 generate xRobotDSL "http://www.xtext.org/xrobot/dsl/XRobotDSL"
 
 Program:
+	imports=XImportSection? 
 	(subs+=Sub | fields+=Field | modes+=Mode)*;
 	
 Mode:

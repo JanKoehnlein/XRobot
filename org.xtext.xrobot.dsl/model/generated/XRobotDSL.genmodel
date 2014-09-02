@@ -4,10 +4,11 @@
     editorDirectory="/org.xtext.xrobot.dsl.editor/src" modelPluginID="org.xtext.xrobot.dsl"
     forceOverwrite="true" modelName="XRobotDSL" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.xtext.xrobot.dsl.edit"
-    editorPluginID="org.xtext.xrobot.dsl.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase">
+    editorPluginID="org.xtext.xrobot.dsl.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype">
   <genPackages prefix="XRobotDSL" basePackage="org.xtext.xrobot.dsl" disposableProviderFactory="true"
       fileExtensions="xrobot" ecorePackage="XRobotDSL.ecore#/">
     <genClasses ecoreClass="XRobotDSL.ecore#//Program">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/subs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/fields"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/modes"/>

@@ -21,38 +21,50 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class ProgramElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Program");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cSubsAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cSubsSubParserRuleCall_0_0 = (RuleCall)cSubsAssignment_0.eContents().get(0);
-		private final Assignment cFieldsAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cFieldsFieldParserRuleCall_1_0 = (RuleCall)cFieldsAssignment_1.eContents().get(0);
-		private final Assignment cModesAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
-		private final RuleCall cModesModeParserRuleCall_2_0 = (RuleCall)cModesAssignment_2.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cImportsXImportSectionParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cSubsAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cSubsSubParserRuleCall_1_0_0 = (RuleCall)cSubsAssignment_1_0.eContents().get(0);
+		private final Assignment cFieldsAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cFieldsFieldParserRuleCall_1_1_0 = (RuleCall)cFieldsAssignment_1_1.eContents().get(0);
+		private final Assignment cModesAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
+		private final RuleCall cModesModeParserRuleCall_1_2_0 = (RuleCall)cModesAssignment_1_2.eContents().get(0);
 		
 		//Program:
-		//	(subs+=Sub | fields+=Field | modes+=Mode)*;
+		//	imports=XImportSection? (subs+=Sub | fields+=Field | modes+=Mode)*;
 		public ParserRule getRule() { return rule; }
 
+		//imports=XImportSection? (subs+=Sub | fields+=Field | modes+=Mode)*
+		public Group getGroup() { return cGroup; }
+
+		//imports=XImportSection?
+		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
+
+		//XImportSection
+		public RuleCall getImportsXImportSectionParserRuleCall_0_0() { return cImportsXImportSectionParserRuleCall_0_0; }
+
 		//(subs+=Sub | fields+=Field | modes+=Mode)*
-		public Alternatives getAlternatives() { return cAlternatives; }
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
 		//subs+=Sub
-		public Assignment getSubsAssignment_0() { return cSubsAssignment_0; }
+		public Assignment getSubsAssignment_1_0() { return cSubsAssignment_1_0; }
 
 		//Sub
-		public RuleCall getSubsSubParserRuleCall_0_0() { return cSubsSubParserRuleCall_0_0; }
+		public RuleCall getSubsSubParserRuleCall_1_0_0() { return cSubsSubParserRuleCall_1_0_0; }
 
 		//fields+=Field
-		public Assignment getFieldsAssignment_1() { return cFieldsAssignment_1; }
+		public Assignment getFieldsAssignment_1_1() { return cFieldsAssignment_1_1; }
 
 		//Field
-		public RuleCall getFieldsFieldParserRuleCall_1_0() { return cFieldsFieldParserRuleCall_1_0; }
+		public RuleCall getFieldsFieldParserRuleCall_1_1_0() { return cFieldsFieldParserRuleCall_1_1_0; }
 
 		//modes+=Mode
-		public Assignment getModesAssignment_2() { return cModesAssignment_2; }
+		public Assignment getModesAssignment_1_2() { return cModesAssignment_1_2; }
 
 		//Mode
-		public RuleCall getModesModeParserRuleCall_2_0() { return cModesModeParserRuleCall_2_0; }
+		public RuleCall getModesModeParserRuleCall_1_2_0() { return cModesModeParserRuleCall_1_2_0; }
 	}
 
 	public class ModeElements extends AbstractParserRuleElementFinder {
@@ -294,7 +306,7 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Program:
-	//	(subs+=Sub | fields+=Field | modes+=Mode)*;
+	//	imports=XImportSection? (subs+=Sub | fields+=Field | modes+=Mode)*;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
 	}
