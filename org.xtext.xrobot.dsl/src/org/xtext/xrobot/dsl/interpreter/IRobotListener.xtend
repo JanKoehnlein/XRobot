@@ -7,7 +7,9 @@ interface IRobotListener {
 	
 	def void modeChanged(Mode newMode)
 	
-	def void stateChanged(IRobotState newState)	
+	def void stateChanged(IRobotState newState)
+	
+	def void variableChanged(String name, Object value)
 
 	def void lineChanged(int line)
 	

@@ -163,10 +163,12 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 
 	override protected _assigneValueTo(JvmField jvmField, XAbstractFeatureCall assignment, Object value, IEvaluationContext context, CancelIndicator indicator) {
 		val field = jvmField.sourceElements.head
-		if(field instanceof Field) 
+		if(field instanceof Field) {
 			context.assignValue(QualifiedName.create(field.name), value)
-		else
+			listeners.forEach[variableChanged(field.name, value)]
+		} else {
 			super._assigneValueTo(jvmField, assignment, value, context, indicator)
+		}
 		value 
 	}
 	

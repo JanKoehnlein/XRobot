@@ -1,8 +1,12 @@
 package org.xtext.xrobot.dsl.ui.run
 
 import com.google.inject.Inject
+import com.google.inject.Provider
 import com.google.inject.Singleton
+import java.util.List
 import java.util.Map
+import java.util.SortedMap
+import java.util.TreeMap
 import org.eclipse.core.commands.AbstractHandler
 import org.eclipse.core.commands.ExecutionEvent
 import org.eclipse.core.commands.ExecutionException
@@ -13,12 +17,16 @@ import org.eclipse.core.runtime.jobs.Job
 import org.eclipse.jface.dialogs.Dialog
 import org.eclipse.jface.dialogs.IDialogConstants
 import org.eclipse.jface.dialogs.MessageDialog
+import org.eclipse.jface.viewers.IStructuredContentProvider
+import org.eclipse.jface.viewers.ITableLabelProvider
+import org.eclipse.jface.viewers.LabelProvider
+import org.eclipse.jface.viewers.TableViewer
+import org.eclipse.jface.viewers.Viewer
 import org.eclipse.swt.SWT
 import org.eclipse.swt.layout.GridData
-import org.eclipse.swt.layout.GridLayout
 import org.eclipse.swt.widgets.Composite
 import org.eclipse.swt.widgets.Display
-import org.eclipse.swt.widgets.Label
+import org.eclipse.swt.widgets.TableColumn
 import org.eclipse.ui.IFileEditorInput
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.ui.editor.XtextEditor
@@ -31,7 +39,6 @@ import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.server.IRobotState
 import org.xtext.xrobot.server.RemoteRobotConnector
-import com.google.inject.Provider
 
 @Singleton
 class ExecuteScriptHandler extends AbstractHandler {
@@ -114,11 +121,8 @@ class ExecuteScriptHandler extends AbstractHandler {
 
 	static class StateDialog extends Dialog implements IRobotListener {
 
-		Label opponentDistance
-		Label mode
-		Label opponentAngle
-		Label battery
-		Label isMoving
+		TableViewer tableViewer
+		final SortedMap<String, String> content = new TreeMap
 
 		XtextEditor editor
 
@@ -132,48 +136,28 @@ class ExecuteScriptHandler extends AbstractHandler {
 		}
 
 		override protected createDialogArea(Composite parent) {
-			val composite = new Composite(parent, SWT.NONE)
-			composite.layout = new GridLayout(2, true)
-			new Label(composite, SWT.NONE) => [
-				text = 'Mode'
+			val composite = super.createDialogArea(parent) as Composite
+			tableViewer = new TableViewer(composite)
+			new TableColumn(tableViewer.table, SWT.NONE) => [
+				width = 150
 			]
-			mode = new Label(composite, SWT.NONE) => [
-				layoutData = new GridData(SWT.FILL,SWT.FILL,true,true)
+			new TableColumn(tableViewer.table, SWT.NONE) => [
+				width = 150
 			]
-			new Label(composite, SWT.NONE) => [
-				text = 'Opponent distance'
-			]
-			opponentDistance = new Label(composite, SWT.NONE) => [
-				layoutData = new GridData(SWT.FILL,SWT.FILL,true,true)
-			]
-			new Label(composite, SWT.NONE) => [
-				text = 'Opponent angle'
-			]
-			opponentAngle = new Label(composite, SWT.NONE)=> [
-				layoutData = new GridData(SWT.FILL,SWT.FILL,true,true)
-			]
-			new Label(composite, SWT.NONE) => [
-				text = 'isMoving'
-			]
-			isMoving = new Label(composite, SWT.NONE)=> [
-				layoutData = new GridData(SWT.FILL,SWT.FILL,true,true)
-			]
-			new Label(composite, SWT.NONE) => [
-				text = 'Battery'
-			]
-			battery = new Label(composite, SWT.NONE)=> [
-				layoutData = new GridData(SWT.FILL,SWT.FILL,true,true)
+			tableViewer.contentProvider = new IStructuredContentProvider {
+				override getElements(Object inputElement) {
+					val map = inputElement as SortedMap<String, String>
+					map.entrySet.map[#[it.key, it.value]]
+				}
+				override dispose() {}
+				override inputChanged(Viewer viewer, Object oldInput, Object newInput) {}
+			}
+			tableViewer.labelProvider = new TableLabelProvider
+			tableViewer.input = content
+			tableViewer.control.layoutData = new GridData(GridData.FILL_BOTH) => [
+				minimumHeight = 300
 			]
 			composite
-		}
-
-		override stateChanged(IRobotState newState) {
-			Display.getDefault.asyncExec [
-				opponentDistance.text = newState.opponentPosition.rawDistance.toString
-				opponentAngle.text = newState.opponentPosition.rawAngular.toString
-				battery.text = ((newState.batteryState * 100) as int).toString +'%'
-				isMoving.text = newState.moving.toString
-			]
 		}
 
 		override protected createButtonsForButtonBar(Composite parent) {
@@ -192,13 +176,44 @@ class ExecuteScriptHandler extends AbstractHandler {
 
 		override modeChanged(Mode newMode) {
 			Display.getDefault.asyncExec [
-				mode.text = newMode.name
+				content.put('Mode', newMode.name)
+				tableViewer.refresh
+			]
+		}
+
+		override stateChanged(IRobotState newState) {
+			Display.getDefault.asyncExec [
+				content.put('Opponent distance', newState.opponentPosition.rawDistance.toString)
+				content.put('Opponent angle', newState.opponentPosition.rawAngular.toString)
+				content.put('Battery', ((newState.batteryState * 100) as int).toString +'%')
+				content.put('isMoving', newState.moving.toString)
+				tableViewer.refresh
+			]
+		}
+		
+		override variableChanged(String name, Object value) {
+			Display.getDefault.asyncExec [
+				content.put(name, value.toString)
+				tableViewer.refresh
 			]
 		}
 
 		override lineChanged(int line) {
 			val region = editor.document.getLineInformation(line - 1)
 			editor.setHighlightRange(region.offset, region.length, false)
+		}
+	
+		static class TableLabelProvider extends LabelProvider implements ITableLabelProvider {
+			
+			override getColumnImage(Object element, int columnIndex) {
+				null
+			}
+			
+			override getColumnText(Object element, int columnIndex) {
+				val list = element as List<String>
+				list.get(columnIndex)
+			}
+			
 		}
 
 	}
