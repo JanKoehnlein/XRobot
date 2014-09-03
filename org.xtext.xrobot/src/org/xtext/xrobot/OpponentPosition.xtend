@@ -2,8 +2,6 @@ package org.xtext.xrobot
 
 import org.eclipse.xtend.lib.annotations.Data
 
-import static java.lang.Math.*
-
 /**
  * A class representing the position of the opponent as measured by 
  * the robot's IR sensor.
@@ -30,7 +28,7 @@ class OpponentPosition {
 	 * The approximate measured angle in degrees.
 	 */
 	def double getAngleInDegrees() {
-		atan(0.18 * rawAngular) * 90.0 / PI
+		1.6 * rawAngular + 3.0
 	}
 	
 	/** 
