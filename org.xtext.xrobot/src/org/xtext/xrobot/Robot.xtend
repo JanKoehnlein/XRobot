@@ -70,8 +70,7 @@ class Robot implements IRobotGeometry {
 	override OpponentPosition getOpponentPosition() {
 		val sample = newFloatArrayOfSize(8)
 		irSensor.fetchSample(sample, 0)
-		val opponentIndex = (2-channel)*2
-		return new OpponentPosition(sample.get(opponentIndex), sample.get(opponentIndex + 1))
+		return new OpponentPosition(sample, channel)
 	}
 	
 	override double getGroundColor() {

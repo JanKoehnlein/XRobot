@@ -322,7 +322,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 							case «i»: {
 								client.«sourceMethod.simpleName»(«
 								FOR p: sourceMethod.parameters SEPARATOR ', '
-									»«p.type.readCall»«
+									»«p.type.getReadCalls(null)»«
 								ENDFOR»);
 								break;
 							}
@@ -401,7 +401,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				sampleTime = input.readLong();
 				lastExecutedCommandSerialNr = input.readInt();
 				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
-					«sourceMethod.fieldName» = «getReadCall(sourceMethod.returnType)»;
+					«getReadCalls(sourceMethod.returnType, sourceMethod.fieldName)»;
 				«ENDFOR»
 				«FOR subComponent: subComponentFields»
 					«subComponent.simpleName»State.read(input);
@@ -473,26 +473,26 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		packageName
 	}
 		
-	private def getTypeName(TypeReference typeReference) {
-		if(typeReference.isPrimitive)
-			typeReference.type.simpleName
-		else
-			typeReference.type.qualifiedName
-	}
-	
-	private def getReadCall(TypeReference returnType) {
+	private def getReadCalls(TypeReference returnType, String variableName) {
+		val assignment = if(variableName != null) variableName + ' = ' else ''
 		switch it: returnType.type.simpleName {
 			case 'void': '''
-					input.readBoolean()
+					«assignment»input.readBoolean()
 				'''
 			case 'String': '''
-					input.readString()
+					«assignment»input.readString()
 				'''
 			case 'OpponentPosition': '''
-					new «returnType.typeName»(input.readDouble(), input.readDouble())
+					int channel = input.readInt();
+					int dataLength = input.readInt();
+					float[] rawData = new float[dataLength];
+					for(int i=0; i<dataLength; ++i) {
+						rawData[i] = input.readFloat();
+					}
+					«assignment»new «returnType»(rawData, channel)
 				'''
 			default: '''
-					input.read«toFirstUpper»()
+					«assignment»input.read«toFirstUpper»()
 				'''
 		}.toString.trim
 	}
@@ -506,8 +506,10 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 					output.writeString(«variableName»);
 				'''
 			case 'OpponentPosition': '''
-					output.writeDouble(«variableName».getRawAngular());
-					output.writeDouble(«variableName».getRawDistance());
+					output.writeInt(«variableName».getChannel());
+					output.writeInt(«variableName».getRawData().length);
+					for(int i=0; i<«variableName».getRawData().length; ++i) 
+						output.writeFloat(«variableName».getRawData()[i]);
 				'''
 			default: '''
 					output.write«toFirstUpper»(«variableName»);

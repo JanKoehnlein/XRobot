@@ -17,9 +17,20 @@ import org.eclipse.xtend.lib.annotations.Data
  */
 @Data
 class OpponentPosition {
-	double rawAngular
-	double rawDistance
+
+	float[] rawData
+	int channel
 	
+	def double getRawAngular() {
+		val opponentIndex = (2-channel)*2
+		rawData.get(opponentIndex)
+	}
+		
+	def double getRawDistance() {
+		val opponentIndex = (2-channel)*2
+		rawData.get(opponentIndex + 1)
+	}
+		
 	def boolean isDetected() {
 		rawDistance < 100 
 	}
