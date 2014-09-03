@@ -30,6 +30,11 @@ annotation NoAPI {
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
+annotation Calculated {
+}
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
 annotation Blocking {
 }
 
@@ -161,6 +166,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			'''
 		]
 		val noApiAnnotation = NoAPI.findTypeGlobally
+		val calculatedAnnotation = Calculated.findTypeGlobally
 		val sourceMethods = annotatedClass
 					.declaredMethods
 					.filter[!static && visibility == Visibility.PUBLIC]
@@ -175,7 +181,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 					ciMethod.returnType = sourceMethod.returnType
 				])
 			}
-			if(!sourceMethod.returnType.isVoid) {
+			if(!sourceMethod.returnType.isVoid && sourceMethod.findAnnotation(calculatedAnnotation) == null) {
 				clientStateClass.addField(sourceMethod.fieldName) [
 					type = sourceMethod.returnType
 				]
@@ -199,12 +205,17 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 					serverMethod.addParameter(it.simpleName, it.type)
 				]
 				serverMethod.returnType = sourceMethod.returnType
-				if (!serverMethod.returnType.isVoid)
+				if (sourceMethod.findAnnotation(calculatedAnnotation) != null) 
+					serverMethod.body = '''
+						// subclasses should override
+						return null;
+					'''
+				else if (!serverMethod.returnType.isVoid)
 					serverMethod.body = '''
 						checkCanceled();
 						return state.get«serverMethod.fieldName.toFirstUpper»();
 					'''
-				else
+				else 
 					serverMethod.body = '''
 						checkCanceled();
 						output.writeInt(componentID);
@@ -355,7 +366,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			body = '''
 				sampleTime = System.currentTimeMillis();
 				lastExecutedCommandSerialNr = robot.getLastExecutedCommandSerialNr(); 
-				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
+				«FOR sourceMethod: sourceMethods.filter[!returnType.void && findAnnotation(calculatedAnnotation) == null]»
 					«sourceMethod.fieldName» = robot.«sourceMethod.simpleName»();
 				«ENDFOR»
 				«FOR subComponent: subComponentFields»
@@ -368,7 +379,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			body = '''
 				output.writeLong(sampleTime);
 				output.writeInt(lastExecutedCommandSerialNr);
-				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
+				«FOR sourceMethod: sourceMethods.filter[!returnType.void && findAnnotation(calculatedAnnotation) == null]»
 					«getWriteCalls(sourceMethod.returnType, sourceMethod.fieldName)»
 				«ENDFOR»
 				«FOR subComponent: subComponentFields»
@@ -400,7 +411,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			body = '''
 				sampleTime = input.readLong();
 				lastExecutedCommandSerialNr = input.readInt();
-				«FOR sourceMethod: sourceMethods.filter[!returnType.void]»
+				«FOR sourceMethod: sourceMethods.filter[!returnType.void && findAnnotation(calculatedAnnotation) == null]»
 					«getReadCalls(sourceMethod.returnType, sourceMethod.fieldName)»;
 				«ENDFOR»
 				«FOR subComponent: subComponentFields»

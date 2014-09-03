@@ -10,13 +10,15 @@ import lejos.hardware.sensor.EV3ColorSensor
 import lejos.hardware.sensor.EV3IRSensor
 import lejos.hardware.sensor.SensorMode
 import lejos.robotics.navigation.DifferentialPilot
+import org.xtext.xrobot.annotations.Blocking
+import org.xtext.xrobot.annotations.Calculated
 import org.xtext.xrobot.annotations.NoAPI
 import org.xtext.xrobot.annotations.SimpleRMI
 import org.xtext.xrobot.annotations.SubComponent
+import org.xtext.xrobot.api.RobotSight
 import org.xtext.xrobot.util.SoundUtil
 
 import static extension java.lang.Math.*
-import org.xtext.xrobot.annotations.Blocking
 
 @SimpleRMI
 class Robot implements IRobotGeometry {
@@ -67,10 +69,16 @@ class Robot implements IRobotGeometry {
 		escapeKey.down
 	}
 	
-	override OpponentPosition getOpponentPosition() {
+	@NoAPI
+	def OpponentPosition getOpponentPosition() {
 		val sample = newFloatArrayOfSize(8)
 		irSensor.fetchSample(sample, 0)
 		return new OpponentPosition(sample, channel)
+	}
+	
+	@Calculated
+	override RobotSight getRobotSight() {
+		null	
 	}
 	
 	override double getGroundColor() {
