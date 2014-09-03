@@ -97,7 +97,7 @@ class BrickConnector implements INetConfig {
 						for(key: selector.selectedKeys) {
 							if(key.readable) {
 								input.receive
-								if(input.hasMore) {
+								if(input.available > 0) {
 									Thread.yield									
 									isRelease = !executor.dispatchAndExecute
 								}

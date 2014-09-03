@@ -25,6 +25,8 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 	
 	Thread thread
 	
+	int packetSize = -1
+	
 	new(SocketChannel socket) {
 		this.input = new SocketInputBuffer(socket)
 		this.selector = Selector.open
@@ -43,8 +45,14 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 						input.receive
 						val state = new RobotServerState
 						try {
-							while(input.hasMore) {
-								state.read(input)
+							while(input.available >= packetSize) {
+								if(packetSize > 0) {
+									state.read(input)
+								} else {
+									val before = input.available
+									state.read(input)
+									packetSize = before - input.available
+								} 
 								successCount++
 							}
 							lastState = state

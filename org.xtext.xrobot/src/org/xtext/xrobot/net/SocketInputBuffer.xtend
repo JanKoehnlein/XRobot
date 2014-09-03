@@ -57,8 +57,8 @@ class SocketInputBuffer implements INetConfig {
 		new String(b, Charset.forName('UTF-8'))
 	}
 	
-	def hasMore() {
+	def available() {
 //		println('Recevied ' + (buffer.limit-buffer.position) + ' bytes')
-		buffer.position < buffer.limit
+		buffer.limit - buffer.position
 	}
 }
