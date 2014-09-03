@@ -144,10 +144,7 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 				newContext.newValue(QualifiedName.create(param.name), argumentValues.get(index))
 				index = index + 1	
 			}
-			val result = evaluate(executable.body, newContext, indicator)
-			if(result.exception != null)
-				throw result.exception
-			result.result
+			return internalEvaluate(executable.body, newContext, indicator)
 		} else {
 			super.invokeOperation(operation, receiver, argumentValues)
 		}
