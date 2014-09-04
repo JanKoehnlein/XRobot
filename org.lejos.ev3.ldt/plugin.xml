@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ant.core.antProperties">
+      <antProperty
+            class="org.lejos.ev3.ldt.ant.EV3HomeProvider"
+            eclipseRuntime="false"
+            name="ev3.home">
+      </antProperty>
+   </extension>
+
+   <extension
+         id="org.lejos.ev3.ldt.leJOSEV3Builder"
+         name="leJOS EV3 Project Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="org.lejos.ev3.ldt.LeJOSEV3Builder">
+         </run>
+      </builder>
+   </extension>
+   
+      <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="leJOS EV3"
+            visible="true"
+            id="org.lejos.ev3.ldt.actionSet">
+         <menu
+               label="&amp;leJOS EV3"
+               id="leJOSEV3Menu">
+         </menu>
+         <action
+               label="Start EV3Control"
+               icon="icons/ev3_16x16.png"
+               class="org.lejos.ev3.ldt.actions.StartEV3ControlAction"
+               tooltip="Starts the EV3Control GUI tool"
+               menubarPath="leJOSEV3Menu/leJOSEV3Group"
+               toolbarPath="org.lejos.ev3.ldt/StartEV3Control"
+               id="org.lejos.ev3.ldt.actions.StartEV3ControlAction">
+         </action>
+         <action
+               label="Start EV3SDCard"
+               icon="icons/ev3_16x16.png"
+               class="org.lejos.ev3.ldt.actions.StartEV3SDCardAction"
+               tooltip="Starts the EV3SDCard GUI tool"
+               menubarPath="leJOSEV3Menu/leJOSEV3Group"
+               toolbarPath="org.lejos.ev3.ldt/StartEV3SDCard"
+               id="org.lejos.ev3.ldt.actions.StartEV3SDCardAction">
+         </action>
+      </actionSet>
+   </extension>
+   
+   <extension
+         id="xmlProblem"
+         name="XML Problem"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   
+   <extension
+         id="org.lejos.ev3.ldt.leJOSEV3Nature"
+         name="leJOS EV3 Project Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="org.lejos.ev3.ldt.LeJOSEV3Nature">
+         </run>
+      </runtime>
+      <requires-nature id="org.eclipse.jdt.core.javanature" />
+      <builder
+            id="org.lejos.ev3.ldt.leJOSEV3Builder">
+      </builder>
+   </extension>
+   
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.lejos.ev3.ldt.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   
+   <extension
+         point="org.eclipse.core.variables.dynamicVariables">
+      <variable
+            description="contains the absolute path to the LeJOS EV3 JDK"
+            name="ev3.home"
+            resolver="org.lejos.ev3.ldt.variables.EV3HomeResolver"
+            supportsArgument="false">
+      </variable>
+   </extension>
+   
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="org.lejos.ev3.ldt.launch.LaunchEV3ConfigDelegate"
+            id="org.lejos.ev3.ldt.LaunchType"
+            modes="debug,run"
+            name="LeJOS EV3 Programs"
+            public="true"
+            sourceLocatorId="org.eclipse.jdt.launching.sourceLocator.JavaSourceLookupDirector"
+            sourcePathComputerId="org.eclipse.jdt.launching.sourceLookup.javaSourcePathComputer">
+      </launchConfigurationType>
+   </extension>
+   
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="org.lejos.ev3.ldt.launch.LaunchEV3ConfigTabGroup"
+            id="org.lejos.ev3.ldt.LaunchEV3TabGroup"
+            type="org.lejos.ev3.ldt.LaunchType">
+      </launchConfigurationTabGroup>
+   </extension>
+   
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="org.lejos.ev3.ldt.LaunchType"
+            icon="icons/ev3_16x16.png"
+            id="org.lejos.ev3.ldt.LaunchTypeImage">
+      </launchConfigurationTypeImage>
+   </extension>
+   
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="org.lejos.ev3.ldt.launch.LaunchEV3Shortcut"
+            icon="icons/ev3_16x16.png"
+            id="org.lejos.ev3.ldt.LaunchEV3Shortcut"
+            label="LeJOS EV3 Program"
+            modes="run,debug">
+         <configurationType
+               id="org.lejos.ev3.ldt.LaunchType">
+         </configurationType>
+         <contextualLaunch>
+            <enablement>
+          <with variable="selection">
+             <count value="1"/>
+              <iterate>
+               <and>
+                     <test
+                           property="org.eclipse.jdt.launching.hasProjectNature"
+                           args="org.lejos.ev3.ldt.leJOSEV3Nature"/>
+              	 <or>
+              	   <test property="org.eclipse.jdt.launching.hasMain"/>
+              	   <test property="org.eclipse.jdt.launching.isContainer"/>
+              	   <test property="org.eclipse.jdt.launching.isPackageFragment"/>
+              	   <test property="org.eclipse.jdt.launching.isPackageFragmentRoot"/>
+              	 </or>
+               </and>
+              </iterate>
+             </with>
+             
+            </enablement>
+         </contextualLaunch>
+      </shortcut>
+   </extension>
+   
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml"
+            primary="true">
+      </toc>
+   </extension>
+   
+   <extension
+         point="org.eclipse.jdt.core.classpathContainerInitializer">
+      <classpathContainerInitializer
+            class="org.lejos.ev3.ldt.container.LeJOSEV3LibContainerInitializer"
+            id="org.lejos.ev3.ldt.LEJOS_EV3_LIBRARY_CONTAINER">
+      </classpathContainerInitializer>
+   </extension>
+   
+   <extension
+         point="org.eclipse.jdt.launching.classpathProviders">
+      <classpathProvider
+            class="org.lejos.ev3.ldt.launch.LaunchEV3ClasspathProvider"
+            id="org.lejos.ev3.ldt.LaunchEV3ClasspathProvider">
+      </classpathProvider>
+   </extension>
+   
+   <extension
+         point="org.eclipse.jdt.ui.classpathContainerPage">
+      <classpathContainerPage
+            class="org.lejos.ev3.ldt.container.LeJOSEV3LibContainerPage"
+            id="org.lejos.ev3.ldt.LEJOS_EV3_LIBRARY_CONTAINER"
+            name="LeJOS Library Container">
+      </classpathContainerPage>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/project.png"
+            id="org.lejos.ev3.ldt.leJOSEV3Nature.image"
+            natureId="org.lejos.ev3.ldt.leJOSEV3Nature">
+      </image>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <wizard
+            category="org.eclipse.ui.Basic"
+            class="org.lejos.ev3.ldt.wizard.SampleImport"
+            icon="icons/ev3_16x16.png"
+            id="org.lejos.ev3.ldt.importWizards.ImportWizard"
+            name="leJOS EV3 sample and project templates">
+         <description>
+            Import a file from the local file system into the workspace.
+         </description>
+      </wizard>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.lejos.ev3.ldt.leJOSEV3WizardCategory"
+            name="LeJOS EV3">
+      </category>
+      <wizard
+            category="org.lejos.ev3.ldt.leJOSEV3WizardCategory"
+            class="org.lejos.ev3.ldt.wizard.NewEV3Project"
+            finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+            icon="icons/ev3_16x16.png"
+            id="org.lejos.ev3.ldt.NewEV3ProjectWizard"
+            name="LeJOS EV3 Project"
+            preferredPerspectives="org.eclipse.jdt.ui.JavaPerspective"
+            project="true">
+      </wizard>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <newWizardShortcut
+               id="org.lejos.ev3.ldt.NewEV3ProjectWizard">
+         </newWizardShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.debug.ui.DebugPerspective">
+         <newWizardShortcut
+               id="org.lejos.ev3.ldt.NewEV3ProjectWizard">
+         </newWizardShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.ui.resourcePerspective">
+         <newWizardShortcut
+               id="org.lejos.ev3.ldt.NewEV3ProjectWizard">
+         </newWizardShortcut>
+      </perspectiveExtension>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="org.lejos.ev3.ldt.leJOSEV3Contribution"
+            nameFilter="*"
+            objectClass="org.eclipse.core.runtime.IAdaptable">
+         <menu
+               id="org.lejos.ev3.ldt.leJOSEV3PopupMenu"
+               label="leJOS EV3"
+               path="additions">
+         </menu>
+         <action
+               class="org.lejos.ev3.ldt.actions.ConvertToLeJOSEV3ProjectAction"
+               enablesFor="+"
+               icon="icons/ev3_16x16.png"
+               id="org.lejos.ev3.ldt.ConvertToLeJOSEV3NatureAction"
+               label="Convert to leJOS EV3 project"
+               menubarPath="org.lejos.ev3.ldt.leJOSEV3PopupMenu/leJOSEV3Group"
+               tooltip="Converts the project to a leJOS EV3 project">
+         </action>
+         <action
+               class="org.lejos.ev3.ldt.actions.UploadAction"
+               enablesFor="+"
+               icon="icons/ev3_16x16.png"
+               id="org.lejos.ev3.ldt.actions.LeJOSEV3UploadAction"
+               label="Upload File to the EV3 Brick"
+               menubarPath="org.lejos.ev3.ldt.leJOSEV3PopupMenu/leJOSEV3Group"
+               tooltip="Uploads the selected file to the EV3 brick">
+         </action>
+      </objectContribution>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="leJOS EV3"
+            class="org.lejos.ev3.ldt.preferences.PreferencePage"
+            id="org.lejos.ev3.ldt.preferences.leJOSEV3PreferencePage">
+      </page>
+   </extension>
+
+</plugin>
