@@ -19,6 +19,7 @@ import org.xtext.xrobot.api.RobotSight
 import org.xtext.xrobot.util.SoundUtil
 
 import static extension java.lang.Math.*
+import org.xtext.xrobot.api.IRobotGeometry
 
 @SimpleRMI
 class Robot implements IRobotGeometry {

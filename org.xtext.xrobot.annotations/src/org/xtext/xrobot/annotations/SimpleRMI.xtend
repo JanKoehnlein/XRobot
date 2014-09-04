@@ -58,6 +58,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 	
 	override doTransform(MutableClassDeclaration annotatedClass, extension TransformationContext context) {
 		val clientInterface = annotatedClass.clientInterfaceName.findInterface
+		clientInterface.extendedInterfaces = #['org.xtext.xrobot.api.IRobotGeometry'.newTypeReference]
 		annotatedClass.implementedInterfaces = annotatedClass.implementedInterfaces + #[clientInterface.newTypeReference]
 		val clientStateClass = annotatedClass.clientStateName.findClass
 		val serverStateClass = annotatedClass.serverStateName.findClass
