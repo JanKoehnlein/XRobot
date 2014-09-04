@@ -62,11 +62,15 @@ class Robot implements IRobotGeometry {
 		power = brick.power
 	}
 	
+	/**
+	 * @return the robot's name
+	 */
 	override String getName() {
 		name
 	}
 	
-	override boolean isEscapePressed() {
+	@NoAPI
+	def boolean isEscapePressed() {
 		escapeKey.down
 	}
 	
@@ -82,12 +86,25 @@ class Robot implements IRobotGeometry {
 		null	
 	}
 	
+	/**
+	 * @returns the measured ground color between 0.0 and 1.0
+	 */
 	override double getGroundColor() {
 		val sample = newFloatArrayOfSize(1)
 		colorSensor.fetchSample(sample, 0)
 		return sample.get(0)
 	}
 	
+	/**
+	 * Sets both motors in motion simultaneously. 
+	 * 
+	 * Speed values are in degrees/second, Negative values will move the motor backward.
+	 * This method is non-blocking, i.e. the motors will continue moving until they 
+	 * receive another command.
+	 * 
+	 * @param leftSpeed the speed of the left motor in degrees/second   
+	 * @param rightSpeed the speed of the right motor in degrees/second   
+	 */
 	override void setSpeeds(double leftSpeed, double rightSpeed) {
 		leftMotor.speed = (360 * abs(leftSpeed) / WHEEL_DIAMETER) as int 
 		rightMotor.speed = (360 * abs(rightSpeed) / WHEEL_DIAMETER) as int
@@ -101,33 +118,79 @@ class Robot implements IRobotGeometry {
 			rightMotor.forward
 	}
 	
+	/**
+	 * Moves the robot forward by <code>distance</code> centimeters.
+	 * 
+	 * This method will block the current mode's execution until the move is complete.
+	 * Once finished, the motors will be stopped.
+	 * 
+	 * @param distance the distance in centimeters 
+	 */
 	@Blocking
 	override void forward(double distance) {
 		pilot.travel(distance, true)
 	}
 	
+	/**
+	 * Moves the robot backward by <code>distance</code> centimeters.
+	 * 
+	 * This method will block the current mode's execution until the move is complete.
+	 * Once finished, the motors will be stopped.
+	 * 
+	 * @param distance the distance in centimeters 
+	 */
 	@Blocking
 	override void backward(double distance) {
 		pilot.travel(-distance, true)
 	}
 	
+	/**
+	 * Sets the speed in centimeter/second for all {@link #forward()} and {@link #backward()} 
+	 * commands. Does not actually mode the robot.
+	 * 
+	 * @param the speed in centimeter/second 
+	 */
 	override void setTravelSpeed(double speed) {
 		pilot.travelSpeed = speed
 	}
 	
+	/**
+	 * Returns the speed for all {@link #forward()} and {@link #backward()} commands.
+	 * 
+	 * @return the speed in centimeter/second 
+	 */
 	override double getTravelSpeed() {
 		pilot.travelSpeed
 	}
 	
+	/**
+	 * Returns the maximum speed for {@link #forward()} and {@link #backward()} commands
+	 * depending on the battery status.
+	 * 
+	 * @return the speed in centimeter/second 
+	 */
 	override double getMaxTravelSpeed() {
 		pilot.maxTravelSpeed
 	}
 	
+	/** 
+	 * Rotates the robot on the spot by <code>angle</code> degrees.
+	 * 
+	 * This method will block the current mode's execution until the move is complete.
+	 * Once finished, the motors will be stopped.
+	 * 
+	 */
 	@Blocking
 	override void rotate(double angle) {
 		pilot.rotate(angle, true)
 	}
 	
+	/**
+	 * Sets the speed in degrees/second for all {@link #rotate()} commands. Does not 
+	 * actually mode the robot.
+	 * 
+	 * @param the speed in centimeter/second 
+	 */
 	override void setRotateSpeed(double speed) {
 		pilot.rotateSpeed = rotateSpeed
 	}

@@ -170,6 +170,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			if(sourceMethod.findAnnotation(noApiAnnotation) == null) {
 				clientInterface.addMethod(sourceMethod.simpleName, [
 					ciMethod |
+					ciMethod.docComment = sourceMethod.docComment
 					ciMethod.primarySourceElement = sourceMethod
 					sourceMethod.parameters.forEach[
 						ciMethod.addParameter(it.simpleName, it.type)
