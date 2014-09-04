@@ -19,6 +19,7 @@ class RemoteRobotFactory {
 	
 	new(String name, SocketChannel socket) {
 		this.socket = socket
+		this.name = name
 		stateReceiver = new StateReceiver(socket)
 		stateReceiver.start
 	}

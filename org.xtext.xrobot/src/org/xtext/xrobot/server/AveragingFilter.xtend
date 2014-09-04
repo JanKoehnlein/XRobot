@@ -61,12 +61,12 @@ class AveragingFilter implements IRobotSightFilter {
 			validPosition = true
 		}
 				
-		println(opponentPosition.distanceInCentimeters + ","
-			+ opponentPosition.angleInDegrees + ","
-			+ (if (validPosition) 1 else 0) + ","
-			+ distance + ","
-			+ angle
-		)
+//		println(opponentPosition.distanceInCentimeters + ","
+//			+ opponentPosition.angleInDegrees + ","
+//			+ (if (validPosition) 1 else 0) + ","
+//			+ distance + ","
+//			+ angle
+//		)
 		new RobotSight(angle, distance, validPosition)
 	}
 	

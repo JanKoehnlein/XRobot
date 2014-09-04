@@ -74,12 +74,12 @@ class MultiplyingFilter implements IRobotSightFilter {
 			}
 		}
 		
-		println(opponentPosition.distanceInCentimeters + ","
-			+ opponentPosition.angleInDegrees + ","
-			+ (if (validAngle && validDistance) 1 else 0) + ","
-			+ distance + ","
-			+ angle
-		)
+//		println(opponentPosition.distanceInCentimeters + ","
+//			+ opponentPosition.angleInDegrees + ","
+//			+ (if (validAngle && validDistance) 1 else 0) + ","
+//			+ distance + ","
+//			+ angle
+//		)
 		new RobotSight(angle, distance, validAngle && validDistance)
 	}
 	
