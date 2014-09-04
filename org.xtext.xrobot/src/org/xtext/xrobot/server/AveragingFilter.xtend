@@ -5,7 +5,7 @@ import org.xtext.xrobot.OpponentPosition
 import org.xtext.xrobot.api.RobotSight
 
 /**
- * A filter on the data received from the infrared sensor for improving accuracy.
+ * A filter that computes the average position using buffers.
  */
 class AveragingFilter implements IRobotSightFilter {
 	
