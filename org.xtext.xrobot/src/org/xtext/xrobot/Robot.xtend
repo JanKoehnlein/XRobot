@@ -20,6 +20,7 @@ import org.xtext.xrobot.util.SoundUtil
 
 import static extension java.lang.Math.*
 import org.xtext.xrobot.api.IRobotGeometry
+import org.xtext.xrobot.util.LEDPatterns
 
 @SimpleRMI
 class Robot implements IRobotGeometry {
@@ -81,6 +82,9 @@ class Robot implements IRobotGeometry {
 		return new OpponentPosition(sample, channel)
 	}
 	
+	/**
+	 * @return the opponent's position as scanned by the robot's IR sensor.
+	 */
 	@Calculated
 	override RobotSight getRobotSight() {
 		null	
@@ -99,8 +103,9 @@ class Robot implements IRobotGeometry {
 	 * Sets both motors in motion simultaneously. 
 	 * 
 	 * Speed values are in degrees/second, Negative values will move the motor backward.
-	 * This method is non-blocking, i.e. the motors will continue moving until they 
-	 * receive another command.
+	 * 
+	 * This method is non-blocking, i.e. it returns immediately and the motors will 
+	 * continue moving until they receive another command.
 	 * 
 	 * @param leftSpeed the speed of the left motor in degrees/second   
 	 * @param rightSpeed the speed of the right motor in degrees/second   
@@ -132,6 +137,18 @@ class Robot implements IRobotGeometry {
 	}
 	
 	/**
+	 * Moves the robot forward at the current travelSpeed.
+	 * 
+	 * This method is non-blocking, i.e. it returns immediately and the motors will 
+	 * continue moving until they receive another command.
+	 * 
+	 * @param distance the distance in centimeters 
+	 */
+	override void forward() {
+		pilot.forward
+	}
+	
+	/**
 	 * Moves the robot backward by <code>distance</code> centimeters.
 	 * 
 	 * This method will block the current mode's execution until the move is complete.
@@ -142,6 +159,18 @@ class Robot implements IRobotGeometry {
 	@Blocking
 	override void backward(double distance) {
 		pilot.travel(-distance, true)
+	}
+	
+	/**
+	 * Moves the robot backward at the current travelSpeed.
+	 * 
+	 * This method is non-blocking, i.e. it returns immediately and the motors will 
+	 * continue moving until they receive another command.
+	 * 
+	 * @param distance the distance in centimeters 
+	 */
+	override void backward() {
+		pilot.backward
 	}
 	
 	/**
@@ -178,31 +207,68 @@ class Robot implements IRobotGeometry {
 	 * 
 	 * This method will block the current mode's execution until the move is complete.
 	 * Once finished, the motors will be stopped.
-	 * 
 	 */
 	@Blocking
 	override void rotate(double angle) {
 		pilot.rotate(angle, true)
 	}
 	
-	/**
-	 * Sets the speed in degrees/second for all {@link #rotate()} commands. Does not 
-	 * actually mode the robot.
+	/** 
+	 * Rotates the robot left on the spot at the current rotate speed.
 	 * 
-	 * @param the speed in centimeter/second 
+	 * This method is non-blocking, i.e. it returns immediately and the motors will 
+	 * continue moving until they receive another command.
+	 */
+	override void rotateLeft() {
+		pilot.rotateLeft
+	}
+	
+	/** 
+	 * Rotates the robot left on the spot at the current rotate speed.
+	 * 
+	 * This method is non-blocking, i.e. it returns immediately and the motors will 
+	 * continue moving until they receive another command.
+	 */
+	override void rotateRight() {
+		pilot.rotateRight
+	}
+	
+	/**
+	 * Sets the speed in for all {@link #rotate()} commands. Does not actually mode 
+	 * the robot.
+	 * 
+	 * @param the speed in degrees/second 
 	 */
 	override void setRotateSpeed(double rotateSpeed) {
 		pilot.rotateSpeed = rotateSpeed
 	}
 	
+	/**
+	 * Returns the speed for all {@link rotate()} commands.
+	 * 
+	 * @return the rotate speed in degrees/second 
+	 */
 	override double getRotateSpeed() {
 		pilot.rotateSpeed
 	}
 	
+	/**
+	 * Returns the maxiumum speed for all {@link rotate()} commands depending on the 
+	 * battery status.
+	 * 
+	 * @return the rotate speed in degrees/second 
+	 */
 	override double getMaxRotateSpeed() {
 		pilot.rotateMaxSpeed
 	}
 	
+	/**
+	 * Lets the robot travel a forward curve with the given <code>radius</code> and 
+	 * <code>angle</code>.
+	 *
+	 * A negative angle means a curve to the right (clockwise). The sign of the radius
+	 * is ignored.
+	 */
 	@Blocking
 	override void curveForward(double radius, double angle) {
 		if(angle < 0) 
@@ -211,6 +277,13 @@ class Robot implements IRobotGeometry {
 			pilot.arc(abs(radius), angle, true)
 	}
 	
+	/**
+	 * Lets the robot travel a backward curve with the given <code>radius</code> and 
+	 * <code>angle</code>.
+	 *
+	 * A negative angle means a curve to the right (clockwise). The sign of the radius
+	 * is ignored.
+	 */
 	@Blocking
 	override void curveBackward(double radius, double angle) {
 		if(angle < 0)
@@ -219,39 +292,74 @@ class Robot implements IRobotGeometry {
 			pilot.arc(-abs(radius), angle, true)
 	}
 	
+	/**
+	 * Lets the robot travel a backward curve to the point with the relative polar
+	 * coordinates <code>angle</code> and <code>distance</code>.
+	 */
 	@Blocking
 	override void curveTo(double angle, double distance) {
 		val radius = 0.5 * distance * cos(0.5 * PI - angle.toRadians)
 		curveForward(radius, angle)
 	}
 	
+	/**
+	 * @return true if any of the motors is moving. 
+	 */
 	override boolean isMoving() {
 		pilot.isMoving
 	}
 	
+	/**
+	 * Stops all motors immediately.
+	 */
 	override void stop() {
 		pilot.stop
 	}
 	
+	/**
+	 * Moves the robot's scoop. Values are truncated to be between -1.0 and 1.0 
+	 * 0 is on the floor
+	 * 1 is completely up
+	 * -1 is completely down (could roll the robot over)   
+	 * 
+	 * This method will block the current mode's execution until the move is complete.
+	 * Once finished, the motors will be stopped.
+	 */
 	@Blocking
 	override void scoop(double angle) {
-		scoopMotor.rotateTo(angle as int)
+		val intAngle = (min(1, max(angle, -1)) * 200) as int
+		scoopMotor.rotateTo(intAngle)
 	}
 	
-	override void playSample(String fileName, int volume) {
-		audio.playSample('samples/' + fileName + '.wav', volume)
+	override void playSample(String fileName) {
+		audio.playSample('samples/' + fileName + '.wav', 100)
 	}	
 	
+	/** 
+	 * @see {@link LEDPatterns} for values 
+	 */
 	@NoAPI
 	def void setLed(int pattern) {
 		led.pattern = pattern
 	}
 	
-	override double getBatteryState() {
+	/**
+	 * @returns the battery's charging state between 0.0 and 1.0
+	 */
+	@NoAPI
+	def double getBatteryState() {
 		power.voltage / 9.0
 	}
 	
+	/**
+	 * Updates this robot with the latest sensor data and robot state. 
+	 * 
+	 * The state is usually only updated when the modes' conditions are checked. 
+	 * A new mode is entered with exactly that state to make sure the condition still holds.
+	 * Use this method if you need fresh data during a mode's execution.
+	 */
 	@Calculated
 	override void update() {
+		// implement on the server only		
 	}
 }
