@@ -191,7 +191,7 @@ class Robot implements IRobotGeometry {
 	 * 
 	 * @param the speed in centimeter/second 
 	 */
-	override void setRotateSpeed(double speed) {
+	override void setRotateSpeed(double rotateSpeed) {
 		pilot.rotateSpeed = rotateSpeed
 	}
 	
