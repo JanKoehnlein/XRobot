@@ -6,7 +6,7 @@ import org.xtext.xrobot.api.RobotSight
 /**
  * A filter that combines new samples with the current values using factors.
  */
-class AveragingFilter implements IRobotSightFilter {
+class MultiplyingFilter implements IRobotSightFilter {
 	
 	/** The default factor to apply to the last computed distance value. */
 	static val DISTANCE_FACTOR = 0.8
@@ -74,6 +74,12 @@ class AveragingFilter implements IRobotSightFilter {
 			}
 		}
 		
+		println(opponentPosition.distanceInCentimeters + ","
+			+ opponentPosition.angleInDegrees + ","
+			+ (if (validAngle && validDistance) 1 else 0) + ","
+			+ distance + ","
+			+ angle
+		)
 		new RobotSight(angle, distance, validAngle && validDistance)
 	}
 	

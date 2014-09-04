@@ -7,12 +7,13 @@ import org.xtext.xrobot.api.RobotSight
 
 class RemoteRobot extends RemoteRobotProxy {
 	
-	val IRobotSightFilter sightFilter = new AveragingFilter as IRobotSightFilter
+	val IRobotSightFilter sightFilter
 	var RobotSight currentSight
 
 	new(int componentID, int nextCommandSerialNr, SocketChannel socket, StateProvider<RobotServerState> stateProvider,
-		CancelIndicator cancelIndicator) {
+		CancelIndicator cancelIndicator, IRobotSightFilter sightFilter) {
 		super(componentID, nextCommandSerialNr, socket, stateProvider, cancelIndicator)
+		this.sightFilter = sightFilter
 	}
 
 	def waitForUpdate() {

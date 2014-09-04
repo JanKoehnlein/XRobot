@@ -10,85 +10,64 @@ import org.xtext.xrobot.api.RobotSight
 class AveragingFilter implements IRobotSightFilter {
 	
 	/** The number of samples used for averaging the distance. */
-	static val DISTANCE_BUFFER_SIZE = 20
-	/** The maximal difference of a distance sample to the average distance. */
-	static val MAX_DISTANCE_DIFF = 10.0
+	static val DISTANCE_BUFFER_SIZE = 15
 	/** The number of samples used for averaging the angle. */
-	static val ANGLE_BUFFER_SIZE = 15
-	/** The maximal difference of an angle sample to the average angle. */
-	static val MAX_ANGLE_DIFF = 10.0
-	/** The minimal number of buffered samples for comparing a new sample with the average. */
-	static val MIN_COMP_SAMPLES = 3
+	static val ANGLE_BUFFER_SIZE = 7
 	/** The maximal number of missed samples in a row before the result is marked as invalid. */
-	static val MAX_MISSED_SAMPLES = 10
+	static val MAX_MISSED_SAMPLES = 5
 	
 	val distanceBuffer = new LinkedList<Double>
 	val angleBuffer = new LinkedList<Double>
 	
 	var lastDistance = 0.0
-	var missedDistances = 0
 	var lastAngle = 0.0
-	var missedAngles = 0
+	var missedSamples = MAX_MISSED_SAMPLES
 
 	override RobotSight apply(OpponentPosition opponentPosition) {
-		var distance = lastDistance
-		var validDistance = false
-		var angle = lastAngle
-		var validAngle = false
+		var double distance
+		var double angle
+		var validPosition = false
 		if (opponentPosition.detected) {
+			// Reset the number of missed samples
+			missedSamples = 0
+
+			// Add the new distance to the buffer and compute the new average
 			val newDistance = opponentPosition.distanceInCentimeters
-			if (distanceBuffer.size < MIN_COMP_SAMPLES
-					|| Math.abs(newDistance - lastDistance) <= MAX_DISTANCE_DIFF) {
-				// We measured a valid distance sample
-				distance = newDistance
-				validDistance = true
-				val newAngle = opponentPosition.angleInDegrees
-				if (angleBuffer.size < MIN_COMP_SAMPLES
-						|| Math.abs(newAngle - lastAngle) <= MAX_ANGLE_DIFF) {
-					// We measured a valid angle sample
-					angle = newAngle
-					validAngle = true
-				}
-			}
-		}
-		
-		if (validDistance) {
-			// Reset the number of missed distances
-			missedDistances = 0
-			// Add the new sample to the buffer and compute the new average
-			var sum = lastDistance * distanceBuffer.size
-			distanceBuffer.addFirst(distance)
-			sum += distance
+			var distanceSum = lastDistance * distanceBuffer.size
+			distanceBuffer.addFirst(newDistance)
+			distanceSum += newDistance
 			if (distanceBuffer.size > DISTANCE_BUFFER_SIZE) {
-				sum -= distanceBuffer.removeLast
+				distanceSum -= distanceBuffer.removeLast
 			}
-			distance = sum / distanceBuffer.size
+			distance = distanceSum / distanceBuffer.size
 			lastDistance = distance
-		} else if (missedDistances < MAX_MISSED_SAMPLES) {
-			// Reuse the last computed average distance value
-			missedDistances++
-			validDistance = true
-		}
-		
-		if (validAngle) {
-			// Reset the number of missed angles
-			missedAngles = 0
-			// Add the new sample to the buffer and compute the new average
-			var sum = lastAngle * angleBuffer.size
-			angleBuffer.addFirst(angle)
-			sum += angle
+			
+			// Add the new angle to the buffer and compute the new average
+			val newAngle = opponentPosition.angleInDegrees
+			var angleSum = lastAngle * angleBuffer.size
+			angleBuffer.addFirst(newAngle)
+			angleSum += newAngle
 			if (angleBuffer.size > ANGLE_BUFFER_SIZE) {
-				sum -= angleBuffer.removeLast
+				angleSum -= angleBuffer.removeLast
 			}
-			angle = sum / angleBuffer.size
+			angle = angleSum / angleBuffer.size
 			lastAngle = angle
-		} else if (missedAngles < MAX_MISSED_SAMPLES) {
-			// Reuse the last computed average angle value
-			missedAngles++
-			validAngle = true
+			validPosition = true
+		} else if (missedSamples < MAX_MISSED_SAMPLES) {
+			// Reuse the last computed average values
+			missedSamples++
+			distance = lastDistance
+			angle = lastAngle
+			validPosition = true
 		}
-		
-		new RobotSight(angle, distance, validAngle && validDistance)
+				
+		println(opponentPosition.distanceInCentimeters + ","
+			+ opponentPosition.angleInDegrees + ","
+			+ (if (validPosition) 1 else 0) + ","
+			+ distance + ","
+			+ angle
+		)
+		new RobotSight(angle, distance, validPosition)
 	}
 	
 }

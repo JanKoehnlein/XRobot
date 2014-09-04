@@ -64,23 +64,28 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 			if(newMode != currentMode || currentModeCancelIndicator.isCanceled) {
 				currentModeCancelIndicator?.cancel
 				currentModeCancelIndicator = new ModeCancelIndicator(cancelIndicator)
-				val modeRobot = robotFactory.newRobot(currentModeCancelIndicator)
 				currentMode = newMode
-				val modeContext = baseContext.fork
-				modeContext.newValue(ROBOT, modeRobot)
-				modeContext.newValue(CURRENT_LINE, NodeModelUtils.findActualNodeFor(newMode).startLine)
-				new Thread() {
-					override run() {
-						try {
-							currentMode.execute(modeContext, currentModeCancelIndicator)
-						} catch (CanceledException exc) {
-						} catch (Exception exc) {
-							LOG.error('Error executing mode ' + newMode.name, exc)
-						} finally {
-							currentModeCancelIndicator.cancel
-						}
+				if (newMode != null) {
+					val modeRobot = robotFactory.newRobot(currentModeCancelIndicator)
+					val modeContext = baseContext.fork
+					modeContext.newValue(ROBOT, modeRobot)
+					val modeNode = NodeModelUtils.findActualNodeFor(newMode)
+					if (modeNode != null) {
+						modeContext.newValue(CURRENT_LINE, modeNode.startLine)
 					}
-				}.start
+					new Thread() {
+						override run() {
+							try {
+								currentMode.execute(modeContext, currentModeCancelIndicator)
+							} catch (CanceledException exc) {
+							} catch (Exception exc) {
+								LOG.error('Error executing mode ' + newMode.name, exc)
+							} finally {
+								currentModeCancelIndicator.cancel
+							}
+						}
+					}.start
+				}
 			}
 			Thread.yield
 			conditionRobot.waitForUpdate()

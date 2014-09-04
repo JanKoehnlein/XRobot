@@ -15,6 +15,8 @@ class RemoteRobotFactory {
 	
 	String name
 	
+	val IRobotSightFilter sightFilter = new AveragingFilter()
+	
 	new(String name, SocketChannel socket) {
 		this.socket = socket
 		stateReceiver = new StateReceiver(socket)
@@ -47,7 +49,7 @@ class RemoteRobotFactory {
 	
 	def newRobot(CancelIndicator cancelIndicator) {
 		val nextCommandSerialNr = if(lastRobot != null) lastRobot.nextCommandSerialNr + 10 else 10
-		lastRobot = new RemoteRobot(0, nextCommandSerialNr, socket, stateReceiver, cancelIndicator)
+		lastRobot = new RemoteRobot(0, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, sightFilter)
 		lastRobot.waitForUpdate
 		lastRobot
 	}
