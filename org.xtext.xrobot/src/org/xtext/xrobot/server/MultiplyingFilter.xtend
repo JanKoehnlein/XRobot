@@ -9,7 +9,7 @@ import org.xtext.xrobot.api.RobotSight
 class MultiplyingFilter implements IRobotSightFilter {
 	
 	/** The default factor to apply to the last computed distance value. */
-	static val DISTANCE_FACTOR = 0.8
+	static val DISTANCE_FACTOR = 0.85
 	/** The default factor to apply to the last computed angle value. */
 	static val ANGLE_FACTOR = 0.7
 	/** The minimal factor for reusing the last computed value. */
@@ -45,6 +45,8 @@ class MultiplyingFilter implements IRobotSightFilter {
 			lastDistanceFactor *= DISTANCE_FACTOR
 			lastAngleFactor *= ANGLE_FACTOR
 			if (lastDistanceFactor >= MIN_VALID_FACTOR && lastAngleFactor >= MIN_VALID_FACTOR) {
+				distance = lastDistance
+				angle = lastAngle
 				validPosition = true
 			}
 		}

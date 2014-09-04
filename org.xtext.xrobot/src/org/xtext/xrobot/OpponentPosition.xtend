@@ -17,6 +17,11 @@ import org.eclipse.xtend.lib.annotations.Data
  */
 @Data
 class OpponentPosition {
+	
+	static val ANGLE_FACTOR = 1.6
+	static val ANGLE_OFFSET = 3.0
+	static val DISTANCE_FACTOR = 1.8
+	static val DISTANCE_OFFSET = 0.0
 
 	float[] rawData
 	int channel
@@ -39,13 +44,13 @@ class OpponentPosition {
 	 * The approximate measured angle in degrees.
 	 */
 	def double getAngleInDegrees() {
-		1.6 * rawAngular + 3.0
+		ANGLE_FACTOR * rawAngular + ANGLE_OFFSET
 	}
 	
 	/** 
 	 * The approximate measured sensor to remote distance in cm.
 	 */
 	def double getDistanceInCentimeters() {
-		2 * rawDistance
+		DISTANCE_FACTOR * rawDistance + DISTANCE_OFFSET
 	}
 }
