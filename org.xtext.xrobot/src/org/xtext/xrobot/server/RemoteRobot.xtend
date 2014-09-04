@@ -3,8 +3,12 @@ package org.xtext.xrobot.server
 import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
 import java.net.SocketTimeoutException
+import org.xtext.xrobot.api.RobotSight
 
 class RemoteRobot extends RemoteRobotProxy {
+	
+	val IRobotSightFilter sightFilter = new AveragingFilter as IRobotSightFilter
+	var RobotSight currentSight
 
 	new(int componentID, int nextCommandSerialNr, SocketChannel socket, StateProvider<RobotServerState> stateProvider,
 		CancelIndicator cancelIndicator) {
@@ -32,4 +36,14 @@ class RemoteRobot extends RemoteRobotProxy {
 		output.writeInt(-1)
 		output.send
 	}
+	
+	override RobotSight getRobotSight() {
+		currentSight
+	}
+	
+	override setState(RobotServerState state) {
+		super.setState(state)
+		currentSight = sightFilter.apply(state.opponentPosition)
+	}
+	
 }

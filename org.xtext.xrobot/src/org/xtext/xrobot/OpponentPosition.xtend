@@ -30,7 +30,7 @@ class OpponentPosition {
 		val opponentIndex = (2-channel)*2
 		rawData.get(opponentIndex + 1)
 	}
-		
+	
 	def boolean isDetected() {
 		rawDistance < 100 
 	}
