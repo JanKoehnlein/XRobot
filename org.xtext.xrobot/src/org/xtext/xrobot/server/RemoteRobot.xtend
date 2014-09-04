@@ -48,6 +48,6 @@ class RemoteRobot extends RemoteRobotProxy {
 	}
 	
 	override void update() {
-    	state = stateProvider.state
+    	setState(stateProvider.state)
   	}
 }
