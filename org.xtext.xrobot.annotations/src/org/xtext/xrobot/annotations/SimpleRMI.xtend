@@ -124,11 +124,6 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				«ENDFOR»
 			'''
 		]
-		serverImpl.addMethod('update') [
-			body = '''
-				setState(stateProvider.getState());
-			'''
-		]
 		serverImpl.addMethod('setState') [
 			addParameter('state', serverStateClass.newTypeReference)
 			body = '''
@@ -208,7 +203,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				if (sourceMethod.findAnnotation(calculatedAnnotation) != null) 
 					serverMethod.body = '''
 						// subclasses should override
-						return null;
+						return«IF !sourceMethod.returnType.isVoid» null«ENDIF»;
 					'''
 				else if (!serverMethod.returnType.isVoid)
 					serverMethod.body = '''

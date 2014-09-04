@@ -186,4 +186,8 @@ class Robot implements IRobotGeometry {
 	override double getBatteryState() {
 		power.voltage / 9.0
 	}
+	
+	@Calculated
+	override void update() {
+	}
 }

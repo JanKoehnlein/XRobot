@@ -46,4 +46,7 @@ class RemoteRobot extends RemoteRobotProxy {
 		currentSight = sightFilter.apply(state.opponentPosition)
 	}
 	
+	override void update() {
+    	state = stateProvider.state
+  	}
 }
