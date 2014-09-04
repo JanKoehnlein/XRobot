@@ -52,6 +52,7 @@ class AveragingFilter implements IRobotSightFilter {
 			}
 			angle = angleSum / angleBuffer.size
 			lastAngle = angle
+			
 			validPosition = true
 		} else if (missedSamples < MAX_MISSED_SAMPLES) {
 			// Reuse the last computed average values
@@ -61,12 +62,6 @@ class AveragingFilter implements IRobotSightFilter {
 			validPosition = true
 		}
 				
-//		println(opponentPosition.distanceInCentimeters + ","
-//			+ opponentPosition.angleInDegrees + ","
-//			+ (if (validPosition) 1 else 0) + ","
-//			+ distance + ","
-//			+ angle
-//		)
 		new RobotSight(angle, distance, validPosition)
 	}
 	
