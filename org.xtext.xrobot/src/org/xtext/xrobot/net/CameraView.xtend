@@ -7,6 +7,10 @@ import org.xtext.xrobot.api.IRobot
 class CameraView {
 	
 	private static val MAX_ANGLE = 40.0
+	private static val RESOLUTION_X = 1920
+	private static val RESOLUTION_Y = 1080
+	private static val COORD_FACTOR_Y = 120.0
+	private static val COORD_FACTOR_X = (COORD_FACTOR_Y * RESOLUTION_X) / RESOLUTION_Y
 	
 	private val TuioClient client
 	
@@ -39,11 +43,11 @@ class CameraView {
 		
 		// transform fiducial orientation
 		val orientation = 1.5 * Math.PI - selfObject.angle
-		val diffx = opponentObject.x - selfObject.x
+		val diffx = (opponentObject.x - selfObject.x) * COORD_FACTOR_X
 		// invert the y axis to have the origin bottom left
-		val diffy = selfObject.y - opponentObject.y
+		val diffy = (selfObject.y - opponentObject.y) * COORD_FACTOR_Y
 		val angle = Math.atan2(diffy, diffx)
-		var relativeAngle = angle - orientation
+		var relativeAngle = orientation - angle
 		if (relativeAngle > Math.PI)
 			relativeAngle -= 2 * Math.PI
 		else if (relativeAngle < -Math.PI)
@@ -53,7 +57,7 @@ class CameraView {
 			return new RobotSight(0, 0, false)
 		} else {
 			val distance = Math.sqrt(diffx * diffx + diffy * diffy)
-			return new RobotSight(relativeAngle, distance, true)
+			return new RobotSight(Math.toDegrees(relativeAngle), distance, true)
 		}
 	}
 	
