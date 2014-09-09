@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="lib/dbusjava.jar"/>
 	<classpathentry kind="lib" path="lib/ev3classes.jar"/>
 	<classpathentry kind="lib" path="lib/jcommon.jar"/>
+	<classpathentry kind="lib" path="lib/libTUIO.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -17,7 +17,7 @@ class RemoteRobotConnector implements INetConfig {
 
 	static val LOG = Logger.getLogger(RemoteRobotConnector)
 
-	Map<String, RemoteRobotFactory> name2robot = newHashMap
+	val Map<String, RemoteRobotFactory> name2robot = newHashMap
 	
 	private def connect(String robotName) {
 		val ipAddress = robotName.getIPAddress

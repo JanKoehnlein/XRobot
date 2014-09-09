@@ -39,6 +39,8 @@ import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.server.IRobotState
 import org.xtext.xrobot.server.RemoteRobotConnector
+import org.xtext.xrobot.api.IRobot
+import org.xtext.xrobot.server.RemoteRobot
 
 @Singleton
 class ExecuteScriptHandler extends AbstractHandler {
@@ -181,12 +183,13 @@ class ExecuteScriptHandler extends AbstractHandler {
 			]
 		}
 
-		override stateChanged(IRobotState newState) {
+		override stateChanged(RemoteRobot robot) {
 			Display.getDefault.asyncExec [
-				content.put('Opponent distance', newState.opponentPosition.rawDistance.toString)
-				content.put('Opponent angle', newState.opponentPosition.rawAngular.toString)
-				content.put('Battery', ((newState.batteryState * 100) as int).toString +'%')
-				content.put('isMoving', newState.moving.toString)
+				content.put('Opponent detected', robot.robotSight.detected.toString)
+				content.put('Opponent distance', robot.robotSight.distance.toString)
+				content.put('Opponent angle', robot.robotSight.angle.toString)
+				content.put('Battery', ((robot.state.batteryState * 100) as int).toString +'%')
+				content.put('isMoving', robot.state.moving.toString)
 				tableViewer.refresh
 			]
 		}

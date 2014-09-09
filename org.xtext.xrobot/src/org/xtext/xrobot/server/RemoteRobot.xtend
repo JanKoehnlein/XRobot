@@ -4,18 +4,28 @@ import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
 import java.net.SocketTimeoutException
 import org.xtext.xrobot.api.RobotSight
+import org.xtext.xrobot.net.CameraView
 
 class RemoteRobot extends RemoteRobotProxy {
 	
 	val IRobotSightFilter sightFilter
+	val CameraView cameraView
 	var RobotSight currentSight
 
 	new(int componentID, int nextCommandSerialNr, SocketChannel socket, StateProvider<RobotServerState> stateProvider,
 		CancelIndicator cancelIndicator, IRobotSightFilter sightFilter) {
 		super(componentID, nextCommandSerialNr, socket, stateProvider, cancelIndicator)
 		this.sightFilter = sightFilter
+		this.cameraView = null
 	}
 
+	new(int componentID, int nextCommandSerialNr, SocketChannel socket, StateProvider<RobotServerState> stateProvider,
+		CancelIndicator cancelIndicator, CameraView cameraView) {
+		super(componentID, nextCommandSerialNr, socket, stateProvider, cancelIndicator)
+		this.sightFilter = null
+		this.cameraView = cameraView
+	}
+	
 	def waitForUpdate() {
 		val lastUpdate = if(state == null) Long.MIN_VALUE else state.getSampleTime();
 		var newState = stateProvider.getState();
@@ -44,7 +54,11 @@ class RemoteRobot extends RemoteRobotProxy {
 	
 	override setState(RobotServerState state) {
 		super.setState(state)
-		currentSight = sightFilter.apply(state.opponentPosition)
+		if (sightFilter != null) {
+			currentSight = sightFilter.apply(state.opponentPosition)
+		} else if (cameraView != null) {
+			currentSight = cameraView.getRobotSight(this)
+		}
 	}
 	
 	override void update() {

@@ -96,7 +96,7 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 		try {
 			listeners.forEach[
 				modeChanged(mode)
-				stateChanged((context.getValue(ROBOT) as RemoteRobot).state)
+				stateChanged(context.getValue(ROBOT) as RemoteRobot)
 			]
 			mode.action.evaluate(context, cancelIndicator)
 		} catch(CanceledException exc) {

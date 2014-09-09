@@ -2,26 +2,33 @@ package org.xtext.xrobot.server
 
 import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
+import TUIO.TuioClient
+import org.xtext.xrobot.net.CameraView
 
 class RemoteRobotFactory {
 	
-	StateReceiver stateReceiver
+	val StateReceiver stateReceiver
 	
-	boolean isReleased
+	val SocketChannel socket
 	
-	SocketChannel socket
+	val String name
 	
-	RemoteRobot lastRobot
+	val TuioClient tuioClient
 	
-	String name
+	val CameraView cameraView
 	
-	val IRobotSightFilter sightFilter = new AveragingFilter()
+	var boolean isReleased
+	
+	var RemoteRobot lastRobot
 	
 	new(String name, SocketChannel socket) {
 		this.socket = socket
 		this.name = name
 		stateReceiver = new StateReceiver(socket)
 		stateReceiver.start
+		tuioClient = new TuioClient()
+		tuioClient.connect
+		cameraView = new CameraView(tuioClient)
 	}
 	
 	def getName() {
@@ -31,6 +38,7 @@ class RemoteRobotFactory {
 	def void release() {
 		if(!isReleased) {
 			try {
+				tuioClient.disconnect
 				try {
 					lastRobot?.release
 				} catch(Exception e) {}
@@ -50,7 +58,7 @@ class RemoteRobotFactory {
 	
 	def newRobot(CancelIndicator cancelIndicator) {
 		val nextCommandSerialNr = if(lastRobot != null) lastRobot.nextCommandSerialNr + 10 else 10
-		lastRobot = new RemoteRobot(0, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, sightFilter)
+		lastRobot = new RemoteRobot(0, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraView)
 		lastRobot.waitForUpdate
 		lastRobot
 	}
