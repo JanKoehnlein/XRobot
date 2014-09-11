@@ -17,13 +17,7 @@ class CameraView {
 	private val robotNames = #["Xtext", "Xtend"]
 	
 	private def getObjectId(String robotName) {
-		var i = 0
-		while (i < robotNames.size) {
-			if (robotNames.get(i) == robotName) {
-				return i
-			}
-			i++
-		}
+		robotNames.indexOf(robotName)
 	}
 	
 	private def getOpponentId(int objectId) {
