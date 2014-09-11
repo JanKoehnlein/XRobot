@@ -30,7 +30,7 @@ class RemoteRobotConnector implements INetConfig {
 		if(!socket.connect(new InetSocketAddress(ipAddress, SERVER_PORT))) {
 			val selector = Selector.open
 			socket.register(selector, SelectionKey.OP_CONNECT)
-			if(selector.select(SOCKET_TIMEOUT) == 0) {
+			if(selector.select(4 * SOCKET_TIMEOUT) == 0) {
 				LOG.error('Timeout connecting to  \'' + robotName + '\'')
 				return null
 			}
@@ -81,7 +81,7 @@ class RemoteRobotConnector implements INetConfig {
 			socket.setSoTimeout(4 * SOCKET_TIMEOUT);
 	        val packet = new DatagramPacket (newByteArrayOfSize(DISCOVERY_PACKET_SIZE), DISCOVERY_PACKET_SIZE)
 	        val start = System.currentTimeMillis
-	        while ((System.currentTimeMillis - start) < 2 * SOCKET_TIMEOUT) {
+	        while ((System.currentTimeMillis - start) < 4 * SOCKET_TIMEOUT) {
 	        	try {
 		            socket.receive(packet)
 		            val name = new String(packet.data, "UTF-8").trim

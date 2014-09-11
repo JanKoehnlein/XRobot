@@ -4,6 +4,7 @@ import com.illposed.osc.OSCBundle
 import com.illposed.osc.OSCMessage
 import com.illposed.osc.OSCPortOut
 import java.net.InetAddress
+import org.xtext.xrobot.net.CameraView
 
 class CameraServer {
 	
@@ -35,8 +36,8 @@ class CameraServer {
 				'set',
 				params.get(t.robotID).sessionID,
 				t.robotID,
-				t.midpoint.x as float,
-				t.midpoint.y as float,
+				t.midpoint.x as float / CameraView.RESOLUTION_X,
+				t.midpoint.y as float / CameraView.RESOLUTION_Y,
 				t.angle as float,
 				0f, // we don't measure speed, acceleration etc.
 				0f,

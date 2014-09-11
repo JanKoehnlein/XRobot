@@ -40,6 +40,7 @@ import org.opencv.core.MatOfPoint2f;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
+import org.opencv.highgui.Highgui;
 import org.opencv.highgui.VideoCapture;
 import org.opencv.imgproc.Imgproc;
 
@@ -66,9 +67,11 @@ public class TriangleScanner {
 
 	public void run(CameraServer server) {
 		VideoCapture videoCapture = new VideoCapture();
-		if(!videoCapture.open(0)) {
+		if(!videoCapture.open(1)) {
 			throw new IllegalStateException("Cannot open camera");
 		}
+		videoCapture.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 1920);
+		videoCapture.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, 1080);
 		Mat videoImage = new Mat();
 		videoCapture.read(videoImage);
 		ImagePanel imagePanel = new ImagePanel(videoImage);
@@ -82,7 +85,7 @@ public class TriangleScanner {
 			for(TriangleScanParameters params: allParams) {
 				// filter image by color
 				Mat colorFilteredImage = new Mat();
-				Core.inRange(videoImage, params.getMaxTriangleColor(), params.getMaxTriangleColor(), colorFilteredImage);
+				Core.inRange(videoImage, params.getMinTriangleColor(), params.getMaxTriangleColor(), colorFilteredImage);
 				
 				Mat dilatedImage = new Mat();
 				Imgproc.dilate(colorFilteredImage, dilatedImage, Imgproc.getStructuringElement(Imgproc.MORPH_ELLIPSE, new Size(3,3)));
@@ -360,7 +363,9 @@ public class TriangleScanner {
 			return new Dimension(image.getWidth(), image.getHeight());
 		}
 
-		public void update(Mat m) {
+		public void update(Mat mBig) {
+			Mat m = new Mat();
+			Imgproc.resize(mBig, m, new Size(0.6 * mBig.size().width, 0.6 * mBig.size().height));
 			int type = BufferedImage.TYPE_BYTE_GRAY;
 			if (m.channels() > 1) {
 				type = BufferedImage.TYPE_3BYTE_BGR;

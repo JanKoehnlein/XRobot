@@ -42,6 +42,6 @@ class Triangle {
 	}
 	
 	def double getAngle() {
-		angle(getForwardCorner().x - midpoint.x,-(getForwardCorner().y - midpoint.y))
+		angle(getForwardCorner().x - midpoint.x, getForwardCorner().y - midpoint.y)
 	}
 }

@@ -2,6 +2,7 @@ package org.xtext.xrobot.dsl.interpreter
 
 import com.google.inject.Inject
 import java.util.List
+import org.apache.log4j.Logger
 import org.eclipse.xtext.common.types.JvmField
 import org.eclipse.xtext.common.types.JvmOperation
 import org.eclipse.xtext.naming.QualifiedName
@@ -21,7 +22,8 @@ import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.RemoteRobot
 import org.xtext.xrobot.server.RemoteRobotFactory
-import org.apache.log4j.Logger
+
+import static org.xtext.xrobot.dsl.interpreter.XRobotInterpreter.*
 
 class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 	
@@ -56,40 +58,43 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 		conditionRobot = robotFactory.newRobot(cancelIndicator)
 		val conditionContext = baseContext.fork()
 		conditionContext.newValue(ROBOT, conditionRobot)
-		do {
-			val newMode = program.modes.findFirst [
-				condition == null
-				|| (condition.evaluate(conditionContext, cancelIndicator).result as Boolean)
-			]		
-			if(newMode != currentMode || currentModeCancelIndicator.isCanceled) {
-				currentModeCancelIndicator?.cancel
-				currentModeCancelIndicator = new ModeCancelIndicator(cancelIndicator)
-				currentMode = newMode
-				if (newMode != null) {
-					val modeRobot = robotFactory.newRobot(currentModeCancelIndicator)
-					val modeContext = baseContext.fork
-					modeContext.newValue(ROBOT, modeRobot)
-					val modeNode = NodeModelUtils.findActualNodeFor(newMode)
-					if (modeNode != null) {
-						modeContext.newValue(CURRENT_LINE, modeNode.startLine)
-					}
-					new Thread() {
-						override run() {
-							try {
-								currentMode.execute(modeContext, currentModeCancelIndicator)
-							} catch (CanceledException exc) {
-							} catch (Exception exc) {
-								LOG.error('Error executing mode ' + newMode.name, exc)
-							} finally {
-								currentModeCancelIndicator.cancel
-							}
+		try {
+			do {
+				val newMode = program.modes.findFirst [
+					condition == null
+					|| (condition.evaluate(conditionContext, cancelIndicator).result as Boolean)
+				]		
+				if(newMode != currentMode || currentModeCancelIndicator.isCanceled) {
+					currentModeCancelIndicator?.cancel
+					currentModeCancelIndicator = new ModeCancelIndicator(cancelIndicator)
+					currentMode = newMode
+					if (newMode != null) {
+						val modeRobot = robotFactory.newRobot(currentModeCancelIndicator)
+						val modeContext = baseContext.fork
+						modeContext.newValue(ROBOT, modeRobot)
+						val modeNode = NodeModelUtils.findActualNodeFor(newMode)
+						if (modeNode != null) {
+							modeContext.newValue(CURRENT_LINE, modeNode.startLine)
 						}
-					}.start
+						new Thread() {
+							override run() {
+								try {
+									currentMode.execute(modeContext, currentModeCancelIndicator)
+								} catch (CanceledException exc) {
+								} catch (Exception exc) {
+									LOG.error('Error executing mode ' + newMode.name, exc)
+								} finally {
+									currentModeCancelIndicator.cancel
+								}
+							}
+						}.start
+					}
 				}
-			}
-			Thread.yield
-			conditionRobot.waitForUpdate()
-		} while(!cancelIndicator.canceled)
+				Thread.yield
+				conditionRobot.waitForUpdate()
+			} while(!cancelIndicator.canceled)
+		} catch(CanceledException exc) {
+		}
 	}
 	
 	protected def execute(Mode mode, IEvaluationContext context, CancelIndicator cancelIndicator) {
