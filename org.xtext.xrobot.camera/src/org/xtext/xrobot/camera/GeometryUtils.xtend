@@ -9,6 +9,6 @@ class GeometryUtils {
 	}
 
 	static def angle(double dx, double dy) {
-		atan2(-dx, -dy)
+		atan2(-dy, dx)
 	}
 }

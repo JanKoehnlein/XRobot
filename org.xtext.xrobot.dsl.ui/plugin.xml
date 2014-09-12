@@ -583,7 +583,7 @@
 	            </reference>
 	        </visibleWhen>
 	        <parameter
-            	name="org.xtext.xrobot.dsl.ui.robotParameter" value="Xtend">
+            	name="org.xtext.xrobot.dsl.ui.robotParameter" value="0">
             </parameter>
      	</command>  
          <command
@@ -597,7 +597,7 @@
 	            </reference>
 	        </visibleWhen>
 	        <parameter
-            	name="org.xtext.xrobot.dsl.ui.robotParameter" value="Xtext">
+            	name="org.xtext.xrobot.dsl.ui.robotParameter" value="1">
             </parameter>
      	</command>  
   	</menuContribution>

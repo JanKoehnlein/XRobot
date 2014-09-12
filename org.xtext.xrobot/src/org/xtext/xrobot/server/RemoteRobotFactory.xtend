@@ -1,9 +1,9 @@
 package org.xtext.xrobot.server
 
-import TUIO.TuioClient
 import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
-import org.xtext.xrobot.camera.CameraClient
+import TUIO.TuioClient
+import org.xtext.xrobot.net.CameraView
 
 class RemoteRobotFactory {
 	
@@ -15,7 +15,7 @@ class RemoteRobotFactory {
 	
 	val TuioClient tuioClient
 	
-	val CameraClient cameraView
+	val CameraView cameraView
 	
 	var boolean isReleased
 	
@@ -28,7 +28,7 @@ class RemoteRobotFactory {
 		stateReceiver.start
 		tuioClient = new TuioClient()
 		tuioClient.connect
-		cameraView = new CameraClient(tuioClient)
+		cameraView = new CameraView(tuioClient)
 	}
 	
 	def getName() {

@@ -43,7 +43,6 @@ import org.opencv.core.Size;
 import org.opencv.highgui.Highgui;
 import org.opencv.highgui.VideoCapture;
 import org.opencv.imgproc.Imgproc;
-import org.xtext.xrobot.RobotID;
 
 public class TriangleScanner {
 
@@ -52,8 +51,8 @@ public class TriangleScanner {
 	}
 
 	private TriangleScanParameters[] allParams = new TriangleScanParameters[] {
-		new TriangleScanParameters(RobotID.Xtend, new Scalar(88, 98, 165), new Scalar(140, 200, 255), 115),
-		new TriangleScanParameters(RobotID.Xtext, new Scalar(239, 188, 0), new Scalar(255,248,89), 115)
+		new TriangleScanParameters("Xtext", 0, new Scalar(239, 188, 0), new Scalar(255,248,89), 115),
+		new TriangleScanParameters("Xtend", 1, new Scalar(88, 98, 165), new Scalar(140, 200, 255), 115)
 	};
 	
 	private volatile DisplayedType displayedType = DisplayedType.VIDEO;
@@ -71,8 +70,8 @@ public class TriangleScanner {
 		if(!videoCapture.open(1)) {
 			throw new IllegalStateException("Cannot open camera");
 		}
-		videoCapture.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, ICamera.RESOLUTION_X);
-		videoCapture.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, ICamera.RESOLUTION_Y);
+		videoCapture.set(Highgui.CV_CAP_PROP_FRAME_WIDTH, 1920);
+		videoCapture.set(Highgui.CV_CAP_PROP_FRAME_HEIGHT, 1080);
 		Mat videoImage = new Mat();
 		videoCapture.read(videoImage);
 		ImagePanel imagePanel = new ImagePanel(videoImage);

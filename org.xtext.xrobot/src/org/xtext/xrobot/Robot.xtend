@@ -21,32 +21,30 @@ import org.xtext.xrobot.util.SoundUtil
 import static extension java.lang.Math.*
 import org.xtext.xrobot.api.IRobotGeometry
 import org.xtext.xrobot.util.LEDPatterns
-import org.xtext.xrobot.api.RobotPosition
-import org.xtext.xrobot.api.Direction
 
 @SimpleRMI
 class Robot implements IRobotGeometry {
-
+	
 	DifferentialPilot pilot
 
 	SensorMode irSensor
-	int irChannel
 	SensorMode colorSensor
 	Key escapeKey
-
+	
 	LED led
 	Audio audio
 	Power power
-
+	
 	String name
-
-
+	
+	int channel
+	
 	extension SoundUtil = new SoundUtil
-
+		
 	@SubComponent Motor leftMotor
 	@SubComponent Motor rightMotor
 	@SubComponent Motor scoopMotor
-
+	
 	new(Brick brick) {
 		val leftRegMotor = new NXTRegulatedMotor(brick.getPort('B'))
 		val rightRegMotor = new NXTRegulatedMotor(brick.getPort('C'))
@@ -60,38 +58,38 @@ class Robot implements IRobotGeometry {
 		led = brick.LED
 		audio = brick.audio
 		name = brick.name
-		irChannel = RobotID.valueOf(name).ordinal() + 1
+		this.channel = if(name == 'Xtend') 1 else 2
 		scoopMotor.speed = scoopMotor.maxSpeed as int
 		power = brick.power
 	}
-
+	
 	/**
 	 * @return the robot's name
 	 */
 	override String getName() {
 		name
 	}
-
+	
 	@NoAPI
 	def boolean isEscapePressed() {
 		escapeKey.down
 	}
-
+	
 	@NoAPI
-	def OpponentPosition getIROpponentPosition() {
+	def OpponentPosition getOpponentPosition() {
 		val sample = newFloatArrayOfSize(8)
 		irSensor.fetchSample(sample, 0)
-		return new OpponentPosition(sample, irChannel)
+		return new OpponentPosition(sample, channel)
 	}
-
+	
 	/**
 	 * @return the opponent's position as scanned by the robot's IR sensor.
 	 */
 	@Calculated
-	override RobotSight getIRRobotSight() {
-		null
+	override RobotSight getRobotSight() {
+		null	
 	}
-
+	
 	/**
 	 * @returns the measured ground color between 0.0 and 1.0
 	 */
@@ -100,7 +98,7 @@ class Robot implements IRobotGeometry {
 		colorSensor.fetchSample(sample, 0)
 		return sample.get(0)
 	}
-
+	
 	/**
 	 * Sets both motors in motion simultaneously. 
 	 * 
@@ -113,18 +111,18 @@ class Robot implements IRobotGeometry {
 	 * @param rightSpeed the speed of the right motor in degrees/second   
 	 */
 	override void setSpeeds(double leftSpeed, double rightSpeed) {
-		leftMotor.speed = (360 * abs(leftSpeed) / WHEEL_DIAMETER) as int
+		leftMotor.speed = (360 * abs(leftSpeed) / WHEEL_DIAMETER) as int 
 		rightMotor.speed = (360 * abs(rightSpeed) / WHEEL_DIAMETER) as int
-		if (leftSpeed < 0)
+		if(leftSpeed < 0)
 			leftMotor.backward
 		else
 			leftMotor.forward
-		if (rightSpeed < 0)
+		if(rightSpeed < 0)
 			rightMotor.backward
 		else
 			rightMotor.forward
 	}
-
+	
 	/**
 	 * Moves the robot forward by <code>distance</code> centimeters.
 	 * 
@@ -137,7 +135,7 @@ class Robot implements IRobotGeometry {
 	override void forward(double distance) {
 		pilot.travel(distance, true)
 	}
-
+	
 	/**
 	 * Moves the robot forward at the current travelSpeed.
 	 * 
@@ -149,7 +147,7 @@ class Robot implements IRobotGeometry {
 	override void forward() {
 		pilot.forward
 	}
-
+	
 	/**
 	 * Moves the robot backward by <code>distance</code> centimeters.
 	 * 
@@ -162,7 +160,7 @@ class Robot implements IRobotGeometry {
 	override void backward(double distance) {
 		pilot.travel(-distance, true)
 	}
-
+	
 	/**
 	 * Moves the robot backward at the current travelSpeed.
 	 * 
@@ -174,7 +172,7 @@ class Robot implements IRobotGeometry {
 	override void backward() {
 		pilot.backward
 	}
-
+	
 	/**
 	 * Sets the speed in centimeter/second for all {@link #forward()} and {@link #backward()} 
 	 * commands. Does not actually mode the robot.
@@ -184,7 +182,7 @@ class Robot implements IRobotGeometry {
 	override void setTravelSpeed(double speed) {
 		pilot.travelSpeed = speed
 	}
-
+	
 	/**
 	 * Returns the speed for all {@link #forward()} and {@link #backward()} commands.
 	 * 
@@ -193,7 +191,7 @@ class Robot implements IRobotGeometry {
 	override double getTravelSpeed() {
 		pilot.travelSpeed
 	}
-
+	
 	/**
 	 * Returns the maximum speed for {@link #forward()} and {@link #backward()} commands
 	 * depending on the battery status.
@@ -203,7 +201,7 @@ class Robot implements IRobotGeometry {
 	override double getMaxTravelSpeed() {
 		pilot.maxTravelSpeed
 	}
-
+	
 	/** 
 	 * Rotates the robot on the spot by <code>angle</code> degrees.
 	 * 
@@ -214,7 +212,7 @@ class Robot implements IRobotGeometry {
 	override void rotate(double angle) {
 		pilot.rotate(angle, true)
 	}
-
+	
 	/** 
 	 * Rotates the robot left on the spot at the current rotate speed.
 	 * 
@@ -224,7 +222,7 @@ class Robot implements IRobotGeometry {
 	override void rotateLeft() {
 		pilot.rotateLeft
 	}
-
+	
 	/** 
 	 * Rotates the robot left on the spot at the current rotate speed.
 	 * 
@@ -234,7 +232,7 @@ class Robot implements IRobotGeometry {
 	override void rotateRight() {
 		pilot.rotateRight
 	}
-
+	
 	/**
 	 * Sets the speed in for all {@link #rotate()} commands. Does not actually mode 
 	 * the robot.
@@ -244,7 +242,7 @@ class Robot implements IRobotGeometry {
 	override void setRotateSpeed(double rotateSpeed) {
 		pilot.rotateSpeed = rotateSpeed
 	}
-
+	
 	/**
 	 * Returns the speed for all {@link rotate()} commands.
 	 * 
@@ -253,7 +251,7 @@ class Robot implements IRobotGeometry {
 	override double getRotateSpeed() {
 		pilot.rotateSpeed
 	}
-
+	
 	/**
 	 * Returns the maxiumum speed for all {@link rotate()} commands depending on the 
 	 * battery status.
@@ -263,7 +261,7 @@ class Robot implements IRobotGeometry {
 	override double getMaxRotateSpeed() {
 		pilot.rotateMaxSpeed
 	}
-
+	
 	/**
 	 * Lets the robot travel a forward curve with the given <code>radius</code> and 
 	 * <code>angle</code>.
@@ -273,12 +271,12 @@ class Robot implements IRobotGeometry {
 	 */
 	@Blocking
 	override void curveForward(double radius, double angle) {
-		if (angle < 0)
+		if(angle < 0) 
 			pilot.arc(-abs(radius), angle, true)
 		else
 			pilot.arc(abs(radius), angle, true)
 	}
-
+	
 	/**
 	 * Lets the robot travel a backward curve with the given <code>radius</code> and 
 	 * <code>angle</code>.
@@ -288,12 +286,12 @@ class Robot implements IRobotGeometry {
 	 */
 	@Blocking
 	override void curveBackward(double radius, double angle) {
-		if (angle < 0)
+		if(angle < 0)
 			pilot.arc(abs(radius), angle, true)
 		else
 			pilot.arc(-abs(radius), angle, true)
 	}
-
+	
 	/**
 	 * Lets the robot travel a backward curve to the point with the relative polar
 	 * coordinates <code>angle</code> and <code>distance</code>.
@@ -303,21 +301,21 @@ class Robot implements IRobotGeometry {
 		val radius = 0.5 * distance * cos(0.5 * PI - angle.toRadians)
 		curveForward(radius, angle)
 	}
-
+	
 	/**
 	 * @return true if any of the motors is moving. 
 	 */
 	override boolean isMoving() {
 		pilot.isMoving
 	}
-
+	
 	/**
 	 * Stops all motors immediately.
 	 */
 	override void stop() {
 		pilot.stop
 	}
-
+	
 	/**
 	 * Moves the robot's scoop. Values are truncated to be between -1.0 and 1.0 
 	 * 0 is on the floor
@@ -332,11 +330,11 @@ class Robot implements IRobotGeometry {
 		val intAngle = (min(1, max(angle, -1)) * 200) as int
 		scoopMotor.rotateTo(intAngle)
 	}
-
+	
 	override void playSample(String fileName) {
 		audio.playSample('samples/' + fileName + '.wav', 100)
-	}
-
+	}	
+	
 	/** 
 	 * @see {@link LEDPatterns} for values 
 	 */
@@ -344,7 +342,7 @@ class Robot implements IRobotGeometry {
 	def void setLed(int pattern) {
 		led.pattern = pattern
 	}
-
+	
 	/**
 	 * @returns the battery's charging state between 0.0 and 1.0
 	 */
@@ -352,7 +350,7 @@ class Robot implements IRobotGeometry {
 	def double getBatteryState() {
 		power.voltage / 9.0
 	}
-
+	
 	/**
 	 * Updates this robot with the latest sensor data and robot state. 
 	 * 
@@ -363,26 +361,5 @@ class Robot implements IRobotGeometry {
 	@Calculated
 	override void update() {
 		// implement on the server only		
-	}
-
-	/**
-	 * @return the robot's position.
-	 */
-	@Calculated
-	override RobotPosition getOwnPosition() {
-	}
-
-	/**
-	 * @return the oppenent's position.
-	 */
-	@Calculated
-	override RobotPosition getOpponentPosition() {
-	}
-
-	/**
-	 * @return the oppenent's position.
-	 */
-	@Calculated
-	override Direction getOpponentDirection() {
 	}
 }

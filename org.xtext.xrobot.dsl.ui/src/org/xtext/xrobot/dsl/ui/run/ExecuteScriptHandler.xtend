@@ -37,8 +37,10 @@ import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.interpreter.ScriptRunner
 import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
-import org.xtext.xrobot.server.RemoteRobot
+import org.xtext.xrobot.server.IRobotState
 import org.xtext.xrobot.server.RemoteRobotConnector
+import org.xtext.xrobot.api.IRobot
+import org.xtext.xrobot.server.RemoteRobot
 
 @Singleton
 class ExecuteScriptHandler extends AbstractHandler {
@@ -53,7 +55,14 @@ class ExecuteScriptHandler extends AbstractHandler {
 
 	override execute(ExecutionEvent event) throws ExecutionException {
 		val xtextEditor = EditorUtils.getActiveXtextEditor(event)
-		val robotName = event.getParameter('org.xtext.xrobot.dsl.ui.robotParameter')
+		val robotParameter = event.getParameter('org.xtext.xrobot.dsl.ui.robotParameter')
+		val robotName = switch robotParameter {
+			case "0",
+			case "Xtend": 'Xtend'
+			case "1",
+			case "Xtext": 'Xtext'
+			default: null
+		}
 		if (robotName != null) {
 			val runningJob = name2controller.get(robotName)
 			if (runningJob != null) {
@@ -120,6 +129,7 @@ class ExecuteScriptHandler extends AbstractHandler {
 		XtextEditor editor
 
 		IProgressMonitor monitor
+	
 
 		new(XtextEditor editor) {
 			super(editor.site.shell)
@@ -175,8 +185,9 @@ class ExecuteScriptHandler extends AbstractHandler {
 
 		override stateChanged(RemoteRobot robot) {
 			Display.getDefault.asyncExec [
-				content.put('Opponent distance', robot.opponentDirection.distance.toString)
-				content.put('Opponent angle', robot.opponentDirection.angle.toString)
+				content.put('Opponent detected', robot.robotSight.detected.toString)
+				content.put('Opponent distance', robot.robotSight.distance.toString)
+				content.put('Opponent angle', robot.robotSight.angle.toString)
 				content.put('Battery', ((robot.state.batteryState * 100) as int).toString +'%')
 				content.put('isMoving', robot.state.moving.toString)
 				tableViewer.refresh
@@ -207,6 +218,7 @@ class ExecuteScriptHandler extends AbstractHandler {
 			}
 			
 		}
+
 	}
 
 }

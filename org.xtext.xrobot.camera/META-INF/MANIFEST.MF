@@ -5,6 +5,6 @@ Bundle-SymbolicName: org.xtext.xrobot.camera
 Bundle-Version: 1.0.0.qualifier
 Export-Package: 
  org.xtext.xrobot.camera
-Require-Bundle: tuio;bundle-version="1.0.0",
- org.xtext.xrobot;bundle-version="1.0.0"
+Require-Bundle: org.xtext.xrobot;bundle-version="1.0.0",
+ tuio;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
