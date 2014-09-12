@@ -1,29 +1,36 @@
 package org.xtext.xrobot.server
 
+import java.net.SocketTimeoutException
 import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
-import java.net.SocketTimeoutException
 import org.xtext.xrobot.api.RobotSight
-import org.xtext.xrobot.net.CameraView
+import org.xtext.xrobot.camera.CameraClient
+import org.xtext.xrobot.api.RobotPosition
 
 class RemoteRobot extends RemoteRobotProxy {
 	
+	val CameraClient cameraClient
+	
 	val IRobotSightFilter sightFilter
-	val CameraView cameraView
-	var RobotSight currentSight
+	
+	var RobotSight irOpponentPosition
+	
+	var RobotPosition ownPosition
+	
+	var RobotPosition opponentPosition
 
 	new(int componentID, int nextCommandSerialNr, SocketChannel socket, StateProvider<RobotServerState> stateProvider,
 		CancelIndicator cancelIndicator, IRobotSightFilter sightFilter) {
 		super(componentID, nextCommandSerialNr, socket, stateProvider, cancelIndicator)
 		this.sightFilter = sightFilter
-		this.cameraView = null
+		this.cameraClient = null
 	}
 
 	new(int componentID, int nextCommandSerialNr, SocketChannel socket, StateProvider<RobotServerState> stateProvider,
-		CancelIndicator cancelIndicator, CameraView cameraView) {
+		CancelIndicator cancelIndicator, CameraClient cameraView) {
 		super(componentID, nextCommandSerialNr, socket, stateProvider, cancelIndicator)
 		this.sightFilter = null
-		this.cameraView = cameraView
+		this.cameraClient = cameraView
 	}
 	
 	def waitForUpdate() {
@@ -48,17 +55,35 @@ class RemoteRobot extends RemoteRobotProxy {
 		output.send
 	}
 	
-	override RobotSight getRobotSight() {
-		currentSight
+	override RobotSight getIRRobotSight() {
+		irOpponentPosition
 	}
 	
 	override setState(RobotServerState state) {
 		super.setState(state)
 		if (sightFilter != null) {
-			currentSight = sightFilter.apply(state.opponentPosition)
-		} else if (cameraView != null) {
-			currentSight = cameraView.getRobotSight(this)
+			irOpponentPosition = sightFilter.apply(state.IROpponentPosition)
 		}
+		if (cameraClient != null) {
+			cameraClient.robotPositions.forEach[
+				if(robotID.name == name)
+					ownPosition = it
+				else 
+					opponentPosition = it
+			]
+		}
+	}
+	
+	override getOwnPosition() {
+		ownPosition
+	}
+	
+	override getOpponentPosition() {
+		opponentPosition
+	}
+	
+	override getOpponentDirection() {
+		ownPosition.getRelativeDirection(opponentPosition)
 	}
 	
 	override void update() {
