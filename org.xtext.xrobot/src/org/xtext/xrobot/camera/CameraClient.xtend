@@ -7,6 +7,8 @@ import org.xtext.xrobot.api.RobotPosition
 
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.camera.ICamera.*
+import org.xtext.xrobot.net.INetConfig
+import java.net.SocketTimeoutException
 
 class CameraClient {
 
@@ -14,6 +16,12 @@ class CameraClient {
 
 	new(TuioClient client) {
 		this.client = client
+		var startTime = System.currentTimeMillis
+		while(client.tuioObjects.size() != 2) {
+			if(System.currentTimeMillis - startTime > INetConfig.SOCKET_TIMEOUT)
+				throw new SocketTimeoutException('No updates from camera server')
+			Thread.sleep(50)
+		}
 	}
 
 	def getRobotPositions() {
