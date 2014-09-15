@@ -6,10 +6,10 @@ import TUIO.TuioCursor
 import TUIO.TuioObject
 import TUIO.TuioTime
 
-class CameraClient {
+class TestCameraClient {
 	
 	def static void main(String[] args) {
-		new CameraClient
+		new TestCameraClient
 	}
 	
 	new() {

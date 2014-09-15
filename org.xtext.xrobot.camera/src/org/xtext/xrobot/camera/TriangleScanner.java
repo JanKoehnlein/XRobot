@@ -365,7 +365,7 @@ public class TriangleScanner {
 
 		public void update(Mat mBig) {
 			Mat m = new Mat();
-			Imgproc.resize(mBig, m, new Size(0.6 * mBig.size().width, 0.6 * mBig.size().height));
+			Imgproc.resize(mBig, m, new Size(mBig.size().width, mBig.size().height));
 			int type = BufferedImage.TYPE_BYTE_GRAY;
 			if (m.channels() > 1) {
 				type = BufferedImage.TYPE_3BYTE_BGR;
