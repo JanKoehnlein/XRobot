@@ -45,8 +45,13 @@ class RemoteRobotConnector implements INetConfig {
 	}
 	
 	private def getIPAddress(String robotName) {
-		val map=discover
-		return map.get(robotName)
+		switch robotName {
+			case 'Xtend': '10.10.1.5'
+			case 'Xtext': '10.10.1.6'
+			default: null
+		}
+//		val map=discover
+//		return map.get(robotName)
 	}
 	
 	def getRobotFactory(String name) {
