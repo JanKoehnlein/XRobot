@@ -33,19 +33,19 @@ class RemoteRobot extends RemoteRobotProxy {
 		this.cameraClient = cameraView
 	}
 	
-	def waitForUpdate() {
-		val lastUpdate = if(state == null) Long.MIN_VALUE else state.getSampleTime();
-		var newState = stateProvider.getState();
-		var tries = 3 * SOCKET_TIMEOUT / UPDATE_INTERVAL;
-		while (newState == null || lastUpdate >= newState.getSampleTime()) {
-			checkCanceled()
+	def waitForUpdate(int timeout) throws SocketTimeoutException {
+		val lastUpdate = if(state == null) Long.MIN_VALUE else state.sampleTime
+		var newState = stateProvider.state
+		var tries = timeout / UPDATE_INTERVAL;
+		while (newState == null || lastUpdate >= newState.sampleTime) {
+			checkCanceled
 			if (tries-- <= 0)
-				throw new SocketTimeoutException();
-			Thread.yield();
-			Thread.sleep(UPDATE_INTERVAL / 3);
-			newState = stateProvider.getState();
+				throw new SocketTimeoutException('No state update from after ' + timeout + 'ms.')
+			Thread.yield
+			Thread.sleep(UPDATE_INTERVAL / 3)
+			newState = stateProvider.state
 		}
-		setState(newState);
+		setState(newState)
 	}
 
 	def release() {

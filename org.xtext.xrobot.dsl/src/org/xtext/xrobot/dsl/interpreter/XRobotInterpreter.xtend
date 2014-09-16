@@ -24,6 +24,7 @@ import org.xtext.xrobot.server.RemoteRobot
 import org.xtext.xrobot.server.RemoteRobotFactory
 
 import static org.xtext.xrobot.dsl.interpreter.XRobotInterpreter.*
+import static org.xtext.xrobot.net.INetConfig.*
 
 class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 	
@@ -91,7 +92,7 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 					}
 				}
 				Thread.yield
-				conditionRobot.waitForUpdate()
+				conditionRobot.waitForUpdate(SOCKET_TIMEOUT)
 			} while(!cancelIndicator.canceled)
 		} catch(CanceledException exc) {
 		}

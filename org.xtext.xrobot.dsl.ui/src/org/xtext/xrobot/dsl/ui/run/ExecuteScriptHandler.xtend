@@ -39,9 +39,13 @@ import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.server.RemoteRobot
 import org.xtext.xrobot.server.RemoteRobotConnector
+import org.xtext.xrobot.server.RemoteRobotFactory
+import org.apache.log4j.Logger
 
 @Singleton
 class ExecuteScriptHandler extends AbstractHandler {
+
+	static val LOG = Logger.getLogger(ExecuteScriptHandler)
 
 	@Inject RemoteRobotConnector connector
 
@@ -64,50 +68,54 @@ class ExecuteScriptHandler extends AbstractHandler {
 					MessageDialog.openError(xtextEditor.editorSite.shell, 'Error', 'Error canceling running job')
 				}
 			}
-			val robotFactory = connector.getRobotFactory(robotName)
-			if (robotFactory == null) {
-				MessageDialog.openError(xtextEditor.editorSite.shell, 'Error',
-					'Could not locate robot \'' + robotName + '\'')
-			} else {
-				val document = xtextEditor.document
-				val scriptName = document.readOnly [
-					URI.trimFileExtension.lastSegment
-				]
-				val project = (xtextEditor.editorInput as IFileEditorInput).file.project
-				val resourceSet = resourceSetProvider.get(project) as XtextResourceSet
-				val model = document.get
-				val dialog = new StateDialog(xtextEditor)
-				val scriptRunner = scriptRunnerProvider.get
-				scriptRunner.addRobotListener(dialog)
-				val job = new Job('Running script \'' + scriptName + '\' on robot \'' + robotName + '\'') {
-					override protected run(IProgressMonitor monitor) {
-						try {
-							Display.getDefault.asyncExec [
-								dialog.open(monitor)
-							]
-							scriptRunner.run(robotFactory, model, resourceSet,
-								new CancelIndicator() {
-									override isCanceled() {
-										monitor.isCanceled
-									}
-								})
-							return Status.OK_STATUS
-						} catch (Exception exc) {
-							return new Status(IStatus.ERROR, XRobotDSLActivator.ORG_XTEXT_XROBOT_DSL_XROBOTDSL,
-								exc.message, exc)
-						} finally {
-							try {
-								robotFactory.release
-								Display.getDefault.asyncExec [
-									dialog.close
-								]
-							} catch (Exception exc) {
-							}
-						}
+			var RemoteRobotFactory tempRobotFactory = null
+			try {
+				tempRobotFactory = connector.getRobotFactory(robotName)
+			} catch (Exception exc) {
+				MessageDialog.openError(xtextEditor.editorSite.shell, 'Error', '''
+					Could not locate robot '«robotName»':
+					«exc.message»
+					See log for details.
+				''')
+				LOG.error(exc)
+				return null
+			}
+			val robotFactory = tempRobotFactory
+			val document = xtextEditor.document
+			val scriptName = document.readOnly [
+				URI.trimFileExtension.lastSegment
+			]
+			val project = (xtextEditor.editorInput as IFileEditorInput).file.project
+			val resourceSet = resourceSetProvider.get(project) as XtextResourceSet
+			val model = document.get
+			val dialog = new StateDialog(xtextEditor)
+			val scriptRunner = scriptRunnerProvider.get
+			scriptRunner.addRobotListener(dialog)
+			val job = new Job('Running script \'' + scriptName + '\' on robot \'' + robotName + '\'') {
+				override protected run(IProgressMonitor monitor) {
+					try {
+						Display.getDefault.asyncExec [
+							dialog.open(monitor)
+						]
+						scriptRunner.run(robotFactory, model, resourceSet,
+							new CancelIndicator() {
+								override isCanceled() {
+									monitor.isCanceled
+								}
+							})
+						return Status.OK_STATUS
+					} catch (Exception exc) {
+						return new Status(IStatus.ERROR, XRobotDSLActivator.ORG_XTEXT_XROBOT_DSL_XROBOTDSL,
+							exc.message, exc)
+					} finally {
+						robotFactory.release
+						Display.getDefault.asyncExec [
+							dialog.close
+						]
 					}
 				}
-				job.schedule
 			}
+			job.schedule
 		}
 		null
 	}
@@ -141,7 +149,9 @@ class ExecuteScriptHandler extends AbstractHandler {
 					val map = inputElement as SortedMap<String, String>
 					map.entrySet.map[#[it.key, it.value]]
 				}
+
 				override dispose() {}
+
 				override inputChanged(Viewer viewer, Object oldInput, Object newInput) {}
 			}
 			tableViewer.labelProvider = new TableLabelProvider
@@ -177,12 +187,12 @@ class ExecuteScriptHandler extends AbstractHandler {
 			Display.getDefault.asyncExec [
 				content.put('Opponent distance', robot.opponentDirection.distance.toString)
 				content.put('Opponent angle', robot.opponentDirection.angle.toString)
-				content.put('Battery', ((robot.state.batteryState * 100) as int).toString +'%')
+				content.put('Battery', ((robot.state.batteryState * 100) as int).toString + '%')
 				content.put('isMoving', robot.state.moving.toString)
 				tableViewer.refresh
 			]
 		}
-		
+
 		override variableChanged(String name, Object value) {
 			Display.getDefault.asyncExec [
 				content.put(name, value.toString)
@@ -194,18 +204,18 @@ class ExecuteScriptHandler extends AbstractHandler {
 			val region = editor.document.getLineInformation(line - 1)
 			editor.setHighlightRange(region.offset, region.length, false)
 		}
-	
+
 		static class TableLabelProvider extends LabelProvider implements ITableLabelProvider {
-			
+
 			override getColumnImage(Object element, int columnIndex) {
 				null
 			}
-			
+
 			override getColumnText(Object element, int columnIndex) {
 				val list = element as List<String>
 				list.get(columnIndex)
 			}
-			
+
 		}
 	}
 

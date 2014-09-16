@@ -4,8 +4,11 @@ import TUIO.TuioClient
 import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.camera.CameraClient
+import java.net.SocketTimeoutException
+import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
+import org.xtext.xrobot.net.INetConfig
 
-class RemoteRobotFactory {
+class RemoteRobotFactory implements INetConfig {
 	
 	val StateReceiver stateReceiver
 	
@@ -15,20 +18,26 @@ class RemoteRobotFactory {
 	
 	val TuioClient tuioClient
 	
-	val CameraClient cameraView
+	val CameraClient cameraClient
 	
 	var boolean isReleased
 	
 	var RemoteRobot lastRobot
 	
-	new(String name, SocketChannel socket) {
-		this.socket = socket
-		this.name = name
-		stateReceiver = new StateReceiver(socket)
-		stateReceiver.start
-		tuioClient = new TuioClient()
-		tuioClient.connect
-		cameraView = new CameraClient(tuioClient)
+	new(String name, SocketChannel socket) throws SocketTimeoutException {
+		try {
+			this.socket = socket
+			this.name = name
+			stateReceiver = new StateReceiver(socket)
+			stateReceiver.start
+			tuioClient = new TuioClient()
+			tuioClient.connect
+			cameraClient = new CameraClient(tuioClient)
+		} catch(Exception exc) {
+			ignoreExceptions[stateReceiver?.shutdown]
+			ignoreExceptions[tuioClient?.disconnect]
+			throw exc
+		}
 	}
 	
 	def getName() {
@@ -37,18 +46,11 @@ class RemoteRobotFactory {
 	
 	def void release() {
 		if(!isReleased) {
-			try {
-				tuioClient.disconnect
-				try {
-					lastRobot?.release
-				} catch(Exception e) {}
-				stateReceiver.shutdown
-				try {
-					socket?.close
-				} catch(Exception e) {}
-			} finally {
-				isReleased = true
-			}
+			ignoreExceptions[tuioClient.disconnect]
+			ignoreExceptions[lastRobot?.release]
+			stateReceiver.shutdown
+			ignoreExceptions[socket?.close]
+			isReleased = true
 		}
 	}
 	
@@ -56,10 +58,15 @@ class RemoteRobotFactory {
 		!isReleased && stateReceiver.isAlive
 	}
 	
-	def newRobot(CancelIndicator cancelIndicator) {
-		val nextCommandSerialNr = if(lastRobot != null) lastRobot.nextCommandSerialNr + 10 else 10
-		lastRobot = new RemoteRobot(0, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraView)
-		lastRobot.waitForUpdate
+	def newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException {
+		var nextCommandSerialNr = 10
+		var timeout = 4 * SOCKET_TIMEOUT
+		if(lastRobot != null) {
+			nextCommandSerialNr = lastRobot.nextCommandSerialNr + 10
+			timeout = SOCKET_TIMEOUT
+		}
+		lastRobot = new RemoteRobot(0, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraClient)
+		lastRobot.waitForUpdate(timeout)
 		lastRobot
 	}
 }

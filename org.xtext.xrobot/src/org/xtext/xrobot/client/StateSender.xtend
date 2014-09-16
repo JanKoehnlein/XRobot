@@ -7,6 +7,7 @@ import java.nio.channels.SocketChannel
 import org.xtext.xrobot.Robot
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.net.SocketOutputBuffer
+import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
 
 class StateSender extends Thread implements INetConfig {
 	
@@ -18,7 +19,7 @@ class StateSender extends Thread implements INetConfig {
 	
 	volatile boolean isStopped = false
 	
-	new(Robot robot, SocketChannel socket) {
+	new(Robot robot, SocketChannel socket) throws Exception {
 		this.robot = robot
 		this.output = new SocketOutputBuffer(socket)
 		this.selector = Selector.open
@@ -42,7 +43,8 @@ class StateSender extends Thread implements INetConfig {
 			} catch(ClosedSelectorException e) {
 				return
 			} catch(Exception e) {
-				e.printStackTrace
+				System.err.println(e.message)
+				ignoreExceptions[selector?.close]
 				return
 			}
 		}

@@ -43,6 +43,7 @@ class TestCameraClient {
 			
 			override updateTuioObject(TuioObject tobj) {
 				println('Object ' + tobj.symbolID + ' updated')
+				println(tobj.x + ' ' +  tobj.y + ' ' + tobj.angle)
 			}
 			
 		})

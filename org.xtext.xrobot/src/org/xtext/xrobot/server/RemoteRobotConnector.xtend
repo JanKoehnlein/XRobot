@@ -11,6 +11,7 @@ import java.nio.channels.SocketChannel
 import java.util.Map
 import org.xtext.xrobot.net.INetConfig
 import org.apache.log4j.Logger
+import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
 
 @Singleton
 class RemoteRobotConnector implements INetConfig {
@@ -18,25 +19,22 @@ class RemoteRobotConnector implements INetConfig {
 	static val LOG = Logger.getLogger(RemoteRobotConnector)
 
 	val Map<String, RemoteRobotFactory> name2robot = newHashMap
-	
-	private def connect(String robotName) {
-		val ipAddress = robotName.getIPAddress
-		if(ipAddress == null) {
-			LOG.error('Brick \'' + robotName + '\' not located')			
-			return null
-		} 
-		val socket = SocketChannel.open()
-		socket.configureBlocking(false)
-		if(!socket.connect(new InetSocketAddress(ipAddress, SERVER_PORT))) {
-			val selector = Selector.open
-			socket.register(selector, SelectionKey.OP_CONNECT)
-			if(selector.select(4 * SOCKET_TIMEOUT) == 0) {
-				LOG.error('Timeout connecting to  \'' + robotName + '\'')
-				return null
-			}
-			socket.finishConnect
-		}
+
+	private def connect(String robotName) throws SocketTimeoutException {
+		var SocketChannel socket = null
 		try {
+			val ipAddress = robotName.getIPAddress
+			if(ipAddress == null) 
+				throw new SocketTimeoutException('Brick \'' + robotName + '\' not located')			
+			socket = SocketChannel.open()
+			socket.configureBlocking(false)
+			if(!socket.connect(new InetSocketAddress(ipAddress, SERVER_PORT))) {
+				val selector = Selector.open
+				socket.register(selector, SelectionKey.OP_CONNECT)
+				if(selector.select(4 * SOCKET_TIMEOUT) == 0) 
+					throw new SocketTimeoutException('Timeout connecting to  \'' + robotName + '\'')
+				socket.finishConnect
+			}
 			val remoteRobotFactory = new RemoteRobotFactory(robotName, socket)
 			LOG.info('Connected to ' + robotName + ' at ' + (socket.remoteAddress as InetSocketAddress).address)
 			remoteRobotFactory
@@ -57,11 +55,7 @@ class RemoteRobotConnector implements INetConfig {
 			if(connectedRobot.isAlive) {
 				return connectedRobot
 			} else {
-				try {
-					connectedRobot.release
-				} catch(Exception exc) {
-					// ignore
-				}
+				ignoreExceptions[connectedRobot.release]
 			}
 		}
 		val newRobot = connect(name)

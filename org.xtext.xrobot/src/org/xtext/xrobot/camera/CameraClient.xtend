@@ -14,12 +14,12 @@ class CameraClient {
 
 	private val TuioClient client
 
-	new(TuioClient client) {
+	new(TuioClient client) throws SocketTimeoutException {
 		this.client = client
 		var startTime = System.currentTimeMillis
 		while(client.tuioObjects.size() != 2) {
-			if(System.currentTimeMillis - startTime > INetConfig.SOCKET_TIMEOUT)
-				throw new SocketTimeoutException('No updates from camera server')
+			if(System.currentTimeMillis - startTime > 5* INetConfig.SOCKET_TIMEOUT)
+				throw new SocketTimeoutException('Missing updates from camera server. Got ' + client.tuioObjects.size + ' but needed 2.')
 			Thread.sleep(50)
 		}
 	}
@@ -36,7 +36,7 @@ class CameraClient {
 						(0.5 - tuioObject.y) * HEIGHT_IN_CM,
 						robotID,
 						// TODO verify: I assume in TUIO 0° means NORTH and 90° means WEST
-						normalizeAngle(tuioObject.angleDegrees - 90)
+						normalizeAngle(tuioObject.angleDegrees)
 					))
 			}
 		]

@@ -7,6 +7,7 @@ import java.nio.channels.SocketChannel
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.net.SocketInputBuffer
 import org.apache.log4j.Logger
+import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
 
 class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 	
@@ -59,7 +60,6 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 						} catch(Exception exc) {
 							failureCount++  
 							LOG.error('State read failures ' + failureCount + " succeses " + successCount)
-//							LOG.error('State read failure rate ' + failureCount as double / (failureCount + successCount))
 						}							
 					} 
 				}
@@ -86,6 +86,6 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 	
 	def shutdown() {
 		isStopped = true
-		thread.join(SOCKET_TIMEOUT)
+		ignoreExceptions[ thread.join(SOCKET_TIMEOUT) ]
 	}
 }

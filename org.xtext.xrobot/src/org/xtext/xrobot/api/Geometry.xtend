@@ -69,7 +69,7 @@ class RobotPosition extends Position {
 	 */
 	def getRelativeDirection(Position position) {
 		val absDirection = (position - this).toDirection
-		new Direction(absDirection.distance, normalizeAngle(absDirection.angle - viewDirection))
+		new Direction(absDirection.distance, normalizeAngle(absDirection.angle - viewDirection - 90))
 	}
 }
 
