@@ -70,7 +70,6 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 				e.printStackTrace
 			}
 		}
-		println('Exited')
 	}
 	
 	def start() {
