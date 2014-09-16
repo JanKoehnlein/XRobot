@@ -32,7 +32,7 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 		this.input = new SocketInputBuffer(socket)
 		this.selector = Selector.open
 		socket.register(selector, SelectionKey.OP_READ)	
-		this.thread = new Thread [ run ] => [
+		this.thread = new Thread([ run ], 'StateReceiver') => [
 			daemon = true
 		]
 	}
@@ -70,6 +70,7 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 				e.printStackTrace
 			}
 		}
+		println('Exited')
 	}
 	
 	def start() {
@@ -87,5 +88,6 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 	def shutdown() {
 		isStopped = true
 		ignoreExceptions[ thread.join(SOCKET_TIMEOUT) ]
+		thread = null
 	}
 }

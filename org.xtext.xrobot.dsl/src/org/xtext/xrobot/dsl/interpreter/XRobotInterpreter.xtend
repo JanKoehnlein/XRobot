@@ -23,9 +23,6 @@ import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.RemoteRobot
 import org.xtext.xrobot.server.RemoteRobotFactory
 
-import static org.xtext.xrobot.dsl.interpreter.XRobotInterpreter.*
-import static org.xtext.xrobot.net.INetConfig.*
-
 class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 	
 	static val LOG = Logger.getLogger(XRobotInterpreter)
@@ -65,7 +62,7 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 					condition == null
 					|| (condition.evaluate(conditionContext, cancelIndicator).result as Boolean)
 				]		
-				if(newMode != currentMode || currentModeCancelIndicator.isCanceled) {
+				if(newMode != currentMode || currentModeCancelIndicator?.isCanceled) {
 					currentModeCancelIndicator?.cancel
 					currentModeCancelIndicator = new ModeCancelIndicator(cancelIndicator)
 					currentMode = newMode
@@ -77,8 +74,7 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 						if (modeNode != null) {
 							modeContext.newValue(CURRENT_LINE, modeNode.startLine)
 						}
-						new Thread() {
-							override run() {
+						new Thread([
 								try {
 									currentMode.execute(modeContext, currentModeCancelIndicator)
 								} catch (CanceledException exc) {
@@ -87,12 +83,14 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 								} finally {
 									currentModeCancelIndicator.cancel
 								}
-							}
-						}.start
+							], 'Robot ' + modeRobot.name + ' in mode ' + newMode.name)
+							.start
 					}
 				}
 				Thread.yield
 				conditionRobot.waitForUpdate(SOCKET_TIMEOUT)
+				if(newMode == null)
+					listeners.forEach[ stateChanged(conditionRobot) ]
 			} while(!cancelIndicator.canceled)
 		} catch(CanceledException exc) {
 		}

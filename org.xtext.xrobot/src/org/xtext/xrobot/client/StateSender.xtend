@@ -20,6 +20,7 @@ class StateSender extends Thread implements INetConfig {
 	volatile boolean isStopped = false
 	
 	new(Robot robot, SocketChannel socket) throws Exception {
+		this.name = 'StateSender'
 		this.robot = robot
 		this.output = new SocketOutputBuffer(socket)
 		this.selector = Selector.open
