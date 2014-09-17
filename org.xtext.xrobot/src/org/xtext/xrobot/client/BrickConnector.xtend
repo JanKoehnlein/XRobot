@@ -111,10 +111,11 @@ class BrickConnector implements INetConfig {
 					}
 					disconnect(selector, socket, stateSender)
 				}
+				robot.stop
 			} catch (Exception exc) {
 				println('Error: ' + exc.message)
-				robot.stop
 				disconnect(selector, socket, stateSender)
+				robot.stop
 				Thread.sleep(5000)
 			}
 		}
