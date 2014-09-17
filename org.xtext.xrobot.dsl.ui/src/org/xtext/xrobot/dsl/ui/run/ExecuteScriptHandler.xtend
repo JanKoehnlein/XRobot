@@ -195,6 +195,7 @@ class ExecuteScriptHandler extends AbstractHandler {
 				content.put('Opponent angle', robot.opponentDirection.angle.toString)
 				content.put('Battery', ((robot.state.batteryState * 100) as int).toString + '%')
 				content.put('isMoving', robot.state.moving.toString)
+				content.put('Command number', robot.state.lastExecutedCommandSerialNr.toString)
 				tableViewer.refresh
 			]
 		}

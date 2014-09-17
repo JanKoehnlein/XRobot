@@ -53,7 +53,6 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		context.registerClass(annotatedClass.clientExecutorName)
 		context.registerClass(annotatedClass.clientStateName)
 		context.registerClass(annotatedClass.serverStateName)
-		context.registerInterface(annotatedClass.stateInterfaceName)
 	}
 	
 	override doTransform(MutableClassDeclaration annotatedClass, extension TransformationContext context) {
@@ -62,7 +61,6 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		annotatedClass.implementedInterfaces = annotatedClass.implementedInterfaces + #[clientInterface.newTypeReference]
 		val clientStateClass = annotatedClass.clientStateName.findClass
 		val serverStateClass = annotatedClass.serverStateName.findClass
-		val stateInterface = annotatedClass.stateInterfaceName.findInterface
 		val subCompontentAnnotation = SubComponent.findTypeGlobally
 		val subComponentFields = annotatedClass.declaredFields.filter[findAnnotation(subCompontentAnnotation) != null]
 
@@ -135,7 +133,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			'''
 		]
 		serverImpl.addMethod('getState') [
-			returnType = annotatedClass.stateInterfaceName.newTypeReference
+			returnType = serverStateClass.newTypeReference
 			body = '''
 				return state;
 			'''
@@ -184,9 +182,6 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				]
 				serverStateClass.addField(sourceMethod.fieldName) [
 					type = sourceMethod.returnType
-				]
-				stateInterface.addMethod('get' + sourceMethod.fieldName.toFirstUpper) [
-					returnType = sourceMethod.returnType
 				]
 				serverStateClass.addMethod('get' + sourceMethod.fieldName.toFirstUpper) [
 					returnType = sourceMethod.returnType
@@ -281,9 +276,6 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				body = '''
 					return «subComponent.simpleName»State;
 				'''
-			]
-			stateInterface.addMethod('get' + subComponent.simpleName.toFirstUpper + 'State') [
-				returnType = subComponent.type.type.stateInterfaceName.newTypeReference
 			]
 		}
 		clientExecutor.addConstructor[
@@ -384,7 +376,6 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				«ENDFOR»
 			'''
 		]
-		serverStateClass.implementedInterfaces = #[ stateInterface.newTypeReference ]
 		serverStateClass.addField('sampleTime') [
 			type = long.newTypeReference()
 		]
@@ -469,10 +460,6 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 	
 	private def getServerStateName(Type it) {
 		packageName + '.server.' + simpleName + 'ServerState'
-	}
-	
-	private def getStateInterfaceName(Type it) {
-		packageName + '.server.I' + simpleName + 'State'
 	}
 	
 	private def getPackageName(Type c) {
