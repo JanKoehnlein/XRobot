@@ -86,6 +86,7 @@ class BrickConnector implements INetConfig {
 			try {
 				socket = connect
 				if(socket != null) {
+					robot.reset
 					val input = new SocketInputBuffer(socket)
 					selector = Selector.open()
 					socket.register(selector, SelectionKey.OP_READ + SelectionKey.OP_WRITE)
@@ -111,11 +112,11 @@ class BrickConnector implements INetConfig {
 					}
 					disconnect(selector, socket, stateSender)
 				}
-				robot.stop
+				robot.reset
 			} catch (Exception exc) {
 				println('Error: ' + exc.message)
 				disconnect(selector, socket, stateSender)
-				robot.stop
+				robot.reset
 				Thread.sleep(5000)
 			}
 		}

@@ -39,7 +39,6 @@ class Robot implements IRobotGeometry {
 
 	String name
 
-
 	extension SoundUtil = new SoundUtil
 
 	@SubComponent Motor leftMotor
@@ -307,6 +306,20 @@ class Robot implements IRobotGeometry {
 	 */
 	override void stop() {
 		pilot.stop
+	}
+
+	/**
+     * Resets the robot.
+     * 
+     * Left and right motors is stopped. 
+     * Scoop is moved to neutral position. 
+     * Speeds are set to max.
+     */
+	override void reset() {
+		stop
+		scoop(0)
+		travelSpeed = maxTravelSpeed
+		rotateSpeed = maxRotateSpeed
 	}
 
 	/**
