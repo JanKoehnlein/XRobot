@@ -11,6 +11,7 @@ import org.xtext.xrobot.util.IValueStreamFilter
 
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.camera.ICamera.*
+import java.util.Collections
 
 class CameraClient {
 	
@@ -18,6 +19,7 @@ class CameraClient {
 	static val ANGLE_BUFFER_SIZE = 12
 
 	val TuioClient client
+	val List<RobotPosition> robotPositions = newArrayList()
 	val List<IValueStreamFilter> xposFilters = newArrayList()
 	val List<IValueStreamFilter> yposFilters = newArrayList()
 	val List<IValueStreamFilter> angleFilters = newArrayList()
@@ -32,6 +34,7 @@ class CameraClient {
 		}
 		
 		RobotID.values.forEach[ robotID |
+			robotPositions.add(new RobotPosition(0, 0, robotID, 0))
 			xposFilters.add(new AveragingFilter(POSITION_BUFFER_SIZE))
 			yposFilters.add(new AveragingFilter(POSITION_BUFFER_SIZE))
 			angleFilters.add(new AveragingFilter(ANGLE_BUFFER_SIZE))
@@ -40,7 +43,6 @@ class CameraClient {
 
 	def getRobotPositions() {
 		val tuioObjects = client.tuioObjects
-		val List<RobotPosition> result = newArrayList
 		RobotID.values.forEach [ robotID |
 			val id = robotID.ordinal
 			val tuioObject = tuioObjects.findFirst[symbolID == id]
@@ -50,9 +52,9 @@ class CameraClient {
 				// TUIO 0° means NORTH and 90° means EAST
 				val angle = angleFilters.get(id).apply(
 					normalizeAngle(90 - tuioObject.angleDegrees))
-				result.add(new RobotPosition(x, y, robotID, angle))
+				robotPositions.set(id, new RobotPosition(x, y, robotID, angle))
 			}
 		]
-		result
+		Collections.unmodifiableList(robotPositions)
 	}
 }
