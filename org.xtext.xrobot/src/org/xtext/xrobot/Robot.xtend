@@ -15,14 +15,13 @@ import org.xtext.xrobot.annotations.Calculated
 import org.xtext.xrobot.annotations.NoAPI
 import org.xtext.xrobot.annotations.SimpleRMI
 import org.xtext.xrobot.annotations.SubComponent
-import org.xtext.xrobot.api.RobotSight
+import org.xtext.xrobot.api.Direction
+import org.xtext.xrobot.api.IRobotGeometry
+import org.xtext.xrobot.api.RobotPosition
+import org.xtext.xrobot.util.LEDPatterns
 import org.xtext.xrobot.util.SoundUtil
 
 import static extension java.lang.Math.*
-import org.xtext.xrobot.api.IRobotGeometry
-import org.xtext.xrobot.util.LEDPatterns
-import org.xtext.xrobot.api.RobotPosition
-import org.xtext.xrobot.api.Direction
 
 @SimpleRMI
 class Robot implements IRobotGeometry {
@@ -54,7 +53,7 @@ class Robot implements IRobotGeometry {
 		rightMotor = new Motor(rightRegMotor)
 		pilot = new DifferentialPilot(WHEEL_DIAMETER, WHEEL_DISTANCE, leftRegMotor, rightRegMotor)
 		scoopMotor = new Motor(new NXTRegulatedMotor(brick.getPort('A')))
-		irSensor = new EV3IRSensor(brick.getPort('S2')).seekMode
+		irSensor = new EV3IRSensor(brick.getPort('S2'))
 		colorSensor = new EV3ColorSensor(brick.getPort('S3')).redMode
 		escapeKey = brick.getKey('Escape')
 		led = brick.LED
@@ -78,18 +77,10 @@ class Robot implements IRobotGeometry {
 	}
 
 	@NoAPI
-	def OpponentPosition getIROpponentPosition() {
-		val sample = newFloatArrayOfSize(8)
+	def double getIRDistance() {
+		val sample = newFloatArrayOfSize(1)
 		irSensor.fetchSample(sample, 0)
-		return new OpponentPosition(sample, irChannel)
-	}
-
-	/**
-	 * @return the opponent's position as scanned by the robot's IR sensor.
-	 */
-	@Calculated
-	override RobotSight getIRRobotSight() {
-		null
+		return sample.get(0)
 	}
 
 	/**
