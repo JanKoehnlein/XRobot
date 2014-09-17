@@ -11,8 +11,6 @@ class RemoteRobot extends RemoteRobotProxy {
 	
 	val CameraClient cameraClient
 	
-	val IRobotSightFilter sightFilter
-	
 	var RobotSight irOpponentPosition
 	
 	var RobotPosition ownPosition
@@ -20,17 +18,9 @@ class RemoteRobot extends RemoteRobotProxy {
 	var RobotPosition opponentPosition
 
 	new(int componentID, int nextCommandSerialNr, SocketChannel socket, StateProvider<RobotServerState> stateProvider,
-		CancelIndicator cancelIndicator, IRobotSightFilter sightFilter) {
+			CancelIndicator cancelIndicator, CameraClient cameraClient) {
 		super(componentID, nextCommandSerialNr, socket, stateProvider, cancelIndicator)
-		this.sightFilter = sightFilter
-		this.cameraClient = null
-	}
-
-	new(int componentID, int nextCommandSerialNr, SocketChannel socket, StateProvider<RobotServerState> stateProvider,
-		CancelIndicator cancelIndicator, CameraClient cameraView) {
-		super(componentID, nextCommandSerialNr, socket, stateProvider, cancelIndicator)
-		this.sightFilter = null
-		this.cameraClient = cameraView
+		this.cameraClient = cameraClient
 	}
 	
 	def waitForUpdate(int timeout) throws SocketTimeoutException {
@@ -61,9 +51,6 @@ class RemoteRobot extends RemoteRobotProxy {
 	
 	override setState(RobotServerState state) {
 		super.setState(state)
-		if (sightFilter != null) {
-			irOpponentPosition = sightFilter.apply(state.IROpponentPosition)
-		}
 		if (cameraClient != null) {
 			cameraClient.robotPositions.forEach[
 				if(robotID.name == name)
