@@ -35,8 +35,8 @@ class CameraClient {
 						(tuioObject.x - 0.5) * WIDTH_IN_CM,
 						(0.5 - tuioObject.y) * HEIGHT_IN_CM,
 						robotID,
-						// TODO verify: I assume in TUIO 0° means NORTH and 90° means WEST
-						normalizeAngle(tuioObject.angleDegrees)
+						// TUIO 0° means NORTH and 90° means WEST
+						normalizeAngle(90 - tuioObject.angleDegrees)
 					))
 			}
 		]
