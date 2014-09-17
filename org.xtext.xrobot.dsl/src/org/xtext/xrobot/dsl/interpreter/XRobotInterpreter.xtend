@@ -59,8 +59,10 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 		try {
 			do {
 				val newMode = program.modes.findFirst [
-					condition == null
-					|| (condition.evaluate(conditionContext, cancelIndicator).result as Boolean)
+					if(condition == null)
+						return true
+					val result = condition?.evaluate(conditionContext, cancelIndicator)
+					return result != null && result?.result as Boolean
 				]		
 				if(newMode != currentMode || currentModeCancelIndicator?.isCanceled) {
 					currentModeCancelIndicator?.cancel
