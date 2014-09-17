@@ -185,6 +185,12 @@ class ExecuteScriptHandler extends AbstractHandler {
 
 		override stateChanged(RemoteRobot robot) {
 			Display.getDefault.asyncExec [
+				content.put('Position', '''
+					x=«robot.ownPosition.x as int» y=«robot.ownPosition.y as int» a=«robot.ownPosition.viewDirection as int»
+				''')
+				content.put('Opponent position', '''
+					x=«robot.opponentPosition.x as int» y=«robot.opponentPosition.y as int» a=«robot.opponentPosition.viewDirection as int»
+				''')
 				content.put('Opponent distance', robot.opponentDirection.distance.toString)
 				content.put('Opponent angle', robot.opponentDirection.angle.toString)
 				content.put('Battery', ((robot.state.batteryState * 100) as int).toString + '%')
