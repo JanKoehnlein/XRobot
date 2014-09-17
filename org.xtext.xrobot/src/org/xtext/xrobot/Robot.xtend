@@ -285,13 +285,19 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Lets the robot travel a backward curve to the point with the relative polar
+	 * Lets the robot travel a forward curve to the point with the relative polar
 	 * coordinates <code>angle</code> and <code>distance</code>.
 	 */
 	@Blocking
 	override void curveTo(double angle, double distance) {
-		val radius = 0.5 * distance * cos(0.5 * PI - angle.toRadians)
-		curveForward(radius, angle)
+		if(abs(angle) < 1E6) {
+			forward(distance)
+		} else if(abs(abs(angle) - 180) < 1E6) {
+			backward(distance)
+		} else {
+			val radius = 0.5 * distance / sin(angle.toRadians)
+			curveForward(radius, 2 * angle)
+		}
 	}
 
 	/**
