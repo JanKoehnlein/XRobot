@@ -6,9 +6,6 @@ import lejos.hardware.Key
 import lejos.hardware.LED
 import lejos.hardware.Power
 import lejos.hardware.motor.NXTRegulatedMotor
-import lejos.hardware.sensor.EV3ColorSensor
-import lejos.hardware.sensor.EV3IRSensor
-import lejos.hardware.sensor.SensorMode
 import lejos.robotics.navigation.DifferentialPilot
 import org.xtext.xrobot.annotations.Blocking
 import org.xtext.xrobot.annotations.Calculated
@@ -31,9 +28,6 @@ class Robot implements IRobotGeometry {
 
 	DifferentialPilot pilot
 
-	SensorMode irSensor
-	int irChannel
-	SensorMode colorSensor
 	Key escapeKey
 
 	LED led
@@ -54,12 +48,9 @@ class Robot implements IRobotGeometry {
 		rightMotor = new Motor(rightRegMotor)
 		pilot = new DifferentialPilot(WHEEL_DIAMETER, WHEEL_DISTANCE, leftRegMotor, rightRegMotor)
 		scoopMotor = new Motor(new NXTRegulatedMotor(brick.getPort('A')))
-		irSensor = new EV3IRSensor(brick.getPort('S2'))
-		colorSensor = new EV3ColorSensor(brick.getPort('S3')).redMode
 		escapeKey = brick.getKey('Escape')
 		led = brick.LED
 		audio = brick.audio
-		irChannel = RobotID.valueOf(name).ordinal() + 1
 		scoopMotor.speed = scoopMotor.maxSpeed as int
 		power = brick.power
 	}
@@ -80,22 +71,6 @@ class Robot implements IRobotGeometry {
 	@NoAPI
 	def boolean isEscapePressed() {
 		escapeKey.down
-	}
-
-	@NoAPI
-	def double getIRDistance() {
-		val sample = newFloatArrayOfSize(1)
-		irSensor.fetchSample(sample, 0)
-		return sample.get(0)
-	}
-
-	/**
-	 * @returns the measured ground color between 0.0 and 1.0
-	 */
-	override double getGroundColor() {
-		val sample = newFloatArrayOfSize(1)
-		colorSensor.fetchSample(sample, 0)
-		return sample.get(0)
 	}
 
 	/**
