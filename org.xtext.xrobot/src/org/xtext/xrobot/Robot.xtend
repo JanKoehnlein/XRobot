@@ -20,6 +20,7 @@ import org.xtext.xrobot.api.IRobotGeometry
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.util.LEDPatterns
 import org.xtext.xrobot.util.SoundUtil
+import org.xtext.xrobot.util.SystemSounds
 
 import static extension java.lang.Math.*
 
@@ -351,6 +352,14 @@ class Robot implements IRobotGeometry {
 
 	override void playSample(String fileName) {
 		audio.playSample('samples/' + fileName + '.wav', 100)
+	}
+
+	/**
+	 * @see {@link SystemSounds} for values
+	 */
+	@NoAPI
+	def void systemSound(int sound) {
+		audio.systemSound(sound)
 	}
 
 	/** 

@@ -1,17 +1,19 @@
 package org.xtext.xrobot.client
 
+import java.net.InetAddress
 import java.net.InetSocketAddress
 import java.nio.channels.SelectionKey
 import java.nio.channels.Selector
+import java.nio.channels.ServerSocketChannel
 import java.nio.channels.SocketChannel
 import lejos.hardware.BrickFinder
 import org.xtext.xrobot.Robot
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.net.SocketInputBuffer
 
-import static org.xtext.xrobot.util.LEDPatterns.*
-import java.nio.channels.ServerSocketChannel
 import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
+import static org.xtext.xrobot.util.LEDPatterns.*
+import static org.xtext.xrobot.util.SystemSounds.*
 
 class BrickConnector implements INetConfig {
 
@@ -32,9 +34,11 @@ class BrickConnector implements INetConfig {
 		try {
 			server = ServerSocketChannel.open
 			server.configureBlocking(false)
-			server.bind(new InetSocketAddress(SERVER_PORT))
+			val wifiAddress = InetAddress.getByName(robot.robotID.ipAddress)
+			server.bind(new InetSocketAddress(wifiAddress, SERVER_PORT))
 			serverSelector = Selector.open
 			server.register(serverSelector, SelectionKey.OP_ACCEPT)
+			robot.systemSound(ASCENDING_ARPEGGIO)
 		} catch (Exception exc) {
 			ignoreExceptions[serverSelector?.close]
 			ignoreExceptions[server?.close]
@@ -58,11 +62,18 @@ class BrickConnector implements INetConfig {
 						System.err.println()
 						System.err.println('Connected to ' + (socket.remoteAddress as InetSocketAddress).address)
 						robot.led = GREEN
+						robot.systemSound(BEEP)
 						return socket
 					}
 				}
 			}
+			if(!CAMERA_SERVER_ADDRESS.isReachable(20 * SOCKET_TIMEOUT)) {
+				System.err.println('Network or camera server is down')
+				robot.systemSound(LOW_BUZZ)
+				isStopped = true
+			}
 		}
+		robot.systemSound(DESCENDING_ARPEGGIO)
 		System.err.println('Shutting down server...')
 		ignoreExceptions[serverSelector?.close]
 		ignoreExceptions[server?.close]
@@ -72,6 +83,7 @@ class BrickConnector implements INetConfig {
 
 	def disconnect(Selector selector, SocketChannel socket, StateSender stateSender) {
 		robot.led = ORANGE_BLINK
+		robot.systemSound(DOUBLE_BEEP)
 		ignoreExceptions[selector?.close]		
 		ignoreExceptions[socket?.close]
 		stateSender?.shutdown
