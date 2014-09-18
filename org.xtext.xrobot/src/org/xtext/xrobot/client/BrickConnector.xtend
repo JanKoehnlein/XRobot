@@ -48,9 +48,9 @@ class BrickConnector implements INetConfig {
 
 	def connect() {
 		robot.led = ORANGE_BLINK
-		println('Accepting connections...')
 		isStopped = false
 		while (!isStopped) {
+			println('Accepting connections...')
 			serverSelector.select(SOCKET_TIMEOUT)
 			for (key : serverSelector.selectedKeys) {
 				if (robot.escapePressed)
