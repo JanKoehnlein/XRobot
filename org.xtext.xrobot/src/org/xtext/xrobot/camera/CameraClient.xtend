@@ -2,59 +2,69 @@ package org.xtext.xrobot.camera
 
 import TUIO.TuioClient
 import java.net.SocketTimeoutException
-import java.util.List
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.RobotPosition
-import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.util.AveragingFilter
 import org.xtext.xrobot.util.IValueStreamFilter
 
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.camera.ICamera.*
-import java.util.Collections
 
 class CameraClient {
 	
 	static val POSITION_BUFFER_SIZE = 12
-	static val ANGLE_BUFFER_SIZE = 12
+	static val ANGLE_BUFFER_SIZE = 8
 
 	val TuioClient client
-	val List<RobotPosition> robotPositions = newArrayList()
-	val List<IValueStreamFilter> xposFilters = newArrayList()
-	val List<IValueStreamFilter> yposFilters = newArrayList()
-	val List<IValueStreamFilter> angleFilters = newArrayList()
+	val RobotPosition[] robotPositions = newArrayOfSize(RobotID.values.length)
+	var long[] timestamps = newLongArrayOfSize(RobotID.values.length)
+	val IValueStreamFilter[] xposFilters = newArrayOfSize(RobotID.values.length)
+	val IValueStreamFilter[] yposFilters = newArrayOfSize(RobotID.values.length)
+	val IValueStreamFilter[] angleFilters = newArrayOfSize(RobotID.values.length)
 
 	new(TuioClient client) throws SocketTimeoutException {
 		this.client = client
-		var startTime = System.currentTimeMillis
-		while(client.tuioObjects.size() != 2) {
-			if(System.currentTimeMillis - startTime > 5* INetConfig.SOCKET_TIMEOUT)
-				throw new SocketTimeoutException('Missing updates from camera server. Got ' + client.tuioObjects.size + ' but needed 2.')
-			Thread.sleep(50)
-		}
 		
 		RobotID.values.forEach[ robotID |
-			robotPositions.add(new RobotPosition(0, 0, robotID, 0))
-			xposFilters.add(new AveragingFilter(POSITION_BUFFER_SIZE))
-			yposFilters.add(new AveragingFilter(POSITION_BUFFER_SIZE))
-			angleFilters.add(new AveragingFilter(ANGLE_BUFFER_SIZE))
+			val index = robotID.ordinal
+			xposFilters.set(index, new AveragingFilter(POSITION_BUFFER_SIZE))
+			yposFilters.set(index, new AveragingFilter(POSITION_BUFFER_SIZE))
+			angleFilters.set(index, new AveragingFilter(ANGLE_BUFFER_SIZE))
 		]
+	}
+	
+	def getRobotPosition(RobotID robotID) {
+		var RobotPosition robotPosition
+		val id = robotID.fiducialID
+		val index = robotID.ordinal
+		val oldTimestamp = timestamps.get(index)
+		val tuioObject = client.getTuioObject(id)
+		if (tuioObject != null && tuioObject.tuioTime.totalMilliseconds != oldTimestamp) {
+			var x = (tuioObject.x - 0.5) * WIDTH_IN_CM
+			var y = (0.5 - tuioObject.y) * HEIGHT_IN_CM
+			// TUIO 0° means NORTH and 90° means EAST
+			var angle = normalizeAngle(90 - tuioObject.angleDegrees)
+
+			// Apply the filters			
+			x = xposFilters.get(id).apply(x)
+			y = yposFilters.get(id).apply(y)
+			angle = angleFilters.get(id).apply(angle)
+			
+			robotPosition = new RobotPosition(x, y, robotID, angle)
+			robotPositions.set(index, robotPosition)
+			timestamps.set(index, tuioObject.tuioTime.totalMilliseconds)
+		} else {
+			robotPosition = robotPositions.get(index)
+		}
+		robotPosition
 	}
 
-	def getRobotPositions() {
-		val tuioObjects = client.tuioObjects
-		RobotID.values.forEach [ robotID |
-			val id = robotID.ordinal
-			val tuioObject = tuioObjects.findFirst[symbolID == id]
-			if (tuioObject != null) {
-				val x = xposFilters.get(id).apply((tuioObject.x - 0.5) * WIDTH_IN_CM)
-				val y = yposFilters.get(id).apply((0.5 - tuioObject.y) * HEIGHT_IN_CM)
-				// TUIO 0° means NORTH and 90° means EAST
-				val angle = angleFilters.get(id).apply(
-					normalizeAngle(90 - tuioObject.angleDegrees))
-				robotPositions.set(id, new RobotPosition(x, y, robotID, angle))
-			}
-		]
-		Collections.unmodifiableList(robotPositions)
+	def getCameraSample(RobotID robotID) {
+		val ownPosition = getRobotPosition(robotID)
+		val opponentPosition = getRobotPosition(robotID.opponent)
+		val result = new CameraSample(ownPosition, timestamps.get(robotID.ordinal),
+				opponentPosition, timestamps.get(robotID.opponent.ordinal))
+		result
 	}
+	
 }

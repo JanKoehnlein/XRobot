@@ -69,7 +69,7 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 					currentModeCancelIndicator = new ModeCancelIndicator(cancelIndicator)
 					currentMode = newMode
 					if (newMode != null) {
-						val modeRobot = robotFactory.newRobot(currentModeCancelIndicator)
+						val modeRobot = robotFactory.newRobot(currentModeCancelIndicator, conditionRobot)
 						val modeContext = baseContext.fork
 						modeContext.newValue(ROBOT, modeRobot)
 						val modeNode = NodeModelUtils.findActualNodeFor(newMode)

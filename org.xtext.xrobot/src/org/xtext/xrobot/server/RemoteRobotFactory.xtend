@@ -7,6 +7,7 @@ import org.xtext.xrobot.camera.CameraClient
 import java.net.SocketTimeoutException
 import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
 import org.xtext.xrobot.net.INetConfig
+import org.xtext.xrobot.camera.CameraSample
 
 class RemoteRobotFactory implements INetConfig {
 	
@@ -59,14 +60,18 @@ class RemoteRobotFactory implements INetConfig {
 	}
 	
 	def newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException {
-		var nextCommandSerialNr = 10
-		var timeout = 4 * SOCKET_TIMEOUT
-		if(lastRobot != null) {
-			nextCommandSerialNr = lastRobot.nextCommandSerialNr + 10
-			timeout = SOCKET_TIMEOUT
-		}
+		val nextCommandSerialNr = 10
+		val timeout = 4 * SOCKET_TIMEOUT
 		lastRobot = new RemoteRobot(0, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraClient)
 		lastRobot.waitForUpdate(timeout)
 		lastRobot
 	}
+	
+	def newRobot(CancelIndicator cancelIndicator, RemoteRobot existingRobot) {
+		val nextCommandSerialNr = lastRobot.nextCommandSerialNr + 10
+		lastRobot = new RemoteRobot(0, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraClient)
+		lastRobot.setState(existingRobot.state, existingRobot.cameraSample)
+		lastRobot
+	}
+	
 }

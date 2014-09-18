@@ -12,6 +12,7 @@ import java.util.Map
 import org.xtext.xrobot.net.INetConfig
 import org.apache.log4j.Logger
 import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
+import org.xtext.xrobot.RobotID
 
 @Singleton
 class RemoteRobotConnector implements INetConfig {
@@ -23,7 +24,7 @@ class RemoteRobotConnector implements INetConfig {
 	private def connect(String robotName) throws SocketTimeoutException {
 		var SocketChannel socket = null
 		try {
-			val ipAddress = robotName.getIPAddress
+			val ipAddress = RobotID.valueOf(robotName).ipAddress
 			if(ipAddress == null) 
 				throw new SocketTimeoutException('Brick \'' + robotName + '\' not located')			
 			socket = SocketChannel.open()
@@ -42,16 +43,6 @@ class RemoteRobotConnector implements INetConfig {
 			socket?.close
 			throw exc
 		}
-	}
-	
-	private def getIPAddress(String robotName) {
-		switch robotName {
-			case 'Xtend': '10.10.1.5'
-			case 'Xtext': '10.10.1.6'
-			default: null
-		}
-//		val map=discover
-//		return map.get(robotName)
 	}
 	
 	def getRobotFactory(String name) {
