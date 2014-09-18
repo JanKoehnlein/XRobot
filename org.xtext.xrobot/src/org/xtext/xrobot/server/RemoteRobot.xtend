@@ -5,6 +5,7 @@ import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.camera.CameraClient
+import org.xtext.xrobot.RobotID
 
 class RemoteRobot extends RemoteRobotProxy {
 	
@@ -18,6 +19,10 @@ class RemoteRobot extends RemoteRobotProxy {
 			CancelIndicator cancelIndicator, CameraClient cameraClient) {
 		super(componentID, nextCommandSerialNr, socket, stateProvider, cancelIndicator)
 		this.cameraClient = cameraClient
+	}
+	
+	override getRobotID() {
+		RobotID.valueOf(name)
 	}
 	
 	def waitForUpdate(int timeout) throws SocketTimeoutException {

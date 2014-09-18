@@ -70,6 +70,11 @@ class Robot implements IRobotGeometry {
 		name
 	}
 
+	@Calculated 
+	override RobotID getRobotID() {
+		RobotID.valueOf(name)
+	}
+	
 	@NoAPI
 	def boolean isEscapePressed() {
 		escapeKey.down
