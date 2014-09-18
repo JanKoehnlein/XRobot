@@ -32,7 +32,9 @@ class StateSender extends Thread implements INetConfig {
 	override run() {
 		while(!isStopped) {
 			try {
-				state.sample(robot)
+				synchronized(robot) {
+					state.sample(robot)
+				}
 				selector.select
 				for(key: selector.selectedKeys) {
 					if(key.isWritable) {

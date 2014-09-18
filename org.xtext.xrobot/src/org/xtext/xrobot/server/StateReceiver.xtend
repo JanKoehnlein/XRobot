@@ -56,7 +56,9 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 								} 
 								successCount++
 							}
-							lastState = state
+							synchronized(this) {
+								lastState = state
+							}
 						} catch(Exception exc) {
 							failureCount++  
 							LOG.error('State read failures ' + failureCount + " succeses " + successCount)
@@ -81,7 +83,9 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 	}
 
 	override getState() {
-		lastState
+		synchronized(this) {
+			lastState
+		}
 	}	
 	
 	def shutdown() {

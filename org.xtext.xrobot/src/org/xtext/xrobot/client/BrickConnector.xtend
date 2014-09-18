@@ -104,7 +104,9 @@ class BrickConnector implements INetConfig {
 									input.receive
 									if (input.available > 0) {
 										Thread.yield
-										isRelease = !executor.dispatchAndExecute
+										synchronized(robot) {
+											isRelease = !executor.dispatchAndExecute
+										}
 									}
 								}
 							}

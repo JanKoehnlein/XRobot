@@ -326,6 +326,7 @@ class Robot implements IRobotGeometry {
 		scoop(0)
 		travelSpeed = maxTravelSpeed
 		rotateSpeed = maxRotateSpeed
+		lastExecutedCommandSerialNr = -1
 	}
 
 	/**
