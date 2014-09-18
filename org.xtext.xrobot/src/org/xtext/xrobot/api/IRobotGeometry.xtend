@@ -4,7 +4,7 @@ interface IRobotGeometry {
 	/**
 	 * The length of the robot in centimeters including its scoop.
 	 */
-	val LENGHT = 24
+	val LENGTH = 24
 
 	/**
 	 * The width of the robot in centimeters.
