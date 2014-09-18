@@ -13,14 +13,21 @@ class RemoteRobot extends RemoteRobotProxy {
 	
 	var CameraSample cameraSample
 
-	new(int componentID, int nextCommandSerialNr, SocketChannel socket, StateProvider<RobotServerState> stateProvider,
+	val RobotID robotID
+
+	new(RobotID robotID, int nextCommandSerialNr, SocketChannel socket, StateProvider<RobotServerState> stateProvider,
 			CancelIndicator cancelIndicator, CameraClient cameraClient) {
-		super(componentID, nextCommandSerialNr, socket, stateProvider, cancelIndicator)
+		super(0, nextCommandSerialNr, socket, stateProvider, cancelIndicator)
+		this.robotID = robotID
 		this.cameraClient = cameraClient
 	}
 	
 	override getRobotID() {
-		RobotID.valueOf(name)
+		robotID
+	}
+
+	override getName() {
+		robotID.name
 	}
 
 	def waitForUpdate(int timeout) throws SocketTimeoutException {
@@ -35,7 +42,6 @@ class RemoteRobot extends RemoteRobotProxy {
 			newState = stateProvider.state
 		}
 		
-		val robotID = RobotID.valueOf(newState.name)
 		val lastOwnTimestamp = if (cameraSample == null) Long.MIN_VALUE
 				else cameraSample.ownTimestamp
 		val lastOpponentTimestamp = if (cameraSample == null) Long.MIN_VALUE

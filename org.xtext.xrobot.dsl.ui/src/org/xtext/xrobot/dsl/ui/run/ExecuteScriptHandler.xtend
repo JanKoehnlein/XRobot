@@ -7,6 +7,7 @@ import java.util.List
 import java.util.Map
 import java.util.SortedMap
 import java.util.TreeMap
+import org.apache.log4j.Logger
 import org.eclipse.core.commands.AbstractHandler
 import org.eclipse.core.commands.ExecutionEvent
 import org.eclipse.core.commands.ExecutionException
@@ -33,6 +34,7 @@ import org.eclipse.xtext.ui.editor.XtextEditor
 import org.eclipse.xtext.ui.editor.utils.EditorUtils
 import org.eclipse.xtext.ui.resource.IResourceSetProvider
 import org.eclipse.xtext.util.CancelIndicator
+import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.interpreter.ScriptRunner
 import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
@@ -40,7 +42,6 @@ import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.server.RemoteRobot
 import org.xtext.xrobot.server.RemoteRobotConnector
 import org.xtext.xrobot.server.RemoteRobotFactory
-import org.apache.log4j.Logger
 
 @Singleton
 class ExecuteScriptHandler extends AbstractHandler {
@@ -53,13 +54,14 @@ class ExecuteScriptHandler extends AbstractHandler {
 
 	@Inject IResourceSetProvider resourceSetProvider
 
-	Map<String, Job> name2controller = newHashMap
+	Map<RobotID, Job> id2controller = newHashMap
 
 	override execute(ExecutionEvent event) throws ExecutionException {
 		val xtextEditor = EditorUtils.getActiveXtextEditor(event)
 		val robotName = event.getParameter('org.xtext.xrobot.dsl.ui.robotParameter')
 		if (robotName != null) {
-			val runningJob = name2controller.get(robotName)
+			val robotID = RobotID.valueOf(robotName)
+			val runningJob = id2controller.get(robotName)
 			if (runningJob != null) {
 				try {
 					runningJob.cancel
@@ -70,7 +72,7 @@ class ExecuteScriptHandler extends AbstractHandler {
 			}
 			var RemoteRobotFactory tempRobotFactory = null
 			try {
-				tempRobotFactory = connector.getRobotFactory(robotName)
+				tempRobotFactory = connector.getRobotFactory(robotID)
 			} catch (Exception exc) {
 				MessageDialog.openError(xtextEditor.editorSite.shell, 'Error', '''
 					Could not locate robot '«robotName»':

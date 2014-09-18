@@ -9,35 +9,36 @@ import java.nio.channels.SelectionKey
 import java.nio.channels.Selector
 import java.nio.channels.SocketChannel
 import java.util.Map
-import org.xtext.xrobot.net.INetConfig
 import org.apache.log4j.Logger
-import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
 import org.xtext.xrobot.RobotID
+import org.xtext.xrobot.net.INetConfig
+
+import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
 
 @Singleton
 class RemoteRobotConnector implements INetConfig {
 
 	static val LOG = Logger.getLogger(RemoteRobotConnector)
 
-	val Map<String, RemoteRobotFactory> name2robot = newHashMap
+	val Map<RobotID, RemoteRobotFactory> id2factory = newHashMap
 
-	private def connect(String robotName) throws SocketTimeoutException {
+	private def connect(RobotID robotID) throws SocketTimeoutException {
 		var SocketChannel socket = null
 		try {
-			val ipAddress = RobotID.valueOf(robotName).ipAddress
+			val ipAddress = robotID.ipAddress
 			if(ipAddress == null) 
-				throw new SocketTimeoutException('Brick \'' + robotName + '\' not located')			
+				throw new SocketTimeoutException('Brick \'' + robotID + '\' not located')			
 			socket = SocketChannel.open()
 			socket.configureBlocking(false)
 			if(!socket.connect(new InetSocketAddress(ipAddress, SERVER_PORT))) {
 				val selector = Selector.open
 				socket.register(selector, SelectionKey.OP_CONNECT)
 				if(selector.select(4 * SOCKET_TIMEOUT) == 0) 
-					throw new SocketTimeoutException('Timeout connecting to  \'' + robotName + '\'')
+					throw new SocketTimeoutException('Timeout connecting to  \'' + robotID + '\'')
 				socket.finishConnect
 			}
-			val remoteRobotFactory = new RemoteRobotFactory(robotName, socket)
-			LOG.info('Connected to ' + robotName + ' at ' + (socket.remoteAddress as InetSocketAddress).address)
+			val remoteRobotFactory = new RemoteRobotFactory(robotID, socket)
+			LOG.info('Connected to ' + robotID + ' at ' + (socket.remoteAddress as InetSocketAddress).address)
 			remoteRobotFactory
 		} catch(Exception exc) {
 			socket?.close
@@ -45,8 +46,8 @@ class RemoteRobotConnector implements INetConfig {
 		}
 	}
 	
-	def getRobotFactory(String name) {
-		val connectedRobot = name2robot.get(name)
+	def getRobotFactory(RobotID robotID) {
+		val connectedRobot = id2factory.get(robotID)
 		if(connectedRobot != null) {
 			if(connectedRobot.isAlive) {
 				return connectedRobot
@@ -54,18 +55,14 @@ class RemoteRobotConnector implements INetConfig {
 				ignoreExceptions[connectedRobot.release]
 			}
 		}
-		val newRobot = connect(name)
-		name2robot.put(name, newRobot)
+		val newRobot = connect(robotID)
+		id2factory.put(robotID, newRobot)
 		return newRobot
 	}
 	
-	def getRobotNames() {
-		discover.keySet
-	}
-	
-	private def discover() {	
+	public def discoverRobots() {	
 		var DatagramSocket socket = null
-		val result = newHashMap
+		val result = newArrayList
 		try {
 			socket = new DatagramSocket(DISCOVERY_PORT)
 			socket.setSoTimeout(4 * SOCKET_TIMEOUT);
@@ -76,7 +73,14 @@ class RemoteRobotConnector implements INetConfig {
 		            socket.receive(packet)
 		            val name = new String(packet.data, "UTF-8").trim
 		            val ipAddress = packet.address.hostAddress
-		            result.put(name, ipAddress)
+		            try {
+		            	val robotID = RobotID.valueOf(name)
+		            	if(ipAddress != robotID.ipAddress)
+		            		throw new IllegalArgumentException();
+			            result.add(robotID)
+		            } catch (IllegalArgumentException e) {
+		            	LOG.error("Illegal robot name='" + name + "' ip='" + ipAddress + "' detected")
+		            }
 	        	} catch(SocketTimeoutException e) {
 	        	}
 	        }

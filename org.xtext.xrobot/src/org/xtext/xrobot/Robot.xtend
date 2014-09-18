@@ -27,6 +27,8 @@ import static extension java.lang.Math.*
 @SimpleRMI
 class Robot implements IRobotGeometry {
 
+	RobotID robotID
+
 	DifferentialPilot pilot
 
 	SensorMode irSensor
@@ -38,8 +40,6 @@ class Robot implements IRobotGeometry {
 	Audio audio
 	Power power
 
-	String name
-
 	extension SoundUtil = new SoundUtil
 
 	@SubComponent Motor leftMotor
@@ -47,6 +47,7 @@ class Robot implements IRobotGeometry {
 	@SubComponent Motor scoopMotor
 
 	new(Brick brick) {
+		robotID = RobotID.valueOf(brick.name)
 		val leftRegMotor = new NXTRegulatedMotor(brick.getPort('B'))
 		val rightRegMotor = new NXTRegulatedMotor(brick.getPort('C'))
 		leftMotor = new Motor(leftRegMotor)
@@ -58,7 +59,6 @@ class Robot implements IRobotGeometry {
 		escapeKey = brick.getKey('Escape')
 		led = brick.LED
 		audio = brick.audio
-		name = brick.name
 		irChannel = RobotID.valueOf(name).ordinal() + 1
 		scoopMotor.speed = scoopMotor.maxSpeed as int
 		power = brick.power
@@ -67,8 +67,9 @@ class Robot implements IRobotGeometry {
 	/**
 	 * @return the robot's name
 	 */
+	@Calculated
 	override String getName() {
-		name
+		robotID.name
 	}
 
 	@Calculated 

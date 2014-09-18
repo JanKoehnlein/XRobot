@@ -1,21 +1,22 @@
 package org.xtext.xrobot.server
 
 import TUIO.TuioClient
+import java.net.SocketTimeoutException
 import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
+import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.camera.CameraClient
-import java.net.SocketTimeoutException
-import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
 import org.xtext.xrobot.net.INetConfig
-import org.xtext.xrobot.camera.CameraSample
+
+import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
 
 class RemoteRobotFactory implements INetConfig {
 	
-	val StateReceiver stateReceiver
+	val RobotID robotID 
 	
 	val SocketChannel socket
 	
-	val String name
+	val StateReceiver stateReceiver
 	
 	val TuioClient tuioClient
 	
@@ -25,10 +26,10 @@ class RemoteRobotFactory implements INetConfig {
 	
 	var RemoteRobot lastRobot
 	
-	new(String name, SocketChannel socket) throws SocketTimeoutException {
+	new(RobotID robotID, SocketChannel socket) throws SocketTimeoutException {
 		try {
+			this.robotID = robotID
 			this.socket = socket
-			this.name = name
 			stateReceiver = new StateReceiver(socket)
 			stateReceiver.start
 			tuioClient = new TuioClient()
@@ -41,8 +42,8 @@ class RemoteRobotFactory implements INetConfig {
 		}
 	}
 	
-	def getName() {
-		name
+	def getRobotID() {
+		robotID
 	}
 	
 	def void release() {
@@ -62,14 +63,14 @@ class RemoteRobotFactory implements INetConfig {
 	def newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException {
 		val nextCommandSerialNr = 10
 		val timeout = 4 * SOCKET_TIMEOUT
-		lastRobot = new RemoteRobot(0, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraClient)
+		lastRobot = new RemoteRobot(robotID, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraClient)
 		lastRobot.waitForUpdate(timeout)
 		lastRobot
 	}
 	
 	def newRobot(CancelIndicator cancelIndicator, RemoteRobot existingRobot) {
 		val nextCommandSerialNr = lastRobot.nextCommandSerialNr + 10
-		lastRobot = new RemoteRobot(0, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraClient)
+		lastRobot = new RemoteRobot(robotID, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraClient)
 		lastRobot.setState(existingRobot.state, existingRobot.cameraSample)
 		lastRobot
 	}

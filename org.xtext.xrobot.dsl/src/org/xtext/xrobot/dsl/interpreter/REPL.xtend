@@ -11,6 +11,7 @@ import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.RemoteRobotConnector
 import org.xtext.xrobot.server.RemoteRobotFactory
+import org.xtext.xrobot.RobotID
 
 @Singleton
 class REPL {
@@ -99,18 +100,18 @@ class REPL {
 				println('''
 					$help               print this text
 					$robot <name>       switch current robot
-					$list               list connected robots
+					$discover           list available robots
 					$exit|$quit         exit REPL
 					<expression>        execute Xbase expression on current robot 'it'
 					$                   re-execute previous expression
 				''')
 			case 'robot':
-				currentRobotFactory = connector.getRobotFactory(commands.get(1))
+				currentRobotFactory = connector.getRobotFactory(RobotID.valueOf(commands.get(1)))
 			case 'exit',
 			case 'quit':
 				return false
-			case 'list':
-				println('Connected robots: ' + connector.robotNames.join(', '))
+			case 'discover':
+				println('Connected robots: ' + connector.discoverRobots.join(', '))
 			default: 
 				println('Invalid command. Enter \'$\' for help')
 		}
@@ -126,9 +127,9 @@ class REPL {
 			var robotName = '(unconnected)'
 			try {
 				if(currentRobotFactory == null)
-					currentRobotFactory = connector.getRobotFactory(connector.robotNames.head)
+					currentRobotFactory = connector.getRobotFactory(connector.discoverRobots.head)
 				if(currentRobotFactory != null)
-					robotName = currentRobotFactory.name
+					robotName = currentRobotFactory.robotID.name
 			} catch(Exception exc) {
 				currentRobotFactory = null
 			}
