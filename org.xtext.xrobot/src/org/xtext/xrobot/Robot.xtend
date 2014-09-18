@@ -289,7 +289,7 @@ class Robot implements IRobotGeometry {
 	 * coordinates <code>angle</code> and <code>distance</code>.
 	 */
 	@Blocking
-	override void curveTo(double angle, double distance) {
+	override void curveTo(double distance, double angle) {
 		if(abs(angle) < 1E6) {
 			forward(distance)
 		} else if(abs(abs(angle) - 180) < 1E6) {
