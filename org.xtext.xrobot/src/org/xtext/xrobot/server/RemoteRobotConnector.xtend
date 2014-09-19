@@ -13,7 +13,7 @@ import org.apache.log4j.Logger
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.net.INetConfig
 
-import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
+import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 
 @Singleton
 class RemoteRobotConnector implements INetConfig {

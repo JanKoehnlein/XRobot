@@ -1,6 +1,5 @@
 package org.xtext.xrobot.server
 
-import TUIO.TuioClient
 import java.net.SocketTimeoutException
 import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
@@ -8,7 +7,7 @@ import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.camera.CameraClient
 import org.xtext.xrobot.net.INetConfig
 
-import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
+import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 
 class RemoteRobotFactory implements INetConfig {
 	
@@ -17,8 +16,6 @@ class RemoteRobotFactory implements INetConfig {
 	val SocketChannel socket
 	
 	val StateReceiver stateReceiver
-	
-	val TuioClient tuioClient
 	
 	val CameraClient cameraClient
 	
@@ -32,12 +29,11 @@ class RemoteRobotFactory implements INetConfig {
 			this.socket = socket
 			stateReceiver = new StateReceiver(socket)
 			stateReceiver.start
-			tuioClient = new TuioClient()
-			tuioClient.connect
-			cameraClient = new CameraClient(tuioClient)
+			cameraClient = new CameraClient()
+			cameraClient.connect
 		} catch(Exception exc) {
 			ignoreExceptions[stateReceiver?.shutdown]
-			ignoreExceptions[tuioClient?.disconnect]
+			ignoreExceptions[cameraClient?.disconnect]
 			throw exc
 		}
 	}
@@ -48,7 +44,7 @@ class RemoteRobotFactory implements INetConfig {
 	
 	def void release() {
 		if(!isReleased) {
-			ignoreExceptions[tuioClient.disconnect]
+			ignoreExceptions[cameraClient.disconnect]
 			ignoreExceptions[lastRobot?.release]
 			stateReceiver.shutdown
 			ignoreExceptions[socket?.close]

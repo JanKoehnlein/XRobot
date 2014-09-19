@@ -9,6 +9,8 @@ import org.xtext.xrobot.camera.CameraSample
 
 class RemoteRobot extends RemoteRobotProxy {
 	
+	static val MAX_POSITION_AGE = 70
+	
 	val CameraClient cameraClient
 	
 	var CameraSample cameraSample
@@ -31,34 +33,42 @@ class RemoteRobot extends RemoteRobotProxy {
 	}
 
 	def waitForUpdate(int timeout) throws SocketTimeoutException {
-		val lastStateUpdate = if(state == null) Long.MIN_VALUE else state.sampleTime
+		val updateInterval = UPDATE_INTERVAL / 3
+		val lastStateUpdate = if (state == null) 0 else state.sampleTime
 		var newState = stateProvider.state
-		var tries = timeout / UPDATE_INTERVAL;
+		var tries = timeout / updateInterval;
 		while (newState == null || lastStateUpdate >= newState.sampleTime) {
 			checkCanceled
 			if (tries-- <= 0)
 				throw new SocketTimeoutException('No state update from robot after ' + timeout + 'ms.')
-			Thread.sleep(UPDATE_INTERVAL / 3)
+			Thread.sleep(updateInterval)
 			newState = stateProvider.state
 		}
 		
-		val lastOwnTimestamp = if (cameraSample == null) Long.MIN_VALUE
-				else cameraSample.ownTimestamp
-		val lastOpponentTimestamp = if (cameraSample == null) Long.MIN_VALUE
-				else cameraSample.opponentTimestamp
 		var newCameraSample = cameraClient.getCameraSample(robotID)
-		while (newCameraSample.ownPosition == null
-				|| newCameraSample.ownTimestamp <= lastOwnTimestamp
-				|| newCameraSample.opponentPosition == null
-				|| newCameraSample.opponentTimestamp <= lastOpponentTimestamp) {
+		while (!isValid(newCameraSample)) {
 			checkCanceled
 			if (tries-- <= 0)
 				throw new SocketTimeoutException('No position update from camera after ' + timeout + 'ms.')
-			Thread.sleep(UPDATE_INTERVAL / 3)
+			Thread.sleep(updateInterval)
 			newCameraSample = cameraClient.getCameraSample(robotID)
 		}
 		
 		setState(newState, newCameraSample)
+	}
+	
+	private def isValid(CameraSample newSample) {
+		val lastOwnTimestamp = if (cameraSample == null) 0
+				else cameraSample.ownTimestamp
+		val lastOpponentTimestamp = if (cameraSample == null) 0
+				else cameraSample.opponentTimestamp
+		val currentTime = System.currentTimeMillis
+		return newSample.ownPosition != null
+			&& newSample.ownTimestamp > lastOwnTimestamp
+			&& currentTime - newSample.ownTimestamp <= MAX_POSITION_AGE
+			&& newSample.opponentPosition != null
+			&& newSample.opponentTimestamp > lastOpponentTimestamp
+			&& currentTime - newSample.opponentTimestamp <= MAX_POSITION_AGE
 	}
 
 	def release() {

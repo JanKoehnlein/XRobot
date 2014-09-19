@@ -30,4 +30,14 @@ public enum RobotID {
 		}
 	}
 	
+	public static RobotID forFiducialID(int id) {
+		RobotID[] values = RobotID.values();
+		for (int i = 0; i < values.length; i++) {
+			if (values[i].fiducialID == id) {
+				return values[i];
+			}
+		}
+		return null;
+	}
+	
 }

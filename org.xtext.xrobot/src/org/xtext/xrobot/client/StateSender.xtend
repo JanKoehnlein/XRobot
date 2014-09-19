@@ -7,7 +7,7 @@ import java.nio.channels.SocketChannel
 import org.xtext.xrobot.Robot
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.net.SocketOutputBuffer
-import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
+import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 
 class StateSender extends Thread implements INetConfig {
 	

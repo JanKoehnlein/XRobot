@@ -11,7 +11,7 @@ import org.xtext.xrobot.Robot
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.net.SocketInputBuffer
 
-import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
+import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 import static org.xtext.xrobot.util.LEDPatterns.*
 import static org.xtext.xrobot.util.SystemSounds.*
 

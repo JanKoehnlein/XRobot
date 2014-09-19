@@ -1,6 +1,6 @@
 package org.xtext.xrobot.util
 
-class IgnoreExceptionsExtenision {
+class IgnoreExceptionsExtension {
 	
 	static def ignoreExceptions(()=>void lambda) {
 		try {

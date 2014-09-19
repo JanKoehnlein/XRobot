@@ -7,7 +7,7 @@ import java.nio.channels.SocketChannel
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.net.SocketInputBuffer
 import org.apache.log4j.Logger
-import static org.xtext.xrobot.util.IgnoreExceptionsExtenision.*
+import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 
 class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 	
