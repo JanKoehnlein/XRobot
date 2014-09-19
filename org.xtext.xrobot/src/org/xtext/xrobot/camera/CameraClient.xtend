@@ -18,8 +18,8 @@ import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 
 class CameraClient {
 	
-	static val POSITION_BUFFER_SIZE = 12
-	static val ANGLE_BUFFER_SIZE = 8
+	static val POSITION_BUFFER_SIZE = 10
+	static val ANGLE_BUFFER_SIZE = 6
 	static val TUIO_PORT = 3333
 	
 	static val ROBOT_NUM = RobotID.values.length
@@ -36,7 +36,7 @@ class CameraClient {
 			val index = robotID.ordinal
 			xposFilters.set(index, new AveragingFilter(POSITION_BUFFER_SIZE))
 			yposFilters.set(index, new AveragingFilter(POSITION_BUFFER_SIZE))
-			angleFilters.set(index, new AveragingFilter(ANGLE_BUFFER_SIZE))
+			angleFilters.set(index, new AveragingFilter(ANGLE_BUFFER_SIZE, 360))
 		]
 	}
 	
@@ -59,7 +59,7 @@ class CameraClient {
 		var x = (rawXpos - 0.5) * WIDTH_IN_CM
 		var y = (0.5 - rawYpos) * HEIGHT_IN_CM
 		// TUIO 0° means NORTH and 90° means EAST
-		var angle = normalizeAngle(90 - Math.toDegrees(rawAngle))
+		var angle = 90 - Math.toDegrees(rawAngle)
 
 		// Apply the filters			
 		val index = robotID.ordinal
@@ -67,7 +67,7 @@ class CameraClient {
 		y = yposFilters.get(index).apply(y)
 		angle = angleFilters.get(index).apply(angle)
 		
-		val robotPosition = new RobotPosition(x, y, robotID, angle)
+		val robotPosition = new RobotPosition(x, y, robotID, normalizeAngle(angle))
 		robotPositions.set(index, robotPosition)
 		timestamps.set(index, timestamp)
 	}

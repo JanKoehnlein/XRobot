@@ -5,18 +5,31 @@ import java.util.LinkedList
 /**
  * A filter that computes the average value using buffers.
  */
-class AveragingFilter implements IValueStreamFilter {
+class AveragingFilter extends AbstractValueStreamFilter {
 	
 	val buffer = new LinkedList<Double>
 	val int maxBufferSize;
-	
-	var lastValue = 0.0
-	
+		
 	new(int maxBufferSize) {
 		this.maxBufferSize = maxBufferSize
 	}
+	
+	new(int maxBufferSize, double periodicity) {
+		super(periodicity)
+		this.maxBufferSize = maxBufferSize
+	}
 
-	override double apply(double currentValue) {
+	override protected double doApply(double currentValue, double historyOffset) {
+		// Adapt the buffer with the given offset
+		if (historyOffset != 0) {
+			val iterator = buffer.listIterator
+			while (iterator.hasNext) {
+				val x = iterator.next
+				iterator.set(x + historyOffset)
+			}
+		}
+		
+		// Compute the new average value
 		var sum = lastValue * buffer.size
 		buffer.addFirst(currentValue)
 		sum += currentValue
