@@ -208,7 +208,7 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Sets the speed in for all {@link #rotate()} commands. Does not actually mode 
+	 * Sets the speed in for all {@link #rotate()} commands. Does not actually move 
 	 * the robot.
 	 * 
 	 * @param the speed in degrees/second 
@@ -374,16 +374,24 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * @return the oppenent's position.
+	 * @return the opponent's position.
 	 */
 	@Calculated
 	override RobotPosition getOpponentPosition() {
 	}
 
 	/**
-	 * @return the oppenent's position.
+	 * @return the opponent's direction.
 	 */
 	@Calculated
 	override Direction getOpponentDirection() {
 	}
+
+	/**
+	 * @return the center direction.
+	 */
+	@Calculated
+	override Direction getCenterDirection() {
+	}
+	
 }

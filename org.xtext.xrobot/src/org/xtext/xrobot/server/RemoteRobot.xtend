@@ -6,6 +6,8 @@ import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.camera.CameraClient
 import org.xtext.xrobot.camera.CameraSample
+import org.xtext.xrobot.api.Direction
+import static org.xtext.xrobot.api.GeometryExtensions.*
 
 class RemoteRobot extends RemoteRobotProxy {
 	
@@ -97,6 +99,13 @@ class RemoteRobot extends RemoteRobotProxy {
 	
 	override getOpponentDirection() {
 		ownPosition.getRelativeDirection(opponentPosition)
+	}
+	
+	override getCenterDirection() {
+		val negOwnDirection = (-ownPosition).toDirection
+		new Direction(negOwnDirection.distance,
+			normalizeAngle(negOwnDirection.angle - ownPosition.viewDirection)
+		)
 	}
 	
 	override void update() {
