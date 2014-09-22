@@ -58,7 +58,7 @@ class SocketInputBuffer implements INetConfig {
 	}
 	
 	def available() {
-//		println('Recevied ' + (buffer.limit-buffer.position) + ' bytes')
+//		LOG.debug('Recevied ' + (buffer.limit-buffer.position) + ' bytes')
 		buffer.limit - buffer.position
 	}
 }

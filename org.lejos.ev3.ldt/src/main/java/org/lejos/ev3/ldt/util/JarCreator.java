@@ -21,7 +21,8 @@ public class JarCreator {
 		"/home/root/lejos/lib/dbusjava.jar", 
 		"/home/root/lejos/libjna/usr/share/java/jna.jar",
 		"/home/lejos/programs/org.eclipse.xtext.xbase.lib_2.7.1.v201409090713.jar",
-		"/home/lejos/programs/com.google.guava_15.0.0.v201403281430.jar");
+		"/home/lejos/programs/com.google.guava_15.0.0.v201403281430.jar",
+		"/home/lejos/programs/log4j-1.2.17.jar");
 	
 	public JarCreator(String inputDirectory, String outputFile, String mainClass) {
 		this.inputDirectory = inputDirectory.replace("\\", "/");

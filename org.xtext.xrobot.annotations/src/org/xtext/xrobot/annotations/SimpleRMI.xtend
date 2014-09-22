@@ -77,7 +77,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			initializer = '''
 				«'org.apache.log4j.Logger'.newTypeReference».getLogger(«serverImpl».class)
 			'''
-			visibility = Visibility.PROTECTED
+			visibility = Visibility.PRIVATE
 		]
 		serverImpl.addField('socket') [
 			type = SocketChannel.newTypeReference
@@ -265,6 +265,16 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			primarySourceElement = annotatedClass
 			type = annotatedClass.newTypeReference 
 		])
+		clientExecutor.addField('LOG', [
+			primarySourceElement = annotatedClass
+			type = 'org.apache.log4j.Logger'.newTypeReference
+			static = true
+			final = true
+			initializer = '''
+				«'org.apache.log4j.Logger'.newTypeReference».getLogger(«clientExecutor».class)
+			'''
+			visibility = Visibility.PRIVATE 
+		])
 		for(subComponent: subComponentFields) {
 			clientExecutor.addField(subComponent.simpleName, [
 				primarySourceElement = subComponent
@@ -315,7 +325,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 							return «subComponent.simpleName»;
 					«ENDFOR»
 					default:
-						System.err.println("No such component " + componentID);
+						LOG.error("No such component " + componentID);
 						return null;
 				}
 			''' 
@@ -331,7 +341,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 					«FOR sourceMethod: sourceMethods»
 						«IF sourceMethod.returnType.isVoid»
 							case «i»: {
-								System.out.println("«sourceMethod.simpleName» ");
+								LOG.debug("«sourceMethod.simpleName» ");
 								client.«sourceMethod.simpleName»(«
 								FOR p: sourceMethod.parameters SEPARATOR ', '
 									»«p.type.getReadCalls(null)»«
@@ -353,7 +363,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			body = '''
 				boolean result = super.dispatchAndExecute();
 				client.setLastExecutedCommandSerialNr(input.readInt());
-				System.out.println("commandID= " + client.getLastExecutedCommandSerialNr());
+				LOG.debug("commandID= " + client.getLastExecutedCommandSerialNr());
 				return result;
 			'''
 		]

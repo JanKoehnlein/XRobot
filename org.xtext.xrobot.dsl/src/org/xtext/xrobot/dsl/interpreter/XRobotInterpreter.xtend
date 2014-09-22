@@ -58,7 +58,7 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 		conditionContext.newValue(ROBOT, conditionRobot)
 		try {
 			do {
-				LOG.debug('Checking mode conditions')
+//				LOG.debug('Checking mode conditions')
 				val newMode = program.modes.findFirst [
 					if(condition == null)
 						return true

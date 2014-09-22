@@ -14,8 +14,11 @@ import org.xtext.xrobot.net.SocketInputBuffer
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 import static org.xtext.xrobot.util.LEDPatterns.*
 import static org.xtext.xrobot.util.SystemSounds.*
+import org.apache.log4j.Logger
 
 class BrickConnector implements INetConfig {
+	
+	static val LOG = Logger.getLogger(BrickConnector)
 
 	ServerSocketChannel server
 	Selector serverSelector
@@ -50,7 +53,7 @@ class BrickConnector implements INetConfig {
 		robot.led = ORANGE_BLINK
 		isStopped = false
 		while (!isStopped) {
-			println('Accepting connections...')
+			LOG.info('Accepting connections...')
 			serverSelector.select(SOCKET_TIMEOUT)
 			for (key : serverSelector.selectedKeys) {
 				if (robot.escapePressed)
@@ -59,8 +62,7 @@ class BrickConnector implements INetConfig {
 					val socket = server.accept()
 					if (socket != null) {
 						socket.configureBlocking(false)
-						System.err.println()
-						System.err.println('Connected to ' + (socket.remoteAddress as InetSocketAddress).address)
+						LOG.info('Connected to ' + (socket.remoteAddress as InetSocketAddress).address)
 						robot.led = GREEN
 						robot.systemSound(BEEP)
 						return socket
@@ -68,16 +70,16 @@ class BrickConnector implements INetConfig {
 				}
 			}
 			if(!CAMERA_SERVER_ADDRESS.isReachable(20 * SOCKET_TIMEOUT)) {
-				System.err.println('Network or camera server is down')
+				LOG.error('Network or camera server is down')
 				robot.systemSound(LOW_BUZZ)
 				isStopped = true
 			}
 		}
 		robot.systemSound(DESCENDING_ARPEGGIO)
-		System.err.println('Shutting down server...')
+		LOG.info('Shutting down server...')
 		ignoreExceptions[serverSelector?.close]
 		ignoreExceptions[server?.close]
-		System.err.println('...done.')
+		LOG.info('...done.')
 		return null
 	}
 
@@ -113,7 +115,9 @@ class BrickConnector implements INetConfig {
 						} else {
 							for (key : selector.selectedKeys) {
 								if (key.readable) {
+									LOG.debug('Read message...')
 									input.receive
+									LOG.debug('...read ' + input.available + ' bytes.')
 									if (input.available > 0) {
 										Thread.yield
 										synchronized(robot) {
@@ -128,7 +132,7 @@ class BrickConnector implements INetConfig {
 				}
 				robot.reset
 			} catch (Exception exc) {
-				println('Error: ' + exc.message)
+				LOG.error('Error: ' + exc.message)
 				disconnect(selector, socket, stateSender)
 				robot.reset
 				Thread.sleep(5000)

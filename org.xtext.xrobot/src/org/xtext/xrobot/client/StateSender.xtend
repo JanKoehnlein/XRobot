@@ -8,8 +8,11 @@ import org.xtext.xrobot.Robot
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.net.SocketOutputBuffer
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
+import org.apache.log4j.Logger
 
 class StateSender extends Thread implements INetConfig {
+	
+	static val LOG = Logger.getLogger(StateSender)
 	
 	Robot robot	
 	SocketOutputBuffer output
@@ -46,7 +49,7 @@ class StateSender extends Thread implements INetConfig {
 			} catch(ClosedSelectorException e) {
 				return
 			} catch(Exception e) {
-				System.err.println(e.message)
+				LOG.error(e.message)
 				ignoreExceptions[selector?.close]
 				return
 			}
