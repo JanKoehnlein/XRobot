@@ -20,5 +20,4 @@ Require-Bundle: com.google.inject;bundle-version="3.0.0",
  com.illposed.osc;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.apache.log4j;version="1.2.15"
-Bundle-ClassPath: lib/libTUIO.jar,
- .
+Bundle-ClassPath: .

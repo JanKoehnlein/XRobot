@@ -58,6 +58,7 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 		conditionContext.newValue(ROBOT, conditionRobot)
 		try {
 			do {
+				LOG.debug('Checking mode conditions')
 				val newMode = program.modes.findFirst [
 					if(condition == null)
 						return true
@@ -65,10 +66,13 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 					return result != null && result?.result as Boolean
 				]		
 				if(newMode != currentMode || currentModeCancelIndicator?.isCanceled) {
+					if(currentMode != null)
+						LOG.debug('Canceling running mode ' +  currentMode.name)
 					currentModeCancelIndicator?.cancel
 					currentModeCancelIndicator = new ModeCancelIndicator(cancelIndicator)
 					currentMode = newMode
 					if (newMode != null) {
+						LOG.debug('Starting mode ' +  newMode.name)
 						val modeRobot = robotFactory.newRobot(currentModeCancelIndicator, conditionRobot)
 						val modeContext = baseContext.fork
 						modeContext.newValue(ROBOT, modeRobot)
@@ -80,6 +84,7 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 								try {
 									currentMode.execute(modeContext, currentModeCancelIndicator)
 								} catch (CanceledException exc) {
+									LOG.debug('Mode ' + newMode.name + ' canceled')
 								} catch (Exception exc) {
 									LOG.error('Error executing mode ' + newMode.name, exc)
 								} finally {

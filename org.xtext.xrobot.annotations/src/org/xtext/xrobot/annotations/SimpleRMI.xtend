@@ -70,6 +70,15 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			type = serverStateClass.newTypeReference
 			visibility = Visibility.PROTECTED
 		]
+		serverImpl.addField('LOG') [
+			type = 'org.apache.log4j.Logger'.newTypeReference
+			static = true
+			final = true
+			initializer = '''
+				«'org.apache.log4j.Logger'.newTypeReference».getLogger(«serverImpl».class)
+			'''
+			visibility = Visibility.PROTECTED
+		]
 		serverImpl.addField('socket') [
 			type = SocketChannel.newTypeReference
 			visibility = Visibility.PROTECTED
@@ -205,6 +214,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				else if (!serverMethod.returnType.isVoid)
 					serverMethod.body = '''
 						checkCanceled();
+						LOG.debug("«sourceMethod.simpleName»");
 						return state.get«serverMethod.fieldName.toFirstUpper»();
 					'''
 				else 
@@ -216,6 +226,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 							«getWriteCalls(p.type, p.simpleName)»
 						«ENDFOR»
 						int commandSerialNr = nextCommandSerialNr++;
+						LOG.debug("«sourceMethod.simpleName» " + commandSerialNr);
 						output.writeInt(commandSerialNr);
 						output.send();
 						«IF sourceMethod.isBlocking(context)»
@@ -320,6 +331,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 					«FOR sourceMethod: sourceMethods»
 						«IF sourceMethod.returnType.isVoid»
 							case «i»: {
+								System.out.print("«sourceMethod.simpleName» ");
 								client.«sourceMethod.simpleName»(«
 								FOR p: sourceMethod.parameters SEPARATOR ', '
 									»«p.type.getReadCalls(null)»«
@@ -341,6 +353,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			body = '''
 				boolean result = super.dispatchAndExecute();
 				client.setLastExecutedCommandSerialNr(input.readInt());
+				System.out.println("commandID= " + client.getLastExecutedCommandSerialNr());
 				return result;
 			'''
 		]
