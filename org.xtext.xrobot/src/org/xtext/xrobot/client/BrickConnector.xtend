@@ -103,7 +103,7 @@ class BrickConnector implements INetConfig {
 					robot.reset
 					val input = new SocketInputBuffer(socket)
 					selector = Selector.open()
-					socket.register(selector, SelectionKey.OP_READ + SelectionKey.OP_WRITE)
+					socket.register(selector, SelectionKey.OP_READ)
 					val executor = new RobotExecutor(input, robot)
 					stateSender = new StateSender(robot, socket)
 					stateSender.start
@@ -118,8 +118,7 @@ class BrickConnector implements INetConfig {
 									LOG.debug('Read message...')
 									input.receive
 									LOG.debug('...read ' + input.available + ' bytes.')
-									if (input.available > 0) {
-										Thread.yield
+									while (input.available > 0) {
 										synchronized(robot) {
 											isRelease = !executor.dispatchAndExecute
 										}
@@ -127,6 +126,7 @@ class BrickConnector implements INetConfig {
 								}
 							}
 						}
+						Thread.yield
 					}
 					disconnect(selector, socket, stateSender)
 				}
