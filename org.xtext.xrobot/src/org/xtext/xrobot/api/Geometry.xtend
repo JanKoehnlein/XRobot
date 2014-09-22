@@ -29,6 +29,10 @@ class Position {
 		new Position(x - p.x, y - p.y)
 	}
 	
+	def -() {
+		new Position(-x, -y)
+	}
+	
 	def *(double scalar) {
 		new Position(x*scalar, y*scalar)
 	}
