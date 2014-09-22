@@ -3,9 +3,12 @@ package org.xtext.xrobot.net
 import java.nio.ByteBuffer
 import java.nio.channels.SocketChannel
 import java.nio.charset.Charset
+import org.apache.log4j.Logger
 
 class SocketOutputBuffer implements INetConfig {
 		
+	static val LOG = Logger.getLogger(SocketOutputBuffer)
+	
 	ByteBuffer buffer = ByteBuffer.allocate(BUFFER_SIZE)
 	
 	SocketChannel channel
@@ -18,6 +21,7 @@ class SocketOutputBuffer implements INetConfig {
 		buffer.limit = buffer.position
 		buffer.rewind
 		channel.write(buffer)
+		LOG.debug('Sent ' +  buffer.limit + ' bytes')
 		buffer.rewind
 		buffer.limit = BUFFER_SIZE
 	}
