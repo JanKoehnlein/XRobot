@@ -286,7 +286,7 @@ class Robot implements IRobotGeometry {
 	 * @return true if any of the motors is moving. 
 	 */
 	override boolean isMoving() {
-		pilot.isMoving
+		pilot.isMoving || scoopMotor.isMoving
 	}
 
 	/**
