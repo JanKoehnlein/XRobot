@@ -226,9 +226,9 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 							«getWriteCalls(p.type, p.simpleName)»
 						«ENDFOR»
 						int commandSerialNr = nextCommandSerialNr++;
-						LOG.debug("«sourceMethod.simpleName» " + commandSerialNr);
 						output.writeInt(commandSerialNr);
 						output.send();
+						LOG.debug("«sourceMethod.simpleName» " + commandSerialNr);
 						«IF sourceMethod.isBlocking(context)»
 							waitFinished(commandSerialNr);
 						«ENDIF»
@@ -331,7 +331,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 					«FOR sourceMethod: sourceMethods»
 						«IF sourceMethod.returnType.isVoid»
 							case «i»: {
-								System.out.print("«sourceMethod.simpleName» ");
+								System.out.println("«sourceMethod.simpleName» ");
 								client.«sourceMethod.simpleName»(«
 								FOR p: sourceMethod.parameters SEPARATOR ', '
 									»«p.type.getReadCalls(null)»«
