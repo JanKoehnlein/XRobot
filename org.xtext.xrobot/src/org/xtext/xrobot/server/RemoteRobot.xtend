@@ -9,7 +9,7 @@ import org.xtext.xrobot.camera.CameraSample
 
 class RemoteRobot extends RemoteRobotProxy {
 	
-	static val MAX_POSITION_AGE = 200
+	static val MAX_POSITION_AGE = 500
 	
 	val CameraClient cameraClient
 	

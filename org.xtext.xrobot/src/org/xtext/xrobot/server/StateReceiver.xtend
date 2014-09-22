@@ -61,7 +61,7 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 							}
 						} catch(Exception exc) {
 							failureCount++  
-							LOG.error('State read failures ' + failureCount + " succeses " + successCount)
+							LOG.error('State read failures ' + failureCount + " successes " + successCount)
 						}							
 					} 
 				}

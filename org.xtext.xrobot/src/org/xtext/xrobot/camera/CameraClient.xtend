@@ -68,16 +68,20 @@ class CameraClient {
 		angle = angleFilters.get(index).apply(angle)
 		
 		val robotPosition = new RobotPosition(x, y, robotID, normalizeAngle(angle))
-		robotPositions.set(index, robotPosition)
-		timestamps.set(index, timestamp)
+		synchronized (this) {
+			robotPositions.set(index, robotPosition)
+			timestamps.set(index, timestamp)
+		}
 	}
 	
 	def getCameraSample(RobotID robotID) {
-		val ownPosition = robotPositions.get(robotID.ordinal)
-		val ownTimestamp = timestamps.get(robotID.ordinal)
-		val opponentPosition = robotPositions.get(robotID.opponent.ordinal)
-		val opponentTimestamp = timestamps.get(robotID.opponent.ordinal)
-		new CameraSample(ownPosition, ownTimestamp, opponentPosition, opponentTimestamp)
+		synchronized (this) {
+			val ownPosition = robotPositions.get(robotID.ordinal)
+			val ownTimestamp = timestamps.get(robotID.ordinal)
+			val opponentPosition = robotPositions.get(robotID.opponent.ordinal)
+			val opponentTimestamp = timestamps.get(robotID.opponent.ordinal)
+			new CameraSample(ownPosition, ownTimestamp, opponentPosition, opponentTimestamp)
+		}
 	}
 	
 	private static class TuioListener implements OSCListener {
