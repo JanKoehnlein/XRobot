@@ -286,7 +286,7 @@ class Robot implements IRobotGeometry {
 	 * @return true if any of the motors is moving. 
 	 */
 	override boolean isMoving() {
-		pilot.isMoving || scoopMotor.isMoving
+		pilot.isMoving
 	}
 
 	/**
@@ -320,7 +320,6 @@ class Robot implements IRobotGeometry {
 	 * This method will block the current mode's execution until the move is complete.
 	 * Once finished, the motors will be stopped.
 	 */
-	@Blocking
 	override void scoop(double angle) {
 		val intAngle = (min(1, max(angle, -1)) * 200) as int
 		scoopMotor.rotateTo(intAngle)
