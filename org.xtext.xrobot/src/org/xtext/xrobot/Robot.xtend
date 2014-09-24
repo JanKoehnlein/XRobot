@@ -320,11 +320,17 @@ class Robot implements IRobotGeometry {
 	 * This method will block the current mode's execution until the move is complete.
 	 * Once finished, the motors will be stopped.
 	 */
+	@Blocking('getScoopMoving')
 	override void scoop(double angle) {
 		val intAngle = (min(1, max(angle, -1)) * 200) as int
 		scoopMotor.rotateTo(intAngle)
 	}
 
+	@NoAPI
+	def boolean isScoopMoving() {
+		scoopMotor.isMoving	
+	} 
+	
 	override void playSample(String fileName) {
 		audio.playSample('samples/' + fileName + '.wav', 100)
 	}

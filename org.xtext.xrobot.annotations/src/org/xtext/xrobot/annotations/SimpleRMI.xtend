@@ -16,6 +16,7 @@ import org.eclipse.xtend.lib.macro.declaration.MutableClassDeclaration
 import org.eclipse.xtend.lib.macro.declaration.Type
 import org.eclipse.xtend.lib.macro.declaration.TypeReference
 import org.eclipse.xtend.lib.macro.declaration.Visibility
+import com.google.common.base.Predicate
 
 @Target(ElementType.TYPE)
 @Active(SimpleRemoteProcessor)
@@ -36,14 +37,13 @@ annotation Calculated {
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
 annotation Blocking {
+	String value = 'getMoving'
 }
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.SOURCE)
 annotation SubComponent {
 }
-
-
 
 class SimpleRemoteProcessor extends AbstractClassProcessor {
 	
@@ -157,11 +157,12 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		serverImpl.addMethod('waitFinished') [
 			visibility = Visibility.PROTECTED
 			addParameter('commandSerialNr', int.newTypeReference())
+			addParameter('isMoving', Predicate.newTypeReference(serverStateClass.newTypeReference))
 			body = '''
 				«serverStateClass.newTypeReference» newState = stateProvider.getState();
 				while(newState.getLastExecutedCommandSerialNr() < commandSerialNr
 					|| (newState.getLastExecutedCommandSerialNr() == commandSerialNr 
-					&& newState.getMoving())) {
+					&& isMoving.apply(newState))) {
 					checkCanceled();
 					Thread.yield();
 					newState = stateProvider.getState();
@@ -229,8 +230,13 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 						output.writeInt(commandSerialNr);
 						output.send();
 						LOG.debug("«sourceMethod.simpleName» " + commandSerialNr);
-						«IF sourceMethod.isBlocking(context)»
-							waitFinished(commandSerialNr);
+						«IF sourceMethod.getBlockingValue(context) != null»
+							waitFinished(commandSerialNr, new Predicate<«serverStateClass»>() {
+								@Override 
+								public boolean apply(«serverStateClass» state) {
+									return state.«sourceMethod.getBlockingValue(context)»();
+								}
+							});
 						«ENDIF»
 					'''
 			])
@@ -449,8 +455,8 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		
 	}
 	
-	private def isBlocking(MethodDeclaration method, extension TransformationContext context) {
-		method.findAnnotation(Blocking.findTypeGlobally) != null
+	private def String getBlockingValue(MethodDeclaration method, extension TransformationContext context) {
+		method.findAnnotation(Blocking.findTypeGlobally)?.getStringValue('value')
 	}
 	
 	
