@@ -119,14 +119,18 @@ class BrickConnector implements INetConfig {
 									input.receive
 									LOG.debug('...read ' + input.available + ' bytes.')
 									while (input.available > 0) {
-										synchronized(robot) {
-											isRelease = !executor.dispatchAndExecute
+										if (robot.escapePressed) {
+											isRelease = true
+										} else {
+											synchronized(robot) {
+												isRelease = !executor.dispatchAndExecute
+											}
 										}
 									}
 								}
 							}
+							Thread.yield
 						}
-						Thread.yield
 					}
 					disconnect(selector, socket, stateSender)
 				}
