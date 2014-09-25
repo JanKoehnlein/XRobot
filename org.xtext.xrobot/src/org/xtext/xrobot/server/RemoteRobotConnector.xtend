@@ -14,13 +14,21 @@ import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.net.INetConfig
 
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
+import org.xtext.xrobot.camera.CameraClient
 
 @Singleton
-class RemoteRobotConnector implements INetConfig {
+class RemoteRobotConnector implements INetConfig, IRemoteRobot.Connector {
+
+	CameraClient cameraClient
 
 	static val LOG = Logger.getLogger(RemoteRobotConnector)
 
 	val Map<RobotID, RemoteRobotFactory> id2factory = newHashMap
+
+	new() {
+		this.cameraClient = new CameraClient()
+		cameraClient.connect
+	}
 
 	private def connect(RobotID robotID) throws SocketTimeoutException {
 		var SocketChannel socket = null
@@ -37,7 +45,7 @@ class RemoteRobotConnector implements INetConfig {
 					throw new SocketTimeoutException('Timeout connecting to  \'' + robotID + '\'')
 				socket.finishConnect
 			}
-			val remoteRobotFactory = new RemoteRobotFactory(robotID, socket)
+			val remoteRobotFactory = new RemoteRobotFactory(robotID, socket, cameraClient)
 			LOG.info('Connected to ' + robotID + ' at ' + (socket.remoteAddress as InetSocketAddress).address)
 			remoteRobotFactory
 		} catch(Exception exc) {
@@ -46,7 +54,7 @@ class RemoteRobotConnector implements INetConfig {
 		}
 	}
 	
-	def getRobotFactory(RobotID robotID) {
+	override getRobotFactory(RobotID robotID) {
 		val connectedRobot = id2factory.get(robotID)
 		if(connectedRobot != null) {
 			if(connectedRobot.isAlive) {

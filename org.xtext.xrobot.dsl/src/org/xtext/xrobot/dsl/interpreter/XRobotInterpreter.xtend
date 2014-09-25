@@ -4,6 +4,7 @@ import com.google.inject.Inject
 import java.util.List
 import org.apache.log4j.Logger
 import org.eclipse.xtext.common.types.JvmField
+import org.eclipse.xtext.common.types.JvmIdentifiableElement
 import org.eclipse.xtext.common.types.JvmOperation
 import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils
@@ -20,8 +21,9 @@ import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.dsl.xRobotDSL.Sub
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
+import org.xtext.xrobot.server.IRemoteRobot
 import org.xtext.xrobot.server.RemoteRobot
-import org.xtext.xrobot.server.RemoteRobotFactory
+import org.eclipse.xtext.common.types.JvmDeclaredType
 
 class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 	
@@ -36,13 +38,13 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 
 	ModeCancelIndicator currentModeCancelIndicator
 	
-	RemoteRobot conditionRobot
+	IRemoteRobot conditionRobot
 	
 	@Inject extension IJvmModelAssociations 
 	
 	List<IRobotListener> listeners
 	
-	def void execute(Program program, RemoteRobotFactory robotFactory, List<IRobotListener> listeners, CancelIndicator cancelIndicator) {
+	def void execute(Program program, IRemoteRobot.Factory robotFactory, List<IRobotListener> listeners, CancelIndicator cancelIndicator) {
 		this.listeners = listeners
 		baseContext = createContext
 		for(field: program.fields) {
@@ -59,45 +61,48 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 		try {
 			do {
 //				LOG.debug('Checking mode conditions')
-				val newMode = program.modes.findFirst [
-					if(condition == null)
-						return true
-					val result = condition?.evaluate(conditionContext, cancelIndicator)
-					return result != null && result?.result as Boolean
-				]		
-				if(newMode != currentMode || currentModeCancelIndicator?.isCanceled) {
-					if(currentMode != null)
-						LOG.debug('Canceling running mode ' +  currentMode.name)
-					currentModeCancelIndicator?.cancel
-					currentModeCancelIndicator = new ModeCancelIndicator(cancelIndicator)
-					currentMode = newMode
-					if (newMode != null) {
-						LOG.debug('Starting mode ' +  newMode.name)
-						val modeRobot = robotFactory.newRobot(currentModeCancelIndicator, conditionRobot)
-						val modeContext = baseContext.fork
-						modeContext.newValue(ROBOT, modeRobot)
-						val modeNode = NodeModelUtils.findActualNodeFor(newMode)
-						if (modeNode != null) {
-							modeContext.newValue(CURRENT_LINE, modeNode.startLine)
+				listeners.forEach[stateRead(conditionRobot)]
+				if(!cancelIndicator.isCanceled) {
+					val newMode = program.modes.findFirst [
+						if(condition == null)
+							return true
+						val result = condition?.evaluate(conditionContext, cancelIndicator)
+						return result != null && result?.result as Boolean
+					]		
+					if(newMode != currentMode || currentModeCancelIndicator?.isCanceled) {
+						if(currentMode != null)
+							LOG.debug('Canceling running mode ' +  currentMode.name)
+						currentModeCancelIndicator?.cancel
+						currentModeCancelIndicator = new ModeCancelIndicator(cancelIndicator)
+						currentMode = newMode
+						if (newMode != null) {
+							LOG.debug('Starting mode ' +  newMode.name)
+							val modeRobot = robotFactory.newRobot(currentModeCancelIndicator, conditionRobot)
+							val modeContext = baseContext.fork
+							modeContext.newValue(ROBOT, modeRobot)
+							val modeNode = NodeModelUtils.findActualNodeFor(newMode)
+							if (modeNode != null) {
+								modeContext.newValue(CURRENT_LINE, modeNode.startLine)
+							}
+							new Thread([
+									try {
+										currentMode.execute(modeContext, currentModeCancelIndicator)
+									} catch (CanceledException exc) {
+										LOG.debug('Mode ' + newMode.name + ' canceled')
+									} catch (Exception exc) {
+										LOG.error('Error executing mode ' + newMode.name, exc)
+									} finally {
+										currentModeCancelIndicator.cancel
+									}
+								], 'Robot ' + modeRobot.name + ' in mode ' + newMode.name)
+								.start
 						}
-						new Thread([
-								try {
-									currentMode.execute(modeContext, currentModeCancelIndicator)
-								} catch (CanceledException exc) {
-									LOG.debug('Mode ' + newMode.name + ' canceled')
-								} catch (Exception exc) {
-									LOG.error('Error executing mode ' + newMode.name, exc)
-								} finally {
-									currentModeCancelIndicator.cancel
-								}
-							], 'Robot ' + modeRobot.name + ' in mode ' + newMode.name)
-							.start
 					}
+					Thread.yield
+					conditionRobot.waitForUpdate(SOCKET_TIMEOUT)
+					if(newMode == null)
+						listeners.forEach[ stateChanged(conditionRobot) ]
 				}
-				Thread.yield
-				conditionRobot.waitForUpdate(SOCKET_TIMEOUT)
-				if(newMode == null)
-					listeners.forEach[ stateChanged(conditionRobot) ]
 			} while(!cancelIndicator.canceled)
 		} catch(CanceledException exc) {
 		}
@@ -106,8 +111,9 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 	protected def execute(Mode mode, IEvaluationContext context, CancelIndicator cancelIndicator) {
 		try {
 			listeners.forEach[
-				modeChanged(mode)
-				stateChanged(context.getValue(ROBOT) as RemoteRobot)
+				val robot = context.getValue(ROBOT) as RemoteRobot
+				modeChanged(robot, mode)
+				stateChanged(robot)
 			]
 			mode.action.evaluate(context, cancelIndicator)
 		} catch(CanceledException exc) {
@@ -189,4 +195,12 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 		value 
 	}
 	
+	override Object _invokeFeature(JvmIdentifiableElement identifiable, XAbstractFeatureCall featureCall, Object receiver,
+			IEvaluationContext context, CancelIndicator indicator) {
+		if(identifiable instanceof JvmDeclaredType) 
+			return context.getValue(ROBOT)
+		else 
+			return super._invokeFeature(identifiable, featureCall, receiver, context, indicator)
+			
+	}
 }

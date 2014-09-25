@@ -7,11 +7,11 @@ import java.io.InputStreamReader
 import javax.inject.Inject
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.util.CancelIndicator
+import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 import org.xtext.xrobot.server.CanceledException
+import org.xtext.xrobot.server.IRemoteRobot
 import org.xtext.xrobot.server.RemoteRobotConnector
-import org.xtext.xrobot.server.RemoteRobotFactory
-import org.xtext.xrobot.RobotID
 
 @Singleton
 class REPL {
@@ -23,11 +23,13 @@ class REPL {
 
 	@Inject RemoteRobotConnector connector
 	
+	@Inject Provider<XtextResourceSet> resourceSetProvider
+	
+	@Inject ScriptParser parser
+	
 	@Inject ScriptRunner runner
 	
-	@Inject Provider<XtextResourceSet> resourceSetProvider;
-
-	RemoteRobotFactory currentRobotFactory
+	IRemoteRobot.Factory currentRobotFactory
 
 	var indent = 0 
 
@@ -75,7 +77,9 @@ class REPL {
 							}
 						}
 						try {
-							runner.run(currentRobotFactory, model, resourceSetProvider.get(), cancelIndicator)					
+							val resourceSet = resourceSetProvider.get()
+							val program = parser.parse('repl', model, resourceSet)
+							runner.run(program, currentRobotFactory, cancelIndicator)					
 						} catch (CanceledException exc) {
 						}
 					}

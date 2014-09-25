@@ -10,6 +10,7 @@ Export-Package: org.xtext.xrobot,
  org.xtext.xrobot.dynamic,
  org.xtext.xrobot.net,
  org.xtext.xrobot.server,
+ org.xtext.xrobot.server.testing,
  org.xtext.xrobot.tests,
  org.xtext.xrobot.tests.base,
  org.xtext.xrobot.util

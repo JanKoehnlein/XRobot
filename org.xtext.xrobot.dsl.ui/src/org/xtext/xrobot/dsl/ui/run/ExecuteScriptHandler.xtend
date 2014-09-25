@@ -36,23 +36,25 @@ import org.eclipse.xtext.ui.resource.IResourceSetProvider
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.dsl.interpreter.IRobotListener
+import org.xtext.xrobot.dsl.interpreter.ScriptParser
 import org.xtext.xrobot.dsl.interpreter.ScriptRunner
 import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
+import org.xtext.xrobot.server.IRemoteRobot
 import org.xtext.xrobot.server.RemoteRobot
-import org.xtext.xrobot.server.RemoteRobotConnector
-import org.xtext.xrobot.server.RemoteRobotFactory
 
 @Singleton
 class ExecuteScriptHandler extends AbstractHandler {
 
 	static val LOG = Logger.getLogger(ExecuteScriptHandler)
 
-	@Inject RemoteRobotConnector connector
-
-	@Inject Provider<ScriptRunner> scriptRunnerProvider
+	@Inject IRemoteRobot.Connector connector
 
 	@Inject IResourceSetProvider resourceSetProvider
+
+	@Inject ScriptParser scriptParser
+
+	@Inject Provider<ScriptRunner> scriptRunnerProvider
 
 	Map<RobotID, Job> id2controller = newHashMap
 
@@ -70,7 +72,7 @@ class ExecuteScriptHandler extends AbstractHandler {
 					MessageDialog.openError(xtextEditor.editorSite.shell, 'Error', 'Error canceling running job')
 				}
 			}
-			var RemoteRobotFactory tempRobotFactory = null
+			var IRemoteRobot.Factory tempRobotFactory = null
 			try {
 				tempRobotFactory = connector.getRobotFactory(robotID)
 			} catch (Exception exc) {
@@ -87,7 +89,9 @@ class ExecuteScriptHandler extends AbstractHandler {
 			val scriptName = document.readOnly [
 				URI.trimFileExtension.lastSegment
 			]
-			val project = (xtextEditor.editorInput as IFileEditorInput).file.project
+			val file = (xtextEditor.editorInput as IFileEditorInput).file
+			val fileName = file.name.substring(0, file.name.length -  7)
+			val project = file.project
 			val resourceSet = resourceSetProvider.get(project) as XtextResourceSet
 			val model = document.get
 			val dialog = new StateDialog(xtextEditor)
@@ -99,7 +103,8 @@ class ExecuteScriptHandler extends AbstractHandler {
 						Display.getDefault.asyncExec [
 							dialog.open(monitor)
 						]
-						scriptRunner.run(robotFactory, model, resourceSet,
+						val program = scriptParser.parse(fileName, model, resourceSet)
+						scriptRunner.run(program, robotFactory,
 							new CancelIndicator() {
 								override isCanceled() {
 									monitor.isCanceled
@@ -178,14 +183,14 @@ class ExecuteScriptHandler extends AbstractHandler {
 			super.cancelPressed()
 		}
 
-		override modeChanged(Mode newMode) {
+		override modeChanged(IRemoteRobot robot, Mode newMode) {		
 			Display.getDefault.asyncExec [
 				content.put('Mode', newMode.name)
 				tableViewer.refresh
 			]
 		}
 
-		override stateChanged(RemoteRobot robot) {
+		override stateChanged(IRemoteRobot robot) {
 			Display.getDefault.asyncExec [
 				content.put('Position', '''
 					x=«robot.ownPosition.x as int» y=«robot.ownPosition.y as int» a=«robot.ownPosition.viewDirection as int»
@@ -225,6 +230,9 @@ class ExecuteScriptHandler extends AbstractHandler {
 				list.get(columnIndex)
 			}
 
+		}
+		
+		override stateRead(IRemoteRobot robot) {
 		}
 	}
 

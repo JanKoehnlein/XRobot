@@ -9,7 +9,7 @@ import org.xtext.xrobot.camera.CameraSample
 import org.xtext.xrobot.api.Direction
 import static org.xtext.xrobot.api.GeometryExtensions.*
 
-class RemoteRobot extends RemoteRobotProxy {
+class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
 	static val MAX_POSITION_AGE = 500
 	
@@ -34,7 +34,7 @@ class RemoteRobot extends RemoteRobotProxy {
 		robotID.name
 	}
 
-	def waitForUpdate(int timeout) throws SocketTimeoutException {
+	override waitForUpdate(int timeout) throws SocketTimeoutException {
 		val updateInterval = UPDATE_INTERVAL / 3
 		val lastStateUpdate = if (state == null) 0 else state.sampleTime
 		var newState = stateProvider.state
@@ -73,19 +73,19 @@ class RemoteRobot extends RemoteRobotProxy {
 			&& currentTime - newSample.opponentTimestamp <= MAX_POSITION_AGE
 	}
 
-	def release() {
+	override release() {
 		stop
 		output.writeInt(componentID)
 		output.writeInt(-1)
 		output.send
 	}
 	
-	def setState(RobotServerState state, CameraSample cameraSample) {
+	override setState(RobotServerState state, CameraSample cameraSample) {
 		setState(state)
 		this.cameraSample = cameraSample		
 	}
 	
-	def getCameraSample() {
+	override getCameraSample() {
 		cameraSample
 	}
 	

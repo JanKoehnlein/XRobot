@@ -59,6 +59,7 @@ class StateReceiver implements INetConfig, StateProvider<RobotServerState> {
 							synchronized(this) {
 								lastState = state
 							}
+							LOG.debug('Received state ' +  state.sampleTime)
 						} catch(Exception exc) {
 							failureCount++  
 							LOG.error('State read failures ' + failureCount + " successes " + successCount)
