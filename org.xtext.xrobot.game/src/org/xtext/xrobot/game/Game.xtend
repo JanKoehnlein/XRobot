@@ -2,7 +2,9 @@ package org.xtext.xrobot.game
 
 import com.google.inject.Inject
 import com.google.inject.Provider
+import java.util.ArrayList
 import java.util.List
+import org.apache.log4j.Logger
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.IArena
@@ -14,7 +16,9 @@ import org.xtext.xrobot.server.IRemoteRobot
 
 class Game {
 	
-	static val GAME_DURATION = 1000 * 60 * 2 // 2 minutes in millis
+	static val LOG = Logger.getLogger(Game)
+	
+	static val GAME_DURATION = 1000l * 60 * 2 // 2 minutes in millis
 	static val GAME_LOST_THRESHOLD = 500 
 	 
 	@Inject Provider<ScriptRunner> scriptRunnerProvider
@@ -22,22 +26,21 @@ class Game {
 	List<Thread> runners
 
 	Throwable gameException
-	boolean gameOver
+	volatile boolean gameOver
 	
 	long lastLoserTimeStamp = -1
 	RobotID loser
 
-	def play(List<PlayerSlot> slots, IRobotListener serverListener) {
+	def play(List<PlayerSlot> slots) {
 		val gameOverListener = createGameOverListener
-		runners = slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener, serverListener)].toList
+		// remember map is lazy, so make a real copy
+		runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener)])
 		gameOver = false
 		runners.forEach[start]
-		runners.forEach[ 
-			executeSafely[ join(GAME_DURATION) ]
-		]
+		runners.forEach[executeSafely[join(GAME_DURATION)]]
 		gameOver = true
 		slots.forEach[
-			executeSafely[ robotFactory.reset ]
+			executeSafely[ robotFactory.release ]
 		]
 	}
 	
@@ -94,7 +97,7 @@ class Game {
 					robotFactory,
 					new CancelIndicator() {
 						override isCanceled() {
-							gameOver == true
+							gameOver
 						}
 					})
 			]
@@ -105,6 +108,7 @@ class Game {
 		try {
 			runnable.run()
 		} catch(Exception e) {
+			LOG.error(e.message, e)
 			gameException = e
 			gameOver = true
 		}

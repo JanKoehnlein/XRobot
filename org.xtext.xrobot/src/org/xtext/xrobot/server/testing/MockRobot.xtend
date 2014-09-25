@@ -3,14 +3,18 @@ package org.xtext.xrobot.server.testing
 import java.net.SocketTimeoutException
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.xtext.xrobot.RobotID
+import org.xtext.xrobot.api.Direction
+import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.camera.CameraSample
 import org.xtext.xrobot.server.IRemoteRobot
 import org.xtext.xrobot.server.RobotServerState
 
+import static org.xtext.xrobot.api.GeometryExtensions.*
+
 @Accessors	
 class MockRobot implements IRemoteRobot {
 	
-	RobotID robotID 
+	val RobotID robotID 
 
 	RobotServerState state
 	
@@ -18,11 +22,16 @@ class MockRobot implements IRemoteRobot {
 	 
 	double rotateSpeed
 	
-	CameraSample cameraSample
-
-	new(RobotID id) {
+	new(RobotID robotID) {
 		this.robotID = robotID
 		this.state = new RobotServerState
+	}
+
+	override getCameraSample() {
+		val time = System.currentTimeMillis
+		new CameraSample(
+			new RobotPosition(30,30, robotID, 90), time, 
+			new RobotPosition(-30,-30, robotID.opponent, -90), time)
 	}
 	
 	override waitForUpdate(int timeout) throws SocketTimeoutException {
@@ -35,17 +44,8 @@ class MockRobot implements IRemoteRobot {
 		return state.batteryState
 	}
 	
-	override setState(RobotServerState state, CameraSample cameraSample) {
-		this.state = state
-		this.cameraSample = cameraSample
-	}
-	
 	override getName() {
 		robotID.name
-	}
-	
-	override getRobotID() {
-		robotID
 	}
 	
 	override setSpeeds(double leftSpeed, double rightSpeed) {
@@ -117,11 +117,14 @@ class MockRobot implements IRemoteRobot {
 	}
 	
 	override getOpponentDirection() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		ownPosition.getRelativeDirection(opponentPosition)
 	}
 	
 	override getCenterDirection() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		val negOwnDirection = (-ownPosition).toDirection
+		new Direction(negOwnDirection.distance,
+			normalizeAngle(negOwnDirection.angle - ownPosition.viewDirection)
+		)
 	}
 	
 	override getLeftMotor() {

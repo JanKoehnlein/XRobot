@@ -8,6 +8,7 @@ import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.game.PlayerSlot
 import org.xtext.xrobot.server.IRemoteRobot
+import javafx.application.Platform
 
 class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 	
@@ -37,7 +38,7 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 		val robot = slot.robotFactory.newRobot(CancelIndicator.NullImpl)
 		stateRead(robot)
 		stateChanged(robot)
-		robot.release
+		slot.robotFactory.release
 	}
 	
 	def getRobotID() {
@@ -45,31 +46,35 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 	}
 	
 	override slotChanged() {
-		if(slot.program == null) {
-			programLabel => [
-				styleClass += #[style, 'robot-inner-box', 'available']
-				text = '''
-					AVAILABLE
-					Token «slot.token.value»
-				'''
-			]
-		} else {
-			programLabel => [
-				styleClass += #[style, 'robot-inner-box', 'locked']
-				text = '''
-					LOCKED
-					«slot.program.name»
-					(«slot.program.author»)
-				'''
-			]
-		}
+		Platform.runLater [
+			if(slot.program == null) {
+				programLabel => [
+					styleClass += #[style, 'robot-inner-box', 'available']
+					text = '''
+						AVAILABLE
+						Token «slot.token.value»
+					'''
+				]
+			} else {
+				programLabel => [
+					styleClass += #[style, 'robot-inner-box', 'locked']
+					text = '''
+						LOCKED
+						«slot.program.name»
+						(«slot.program.author»)
+					'''
+				]
+			}
+		]
 	}
 	
 	override stateRead(IRemoteRobot robot) {
 	}
 	
 	override modeChanged(IRemoteRobot robot, Mode newMode) {
-		modesLabel.text = newMode.name + '\n' + modesLabel.text
+		Platform.runLater [
+			modesLabel.text = newMode.name + '\n' + modesLabel.text
+		]
 	}
 	
 	override stateChanged(IRemoteRobot robot) {

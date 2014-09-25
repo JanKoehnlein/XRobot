@@ -55,7 +55,6 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 			Thread.sleep(updateInterval)
 			newCameraSample = cameraClient.getCameraSample(robotID)
 		}
-		
 		setState(newState, newCameraSample)
 	}
 	
@@ -80,7 +79,7 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 		output.send
 	}
 	
-	override setState(RobotServerState state, CameraSample cameraSample) {
+	def setState(RobotServerState state, CameraSample cameraSample) {
 		setState(state)
 		this.cameraSample = cameraSample		
 	}

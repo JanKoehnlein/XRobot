@@ -34,13 +34,37 @@ class PlayerSlot implements IRobotListener {
 			robotFactory = connector.getRobotFactory(robotID)
 		robotFactory
 	}
-
+	
+	def placeRobot() {
+		// TODO: this does not work at all due to missing calibration
+//		val robot = getRobotFactory.newRobot(CancelIndicator.NullImpl)
+//		val startPosition = switch robotID {
+//			case Xtend: new Position(-IArena.ARENA_RADIUS * 0.7, 0)
+//			case Xtext: new Position(IArena.ARENA_RADIUS * 0.7, 0)
+//		}
+//		var direction = robot.ownPosition.getRelativeDirection(startPosition)
+////		do {
+//			robot.curveTo(direction.distance / 4, direction.angle)
+//			robot.update
+////			val ownPosition = robot.ownPosition
+////			direction = (ownPosition).getRelativeDirection(startPosition)
+////		} while(direction.distance > 4)
+//		val startViewDirection = switch robotID {
+//			case Xtend: 180
+//			case Xtext: 0
+//		}
+////		do {
+//			robot.rotate(startViewDirection)
+//			robot.update
+////		} while(abs(normalizeAngle(startViewDirection - robot.ownPosition.viewDirection)) > 5)
+	}
+	
 	def matches(AccessToken token) {
 		this.token == token
 	}
 
 	def isAvailable() {
-		program != null
+		program == null
 	}
 
 	def acquire(Program program) {

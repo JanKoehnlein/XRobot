@@ -34,7 +34,5 @@ interface IRemoteRobot extends IRobot {
 	
 	def double getBatteryState()
 	
-	def void setState(RobotServerState state, CameraSample cameraSample) 
-	
 	def CameraSample getCameraSample()
 }

@@ -18,6 +18,7 @@ import org.xtext.xrobot.game.PlayerSlot
 
 import static extension javafx.scene.layout.BorderPane.*
 import static extension javafx.util.Duration.*
+import javafx.application.Platform
 
 class Display {
 
@@ -54,12 +55,13 @@ class Display {
 			show
 		]
 		idle
-		prepareGame
 	}
 
 	def prepareGame() {
-		hallOfFame.hide
-		countdown()
+		Platform.runLater[
+			hallOfFame.hide
+			countdown()
+		]
 	}
 
 	def countdown() {
@@ -76,7 +78,6 @@ class Display {
 			]
 			play
 		]
-		Thread.sleep(3000)
 	}
 
 	private def getPopupTransition(Label label, String nextText) {
@@ -109,7 +110,9 @@ class Display {
 	}
 
 	def idle() {
-		// TODO: entertain me
-		hallOfFame.show
+		Platform.runLater [
+			// TODO: entertain me
+			hallOfFame.show
+		]
 	}
 }

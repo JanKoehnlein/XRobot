@@ -59,7 +59,7 @@ class RemoteRobotFactory implements INetConfig, IRemoteRobot.Factory {
 	
 	override newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException {
 		val nextCommandSerialNr = 10
-		val timeout = 4 * SOCKET_TIMEOUT
+		val timeout = 10 * SOCKET_TIMEOUT
 		lastRobot = new RemoteRobot(robotID, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraClient)
 		lastRobot.waitForUpdate(timeout)
 		lastRobot

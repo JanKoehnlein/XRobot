@@ -41,7 +41,7 @@ class HallOfFameTable extends VBox {
 							fromValue = 0
 							toValue = 1
 							cycleCount = 1
-							duration = 50.millis
+							duration = 10.millis
 						]
 					]
 					play
@@ -52,7 +52,6 @@ class HallOfFameTable extends VBox {
 			]
 			play
 		]
-
 	}
 
 	def update() {

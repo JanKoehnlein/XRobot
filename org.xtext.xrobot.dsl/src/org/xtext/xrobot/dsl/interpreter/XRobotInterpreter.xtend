@@ -3,6 +3,7 @@ package org.xtext.xrobot.dsl.interpreter
 import com.google.inject.Inject
 import java.util.List
 import org.apache.log4j.Logger
+import org.eclipse.xtext.common.types.JvmDeclaredType
 import org.eclipse.xtext.common.types.JvmField
 import org.eclipse.xtext.common.types.JvmIdentifiableElement
 import org.eclipse.xtext.common.types.JvmOperation
@@ -22,8 +23,6 @@ import org.xtext.xrobot.dsl.xRobotDSL.Sub
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
-import org.xtext.xrobot.server.RemoteRobot
-import org.eclipse.xtext.common.types.JvmDeclaredType
 
 class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 	
@@ -111,7 +110,7 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 	protected def execute(Mode mode, IEvaluationContext context, CancelIndicator cancelIndicator) {
 		try {
 			listeners.forEach[
-				val robot = context.getValue(ROBOT) as RemoteRobot
+				val robot = context.getValue(ROBOT) as IRemoteRobot
 				modeChanged(robot, mode)
 				stateChanged(robot)
 			]
