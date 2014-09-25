@@ -41,7 +41,6 @@ import org.xtext.xrobot.dsl.interpreter.ScriptRunner
 import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.server.IRemoteRobot
-import org.xtext.xrobot.server.RemoteRobot
 
 @Singleton
 class ExecuteScriptHandler extends AbstractHandler {
@@ -90,7 +89,6 @@ class ExecuteScriptHandler extends AbstractHandler {
 				URI.trimFileExtension.lastSegment
 			]
 			val file = (xtextEditor.editorInput as IFileEditorInput).file
-			val fileName = file.name.substring(0, file.name.length -  7)
 			val project = file.project
 			val resourceSet = resourceSetProvider.get(project) as XtextResourceSet
 			val model = document.get
@@ -103,7 +101,7 @@ class ExecuteScriptHandler extends AbstractHandler {
 						Display.getDefault.asyncExec [
 							dialog.open(monitor)
 						]
-						val program = scriptParser.parse(fileName, model, resourceSet)
+						val program = scriptParser.parse(model, resourceSet)
 						scriptRunner.run(program, robotFactory,
 							new CancelIndicator() {
 								override isCanceled() {

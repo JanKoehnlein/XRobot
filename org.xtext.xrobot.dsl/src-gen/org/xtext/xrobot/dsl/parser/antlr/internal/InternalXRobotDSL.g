@@ -95,19 +95,101 @@ ruleProgram returns [EObject current=null]
 	    }
 
 )
-)?((
+)?	otherlv_1='robot' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getProgramAccess().getRobotKeyword_1());
+    }
+((
+(
+		lv_name_2_0=RULE_ID
+		{
+			newLeafNode(lv_name_2_0, grammarAccess.getProgramAccess().getNameIDTerminalRuleCall_2_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getProgramRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_2_0, 
+        		"ID");
+	    }
+
+)
+)
+    |(
+(
+		lv_name_3_0=RULE_STRING
+		{
+			newLeafNode(lv_name_3_0, grammarAccess.getProgramAccess().getNameSTRINGTerminalRuleCall_2_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getProgramRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_3_0, 
+        		"STRING");
+	    }
+
+)
+))	otherlv_4='author' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getProgramAccess().getAuthorKeyword_3());
+    }
+((
+(
+		lv_author_5_0=RULE_ID
+		{
+			newLeafNode(lv_author_5_0, grammarAccess.getProgramAccess().getAuthorIDTerminalRuleCall_4_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getProgramRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"author",
+        		lv_author_5_0, 
+        		"ID");
+	    }
+
+)
+)
+    |(
+(
+		lv_author_6_0=RULE_STRING
+		{
+			newLeafNode(lv_author_6_0, grammarAccess.getProgramAccess().getAuthorSTRINGTerminalRuleCall_4_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getProgramRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"author",
+        		lv_author_6_0, 
+        		"STRING");
+	    }
+
+)
+))((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_1_0_0()); 
+	        newCompositeNode(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_5_0_0()); 
 	    }
-		lv_subs_1_0=ruleSub		{
+		lv_subs_7_0=ruleSub		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProgramRule());
 	        }
        		add(
        			$current, 
        			"subs",
-        		lv_subs_1_0, 
+        		lv_subs_7_0, 
         		"Sub");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -117,16 +199,16 @@ ruleProgram returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProgramAccess().getFieldsFieldParserRuleCall_1_1_0()); 
+	        newCompositeNode(grammarAccess.getProgramAccess().getFieldsFieldParserRuleCall_5_1_0()); 
 	    }
-		lv_fields_2_0=ruleField		{
+		lv_fields_8_0=ruleField		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProgramRule());
 	        }
        		add(
        			$current, 
        			"fields",
-        		lv_fields_2_0, 
+        		lv_fields_8_0, 
         		"Field");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -136,16 +218,16 @@ ruleProgram returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProgramAccess().getModesModeParserRuleCall_1_2_0()); 
+	        newCompositeNode(grammarAccess.getProgramAccess().getModesModeParserRuleCall_5_2_0()); 
 	    }
-		lv_modes_3_0=ruleMode		{
+		lv_modes_9_0=ruleMode		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProgramRule());
 	        }
        		add(
        			$current, 
        			"modes",
-        		lv_modes_3_0, 
+        		lv_modes_9_0, 
         		"Mode");
 	        afterParserOrEnumRuleCall();
 	    }

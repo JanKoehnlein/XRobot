@@ -150,9 +150,29 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getProgram_Name()
+  {
+    return (EAttribute)programEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProgram_Author()
+  {
+    return (EAttribute)programEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getProgram_Subs()
   {
-    return (EReference)programEClass.getEStructuralFeatures().get(1);
+    return (EReference)programEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -162,7 +182,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    */
   public EReference getProgram_Fields()
   {
-    return (EReference)programEClass.getEStructuralFeatures().get(2);
+    return (EReference)programEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -172,7 +192,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    */
   public EReference getProgram_Modes()
   {
-    return (EReference)programEClass.getEStructuralFeatures().get(3);
+    return (EReference)programEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -347,6 +367,8 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     // Create classes and their features
     programEClass = createEClass(PROGRAM);
     createEReference(programEClass, PROGRAM__IMPORTS);
+    createEAttribute(programEClass, PROGRAM__NAME);
+    createEAttribute(programEClass, PROGRAM__AUTHOR);
     createEReference(programEClass, PROGRAM__SUBS);
     createEReference(programEClass, PROGRAM__FIELDS);
     createEReference(programEClass, PROGRAM__MODES);
@@ -407,6 +429,8 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getProgram_Imports(), theXtypePackage.getXImportSection(), null, "imports", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProgram_Author(), ecorePackage.getEString(), "author", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Subs(), this.getSub(), null, "subs", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Fields(), this.getField(), null, "fields", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Modes(), this.getMode(), null, "modes", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

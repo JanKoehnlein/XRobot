@@ -7,7 +7,6 @@ import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.IRemoteRobot
-import org.eclipse.emf.common.util.URI
 
 @Accessors(PUBLIC_GETTER)
 class PlayerSlot implements IRobotListener {
@@ -60,7 +59,7 @@ class PlayerSlot implements IRobotListener {
 	}
 
 	def getScriptName() {
-		program.eResource.URI.trimFileExtension.lastSegment
+		program.name
 	}
 
 	static interface Listener extends IRobotListener {

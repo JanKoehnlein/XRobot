@@ -34,6 +34,8 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getImports <em>Imports</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getSubs <em>Subs</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getModes <em>Modes</em>}</li>
@@ -53,6 +55,46 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * @ordered
    */
   protected XImportSection imports;
+
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getAuthor() <em>Author</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAuthor()
+   * @generated
+   * @ordered
+   */
+  protected static final String AUTHOR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAuthor() <em>Author</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAuthor()
+   * @generated
+   * @ordered
+   */
+  protected String author = AUTHOR_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getSubs() <em>Subs</em>}' containment reference list.
@@ -158,6 +200,52 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.PROGRAM__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getAuthor()
+  {
+    return author;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAuthor(String newAuthor)
+  {
+    String oldAuthor = author;
+    author = newAuthor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.PROGRAM__AUTHOR, oldAuthor, author));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Sub> getSubs()
   {
     if (subs == null)
@@ -229,6 +317,10 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
     {
       case XRobotDSLPackage.PROGRAM__IMPORTS:
         return getImports();
+      case XRobotDSLPackage.PROGRAM__NAME:
+        return getName();
+      case XRobotDSLPackage.PROGRAM__AUTHOR:
+        return getAuthor();
       case XRobotDSLPackage.PROGRAM__SUBS:
         return getSubs();
       case XRobotDSLPackage.PROGRAM__FIELDS:
@@ -252,6 +344,12 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
     {
       case XRobotDSLPackage.PROGRAM__IMPORTS:
         setImports((XImportSection)newValue);
+        return;
+      case XRobotDSLPackage.PROGRAM__NAME:
+        setName((String)newValue);
+        return;
+      case XRobotDSLPackage.PROGRAM__AUTHOR:
+        setAuthor((String)newValue);
         return;
       case XRobotDSLPackage.PROGRAM__SUBS:
         getSubs().clear();
@@ -282,6 +380,12 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
       case XRobotDSLPackage.PROGRAM__IMPORTS:
         setImports((XImportSection)null);
         return;
+      case XRobotDSLPackage.PROGRAM__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case XRobotDSLPackage.PROGRAM__AUTHOR:
+        setAuthor(AUTHOR_EDEFAULT);
+        return;
       case XRobotDSLPackage.PROGRAM__SUBS:
         getSubs().clear();
         return;
@@ -307,6 +411,10 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
     {
       case XRobotDSLPackage.PROGRAM__IMPORTS:
         return imports != null;
+      case XRobotDSLPackage.PROGRAM__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case XRobotDSLPackage.PROGRAM__AUTHOR:
+        return AUTHOR_EDEFAULT == null ? author != null : !AUTHOR_EDEFAULT.equals(author);
       case XRobotDSLPackage.PROGRAM__SUBS:
         return subs != null && !subs.isEmpty();
       case XRobotDSLPackage.PROGRAM__FIELDS:
@@ -315,6 +423,25 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
         return modes != null && !modes.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", author: ");
+    result.append(author);
+    result.append(')');
+    return result.toString();
   }
 
 } //ProgramImpl

@@ -46,11 +46,11 @@ class GameServer extends Application {
 		display.start(stage, slots)
 	}
 	
-	def synchronized register(AccessToken usedToken, String scriptName, String script) {
+	def synchronized register(AccessToken usedToken, String script) {
 		val slot = slots.findFirst[matches(token) && !isAvailable]
 		if(slot?.isAvailable) {
 			val resourceSet = resourceSetProvider.get
-			val program = scriptParser.parse(scriptName, script, resourceSet)
+			val program = scriptParser.parse(script, resourceSet)
 			if(program != null) {
 				slot.acquire(program)
 				if(slots.forall[isAvailable])

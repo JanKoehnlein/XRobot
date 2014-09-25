@@ -13,8 +13,8 @@ class ScriptParser {
 	
 	@Inject XRobotDSLValidator validator
 	
-	def Program parse(String name, String model, XtextResourceSet resourceSet) {
-		val resource = resourceSet.createResource(URI.createURI(name + '.xrobot'))
+	def Program parse(String model, XtextResourceSet resourceSet) {
+		val resource = resourceSet.createResource(URI.createURI('dummy.xrobot'))
 		resource.load(new StringInputStream(model), null)
 		if (!resource.errors.empty)
 			throw new Exception('Syntax Error:\n' + resource.errors.map[message].join('\n'))

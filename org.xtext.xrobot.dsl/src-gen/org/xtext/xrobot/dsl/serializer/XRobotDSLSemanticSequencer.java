@@ -1225,7 +1225,7 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (imports=XImportSection? (subs+=Sub | fields+=Field | modes+=Mode)*)
+	 *     (imports=XImportSection? (name=ID | name=STRING) (author=ID | author=STRING) (subs+=Sub | fields+=Field | modes+=Mode)*)
 	 */
 	protected void sequence_Program(EObject context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

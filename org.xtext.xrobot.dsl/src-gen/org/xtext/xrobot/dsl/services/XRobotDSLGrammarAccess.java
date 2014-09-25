@@ -24,19 +24,33 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cImportsXImportSectionParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cSubsAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cSubsSubParserRuleCall_1_0_0 = (RuleCall)cSubsAssignment_1_0.eContents().get(0);
-		private final Assignment cFieldsAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cFieldsFieldParserRuleCall_1_1_0 = (RuleCall)cFieldsAssignment_1_1.eContents().get(0);
-		private final Assignment cModesAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
-		private final RuleCall cModesModeParserRuleCall_1_2_0 = (RuleCall)cModesAssignment_1_2.eContents().get(0);
+		private final Keyword cRobotKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_2_0_0 = (RuleCall)cNameAssignment_2_0.eContents().get(0);
+		private final Assignment cNameAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
+		private final Keyword cAuthorKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Assignment cAuthorAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final RuleCall cAuthorIDTerminalRuleCall_4_0_0 = (RuleCall)cAuthorAssignment_4_0.eContents().get(0);
+		private final Assignment cAuthorAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
+		private final RuleCall cAuthorSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cAuthorAssignment_4_1.eContents().get(0);
+		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
+		private final Assignment cSubsAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
+		private final RuleCall cSubsSubParserRuleCall_5_0_0 = (RuleCall)cSubsAssignment_5_0.eContents().get(0);
+		private final Assignment cFieldsAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
+		private final RuleCall cFieldsFieldParserRuleCall_5_1_0 = (RuleCall)cFieldsAssignment_5_1.eContents().get(0);
+		private final Assignment cModesAssignment_5_2 = (Assignment)cAlternatives_5.eContents().get(2);
+		private final RuleCall cModesModeParserRuleCall_5_2_0 = (RuleCall)cModesAssignment_5_2.eContents().get(0);
 		
 		//Program:
-		//	imports=XImportSection? (subs+=Sub | fields+=Field | modes+=Mode)*;
+		//	imports=XImportSection? "robot" (name=ID | name=STRING) "author" (author=ID | author=STRING) (subs+=Sub |
+		//	fields+=Field | modes+=Mode)*;
 		public ParserRule getRule() { return rule; }
 
-		//imports=XImportSection? (subs+=Sub | fields+=Field | modes+=Mode)*
+		//imports=XImportSection? "robot" (name=ID | name=STRING) "author" (author=ID | author=STRING) (subs+=Sub | fields+=Field
+		//| modes+=Mode)*
 		public Group getGroup() { return cGroup; }
 
 		//imports=XImportSection?
@@ -45,26 +59,62 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//XImportSection
 		public RuleCall getImportsXImportSectionParserRuleCall_0_0() { return cImportsXImportSectionParserRuleCall_0_0; }
 
+		//"robot"
+		public Keyword getRobotKeyword_1() { return cRobotKeyword_1; }
+
+		//name=ID | name=STRING
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+
+		//name=ID
+		public Assignment getNameAssignment_2_0() { return cNameAssignment_2_0; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0_0() { return cNameIDTerminalRuleCall_2_0_0; }
+
+		//name=STRING
+		public Assignment getNameAssignment_2_1() { return cNameAssignment_2_1; }
+
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_2_1_0() { return cNameSTRINGTerminalRuleCall_2_1_0; }
+
+		//"author"
+		public Keyword getAuthorKeyword_3() { return cAuthorKeyword_3; }
+
+		//author=ID | author=STRING
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+
+		//author=ID
+		public Assignment getAuthorAssignment_4_0() { return cAuthorAssignment_4_0; }
+
+		//ID
+		public RuleCall getAuthorIDTerminalRuleCall_4_0_0() { return cAuthorIDTerminalRuleCall_4_0_0; }
+
+		//author=STRING
+		public Assignment getAuthorAssignment_4_1() { return cAuthorAssignment_4_1; }
+
+		//STRING
+		public RuleCall getAuthorSTRINGTerminalRuleCall_4_1_0() { return cAuthorSTRINGTerminalRuleCall_4_1_0; }
+
 		//(subs+=Sub | fields+=Field | modes+=Mode)*
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 
 		//subs+=Sub
-		public Assignment getSubsAssignment_1_0() { return cSubsAssignment_1_0; }
+		public Assignment getSubsAssignment_5_0() { return cSubsAssignment_5_0; }
 
 		//Sub
-		public RuleCall getSubsSubParserRuleCall_1_0_0() { return cSubsSubParserRuleCall_1_0_0; }
+		public RuleCall getSubsSubParserRuleCall_5_0_0() { return cSubsSubParserRuleCall_5_0_0; }
 
 		//fields+=Field
-		public Assignment getFieldsAssignment_1_1() { return cFieldsAssignment_1_1; }
+		public Assignment getFieldsAssignment_5_1() { return cFieldsAssignment_5_1; }
 
 		//Field
-		public RuleCall getFieldsFieldParserRuleCall_1_1_0() { return cFieldsFieldParserRuleCall_1_1_0; }
+		public RuleCall getFieldsFieldParserRuleCall_5_1_0() { return cFieldsFieldParserRuleCall_5_1_0; }
 
 		//modes+=Mode
-		public Assignment getModesAssignment_1_2() { return cModesAssignment_1_2; }
+		public Assignment getModesAssignment_5_2() { return cModesAssignment_5_2; }
 
 		//Mode
-		public RuleCall getModesModeParserRuleCall_1_2_0() { return cModesModeParserRuleCall_1_2_0; }
+		public RuleCall getModesModeParserRuleCall_5_2_0() { return cModesModeParserRuleCall_5_2_0; }
 	}
 
 	public class ModeElements extends AbstractParserRuleElementFinder {
@@ -306,7 +356,8 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Program:
-	//	imports=XImportSection? (subs+=Sub | fields+=Field | modes+=Mode)*;
+	//	imports=XImportSection? "robot" (name=ID | name=STRING) "author" (author=ID | author=STRING) (subs+=Sub |
+	//	fields+=Field | modes+=Mode)*;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
 	}

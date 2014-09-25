@@ -17,6 +17,8 @@ import org.eclipse.xtext.xtype.XImportSection;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getImports <em>Imports</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getSubs <em>Subs</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getFields <em>Fields</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getModes <em>Modes</em>}</li>
@@ -54,6 +56,58 @@ public interface Program extends EObject
    * @generated
    */
   void setImports(XImportSection value);
+
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getProgram_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Author</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Author</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Author</em>' attribute.
+   * @see #setAuthor(String)
+   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getProgram_Author()
+   * @model
+   * @generated
+   */
+  String getAuthor();
+
+  /**
+   * Sets the value of the '{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getAuthor <em>Author</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Author</em>' attribute.
+   * @see #getAuthor()
+   * @generated
+   */
+  void setAuthor(String value);
 
   /**
    * Returns the value of the '<em><b>Subs</b></em>' containment reference list.

@@ -11,7 +11,6 @@ import org.xtext.xrobot.server.IRemoteRobot
 
 class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 	
-	Label batteryLabel
 	Label programLabel
 	Label modesLabel
 	
@@ -24,24 +23,12 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 		val lightStyle = style + '-light'
 		children += new VBox => [
 			styleClass += #[style, 'outer-box']
-			children += new StackPane => [
-				styleClass += #[lightStyle, 'inner-box']
-				children += new Label(slot.robotID.name) => [
-					styleClass += 'title-label'
-				]
-			]
 			children += programLabel= new Label() => [
 				styleClass += #['inner-box']
 			]
 			children += new StackPane => [
 				styleClass += #[lightStyle, 'inner-box']
 				children += modesLabel = new Label() => [
-					styleClass += #['inner-box']
-				]
-			]
-			children += new StackPane => [
-				styleClass += #[lightStyle, 'inner-box']
-				children += batteryLabel = new Label() => [
 					styleClass += #['inner-box']
 				]
 			]
@@ -71,14 +58,14 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 				styleClass += #[style, 'robot-inner-box', 'locked']
 				text = '''
 					LOCKED
-					«slot.scriptName»
+					«slot.program.name»
+					(«slot.program.author»)
 				'''
 			]
 		}
 	}
 	
 	override stateRead(IRemoteRobot robot) {
-		batteryLabel.text = String.format('Battery %3d%%', (robot.batteryState * 100) as int)
 	}
 	
 	override modeChanged(IRemoteRobot robot, Mode newMode) {

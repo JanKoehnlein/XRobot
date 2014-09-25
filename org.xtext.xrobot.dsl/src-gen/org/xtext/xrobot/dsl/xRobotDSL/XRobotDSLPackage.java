@@ -76,13 +76,31 @@ public interface XRobotDSLPackage extends EPackage
   int PROGRAM__IMPORTS = 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Author</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__AUTHOR = 2;
+
+  /**
    * The feature id for the '<em><b>Subs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROGRAM__SUBS = 1;
+  int PROGRAM__SUBS = 3;
 
   /**
    * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -91,7 +109,7 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM__FIELDS = 2;
+  int PROGRAM__FIELDS = 4;
 
   /**
    * The feature id for the '<em><b>Modes</b></em>' containment reference list.
@@ -100,7 +118,7 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM__MODES = 3;
+  int PROGRAM__MODES = 5;
 
   /**
    * The number of structural features of the '<em>Program</em>' class.
@@ -109,7 +127,7 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM_FEATURE_COUNT = 4;
+  int PROGRAM_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl <em>Mode</em>}' class.
@@ -288,6 +306,28 @@ public interface XRobotDSLPackage extends EPackage
    * @generated
    */
   EReference getProgram_Imports();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Program#getName()
+   * @see #getProgram()
+   * @generated
+   */
+  EAttribute getProgram_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getAuthor <em>Author</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Author</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Program#getAuthor()
+   * @see #getProgram()
+   * @generated
+   */
+  EAttribute getProgram_Author();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getSubs <em>Subs</em>}'.
@@ -513,6 +553,22 @@ public interface XRobotDSLPackage extends EPackage
      * @generated
      */
     EReference PROGRAM__IMPORTS = eINSTANCE.getProgram_Imports();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROGRAM__NAME = eINSTANCE.getProgram_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROGRAM__AUTHOR = eINSTANCE.getProgram_Author();
 
     /**
      * The meta object literal for the '<em><b>Subs</b></em>' containment reference list feature.
