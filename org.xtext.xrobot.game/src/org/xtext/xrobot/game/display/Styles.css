@@ -1,0 +1,91 @@
+.scene {
+	-fx-fill: null;
+}
+
+.root {
+    -fx-font-size: 20.0pt;
+    -fx-font-family: "Menlo";
+}
+
+.border-pane {
+	-fx-background-color: rgba(255.0,255.0,255.0,0.0);
+}
+
+.outer-box {
+	-fx-background-radius: 10.0;
+	-fx-padding: 20.0;
+	-fx-spacing: 20.0;
+	-fx-vgap: 20.0;
+	-fx-alignment: center;
+	-fx-orientation: vertical;
+	-fx-fill-width: true;
+}
+
+.inner-box {
+	-fx-background-radius: 5.0;
+	-fx-padding: 4.0;
+	-fx-text-fill: white;
+}
+
+.boxed-label {
+	-fx-background-radius: 3.0;
+	-fx-padding: 4.0;
+	-fx-text-fill: white;
+}
+
+.title-label {
+	-fx-padding: 4.0;
+	-fx-font-size: 24.0pt;
+	-fx-text-fill: white;
+	-fx-font-weight: bold
+}
+
+.hof {
+	-fx-background-color: rgba(115.0,191.0,205.0,0.9);
+}
+
+.hof-light {
+	-fx-background-color: lightblue;	
+}
+
+.hof-content {
+	-fx-vgap: 10.0;
+	-fx-hgap: 10.0;
+	-fx-fill-width: true;
+}
+
+.hof-rank {
+	-fx-alignment: right;	
+	-fx-text-alignment: right;
+}
+
+.hof-name {
+	-fx-alignment: left;
+	-fx-text-alignment: left;
+}
+
+.xtend {
+	-fx-background-color: rgba(140.0,179.0,223.0, 0.9);
+}
+
+.xtend-light {
+	-fx-background-color: rgba(160.0,205.0,255.0, 1.0);
+}
+
+.xtext {
+	-fx-background-color: rgba(252.0,123.0,107.0, 0.9);
+}
+
+.xtext-light {
+	-fx-background-color: rgba(218.0,88.0,96.0, 1.0);
+}
+
+.available {
+	-fx-background-color: green;
+	-fx-text-alignment: justify;	
+}
+
+.locked {
+	-fx-background-color: red;
+	-fx-text-alignment: center;
+}

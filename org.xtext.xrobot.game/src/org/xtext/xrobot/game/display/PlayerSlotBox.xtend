@@ -1,0 +1,96 @@
+package org.xtext.xrobot.game.display
+
+import javafx.scene.Parent
+import javafx.scene.control.Label
+import javafx.scene.layout.StackPane
+import javafx.scene.layout.VBox
+import org.eclipse.xtext.util.CancelIndicator
+import org.xtext.xrobot.dsl.xRobotDSL.Mode
+import org.xtext.xrobot.game.PlayerSlot
+import org.xtext.xrobot.server.IRemoteRobot
+
+class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
+	
+	Label batteryLabel
+	Label programLabel
+	Label modesLabel
+	
+	PlayerSlot slot
+	
+	new(PlayerSlot slot) {
+		this.slot = slot
+		slot.addChangeListener(this)
+		val style = slot.robotID.name.toLowerCase
+		val lightStyle = style + '-light'
+		children += new VBox => [
+			styleClass += #[style, 'outer-box']
+			children += new StackPane => [
+				styleClass += #[lightStyle, 'inner-box']
+				children += new Label(slot.robotID.name) => [
+					styleClass += 'title-label'
+				]
+			]
+			children += programLabel= new Label() => [
+				styleClass += #['inner-box']
+			]
+			children += new StackPane => [
+				styleClass += #[lightStyle, 'inner-box']
+				children += modesLabel = new Label() => [
+					styleClass += #['inner-box']
+				]
+			]
+			children += new StackPane => [
+				styleClass += #[lightStyle, 'inner-box']
+				children += batteryLabel = new Label() => [
+					styleClass += #['inner-box']
+				]
+			]
+		]
+		slotChanged
+		val robot = slot.robotFactory.newRobot(CancelIndicator.NullImpl)
+		stateRead(robot)
+		stateChanged(robot)
+		robot.release
+	}
+	
+	def getRobotID() {
+		slot.robotID
+	}
+	
+	override slotChanged() {
+		if(slot.program == null) {
+			programLabel => [
+				styleClass += #[style, 'robot-inner-box', 'available']
+				text = '''
+					AVAILABLE
+					Token «slot.token.value»
+				'''
+			]
+		} else {
+			programLabel => [
+				styleClass += #[style, 'robot-inner-box', 'locked']
+				text = '''
+					LOCKED
+					«slot.scriptName»
+				'''
+			]
+		}
+	}
+	
+	override stateRead(IRemoteRobot robot) {
+		batteryLabel.text = String.format('Battery %3d%%', (robot.batteryState * 100) as int)
+	}
+	
+	override modeChanged(IRemoteRobot robot, Mode newMode) {
+		modesLabel.text = newMode.name + '\n' + modesLabel.text
+	}
+	
+	override stateChanged(IRemoteRobot robot) {
+	}
+	
+	override variableChanged(String name, Object value) {
+	}
+	
+	override lineChanged(int line) {
+	}
+}
