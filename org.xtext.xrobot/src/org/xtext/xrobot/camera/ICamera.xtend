@@ -25,10 +25,10 @@ interface ICamera {
 	/** The height in centimeters of the tracked camera image. */	
 	val HEIGHT_IN_CM = WIDTH_IN_CM / ASPECT_RATIO
 	
-	/** The angle of the field of view of the camera with respect to the tracked area. */
+	/** The angle in degrees of the field of view of the camera with respect to the tracked area. */
 	val VIEW_ANGLE = 42.3
 	/** The height of the camera from the ground. */
-	val CAM_HEIGHT = HEIGHT_IN_CM / (2 * tan(VIEW_ANGLE / 2))
+	val CAM_HEIGHT = HEIGHT_IN_CM / (2 * tan(toRadians(VIEW_ANGLE / 2)))
 	
 	/** A factor to be multiplied with values measured by the tracker (in polar coordinates). */
 	val PERSPECTIVE_CORRECTION = (CAM_HEIGHT - IRobotGeometry.HEIGHT) / CAM_HEIGHT

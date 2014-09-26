@@ -25,4 +25,12 @@ interface IRobotGeometry {
 	 * The robot's track width in centimeters.
 	 */
 	val WHEEL_DISTANCE = 9.5
+	
+	/**
+	 * The distance in centimeters between the robot's axis and its reported position.
+	 * The reported position is slightly ahead of the axis, hence when the robot rotates
+	 * its reported position is also affected.
+	 */
+	val POSITION_OFFSET = 5.0
+	
 }

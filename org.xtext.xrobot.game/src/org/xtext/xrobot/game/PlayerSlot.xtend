@@ -7,6 +7,7 @@ import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.IRemoteRobot
+import org.eclipse.xtext.util.CancelIndicator
 
 @Accessors(PUBLIC_GETTER)
 class PlayerSlot implements IRobotListener {
@@ -22,6 +23,7 @@ class PlayerSlot implements IRobotListener {
 	IRemoteRobot.Factory robotFactory
 
 	val listeners = new CopyOnWriteArrayList<Listener>
+	val placer = new RobotPlacer
 
 	new(RobotID robotID, IRemoteRobot.Connector connector) {
 		this.robotID = robotID
@@ -36,27 +38,8 @@ class PlayerSlot implements IRobotListener {
 	}
 	
 	def placeRobot() {
-		// TODO: this does not work at all due to missing calibration
-//		val robot = getRobotFactory.newRobot(CancelIndicator.NullImpl)
-//		val startPosition = switch robotID {
-//			case Xtend: new Position(-IArena.ARENA_RADIUS * 0.7, 0)
-//			case Xtext: new Position(IArena.ARENA_RADIUS * 0.7, 0)
-//		}
-//		var direction = robot.ownPosition.getRelativeDirection(startPosition)
-////		do {
-//			robot.curveTo(direction.distance / 4, direction.angle)
-//			robot.update
-////			val ownPosition = robot.ownPosition
-////			direction = (ownPosition).getRelativeDirection(startPosition)
-////		} while(direction.distance > 4)
-//		val startViewDirection = switch robotID {
-//			case Xtend: 180
-//			case Xtext: 0
-//		}
-////		do {
-//			robot.rotate(startViewDirection)
-//			robot.update
-////		} while(abs(normalizeAngle(startViewDirection - robot.ownPosition.viewDirection)) > 5)
+		val robot = getRobotFactory.newRobot(CancelIndicator.NullImpl)
+		placer.placeRobot(robot)
 	}
 	
 	def matches(AccessToken token) {

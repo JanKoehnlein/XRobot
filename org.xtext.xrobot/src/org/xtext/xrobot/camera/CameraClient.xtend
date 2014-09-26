@@ -61,7 +61,7 @@ class CameraClient {
 		val rawPos = new Position((rawXpos - 0.5) * WIDTH_IN_CM,
 				(0.5 - rawYpos) * HEIGHT_IN_CM)
 		// TUIO 0° means NORTH and 90° means EAST
-		val angle = 90 - Math.toDegrees(rawAngle)
+		val angle = 90 - toDegrees(rawAngle)
 		
 		// Apply perspective correction
 		val correctedPos = correctCameraPerspective(rawPos)

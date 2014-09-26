@@ -12,7 +12,7 @@ import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 import org.xtext.xrobot.dsl.interpreter.ScriptParser
 import org.xtext.xrobot.game.display.Display
-import org.xtext.xrobot.server.testing.MockRobotConnector
+import org.xtext.xrobot.server.IRemoteRobot
 
 class GameServer extends Application {
 	
@@ -20,8 +20,8 @@ class GameServer extends Application {
 		launch()
 	}
 	
-//	@Inject IRemoteRobot.Connector remoteRobotConnector
-	@Inject MockRobotConnector remoteRobotConnector
+	@Inject IRemoteRobot.Connector remoteRobotConnector
+//	@Inject MockRobotConnector remoteRobotConnector
 	@Inject Provider<XtextResourceSet> resourceSetProvider
 
 	@Inject ScriptParser scriptParser
@@ -43,27 +43,8 @@ class GameServer extends Application {
 		display.start(stage, slots)
 		new Thread[
 			Thread.sleep(1000)
-			register(slots.get(0).token, '''
-				robot Dancer
-				author Jan
-				
-				Dance {
-					rotateSpeed = maxRotateSpeed * 0.3
-					rotateLeft
-					while(true) {
-						scoop(1)
-						scoop(0)
-					}
-				}
-			''')
-			register(slots.get(1).token, '''
-				robot bar
-				author bar
-				
-				Foo {
-					rotate(-20)
-				}
-			''')
+			register(slots.get(0).token, ITestScripts.IDLE)
+			register(slots.get(1).token, ITestScripts.IDLE)
 		].start
 	}
 	
