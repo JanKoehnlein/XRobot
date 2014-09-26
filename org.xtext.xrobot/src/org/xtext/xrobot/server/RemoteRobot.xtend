@@ -81,7 +81,7 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
 	def setState(RobotServerState state, CameraSample cameraSample) {
 		setState(state)
-		this.cameraSample = cameraSample		
+		this.cameraSample = cameraSample
 	}
 	
 	override getCameraSample() {

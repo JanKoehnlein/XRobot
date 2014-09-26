@@ -21,7 +21,7 @@ interface ITestScripts {
 		author Miro
 		
 		Idle {
-			println("working hard...")
+			println(robotID + ": working hard...")
 			Thread.sleep(4000)
 		}
 	'''

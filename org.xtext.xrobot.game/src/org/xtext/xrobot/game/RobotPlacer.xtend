@@ -5,15 +5,15 @@ import org.xtext.xrobot.server.IRemoteRobot
 import org.xtext.xrobot.api.Position
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.api.IArena.*
-import static org.xtext.xrobot.api.IRobotGeometry.*
 import org.xtext.xrobot.net.INetConfig
 
 class RobotPlacer {
 	
-	static val ANGLE_ACCURACY = 7.0
+	static val DISTANCE_ACCURACY = 5.0
+	static val ANGLE_ACCURACY = 8.0
 	
 	def placeRobot(IRemoteRobot robot) {
-		robot.rotateSpeed = robot.maxRotateSpeed
+		robot.rotateSpeed = robot.maxRotateSpeed * 0.7
 		robot.travelSpeed = robot.maxTravelSpeed
 
 		val homePosition = switch robot.robotID {
@@ -21,21 +21,17 @@ class RobotPlacer {
 			case Xtext: new Position(ARENA_RADIUS * 0.6, 0)
 		}
 		var direction = robot.ownPosition.getRelativeDirection(homePosition)
-		while (direction.distance > POSITION_OFFSET + 1) {
+		while (direction.distance > DISTANCE_ACCURACY) {
 			if (abs(direction.angle) <= ANGLE_ACCURACY) {
-				println(robot.robotID + ": forward " + (direction.distance + POSITION_OFFSET))
-				robot.forward(direction.distance + POSITION_OFFSET)
+				robot.forward(direction.distance)
 			} else if (abs(normalizeAngle(direction.angle - 180)) <= ANGLE_ACCURACY) {
-				println(robot.robotID + ": backward " + (direction.distance - POSITION_OFFSET))
-				robot.backward(direction.distance - POSITION_OFFSET)
+				robot.backward(direction.distance)
 			} else if (abs(direction.angle) <= 120) {
-				println(robot.robotID + ": rotate " + direction.angle)
 				robot.rotate(direction.angle)
 			} else {
-				println(robot.robotID + ": rotate " + normalizeAngle(direction.angle - 180))
 				robot.rotate(normalizeAngle(direction.angle - 180))
 			}
-			robot.waitForUpdate(INetConfig.SOCKET_TIMEOUT)
+			robot.waitForUpdate
 			direction = robot.ownPosition.getRelativeDirection(homePosition)
 		}
 
@@ -45,11 +41,15 @@ class RobotPlacer {
 		}
 		var angle = normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)
 		while (abs(angle) > ANGLE_ACCURACY) {
-			println(robot.robotID + ": rotate " + angle)
 			robot.rotate(angle)
-			robot.waitForUpdate(INetConfig.SOCKET_TIMEOUT)
+			robot.waitForUpdate
 			angle = normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)
 		}
+	}
+	
+	private def waitForUpdate(IRemoteRobot robot) {
+		Thread.sleep(200)
+		robot.waitForUpdate(INetConfig.SOCKET_TIMEOUT)
 	}
 	
 }

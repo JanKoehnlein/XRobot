@@ -17,6 +17,7 @@ import static org.xtext.xrobot.camera.ICamera.*
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 import static java.lang.Math.*
 import org.xtext.xrobot.api.Position
+import org.xtext.xrobot.api.IRobotGeometry
 
 class CameraClient {
 	
@@ -72,8 +73,12 @@ class CameraClient {
 		val filteredY = yposFilters.get(index).apply(correctedPos.y)
 		val filteredAngle = angleFilters.get(index).apply(angle)
 		
-		val robotPosition = new RobotPosition(filteredX, filteredY, robotID,
-				normalizeAngle(filteredAngle))
+		// Compute the offset to the axis
+		val offsetX = IRobotGeometry.MARKER_OFFSET * cos(toRadians(filteredAngle))
+		val offsetY = IRobotGeometry.MARKER_OFFSET * sin(toRadians(filteredAngle))
+
+		val robotPosition = new RobotPosition(filteredX - offsetX, filteredY - offsetY,
+				robotID, normalizeAngle(filteredAngle))
 		synchronized (this) {
 			robotPositions.set(index, robotPosition)
 			timestamps.set(index, timestamp)

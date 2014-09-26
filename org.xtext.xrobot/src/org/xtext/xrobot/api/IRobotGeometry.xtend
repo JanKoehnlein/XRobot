@@ -27,10 +27,8 @@ interface IRobotGeometry {
 	val WHEEL_DISTANCE = 9.5
 	
 	/**
-	 * The distance in centimeters between the robot's axis and its reported position.
-	 * The reported position is slightly ahead of the axis, hence when the robot rotates
-	 * its reported position is also affected.
+	 * The distance in centimeters between the robot's axis and the fiducial marker.
 	 */
-	val POSITION_OFFSET = 5.0
+	val MARKER_OFFSET = 5.0
 	
 }
