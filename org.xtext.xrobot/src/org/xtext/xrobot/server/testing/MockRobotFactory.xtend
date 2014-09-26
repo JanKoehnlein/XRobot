@@ -26,11 +26,11 @@ class MockRobotFactory implements IRemoteRobot.Factory {
 	}
 	
 	override newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException {
-		new MockRobot(robotID)
+		new MockRobot(robotID, cancelIndicator)
 	}
 	
 	override newRobot(CancelIndicator cancelIndicator, IRemoteRobot existingRobot) {
-		new MockRobot(robotID)
+		new MockRobot(robotID, cancelIndicator)
 	}
 	
 }

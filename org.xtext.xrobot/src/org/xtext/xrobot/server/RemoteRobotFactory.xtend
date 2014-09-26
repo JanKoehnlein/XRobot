@@ -68,7 +68,8 @@ class RemoteRobotFactory implements INetConfig, IRemoteRobot.Factory {
 	override newRobot(CancelIndicator cancelIndicator, IRemoteRobot existingRobot) {
 		val nextCommandSerialNr = lastRobot.nextCommandSerialNr + 10
 		lastRobot = new RemoteRobot(robotID, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraClient)
-		lastRobot.setState(existingRobot.state, existingRobot.cameraSample)
+		val existingRemoteRobot = existingRobot as RemoteRobot
+		lastRobot.setState(existingRemoteRobot.state, existingRemoteRobot.cameraSample)
 		lastRobot
 	}
 }

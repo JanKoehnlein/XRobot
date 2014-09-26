@@ -18,7 +18,8 @@ class Game {
 	
 	static val LOG = Logger.getLogger(Game)
 	
-	static val GAME_DURATION = 1000l * 60 * 2 // 2 minutes in millis
+	static val GAME_DURATION = 10000l
+	// 1000l * 60 * 2 // 2 minutes in millis
 	static val GAME_LOST_THRESHOLD = 500 
 	 
 	@Inject Provider<ScriptRunner> scriptRunnerProvider
@@ -36,8 +37,10 @@ class Game {
 		// remember map is lazy, so make a real copy
 		runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener)])
 		gameOver = false
+		LOG.debug('Starting game')
 		runners.forEach[start]
 		runners.forEach[executeSafely[join(GAME_DURATION)]]
+		LOG.debug('Game finished')
 		gameOver = true
 		slots.forEach[
 			executeSafely[ robotFactory.release ]

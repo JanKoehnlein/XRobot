@@ -3,12 +3,18 @@ package org.xtext.xrobot.game
 import java.util.Random
 import org.eclipse.xtend.lib.annotations.Data
 
+import static java.lang.Math.*
+
 @Data
 class AccessToken {
 	
 	static val TOKEN_SIZE = 4
 	
 	String value 
+	
+	new(String token) {
+		value = token.substring(0, min(TOKEN_SIZE, token.length))
+	}
 	
 	new() {
 		val b = newCharArrayOfSize(TOKEN_SIZE)

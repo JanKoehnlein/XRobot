@@ -7,7 +7,6 @@ import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.IRemoteRobot
-import org.eclipse.xtext.util.CancelIndicator
 
 @Accessors(PUBLIC_GETTER)
 class PlayerSlot implements IRobotListener {
@@ -22,24 +21,21 @@ class PlayerSlot implements IRobotListener {
 
 	IRemoteRobot.Factory robotFactory
 
+	RobotPreparer preparer
+
 	val listeners = new CopyOnWriteArrayList<Listener>
-	val placer = new RobotPlacer
 
 	new(RobotID robotID, IRemoteRobot.Connector connector) {
 		this.robotID = robotID
 		this.connector = connector
 		token = new AccessToken
+		preparer = new RobotPreparer(this)
 	}
 	
 	def getRobotFactory() {
 		if(robotFactory == null || !robotFactory.isAlive)
 			robotFactory = connector.getRobotFactory(robotID)
 		robotFactory
-	}
-	
-	def placeRobot() {
-		val robot = getRobotFactory.newRobot(CancelIndicator.NullImpl)
-		placer.placeRobot(robot)
 	}
 	
 	def matches(AccessToken token) {

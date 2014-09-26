@@ -80,6 +80,23 @@
 	-fx-background-color: rgba(218.0,88.0,96.0, 1.0);
 }
 
+.error-box {
+	-fx-background-color: red;
+	-fx-alignment: center;
+}
+
+.error-label {
+	-fx-text-fill: white
+}
+
+.info-box {
+	-fx-background-color: rgb(115.0,191.0,205.0);
+	-fx-alignment: center;
+}
+
+.info-label {
+}
+
 .available {
 	-fx-background-color: green;
 	-fx-text-alignment: justify;	
@@ -88,4 +105,9 @@
 .locked {
 	-fx-background-color: red;
 	-fx-text-alignment: center;
+}
+
+.message-pane {
+	-fx-alignment: center;
+	-fx-spacing: 10;
 }

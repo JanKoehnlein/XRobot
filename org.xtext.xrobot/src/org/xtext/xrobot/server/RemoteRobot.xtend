@@ -84,7 +84,7 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 		this.cameraSample = cameraSample
 	}
 	
-	override getCameraSample() {
+	def getCameraSample() {
 		cameraSample
 	}
 	

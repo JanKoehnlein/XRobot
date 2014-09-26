@@ -4,6 +4,7 @@ import java.util.List
 import javafx.animation.Interpolator
 import javafx.animation.ScaleTransition
 import javafx.animation.SequentialTransition
+import javafx.application.Platform
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Scene
@@ -13,18 +14,22 @@ import javafx.scene.layout.StackPane
 import javafx.stage.Screen
 import javafx.stage.Stage
 import javafx.stage.StageStyle
+import javafx.util.Duration
 import javax.inject.Inject
 import org.xtext.xrobot.game.PlayerSlot
 
 import static extension javafx.scene.layout.BorderPane.*
 import static extension javafx.util.Duration.*
-import javafx.application.Platform
+import javafx.animation.FadeTransition
+import javafx.scene.layout.VBox
+import javafx.scene.control.Button
 
 class Display {
 
 	@Inject BorderPane topLayer
 	@Inject HallOfFameTable hallOfFame
 	@Inject StackPane centerPane
+	@Inject VBox messagePane
 
 	List<PlayerSlotBox> slotBoxes
 
@@ -37,6 +42,9 @@ class Display {
 					styleClass += 'border-pane'
 					center = centerPane => [
 						children += hallOfFame
+						children += messagePane => [
+							styleClass += 'message-pane'
+						]
 						alignment = Pos.CENTER
 					]
 					val xtendBox = new PlayerSlotBox(slots.head)
@@ -106,6 +114,7 @@ class Display {
 	}
 
 	def boolean askRepeat(Throwable exc) {
+		// TODO implement
 		false
 	}
 
@@ -113,6 +122,47 @@ class Display {
 		Platform.runLater [
 			// TODO: entertain me
 			hallOfFame.show
+		]
+	}
+	
+	def showError(String message, Duration duration) {
+		showMessage(message, 'error', duration)
+	}
+	
+	def showInfo(String message, Duration duration) {
+		showMessage(message, 'info', duration)
+	}
+	
+	private def showMessage(String message, String stylePrefix, Duration duration) {
+		Platform.runLater [
+			val errorBox = new VBox => [
+				setMaxSize(USE_PREF_SIZE, USE_PREF_SIZE)
+				styleClass += #['outer-box', stylePrefix + '-box']
+				children += new Label(message) => [
+					styleClass += #[stylePrefix + '-label']
+				]
+			]
+			messagePane.children += errorBox
+			val fade = new FadeTransition => [
+				node = errorBox
+				fromValue = 1
+				toValue = 0
+				onFinished = [
+					messagePane.children -= errorBox
+				]
+			]
+			if(duration == INDEFINITE) {
+				errorBox.children += new Button('OK') => [
+					onAction = [
+						fade.play
+					]
+				]
+			} else {
+				fade => [
+					delay = duration
+					play 
+				]
+			}
 		]
 	}
 }

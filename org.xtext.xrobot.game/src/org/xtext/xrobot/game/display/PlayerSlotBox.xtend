@@ -24,9 +24,7 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 		val lightStyle = style + '-light'
 		children += new VBox => [
 			styleClass += #[style, 'outer-box']
-			children += programLabel= new Label() => [
-				styleClass += #['inner-box']
-			]
+			children += programLabel= new Label()
 			children += new StackPane => [
 				styleClass += #[lightStyle, 'inner-box']
 				children += modesLabel = new Label() => [
@@ -49,7 +47,7 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 		Platform.runLater [
 			if(slot.program == null) {
 				programLabel => [
-					styleClass += #[style, 'robot-inner-box', 'available']
+					styleClass.setAll('inner-box', 'robot-inner-box', 'available')
 					text = '''
 						AVAILABLE
 						Token «slot.token.value»
@@ -57,7 +55,7 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 				]
 			} else {
 				programLabel => [
-					styleClass += #[style, 'robot-inner-box', 'locked']
+					styleClass.setAll('inner-box', 'robot-inner-box', 'locked')
 					text = '''
 						LOCKED
 						«slot.program.name»

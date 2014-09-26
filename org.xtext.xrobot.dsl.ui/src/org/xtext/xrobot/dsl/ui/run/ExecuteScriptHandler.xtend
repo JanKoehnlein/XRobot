@@ -41,6 +41,7 @@ import org.xtext.xrobot.dsl.interpreter.ScriptRunner
 import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.server.IRemoteRobot
+import org.xtext.xrobot.server.RemoteRobot
 
 @Singleton
 class ExecuteScriptHandler extends AbstractHandler {
@@ -198,9 +199,9 @@ class ExecuteScriptHandler extends AbstractHandler {
 				''')
 				content.put('Opponent distance', robot.opponentDirection.distance.toString)
 				content.put('Opponent angle', robot.opponentDirection.angle.toString)
-				content.put('Battery', ((robot.state.batteryState * 100) as int).toString + '%')
-				content.put('isMoving', robot.state.moving.toString)
-				content.put('Command number', robot.state.lastExecutedCommandSerialNr.toString)
+				content.put('Battery', ((robot.batteryState * 100) as int).toString + '%')
+				content.put('isMoving', robot.moving.toString)
+				content.put('Command number', (robot as RemoteRobot).state.lastExecutedCommandSerialNr.toString)
 				tableViewer.refresh
 			]
 		}

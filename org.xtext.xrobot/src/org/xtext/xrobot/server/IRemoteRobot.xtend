@@ -4,7 +4,6 @@ import java.net.SocketTimeoutException
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.IRobot
-import org.xtext.xrobot.camera.CameraSample
 
 interface IRemoteRobot extends IRobot {
 	
@@ -30,9 +29,6 @@ interface IRemoteRobot extends IRobot {
 	
 	def void release()
 	
-	def RobotServerState getState()
-	
 	def double getBatteryState()
 	
-	def CameraSample getCameraSample()
 }
