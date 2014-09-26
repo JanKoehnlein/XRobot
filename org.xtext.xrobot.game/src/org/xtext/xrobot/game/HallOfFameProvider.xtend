@@ -22,6 +22,7 @@ class HallOfFameProvider {
 	}
 	
 	new() {
+		// TODO remove dummy entries
 		addWin('Miro')
 		addWin('Miro')
 		addWin('Miro')

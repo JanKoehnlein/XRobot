@@ -15,6 +15,8 @@ import org.xtext.xrobot.util.IValueStreamFilter
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.camera.ICamera.*
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
+import static java.lang.Math.*
+import org.xtext.xrobot.api.Position
 
 class CameraClient {
 	
@@ -56,22 +58,40 @@ class CameraClient {
 	
 	private def setRobotPosition(RobotID robotID, long timestamp,
 			float rawXpos, float rawYpos, float rawAngle) {
-		var x = (rawXpos - 0.5) * WIDTH_IN_CM
-		var y = (0.5 - rawYpos) * HEIGHT_IN_CM
+		val rawPos = new Position((rawXpos - 0.5) * WIDTH_IN_CM,
+				(0.5 - rawYpos) * HEIGHT_IN_CM)
 		// TUIO 0° means NORTH and 90° means EAST
-		var angle = 90 - Math.toDegrees(rawAngle)
+		val angle = 90 - Math.toDegrees(rawAngle)
+		
+		// Apply perspective correction
+		val correctedPos = correctCameraPerspective(rawPos)
 
 		// Apply the filters			
 		val index = robotID.ordinal
-		x = xposFilters.get(index).apply(x)
-		y = yposFilters.get(index).apply(y)
-		angle = angleFilters.get(index).apply(angle)
+		val filteredX = xposFilters.get(index).apply(correctedPos.x)
+		val filteredY = yposFilters.get(index).apply(correctedPos.y)
+		val filteredAngle = angleFilters.get(index).apply(angle)
 		
-		val robotPosition = new RobotPosition(x, y, robotID, normalizeAngle(angle))
+		val robotPosition = new RobotPosition(filteredX, filteredY, robotID,
+				normalizeAngle(filteredAngle))
 		synchronized (this) {
 			robotPositions.set(index, robotPosition)
 			timestamps.set(index, timestamp)
 		}
+	}
+	
+	private def Position correctCameraPerspective(Position rawPosition) {
+		var x = rawPosition.x
+		var y = rawPosition.y
+		// Transform to polar coordinates
+		val a = atan2(y, x)
+		var d = sqrt(x*x+y*y)
+		// Apply the perspective correction factor
+		d *= PERSPECTIVE_CORRECTION
+		// Transform back to (x,y) coordinates
+		x = d * cos(a)
+		y = d * sin(a)
+		new Position(x, y)
 	}
 	
 	def getCameraSample(RobotID robotID) {

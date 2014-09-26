@@ -75,9 +75,9 @@ class GameServer extends Application {
 				val program = scriptParser.parse(script, resourceSet)
 				if(program != null) {
 					slot.acquire(program)
-					slot.placeRobot					
+					slot.placeRobot
 				}
-			}	
+			}
 		}
 		if(slots.forall[!isAvailable])
 			startGame

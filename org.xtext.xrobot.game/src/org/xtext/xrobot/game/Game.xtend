@@ -75,9 +75,10 @@ class Game {
 
 	private def checkGameOver(IRemoteRobot robot) {
 		if(robot.centerDirection.distance > IArena.ARENA_RADIUS) {
-			if(loser == null)  
+			if(loser == null) {
 				loser = robot.robotID
-			else if(System.currentTimeMillis - lastLoserTimeStamp < GAME_LOST_THRESHOLD) {
+				lastLoserTimeStamp = System.currentTimeMillis
+			} else if(System.currentTimeMillis - lastLoserTimeStamp < GAME_LOST_THRESHOLD) {
 				// robots were losing almost simultaneously: a draw
 				loser = null
 			}

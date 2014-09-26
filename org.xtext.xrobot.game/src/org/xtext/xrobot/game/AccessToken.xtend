@@ -12,8 +12,9 @@ class AccessToken {
 	
 	new() {
 		val b = newCharArrayOfSize(TOKEN_SIZE)
+		val random = new Random()
 		for(i: 1..TOKEN_SIZE) {
-			val n = new Random().nextDouble * 36 as int
+			val n = random.nextDouble * 36 as int
 			b.set(i - 1, switch n {
 				case n<26:
 					n+65
