@@ -56,17 +56,9 @@ class Robot implements IRobotGeometry {
 		power = brick.power
 	}
 
-	/**
-	 * @return the robot's name
-	 */
-	@Calculated
-	override String getName() {
-		robotID.name
-	}
-
-	@Calculated 
-	override RobotID getRobotID() {
-		RobotID.valueOf(name)
+	@NoAPI@Calculated
+	def RobotID getRobotID() {
+		robotID
 	}
 	
 	@NoAPI@Zombie
@@ -99,7 +91,7 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Moves the robot forward by <code>distance</code> centimeters.
+	 * Moves the robot forward by <code>distance</code> centimeters at the current travel speed.
 	 * 
 	 * This method will block the current mode's execution until the move is complete.
 	 * Once finished, the motors will be stopped.
@@ -112,7 +104,7 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Moves the robot forward at the current travelSpeed.
+	 * Moves the robot forward at the current travel speed.
 	 * 
 	 * This method is non-blocking, i.e. it returns immediately and the motors will 
 	 * continue moving until they receive another command.
@@ -124,7 +116,7 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Moves the robot backward by <code>distance</code> centimeters.
+	 * Moves the robot backward by <code>distance</code> centimeters at the current travel speed.
 	 * 
 	 * This method will block the current mode's execution until the move is complete.
 	 * Once finished, the motors will be stopped.
@@ -137,7 +129,7 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Moves the robot backward at the current travelSpeed.
+	 * Moves the robot backward at the current travel speed.
 	 * 
 	 * This method is non-blocking, i.e. it returns immediately and the motors will 
 	 * continue moving until they receive another command.
@@ -149,10 +141,10 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Sets the speed in centimeter/second for all {@link #forward()} and {@link #backward()} 
+	 * Sets the speed in centimeters/second for all {@link #forward()} and {@link #backward()} 
 	 * commands. Does not actually mode the robot.
 	 * 
-	 * @param the speed in centimeter/second 
+	 * @param the speed in centimeters/second 
 	 */
 	override void setTravelSpeed(double speed) {
 		pilot.travelSpeed = speed
@@ -161,7 +153,7 @@ class Robot implements IRobotGeometry {
 	/**
 	 * Returns the speed for all {@link #forward()} and {@link #backward()} commands.
 	 * 
-	 * @return the speed in centimeter/second 
+	 * @return the speed in centimeters/second 
 	 */
 	override double getTravelSpeed() {
 		pilot.travelSpeed
@@ -171,25 +163,27 @@ class Robot implements IRobotGeometry {
 	 * Returns the maximum speed for {@link #forward()} and {@link #backward()} commands
 	 * depending on the battery status.
 	 * 
-	 * @return the speed in centimeter/second 
+	 * @return the speed in centimeters/second 
 	 */
 	override double getMaxTravelSpeed() {
 		pilot.maxTravelSpeed
 	}
 
-	/** 
-	 * Rotates the robot on the spot by <code>angle</code> degrees.
+	/**
+	 * Rotate the robot on the spot by <code>angle</code> degrees at the current rotation
+	 * speed. A positive angle means to rotate counter-clockwise (left), while a negative
+	 * angle means to rotate clockwise (right).
 	 * 
-	 * This method will block the current mode's execution until the move is complete.
-	 * Once finished, the motors will be stopped.
+	 * This method blocks the current mode's execution until the move is complete.
+	 * Once finished, the motors are stopped.
 	 */
 	@Blocking
 	override void rotate(double angle) {
 		pilot.rotate(angle, true)
 	}
 
-	/** 
-	 * Rotates the robot left on the spot at the current rotate speed.
+	/**
+	 * Rotate the robot counter-clockwise (left) on the spot at the current rotation speed.
 	 * 
 	 * This method is non-blocking, i.e. it returns immediately and the motors will 
 	 * continue moving until they receive another command.
@@ -198,8 +192,8 @@ class Robot implements IRobotGeometry {
 		pilot.rotateLeft
 	}
 
-	/** 
-	 * Rotates the robot left on the spot at the current rotate speed.
+	/**
+	 * Rotate the robot clockwise (right) on the spot at the current rotation speed.
 	 * 
 	 * This method is non-blocking, i.e. it returns immediately and the motors will 
 	 * continue moving until they receive another command.
@@ -209,17 +203,18 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Sets the speed in for all {@link #rotate()} commands. Does not actually move 
-	 * the robot.
+	 * Set the speed for all {@link #rotate(double)}, {@link #rotateLeft()} and
+	 * {@link #rotateRight()} commands. Does not actually move the robot.
 	 * 
-	 * @param the speed in degrees/second 
+	 * @param the rotation speed in degrees/second
 	 */
 	override void setRotateSpeed(double rotateSpeed) {
 		pilot.rotateSpeed = rotateSpeed
 	}
 
 	/**
-	 * Returns the speed for all {@link rotate()} commands.
+	 * Returns the speed for all {@link #rotate(double)}, {@link #rotateLeft()} and
+	 * {@link #rotateRight()} commands.
 	 * 
 	 * @return the rotate speed in degrees/second 
 	 */
@@ -228,21 +223,26 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Returns the maxiumum speed for all {@link rotate()} commands depending on the 
-	 * battery status.
+	 * Returns the maximum speed for all {@link #rotate(double)}, {@link #rotateLeft()} and
+	 * {@link #rotateRight()} commands depending on the battery status.
 	 * 
-	 * @return the rotate speed in degrees/second 
+	 * @return the rotation speed in degrees/second 
 	 */
 	override double getMaxRotateSpeed() {
 		pilot.rotateMaxSpeed
 	}
 
 	/**
-	 * Lets the robot travel a forward curve with the given <code>radius</code> and 
-	 * <code>angle</code>.
-	 *
-	 * A negative angle means a curve to the right (clockwise). The sign of the radius
-	 * is ignored.
+	 * Let the robot travel a forward curve following a segment with the given {@code angle}
+	 * of a circle with the given {@code radius}.
+	 * 
+	 * A positive angle means a counter-clockwise curve (left), while a negative angle
+	 * means a clockwise curve (right). The sign of the radius is ignored.
+	 * 
+	 * @param radius
+	 * 		The radius of the circle on which to travel
+	 * @param angle
+	 * 		The angle of the circle segment that is actually covered
 	 */
 	@Blocking
 	override void curveForward(double radius, double angle) {
@@ -255,16 +255,16 @@ class Robot implements IRobotGeometry {
 	/**
 	 * Lets the robot travel a backward curve with the given <code>radius</code> and 
 	 * <code>angle</code>.
-	 *
-	 * A negative angle means a curve to the right (clockwise). The sign of the radius
-	 * is ignored.
+	 * 
+	 * A positive angle means a clockwise curve (left), while a negative angle means a
+	 * counter-clockwise curve (right). The sign of the radius is ignored.
 	 */
 	@Blocking
 	override void curveBackward(double radius, double angle) {
 		if (angle < 0)
-			pilot.arc(abs(radius), angle, true)
+			pilot.arc(abs(radius), -angle, true)
 		else
-			pilot.arc(-abs(radius), angle, true)
+			pilot.arc(-abs(radius), -angle, true)
 	}
 
 	/**
@@ -273,9 +273,9 @@ class Robot implements IRobotGeometry {
 	 */
 	@Blocking
 	override void curveTo(double distance, double angle) {
-		if(abs(angle) < 1E6) {
+		if(abs(angle) < 1) {
 			forward(distance)
-		} else if(abs(abs(angle) - 180) < 1E6) {
+		} else if(abs(abs(angle) - 180) < 1) {
 			backward(distance)
 		} else {
 			val radius = 0.5 * distance / sin(angle.toRadians)

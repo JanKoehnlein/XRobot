@@ -93,7 +93,7 @@ class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
 									} finally {
 										currentModeCancelIndicator.cancel
 									}
-								], 'Robot ' + modeRobot.name + ' in mode ' + newMode.name)
+								], 'Robot ' + modeRobot.robotID.name + ' in mode ' + newMode.name)
 								.start
 						}
 					}
