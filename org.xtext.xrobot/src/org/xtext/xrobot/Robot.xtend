@@ -357,7 +357,7 @@ class Robot implements IRobotGeometry {
 	 */
 	@NoAPI@Zombie
 	def double getBatteryState() {
-		power.voltage / 9.0
+		power.voltage / 8.1
 	}
 
 	/**
