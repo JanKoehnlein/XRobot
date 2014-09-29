@@ -62,7 +62,7 @@ class HallOfFameTable extends VBox {
 		GridPane.setConstraints(heading, 0, 0, 6, 1)
 		//TODO: rowspan
 		val styles = #['hof', 'boxed-label']
-		#['#', 'Name', 'W', 'D', 'L', 'P'].forEach [ string, i |
+		#['#', 'Name', 'W', 'D', 'L', 'S'].forEach [ string, i |
 			addCell(string, i, 1, styles) 
 		]
 		hallOfFame.forEach [ entry, i |
@@ -108,6 +108,6 @@ class HallOfFameTable extends VBox {
 		addCell(entry.wins, 2, row, styles)
 		addCell(entry.draws, 3, row, styles)
 		addCell(entry.defeats, 4, row, styles)
-		addCell(entry.points, 5, row, styles)
+		addCell(String.format('%2.1f', entry.score), 5, row, styles)
 	}
 }
