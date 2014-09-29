@@ -35,6 +35,7 @@ class RobotPreparer {
 	
 	def getReady(Display display) {
 		LOG.debug(slot.scriptName + ' getReady()')
+		isCanceled = false
 		if(thread?.isAlive)
 			throw new IllegalStateException('RobotPlacer is already running')
 		robot = slot.robotFactory.newRobot [isCanceled]
