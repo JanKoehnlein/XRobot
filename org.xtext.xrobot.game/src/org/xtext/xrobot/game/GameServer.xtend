@@ -35,7 +35,7 @@ class GameServer extends Application {
 	
 	@Inject Display display
 	@Inject HallOfFameProvider hallOfFameProvider
-	@Inject ScriptPoller scriptPoller
+	@Inject MockScriptPoller scriptPoller
 
 	List<PlayerSlot> slots 
 	
