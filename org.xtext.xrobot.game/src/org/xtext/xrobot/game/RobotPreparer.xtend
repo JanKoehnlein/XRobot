@@ -54,7 +54,9 @@ class RobotPreparer {
 			} catch (Exception exc) {
 				LOG.error('Error preparing robot', exc)
 			}
-		], 'RobotPlacer')
+		], 'RobotPlacer') => [
+			daemon = true
+		]
 		thread.start
 	}
 	

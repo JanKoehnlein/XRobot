@@ -24,6 +24,7 @@ class ScriptPoller {
 		isStopped = false
 		new Thread([run], 'ScriptPoller') => [
 			try {
+				daemon = true
 				priority = 9
 				start
 			} catch(Exception exc) {

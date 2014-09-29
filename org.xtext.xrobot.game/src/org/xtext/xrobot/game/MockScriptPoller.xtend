@@ -16,6 +16,7 @@ class MockScriptPoller {
 		this.gameServer = gameServer
 		isStopped = false
 		new Thread([run], 'ScriptPoller') => [
+			daemon = true
 			priority = 9
 			start
 		]
