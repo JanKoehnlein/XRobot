@@ -53,6 +53,7 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 						Token «slot.token.value»
 					'''
 				]
+				modesLabel.text = ''
 			} else {
 				programLabel => [
 					styleClass.setAll('inner-box', 'robot-inner-box', 'locked')

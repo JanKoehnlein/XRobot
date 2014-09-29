@@ -35,7 +35,7 @@ class Game {
 	def play(List<PlayerSlot> slots) {
 		val gameOverListener = createGameOverListener
 		// remember map is lazy, so make a real copy
-		runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener)])
+		runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener, it)])
 		gameOver = false
 		LOG.debug('Starting game')
 		runners.forEach[start]
