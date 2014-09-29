@@ -63,6 +63,8 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 					'''
 				]
 			}
+			// JavaFX bug: shouldn't be necessary
+			parent.layout
 		]
 	}
 	

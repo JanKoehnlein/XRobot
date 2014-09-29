@@ -51,10 +51,10 @@ class Display {
 					val xtextBox = new PlayerSlotBox(slots.last)
 					slotBoxes = #[xtendBox, xtextBox]
 					left = xtendBox
-					xtendBox.alignment = Pos.CENTER_RIGHT
+					xtendBox.alignment = Pos.CENTER
 					xtendBox.margin = new Insets(20)
 					right = xtextBox
-					xtextBox.alignment = Pos.CENTER_LEFT
+					xtextBox.alignment = Pos.CENTER
 					xtextBox.margin = new Insets(20)
 				], screenBounds.width, screenBounds.height) => [
 				fill = null
