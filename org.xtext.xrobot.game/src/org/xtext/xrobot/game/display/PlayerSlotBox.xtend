@@ -9,6 +9,7 @@ import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.game.PlayerSlot
 import org.xtext.xrobot.server.IRemoteRobot
 import javafx.application.Platform
+import static extension org.xtext.xrobot.game.display.JavaFxExtensions.* 
 
 class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 	
@@ -31,6 +32,7 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 					styleClass += #['inner-box']
 				]
 			]
+			fixSize(300, 768)
 		]
 		slotChanged
 		val robot = slot.robotFactory.newRobot(CancelIndicator.NullImpl)

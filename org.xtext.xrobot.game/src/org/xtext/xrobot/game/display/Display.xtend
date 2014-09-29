@@ -23,6 +23,7 @@ import static extension javafx.util.Duration.*
 import javafx.animation.FadeTransition
 import javafx.scene.layout.VBox
 import javafx.scene.control.Button
+import static extension org.xtext.xrobot.game.display.JavaFxExtensions.*
 
 class Display {
 
@@ -56,6 +57,7 @@ class Display {
 					right = xtextBox
 					xtextBox.alignment = Pos.CENTER
 					xtextBox.margin = new Insets(20)
+					fixSize(screenBounds.width, screenBounds.height)
 				], screenBounds.width, screenBounds.height) => [
 				fill = null
 				stylesheets += 'org/xtext/xrobot/game/display/Styles.css'
