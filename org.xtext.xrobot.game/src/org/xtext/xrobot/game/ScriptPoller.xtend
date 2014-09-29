@@ -12,7 +12,7 @@ class ScriptPoller {
 	
 	static val LOG = Logger.getLogger(ScriptPoller)
 	
-	static val ECLIPSE_SERVER_URL = 'http://localhost:8081/execute'
+	static val ECLIPSE_SERVER_URL = 'http://10.10.1.3:8081/execute'
 
 	GameServer gameServer
 
@@ -23,8 +23,12 @@ class ScriptPoller {
 		this.gameServer = gameServer
 		isStopped = false
 		new Thread([run], 'ScriptPoller') => [
-			priority = 9
-			start
+			try {
+				priority = 9
+				start
+			} catch(Exception exc) {
+				LOG.error('Error polling scripts', exc)
+			}
 		]
 	}
 	

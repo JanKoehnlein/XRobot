@@ -1,16 +1,17 @@
 package org.xtext.xrobot.game
 
+import org.apache.log4j.Logger
 import org.xtext.xrobot.api.Position
+import org.xtext.xrobot.game.display.Display
 import org.xtext.xrobot.net.INetConfig
+import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static java.lang.Math.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.api.IArena.*
-import org.xtext.xrobot.game.display.Display
+
 import static extension javafx.util.Duration.*
-import org.apache.log4j.Logger
-import org.xtext.xrobot.server.CanceledException
 
 class RobotPreparer {
 	
@@ -21,6 +22,8 @@ class RobotPreparer {
 	
 	static val DISTANCE_ACCURACY = 5.0
 	static val ANGLE_ACCURACY = 8.0
+	
+	static val PREPARATION_TIMEOUT = 10000
 	
 	volatile boolean isCanceled = false
 
@@ -48,6 +51,8 @@ class RobotPreparer {
 				goHome
 			} catch (CanceledException exc) {
 				// ignore
+			} catch (Exception exc) {
+				LOG.error('Error preparing robot', exc)
 			}
 		], 'RobotPlacer')
 		thread.start
@@ -55,7 +60,7 @@ class RobotPreparer {
 	
 	def isReady(Display display) {
 		LOG.debug(slot.scriptName + ' isReady()')
-		thread?.join(2000)
+		thread?.join(PREPARATION_TIMEOUT)
 		isCanceled = true
 		thread?.join
 		if(robot.batteryState < MIN_BATTERY_CHARGE) 

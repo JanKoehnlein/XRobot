@@ -6,6 +6,7 @@ import java.util.List
 import javafx.application.Application
 import javafx.stage.Stage
 import javafx.util.Duration
+import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.resource.impl.BinaryGrammarResourceFactoryImpl
@@ -13,8 +14,8 @@ import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 import org.xtext.xrobot.dsl.interpreter.ScriptParser
 import org.xtext.xrobot.game.display.Display
-import org.xtext.xrobot.server.testing.MockRobotConnector
-import org.apache.log4j.Logger
+import org.xtext.xrobot.server.IRemoteRobot
+
 import static extension javafx.util.Duration.*
 
 class GameServer extends Application {
@@ -25,8 +26,8 @@ class GameServer extends Application {
 		launch()
 	}
 	
-//	@Inject IRemoteRobot.Connector remoteRobotConnector
-	@Inject MockRobotConnector remoteRobotConnector
+	@Inject IRemoteRobot.Connector remoteRobotConnector
+//	@Inject MockRobotConnector remoteRobotConnector
 	@Inject Provider<XtextResourceSet> resourceSetProvider
 
 	@Inject ScriptParser scriptParser
@@ -35,8 +36,8 @@ class GameServer extends Application {
 	
 	@Inject Display display
 	@Inject HallOfFameProvider hallOfFameProvider
-	@Inject MockScriptPoller scriptPoller
-//	@Inject ScriptPoller scriptPoller
+//	@Inject MockScriptPoller scriptPoller
+	@Inject ScriptPoller scriptPoller
 
 	List<PlayerSlot> slots 
 	
@@ -62,9 +63,15 @@ class GameServer extends Application {
 				val resourceSet = resourceSetProvider.get
 				val program = scriptParser.parse(script, resourceSet)
 				if(program != null) {
-					LOG.debug('Robot ' + program.name + ' has joined the game')
-					slot.acquire(program)
-					slot.preparer.getReady(display)					
+					try {
+						LOG.debug('Robot ' + program.name + ' has joined the game')
+						slot.acquire(program)
+						slot.preparer.getReady(display)					
+					} catch (Exception exc) {
+						showError(exc.message, 2.seconds)
+						LOG.error('Error assigning robot', exc) 
+						slot.release
+					}
 				}
 			}	
 		}

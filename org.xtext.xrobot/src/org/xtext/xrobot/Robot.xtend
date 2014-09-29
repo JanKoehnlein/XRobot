@@ -20,6 +20,7 @@ import org.xtext.xrobot.util.SoundUtil
 import org.xtext.xrobot.util.SystemSounds
 
 import static extension java.lang.Math.*
+import org.xtext.xrobot.annotations.Zombie
 
 @SimpleRMI
 class Robot implements IRobotGeometry {
@@ -68,7 +69,7 @@ class Robot implements IRobotGeometry {
 		RobotID.valueOf(name)
 	}
 	
-	@NoAPI
+	@NoAPI@Zombie
 	def boolean isEscapePressed() {
 		escapeKey.down
 	}
@@ -338,7 +339,7 @@ class Robot implements IRobotGeometry {
 	/**
 	 * @see {@link SystemSounds} for values
 	 */
-	@NoAPI
+	@NoAPI@Zombie
 	def void systemSound(int sound) {
 		audio.systemSound(sound)
 	}
@@ -346,7 +347,7 @@ class Robot implements IRobotGeometry {
 	/** 
 	 * @see {@link LEDPatterns} for values 
 	 */
-	@NoAPI
+	@NoAPI@Zombie
 	def void setLed(int pattern) {
 		led.pattern = pattern
 	}
@@ -354,7 +355,7 @@ class Robot implements IRobotGeometry {
 	/**
 	 * @returns the battery's charging state between 0.0 and 1.0
 	 */
-	@NoAPI
+	@NoAPI@Zombie
 	def double getBatteryState() {
 		power.voltage / 9.0
 	}

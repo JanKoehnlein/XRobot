@@ -36,6 +36,11 @@ annotation Calculated {
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
+annotation Zombie {
+}
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.SOURCE)
 annotation Blocking {
 	String value = 'getMoving'
 }
@@ -170,6 +175,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			'''
 		]
 		val noApiAnnotation = NoAPI.findTypeGlobally
+		val zombieAnnotation = Zombie.findTypeGlobally
 		val calculatedAnnotation = Calculated.findTypeGlobally
 		val sourceMethods = annotatedClass
 					.declaredMethods
@@ -214,13 +220,17 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 					'''
 				else if (!serverMethod.returnType.isVoid)
 					serverMethod.body = '''
-						checkCanceled();
+						«IF sourceMethod.findAnnotation(zombieAnnotation) == null»
+							checkCanceled();
+						«ENDIF»
 						LOG.debug("«sourceMethod.simpleName»");
 						return state.get«serverMethod.fieldName.toFirstUpper»();
 					'''
 				else 
 					serverMethod.body = '''
-						checkCanceled();
+						«IF sourceMethod.findAnnotation(zombieAnnotation) == null»
+							checkCanceled();
+						«ENDIF»
 						output.writeInt(componentID);
 						output.writeInt(«i»);
 						«FOR p: sourceMethod.parameters»

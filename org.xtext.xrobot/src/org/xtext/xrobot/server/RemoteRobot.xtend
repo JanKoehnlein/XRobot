@@ -84,6 +84,11 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 		this.cameraSample = cameraSample
 	}
 	
+	override isScoopMoving() {
+		checkCanceled
+		scoopMotor.isMoving
+	}
+	
 	def getCameraSample() {
 		cameraSample
 	}
