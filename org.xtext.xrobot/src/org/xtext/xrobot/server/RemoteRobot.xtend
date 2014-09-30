@@ -30,10 +30,6 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 		robotID
 	}
 
-	override getName() {
-		robotID.name
-	}
-
 	override waitForUpdate(int timeout) throws SocketTimeoutException {
 		val updateInterval = UPDATE_INTERVAL / 3
 		val lastStateUpdate = if (state == null) 0 else state.sampleTime

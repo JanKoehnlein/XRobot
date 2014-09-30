@@ -104,15 +104,15 @@ class RobotPreparer {
 	
 	private def getHomeViewDirection() {
 		switch robot.robotID {
-			case Xtend: 180
-			case Xtext: 0
+			case Blue: 180
+			case Red: 0
 		}
 	}
 	
 	private def getHomePosition() {
 		switch robot.robotID {
-			case Xtend: new Position(-ARENA_RADIUS * 0.6, 0)
-			case Xtext: new Position(ARENA_RADIUS * 0.6, 0)
+			case Blue: new Position(-ARENA_RADIUS * 0.6, 0)
+			case Red: new Position(ARENA_RADIUS * 0.6, 0)
 		}
 	}
 	

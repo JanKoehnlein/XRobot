@@ -39,6 +39,10 @@ annotation Calculated {
 annotation Zombie {
 }
 
+/**
+ * This annotation marks a blocking command. Once such a command is started, no further
+ * commands are executed until the blocking command has finished or is canceled. 
+ */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
 annotation Blocking {

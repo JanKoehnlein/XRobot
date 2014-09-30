@@ -44,7 +44,7 @@ class GameServer extends Application {
 	new() {
 		Resource.Factory.Registry.INSTANCE.extensionToFactoryMap.put('xtextbin', new BinaryGrammarResourceFactoryImpl())
 		new XRobotDSLStandaloneSetup().createInjectorAndDoEMFRegistration.injectMembers(this)
-		slots = #[new PlayerSlot(RobotID.Xtend, remoteRobotConnector), new PlayerSlot(RobotID.Xtext, remoteRobotConnector)]
+		slots = #[new PlayerSlot(RobotID.Blue, remoteRobotConnector), new PlayerSlot(RobotID.Red, remoteRobotConnector)]
 	}
 	
 	override start(Stage stage) throws Exception {

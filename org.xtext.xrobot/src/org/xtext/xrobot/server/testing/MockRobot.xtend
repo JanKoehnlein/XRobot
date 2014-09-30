@@ -46,11 +46,7 @@ class MockRobot implements IRemoteRobot {
 		0.64
 	}
 
-	override getName() {
-		robotID.name
-	}
-
-	override setSpeeds(double leftSpeed, double rightSpeed) {
+	override startMotors(double leftSpeed, double rightSpeed) {
 		checkCanceled
 	}
 

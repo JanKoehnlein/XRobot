@@ -2,8 +2,8 @@ package org.xtext.xrobot;
 
 public enum RobotID {
 	
-	Xtend(0, "10.10.1.5"),
-	Xtext(1, "10.10.1.6");
+	Blue(0, "10.10.1.5"),
+	Red(1, "10.10.1.6");
 	
 	private int fiducialID;
 	private String ipAddress;
@@ -23,8 +23,8 @@ public enum RobotID {
 
 	public RobotID getOpponent() {
 		switch (this) {
-		case Xtend: return Xtext;
-		case Xtext: return Xtend;
+		case Blue: return Red;
+		case Red: return Blue;
 		default:
 			throw new AssertionError("Missing switch case.");
 		}

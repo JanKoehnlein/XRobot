@@ -56,28 +56,39 @@ class Robot implements IRobotGeometry {
 		power = brick.power
 	}
 
+	/**
+	 * @return the robot identifier
+	 */
 	@NoAPI@Calculated
 	def RobotID getRobotID() {
 		robotID
 	}
 	
+	/**
+	 * @return true if the robot's escape button is currently pressed
+	 */
 	@NoAPI@Zombie
 	def boolean isEscapePressed() {
 		escapeKey.down
 	}
 
 	/**
-	 * Sets both motors in motion simultaneously. 
+	 * Set both motors into motion with the given speed values in centimeters/second.
+	 * If both speeds are positive, the robot moves forward. If they are negative, the robot
+	 * moves backward. If one speed value is positive and the other is negative, the robot rotates.
 	 * 
-	 * Speed values are in degrees/second, Negative values will move the motor backward.
+	 * <p>This command is non-blocking, i.e. it returns immediately and the motors 
+	 * continue moving until they receive another command such as {@link #stop()}.</p>
 	 * 
-	 * This method is non-blocking, i.e. it returns immediately and the motors will 
-	 * continue moving until they receive another command.
+	 * <p>When the motors are started with two consecutive commands, the resulting movement
+	 * may be inaccurate due to the delay between the commands. Therefore this command may
+	 * be preferable in such situations, since it allows to start both motors with a single
+	 * command.</p>
 	 * 
-	 * @param leftSpeed the speed of the left motor in degrees/second   
-	 * @param rightSpeed the speed of the right motor in degrees/second   
+	 * @param leftSpeed the speed of the left motor in centimeters/second   
+	 * @param rightSpeed the speed of the right motor in centimeters/second   
 	 */
-	override void setSpeeds(double leftSpeed, double rightSpeed) {
+	override void startMotors(double leftSpeed, double rightSpeed) {
 		leftMotor.speed = (360 * abs(leftSpeed) / WHEEL_DIAMETER) as int
 		rightMotor.speed = (360 * abs(rightSpeed) / WHEEL_DIAMETER) as int
 		if (leftSpeed < 0)
@@ -91,10 +102,11 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Moves the robot forward by <code>distance</code> centimeters at the current travel speed.
+	 * Move the robot forward by {@code distance} centimeters at the current travel speed.
+	 * The speed is set with {@link #setTravelSpeed(double)}.
 	 * 
-	 * This method will block the current mode's execution until the move is complete.
-	 * Once finished, the motors will be stopped.
+	 * <p>This command blocks the current mode's execution until the movement is complete.
+	 * Once finished, the motors are stopped.</p>
 	 * 
 	 * @param distance the distance in centimeters 
 	 */
@@ -104,22 +116,22 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Moves the robot forward at the current travel speed.
+	 * Move the robot forward at the current travel speed until it is stopped.
+	 * The speed is set with {@link #setTravelSpeed(double)}.
 	 * 
-	 * This method is non-blocking, i.e. it returns immediately and the motors will 
-	 * continue moving until they receive another command.
-	 * 
-	 * @param distance the distance in centimeters 
+	 * <p>This command is <em>non-blocking</em>, i.e. it returns immediately and the motors
+	 * continue moving until they receive another command such as {@link #stop()}.</p>
 	 */
 	override void forward() {
 		pilot.forward
 	}
 
 	/**
-	 * Moves the robot backward by <code>distance</code> centimeters at the current travel speed.
+	 * Move the robot backward by {@code distance} centimeters at the current travel speed.
+	 * The speed is set with {@link #setTravelSpeed(double)}.
 	 * 
-	 * This method will block the current mode's execution until the move is complete.
-	 * Once finished, the motors will be stopped.
+	 * <p>This command blocks the current mode's execution until the movement is complete.
+	 * Once finished, the motors are stopped.</p>
 	 * 
 	 * @param distance the distance in centimeters 
 	 */
@@ -129,22 +141,29 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Moves the robot backward at the current travel speed.
+	 * Move the robot backward at the current travel speed until it is stopped.
+	 * The speed is set with {@link #setTravelSpeed(double)}.
 	 * 
-	 * This method is non-blocking, i.e. it returns immediately and the motors will 
-	 * continue moving until they receive another command.
-	 * 
-	 * @param distance the distance in centimeters 
+	 * <p>This command is <em>non-blocking</em>, i.e. it returns immediately and the motors 
+	 * continue moving until they receive another command such as {@link #stop()}.</p>
 	 */
 	override void backward() {
 		pilot.backward
 	}
 
 	/**
-	 * Sets the speed in centimeters/second for all {@link #forward()} and {@link #backward()} 
-	 * commands. Does not actually mode the robot.
+	 * Set the speed in centimeters/second for all subsequent movement commands. The movement
+	 * is <em>not</em> initiated by this command.
 	 * 
-	 * @param the speed in centimeters/second 
+	 * <p>The following commands are affected by the travel speed:
+	 * <ul>
+	 *   <li>{@link forward()}</li>
+	 *   <li>{@link forward(double)}</li>
+	 *   <li>{@link backward()}</li>
+	 *   <li>{@link backward(double)}</li>
+	 * </ul>
+	 * 
+	 * @param the speed in centimeters/second
 	 */
 	override void setTravelSpeed(double speed) {
 		pilot.travelSpeed = speed
@@ -253,8 +272,8 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Lets the robot travel a backward curve with the given <code>radius</code> and 
-	 * <code>angle</code>.
+	 * Let the robot travel a backward curve following a segment with the given {@code angle}
+	 * of a circle with the given {@code radius}.
 	 * 
 	 * A positive angle means a clockwise curve (left), while a negative angle means a
 	 * counter-clockwise curve (right). The sign of the radius is ignored.
@@ -262,13 +281,13 @@ class Robot implements IRobotGeometry {
 	@Blocking
 	override void curveBackward(double radius, double angle) {
 		if (angle < 0)
-			pilot.arc(abs(radius), -angle, true)
-		else
 			pilot.arc(-abs(radius), -angle, true)
+		else
+			pilot.arc(abs(radius), -angle, true)
 	}
 
 	/**
-	 * Lets the robot travel a forward curve to the point with the relative polar
+	 * Let the robot travel a forward curve to the point with the relative polar
 	 * coordinates <code>angle</code> and <code>distance</code>.
 	 */
 	@Blocking
@@ -291,18 +310,17 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Stops all motors immediately.
+	 * Stop all motors immediately.
 	 */
 	override void stop() {
 		pilot.stop
 	}
 
 	/**
-     * Resets the robot.
-     * 
-     * Left and right motors is stopped. 
-     * Scoop is moved to neutral position. 
-     * Speeds are set to max.
+     * Reset the robot: 
+     * Left and right motors are stopped,
+     * scoop is moved to neutral position, 
+     * and speeds are set to maximal values.
      */
 	override void reset() {
 		stop
