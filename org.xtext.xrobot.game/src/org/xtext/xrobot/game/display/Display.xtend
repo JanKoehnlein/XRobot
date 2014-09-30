@@ -24,7 +24,7 @@ import static extension javafx.util.Duration.*
 
 class Display {
 
-	@Inject TopPane topLayer
+	@Inject RootPane rootPane
 	@Inject HallOfFameTable hallOfFame
 	@Inject StackPane centerPane
 	@Inject VBox messagePane
@@ -36,8 +36,9 @@ class Display {
 		stage => [
 			initStyle(StageStyle.TRANSPARENT);
 			scene = new Scene(
-				topLayer => [
+				rootPane => [
 					styleClass += 'border-pane'
+					top = new DistanceBar(slots.head, slots.last)
 					center = centerPane => [
 						children += hallOfFame
 						children += messagePane => [

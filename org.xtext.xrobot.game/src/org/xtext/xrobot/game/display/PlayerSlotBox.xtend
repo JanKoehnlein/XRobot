@@ -96,8 +96,12 @@ class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 			 	text = newMode.name
 			 	styleClass.setAll('boxed-label')
 		 	]
+		 	modeLabels.forEach [ it, i |
+		 		opacity = 1 - (1.0 + i) / MAX_MODES
+		 	]
 			if(modeLabels.empty) {
 				modeLabels.add(newLabel)
+				return
 			}
 			val height = modeLabels.head.boundsInLocal.height
 		 	val rect = new Rectangle(0,0,0,0)

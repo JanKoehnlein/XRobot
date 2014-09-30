@@ -7,6 +7,10 @@
     -fx-font-family: "Menlo";
 }
 
+.root-pane {
+	-fx-padding: 20;
+}
+
 .border-pane {
 	-fx-background-color: rgba(255.0,255.0,255.0,0.0);
 }
@@ -69,6 +73,7 @@
 
 .blue-light {
 	-fx-background-color: rgba(160.0,205.0,255.0, 1.0);
+	-fx-fill: rgba(160.0,205.0,255.0, 1.0);
 }
 
 .red {
@@ -77,6 +82,7 @@
 
 .red-light {
 	-fx-background-color: rgba(218.0,88.0,96.0, 1.0);
+	-fx-fill: rgba(218.0,88.0,96.0, 1.0);
 }
 
 .error-box {
@@ -109,4 +115,9 @@
 .message-pane {
 	-fx-alignment: center;
 	-fx-spacing: 10;
+}
+
+.energy-bar {
+	-fx-arc-width: 12;
+	-fx-arc-height: 12;
 }
