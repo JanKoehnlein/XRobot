@@ -28,4 +28,8 @@ public class XRobotDSLRuntimeModule extends org.xtext.xrobot.dsl.AbstractXRobotD
 		return XRobotResourceDescriptionStrategy.class;
 	}
 	
+	public Class<? extends IGenerator> bindIGenerator() {
+		return IGenerator.NullGenerator.class;
+	}
+	
 }
