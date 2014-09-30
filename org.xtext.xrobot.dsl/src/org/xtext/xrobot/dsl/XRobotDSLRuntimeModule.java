@@ -5,7 +5,9 @@ package org.xtext.xrobot.dsl;
 
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
+import org.eclipse.xtext.xbase.scoping.batch.FeatureScopes;
 import org.eclipse.xtext.xbase.scoping.batch.ImplicitlyImportedFeatures;
+import org.xtext.xrobot.dsl.scoping.XRobotFeatureScopes;
 import org.xtext.xrobot.dsl.scoping.XRobotImplicitlyImportedFeatures;
 import org.xtext.xrobot.dsl.scoping.XRobotResourceDescriptionStrategy;
 import org.xtext.xrobot.server.IRemoteRobot;
@@ -14,6 +16,7 @@ import org.xtext.xrobot.server.RemoteRobotConnector;
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
+@SuppressWarnings("restriction")
 public class XRobotDSLRuntimeModule extends org.xtext.xrobot.dsl.AbstractXRobotDSLRuntimeModule {
 
 	public Class<? extends ImplicitlyImportedFeatures> bindImplicitlyImportedFeatures() {
@@ -32,4 +35,7 @@ public class XRobotDSLRuntimeModule extends org.xtext.xrobot.dsl.AbstractXRobotD
 		return IGenerator.NullGenerator.class;
 	}
 	
+	public Class<? extends FeatureScopes> bindFeatureScopes() {
+		return XRobotFeatureScopes.class;
+	}
 }
