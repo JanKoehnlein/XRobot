@@ -69,6 +69,8 @@ class BrickConnector implements INetConfig {
 					}
 				}
 			}
+			// Check whether we can reach the camera server in order to verify that we have
+			// a working wifi connection
 			if(!CAMERA_SERVER_ADDRESS.isReachable(20 * SOCKET_TIMEOUT)) {
 				LOG.error('Network or camera server is down')
 				robot.systemSound(LOW_BUZZ)

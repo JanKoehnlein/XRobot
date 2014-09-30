@@ -26,12 +26,16 @@ import static extension java.lang.Math.*
 
 @SimpleRMI
 class Robot implements IRobotGeometry {
+	
+	/** The threshold of the brightness value at which a game-over situation is detected. */
+	static val GAME_OVER_THRESHOLD = 0.05
 
 	RobotID robotID
 
 	DifferentialPilot pilot
 
 	SensorMode colorSensor
+	double lastColorSample
 
 	Key escapeKey
 	LED led
@@ -59,6 +63,7 @@ class Robot implements IRobotGeometry {
 		audio = brick.audio
 		scoopMotor.speed = scoopMotor.maxSpeed as int
 		power = brick.power
+		lastColorSample = 1.0
 	}
 
 	/**
@@ -78,16 +83,18 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Returns the hue value of the ground color as measured by the color sensor.
+	 * Returns the brightness value of the ground color as measured by the color sensor.
 	 * Use this to detect tilts or scan the ground for marks.
 	 * 
 	 * <p>This command is non-blocking, i.e. it returns immediately.</p>
-	 * @return the hue value of the ground color as measured by the color sensor.
+	 * 
+	 * @return the brightness value of the ground color as measured by the color sensor
 	 */
 	override double getGroundColor() {
 		val sample = newFloatArrayOfSize(1)
 		colorSensor.fetchSample(sample, 0)
-		sample.get(0)
+		lastColorSample = sample.get(0)
+		return lastColorSample
 	}
 
 	/**
@@ -378,7 +385,7 @@ class Robot implements IRobotGeometry {
 	@NoAPI
 	def boolean isScoopMoving() {
 		scoopMotor.isMoving	
-	} 
+	}
 	
 	override void playSample(String fileName) {
 		audio.playSample('samples/' + fileName + '.wav', 100)
@@ -406,6 +413,15 @@ class Robot implements IRobotGeometry {
 	@NoAPI@Zombie
 	def double getBatteryState() {
 		power.voltage / 8.1
+	}
+	
+	/**
+	 * Check whether the robot has entered an illegal area. This happens when it
+	 * crosses the boundary of the arena, which is drawn in black.
+	 */
+	@NoAPI@Zombie
+	def boolean isGameOver() {
+		return lastColorSample < GAME_OVER_THRESHOLD
 	}
 
 	/**
