@@ -11,13 +11,13 @@ import java.nio.channels.SocketChannel
 import java.util.Map
 import org.apache.log4j.Logger
 import org.xtext.xrobot.RobotID
-import org.xtext.xrobot.net.INetConfig
-
-import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 import org.xtext.xrobot.camera.CameraClient
 
+import static org.xtext.xrobot.net.INetConfig.*
+import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
+
 @Singleton
-class RemoteRobotConnector implements INetConfig, IRemoteRobot.Connector {
+class RemoteRobotConnector implements IRemoteRobot.Connector {
 
 	CameraClient cameraClient
 

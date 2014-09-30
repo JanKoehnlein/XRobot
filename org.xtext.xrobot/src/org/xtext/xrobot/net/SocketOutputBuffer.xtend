@@ -5,7 +5,9 @@ import java.nio.channels.SocketChannel
 import java.nio.charset.Charset
 import org.apache.log4j.Logger
 
-class SocketOutputBuffer implements INetConfig {
+import static org.xtext.xrobot.net.INetConfig.*
+
+class SocketOutputBuffer {
 		
 	static val LOG = Logger.getLogger(SocketOutputBuffer)
 	

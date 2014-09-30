@@ -5,11 +5,11 @@ import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.camera.CameraClient
-import org.xtext.xrobot.net.INetConfig
 
+import static org.xtext.xrobot.net.INetConfig.*
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 
-class RemoteRobotFactory implements INetConfig, IRemoteRobot.Factory {
+class RemoteRobotFactory implements IRemoteRobot.Factory {
 	
 	val RobotID robotID 
 	

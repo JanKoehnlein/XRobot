@@ -16,16 +16,17 @@ import org.xtext.xrobot.annotations.SimpleRMI
 import org.xtext.xrobot.annotations.SubComponent
 import org.xtext.xrobot.annotations.Zombie
 import org.xtext.xrobot.api.Direction
-import org.xtext.xrobot.api.IRobotGeometry
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.util.LEDPatterns
 import org.xtext.xrobot.util.SoundUtil
 import org.xtext.xrobot.util.SystemSounds
 
+import static org.xtext.xrobot.api.IRobotGeometry.*
+
 import static extension java.lang.Math.*
 
 @SimpleRMI
-class Robot implements IRobotGeometry {
+class Robot {
 	
 	/** The threshold of the brightness value at which a game-over situation is detected. */
 	static val GAME_OVER_THRESHOLD = 0.05

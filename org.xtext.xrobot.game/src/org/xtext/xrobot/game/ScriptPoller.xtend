@@ -1,11 +1,12 @@
 package org.xtext.xrobot.game
 
 import com.google.gson.Gson
+import java.io.IOException
 import java.io.InputStreamReader
 import java.net.URL
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Data
-import java.io.IOException
+
 import static extension javafx.util.Duration.*
 
 class ScriptPoller {

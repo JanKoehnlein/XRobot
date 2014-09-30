@@ -1,8 +1,8 @@
 package org.xtext.xrobot
 
 import lejos.hardware.motor.NXTRegulatedMotor
-import org.xtext.xrobot.annotations.SimpleRMI
 import org.xtext.xrobot.annotations.Blocking
+import org.xtext.xrobot.annotations.SimpleRMI
 
 @SimpleRMI
 class Motor {

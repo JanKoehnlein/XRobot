@@ -2,6 +2,7 @@ package org.xtext.xrobot.camera
 
 import org.xtext.xrobot.api.IArena
 import org.xtext.xrobot.api.IRobotGeometry
+
 import static java.lang.Math.*
 
 interface ICamera {

@@ -8,16 +8,17 @@ import java.util.Collections
 import java.util.Date
 import java.util.List
 import org.xtext.xrobot.RobotID
+import org.xtext.xrobot.api.IRobotGeometry
+import org.xtext.xrobot.api.Position
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.util.AveragingFilter
 import org.xtext.xrobot.util.IValueStreamFilter
 
+import static java.lang.Math.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
+import static org.xtext.xrobot.camera.CameraClient.*
 import static org.xtext.xrobot.camera.ICamera.*
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
-import static java.lang.Math.*
-import org.xtext.xrobot.api.Position
-import org.xtext.xrobot.api.IRobotGeometry
 
 class CameraClient {
 	

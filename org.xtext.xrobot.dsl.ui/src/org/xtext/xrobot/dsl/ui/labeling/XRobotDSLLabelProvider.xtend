@@ -4,16 +4,18 @@
 package org.xtext.xrobot.dsl.ui.labeling
 
 import com.google.inject.Inject
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider
 
 /**
  * Provides labels for a EObjects.
  * 
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-class XRobotDSLLabelProvider extends org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider {
+class XRobotDSLLabelProvider extends XbaseLabelProvider {
 
 	@Inject
-	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
+	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 

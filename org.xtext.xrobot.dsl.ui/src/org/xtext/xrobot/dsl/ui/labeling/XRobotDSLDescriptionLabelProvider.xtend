@@ -3,6 +3,8 @@
 */
 package org.xtext.xrobot.dsl.ui.labeling
 
+import org.eclipse.xtext.xbase.ui.labeling.XbaseDescriptionLabelProvider
+
 //import org.eclipse.xtext.resource.IEObjectDescription
 
 /**
@@ -10,7 +12,7 @@ package org.xtext.xrobot.dsl.ui.labeling
  * 
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-class XRobotDSLDescriptionLabelProvider extends org.eclipse.xtext.xbase.ui.labeling.XbaseDescriptionLabelProvider {
+class XRobotDSLDescriptionLabelProvider extends XbaseDescriptionLabelProvider {
 
 	// Labels and icons can be computed like this:
 	

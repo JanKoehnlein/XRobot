@@ -1,5 +1,6 @@
 package org.xtext.xrobot.annotations
 
+import com.google.common.base.Predicate
 import java.io.IOException
 import java.lang.annotation.ElementType
 import java.lang.annotation.Retention
@@ -16,7 +17,6 @@ import org.eclipse.xtend.lib.macro.declaration.MutableClassDeclaration
 import org.eclipse.xtend.lib.macro.declaration.Type
 import org.eclipse.xtend.lib.macro.declaration.TypeReference
 import org.eclipse.xtend.lib.macro.declaration.Visibility
-import com.google.common.base.Predicate
 
 @Target(ElementType.TYPE)
 @Active(SimpleRemoteProcessor)
@@ -78,7 +78,6 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 	
 	override doTransform(MutableClassDeclaration annotatedClass, extension TransformationContext context) {
 		val clientInterface = annotatedClass.clientInterfaceName.findInterface
-		clientInterface.extendedInterfaces = #['org.xtext.xrobot.api.IRobotGeometry'.newTypeReference]
 		annotatedClass.implementedInterfaces = annotatedClass.implementedInterfaces + #[clientInterface.newTypeReference]
 		val clientStateClass = annotatedClass.clientStateName.findClass
 		val serverStateClass = annotatedClass.serverStateName.findClass
@@ -86,7 +85,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		val subComponentFields = annotatedClass.declaredFields.filter[findAnnotation(subCompontentAnnotation) != null]
 
 		val serverImpl = annotatedClass.serverImplName.findClass
-		serverImpl.implementedInterfaces = #[clientInterface.newTypeReference, 'org.xtext.xrobot.net.INetConfig'.newTypeReference]
+		serverImpl.implementedInterfaces = #[clientInterface.newTypeReference]
 		serverImpl.addField('state') [
 			type = serverStateClass.newTypeReference
 			visibility = Visibility.PROTECTED

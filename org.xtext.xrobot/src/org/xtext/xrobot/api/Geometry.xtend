@@ -1,9 +1,11 @@
 package org.xtext.xrobot.api
 
 import org.eclipse.xtend.lib.annotations.Data
-import static extension java.lang.Math.*
-import static extension org.xtext.xrobot.api.GeometryExtensions.*
 import org.xtext.xrobot.RobotID
+
+import static org.xtext.xrobot.api.GeometryExtensions.*
+
+import static extension java.lang.Math.*
 
 /**
  * A position in Cartesian coordinates.

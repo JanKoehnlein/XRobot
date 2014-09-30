@@ -4,13 +4,14 @@ import java.nio.channels.ClosedSelectorException
 import java.nio.channels.SelectionKey
 import java.nio.channels.Selector
 import java.nio.channels.SocketChannel
-import org.xtext.xrobot.Robot
-import org.xtext.xrobot.net.INetConfig
-import org.xtext.xrobot.net.SocketOutputBuffer
-import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 import org.apache.log4j.Logger
+import org.xtext.xrobot.Robot
+import org.xtext.xrobot.net.SocketOutputBuffer
 
-class StateSender extends Thread implements INetConfig {
+import static org.xtext.xrobot.net.INetConfig.*
+import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
+
+class StateSender extends Thread {
 	
 	static val LOG = Logger.getLogger(StateSender)
 	

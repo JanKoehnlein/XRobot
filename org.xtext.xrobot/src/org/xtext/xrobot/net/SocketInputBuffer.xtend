@@ -1,11 +1,13 @@
 package org.xtext.xrobot.net
 
+import java.nio.BufferOverflowException
 import java.nio.ByteBuffer
 import java.nio.channels.SocketChannel
 import java.nio.charset.Charset
-import java.nio.BufferOverflowException
 
-class SocketInputBuffer implements INetConfig {
+import static org.xtext.xrobot.net.INetConfig.*
+
+class SocketInputBuffer {
 	
 	ByteBuffer buffer = ByteBuffer.allocate(BUFFER_SIZE)
 	

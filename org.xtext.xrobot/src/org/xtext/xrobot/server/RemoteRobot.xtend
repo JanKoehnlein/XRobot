@@ -4,10 +4,12 @@ import java.net.SocketTimeoutException
 import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
+import org.xtext.xrobot.api.Direction
 import org.xtext.xrobot.camera.CameraClient
 import org.xtext.xrobot.camera.CameraSample
-import org.xtext.xrobot.api.Direction
+
 import static org.xtext.xrobot.api.GeometryExtensions.*
+import static org.xtext.xrobot.net.INetConfig.*
 
 class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	

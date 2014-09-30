@@ -20,11 +20,12 @@ import org.xtext.xrobot.dsl.xRobotDSL.Field
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.dsl.xRobotDSL.Sub
-import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
 
-class XRobotInterpreter extends XbaseInterpreter implements INetConfig {
+import static org.xtext.xrobot.net.INetConfig.*
+
+class XRobotInterpreter extends XbaseInterpreter {
 	
 	static val LOG = Logger.getLogger(XRobotInterpreter)
 	

@@ -7,16 +7,16 @@ import java.nio.channels.Selector
 import java.nio.channels.ServerSocketChannel
 import java.nio.channels.SocketChannel
 import lejos.hardware.BrickFinder
+import org.apache.log4j.Logger
 import org.xtext.xrobot.Robot
-import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.net.SocketInputBuffer
 
+import static org.xtext.xrobot.net.INetConfig.*
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 import static org.xtext.xrobot.util.LEDPatterns.*
 import static org.xtext.xrobot.util.SystemSounds.*
-import org.apache.log4j.Logger
 
-class BrickConnector implements INetConfig {
+class BrickConnector {
 	
 	static val LOG = Logger.getLogger(BrickConnector)
 

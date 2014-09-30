@@ -1,8 +1,8 @@
 package org.xtext.xrobot.client
 
 import java.io.IOException
-import org.xtext.xrobot.net.SocketInputBuffer
 import org.apache.log4j.Logger
+import org.xtext.xrobot.net.SocketInputBuffer
 
 abstract class AbstractExecutor {
 	

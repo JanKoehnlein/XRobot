@@ -10,6 +10,7 @@ import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.api.GeometryExtensions.*
+
 import static extension java.lang.Math.*
 
 @Accessors

@@ -5,6 +5,7 @@ package org.xtext.xrobot.dsl.formatting
 
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter
 import org.eclipse.xtext.formatting.impl.FormattingConfig
+
 // import com.google.inject.Inject;
 // import org.xtext.xrobot.dsl.services.XRobotDSLGrammarAccess
 
