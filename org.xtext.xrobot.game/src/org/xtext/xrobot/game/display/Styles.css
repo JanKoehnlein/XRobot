@@ -63,19 +63,19 @@
 	-fx-text-alignment: left;
 }
 
-.xtend {
+.blue {
 	-fx-background-color: rgba(140.0,179.0,223.0, 0.9);
 }
 
-.xtend-light {
+.blue-light {
 	-fx-background-color: rgba(160.0,205.0,255.0, 1.0);
 }
 
-.xtext {
+.red {
 	-fx-background-color: rgba(252.0,123.0,107.0, 0.9);
 }
 
-.xtext-light {
+.red-light {
 	-fx-background-color: rgba(218.0,88.0,96.0, 1.0);
 }
 

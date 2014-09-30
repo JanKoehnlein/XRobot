@@ -1,15 +1,21 @@
 package org.xtext.xrobot.game.display
 
+import javafx.animation.KeyFrame
+import javafx.animation.KeyValue
+import javafx.animation.Timeline
 import javafx.application.Platform
 import javafx.geometry.Pos
 import javafx.scene.control.Label
 import javafx.scene.layout.Pane
 import javafx.scene.layout.StackPane
 import javafx.scene.layout.VBox
+import javafx.scene.shape.Rectangle
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.game.PlayerSlot
 import org.xtext.xrobot.server.IRemoteRobot
+
+import static extension javafx.util.Duration.*
 
 class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 	
@@ -86,12 +92,30 @@ class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 	override modeChanged(IRemoteRobot robot, Mode newMode) {
 		Platform.runLater [
 			val modeLabels = modesBox.children
-			if (modeLabels.size > MAX_MODES) 
-			 	modeLabels -= modeLabels.last
-			modeLabels.add(0, new Label => [
+			val newLabel = new Label => [
 			 	text = newMode.name
 			 	styleClass.setAll('boxed-label')
-		 	])
+		 	]
+			if(modeLabels.empty) {
+				modeLabels.add(newLabel)
+			}
+			val height = modeLabels.head.boundsInLocal.height
+		 	val rect = new Rectangle(0,0,0,0)
+			modeLabels.add(0, rect)
+			new Timeline => [
+				cycleCount = 1
+				autoReverse = false
+				keyFrames += new KeyFrame(
+					50.millis,
+					new KeyValue(rect.heightProperty, height)
+				)
+				onFinished = [
+					if (modeLabels.size > MAX_MODES) 
+					 	modeLabels -= modeLabels.last
+					modeLabels.set(0, newLabel)
+			 	]
+			 	play
+		 	]
 		]
 	}
 	
