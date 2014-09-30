@@ -1,9 +1,9 @@
 package org.xtext.xrobot.game.display
 
-import javafx.scene.layout.Region
+import javafx.scene.layout.Pane
 
 class JavaFxExtensions {
-	static def fixSize(Region it, double width, double height) {
+	static def fixSize(Pane it, double width, double height) {
 		minWidth = width
 		prefWidth = width 
 		maxWidth = width

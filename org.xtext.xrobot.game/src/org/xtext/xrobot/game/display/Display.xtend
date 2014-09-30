@@ -1,16 +1,16 @@
 package org.xtext.xrobot.game.display
 
 import java.util.List
+import javafx.animation.FadeTransition
 import javafx.animation.Interpolator
 import javafx.animation.ScaleTransition
 import javafx.animation.SequentialTransition
 import javafx.application.Platform
-import javafx.geometry.Insets
-import javafx.geometry.Pos
 import javafx.scene.Scene
+import javafx.scene.control.Button
 import javafx.scene.control.Label
-import javafx.scene.layout.BorderPane
 import javafx.scene.layout.StackPane
+import javafx.scene.layout.VBox
 import javafx.stage.Screen
 import javafx.stage.Stage
 import javafx.stage.StageStyle
@@ -18,16 +18,13 @@ import javafx.util.Duration
 import javax.inject.Inject
 import org.xtext.xrobot.game.PlayerSlot
 
-import static extension javafx.scene.layout.BorderPane.*
+import static javafx.scene.layout.Region.*
+
 import static extension javafx.util.Duration.*
-import javafx.animation.FadeTransition
-import javafx.scene.layout.VBox
-import javafx.scene.control.Button
-import static extension org.xtext.xrobot.game.display.JavaFxExtensions.*
 
 class Display {
 
-	@Inject BorderPane topLayer
+	@Inject TopPane topLayer
 	@Inject HallOfFameTable hallOfFame
 	@Inject StackPane centerPane
 	@Inject VBox messagePane
@@ -35,9 +32,9 @@ class Display {
 	List<PlayerSlotBox> slotBoxes
 
 	def start(Stage stage, List<PlayerSlot> slots) throws Exception {
+		val screenBounds = Screen.getPrimary.bounds
 		stage => [
 			initStyle(StageStyle.TRANSPARENT);
-			val screenBounds = Screen.getPrimary.bounds
 			scene = new Scene(
 				topLayer => [
 					styleClass += 'border-pane'
@@ -46,18 +43,12 @@ class Display {
 						children += messagePane => [
 							styleClass += 'message-pane'
 						]
-						alignment = Pos.CENTER
 					]
 					val xtendBox = new PlayerSlotBox(slots.head)
 					val xtextBox = new PlayerSlotBox(slots.last)
 					slotBoxes = #[xtendBox, xtextBox]
-					left = xtendBox
-					xtendBox.alignment = Pos.CENTER
-					xtendBox.margin = new Insets(20)
+					left = xtendBox 
 					right = xtextBox
-					xtextBox.alignment = Pos.CENTER
-					xtextBox.margin = new Insets(20)
-					fixSize(screenBounds.width, screenBounds.height)
 				], screenBounds.width, screenBounds.height) => [
 				fill = null
 				stylesheets += 'org/xtext/xrobot/game/display/Styles.css'

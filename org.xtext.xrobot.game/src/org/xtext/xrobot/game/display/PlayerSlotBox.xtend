@@ -1,20 +1,23 @@
 package org.xtext.xrobot.game.display
 
-import javafx.scene.Parent
+import javafx.application.Platform
+import javafx.geometry.Pos
 import javafx.scene.control.Label
+import javafx.scene.layout.Pane
 import javafx.scene.layout.StackPane
 import javafx.scene.layout.VBox
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.game.PlayerSlot
 import org.xtext.xrobot.server.IRemoteRobot
-import javafx.application.Platform
-import static extension org.xtext.xrobot.game.display.JavaFxExtensions.* 
 
-class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
+class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 	
+	static val MAX_MODES = 10 
+	
+	Pane programBox
 	Label programLabel
-	Label modesLabel
+	Pane modesBox
 	
 	PlayerSlot slot
 	
@@ -23,22 +26,24 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 		slot.addChangeListener(this)
 		val style = slot.robotID.name.toLowerCase
 		val lightStyle = style + '-light'
-		children += new VBox => [
-			styleClass += #[style, 'outer-box']
+		styleClass += #[style, 'outer-box']
+		alignment = Pos.TOP_CENTER
+		children += programBox = new StackPane => [
 			children += programLabel= new Label()
-			children += new StackPane => [
-				styleClass += #[lightStyle, 'inner-box']
-				children += modesLabel = new Label() => [
-					styleClass += #['inner-box']
-				]
-			]
-			fixSize(300, 768)
+			styleClass += #[lightStyle, 'inner-box']
+		]
+		children += modesBox = new VBox => [
+			styleClass += #[lightStyle, 'inner-box']
 		]
 		slotChanged
 		val robot = slot.robotFactory.newRobot(CancelIndicator.NullImpl)
 		stateRead(robot)
 		stateChanged(robot)
 		slot.robotFactory.release
+	}
+	
+	override isResizable() {
+		false
 	}
 	
 	def getRobotID() {
@@ -48,6 +53,9 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 	override slotChanged() {
 		Platform.runLater [
 			if(slot.program == null) {
+				programBox => [
+					styleClass.setAll('inner-box', 'robot-inner-box', 'available')
+				]
 				programLabel => [
 					styleClass.setAll('inner-box', 'robot-inner-box', 'available')
 					text = '''
@@ -55,8 +63,11 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 						Token «slot.token.value»
 					'''
 				]
-				modesLabel.text = ''
+				modesBox.children.clear
 			} else {
+				programBox => [
+					styleClass.setAll('inner-box', 'robot-inner-box', 'locked')
+				]
 				programLabel => [
 					styleClass.setAll('inner-box', 'robot-inner-box', 'locked')
 					text = '''
@@ -66,8 +77,6 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 					'''
 				]
 			}
-			// JavaFX bug: shouldn't be necessary
-			parent.layout
 		]
 	}
 	
@@ -76,7 +85,13 @@ class PlayerSlotBox extends Parent implements PlayerSlot.Listener {
 	
 	override modeChanged(IRemoteRobot robot, Mode newMode) {
 		Platform.runLater [
-			modesLabel.text = newMode.name + '\n' + modesLabel.text
+			val modeLabels = modesBox.children
+			if (modeLabels.size > MAX_MODES) 
+			 	modeLabels -= modeLabels.last
+			modeLabels.add(0, new Label => [
+			 	text = newMode.name
+			 	styleClass.setAll('boxed-label')
+		 	])
 		]
 	}
 	

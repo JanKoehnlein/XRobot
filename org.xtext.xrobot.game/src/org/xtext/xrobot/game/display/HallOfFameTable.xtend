@@ -14,6 +14,7 @@ import org.xtext.xrobot.game.HallOfFameEntry
 import org.xtext.xrobot.game.HallOfFameProvider
 
 import static extension javafx.util.Duration.*
+import javafx.geometry.HPos
 
 class HallOfFameTable extends VBox {
 
@@ -63,7 +64,9 @@ class HallOfFameTable extends VBox {
 		//TODO: rowspan
 		val styles = #['hof', 'boxed-label']
 		#['#', 'Name', 'W', 'D', 'L', 'S'].forEach [ string, i |
-			addCell(string, i, 1, styles) 
+			addCell(string, i, 1, styles) => [
+				GridPane.setHalignment(it, HPos.CENTER)
+			]
 		]
 		hallOfFame.forEach [ entry, i |
 			addRow(i+2, i+1, entry)

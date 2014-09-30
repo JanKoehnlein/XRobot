@@ -46,7 +46,7 @@ class MockRobot implements IRemoteRobot {
 		0.64
 	}
 
-	override startMotors(double leftSpeed, double rightSpeed) {
+	override setSpeeds(double leftSpeed, double rightSpeed) {
 		checkCanceled
 	}
 

@@ -16,7 +16,6 @@
 	-fx-padding: 20.0;
 	-fx-spacing: 20.0;
 	-fx-vgap: 20.0;
-	-fx-alignment: center;
 	-fx-orientation: vertical;
 	-fx-fill-width: true;
 }
@@ -91,10 +90,10 @@
 
 .info-box {
 	-fx-background-color: rgb(115.0,191.0,205.0);
-	-fx-alignment: center;
 }
 
 .info-label {
+	-fx-text-fill: white
 }
 
 .available {
