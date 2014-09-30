@@ -3,8 +3,11 @@
  */
 package org.xtext.xrobot.dsl;
 
+import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
 import org.eclipse.xtext.xbase.scoping.batch.ImplicitlyImportedFeatures;
 import org.xtext.xrobot.dsl.scoping.XRobotImplicitlyImportedFeatures;
+import org.xtext.xrobot.dsl.scoping.XRobotResourceDescriptionStrategy;
 import org.xtext.xrobot.server.IRemoteRobot;
 import org.xtext.xrobot.server.RemoteRobotConnector;
 
@@ -19,6 +22,10 @@ public class XRobotDSLRuntimeModule extends org.xtext.xrobot.dsl.AbstractXRobotD
 	
 	public Class<? extends IRemoteRobot.Connector> bindIRemoteRobot$Connector() {
 		return RemoteRobotConnector.class;
+	}
+	
+	public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
+		return XRobotResourceDescriptionStrategy.class;
 	}
 	
 }
