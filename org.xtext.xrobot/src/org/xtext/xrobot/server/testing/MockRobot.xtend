@@ -46,7 +46,7 @@ class MockRobot implements IRemoteRobot {
 		0.64
 	}
 
-	override setSpeeds(double leftSpeed, double rightSpeed) {
+	override startMotors(double leftSpeed, double rightSpeed) {
 		checkCanceled
 	}
 
@@ -176,4 +176,9 @@ class MockRobot implements IRemoteRobot {
 		if (cancelIndicator.isCanceled)
 			throw new CanceledException
 	}
+	
+	override getGroundColor() {
+		0.6
+	}
+	
 }

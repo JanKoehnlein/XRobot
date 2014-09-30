@@ -6,12 +6,15 @@ import lejos.hardware.Key
 import lejos.hardware.LED
 import lejos.hardware.Power
 import lejos.hardware.motor.NXTRegulatedMotor
+import lejos.hardware.sensor.EV3ColorSensor
+import lejos.hardware.sensor.SensorMode
 import lejos.robotics.navigation.DifferentialPilot
 import org.xtext.xrobot.annotations.Blocking
 import org.xtext.xrobot.annotations.Calculated
 import org.xtext.xrobot.annotations.NoAPI
 import org.xtext.xrobot.annotations.SimpleRMI
 import org.xtext.xrobot.annotations.SubComponent
+import org.xtext.xrobot.annotations.Zombie
 import org.xtext.xrobot.api.Direction
 import org.xtext.xrobot.api.IRobotGeometry
 import org.xtext.xrobot.api.RobotPosition
@@ -20,7 +23,6 @@ import org.xtext.xrobot.util.SoundUtil
 import org.xtext.xrobot.util.SystemSounds
 
 import static extension java.lang.Math.*
-import org.xtext.xrobot.annotations.Zombie
 
 @SimpleRMI
 class Robot implements IRobotGeometry {
@@ -29,8 +31,9 @@ class Robot implements IRobotGeometry {
 
 	DifferentialPilot pilot
 
-	Key escapeKey
+	SensorMode colorSensor
 
+	Key escapeKey
 	LED led
 	Audio audio
 	Power power
@@ -40,6 +43,7 @@ class Robot implements IRobotGeometry {
 	@SubComponent Motor leftMotor
 	@SubComponent Motor rightMotor
 	@SubComponent Motor scoopMotor
+	
 
 	new(Brick brick) {
 		robotID = RobotID.valueOf(brick.name)
@@ -49,6 +53,7 @@ class Robot implements IRobotGeometry {
 		rightMotor = new Motor(rightRegMotor)
 		pilot = new DifferentialPilot(WHEEL_DIAMETER, WHEEL_DISTANCE, leftRegMotor, rightRegMotor)
 		scoopMotor = new Motor(new NXTRegulatedMotor(brick.getPort('A')))
+		colorSensor = new EV3ColorSensor(brick.getPort('S3')).redMode
 		escapeKey = brick.getKey('Escape')
 		led = brick.LED
 		audio = brick.audio
@@ -70,6 +75,19 @@ class Robot implements IRobotGeometry {
 	@NoAPI@Zombie
 	def boolean isEscapePressed() {
 		escapeKey.down
+	}
+
+	/**
+	 * Returns the hue value of the ground color as measured by the color sensor.
+	 * Use this to detect tilts or scan the ground for marks.
+	 * 
+	 * <p>This command is non-blocking, i.e. it returns immediately.</p>
+	 * @return the hue value of the ground color as measured by the color sensor.
+	 */
+	override double getGroundColor() {
+		val sample = newFloatArrayOfSize(1)
+		colorSensor.fetchSample(sample, 0)
+		sample.get(0)
 	}
 
 	/**
