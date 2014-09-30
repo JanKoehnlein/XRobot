@@ -24,16 +24,28 @@ import com.google.common.base.Predicate
 annotation SimpleRMI {
 }
 
+/**
+ * This annotation marks a command that should not be visible in the API. It is used for data
+ * that is accessed internally and is not needed by users.
+ */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
 annotation NoAPI {
 }
 
+/**
+ * This annotation marks data that is calculated on the server, hence it does not need to
+ * be transferred from the client.
+ */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
 annotation Calculated {
 }
 
+/**
+ * This annotation marks a command that can be invoked even when the robot is already dead.
+ * The cancel indicator is not queried in such commands.
+ */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
 annotation Zombie {

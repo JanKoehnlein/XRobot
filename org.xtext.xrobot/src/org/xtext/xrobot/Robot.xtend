@@ -416,12 +416,19 @@ class Robot implements IRobotGeometry {
 	}
 	
 	/**
-	 * Check whether the robot has entered an illegal area. This happens when it
-	 * crosses the boundary of the arena, which is drawn in black.
+	 * Check whether the robot has died. This happens when it crosses the boundary of
+	 * the arena.
+	 * TODO evaluate this information in the server
 	 */
 	@NoAPI@Zombie
-	def boolean isGameOver() {
-		return lastColorSample < GAME_OVER_THRESHOLD
+	def boolean isDead() {
+		val result = lastColorSample < GAME_OVER_THRESHOLD
+		if (result && isMoving) {
+			// Emergency brake!
+			// FIXME concurrency problems when this is called in StateSender thread?!
+			pilot.quickStop
+		}
+		result
 	}
 
 	/**

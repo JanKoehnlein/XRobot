@@ -110,7 +110,7 @@ class BrickConnector implements INetConfig {
 					stateSender = new StateSender(robot, socket)
 					stateSender.start
 					var isRelease = false
-					while (!isRelease && stateSender.alive) {
+					while (!isRelease && stateSender.alive && !robot.isDead) {
 						selector.select(SOCKET_TIMEOUT)
 						if (robot.escapePressed) {
 							isRelease = true
@@ -120,7 +120,7 @@ class BrickConnector implements INetConfig {
 									LOG.debug('Read message...')
 									input.receive
 									LOG.debug('...read ' + input.available + ' bytes.')
-									while (input.available > 0) {
+									while (input.available > 0 && !isRelease && !robot.isDead) {
 										if (robot.escapePressed) {
 											isRelease = true
 										} else {
