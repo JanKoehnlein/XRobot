@@ -7,7 +7,7 @@ interface ITestScripts {
 		author Jan
 		
 		Dance {
-			rotateSpeed = maxRotateSpeed * 0.3
+			rotationSpeed = maxRotationSpeed * 0.3
 			rotateLeft
 			while(true) {
 				scoop(1)

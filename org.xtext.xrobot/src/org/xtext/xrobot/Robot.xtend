@@ -120,99 +120,95 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Move the robot forward by {@code distance} centimeters at the current travel speed.
-	 * The speed is set with {@link #setTravelSpeed(double)}.
-	 * 
+	 * Move the robot forward or backward by {@code distance} centimeters at the current
+	 * driving speed. The speed is set with {@link #setDrivingSpeed(double)}. If the distance
+	 * is positive, the robot drives forward, otherwise it drives backward.
+	 *  
 	 * <p>This command blocks the current mode's execution until the movement is complete.
 	 * Once finished, the motors are stopped.</p>
 	 * 
 	 * @param distance the distance in centimeters 
 	 */
 	@Blocking
-	override void forward(double distance) {
+	override void drive(double distance) {
 		pilot.travel(distance, true)
 	}
 
 	/**
-	 * Move the robot forward at the current travel speed until it is stopped.
-	 * The speed is set with {@link #setTravelSpeed(double)}.
+	 * Move the robot forward at the current driving speed until it is stopped.
+	 * The speed is set with {@link #setDrivingSpeed(double)}.
 	 * 
 	 * <p>This command is <em>non-blocking</em>, i.e. it returns immediately and the motors
 	 * continue moving until they receive another command such as {@link #stop()}.</p>
 	 */
-	override void forward() {
+	override void driveForward() {
 		pilot.forward
 	}
 
 	/**
-	 * Move the robot backward by {@code distance} centimeters at the current travel speed.
-	 * The speed is set with {@link #setTravelSpeed(double)}.
-	 * 
-	 * <p>This command blocks the current mode's execution until the movement is complete.
-	 * Once finished, the motors are stopped.</p>
-	 * 
-	 * @param distance the distance in centimeters 
-	 */
-	@Blocking
-	override void backward(double distance) {
-		pilot.travel(-distance, true)
-	}
-
-	/**
-	 * Move the robot backward at the current travel speed until it is stopped.
-	 * The speed is set with {@link #setTravelSpeed(double)}.
+	 * Move the robot backward at the current driving speed until it is stopped.
+	 * The speed is set with {@link #setDrivingSpeed(double)}.
 	 * 
 	 * <p>This command is <em>non-blocking</em>, i.e. it returns immediately and the motors 
 	 * continue moving until they receive another command such as {@link #stop()}.</p>
 	 */
-	override void backward() {
+	override void driveBackward() {
 		pilot.backward
 	}
 
 	/**
-	 * Set the speed in centimeters/second for all subsequent movement commands. The movement
-	 * is <em>not</em> initiated by this command.
+	 * Set the speed in centimeters/second for subsequent driving commands. This command
+	 * does <em>not</em> initiate any movement.
 	 * 
-	 * <p>The following commands are affected by the travel speed:
+	 * <p>The following commands are affected by the driving speed:
 	 * <ul>
-	 *   <li>{@link forward()}</li>
-	 *   <li>{@link forward(double)}</li>
-	 *   <li>{@link backward()}</li>
-	 *   <li>{@link backward(double)}</li>
+	 *   <li>{@link #drive(double)}</li>
+	 *   <li>{@link #driveForward()}</li>
+	 *   <li>{@link #driveBackward()}</li>
 	 * </ul>
+	 * The maximal speed can be obtained with {@link #getMaxDrivingSpeed()}.
+	 * The sign of the given speed value is ignored.</p>
 	 * 
-	 * @param the speed in centimeters/second
+	 * @param the driving speed in centimeters/second
 	 */
-	override void setTravelSpeed(double speed) {
-		pilot.travelSpeed = speed
+	override void setDrivingSpeed(double speed) {
+		pilot.travelSpeed = abs(speed)
 	}
 
 	/**
-	 * Returns the speed for all {@link #forward()} and {@link #backward()} commands.
+	 * Return the currently set driving speed in centimeters/second. It can be modified
+	 * using {@link #setDrivingSpeed(double)}.
 	 * 
-	 * @return the speed in centimeters/second 
+	 * @return the driving speed in centimeters/second 
 	 */
-	override double getTravelSpeed() {
+	override double getDrivingSpeed() {
 		pilot.travelSpeed
 	}
 
 	/**
-	 * Returns the maximum speed for {@link #forward()} and {@link #backward()} commands
-	 * depending on the battery status.
+	 * Return the maximal driving speed in centimeters/second. This value depends on the
+	 * current status of the battery: faster movements are possible with a fresh battery.
+	 * The maximal driving speed with a fully charged battery is approximately 30 cm/s. 
 	 * 
-	 * @return the speed in centimeters/second 
+	 * <p>The returned value can be used as a reference for {@link #setDrivingSpeed(double)}
+	 * commands. For example, {@code drivingSpeed = 0.5 * maxDrivingSpeed} sets the speed
+	 * to half of the maximal speed.</p>
+	 * 
+	 * @return the maximal driving speed in centimeters/second 
 	 */
-	override double getMaxTravelSpeed() {
+	override double getMaxDrivingSpeed() {
 		pilot.maxTravelSpeed
 	}
 
 	/**
-	 * Rotate the robot on the spot by <code>angle</code> degrees at the current rotation
-	 * speed. A positive angle means to rotate counter-clockwise (left), while a negative
-	 * angle means to rotate clockwise (right).
+	 * Rotate the robot on the spot by {@code angle} degrees at the current rotation speed.
+	 * The speed is set with {@link #setRotationSpeed(double)}. A positive angle means to
+	 * rotate counter-clockwise (left), while a negative angle means to rotate clockwise (right).
 	 * 
-	 * This method blocks the current mode's execution until the move is complete.
-	 * Once finished, the motors are stopped.
+	 * <p>This command blocks the current mode's execution until the rotation is complete.
+	 * Once finished, the motors are stopped.</p>
+	 * 
+	 * @param angle the rotation angle in degrees
 	 */
 	@Blocking
 	override void rotate(double angle) {
@@ -220,52 +216,68 @@ class Robot implements IRobotGeometry {
 	}
 
 	/**
-	 * Rotate the robot counter-clockwise (left) on the spot at the current rotation speed.
+	 * Rotate the robot counter-clockwise (left) at the current rotation speed until it
+	 * is stopped. The speed is set with {@link #setRotationSpeed(double)}.
 	 * 
-	 * This method is non-blocking, i.e. it returns immediately and the motors will 
-	 * continue moving until they receive another command.
+	 * <p>This method is <em>non-blocking</em>, i.e. it returns immediately and the motors 
+	 * continue moving until they receive another command such as {@link #stop()}.</p>
 	 */
 	override void rotateLeft() {
 		pilot.rotateLeft
 	}
 
 	/**
-	 * Rotate the robot clockwise (right) on the spot at the current rotation speed.
+	 * Rotate the robot clockwise (right) at the current rotation speed until it is stopped.
+	 * The speed is set with {@link #setRotationSpeed(double)}.
 	 * 
-	 * This method is non-blocking, i.e. it returns immediately and the motors will 
-	 * continue moving until they receive another command.
+	 * <p>This method is <em>non-blocking</em>, i.e. it returns immediately and the motors 
+	 * continue moving until they receive another command such as {@link #stop()}.</p>
 	 */
 	override void rotateRight() {
 		pilot.rotateRight
 	}
 
 	/**
-	 * Set the speed for all {@link #rotate(double)}, {@link #rotateLeft()} and
-	 * {@link #rotateRight()} commands. Does not actually move the robot.
+	 * Set the speed in degrees/second for subsequent rotation commands. This command does
+	 * <em>not</em> initiate any movement.
+	 * 
+	 * <p>The following commands are affected by the rotation speed:
+	 * <ul>
+	 *   <li>{@link #rotate(double)}</li>
+	 *   <li>{@link #rotateLeft()}</li>
+	 *   <li>{@link #rotateRight()}</li>
+	 * </ul>
+	 * The maximal speed can be obtained with {@link #getMaxRotationSpeed()}.
+	 * The sign of the given speed value is ignored.</p>
 	 * 
 	 * @param the rotation speed in degrees/second
 	 */
-	override void setRotateSpeed(double rotateSpeed) {
-		pilot.rotateSpeed = rotateSpeed
+	override void setRotationSpeed(double rotationSpeed) {
+		pilot.rotateSpeed = abs(rotationSpeed)
 	}
 
 	/**
-	 * Returns the speed for all {@link #rotate(double)}, {@link #rotateLeft()} and
-	 * {@link #rotateRight()} commands.
+	 * Return the currently set rotation speed in degrees/second. It can be modified
+	 * using {@link #setRotationSpeed(double)}.
 	 * 
-	 * @return the rotate speed in degrees/second 
+	 * @return the rotation speed in degrees/second 
 	 */
-	override double getRotateSpeed() {
+	override double getRotationSpeed() {
 		pilot.rotateSpeed
 	}
 
 	/**
-	 * Returns the maximum speed for all {@link #rotate(double)}, {@link #rotateLeft()} and
-	 * {@link #rotateRight()} commands depending on the battery status.
+	 * Return the maximal rotation speed in degrees/second. This value depends on the
+	 * current status of the battery: faster movements are possible with a fresh battery.
+	 * The maximal rotation speed with a fully charged battery is approximately 360 &deg;/s. 
 	 * 
-	 * @return the rotation speed in degrees/second 
+	 * <p>The returned value can be used as a reference for {@link #setRotationSpeed(double)}
+	 * commands. For example, {@code rotationSpeed = 0.5 * maxRotationSpeed} sets the speed
+	 * to half of the maximal speed.</p>
+	 * 
+	 * @return the maximal rotation speed in degrees/second 
 	 */
-	override double getMaxRotateSpeed() {
+	override double getMaxRotationSpeed() {
 		pilot.rotateMaxSpeed
 	}
 
@@ -311,9 +323,9 @@ class Robot implements IRobotGeometry {
 	@Blocking
 	override void curveTo(double distance, double angle) {
 		if(abs(angle) < 1) {
-			forward(distance)
+			drive(distance)
 		} else if(abs(abs(angle) - 180) < 1) {
-			backward(distance)
+			drive(-distance)
 		} else {
 			val radius = 0.5 * distance / sin(angle.toRadians)
 			curveForward(radius, 2 * angle)
@@ -343,8 +355,8 @@ class Robot implements IRobotGeometry {
 	override void reset() {
 		stop
 		scoop(0)
-		travelSpeed = maxTravelSpeed
-		rotateSpeed = maxRotateSpeed
+		drivingSpeed = maxDrivingSpeed
+		rotationSpeed = maxRotationSpeed
 		lastExecutedCommandSerialNr = -1
 	}
 

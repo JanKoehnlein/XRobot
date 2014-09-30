@@ -74,16 +74,16 @@ class RobotPreparer {
 	}
 	
 	private def goHome() {
-		robot.rotateSpeed = robot.maxRotateSpeed * 0.7
-		robot.travelSpeed = robot.maxTravelSpeed
+		robot.rotationSpeed = robot.maxRotationSpeed * 0.7
+		robot.drivingSpeed = robot.maxDrivingSpeed
 
 		val homePosition = getHomePosition()
 		var direction = robot.ownPosition.getRelativeDirection(homePosition)
 		while (direction.distance > DISTANCE_ACCURACY) {
 			if (abs(direction.angle) <= ANGLE_ACCURACY) {
-				robot.forward(direction.distance)
+				robot.drive(direction.distance)
 			} else if (abs(normalizeAngle(direction.angle - 180)) <= ANGLE_ACCURACY) {
-				robot.backward(direction.distance)
+				robot.drive(-direction.distance)
 			} else if (abs(direction.angle) <= 120) {
 				robot.rotate(direction.angle)
 			} else {

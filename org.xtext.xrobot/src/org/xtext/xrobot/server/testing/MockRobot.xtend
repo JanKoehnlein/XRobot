@@ -23,9 +23,9 @@ class MockRobot implements IRemoteRobot {
 
 	RobotPosition opponentPosition
 
-	double travelSpeed
+	double drivingSpeed
 
-	double rotateSpeed
+	double rotationSpeed
 
 	new(RobotID robotID, CancelIndicator cancelIndicator) {
 		this.robotID = robotID
@@ -50,7 +50,7 @@ class MockRobot implements IRemoteRobot {
 		checkCanceled
 	}
 
-	override forward(double distance) {
+	override drive(double distance) {
 		checkCanceled
 		ownPosition = new RobotPosition(
 			ownPosition.x + distance * cos(ownPosition.viewDirection.toRadians),
@@ -60,25 +60,15 @@ class MockRobot implements IRemoteRobot {
 		)
 	}
 
-	override forward() {
+	override driveForward() {
 		checkCanceled
 	}
 
-	override backward(double distance) {
-		checkCanceled
-		ownPosition = new RobotPosition(
-			ownPosition.x - distance * cos(ownPosition.viewDirection.toRadians),
-			ownPosition.y - distance * sin(ownPosition.viewDirection.toRadians),
-			robotID,
-			ownPosition.viewDirection
-		)
-	}
-
-	override backward() {
+	override driveBackward() {
 		checkCanceled
 	}
-
-	override getMaxTravelSpeed() {
+	
+	override getMaxDrivingSpeed() {
 		return 500
 	}
 
@@ -100,7 +90,7 @@ class MockRobot implements IRemoteRobot {
 		checkCanceled
 	}
 
-	override getMaxRotateSpeed() {
+	override getMaxRotationSpeed() {
 		return 500
 	}
 

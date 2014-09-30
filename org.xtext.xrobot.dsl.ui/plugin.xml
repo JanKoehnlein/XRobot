@@ -574,30 +574,30 @@
     <menuContribution locationURI="popup:#TextEditorContext?after=group.edit">
          <command
                commandId="org.xtext.xrobot.dsl.XRobotDSL.runScript"
-               label="Run Script on Robot &apos;Xtend&apos;"
+               label="Run Script on Blue Robot"
                style="push"
-               tooltip="Run script on robot &apos;Xtend&apos;">
+               tooltip="Run script on blue robot">
 	        <visibleWhen checkEnabled="false">
 	            <reference
 	                definitionId="org.xtext.xrobot.dsl.XRobotDSL.Editor.opened">
 	            </reference>
 	        </visibleWhen>
 	        <parameter
-            	name="org.xtext.xrobot.dsl.ui.robotParameter" value="Xtend">
+            	name="org.xtext.xrobot.dsl.ui.robotParameter" value="Blue">
             </parameter>
      	</command>  
          <command
                commandId="org.xtext.xrobot.dsl.XRobotDSL.runScript"
-               label="Run Script on Robot &apos;Xtext&apos;"
+               label="Run Script on Red Robot"
                style="push"
-               tooltip="Run script on robot &apos;Xtext&apos;">
+               tooltip="Run script on red robot">
 	        <visibleWhen checkEnabled="false">
 	            <reference
 	                definitionId="org.xtext.xrobot.dsl.XRobotDSL.Editor.opened">
 	            </reference>
 	        </visibleWhen>
 	        <parameter
-            	name="org.xtext.xrobot.dsl.ui.robotParameter" value="Xtext">
+            	name="org.xtext.xrobot.dsl.ui.robotParameter" value="Red">
             </parameter>
      	</command>  
   	</menuContribution>
