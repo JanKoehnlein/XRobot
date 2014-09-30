@@ -9,8 +9,10 @@ import javafx.application.Platform
 import javafx.scene.Scene
 import javafx.scene.control.Button
 import javafx.scene.control.Label
+import javafx.scene.effect.InnerShadow
 import javafx.scene.layout.StackPane
 import javafx.scene.layout.VBox
+import javafx.scene.paint.Color
 import javafx.stage.Screen
 import javafx.stage.Stage
 import javafx.stage.StageStyle
@@ -64,11 +66,18 @@ class Display {
 			hallOfFame.hide
 			countdown()
 		]
+		Thread.sleep(3000)
 	}
 
 	def countdown() {
 		val label = new Label('Ready') => [
 			styleClass += 'countdown'
+			textFill = Color.YELLOW
+			effect = new InnerShadow => [
+				color = Color.RED
+				width = 20
+				height = 20
+			]
 		]
 		centerPane.children += label
 		new SequentialTransition => [
@@ -84,10 +93,10 @@ class Display {
 
 	private def getPopupTransition(Label label, String nextText) {
 		new ScaleTransition => [
-			fromX = 0.1
-			toX = 10
-			fromY = 0.1
-			toY = 10
+			fromX = 0.01
+			toX = 1
+			fromY = 0.01
+			toY = 1
 			node = label
 			duration = 1.seconds
 			interpolator = Interpolator.EASE_OUT

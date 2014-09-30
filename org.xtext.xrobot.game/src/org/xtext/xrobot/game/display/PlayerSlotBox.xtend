@@ -97,7 +97,7 @@ class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 			 	styleClass.setAll('boxed-label')
 		 	]
 		 	modeLabels.forEach [ it, i |
-		 		opacity = 1 - (1.0 + i) / MAX_MODES
+		 		opacity = (1 - (1.0 + i) / MAX_MODES).squared
 		 	]
 			if(modeLabels.empty) {
 				modeLabels.add(newLabel)
@@ -121,6 +121,10 @@ class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 			 	play
 		 	]
 		]
+	}
+	
+	private def squared(double x) {
+		x*x
 	}
 	
 	override stateChanged(IRemoteRobot robot) {

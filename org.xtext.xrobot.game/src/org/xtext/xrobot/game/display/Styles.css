@@ -4,7 +4,7 @@
 
 .root {
     -fx-font-size: 20.0pt;
-    -fx-font-family: "Menlo";
+    -fx-font-family: "Futura";
 }
 
 .root-pane {
@@ -28,6 +28,7 @@
 	-fx-background-radius: 5.0;
 	-fx-padding: 4.0;
 	-fx-text-fill: white;
+	-fx-alignment: center;
 }
 
 .boxed-label {
@@ -115,6 +116,10 @@
 .message-pane {
 	-fx-alignment: center;
 	-fx-spacing: 10;
+}
+
+.countdown {
+	-fx-font-size: 240;
 }
 
 .energy-bar {

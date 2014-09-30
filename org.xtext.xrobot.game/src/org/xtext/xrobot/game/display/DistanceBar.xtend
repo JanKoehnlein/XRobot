@@ -11,6 +11,7 @@ import org.xtext.xrobot.game.PlayerSlot
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static java.lang.Math.*
+import javafx.scene.paint.Color
 
 class DistanceBar extends Region {
 

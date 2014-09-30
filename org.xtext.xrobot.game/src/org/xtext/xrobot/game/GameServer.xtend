@@ -14,7 +14,7 @@ import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 import org.xtext.xrobot.dsl.interpreter.ScriptParser
 import org.xtext.xrobot.game.display.Display
-import org.xtext.xrobot.server.IRemoteRobot
+import org.xtext.xrobot.server.testing.MockRobotConnector
 
 import static extension javafx.util.Duration.*
 
@@ -26,8 +26,10 @@ class GameServer extends Application {
 		launch()
 	}
 	
-	@Inject IRemoteRobot.Connector remoteRobotConnector
-//	@Inject MockRobotConnector remoteRobotConnector
+//	@Inject IRemoteRobot.Connector remoteRobotConnector
+//	@Inject ScriptPoller scriptPoller
+	@Inject MockRobotConnector remoteRobotConnector
+	@Inject MockScriptPoller scriptPoller
 	@Inject Provider<XtextResourceSet> resourceSetProvider
 
 	@Inject ScriptParser scriptParser
@@ -36,8 +38,6 @@ class GameServer extends Application {
 	
 	@Inject Display display
 	@Inject HallOfFameProvider hallOfFameProvider
-//	@Inject MockScriptPoller scriptPoller
-	@Inject ScriptPoller scriptPoller
 
 	List<PlayerSlot> slots 
 	

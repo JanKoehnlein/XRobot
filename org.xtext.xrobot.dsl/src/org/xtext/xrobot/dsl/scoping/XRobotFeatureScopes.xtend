@@ -16,7 +16,10 @@ class XRobotFeatureScopes extends FeatureScopes {
 	
 	@Inject
 	private extension  IJvmModelAssociations 
-	
+
+	/**
+	 * Disallow referencing artificial methods derived from modes 
+	 */	
 	override protected createFeatureScopeForTypeRef(XExpression receiver, LightweightTypeReference featureDeclarator, boolean implicit, EObject featureCall, IFeatureScopeSession session, JvmIdentifiableElement receiverFeature, IScope parent, boolean validStaticScope) {
 		val superScope = super.createFeatureScopeForTypeRef(receiver, featureDeclarator, implicit, featureCall, session, receiverFeature, parent, validStaticScope)
 		new FilteringScope(superScope, [
