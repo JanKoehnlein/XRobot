@@ -53,6 +53,7 @@ class PlayerSlot implements IRobotListener {
 
 	def release() {
 		this.program = null
+		robotFactory?.release
 		token = new AccessToken
 		listeners.forEach[slotChanged]
 	}
