@@ -15,6 +15,7 @@ import static org.xtext.xrobot.net.INetConfig.*
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 import static org.xtext.xrobot.util.LEDPatterns.*
 import static org.xtext.xrobot.util.SystemSounds.*
+import org.xtext.xrobot.net.SocketOutputBuffer
 
 class BrickConnector {
 	
@@ -49,7 +50,7 @@ class BrickConnector {
 		}
 	}
 
-	def connect() {
+	private def connect() {
 		robot.led = ORANGE_BLINK
 		isStopped = false
 		while (!isStopped) {
@@ -85,64 +86,70 @@ class BrickConnector {
 		return null
 	}
 
-	def disconnect(Selector selector, SocketChannel socket, StateSender stateSender) {
+	private def disconnect(Selector selector, SocketChannel socket) {
 		robot.led = ORANGE_BLINK
 		robot.systemSound(DOUBLE_BEEP)
 		ignoreExceptions[selector?.close]		
 		ignoreExceptions[socket?.close]
-		stateSender?.shutdown
 		robot.led = ORANGE
 	}
 
 	def run() {
 		while (!isStopped) {
 			var SocketChannel socket = null
-			var StateSender stateSender = null
 			var Selector selector = null
 			try {
 				socket = connect
 				if(socket != null) {
 					robot.reset
-					val input = new SocketInputBuffer(socket)
 					selector = Selector.open()
-					socket.register(selector, SelectionKey.OP_READ)
-					val executor = new RobotExecutor(input, robot)
-					stateSender = new StateSender(robot, socket)
-					stateSender.start
-					var isRelease = false
-					while (!isRelease && stateSender.alive && !robot.isDead) {
-						selector.select(SOCKET_TIMEOUT)
-						if (robot.escapePressed) {
-							isRelease = true
-						} else {
-							for (key : selector.selectedKeys) {
-								if (key.readable) {
-									LOG.debug('Read message...')
-									input.receive
-									LOG.debug('...read ' + input.available + ' bytes.')
-									while (input.available > 0 && !isRelease && !robot.isDead) {
-										if (robot.escapePressed) {
-											isRelease = true
-										} else {
-											synchronized(robot) {
-												isRelease = !executor.dispatchAndExecute
-											}
-										}
-									}
-								}
-							}
-							Thread.yield
-						}
-					}
-					disconnect(selector, socket, stateSender)
+					run(socket, selector)
+					disconnect(selector, socket)
 				}
 				robot.reset
 			} catch (Exception exc) {
 				LOG.error('Error: ' + exc.message)
-				disconnect(selector, socket, stateSender)
+				disconnect(selector, socket)
 				robot.reset
 				Thread.sleep(5000)
 			}
+		}
+	}
+	
+	private def run(SocketChannel socket, Selector selector) {
+		val input = new SocketInputBuffer(socket)
+		val output = new SocketOutputBuffer(socket)
+		socket.register(selector, SelectionKey.OP_READ + SelectionKey.OP_WRITE)
+		val executor = new RobotExecutor(input, robot)
+		val state = new RobotClientState
+		var isRelease = false
+		while (!isRelease) {
+			selector.select(UPDATE_INTERVAL)
+			if (robot.escapePressed) {
+				return
+			}
+			for (key : selector.selectedKeys) {
+				if (key.readable) {
+					LOG.debug('Read message...')
+					input.receive
+					LOG.debug('...read ' + input.available + ' bytes.')
+					while (input.available > 0 && !isRelease) {
+						if (robot.escapePressed) {
+							isRelease = true
+						} else {
+							isRelease = !executor.dispatchAndExecute
+						}
+					}
+				}
+				if (key.writable) {
+					LOG.debug('Read state...')
+					state.sample(robot)
+					isRelease = robot.isDead
+					state.write(output)
+					output.send
+				}
+			}
+			Thread.yield
 		}
 	}
 }

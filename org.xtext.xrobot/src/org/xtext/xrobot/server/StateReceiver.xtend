@@ -58,6 +58,7 @@ class StateReceiver implements StateProvider<RobotServerState> {
 								successCount++
 							}
 							synchronized(this) {
+								isStopped = isStopped || state.dead
 								lastState = state
 							}
 							LOG.debug('Received state ' +  state.sampleTime)

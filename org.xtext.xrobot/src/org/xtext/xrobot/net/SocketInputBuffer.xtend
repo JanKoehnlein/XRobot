@@ -60,7 +60,6 @@ class SocketInputBuffer {
 	}
 	
 	def available() {
-//		LOG.debug('Recevied ' + (buffer.limit-buffer.position) + ' bytes')
 		buffer.limit - buffer.position
 	}
 }

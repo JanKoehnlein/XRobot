@@ -33,4 +33,6 @@ interface IRemoteRobot extends IRobot {
 	
 	def RobotID getRobotID()
 	
+	def boolean isDead()
+	
 }

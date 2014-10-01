@@ -172,4 +172,8 @@ class MockRobot implements IRemoteRobot {
 		0.6
 	}
 	
+	override isDead() {
+		false
+	}
+	
 }

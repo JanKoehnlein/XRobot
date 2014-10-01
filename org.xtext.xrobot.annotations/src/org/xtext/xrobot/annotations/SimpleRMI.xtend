@@ -238,7 +238,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 						«IF sourceMethod.findAnnotation(zombieAnnotation) == null»
 							checkCanceled();
 						«ENDIF»
-						LOG.debug("«sourceMethod.simpleName»");
+						LOG.debug("«sourceMethod.simpleName» " + state.get«serverMethod.fieldName.toFirstUpper»());
 						return state.get«serverMethod.fieldName.toFirstUpper»();
 					'''
 				else 

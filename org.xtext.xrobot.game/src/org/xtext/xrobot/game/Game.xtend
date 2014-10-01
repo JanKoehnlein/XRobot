@@ -77,7 +77,7 @@ class Game {
 	}
 
 	private def checkGameOver(IRemoteRobot robot) {
-		if(robot.centerDirection.distance > IArena.ARENA_RADIUS) {
+		if(robot.centerDirection.distance > IArena.ARENA_RADIUS || robot.isDead) {
 			if(loser == null) {
 				loser = robot.robotID
 				lastLoserTimeStamp = System.currentTimeMillis

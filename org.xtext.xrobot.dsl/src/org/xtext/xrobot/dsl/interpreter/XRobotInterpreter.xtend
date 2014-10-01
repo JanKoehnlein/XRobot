@@ -68,7 +68,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 							return true
 						val result = condition?.evaluate(conditionContext, cancelIndicator)
 						return result != null && result?.result as Boolean
-					]		
+					]
 					if(newMode != currentMode || currentModeCancelIndicator?.isCanceled) {
 						if(currentMode != null)
 							LOG.debug('Canceling running mode ' +  currentMode.name)
@@ -103,7 +103,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 					if(newMode == null)
 						listeners.forEach[ stateChanged(conditionRobot) ]
 				}
-			} while(!cancelIndicator.canceled)
+			} while(!cancelIndicator.canceled && !conditionRobot.isDead)
 		} catch(CanceledException exc) {
 		}
 	}

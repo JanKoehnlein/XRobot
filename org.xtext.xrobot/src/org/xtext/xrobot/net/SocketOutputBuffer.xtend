@@ -23,7 +23,7 @@ class SocketOutputBuffer {
 		buffer.limit = buffer.position
 		buffer.rewind
 		channel.write(buffer)
-		LOG.debug('Sent ' +  buffer.limit + ' bytes')
+		LOG.debug('...sent ' + buffer.limit + ' bytes.')
 		buffer.rewind
 		buffer.limit = BUFFER_SIZE
 	}
