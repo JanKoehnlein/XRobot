@@ -144,7 +144,7 @@ class BrickConnector {
 				if (key.writable) {
 					LOG.debug('Read state...')
 					state.sample(robot)
-					isRelease = robot.isDead
+					isRelease = isRelease || robot.isDead
 					state.write(output)
 					output.send
 				}
