@@ -61,7 +61,6 @@ class Balloon extends Parent implements AudioService.Listener, PlayerSlot.Listen
 	 	val bubblePosition = 2 * own - opponent
 		layoutX = bubblePosition.x * RESOLUTION_X / WIDTH_IN_CM
 		layoutY = bubblePosition.y * RESOLUTION_Y / HEIGHT_IN_CM
-		println(layoutBounds)
 	}
 	
 	override modeChanged(IRemoteRobot robot, Mode newMode) {

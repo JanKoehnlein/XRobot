@@ -99,18 +99,19 @@ class GameServer extends Application {
 						hallOfFameProvider.addDefeat(scriptName)
 						status = LOSER
 					} else {
-						display.showInfo(scriptName + ' wins', 2.seconds)
+						display.showInfo(scriptName + ' wins', 5.seconds)
 						hallOfFameProvider.addWin(scriptName)
 						status = WINNER
 					}
 				]
 			} else {
-				display.showInfo('Draw', 2.seconds)
+				display.showInfo('Nobody won', 5.seconds)
 				slots.forEach[
 					status = DRAW
 					hallOfFameProvider.addDraw(scriptName)
 				]
 			}
+			Thread.sleep(5000)
 		}
 		LOG.debug('Releasing player slots')
 		slots.forEach[release]

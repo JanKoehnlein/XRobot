@@ -16,6 +16,8 @@ import org.xtext.xrobot.game.PlayerSlot
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static extension javafx.util.Duration.*
+import static org.xtext.xrobot.game.PlayerStatus.*
+import javafx.scene.effect.Bloom
 
 class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 	
@@ -76,6 +78,10 @@ class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 				styleClass.setAll('inner-box', slot.robotID.name.toLowerCase + '-' + slot.status.style)
 			]
 			statusLabel.text = slot.status.label
+			effect = if(slot.status == WINNER) 
+						new Bloom(0.9)
+			 		else 
+			 			null
 			val program = slot.program
 			if(program == null) {
 				programLabel.text = 'Use Token'
