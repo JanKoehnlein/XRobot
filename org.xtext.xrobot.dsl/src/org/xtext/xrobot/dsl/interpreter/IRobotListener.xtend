@@ -14,5 +14,5 @@ interface IRobotListener {
 	def void variableChanged(String name, Object value)
 
 	def void lineChanged(int line)
-	
+
 }

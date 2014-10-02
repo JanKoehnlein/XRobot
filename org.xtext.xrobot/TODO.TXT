@@ -1,6 +1,0 @@
--refactor SimpleRMI
--buffer underruns
-
-DONE
--implement status client
--extract IRobotState interface (in SimpleRMI)

@@ -5,13 +5,13 @@ import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.Direction
+import org.xtext.xrobot.api.Sample
 import org.xtext.xrobot.camera.CameraClient
 import org.xtext.xrobot.camera.CameraSample
 
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.net.INetConfig.*
-import org.xtext.xrobot.api.Sample
-import static extension org.xtext.xrobot.util.SoundUtil.*
+import org.xtext.xrobot.util.AudioService
 
 class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
@@ -23,6 +23,8 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	var CameraSample cameraSample
 
 	val RobotID robotID
+	
+	extension AudioService = AudioService.getInstance 
 
 	protected new(RobotID robotID, int nextCommandSerialNr, SocketChannel socket,
 			Object writeLock, StateProvider<RobotServerState> stateProvider,
@@ -128,5 +130,8 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	override play(Sample sample) {
 		sample.play(robotID)
 	}
-			
+	
+	override say(String text) {
+		text.speak(robotID)
+	}
 }

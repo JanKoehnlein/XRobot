@@ -23,6 +23,7 @@ import org.xtext.xrobot.game.PlayerSlot
 import static javafx.scene.layout.Region.*
 
 import static extension javafx.util.Duration.*
+import javafx.scene.Group
 
 class Display {
 
@@ -53,6 +54,9 @@ class Display {
 					slotBoxes = #[xtendBox, xtextBox]
 					left = xtendBox 
 					right = xtextBox
+					overlay = new Group => [
+						children += slots.map[new Balloon(it)]
+					]
 				], screenBounds.width, screenBounds.height) => [
 				fill = null
 				stylesheets += 'org/xtext/xrobot/game/display/Styles.css'

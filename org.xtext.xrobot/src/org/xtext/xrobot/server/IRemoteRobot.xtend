@@ -19,7 +19,7 @@ interface IRemoteRobot extends IRobot {
 		def void reset()
 
 		def boolean isAlive()
-
+		
 		def IRemoteRobot newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException
 
 		def IRemoteRobot newRobot(CancelIndicator cancelIndicator, IRemoteRobot existingRobot)

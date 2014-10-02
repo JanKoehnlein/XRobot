@@ -14,6 +14,7 @@ class RootPane extends Region {
 	ObjectProperty<Node> leftProperty = new SimpleObjectProperty
 	ObjectProperty<Node> centerProperty = new SimpleObjectProperty
 	ObjectProperty<Node> rightProperty = new SimpleObjectProperty
+	ObjectProperty<Node> overlayProperty = new SimpleObjectProperty
 	
 	new() {
 		styleClass.setAll('root-pane')
@@ -27,6 +28,7 @@ class RootPane extends Region {
 		leftProperty.addListener(listener)
 		centerProperty.addListener(listener)
 		rightProperty.addListener(listener)
+		overlayProperty.addListener(listener)
 	}
 
 	def getTop() {
@@ -45,6 +47,10 @@ class RootPane extends Region {
 		rightProperty.get
 	}
 
+	def getOverlay() {
+		overlayProperty.get
+	}
+
 	def setTop(Node top) {
 		topProperty.set(top)
 	}
@@ -59,6 +65,10 @@ class RootPane extends Region {
 	
 	def setRight(Node right) {
 		rightProperty.set(right)
+	}
+	
+	def setOverlay(Node right) {
+		overlayProperty.set(right)
 	}
 	
 	override protected layoutChildren() {
@@ -80,6 +90,9 @@ class RootPane extends Region {
 		right => [
 			relocate(boxWidth + bounds.height + padding.left, topHeight + padding.top)
 			resize(boxWidth - padding.left - padding.right, bounds.height - topHeight - padding.top - padding.bottom)
+		]
+		overlay => [
+			relocate(bounds.width / 2, bounds.height / 2)
 		]
 	}
 	

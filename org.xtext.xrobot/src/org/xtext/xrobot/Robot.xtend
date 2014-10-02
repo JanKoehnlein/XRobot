@@ -395,6 +395,10 @@ class Robot {
 	override void play(Sample sample) {
 	}
 
+	@Calculated 
+	override void say(String text) {
+	}
+
 	/**
 	 * @see {@link SystemSounds} for values
 	 */

@@ -127,3 +127,9 @@
 	-fx-arc-height: 12;
 }
 
+.balloon {
+	-fx-background-color: white;
+	-fx-fill: white;
+	-fx-stroke: black;
+	-fx-stroke-width: 2;
+}

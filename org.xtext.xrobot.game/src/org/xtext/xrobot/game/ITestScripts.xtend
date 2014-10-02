@@ -7,7 +7,7 @@ interface ITestScripts {
 		author Jan
 		
 		Dance {
-			play(HOMER)
+			say('Eat my shorts!')
 			rotationSpeed = maxRotationSpeed * 0.3
 			rotateLeft
 			while(true) {
