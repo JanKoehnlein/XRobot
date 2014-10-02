@@ -3,8 +3,8 @@
 }
 
 .root {
-    -fx-font-size: 20.0pt;
-    -fx-font-family: "Futura";
+    -fx-font-size: 26.0pt;
+    -fx-font-family: 'Monkirta Pursuit NC';
 }
 
 .root-pane {
@@ -40,14 +40,13 @@
 
 .title-label {
 	-fx-padding: 4.0;
-	-fx-font-size: 24.0pt;
 	-fx-text-fill: white;
 	-fx-font-weight: bold
 }
 
 .hof {
 	-fx-background-color: rgba(115.0,191.0,205.0,0.9);
-	-fx-font-size: 18
+	-fx-font-size: 24pt
 }
 
 .hof-light {
@@ -125,6 +124,13 @@
 .energy-bar {
 	-fx-arc-width: 12;
 	-fx-arc-height: 12;
+}
+
+.logo {
+	-fx-font-family: 'Magenta';
+	-fx-font-size: 150;
+	-fx-scale-x: 0.8;
+	-fx-text-fill: rgb(36,21,111)
 }
 
 .balloon {

@@ -19,6 +19,7 @@ import org.xtext.xrobot.server.testing.MockRobotConnector
 import static org.xtext.xrobot.game.PlayerStatus.*
 
 import static extension javafx.util.Duration.*
+import javafx.scene.text.Font
 
 class GameServer extends Application {
 
@@ -44,6 +45,8 @@ class GameServer extends Application {
 	List<PlayerSlot> slots 
 	
 	new() {
+		Font.loadFont(class.getResourceAsStream('/fonts/flipside.ttf'), 24)
+		Font.loadFont(class.getResourceAsStream('/fonts/Robotica.ttf'), 24)
 		Resource.Factory.Registry.INSTANCE.extensionToFactoryMap.put('xtextbin', new BinaryGrammarResourceFactoryImpl())
 		new XRobotDSLStandaloneSetup().createInjectorAndDoEMFRegistration.injectMembers(this)
 		slots = #[new PlayerSlot(RobotID.Blue, remoteRobotConnector, display), new PlayerSlot(RobotID.Red, remoteRobotConnector, display)]
