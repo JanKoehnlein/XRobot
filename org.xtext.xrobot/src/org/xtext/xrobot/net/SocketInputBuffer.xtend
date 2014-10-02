@@ -9,12 +9,13 @@ import static org.xtext.xrobot.net.INetConfig.*
 
 class SocketInputBuffer {
 	
-	ByteBuffer buffer = ByteBuffer.allocate(BUFFER_SIZE)
+	val ByteBuffer buffer = ByteBuffer.allocate(BUFFER_SIZE)
 	
-	SocketChannel socketChannel
+	val SocketChannel socketChannel
 	
 	new(SocketChannel socketChannel) {
 		this.socketChannel = socketChannel
+		buffer.limit = 0
 	}
 	
 	def receive() {

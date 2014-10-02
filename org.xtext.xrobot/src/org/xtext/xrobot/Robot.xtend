@@ -297,7 +297,7 @@ class Robot {
 	 * means a clockwise curve (right). The sign of the radius is ignored.
 	 * 
 	 * @param radius
-	 * 		The radius of the circle on which to travel
+	 * 		The radius in centimeters of the circle on which to travel
 	 * @param angle
 	 * 		The angle of the circle segment that is actually covered
 	 */
@@ -315,6 +315,11 @@ class Robot {
 	 * 
 	 * A positive angle means a clockwise curve (left), while a negative angle means a
 	 * counter-clockwise curve (right). The sign of the radius is ignored.
+	 * 
+	 * @param radius
+	 * 		The radius in centimeters of the circle on which to travel
+	 * @param angle
+	 * 		The angle of the circle segment that is actually covered
 	 */
 	@Blocking
 	override void curveBackward(double radius, double angle) {
@@ -418,10 +423,12 @@ class Robot {
 	
 	/**
 	 * Check whether the robot has died. This happens when it crosses the boundary of
-	 * the arena.
+	 * the arena or when it tilts over.
 	 */
 	@NoAPI@Zombie
 	def boolean isDead() {
+		// When the robot tilts over, its color sensor cannot receive any reflections,
+		// so the reported color value is 0.
 		val result = lastColorSample < GAME_OVER_THRESHOLD
 		if (result && isMoving) {
 			// Emergency brake!

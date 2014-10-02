@@ -7,6 +7,7 @@ import org.xtext.xrobot.net.SocketInputBuffer
 abstract class AbstractExecutor {
 	
 	static val LOG = Logger.getLogger(AbstractExecutor)
+	static val RELEASE_MESSAGE = -1
 	
 	protected SocketInputBuffer input
 	
@@ -14,30 +15,30 @@ abstract class AbstractExecutor {
 		this.input = input
 	}
 	
-	def dispatchAndExecute() throws IOException {
+	def dispatchAndExecute(boolean isAlive) throws IOException {
 		val componentID = input.readInt
-		LOG.debug('componentID=' + componentID)
+//		LOG.debug('componentID=' + componentID)
 		val subComponent = getSubComponent(componentID)
 		if(subComponent != null)
-			return subComponent.executeNext
+			return subComponent.executeNext(isAlive)
 		else
 			return true
 	}
 	
 	abstract def AbstractExecutor getSubComponent(int comonentID)
 	
-	protected def boolean executeNext() {
+	protected def boolean executeNext(boolean isAlive) {
 		val messageType = input.readInt
-		LOG.debug('messageType=' + messageType)
-		execute(messageType)
+//		LOG.debug('messageType=' + messageType)
+		execute(messageType, isAlive)
 	}
 
-	protected def execute(int messageType) {
+	protected def execute(int messageType, boolean isAlive) {
 		switch messageType {
-			case -1: 
+			case RELEASE_MESSAGE:
 				return false
 			default: {
-				println("Illegal messageType " + messageType)
+				LOG.error('Illegal message type ' + messageType)
 			}
 		}
 		return true

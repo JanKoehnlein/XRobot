@@ -101,22 +101,32 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		]
 		serverImpl.addField('socket') [
 			type = SocketChannel.newTypeReference
+			final = true
 			visibility = Visibility.PROTECTED
+		]
+		serverImpl.addField('writeLock') [
+			type = Object.newTypeReference
+			final = true
+			visibility = Visibility.PRIVATE
 		]
 		serverImpl.addField('componentID') [
 			type = int.newTypeReference
+			final = true
 			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addField('stateProvider') [
 			type = 'org.xtext.xrobot.server.StateProvider'.newTypeReference(serverStateClass.newTypeReference)
+			final = true
 			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addField('input') [
 			type = 'org.xtext.xrobot.net.SocketInputBuffer'.newTypeReference
+			final = true
 			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addField('output') [
 			type = 'org.xtext.xrobot.net.SocketOutputBuffer'.newTypeReference
+			final = true
 			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addField('nextCommandSerialNr') [
@@ -125,6 +135,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		] 
 		serverImpl.addField('cancelIndicator') [
 			type = 'org.eclipse.xtext.util.CancelIndicator'.newTypeReference
+			final = true
 			visibility = Visibility.PROTECTED
 		] 
 		serverImpl.addConstructor [
@@ -132,25 +143,28 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			addParameter('componentID', int.newTypeReference)
 			addParameter('nextCommandSerialNr', int.newTypeReference)
 			addParameter('socket', SocketChannel.newTypeReference)
+			addParameter('writeLock', Object.newTypeReference)
 			addParameter('stateProvider', 'org.xtext.xrobot.server.StateProvider'.newTypeReference(serverStateClass.newTypeReference))
 			addParameter('cancelIndicator', 'org.eclipse.xtext.util.CancelIndicator'.newTypeReference)
 			body = '''
 				this.componentID = componentID;
 				this.nextCommandSerialNr = nextCommandSerialNr;
 				this.socket = socket;
+				this.writeLock = writeLock;
 				this.stateProvider = stateProvider;
 				this.cancelIndicator = cancelIndicator;
 				this.input = new SocketInputBuffer(socket); 
 				this.output = new SocketOutputBuffer(socket);
 				«var id = 1»
 				«FOR subComponent: subComponentFields»
-					this.«subComponent.simpleName» = new «subComponent.type.type.serverImplName»(«id++», nextCommandSerialNr, socket, new «'org.xtext.xrobot.server.StateProvider'.newTypeReference(subComponent.type.type.serverStateName.newTypeReference())»() {
+					this.«subComponent.simpleName» = new «subComponent.type.type.serverImplName»(«id++», nextCommandSerialNr, socket, writeLock, new «'org.xtext.xrobot.server.StateProvider'.newTypeReference(subComponent.type.type.serverStateName.newTypeReference())»() {
 						public «subComponent.type.type.serverStateName.newTypeReference()» getState() {
 							return state.get«subComponent.simpleName.toFirstUpper»State();
 						}
 					}, cancelIndicator);
 				«ENDFOR»
 			'''
+			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addMethod('setState') [
 			addParameter('state', serverStateClass.newTypeReference)
@@ -210,6 +224,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			if(!sourceMethod.returnType.isVoid && sourceMethod.findAnnotation(calculatedAnnotation) == null) {
 				clientStateClass.addField(sourceMethod.fieldName) [
 					type = sourceMethod.returnType
+					visibility = Visibility.DEFAULT
 				]
 				serverStateClass.addField(sourceMethod.fieldName) [
 					type = sourceMethod.returnType
@@ -241,19 +256,22 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 						LOG.debug("«sourceMethod.simpleName» " + state.get«serverMethod.fieldName.toFirstUpper»());
 						return state.get«serverMethod.fieldName.toFirstUpper»();
 					'''
-				else 
+				else
 					serverMethod.body = '''
 						«IF sourceMethod.findAnnotation(zombieAnnotation) == null»
 							checkCanceled();
 						«ENDIF»
-						output.writeInt(componentID);
-						output.writeInt(«i»);
-						«FOR p: sourceMethod.parameters»
-							«getWriteCalls(p.type, p.simpleName)»
-						«ENDFOR»
-						int commandSerialNr = nextCommandSerialNr++;
-						output.writeInt(commandSerialNr);
-						output.send();
+						int commandSerialNr = 0;
+						synchronized (writeLock) {
+							output.writeInt(componentID);
+							output.writeInt(«i»);
+							«FOR p: sourceMethod.parameters»
+								«getWriteCalls(p.type, p.simpleName)»
+							«ENDFOR»
+							commandSerialNr = nextCommandSerialNr++;
+							output.writeInt(commandSerialNr);
+							output.send();
+						}
 						LOG.debug("«sourceMethod.simpleName» " + commandSerialNr);
 						«IF sourceMethod.getBlockingValue(context) != null»
 							waitFinished(commandSerialNr, new Predicate<«serverStateClass»>() {
@@ -281,6 +299,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			serverImpl.addField(subComponent.simpleName, [
 				primarySourceElement = subComponent
 				type = newTypeReference(subComponent.type.type.serverImplName)
+				final = true
 			])
 			serverImpl.addMethod('get' + subComponent.simpleName.toFirstUpper, [
 				primarySourceElement = subComponent
@@ -364,6 +383,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		clientExecutor.addMethod('execute') [
 			primarySourceElement = annotatedClass
 			addParameter("messageType", int.newTypeReference)
+			addParameter("isAlive", boolean.newTypeReference)
 			returnType = boolean.newTypeReference
 			visibility = Visibility.PROTECTED
 			body = '''
@@ -373,28 +393,43 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 						«IF sourceMethod.returnType.isVoid»
 							case «i»: {
 								LOG.debug("«sourceMethod.simpleName» ");
-								client.«sourceMethod.simpleName»(«
-								FOR p: sourceMethod.parameters SEPARATOR ', '
-									»«p.type.getReadCalls(null)»«
-								ENDFOR»);
+								«IF sourceMethod.findAnnotation(zombieAnnotation) == null»
+									if (isAlive) {
+										client.«sourceMethod.simpleName»(«
+										FOR p: sourceMethod.parameters SEPARATOR ', '
+											»«p.type.getReadCalls(null)»«
+										ENDFOR»);
+									}«IF !sourceMethod.parameters.empty» else {
+										// Discard message content
+										«FOR p: sourceMethod.parameters»
+											«p.type.getReadCalls(null)»;
+										«ENDFOR»
+									}«ENDIF»
+								«ELSE»
+									client.«sourceMethod.simpleName»(«
+									FOR p: sourceMethod.parameters SEPARATOR ', '
+										»«p.type.getReadCalls(null)»«
+									ENDFOR»);
+								«ENDIF»
 								break;
 							}
 						«ENDIF»
 						«{i++; ''}»
 					«ENDFOR»
 					default:
-						return super.execute(messageType);
+						return super.execute(messageType, isAlive);
 				}
 				return true;
 			'''
 		]
 		clientExecutor.addMethod('dispatchAndExecute') [
+			addParameter('isAlive', boolean.newTypeReference)
 			returnType = boolean.newTypeReference
 			exceptions = IOException.newTypeReference
 			body = '''
-				boolean result = super.dispatchAndExecute();
+				boolean result = super.dispatchAndExecute(isAlive);
 				client.setLastExecutedCommandSerialNr(input.readInt());
-				LOG.debug("commandID= " + client.getLastExecutedCommandSerialNr());
+				//LOG.debug("commandID= " + client.getLastExecutedCommandSerialNr());
 				return result;
 			'''
 		]

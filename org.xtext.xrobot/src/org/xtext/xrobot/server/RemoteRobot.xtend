@@ -14,6 +14,7 @@ import static org.xtext.xrobot.net.INetConfig.*
 class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
 	static val MAX_POSITION_AGE = 500
+	static val RELEASE_MESSAGE = -1
 	
 	val CameraClient cameraClient
 	
@@ -21,9 +22,10 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 
 	val RobotID robotID
 
-	new(RobotID robotID, int nextCommandSerialNr, SocketChannel socket, StateProvider<RobotServerState> stateProvider,
+	protected new(RobotID robotID, int nextCommandSerialNr, SocketChannel socket,
+			Object writeLock, StateProvider<RobotServerState> stateProvider,
 			CancelIndicator cancelIndicator, CameraClient cameraClient) {
-		super(0, nextCommandSerialNr, socket, stateProvider, cancelIndicator)
+		super(0, nextCommandSerialNr, socket, writeLock, stateProvider, cancelIndicator)
 		this.robotID = robotID
 		this.cameraClient = cameraClient
 	}
@@ -33,24 +35,31 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	}
 
 	override waitForUpdate(int timeout) throws SocketTimeoutException {
-		val updateInterval = UPDATE_INTERVAL / 3
 		val lastStateUpdate = if (state == null) 0 else state.sampleTime
 		var newState = stateProvider.state
-		var tries = timeout / updateInterval;
+		var tries = timeout / UPDATE_INTERVAL;
 		while (newState == null || lastStateUpdate >= newState.sampleTime) {
 			checkCanceled
-			if (tries-- <= 0)
+			if (tries-- <= 0) {
 				throw new SocketTimeoutException('No state update from robot after ' + timeout + 'ms.')
-			Thread.sleep(updateInterval)
+			}
+			Thread.sleep(UPDATE_INTERVAL)
 			newState = stateProvider.state
 		}
 		
 		var newCameraSample = cameraClient.getCameraSample(robotID)
 		while (!isValid(newCameraSample)) {
 			checkCanceled
-			if (tries-- <= 0)
+			if (tries-- <= 0) {
+				// Check whether the robot is dead, don't throw an exception in this case
+				newState = stateProvider.state
+				if (newState.dead) {
+					setState(newState)
+					return
+				}
 				throw new SocketTimeoutException('No position update from camera after ' + timeout + 'ms.')
-			Thread.sleep(updateInterval)
+			}
+			Thread.sleep(UPDATE_INTERVAL)
 			newCameraSample = cameraClient.getCameraSample(robotID)
 		}
 		setState(newState, newCameraSample)
@@ -73,7 +82,7 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	override release() {
 		stop
 		output.writeInt(componentID)
-		output.writeInt(-1)
+		output.writeInt(RELEASE_MESSAGE)
 		output.send
 	}
 	

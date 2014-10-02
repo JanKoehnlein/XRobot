@@ -56,7 +56,7 @@ class Game {
 	
 	def getException() { gameException }
 	
-	def createGameOverListener() {
+	private def createGameOverListener() {
 		new IRobotListener() {
 			override modeChanged(IRemoteRobot robot, Mode newMode) {
 			}

@@ -15,6 +15,8 @@ class RemoteRobotFactory implements IRemoteRobot.Factory {
 	
 	val SocketChannel socket
 	
+	val writeLock = new Object
+	
 	val StateReceiver stateReceiver
 	
 	val CameraClient cameraClient
@@ -58,16 +60,24 @@ class RemoteRobotFactory implements IRemoteRobot.Factory {
 	}
 	
 	override newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException {
+		if (isReleased) {
+			throw new IllegalStateException
+		}
 		val nextCommandSerialNr = 10
 		val timeout = 10 * SOCKET_TIMEOUT
-		lastRobot = new RemoteRobot(robotID, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraClient)
+		lastRobot = new RemoteRobot(robotID, nextCommandSerialNr, socket, writeLock, stateReceiver,
+				cancelIndicator, cameraClient)
 		lastRobot.waitForUpdate(timeout)
 		lastRobot
 	}
 	
 	override newRobot(CancelIndicator cancelIndicator, IRemoteRobot existingRobot) {
+		if (isReleased) {
+			throw new IllegalStateException
+		}
 		val nextCommandSerialNr = lastRobot.nextCommandSerialNr + 10
-		lastRobot = new RemoteRobot(robotID, nextCommandSerialNr, socket, stateReceiver, cancelIndicator, cameraClient)
+		lastRobot = new RemoteRobot(robotID, nextCommandSerialNr, socket, writeLock, stateReceiver,
+				cancelIndicator, cameraClient)
 		val existingRemoteRobot = existingRobot as RemoteRobot
 		lastRobot.setState(existingRemoteRobot.state, existingRemoteRobot.cameraSample)
 		lastRobot

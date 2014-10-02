@@ -57,10 +57,7 @@ class StateReceiver implements StateProvider<RobotServerState> {
 								} 
 								successCount++
 							}
-							synchronized(this) {
-								isStopped = isStopped || state.dead
-								lastState = state
-							}
+							lastState = state
 							LOG.debug('Received state ' +  state.sampleTime)
 						} catch(Exception exc) {
 							failureCount++  
@@ -86,9 +83,7 @@ class StateReceiver implements StateProvider<RobotServerState> {
 	}
 
 	override getState() {
-		synchronized(this) {
-			lastState
-		}
+		lastState
 	}	
 	
 	def shutdown() {

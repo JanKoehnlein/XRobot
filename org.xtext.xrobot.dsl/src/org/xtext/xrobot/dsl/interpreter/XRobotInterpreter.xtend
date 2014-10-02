@@ -103,7 +103,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 					if(newMode == null)
 						listeners.forEach[ stateChanged(conditionRobot) ]
 				}
-			} while(!cancelIndicator.canceled && !conditionRobot.isDead)
+			} while(!cancelIndicator.canceled)
 		} catch(CanceledException exc) {
 		}
 	}

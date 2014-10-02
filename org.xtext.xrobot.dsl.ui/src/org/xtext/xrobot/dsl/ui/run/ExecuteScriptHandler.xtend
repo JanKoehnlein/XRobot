@@ -42,6 +42,7 @@ import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.server.IRemoteRobot
 import org.xtext.xrobot.server.RemoteRobot
+import org.xtext.xrobot.api.IArena
 
 @Singleton
 class ExecuteScriptHandler extends AbstractHandler {
@@ -56,7 +57,9 @@ class ExecuteScriptHandler extends AbstractHandler {
 
 	@Inject Provider<ScriptRunner> scriptRunnerProvider
 
-	Map<RobotID, Job> id2controller = newHashMap
+	val Map<RobotID, Job> id2controller = newHashMap
+	
+	volatile boolean gameOver
 
 	override execute(ExecutionEvent event) throws ExecutionException {
 		val xtextEditor = EditorUtils.getActiveXtextEditor(event)
@@ -96,6 +99,17 @@ class ExecuteScriptHandler extends AbstractHandler {
 			val dialog = new StateDialog(xtextEditor)
 			val scriptRunner = scriptRunnerProvider.get
 			scriptRunner.addRobotListener(dialog)
+			scriptRunner.addRobotListener(new IRobotListener {
+				override stateRead(IRemoteRobot robot) { }
+				override modeChanged(IRemoteRobot robot, Mode newMode) { }
+				override stateChanged(IRemoteRobot robot) {
+					if (robot.centerDirection.distance > IArena.ARENA_RADIUS || robot.isDead) {
+						gameOver = true
+					}
+				}
+				override variableChanged(String name, Object value) { }
+				override lineChanged(int line) { }
+			})
 			val job = new Job('Running script \'' + scriptName + '\' on robot \'' + robotName + '\'') {
 				override protected run(IProgressMonitor monitor) {
 					try {
@@ -103,10 +117,11 @@ class ExecuteScriptHandler extends AbstractHandler {
 							dialog.open(monitor)
 						]
 						val program = scriptParser.parse(model, resourceSet)
+						gameOver = false
 						scriptRunner.run(program, robotFactory,
 							new CancelIndicator() {
 								override isCanceled() {
-									monitor.isCanceled
+									monitor.isCanceled || gameOver
 								}
 							})
 						return Status.OK_STATUS

@@ -13,5 +13,5 @@ interface INetConfig {
 	static val SOCKET_TIMEOUT = 1000
 	
 	static val BUFFER_SIZE = 32768
-	static val UPDATE_INTERVAL = 30 
+	static val UPDATE_INTERVAL = 10
 }

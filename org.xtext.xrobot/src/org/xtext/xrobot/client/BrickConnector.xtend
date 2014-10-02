@@ -86,10 +86,11 @@ class BrickConnector {
 		return null
 	}
 
-	private def disconnect(Selector selector, SocketChannel socket) {
+	private def disconnect(SocketChannel socket, Selector readSelector, Selector writeSelector) {
 		robot.led = ORANGE_BLINK
 		robot.systemSound(DOUBLE_BEEP)
-		ignoreExceptions[selector?.close]		
+		ignoreExceptions[readSelector?.close]
+		ignoreExceptions[writeSelector?.close]		
 		ignoreExceptions[socket?.close]
 		robot.led = ORANGE
 	}
@@ -97,58 +98,77 @@ class BrickConnector {
 	def run() {
 		while (!isStopped) {
 			var SocketChannel socket = null
-			var Selector selector = null
+			var Selector readSelector = null
+			var Selector writeSelector = null
 			try {
 				socket = connect
 				if(socket != null) {
 					robot.reset
-					selector = Selector.open()
-					run(socket, selector)
-					disconnect(selector, socket)
+					readSelector = Selector.open()
+					writeSelector = Selector.open()
+					run(socket, readSelector, writeSelector)
+					disconnect(socket, readSelector, writeSelector)
 				}
 				robot.reset
 			} catch (Exception exc) {
 				LOG.error('Error: ' + exc.message)
-				disconnect(selector, socket)
+				disconnect(socket, readSelector, writeSelector)
 				robot.reset
 				Thread.sleep(5000)
 			}
 		}
 	}
 	
-	private def run(SocketChannel socket, Selector selector) {
+	private def run(SocketChannel socket, Selector readSelector, Selector writeSelector) {
 		val input = new SocketInputBuffer(socket)
 		val output = new SocketOutputBuffer(socket)
-		socket.register(selector, SelectionKey.OP_READ + SelectionKey.OP_WRITE)
+		socket.register(readSelector, SelectionKey.OP_READ)
+		socket.register(writeSelector, SelectionKey.OP_WRITE)
 		val executor = new RobotExecutor(input, robot)
 		val state = new RobotClientState
 		var isRelease = false
-		while (!isRelease) {
-			selector.select(UPDATE_INTERVAL)
-			if (robot.escapePressed) {
-				return
-			}
-			for (key : selector.selectedKeys) {
-				if (key.readable) {
-					LOG.debug('Read message...')
-					input.receive
-					LOG.debug('...read ' + input.available + ' bytes.')
-					while (input.available > 0 && !isRelease) {
-						if (robot.escapePressed) {
-							isRelease = true
-						} else {
-							isRelease = !executor.dispatchAndExecute
-						}
-					}
-				}
+		var isDead = false
+		while (!isRelease && !robot.escapePressed) {
+			
+			// Sample the robot state and send it to the server
+			writeSelector.select(UPDATE_INTERVAL)
+			for (key : writeSelector.selectedKeys) {
 				if (key.writable) {
-					LOG.debug('Read state...')
+//					LOG.debug('Send state...')
 					state.sample(robot)
-					isRelease = isRelease || robot.isDead
+					if (state.dead) {
+						isDead = true
+						LOG.debug('Dead robot detected')
+					} else if (isDead) {
+						// Manipulate the robot state so the server receives the dead flag
+						state.dead = true 
+					}
 					state.write(output)
 					output.send
 				}
 			}
+			if (robot.escapePressed) {
+				return
+			}
+			
+			// Execute a command received from the server
+			if (input.available > 0) {
+				isRelease = !executor.dispatchAndExecute(!isDead)
+			} else {
+				readSelector.select(UPDATE_INTERVAL)
+				for (key : readSelector.selectedKeys) {
+					if (key.readable) {
+//						LOG.debug('Read message...')
+						input.receive
+//						LOG.debug('...read ' + input.available + ' bytes.')
+						if (input.available > 0) {
+							isRelease = !executor.dispatchAndExecute(!isDead)
+						}
+					}
+				}
+			}
+			
+			// Give some scheduling time to the Lejos threads
 			Thread.yield
 		}
 	}
