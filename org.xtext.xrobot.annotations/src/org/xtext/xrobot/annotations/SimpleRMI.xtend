@@ -390,7 +390,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 				switch (messageType) {
 					«var i = 0»
 					«FOR sourceMethod: sourceMethods»
-						«IF sourceMethod.returnType.isVoid»
+						«IF sourceMethod.returnType.isVoid && sourceMethod.findAnnotation(calculatedAnnotation) == null»
 							case «i»: {
 								LOG.debug("«sourceMethod.simpleName» ");
 								«IF sourceMethod.findAnnotation(zombieAnnotation) == null»

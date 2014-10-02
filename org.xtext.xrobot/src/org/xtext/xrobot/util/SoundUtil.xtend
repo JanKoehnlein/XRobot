@@ -1,45 +1,29 @@
 package org.xtext.xrobot.util
 
-import java.io.ByteArrayOutputStream
-import java.io.InputStream
 import java.util.Map
-import lejos.hardware.Audio
+import javafx.scene.media.AudioClip
+import org.xtext.xrobot.RobotID
+import org.xtext.xrobot.api.Sample
 
 class SoundUtil {
 
-	Map<String, byte[]> samples = newHashMap
+	static Map<Sample, AudioClip> samples = newHashMap
 
-	def playSample(Audio audio, String fileName, int volume) {
-		val sample = fileName.sample
-		audio.playSample(sample, 0, sample.length, 8000, volume)
-	}
-
-	protected def getSample(String fileName) {
-		var sample = samples.get(fileName)
-		if (sample == null) {
-			sample = loadSample(fileName)
-			samples.put(fileName, sample)
+	static def play(Sample sample, RobotID robotID) {
+		var clip = samples.get(sample)
+		if(clip == null) {
+			val path = '/samples/' + sample.name.toLowerCase + '.wav'
+			clip = new AudioClip(SoundUtil.getResource(path).toString)
+			samples.put(sample, clip)
 		}
-		sample
+		clip.playInBackground(robotID.fiducialID * 2 - 1)
+	}
+	
+	private static def playInBackground(AudioClip clip, double pan) {
+		new Thread [
+			clip.play(1.0, pan, 1.0, pan, 0)
+		].start
 	}
 
-	protected def loadSample(String fileName) {
-		var InputStream in = null
-		var ByteArrayOutputStream out = null
-		try {
-			in = class.classLoader.getResourceAsStream(fileName)
-			out = new ByteArrayOutputStream
-			var byte[] buffer = newByteArrayOfSize(2048)
-			while (true) {
-				var read = in.read(buffer);
-				if (read < 0) 
-					return out.toByteArray
-				out.write(buffer, 0, read)
-			}
-		} finally {
-			in?.close
-			out?.close
-		}
-	}
 
 }

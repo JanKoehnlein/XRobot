@@ -6,12 +6,14 @@ import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.Direction
 import org.xtext.xrobot.api.RobotPosition
+import org.xtext.xrobot.api.Sample
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.api.GeometryExtensions.*
 
 import static extension java.lang.Math.*
+import static extension org.xtext.xrobot.util.SoundUtil.*
 
 @Accessors
 class MockRobot implements IRemoteRobot {
@@ -124,7 +126,8 @@ class MockRobot implements IRemoteRobot {
 		checkCanceled
 	}
 
-	override playSample(String fileName) {
+	override play(Sample sample) {
+		sample.play(robotID)
 	}
 
 	override update() {

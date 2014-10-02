@@ -39,7 +39,6 @@ class DistanceBar extends Region {
 		blueBar => [
 			relocate(center - 0.5 * CENTER_GAP - value * maxBarWidth, 0)
 			width = value * maxBarWidth
-			println(layoutBounds)
 		]
 		redBar => [
 			relocate(center + 0.5 * CENTER_GAP, 0)

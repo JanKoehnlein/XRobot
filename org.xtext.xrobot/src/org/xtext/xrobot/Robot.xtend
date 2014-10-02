@@ -17,8 +17,8 @@ import org.xtext.xrobot.annotations.SubComponent
 import org.xtext.xrobot.annotations.Zombie
 import org.xtext.xrobot.api.Direction
 import org.xtext.xrobot.api.RobotPosition
+import org.xtext.xrobot.api.Sample
 import org.xtext.xrobot.util.LEDPatterns
-import org.xtext.xrobot.util.SoundUtil
 import org.xtext.xrobot.util.SystemSounds
 
 import static org.xtext.xrobot.api.IRobotGeometry.*
@@ -42,8 +42,6 @@ class Robot {
 	LED led
 	Audio audio
 	Power power
-
-	extension SoundUtil = new SoundUtil
 
 	@SubComponent Motor leftMotor
 	@SubComponent Motor rightMotor
@@ -393,8 +391,8 @@ class Robot {
 		scoopMotor.isMoving	
 	}
 	
-	override void playSample(String fileName) {
-		audio.playSample('samples/' + fileName + '.wav', 100)
+	@Calculated
+	override void play(Sample sample) {
 	}
 
 	/**

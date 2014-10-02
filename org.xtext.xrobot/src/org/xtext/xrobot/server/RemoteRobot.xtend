@@ -10,6 +10,8 @@ import org.xtext.xrobot.camera.CameraSample
 
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.net.INetConfig.*
+import org.xtext.xrobot.api.Sample
+import static extension org.xtext.xrobot.util.SoundUtil.*
 
 class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
@@ -122,4 +124,9 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	override void update() {
     	setState(stateProvider.state, cameraClient.getCameraSample(robotID))
   	}
+  	
+	override play(Sample sample) {
+		sample.play(robotID)
+	}
+			
 }

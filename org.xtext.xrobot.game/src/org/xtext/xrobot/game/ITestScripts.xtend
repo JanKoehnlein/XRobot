@@ -7,6 +7,7 @@ interface ITestScripts {
 		author Jan
 		
 		Dance {
+			play(HOMER)
 			rotationSpeed = maxRotationSpeed * 0.3
 			rotateLeft
 			while(true) {
@@ -21,6 +22,7 @@ interface ITestScripts {
 		author Miro
 		
 		Idle {
+			play(R2D2)
 			println("working hard...")
 			Thread.sleep(4000)
 		}
