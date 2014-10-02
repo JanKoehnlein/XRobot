@@ -16,6 +16,8 @@ import org.xtext.xrobot.dsl.interpreter.ScriptParser
 import org.xtext.xrobot.game.display.Display
 import org.xtext.xrobot.server.testing.MockRobotConnector
 
+import static org.xtext.xrobot.game.PlayerStatus.*
+
 import static extension javafx.util.Duration.*
 
 class GameServer extends Application {
@@ -44,7 +46,7 @@ class GameServer extends Application {
 	new() {
 		Resource.Factory.Registry.INSTANCE.extensionToFactoryMap.put('xtextbin', new BinaryGrammarResourceFactoryImpl())
 		new XRobotDSLStandaloneSetup().createInjectorAndDoEMFRegistration.injectMembers(this)
-		slots = #[new PlayerSlot(RobotID.Blue, remoteRobotConnector), new PlayerSlot(RobotID.Red, remoteRobotConnector)]
+		slots = #[new PlayerSlot(RobotID.Blue, remoteRobotConnector, display), new PlayerSlot(RobotID.Red, remoteRobotConnector, display)]
 	}
 	
 	override start(Stage stage) throws Exception {
@@ -66,7 +68,6 @@ class GameServer extends Application {
 					try {
 						LOG.debug('Robot ' + program.name + ' has joined the game')
 						slot.acquire(program)
-						slot.preparer.getReady(display)					
 					} catch (Exception exc) {
 						showError(exc.message, 2.seconds)
 						LOG.error('Error assigning robot', exc) 
@@ -80,10 +81,11 @@ class GameServer extends Application {
 	}
 	
 	def void startGame() {
-		while(!slots.map[preparer.isReady(display)].reduce[$0 && $1]) 
+		while(!slots.map[waitReady].reduce[$0 && $1]) 
 			Thread.sleep(5000)
 		display.prepareGame
 		val game = gameProvider.get()
+		slots.forEach[status = FIGHTING]
 		display.gameStarted
 		game.play(slots)
 		display.gameFinished
@@ -95,19 +97,24 @@ class GameServer extends Application {
 				slots.forEach[
 					if(robotID == game.loser) {
 						hallOfFameProvider.addDefeat(scriptName)
+						status = LOSER
 					} else {
 						display.showInfo(scriptName + ' wins', 2.seconds)
 						hallOfFameProvider.addWin(scriptName)
+						status = WINNER
 					}
 				]
 			} else {
 				display.showInfo('Draw', 2.seconds)
-				slots.forEach[hallOfFameProvider.addDraw(scriptName)]
+				slots.forEach[
+					status = DRAW
+					hallOfFameProvider.addDraw(scriptName)
+				]
 			}
 		}
 		LOG.debug('Releasing player slots')
 		slots.forEach[release]
-		display.idle
+		display.startIdleProgram
 	}
 	
 	def void showInfo(String message, Duration duration) {

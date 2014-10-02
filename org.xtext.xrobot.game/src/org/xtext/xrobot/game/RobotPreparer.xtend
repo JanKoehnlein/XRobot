@@ -2,7 +2,6 @@ package org.xtext.xrobot.game
 
 import org.apache.log4j.Logger
 import org.xtext.xrobot.api.Position
-import org.xtext.xrobot.game.display.Display
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
@@ -10,6 +9,7 @@ import org.xtext.xrobot.server.IRemoteRobot
 import static java.lang.Math.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.api.IArena.*
+import static org.xtext.xrobot.game.PlayerStatus.*
 
 import static extension javafx.util.Duration.*
 
@@ -36,8 +36,13 @@ class RobotPreparer {
 		this.slot = slot
 	}
 	
-	def getReady(Display display) {
+	private def getDisplay() {
+		slot.display
+	}
+
+	def void getReady() {
 		LOG.debug(slot.scriptName + ' getReady()')
+		slot.status = PREPARING
 		isCanceled = false
 		if(thread?.isAlive)
 			throw new IllegalStateException('RobotPlacer is already running')
@@ -60,17 +65,28 @@ class RobotPreparer {
 		thread.start
 	}
 	
-	def isReady(Display display) {
-		LOG.debug(slot.scriptName + ' isReady()')
+	def waitReady() {
+		LOG.debug(slot.scriptName + ' waitReady()')
 		thread?.join(PREPARATION_TIMEOUT)
 		isCanceled = true
 		thread?.join
-		if(robot.batteryState < MIN_BATTERY_CHARGE) 
-			display.showError(slot.scriptName + ': Change battery', 2.seconds)
-		return
-			robot.batteryState >= MIN_BATTERY_CHARGE 
-			&& robot.ownPosition.getRelativeDirection(homePosition).distance < DISTANCE_ACCURACY
-			&& abs(normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)) < ANGLE_ACCURACY
+		slot.status = checkStatus
+	}
+	
+	private def checkStatus() {
+		val isBatteryEmpty = robot.batteryState < MIN_BATTERY_CHARGE 
+		val isAtHome = robot.ownPosition.getRelativeDirection(homePosition).distance < DISTANCE_ACCURACY
+					&& abs(normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)) < ANGLE_ACCURACY
+		var newStatus = READY
+		if(!isAtHome) {
+			display.showError(slot.scriptName + ': Not at start position', 2.seconds)
+			newStatus = NOT_AT_HOME
+		}
+		if(isBatteryEmpty) {
+			display.showError(slot.scriptName + ': Change batteries', 2.seconds)
+			newStatus = BATTERY_EXHAUSTED
+		} 
+		newStatus
 	}
 	
 	private def goHome() {
@@ -100,6 +116,7 @@ class RobotPreparer {
 			robot.waitForUpdate
 			angle = normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)
 		}
+		slot.status = checkStatus
 	}
 	
 	private def getHomeViewDirection() {

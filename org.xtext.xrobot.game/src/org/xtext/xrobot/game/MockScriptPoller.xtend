@@ -28,7 +28,7 @@ class MockScriptPoller {
 
 	private def run() {
 		while(!isStopped) {
-			Thread.sleep(2000)
+			Thread.sleep(20000)
 			gameServer.register(gameServer.slots.head.token, ITestScripts.DANCER)
 			Thread.sleep(2000)
 			gameServer.register(gameServer.slots.last.token, ITestScripts.IDLE)

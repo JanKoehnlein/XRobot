@@ -6,28 +6,37 @@ import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
+import org.xtext.xrobot.game.display.Display
 import org.xtext.xrobot.server.IRemoteRobot
+
+import static org.xtext.xrobot.game.PlayerStatus.*
 
 @Accessors(PUBLIC_GETTER)
 class PlayerSlot implements IRobotListener {
 
 	RobotID robotID
 
+	IRemoteRobot.Connector connector
+	
+	Display display
+
 	Program program
 
 	AccessToken token
 
-	IRemoteRobot.Connector connector
-
 	IRemoteRobot.Factory robotFactory
 
+	@Accessors(NONE)
 	RobotPreparer preparer
+	
+	PlayerStatus status = AVAILABLE
 
 	val listeners = new CopyOnWriteArrayList<Listener>
 
-	new(RobotID robotID, IRemoteRobot.Connector connector) {
+	new(RobotID robotID, IRemoteRobot.Connector connector, Display display) {
 		this.robotID = robotID
 		this.connector = connector
+		this.display = display
 		token = new AccessToken
 		preparer = new RobotPreparer(this)
 	}
@@ -36,6 +45,11 @@ class PlayerSlot implements IRobotListener {
 		if(robotFactory == null || !robotFactory.isAlive)
 			robotFactory = connector.getRobotFactory(robotID)
 		robotFactory
+	}
+	
+	def setStatus(PlayerStatus status) {
+		this.status = status
+		listeners.forEach[slotChanged]
 	}
 	
 	def matches(AccessToken token) {
@@ -48,13 +62,19 @@ class PlayerSlot implements IRobotListener {
 
 	def acquire(Program program) {
 		this.program = program
-		listeners.forEach[slotChanged]
+		preparer.getReady
+	}
+	
+	def waitReady() {
+		preparer.waitReady
+		return status == READY
 	}
 
 	def release() {
 		this.program = null
 		robotFactory?.release
 		token = new AccessToken
+		status = AVAILABLE
 		listeners.forEach[slotChanged]
 	}
 
@@ -90,4 +110,5 @@ class PlayerSlot implements IRobotListener {
 		listeners.forEach[lineChanged(line)]
 	}
 
+	
 }

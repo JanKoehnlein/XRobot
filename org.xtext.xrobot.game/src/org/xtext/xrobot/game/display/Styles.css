@@ -22,6 +22,7 @@
 	-fx-vgap: 20.0;
 	-fx-orientation: vertical;
 	-fx-fill-width: true;
+	-fx-alignment: top-center;
 }
 
 .inner-box {
@@ -46,6 +47,7 @@
 
 .hof {
 	-fx-background-color: rgba(115.0,191.0,205.0,0.9);
+	-fx-font-size: 18
 }
 
 .hof-light {
@@ -77,6 +79,10 @@
 	-fx-fill: rgba(160.0,205.0,255.0, 1.0);
 }
 
+.blue-error {
+	-fx-background-color: red
+}
+
 .red {
 	-fx-background-color: rgba(252.0,123.0,107.0, 0.9);
 }
@@ -84,6 +90,10 @@
 .red-light {
 	-fx-background-color: rgba(218.0,88.0,96.0, 1.0);
 	-fx-fill: rgba(218.0,88.0,96.0, 1.0);
+}
+
+.red-error {
+	-fx-background-color: red
 }
 
 .error-box {
@@ -103,16 +113,6 @@
 	-fx-text-fill: white
 }
 
-.available {
-	-fx-background-color: green;
-	-fx-text-alignment: justify;	
-}
-
-.locked {
-	-fx-background-color: red;
-	-fx-text-alignment: center;
-}
-
 .message-pane {
 	-fx-alignment: center;
 	-fx-spacing: 10;
@@ -126,3 +126,4 @@
 	-fx-arc-width: 12;
 	-fx-arc-height: 12;
 }
+

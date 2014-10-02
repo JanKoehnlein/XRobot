@@ -21,8 +21,11 @@ class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 	
 	static val MAX_MODES = 10 
 	
+	Pane statusBox
+	Label statusLabel
 	Pane programBox
 	Label programLabel
+	Label authorLabel
 	Pane modesBox
 	
 	PlayerSlot slot
@@ -34,8 +37,19 @@ class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 		val lightStyle = style + '-light'
 		styleClass += #[style, 'outer-box']
 		alignment = Pos.TOP_CENTER
-		children += programBox = new StackPane => [
-			children += programLabel= new Label()
+		children += statusBox = new StackPane => [
+			children += statusLabel= new Label() => [
+				styleClass.setAll('boxed-label')
+			]
+			styleClass += #[lightStyle, 'inner-box']
+		]
+		children += programBox = new VBox => [
+			children += programLabel= new Label => [
+				styleClass.setAll('inner-box', 'robot-inner-box', 'title-label')
+			]
+			children += authorLabel= new Label => [
+				styleClass.setAll('inner-box', 'robot-inner-box')
+			]
 			styleClass += #[lightStyle, 'inner-box']
 		]
 		children += modesBox = new VBox => [
@@ -58,30 +72,18 @@ class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 	
 	override slotChanged() {
 		Platform.runLater [
-			if(slot.program == null) {
-				programBox => [
-					styleClass.setAll('inner-box', 'robot-inner-box', 'available')
-				]
-				programLabel => [
-					styleClass.setAll('inner-box', 'robot-inner-box', 'available')
-					text = '''
-						AVAILABLE
-						Token «slot.token.value»
-					'''
-				]
+			statusBox => [
+				styleClass.setAll('inner-box', slot.robotID.name.toLowerCase + '-' + slot.status.style)
+			]
+			statusLabel.text = slot.status.label
+			val program = slot.program
+			if(program == null) {
+				programLabel.text = 'Use Token'
+				authorLabel.text = slot.token.value
 				modesBox.children.clear
 			} else {
-				programBox => [
-					styleClass.setAll('inner-box', 'robot-inner-box', 'locked')
-				]
-				programLabel => [
-					styleClass.setAll('inner-box', 'robot-inner-box', 'locked')
-					text = '''
-						LOCKED
-						«slot.program.name»
-						(«slot.program.author»)
-					'''
-				]
+				programLabel.text = program.name
+				authorLabel.text = program.author
 			}
 		]
 	}

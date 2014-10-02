@@ -27,13 +27,14 @@ import static extension javafx.util.Duration.*
 class Display {
 
 	@Inject RootPane rootPane
-	@Inject HallOfFameTable hallOfFame
+	@Inject IdleProgram idleProgram
 	@Inject StackPane centerPane
 	@Inject VBox messagePane
 
 	List<PlayerSlotBox> slotBoxes
-
+	
 	def start(Stage stage, List<PlayerSlot> slots) throws Exception {
+		idleProgram.init
 		val screenBounds = Screen.getPrimary.bounds
 		stage => [
 			initStyle(StageStyle.TRANSPARENT);
@@ -42,7 +43,7 @@ class Display {
 					styleClass += 'border-pane'
 					top = new DistanceBar(slots.head, slots.last)
 					center = centerPane => [
-						children += hallOfFame
+						children += idleProgram
 						children += messagePane => [
 							styleClass += 'message-pane'
 						]
@@ -58,12 +59,18 @@ class Display {
 			]
 			show
 		]
-		idle
+		startIdleProgram
+	}
+
+	def startIdleProgram() {
+		Platform.runLater[
+			idleProgram.start
+		]
 	}
 
 	def prepareGame() {
 		Platform.runLater[
-			hallOfFame.hide
+			idleProgram.stop
 			countdown()
 		]
 		Thread.sleep(3000)
@@ -121,13 +128,6 @@ class Display {
 		false
 	}
 
-	def idle() {
-		Platform.runLater [
-			// TODO: entertain me
-			hallOfFame.show
-		]
-	}
-	
 	def showError(String message, Duration duration) {
 		showMessage(message, 'error', duration)
 	}

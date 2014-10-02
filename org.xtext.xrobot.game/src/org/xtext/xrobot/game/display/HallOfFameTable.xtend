@@ -6,6 +6,7 @@ import javafx.animation.KeyFrame
 import javafx.animation.KeyValue
 import javafx.animation.SequentialTransition
 import javafx.animation.Timeline
+import javafx.geometry.HPos
 import javafx.scene.control.Label
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.VBox
@@ -14,7 +15,6 @@ import org.xtext.xrobot.game.HallOfFameEntry
 import org.xtext.xrobot.game.HallOfFameProvider
 
 import static extension javafx.util.Duration.*
-import javafx.geometry.HPos
 
 class HallOfFameTable extends VBox {
 
@@ -22,17 +22,29 @@ class HallOfFameTable extends VBox {
 	
 	@Inject HallOfFameProvider hallOfFameProvider
 	
+	val spacerRectangle = new Rectangle(0, 0, 323, 0) => [
+			visible = false
+	]
+	
 	new() {
 		styleClass += #['hof', 'outer-box']
 		setMaxSize(USE_PREF_SIZE, USE_PREF_SIZE)
 	}
 
 	def hide() {
-		visible = false
+		new FadeTransition => [
+			node = this
+			fromValue = 1
+			toValue = 0
+			duration = 100.millis
+			onFinished = [
+				spacerRectangle.height = 0
+				children.setAll(spacerRectangle)
+			]
+		]
 	}
 
 	def show() {
-		visible = true
 		update => [
 			onFinished = [
 				new SequentialTransition => [
@@ -47,11 +59,7 @@ class HallOfFameTable extends VBox {
 					]
 					play
 				]
-//				Platform.runLater[
-//					println(content.boundsInLocal)
-//				]
 			]
-			play
 		]
 	}
 
@@ -61,38 +69,35 @@ class HallOfFameTable extends VBox {
 		content.styleClass += 'hof-content'
 		val heading = addCell('Hall Of Fame', 0, 0, #['hof', 'title-label'])
 		GridPane.setConstraints(heading, 0, 0, 6, 1)
-		//TODO: rowspan
 		val styles = #['hof', 'boxed-label']
 		#['#', 'Name', 'W', 'D', 'L', 'S'].forEach [ string, i |
-			addCell(string, i, 1, styles) => [
-				GridPane.setHalignment(it, HPos.CENTER)
-			]
+			if(i<10) {
+				addCell(string, i, 1, styles) => [
+					GridPane.setHalignment(it, HPos.CENTER)
+				]
+			}
 		]
 		hallOfFame.forEach [ entry, i |
 			addRow(i+2, i+1, entry)
 		]
-		val rect = new Rectangle(0, 0, 323, 0) => [
-			visible = false
-		]
-		children.setAll(rect)
+		children.setAll(spacerRectangle)
 		
 		new SequentialTransition => [ t |
 			t.children += new Timeline => [
-				delay = 500.millis
 				cycleCount = 1
 				autoReverse = false
 				keyFrames += new KeyFrame(
 					500.millis,
-					new KeyValue(rect.heightProperty, 560)
+					new KeyValue(spacerRectangle.heightProperty, 560)
 				)
 				onFinished = [
-					this.children -= rect
+					this.children.clear
 					this.children += content
 				]
 			]
 		]
 	}
-
+	
 	private def addCell(Object value, int column, int row, String... styles) {
 		val cell = new VBox
 		content.add(cell => [
