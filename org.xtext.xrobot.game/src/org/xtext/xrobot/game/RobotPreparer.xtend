@@ -47,6 +47,7 @@ class RobotPreparer {
 		if(thread?.isAlive)
 			throw new IllegalStateException('RobotPlacer is already running')
 		robot = slot.robotFactory.newRobot [isCanceled]
+		LOG.info(slot.robotID + ' battery ' + robot.batteryState)
 		if(robot.batteryState < MIN_BATTERY_CHARGE) 
 			display.showError(slot.scriptName + ': Change battery', 2.seconds)
 		if(robot.batteryState < LOW_BATTERY_CHARGE) 
