@@ -4,6 +4,7 @@ import org.eclipse.xtext.xbase.scoping.batch.ImplicitlyImportedFeatures
 import org.xtext.xrobot.api.GeometryExtensions
 import org.xtext.xrobot.api.IRobotGeometry
 import org.xtext.xrobot.api.Sample
+import org.xtext.xrobot.api.IArena
 
 class XRobotImplicitlyImportedFeatures extends ImplicitlyImportedFeatures {
 	
@@ -18,6 +19,7 @@ class XRobotImplicitlyImportedFeatures extends ImplicitlyImportedFeatures {
 		val result = super.getStaticImportClasses
 		result += Math
 		result += IRobotGeometry
+		result += IArena
 		result += Sample
 		result
 	}
