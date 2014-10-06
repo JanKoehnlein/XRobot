@@ -85,11 +85,17 @@ class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 			val program = slot.program
 			if(program == null) {
 				programLabel.text = 'Use Token'
-				authorLabel.text = slot.token.value
+				authorLabel => [
+					styleClass.setAll('inner-box', 'robot-inner-box', 'token')
+					text = slot.token.value
+				]
 				modesBox.children.clear
 			} else {
 				programLabel.text = program.name
-				authorLabel.text = program.author
+				authorLabel => [
+					styleClass.setAll('inner-box', 'robot-inner-box')
+					text = program.author
+				]
 			}
 		]
 	}

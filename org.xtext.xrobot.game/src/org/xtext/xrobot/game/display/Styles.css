@@ -139,3 +139,7 @@
 	-fx-stroke: black;
 	-fx-stroke-width: 2;
 }
+
+.token {
+	-fx-font-family: 'Consolas'
+}
