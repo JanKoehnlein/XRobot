@@ -44,7 +44,6 @@ class Display {
 			scene = new Scene(
 				rootPane => [
 					styleClass += 'border-pane'
-					top = new DistanceBar(slots.head, slots.last)
 					center = centerPane => [
 						children += idleProgram
 						children += messagePane => [
