@@ -11,5 +11,8 @@
 	<classpathentry kind="lib" path="lib/ev3classes.jar"/>
 	<classpathentry kind="lib" path="lib/jcommon.jar"/>
 	<classpathentry kind="lib" path="lib/freetts.jar"/>
+	<classpathentry kind="lib" path="lib/en_us.jar"/>
+	<classpathentry kind="lib" path="lib/cmulex.jar"/>
+	<classpathentry kind="lib" path="lib/cmu_us_kal.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

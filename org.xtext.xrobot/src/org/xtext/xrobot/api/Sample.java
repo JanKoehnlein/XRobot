@@ -1,5 +1,16 @@
 package org.xtext.xrobot.api;
 
+/**
+ * Definition of samples that can be played by robots:
+ * <ul>
+ *   <li>{@link #ARNOLD}</li>
+ *   <li>{@link #BORG}</li>
+ *   <li>{@link #C3PO}</li>
+ *   <li>{@link #DALEK}</li>
+ *   <li>{@link #HOMER}</li>
+ *   <li>{@link #R2D2}</li>
+ * </ul>
+ */
 public enum Sample {
 	ARNOLD("Hasta la vista, baby!"), 
 	BORG("Resistance is futile."), 

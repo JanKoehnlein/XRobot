@@ -128,8 +128,8 @@ class RobotPreparer {
 	
 	private def getHomePosition() {
 		switch robot.robotID {
-			case Blue: new Position(-ARENA_RADIUS * 0.4, 0)
-			case Red: new Position(ARENA_RADIUS * 0.4, 0)
+			case Blue: new Position(-ARENA_OUTER_RADIUS * 0.4, 0)
+			case Red: new Position(ARENA_OUTER_RADIUS * 0.4, 0)
 		}
 	}
 	

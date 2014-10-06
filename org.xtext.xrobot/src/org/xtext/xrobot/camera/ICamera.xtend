@@ -22,7 +22,7 @@ interface ICamera {
 	val ARENA_RADIUS_IN_PX = 450
 
 	/** The width in centimeters of the tracked camera image. */	
-	val WIDTH_IN_CM = RESOLUTION_X * IArena.ARENA_RADIUS / ARENA_RADIUS_IN_PX
+	val WIDTH_IN_CM = RESOLUTION_X * IArena.ARENA_OUTER_RADIUS / ARENA_RADIUS_IN_PX
 	/** The height in centimeters of the tracked camera image. */	
 	val HEIGHT_IN_CM = WIDTH_IN_CM / ASPECT_RATIO
 	

@@ -68,7 +68,7 @@ class DistanceBar extends Region {
 		}
 		
 		override stateChanged(IRemoteRobot robot) {
-			value = max(0, IArena.ARENA_RADIUS - robot.centerDirection.distance)  
+			value = max(0, IArena.ARENA_OUTER_RADIUS - robot.centerDirection.distance)  
 		}
 		
 		override variableChanged(String name, Object value) {

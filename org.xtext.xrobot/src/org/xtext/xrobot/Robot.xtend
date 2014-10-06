@@ -16,6 +16,7 @@ import org.xtext.xrobot.annotations.SimpleRMI
 import org.xtext.xrobot.annotations.SubComponent
 import org.xtext.xrobot.annotations.Zombie
 import org.xtext.xrobot.api.Direction
+import org.xtext.xrobot.api.IRobotGeometry
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.api.Sample
 import org.xtext.xrobot.util.LEDPatterns
@@ -85,7 +86,10 @@ class Robot {
 	 * Returns the brightness value of the ground color as measured by the color sensor.
 	 * Use this to detect tilts or scan the ground for marks.
 	 * 
-	 * <p>This command is non-blocking, i.e. it returns immediately.</p>
+	 * <p>If this command is called repeatedly in the same mode, it returns the same values
+	 * unless the robot state is updated with the {@link #update()} command.</p>
+	 * 
+	 * <p>This command is <em>non-blocking</em>, i.e. it returns immediately.</p>
 	 * 
 	 * @return the brightness value of the ground color as measured by the color sensor
 	 */
@@ -101,7 +105,7 @@ class Robot {
 	 * If both speeds are positive, the robot moves forward. If they are negative, the robot
 	 * moves backward. If one speed value is positive and the other is negative, the robot rotates.
 	 * 
-	 * <p>This command is non-blocking, i.e. it returns immediately and the motors 
+	 * <p>This command is <em>non-blocking</em>, i.e. it returns immediately and the motors 
 	 * continue moving until they receive another command such as {@link #stop()}.</p>
 	 * 
 	 * <p>When the motors are started with two consecutive commands, the resulting movement
@@ -171,6 +175,9 @@ class Robot {
 	 *   <li>{@link #drive(double)}</li>
 	 *   <li>{@link #driveForward()}</li>
 	 *   <li>{@link #driveBackward()}</li>
+	 *   <li>{@link #curveForward(double, double)}</li>
+	 *   <li>{@link #curveBackward(double, double)}</li>
+	 *   <li>{@link #curveTo(double, double)}</li>
 	 * </ul>
 	 * The maximal speed can be obtained with {@link #getMaxDrivingSpeed()}.
 	 * The sign of the given speed value is ignored.</p>
@@ -184,6 +191,9 @@ class Robot {
 	/**
 	 * Return the currently set driving speed in centimeters/second. It can be modified
 	 * using {@link #setDrivingSpeed(double)}.
+	 * 
+	 * <p>If this command is called repeatedly in the same mode, it returns the same values
+	 * unless the robot state is updated with the {@link #update()} command.</p>
 	 * 
 	 * @return the driving speed in centimeters/second 
 	 */
@@ -266,6 +276,9 @@ class Robot {
 	 * Return the currently set rotation speed in degrees/second. It can be modified
 	 * using {@link #setRotationSpeed(double)}.
 	 * 
+	 * <p>If this command is called repeatedly in the same mode, it returns the same values
+	 * unless the robot state is updated with the {@link #update()} command.</p>
+	 * 
 	 * @return the rotation speed in degrees/second 
 	 */
 	override double getRotationSpeed() {
@@ -290,9 +303,9 @@ class Robot {
 	/**
 	 * Let the robot travel a forward curve following a segment with the given {@code angle}
 	 * of a circle with the given {@code radius}.
-	 * 
 	 * A positive angle means a counter-clockwise curve (left), while a negative angle
 	 * means a clockwise curve (right). The sign of the radius is ignored.
+	 * The speed of this movement is set with {@link #setDrivingSpeed(double)}.
 	 * 
 	 * @param radius
 	 * 		The radius in centimeters of the circle on which to travel
@@ -310,9 +323,9 @@ class Robot {
 	/**
 	 * Let the robot travel a backward curve following a segment with the given {@code angle}
 	 * of a circle with the given {@code radius}.
-	 * 
 	 * A positive angle means a clockwise curve (left), while a negative angle means a
 	 * counter-clockwise curve (right). The sign of the radius is ignored.
+	 * The speed of this movement is set with {@link #setDrivingSpeed(double)}.
 	 * 
 	 * @param radius
 	 * 		The radius in centimeters of the circle on which to travel
@@ -329,7 +342,15 @@ class Robot {
 
 	/**
 	 * Let the robot travel a forward curve to the point with the relative polar
-	 * coordinates <code>angle</code> and <code>distance</code>.
+	 * coordinates {@code angle} and {@code distance}.
+	 * A positive angle means a counter-clockwise curve (left), while a negative angle
+	 * means a clockwise curve (right).
+	 * The speed of this movement is set with {@link #setDrivingSpeed(double)}.
+	 * 
+	 * @param distance
+	 * 		The distance of the targeted point from the robot's current position
+	 * @param angle
+	 * 		The angle of the targeted point relative to the robot's view direction
 	 */
 	@Blocking
 	override void curveTo(double distance, double angle) {
@@ -344,21 +365,27 @@ class Robot {
 	}
 
 	/**
-	 * @return true if any of the motors is moving. 
+	 * Determine whether the robot is currently executing a movement command.
+	 * 
+	 * <p>If this command is called repeatedly in the same mode, it returns the same values
+	 * unless the robot state is updated with the {@link #update()} command.</p>
+	 * 
+	 * @return true if any of the motors is moving
 	 */
 	override boolean isMoving() {
 		pilot.isMoving
 	}
 
 	/**
-	 * Stop all motors immediately.
+	 * Stop all motors immediately. Any previously given movement command is aborted.
 	 */
+	@Zombie
 	override void stop() {
-		pilot.stop
+		pilot.quickStop
 	}
 
 	/**
-     * Reset the robot: 
+     * Reset the robot to its starting state:
      * Left and right motors are stopped,
      * scoop is moved to neutral position, 
      * and speeds are set to maximal values.
@@ -372,29 +399,49 @@ class Robot {
 	}
 
 	/**
-	 * Moves the robot's scoop. Values are truncated to be between -1.0 and 1.0 
-	 * 0 is on the floor
-	 * 1 is completely up
-	 * -1 is completely down (could roll the robot over)   
+	 * Move the robot's scoop to the specified position:
+	 * 0 is on the floor (the starting position),
+	 * 1 is completely up, and
+	 * -1 is completely down (could roll the robot over).
+	 * Values below -1 or above 1 are truncated to these limits.   
 	 * 
-	 * This method will block the current mode's execution until the move is complete.
-	 * Once finished, the motors will be stopped.
+	 * <p>This command is <em>non-blocking</em>, i.e. it returns immediately and the scoop
+	 * motor continues moving until it reaches the specified position. If another scoop
+	 * command is given, it may be blocked until the first command has finished its movement.</p>
+	 * 
+	 * @param position
+	 * 		The target position of the robot's scoop (between -1 and +1)
 	 */
 	@Blocking('getScoopMoving')
-	override void scoop(double angle) {
-		val intAngle = (min(1, max(angle, -1)) * 200) as int
+	override void scoop(double position) {
+		val intAngle = (min(1, max(position, -1)) * 200) as int
 		scoopMotor.rotateTo(intAngle)
 	}
 
+	/**
+	 * @return true if the scoop motor is currently moving
+	 */
 	@NoAPI
 	def boolean isScoopMoving() {
 		scoopMotor.isMoving	
 	}
 	
+	/**
+	 * Play one of the predefined samples (see {@link Sample}).
+	 * 
+	 * @param sample
+	 * 		A reference to a predefined sample
+	 */
 	@Calculated
 	override void play(Sample sample) {
 	}
 
+	/**
+	 * Let the robot say something.
+	 * 
+	 * @param text
+	 * 		A text that shall be spoken by the robot
+	 */
 	@Calculated 
 	override void say(String text) {
 	}
@@ -440,11 +487,24 @@ class Robot {
 	}
 
 	/**
-	 * Updates this robot with the latest sensor data and robot state. 
-	 * 
+	 * Update the robot with the latest sensor data and robot state. 
 	 * The state is usually only updated when the modes' conditions are checked. 
 	 * A new mode is entered with exactly that state to make sure the condition still holds.
 	 * Use this method if you need fresh data during a mode's execution.
+	 * 
+	 * <p>The following commands are affected by state updates:
+	 * <ul>
+	 *   <li>{@link #getCenterDirection()}</li>
+	 *   <li>{@link #getDrivingSpeed()}</li>
+	 *   <li>{@link #getGroundColor()}</li>
+	 *   <li>{@link #getMaxDrivingSpeed()}</li>
+	 *   <li>{@link #getMaxRotationSpeed()}</li>
+	 *   <li>{@link #getOpponentDirection()}</li>
+	 *   <li>{@link #getOpponentPosition()}</li>
+	 *   <li>{@link #getOwnPosition()}</li>
+	 *   <li>{@link #getRotationSpeed()}</li>
+	 *   <li>{@link #isMoving()}</li>
+	 * </ul></p>
 	 */
 	@Calculated
 	override void update() {
@@ -452,28 +512,64 @@ class Robot {
 	}
 
 	/**
-	 * @return the robot's position.
+	 * Get the current absolute position of the robot. This includes (x,y) coordinates relative
+	 * to the center of the arena and the view direction.
+	 * 
+	 * <p>Robot positions refer to the center of the axis (see {@link IRobotGeometry}).</p>
+	 * 
+	 * <p>If this command is called repeatedly in the same mode, it returns the same values
+	 * unless the robot state is updated with the {@link #update()} command.</p>
+	 * 
+	 * @return the robot's current absolute position
 	 */
 	@Calculated
 	override RobotPosition getOwnPosition() {
 	}
 
 	/**
-	 * @return the opponent's position.
+	 * Get the current absolute position of your opponent. This includes (x,y) coordinates relative
+	 * to the center of the arena and the view direction.
+	 * 
+	 * <p>Robot positions refer to the center of the axis (see {@link IRobotGeometry}).</p>
+	 * 
+	 * <p>If this command is called repeatedly in the same mode, it returns the same values
+	 * unless the robot state is updated with the {@link #update()} command.</p>
+	 * 
+	 * @return the opponent's current absolute position
 	 */
 	@Calculated
 	override RobotPosition getOpponentPosition() {
 	}
 
 	/**
-	 * @return the opponent's direction.
+	 * Get the direction of your opponent. This is given in polar coordinates (distance and angle)
+	 * relative to your current position.
+	 * 
+	 * <p>Robot positions refer to the center of the axis (see {@link IRobotGeometry}),
+	 * which means that the distance reported by this command is the distance from the
+	 * opponent's axis to your robot's axis.</p>
+	 * 
+	 * <p>If this command is called repeatedly in the same mode, it returns the same values
+	 * unless the robot state is updated with the {@link #update()} command.</p>
+	 * 
+	 * @return the relative distance and angle to the opponent
 	 */
 	@Calculated
 	override Direction getOpponentDirection() {
 	}
 
 	/**
-	 * @return the center direction.
+	 * Get the direction of the center of the arena. This is given in polar coordinates
+	 * (distance and angle) relative to your current position.
+	 * 
+	 * <p>Robot positions refer to the center of the axis (see {@link IRobotGeometry}),
+	 * which means that the distance reported by this command is the distance from the
+	 * center to your robot's axis.</p>
+	 * 
+	 * <p>If this command is called repeatedly in the same mode, it returns the same values
+	 * unless the robot state is updated with the {@link #update()} command.</p>
+	 * 
+	 * @return the relative distance and angle to the center of the arena
 	 */
 	@Calculated
 	override Direction getCenterDirection() {
