@@ -10,11 +10,13 @@ import javafx.animation.SequentialTransition
 import javafx.geometry.Point3D
 import javafx.scene.control.Label
 import javafx.scene.control.OverrunStyle
+import javafx.scene.effect.InnerShadow
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.scene.layout.Pane
 import javafx.scene.layout.StackPane
 import javafx.scene.layout.VBox
+import javafx.scene.paint.Color
 
 import static extension javafx.util.Duration.*
 
@@ -43,6 +45,11 @@ class IdleProgram extends StackPane {
 				styleClass += 'logo'
 				textOverrun = OverrunStyle.CLIP
 				opacity = 0
+				effect = new InnerShadow => [
+					color = Color.RED
+					width = 20
+					height = 20
+				]
 			]
 		}
 		animation = createAnimation
