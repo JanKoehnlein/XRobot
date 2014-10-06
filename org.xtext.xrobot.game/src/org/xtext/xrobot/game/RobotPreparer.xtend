@@ -22,6 +22,7 @@ class RobotPreparer {
 	
 	static val DISTANCE_ACCURACY = 5.0
 	static val ANGLE_ACCURACY = 8.0
+	static val MAX_PLACEMENT_MOVES = 10 
 	
 	static val PREPARATION_TIMEOUT = 10000
 	
@@ -96,7 +97,8 @@ class RobotPreparer {
 
 		val homePosition = getHomePosition()
 		var direction = robot.ownPosition.getRelativeDirection(homePosition)
-		while (direction.distance > DISTANCE_ACCURACY) {
+		var moveCount = 0
+		while (direction.distance > DISTANCE_ACCURACY && moveCount++ < MAX_PLACEMENT_MOVES) {
 			if (abs(direction.angle) <= ANGLE_ACCURACY) {
 				robot.drive(direction.distance)
 			} else if (abs(normalizeAngle(direction.angle - 180)) <= ANGLE_ACCURACY) {
@@ -112,7 +114,7 @@ class RobotPreparer {
 
 		val homeViewDirection = getHomeViewDirection()
 		var angle = normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)
-		while (abs(angle) > ANGLE_ACCURACY) {
+		while (abs(angle) > ANGLE_ACCURACY && moveCount++ < MAX_PLACEMENT_MOVES) {
 			robot.rotate(angle)
 			robot.waitForUpdate
 			angle = normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)
