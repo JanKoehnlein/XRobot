@@ -16,7 +16,7 @@ import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 import org.xtext.xrobot.dsl.interpreter.ScriptParser
 import org.xtext.xrobot.game.display.Display
 import org.xtext.xrobot.game.ranking.RankingSystem
-import org.xtext.xrobot.server.testing.MockRobotConnector
+import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.game.PlayerStatus.*
 
@@ -30,10 +30,10 @@ class GameServer extends Application {
 		launch()
 	}
 	
-//	@Inject IRemoteRobot.Connector remoteRobotConnector
-//	@Inject ScriptPoller scriptPoller
-	@Inject MockRobotConnector remoteRobotConnector
-	@Inject MockScriptPoller scriptPoller
+	@Inject IRemoteRobot.Connector remoteRobotConnector
+	@Inject ScriptPoller scriptPoller
+//	@Inject MockRobotConnector remoteRobotConnector
+//	@Inject MockScriptPoller scriptPoller
 	@Inject Provider<XtextResourceSet> resourceSetProvider
 
 	@Inject ScriptParser scriptParser

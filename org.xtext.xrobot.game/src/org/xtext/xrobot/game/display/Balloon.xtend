@@ -54,7 +54,9 @@ class Balloon extends Parent implements AudioService.Listener, PlayerSlot.Listen
 	}
 	
 	override stateRead(IRemoteRobot robot) {
-		placeBubble(robot.ownPosition, robot.opponentPosition)
+		Platform.runLater [
+			placeBubble(robot.ownPosition, robot.opponentPosition)
+		]
 	}
 	
 	private def placeBubble(RobotPosition own, RobotPosition opponent) {
