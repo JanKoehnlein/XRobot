@@ -5,8 +5,10 @@ package org.xtext.xrobot.dsl;
 
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
+import org.eclipse.xtext.xbase.imports.IImportsConfiguration;
 import org.eclipse.xtext.xbase.scoping.batch.FeatureScopes;
 import org.eclipse.xtext.xbase.scoping.batch.ImplicitlyImportedFeatures;
+import org.xtext.xrobot.dsl.imports.XRobotImportsConfiguration;
 import org.xtext.xrobot.dsl.scoping.XRobotFeatureScopes;
 import org.xtext.xrobot.dsl.scoping.XRobotImplicitlyImportedFeatures;
 import org.xtext.xrobot.dsl.scoping.XRobotResourceDescriptionStrategy;
@@ -37,5 +39,9 @@ public class XRobotDSLRuntimeModule extends org.xtext.xrobot.dsl.AbstractXRobotD
 	
 	public Class<? extends FeatureScopes> bindFeatureScopes() {
 		return XRobotFeatureScopes.class;
+	}
+	
+	public Class<? extends IImportsConfiguration> bindIImportsConfiguration() {
+		return XRobotImportsConfiguration.class;
 	}
 }
