@@ -67,6 +67,9 @@ class PlayerSlot implements IRobotListener {
 	
 	def waitReady() {
 		preparer.waitReady
+		if(status != READY) {
+			display.addKeyAction[preparer.getReady]
+		}
 		return status == READY
 	}
 

@@ -6,10 +6,13 @@ import javafx.animation.Interpolator
 import javafx.animation.ScaleTransition
 import javafx.animation.SequentialTransition
 import javafx.application.Platform
+import javafx.event.EventHandler
+import javafx.scene.Group
 import javafx.scene.Scene
 import javafx.scene.control.Button
 import javafx.scene.control.Label
 import javafx.scene.effect.InnerShadow
+import javafx.scene.input.KeyEvent
 import javafx.scene.layout.StackPane
 import javafx.scene.layout.VBox
 import javafx.scene.paint.Color
@@ -23,7 +26,6 @@ import org.xtext.xrobot.game.PlayerSlot
 import static javafx.scene.layout.Region.*
 
 import static extension javafx.util.Duration.*
-import javafx.scene.Group
 
 class Display {
 
@@ -69,6 +71,16 @@ class Display {
 	def startIdleProgram() {
 		Platform.runLater[
 			idleProgram.start
+		]
+	}
+	
+	def addKeyAction(Runnable action) {
+		Platform.runLater [
+			val EventHandler<KeyEvent> handler = [ KeyEvent it | 
+				action.run()
+				rootPane.scene.removeEventHandler(KeyEvent.KEY_TYPED, self)
+			]
+			rootPane.scene.addEventHandler(KeyEvent.KEY_TYPED, handler)
 		]
 	}
 
