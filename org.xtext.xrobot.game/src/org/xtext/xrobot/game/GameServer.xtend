@@ -4,6 +4,7 @@ import com.google.inject.Inject
 import com.google.inject.Provider
 import java.util.List
 import javafx.application.Application
+import javafx.scene.text.Font
 import javafx.stage.Stage
 import javafx.util.Duration
 import org.apache.log4j.Logger
@@ -14,12 +15,12 @@ import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 import org.xtext.xrobot.dsl.interpreter.ScriptParser
 import org.xtext.xrobot.game.display.Display
+import org.xtext.xrobot.game.ranking.RankingSystem
 import org.xtext.xrobot.server.testing.MockRobotConnector
 
 import static org.xtext.xrobot.game.PlayerStatus.*
 
 import static extension javafx.util.Duration.*
-import javafx.scene.text.Font
 
 class GameServer extends Application {
 
@@ -40,7 +41,7 @@ class GameServer extends Application {
 	@Inject Provider<Game> gameProvider
 	
 	@Inject Display display
-	@Inject HallOfFameProvider hallOfFameProvider
+	@Inject RankingSystem rankingSystem
 
 	List<PlayerSlot> slots 
 	
@@ -97,22 +98,18 @@ class GameServer extends Application {
 				startGame
 		} else {
 			if(game.loser != null) {
-				slots.forEach[
-					if(robotID == game.loser) {
-						hallOfFameProvider.addDefeat(scriptName)
-						status = LOSER
-					} else {
-						display.showInfo(scriptName + ' wins', 5.seconds)
-						hallOfFameProvider.addWin(scriptName)
-						status = WINNER
-					}
-				]
+				val winnerSlot = slots.findFirst[robotID != game.loser]
+				winnerSlot.status = WINNER
+				val loserSlot = slots.findFirst[robotID == game.loser]
+				loserSlot.status = LOSER
+				display.showInfo(winnerSlot.scriptName + ' wins', 5.seconds)
+				rankingSystem.addWin(winnerSlot.scriptName, loserSlot.scriptName)
 			} else {
 				display.showInfo('Nobody won', 5.seconds)
 				slots.forEach[
 					status = DRAW
-					hallOfFameProvider.addDraw(scriptName)
 				]
+				rankingSystem.addDraw(slots.head.scriptName, slots.last.scriptName)
 			}
 			Thread.sleep(5000)
 		}

@@ -45,3 +45,6 @@ Import-Package: javafx.animation;version="2.2.0",
  javafx.util;version="2.2.0",
  javafx.util.converter;version="2.2.0",
  org.apache.log4j;version="1.2.15"
+Export-Package: org.xtext.xrobot.game,
+ org.xtext.xrobot.game.display,
+ org.xtext.xrobot.game.ranking

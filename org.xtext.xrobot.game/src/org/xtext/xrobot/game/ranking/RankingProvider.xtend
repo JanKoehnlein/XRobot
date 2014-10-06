@@ -1,108 +1,62 @@
-package org.xtext.xrobot.game
+package org.xtext.xrobot.game.ranking
 
+import com.google.gson.Gson
 import com.google.inject.Singleton
-import org.eclipse.xtend.lib.annotations.Accessors
-import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
-
-import static java.lang.Math.*
+import java.io.File
+import java.io.FileReader
+import java.io.FileWriter
+import java.io.Reader
+import java.io.Writer
+import java.util.List
 
 @Singleton
-class HallOfFameProvider {
+class RankingProvider {
 	
-	val index = <String, HallOfFameEntry>newHashMap
+	static val FILE_NAME = 'rankings.json'
 	
-	def addWin(String name) {
-		name.entry.addWin
-	}
-	
-	def addDraw(String name) {
-		name.entry.addDraw	
-	}
-	
-	def addDefeat(String name) {
-		name.entry.addDefeat	
-	}
-	
+	val index = <String, PlayerRanking>newHashMap
+		
 	new() {
-		// TODO remove dummy entries
-		addWin('Miro')
-		addWin('Miro')
-		addWin('Miro')
-		addWin('Miro')
-		addDraw('Miro')
-		addDefeat('Miro')
-		addWin('Sven')
-		addDraw('Jan')
-		addDraw('Jan')
-		addDraw('Mr Roboto')
-		addDefeat('Mr Roboto')
-		addDefeat('Mr Roboto')
-		addWin('Mr Roboto')
-		addDefeat('Mr Roboto')
-		addDefeat('Mr Roboto')
-		addDraw('Arnold')
-		addDraw('C3PO')
-		addWin('Cameron')
-		addDraw('Cameron')
-		addWin('Robie')
-		addWin('R2D2')
-		addWin('Data')
+		load		
 	}
 	
 	def getHallOfFame() {
 		index.values.sort
 	}
+	
+	def save() {
+		val gson = new Gson
+		var Writer writer = null 
+		try {
+			writer = new FileWriter(new File(FILE_NAME))
+			gson.toJson(index.values, writer)
+			
+		} finally {
+			writer?.close
+		}
+	}
 
-	private def getEntry(String name) {
+	def load() {
+		val gson = new Gson
+		val file = new File(FILE_NAME)
+		if(file.exists) {
+			var Reader reader = null
+			try {
+				reader = new FileReader(file)
+				val List<PlayerRanking> values = gson.fromJson(reader, typeof(PlayerRanking[]))
+				values.forEach[index.put(name, it)]
+			} finally {
+				reader?.close
+			}
+		}
+	}
+
+	def getRanking(String name) {
 		index.get(name) ?: {
-			val newEntry = new HallOfFameEntry(name)
+			val newEntry = new PlayerRanking(name)
 			index.put(name, newEntry)
 			newEntry
 		}
 	}
-}
-
-@Accessors(PUBLIC_GETTER)
-@FinalFieldsConstructor
-class HallOfFameEntry implements Comparable<HallOfFameEntry> {
-
-	/**
-	 * Number of games needed to get the full points in score 
-	 */
-	static val NUMBER_OF_GAMES_WEIGHT = 5
-	
-	val String name
-	int wins
-	int draws
-	int defeats
-	double score 
-	
-	def addWin() {
-		wins++
-		updateScore
-	}
-	
-	def addDraw() {
-		draws++
-		updateScore
-	}
-	
-	def addDefeat() {
-		defeats++
-		updateScore
-	}
-	
-	def getNumGames() {
-		wins + draws + defeats
-	}
-
-	private def updateScore() {
-		 score = min(1, numGames as double / NUMBER_OF_GAMES_WEIGHT) * (3.0 * wins + draws) / numGames  
-	}
-	
-	override compareTo(HallOfFameEntry other) {
-		other.score.compareTo(score)
-	}
-	
 }
 

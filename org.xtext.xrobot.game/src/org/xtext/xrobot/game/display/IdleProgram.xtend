@@ -50,6 +50,7 @@ class IdleProgram extends StackPane {
 
 	def start() {
 		visible = true
+		hallOfFameTable.update
 		animation.playFromStart
 	}
 

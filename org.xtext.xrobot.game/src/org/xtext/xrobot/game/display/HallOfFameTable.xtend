@@ -11,8 +11,8 @@ import javafx.scene.control.Label
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.VBox
 import javafx.scene.shape.Rectangle
-import org.xtext.xrobot.game.HallOfFameEntry
-import org.xtext.xrobot.game.HallOfFameProvider
+import org.xtext.xrobot.game.ranking.PlayerRanking
+import org.xtext.xrobot.game.ranking.RankingProvider
 
 import static extension javafx.util.Duration.*
 
@@ -20,7 +20,7 @@ class HallOfFameTable extends VBox {
 
 	@Inject GridPane content
 	
-	@Inject HallOfFameProvider hallOfFameProvider
+	@Inject RankingProvider hallOfFameProvider
 	
 	val spacerRectangle = new Rectangle(0, 0, 323, 0) => [
 			visible = false
@@ -45,7 +45,19 @@ class HallOfFameTable extends VBox {
 	}
 
 	def show() {
-		update => [
+		new SequentialTransition => [ 
+			children += new Timeline => [
+				cycleCount = 1
+				autoReverse = false
+				keyFrames += new KeyFrame(
+					500.millis,
+					new KeyValue(spacerRectangle.heightProperty, 560)
+				)
+				onFinished = [
+					this.children.clear
+					this.children += content
+				]
+			]
 			onFinished = [
 				new SequentialTransition => [
 					children += content.children.map [ child |
@@ -81,21 +93,6 @@ class HallOfFameTable extends VBox {
 			addRow(i+2, i+1, entry)
 		]
 		children.setAll(spacerRectangle)
-		
-		new SequentialTransition => [ t |
-			t.children += new Timeline => [
-				cycleCount = 1
-				autoReverse = false
-				keyFrames += new KeyFrame(
-					500.millis,
-					new KeyValue(spacerRectangle.heightProperty, 560)
-				)
-				onFinished = [
-					this.children.clear
-					this.children += content
-				]
-			]
-		]
 	}
 	
 	private def addCell(Object value, int column, int row, String... styles) {
@@ -109,13 +106,13 @@ class HallOfFameTable extends VBox {
 		cell 
 	}
 	
-	private def addRow(int row, int rank, HallOfFameEntry entry) {
+	private def addRow(int row, int rank, PlayerRanking entry) {
 		val styles = #['hof-light', 'boxed-label']
 		addCell(String.format('%3d', rank), 0, row, styles)
 		addCell(entry.name, 1, row, styles)
 		addCell(entry.wins, 2, row, styles)
 		addCell(entry.draws, 3, row, styles)
 		addCell(entry.defeats, 4, row, styles)
-		addCell(String.format('%2.1f', entry.score), 5, row, styles)
+		addCell(String.format('%4d', entry.score as int), 5, row, styles)
 	}
 }
