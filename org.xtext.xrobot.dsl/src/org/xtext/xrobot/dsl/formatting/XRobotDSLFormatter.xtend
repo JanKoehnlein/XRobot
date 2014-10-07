@@ -36,7 +36,7 @@ class XRobotDSLFormatter extends AbstractDeclarativeFormatter {
 			setIndentation(braces.first, braces.second)
 			setLinewrap.before(braces.second)
 		}
-		for (symbol: findKeywords('(', ')', '.', ';')) 
+		for (symbol: findKeywords('(', ')', '.', ';', ',')) 
 			setNoSpace.before(symbol)
 		for (symbol: findKeywords('(', '.')) 
 			setNoSpace.after(symbol)
