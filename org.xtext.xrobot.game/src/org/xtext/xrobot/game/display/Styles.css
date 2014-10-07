@@ -3,7 +3,7 @@
 }
 
 .root {
-    -fx-font-size: 26.0pt;
+    -fx-font-size: 26pt;
     -fx-font-family: 'Monkirta Pursuit NC';
 }
 
@@ -60,13 +60,23 @@
 }
 
 .hof-rank {
-	-fx-alignment: right;	
+	-fx-alignment: center-right;	
 	-fx-text-alignment: right;
 }
 
 .hof-name {
-	-fx-alignment: left;
+	-fx-alignment: center-left;
 	-fx-text-alignment: left;
+}
+
+.hof-number {
+	-fx-alignment: center;
+	-fx-text-alignment: center;
+}
+
+.hof-score {
+	-fx-alignment: center-right ;
+	-fx-text-alignment: right;
 }
 
 .blue {
@@ -141,5 +151,6 @@
 }
 
 .token {
-	-fx-font-family: 'Consolas'
+	-fx-font-family: 'Consolas';
+	-fx-font-size: 28pt;
 }

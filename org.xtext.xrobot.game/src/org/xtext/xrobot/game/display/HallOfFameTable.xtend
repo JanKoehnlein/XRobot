@@ -6,7 +6,6 @@ import javafx.animation.KeyFrame
 import javafx.animation.KeyValue
 import javafx.animation.SequentialTransition
 import javafx.animation.Timeline
-import javafx.geometry.HPos
 import javafx.scene.control.Label
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.VBox
@@ -82,13 +81,12 @@ class HallOfFameTable extends VBox {
 		val heading = addCell('Hall Of Fame', 0, 0, #['hof', 'title-label'])
 		GridPane.setConstraints(heading, 0, 0, 6, 1)
 		val styles = #['hof', 'boxed-label']
-		#['#', 'Name', 'W', 'D', 'L', 'S'].forEach [ string, i |
-			if(i<10) {
-				addCell(string, i, 1, styles) => [
-					GridPane.setHalignment(it, HPos.CENTER)
-				]
-			}
-		]
+		addCell('#', 0, 1, styles + #['hof-rank'])
+		addCell('Name', 1, 1, styles + #['hof-name'])
+		addCell('W', 2, 1, styles + #['hof-number'])
+		addCell('D', 3, 1, styles + #['hof-number'])
+		addCell('L', 4, 1, styles + #['hof-number'])
+		addCell('Score', 5, 1, styles + #['hof-score'])
 		hallOfFame.forEach [ entry, i |
 			addRow(i+2, i+1, entry)
 		]
@@ -108,11 +106,11 @@ class HallOfFameTable extends VBox {
 	
 	private def addRow(int row, int rank, PlayerRanking entry) {
 		val styles = #['hof-light', 'boxed-label']
-		addCell(String.format('%3d', rank), 0, row, styles)
-		addCell(entry.name, 1, row, styles)
-		addCell(entry.wins, 2, row, styles)
-		addCell(entry.draws, 3, row, styles)
-		addCell(entry.defeats, 4, row, styles)
-		addCell(String.format('%4d', entry.score as int), 5, row, styles)
+		addCell(String.format('%3d', rank), 0, row, styles + #['hof-score'])
+		addCell(entry.name, 1, row, styles + #['hof-name'])
+		addCell(entry.wins, 2, row, styles + #['hof-number'])
+		addCell(entry.draws, 3, row, styles + #['hof-number'])
+		addCell(entry.defeats, 4, row, styles + #['hof-number'])
+		addCell(String.format('%4d', entry.score as int), 5, row, styles + #['hof-score'])
 	}
 }
