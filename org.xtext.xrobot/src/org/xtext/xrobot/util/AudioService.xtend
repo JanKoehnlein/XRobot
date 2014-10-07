@@ -77,6 +77,10 @@ class AudioService {
 				listeners.get(robotID).forEach[
 					audioStopped
 				]
-			], 'AudioPlayer').start
+			], 'AudioPlayer') => [
+				daemon = true
+				priority = Thread.MIN_PRIORITY
+				start
+			]
 	}
 }
