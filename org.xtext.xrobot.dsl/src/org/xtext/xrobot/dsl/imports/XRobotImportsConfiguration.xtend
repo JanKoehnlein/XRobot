@@ -4,7 +4,6 @@ import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.xbase.imports.DefaultImportsConfiguration
 import static extension org.eclipse.xtext.nodemodel.util.NodeModelUtils.*
 
-
 class XRobotImportsConfiguration extends DefaultImportsConfiguration {
 	
 	override getImportSectionOffset(XtextResource resource) {
@@ -15,5 +14,4 @@ class XRobotImportsConfiguration extends DefaultImportsConfiguration {
 		else
 		 	0
 	}
-	
 }
