@@ -18,6 +18,7 @@ import org.xtext.xrobot.server.IRemoteRobot
 import static extension javafx.util.Duration.*
 import static org.xtext.xrobot.game.PlayerStatus.*
 import javafx.scene.effect.Bloom
+import javafx.animation.FadeTransition
 
 class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 	
@@ -106,6 +107,16 @@ class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 	override modeChanged(IRemoteRobot robot, Mode newMode) {
 		Platform.runLater [
 			val modeLabels = modesBox.children
+			if((modeLabels.head as Label)?.text == newMode.name) {
+				new FadeTransition => [
+					node = modeLabels.head
+					fromValue = 0
+					toValue = 1
+					duration = 300.millis
+					play
+				]
+				return
+			} 
 			val newLabel = new Label => [
 			 	text = newMode.name
 			 	styleClass.setAll('boxed-label')

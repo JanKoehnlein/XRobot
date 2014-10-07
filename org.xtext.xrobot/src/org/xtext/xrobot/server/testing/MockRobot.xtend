@@ -14,6 +14,7 @@ import org.xtext.xrobot.util.AudioService
 import static org.xtext.xrobot.api.GeometryExtensions.*
 
 import static extension java.lang.Math.*
+import org.xtext.xrobot.net.INetConfig
 
 @Accessors
 class MockRobot implements IRemoteRobot {
@@ -41,6 +42,7 @@ class MockRobot implements IRemoteRobot {
 
 	override waitForUpdate(int timeout) throws SocketTimeoutException {
 		checkCanceled
+		Thread.sleep(INetConfig.UPDATE_INTERVAL)
 	}
 
 	override release() {
