@@ -12,6 +12,7 @@ import org.xtext.xrobot.camera.CameraSample
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.net.INetConfig.*
 import org.xtext.xrobot.util.AudioService
+import com.google.common.base.Predicates
 
 class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
@@ -87,7 +88,10 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 		stop
 		output.writeInt(componentID)
 		output.writeInt(RELEASE_MESSAGE)
-		output.send
+    	var commandSerialNr = nextCommandSerialNr++
+    	output.writeInt(commandSerialNr)
+    	output.send
+	    waitFinished(commandSerialNr, Predicates.alwaysFalse)
 	}
 	
 	def setState(RobotServerState state, CameraSample cameraSample) {
