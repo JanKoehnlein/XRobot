@@ -23,6 +23,8 @@ import static org.xtext.xrobot.game.PlayerStatus.*
 import static extension javafx.util.Duration.*
 
 class GameServer extends Application {
+	
+	static val GAME_DURATION = 1000l * 45   // 45 seconds
 
 	static val LOG = Logger.getLogger(GameServer)
 	
@@ -39,18 +41,20 @@ class GameServer extends Application {
 	@Inject ScriptParser scriptParser
 	
 	@Inject Provider<Game> gameProvider
+	@Inject Provider<RobotPreparer> gamePreparerProvider
 	
 	@Inject Display display
 	@Inject RankingSystem rankingSystem
 
-	List<PlayerSlot> slots 
+	val List<PlayerSlot> slots
 	
 	new() {
 		Font.loadFont(class.getResourceAsStream('/fonts/flipside.ttf'), 24)
 		Font.loadFont(class.getResourceAsStream('/fonts/Robotica.ttf'), 24)
 		Resource.Factory.Registry.INSTANCE.extensionToFactoryMap.put('xtextbin', new BinaryGrammarResourceFactoryImpl())
 		new XRobotDSLStandaloneSetup().createInjectorAndDoEMFRegistration.injectMembers(this)
-		slots = #[new PlayerSlot(RobotID.Blue, remoteRobotConnector, display), new PlayerSlot(RobotID.Red, remoteRobotConnector, display)]
+		slots = #[new PlayerSlot(RobotID.Blue, remoteRobotConnector, display, gamePreparerProvider),
+			new PlayerSlot(RobotID.Red, remoteRobotConnector, display, gamePreparerProvider)]
 	}
 	
 	override start(Stage stage) throws Exception {
@@ -89,6 +93,7 @@ class GameServer extends Application {
 			Thread.sleep(5000)
 		display.prepareGame
 		val game = gameProvider.get()
+		game.gameDuration = GAME_DURATION
 		slots.forEach[status = FIGHTING]
 		display.gameStarted
 		game.play(slots)

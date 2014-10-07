@@ -13,16 +13,18 @@ import org.xtext.xrobot.dsl.interpreter.ScriptRunner
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.IRemoteRobot
+import org.eclipse.xtend.lib.annotations.Accessors
 
 class Game {
 	
 	static val LOG = Logger.getLogger(Game)
 	
-	static val GAME_DURATION = 1000l * 45 // 45 seconds
-	
 	static val GAME_LOST_THRESHOLD = 500 
 	 
 	@Inject Provider<ScriptRunner> scriptRunnerProvider
+	
+	@Accessors
+	long gameDuration
 	
 	List<Thread> runners
 
@@ -39,7 +41,7 @@ class Game {
 		gameOver = false
 		LOG.debug('Starting game')
 		runners.forEach[start]
-		runners.forEach[executeSafely[join(GAME_DURATION)]]
+		runners.forEach[executeSafely[join(gameDuration)]]
 		LOG.debug('Game finished')
 		gameOver = true
 		slots.forEach[

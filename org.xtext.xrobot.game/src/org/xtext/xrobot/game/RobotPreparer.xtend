@@ -12,6 +12,7 @@ import static org.xtext.xrobot.api.IArena.*
 import static org.xtext.xrobot.game.PlayerStatus.*
 
 import static extension javafx.util.Duration.*
+import org.eclipse.xtend.lib.annotations.Accessors
 
 class RobotPreparer {
 	
@@ -31,11 +32,8 @@ class RobotPreparer {
 	IRemoteRobot robot
 	Thread thread
 	
+	@Accessors(PROTECTED_GETTER, PROTECTED_SETTER)
 	PlayerSlot slot
-	
-	new(PlayerSlot slot) {
-		this.slot = slot
-	}
 	
 	private def getDisplay() {
 		slot.display

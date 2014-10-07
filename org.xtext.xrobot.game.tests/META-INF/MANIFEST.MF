@@ -4,8 +4,11 @@ Bundle-Name: Tests
 Bundle-SymbolicName: org.xtext.xrobot.game.tests
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.xtext.xrobot.game;bundle-version="1.0.0",
+Require-Bundle: org.xtext.xrobot;bundle-version="1.0.0",
+ org.xtext.xrobot.game;bundle-version="1.0.0",
+ org.xtext.xrobot.dsl;bundle-version="1.0.0",
  com.google.guava,
+ com.google.inject,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,

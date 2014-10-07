@@ -10,6 +10,7 @@ import org.xtext.xrobot.game.display.Display
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.game.PlayerStatus.*
+import com.google.inject.Provider
 
 @Accessors(PUBLIC_GETTER)
 class PlayerSlot implements IRobotListener {
@@ -33,12 +34,14 @@ class PlayerSlot implements IRobotListener {
 
 	val listeners = new CopyOnWriteArrayList<Listener>
 
-	new(RobotID robotID, IRemoteRobot.Connector connector, Display display) {
+	new(RobotID robotID, IRemoteRobot.Connector connector, Display display,
+			Provider<? extends RobotPreparer> preparerProvider) {
 		this.robotID = robotID
 		this.connector = connector
 		this.display = display
 		token = new AccessToken
-		preparer = new RobotPreparer(this)
+		preparer = preparerProvider.get()
+		preparer.slot = this
 	}
 	
 	def getRobotFactory() {
@@ -68,7 +71,7 @@ class PlayerSlot implements IRobotListener {
 	def waitReady() {
 		preparer.waitReady
 		if(status != READY) {
-			display.addKeyAction[preparer.getReady]
+			display?.addKeyAction[preparer.getReady]
 		}
 		return status == READY
 	}
