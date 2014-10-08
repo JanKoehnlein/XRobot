@@ -18,6 +18,7 @@ import static org.xtext.xrobot.RobotID.*
 import static org.xtext.xrobot.game.PlayerStatus.*
 import com.google.inject.Singleton
 import org.xtext.xrobot.game.IGameListener
+import javafx.application.Platform
 
 @Singleton
 class GameControlWindow implements IGameListener {
@@ -58,14 +59,16 @@ class GameControlWindow implements IGameListener {
 	private def addSlotListener(RobotID robotID, Button releaseButton, Button placeButton) {
 		val slot = slots.findFirst[it.robotID == robotID]
 		slot.addSlotListener [
-			switch slot.status {
-				case NOT_AT_HOME,
-				case AVAILABLE:
-					placeButton.disable = false
-				default:
-					placeButton.disable = true
-			}
-			releaseButton.disable = (slot.status == AVAILABLE)
+			Platform.runLater [
+				switch slot.status {
+					case NOT_AT_HOME,
+					case AVAILABLE:
+						placeButton.disable = false
+					default:
+						placeButton.disable = true
+				}
+				releaseButton.disable = (slot.status == AVAILABLE)
+			]
 		]
 		
 	}
@@ -131,15 +134,18 @@ class GameControlWindow implements IGameListener {
 	}
 
 	override gameStarted(Game game) {
-		slotButtons.disable = true
-		currentGame = game
-		refereeButtons.disable = false
+		Platform.runLater [
+			slotButtons.disable = true
+			currentGame = game
+			refereeButtons.disable = false
+		]
 	}
 
 	override gameFinished(Game game) {
-		currentGame = null
-		refereeButtons.disable = true
-		slotButtons.disable = false
+		Platform.runLater [
+			currentGame = null
+			refereeButtons.disable = true
+			slotButtons.disable = false
+		]
 	}
-	
 }
