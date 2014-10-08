@@ -68,7 +68,7 @@ class Game {
 	def refereeCancel(boolean isDraw) {
 		gameOver = true
 		isCanceledByReferee = true
-		if(isDraw) 
+		if(!isDraw) 
 			gameException = new CanceledException('Canceled by referee')
 	}
 	
