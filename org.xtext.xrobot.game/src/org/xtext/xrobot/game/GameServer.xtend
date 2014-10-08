@@ -34,7 +34,6 @@ class GameServer {
 
 	@Accessors(PUBLIC_GETTER)
 	List<PlayerSlot> slots
-	
 		
 	def start(Stage stage) throws Exception {
 		slots = playerSlotFactory.createAll

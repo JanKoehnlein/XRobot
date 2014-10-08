@@ -1,17 +1,16 @@
 package org.xtext.xrobot.game
 
+import com.google.inject.Guice
+import com.google.inject.Module
 import javafx.application.Application
-import javafx.scene.text.Font
 import javafx.stage.Stage
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.resource.impl.BinaryGrammarResourceFactoryImpl
-import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 import org.eclipse.xtext.xbase.XbaseStandaloneSetup
-import com.google.inject.Module
 import org.xtext.xrobot.dsl.XRobotDSLRuntimeModule
-import com.google.inject.Guice
+import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 
-class GameServerApp extends Application {
+class GameServerLauncher extends Application {
 
 	public static Module gameModule = new XRobotModule
 
@@ -23,8 +22,6 @@ class GameServerApp extends Application {
 	
 	override init() throws Exception {
 		super.init()
-		Font.loadFont(class.getResourceAsStream('/fonts/flipside.ttf'), 24)
-		Font.loadFont(class.getResourceAsStream('/fonts/Robotica.ttf'), 24)
 		Resource.Factory.Registry.INSTANCE.extensionToFactoryMap.put('xtextbin', new BinaryGrammarResourceFactoryImpl())
 		XbaseStandaloneSetup.doSetup()
 		val injector = Guice.createInjector(gameModule, new XRobotDSLRuntimeModule)
