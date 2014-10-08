@@ -64,18 +64,21 @@ class GameServer {
 	}
 	
 	def void startGame() {
-		while(!slots.map[waitReady; status == READY].reduce[$0 && $1]) 
-			Thread.sleep(5000)
-		display.prepareGame
-		val game = gameProvider.get()
-		game.gameDuration = GAME_DURATION
-		slots.forEach[status = FIGHTING]
-		controlWindow.gameStarted(game)
-		game.play(slots)
-		evaluateGame(game)
-		controlWindow.gameFinished(game)
-		LOG.debug('Releasing player slots')
-		slots.forEach[release]
+		var GameResult result = null
+		do {
+			while(!slots.map[waitReady; status == READY].reduce[$0 && $1]) 
+				Thread.sleep(5000)
+			display.prepareGame
+			val game = gameProvider.get()
+			game.gameDuration = GAME_DURATION
+			slots.forEach[status = FIGHTING]
+			controlWindow.gameStarted(game)
+			game.play(slots)
+			result = evaluateGame(game)
+			controlWindow.gameFinished(game)
+			LOG.debug('Releasing player slots')
+			slots.forEach[release]
+		} while(result?.replay)
 		display.startIdleProgram
 	}
 	
@@ -109,10 +112,13 @@ class GameServer {
 				''
 		val finalResult = game.refereeResult ?: game.gameResult
 		// apply final result
-		if(finalResult.isCanceled) {
+		if(finalResult.isReplay) {
+			if(showResultAgain)
+				display.showWarning(infoPrefix + 'Replay game', 10.seconds)
+		} else if(finalResult.isCanceled) {
 			if(showResultAgain)
 				display.showError(finalResult.cancelationReason, 10.seconds)
-		 } else if(finalResult.isDraw) {
+		} else if(finalResult.isDraw) {
 			if(showResultAgain)
 				display.showInfo(infoPrefix + 'A draw', 10.seconds)
 			slots.forEach[ status = DRAW ]
@@ -128,6 +134,7 @@ class GameServer {
 		}
 		if(showResultAgain)
 			Thread.sleep(10000)
+		return finalResult
 	}
 	
 }

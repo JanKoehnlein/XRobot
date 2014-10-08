@@ -1,6 +1,8 @@
 package org.xtext.xrobot.game.ui
 
+import com.google.inject.Singleton
 import java.util.List
+import javafx.application.Platform
 import javafx.geometry.Insets
 import javafx.scene.Scene
 import javafx.scene.control.Button
@@ -12,15 +14,12 @@ import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.game.Game
+import org.xtext.xrobot.game.IGameListener
 import org.xtext.xrobot.game.PlayerSlot
 
 import static org.xtext.xrobot.RobotID.*
+import static org.xtext.xrobot.game.GameResult.*
 import static org.xtext.xrobot.game.PlayerStatus.*
-import com.google.inject.Singleton
-import org.xtext.xrobot.game.IGameListener
-import javafx.application.Platform
-import static extension org.xtext.xrobot.game.GameResult.*
-
 
 @Singleton
 class GameControlWindow implements IGameListener {
@@ -28,14 +27,6 @@ class GameControlWindow implements IGameListener {
 	Pane slotButtons
 	Pane preparationButtons
 	Pane refereeButtons
-
-	Button cancelButton
-
-	Button redButton
-
-	Button drawButton
-
-	Button blueButton
 
 	Game currentGame
 	
@@ -112,24 +103,29 @@ class GameControlWindow implements IGameListener {
 			children += new Label('Referee')
 			children += refereeButtons = new HBox => [
 				spacing = 10
-				children += redButton = new Button('Blue wins') => [
+				children += new Button('Blue wins') => [
 					onAction = [
 						currentGame.refereeResult = win(Blue)
 					]
 				]
-				children += drawButton = new Button('Draw') => [
+				children += new Button('Draw') => [
 					onAction = [
 						currentGame.refereeResult = draw
 					]
 				]
-				children += blueButton = new Button('Red wins') => [
+				children += new Button('Red wins') => [
 					onAction = [
 						currentGame.refereeResult = win(Red)
 					]
 				]
-				children += cancelButton = new Button('Cancel') => [
+				children += new Button('Cancel') => [
 					onAction = [
 						currentGame.refereeResult = canceled('Canceled by Referee')
+					]
+				]
+				children += new Button('Replay') => [
+					onAction = [
+						currentGame.refereeResult = replay
 					]
 				]
 				disable = true

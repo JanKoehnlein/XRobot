@@ -7,23 +7,28 @@ import org.xtext.xrobot.RobotID
 class GameResult {
 	
 	static def win(RobotID id) {
-		new GameResult(id, null)
+		new GameResult(id, null, false)
 	}
 	
 	static def defeat(RobotID id) {
-		new GameResult(id.opponent, null)	
+		new GameResult(id.opponent, null, false)	
 	}
 	
 	static def draw() {
-		new GameResult(null, null)
+		new GameResult(null, null, false)
 	}
 	
 	static def canceled(String cancelationReason) {
-		new GameResult(null, cancelationReason)
+		new GameResult(null, cancelationReason, false)
 	}
 	
-	RobotID winner
-	String cancelationReason
+	static def replay() {
+		new GameResult(null, null, true)
+	}
+	
+	val RobotID winner
+	val String cancelationReason
+	boolean replay
 	
 	def RobotID getLoser() {
 		winner?.opponent
