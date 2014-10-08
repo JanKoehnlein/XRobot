@@ -140,16 +140,16 @@ class Display implements IErrorReporter {
 		false
 	}
 
-	override showError(String message) {
-		showMessage(message, 'error', 5.seconds)
+	override showError(String message, Duration duration) {
+		showMessage(message, 'error', duration)
 	}
 	
-	override showWarning(String message) {
-		showMessage(message, 'info', 5.seconds)
+	override showWarning(String message, Duration duration) {
+		showMessage(message, 'info', duration)
 	}
 	
-	override showInfo(String message) {
-		showMessage(message, 'info', 5.seconds)
+	override showInfo(String message, Duration duration) {
+		showMessage(message, 'info', duration)
 	}
 	
 	private def showMessage(String message, String stylePrefix, Duration duration) {

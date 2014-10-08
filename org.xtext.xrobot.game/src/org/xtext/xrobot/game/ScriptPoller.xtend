@@ -8,6 +8,8 @@ import javax.inject.Inject
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Data
 
+import static extension javafx.util.Duration.*
+
 class ScriptPoller implements IScriptPoller {
 	
 	static val LOG = Logger.getLogger(ScriptPoller)
@@ -58,7 +60,7 @@ class ScriptPoller implements IScriptPoller {
 					]
 					Thread.sleep(500)
 				} catch (IOException exc) {
-					errorReporter.showError('Cannot connect to script server')
+					errorReporter.showError('Cannot connect to script server', 5.seconds)
 					Thread.sleep(5000)
 				}
 			} catch (Exception exc) {

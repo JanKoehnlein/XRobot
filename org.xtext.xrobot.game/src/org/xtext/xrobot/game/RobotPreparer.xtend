@@ -13,6 +13,8 @@ import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.api.IArena.*
 import static org.xtext.xrobot.game.PlayerStatus.*
 
+import static extension javafx.util.Duration.*
+
 class RobotPreparer implements IRobotPreparer {
 	
 	static val LOG = Logger.getLogger(RobotPreparer)
@@ -46,9 +48,9 @@ class RobotPreparer implements IRobotPreparer {
 		robot = slot.robotFactory.newRobot [isCanceled]
 		LOG.info(slot.robotID + ' battery ' + robot.batteryState)
 		if(robot.batteryState < MIN_BATTERY_CHARGE) 
-			errorReporter.showError(slot.robotID + ': Change battery')
+			errorReporter.showError(slot.robotID + ': Change battery', 5.seconds)
 		if(robot.batteryState < LOW_BATTERY_CHARGE) 
-			errorReporter.showInfo(slot.robotID + ': Battery low')
+			errorReporter.showInfo(slot.robotID + ': Battery low', 5.seconds)
 		thread = new Thread([
 			try {
 				goHome
@@ -77,11 +79,11 @@ class RobotPreparer implements IRobotPreparer {
 					&& abs(normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)) < ANGLE_ACCURACY
 		var newStatus = READY
 		if(!isAtHome) {
-			errorReporter.showError(slot.robotID + ': Not at start position')
+			errorReporter.showError(slot.robotID + ': Not at start position', 5.seconds)
 			newStatus = NOT_AT_HOME
 		}
 		if(isBatteryEmpty) {
-			errorReporter.showError(slot.robotID + ': Change batteries')
+			errorReporter.showError(slot.robotID + ': Change batteries', 5.seconds)
 			newStatus = BATTERY_EXHAUSTED
 		} 
 		newStatus

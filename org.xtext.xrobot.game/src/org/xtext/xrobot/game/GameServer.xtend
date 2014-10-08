@@ -12,7 +12,7 @@ import org.xtext.xrobot.game.ranking.RankingSystem
 import org.xtext.xrobot.game.ui.GameControlWindow
 
 import static org.xtext.xrobot.game.PlayerStatus.*
-
+import static extension javafx.util.Duration.*
 @Singleton
 class GameServer {
 	
@@ -53,7 +53,7 @@ class GameServer {
 					slot.acquire(script)
 					LOG.debug('Robot ' + slot.program.name + ' has joined the game')
 				} catch (Exception exc) {
-					display.showError(exc.message)
+					display.showError(exc.message, 5.seconds)
 					LOG.error('Error assigning robot', exc) 
 					slot.release
 				}
@@ -72,29 +72,49 @@ class GameServer {
 		slots.forEach[status = FIGHTING]
 		controlWindow.gameStarted(game)
 		game.play(slots)
+		evaluateGame(game)
+		controlWindow.gameFinished(game)
+		LOG.debug('Releasing player slots')
+		slots.forEach[release]
+		display.startIdleProgram
+	}
+	
+	def evaluateGame(Game game) {
+		var hasShownResult = false
 		if(game.refereeResult == null) {
-			// show preliminary result
+			// show preliminary result, don't apply until referee's veto time has expired
 			val gameResult = game.gameResult
 			if(gameResult.canceled) {
-				display.showError(game.gameResult.cancelationReason)
+				display.showError(game.gameResult.cancelationReason, 10.seconds)
 			} else if(gameResult.isDraw) {
-				display.showInfo('Preliminary result:\nA draw')
+				display.showInfo('A draw', 10.seconds)
+				slots.forEach[ status = DRAW ]
 			} else {
 				val winnerSlot = slots.findFirst[robotID == gameResult.winner]
-				display.showInfo('Preliminary result:\n' + winnerSlot.scriptName + ' wins')
+				winnerSlot.status = WINNER
+				val loserSlot = slots.findFirst[robotID == gameResult.loser]
+				loserSlot.status = LOSER
+				display.showInfo(winnerSlot.scriptName + ' wins', 10.seconds)
 			}
-			for(var i=0; i<55 && game.refereeResult == null; i++) 
+			hasShownResult = true
+			// poll referee result
+			for(var i=0; i<100 && game.refereeResult == null; i++) 
 				Thread.sleep(100)
 		}
-		val infoPrefix = if(game.refereeResult != null && game.refereeResult != game.gameResult)
+		val isRefereeOverrule = game.refereeResult != null && game.refereeResult != game.gameResult
+		val showResultAgain = !hasShownResult || isRefereeOverrule
+		val infoPrefix = if(isRefereeOverrule)
 				'Referee overrule:\n'
 			else 
 				''
 		val finalResult = game.refereeResult ?: game.gameResult
+		// apply final result
 		if(finalResult.isCanceled) {
-			display.showError(finalResult.cancelationReason)
+			if(showResultAgain)
+				display.showError(finalResult.cancelationReason, 10.seconds)
 		 } else if(finalResult.isDraw) {
-			display.showInfo(infoPrefix + 'A draw')
+			if(showResultAgain)
+				display.showInfo(infoPrefix + 'A draw', 10.seconds)
 			slots.forEach[ status = DRAW ]
 			rankingSystem.addDraw(slots.head.scriptName, slots.last.scriptName)
 		} else {
@@ -102,14 +122,12 @@ class GameServer {
 			winnerSlot.status = WINNER
 			val loserSlot = slots.findFirst[robotID == finalResult.loser]
 			loserSlot.status = LOSER
-			display.showInfo(infoPrefix + winnerSlot.scriptName + ' wins')
+			if(showResultAgain)
+				display.showInfo(infoPrefix + winnerSlot.scriptName + ' wins', 10.seconds)
 			rankingSystem.addWin(winnerSlot.scriptName, loserSlot.scriptName)
 		}
-		controlWindow.gameFinished(game)
-		LOG.debug('Releasing player slots')
-		slots.forEach[release]
-		Thread.sleep(5000)
-		display.startIdleProgram
+		if(showResultAgain)
+			Thread.sleep(10000)
 	}
 	
 }
