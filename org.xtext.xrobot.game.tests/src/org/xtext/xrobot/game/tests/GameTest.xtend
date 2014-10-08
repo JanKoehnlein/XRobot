@@ -47,7 +47,7 @@ class GameTest {
 		]
 		
 		game.play(slots)
-		assertNull(game.loser)
+		assertTrue(game.gameResult.isDraw)
 		
 		slots.forEach[release]
 	}
@@ -65,7 +65,8 @@ class GameTest {
 		]
 		
 		game.play(slots)
-		assertEquals(game.loser, RobotID.Blue)
+		assertEquals(game.gameResult.winner, RobotID.Red)
+		assertEquals(game.gameResult.loser, RobotID.Blue)
 		
 		slots.forEach[release]
 	}
@@ -83,7 +84,8 @@ class GameTest {
 		]
 		
 		game.play(slots)
-		assertNotNull(game.exception)
+		assertTrue(game.gameResult.isCanceled)
+		assertNotNull(game.gameResult.cancelationReason)
 		
 		slots.forEach[release]
 	}

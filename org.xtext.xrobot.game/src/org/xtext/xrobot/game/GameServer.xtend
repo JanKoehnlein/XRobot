@@ -70,34 +70,45 @@ class GameServer {
 		val game = gameProvider.get()
 		game.gameDuration = GAME_DURATION
 		slots.forEach[status = FIGHTING]
+		controlWindow.gameStarted(game)
 		game.play(slots)
-		if(game.exception != null) {
-			if(display.askRepeat(game.exception)) 
-				startGame
-		} else {
-			val infoPrefix = if(game.isIsCanceledByReferee)
-					'Referee decision:\n'
-				else 
-					''
-			if(game.loser != null) {
-				val winnerSlot = slots.findFirst[robotID != game.loser]
-				winnerSlot.status = WINNER
-				val loserSlot = slots.findFirst[robotID == game.loser]
-				loserSlot.status = LOSER
-				display.showInfo(infoPrefix + winnerSlot.scriptName + ' wins')
-				rankingSystem.addWin(winnerSlot.scriptName, loserSlot.scriptName)
+		if(game.refereeResult == null) {
+			// show preliminary result
+			val gameResult = game.gameResult
+			if(gameResult.canceled) {
+				display.showError(game.gameResult.cancelationReason)
+			} else if(gameResult.isDraw) {
+				display.showInfo('Preliminary result:\nA draw')
 			} else {
-				display.showInfo(infoPrefix + 'Nobody won')
-				slots.forEach[
-					status = DRAW
-				]
-				rankingSystem.addDraw(slots.head.scriptName, slots.last.scriptName)
+				val winnerSlot = slots.findFirst[robotID == gameResult.winner]
+				display.showInfo('Preliminary result:\n' + winnerSlot.scriptName + ' wins')
 			}
-				
-			Thread.sleep(5000)
+			for(var i=0; i<55 && game.refereeResult == null; i++) 
+				Thread.sleep(100)
 		}
+		val infoPrefix = if(game.refereeResult != null && game.refereeResult != game.gameResult)
+				'Referee overrule:\n'
+			else 
+				''
+		val finalResult = game.refereeResult ?: game.gameResult
+		if(finalResult.isCanceled) {
+			display.showError(finalResult.cancelationReason)
+		 } else if(finalResult.isDraw) {
+			display.showInfo(infoPrefix + 'A draw')
+			slots.forEach[ status = DRAW ]
+			rankingSystem.addDraw(slots.head.scriptName, slots.last.scriptName)
+		} else {
+			val winnerSlot = slots.findFirst[robotID == finalResult.winner]
+			winnerSlot.status = WINNER
+			val loserSlot = slots.findFirst[robotID == finalResult.loser]
+			loserSlot.status = LOSER
+			display.showInfo(infoPrefix + winnerSlot.scriptName + ' wins')
+			rankingSystem.addWin(winnerSlot.scriptName, loserSlot.scriptName)
+		}
+		controlWindow.gameFinished(game)
 		LOG.debug('Releasing player slots')
 		slots.forEach[release]
+		Thread.sleep(5000)
 		display.startIdleProgram
 	}
 	

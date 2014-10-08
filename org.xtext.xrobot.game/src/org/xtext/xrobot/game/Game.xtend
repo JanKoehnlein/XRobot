@@ -7,14 +7,14 @@ import java.util.List
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.util.CancelIndicator
-import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.IArena
 import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.interpreter.ScriptRunner
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
-import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
+
+import static org.xtext.xrobot.game.GameResult.*
 
 class Game {
 	
@@ -29,27 +29,23 @@ class Game {
 	@Accessors
 	long gameDuration
 	
-	@Accessors(PUBLIC_GETTER)
-	Throwable exception
-
-	@Accessors(PUBLIC_GETTER)
-	boolean isCanceledByReferee
-
 	List<Thread> runners
 
 	volatile boolean gameOver
 	
 	long lastLoserTimeStamp = -1
 	
-	RobotID loser
+	@Accessors(PUBLIC_GETTER)
+	GameResult gameResult
+	
+	@Accessors(PUBLIC_GETTER)
+	GameResult refereeResult
 	
 	def play(List<PlayerSlot> slots) {
 		val gameOverListener = createGameOverListener
 		// remember map is lazy, so make a real copy
 		runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener, it)])
 		gameOver = false
-		exception = null
-		isCanceledByReferee = false
 		LOG.debug('Starting game')
 		runners.forEach[start]
 		controlWindow.gameStarted(this)
@@ -60,25 +56,12 @@ class Game {
 		slots.forEach[
 			executeSafely[ robotFactory.release ]
 		]
+		if(gameResult == null)
+			gameResult = draw
 	}
 	
-	def getLoser() {
-		if(exception == null) 
-			loser
-		else 
-			null
-	}
-	
-	def refereeCancel(boolean isDraw) {
-		gameOver = true
-		isCanceledByReferee = true
-		if(!isDraw) 
-			exception = new CanceledException('Canceled by referee')
-	}
-	
-	def refereeSetLoser(RobotID loser) {
-		this.loser = loser
-		isCanceledByReferee = true
+	def setRefereeResult(GameResult refereeResult) {
+		this.refereeResult = refereeResult
 		gameOver = true
 	}
 	
@@ -104,12 +87,12 @@ class Game {
 
 	private def checkGameOver(IRemoteRobot robot) {
 		if(robot.centerDirection.distance > IArena.ARENA_OUTER_RADIUS || robot.isDead) {
-			if(loser == null) {
-				loser = robot.robotID
+			if(gameResult == null) {
+				gameResult = defeat(robot.robotID)
 				lastLoserTimeStamp = System.currentTimeMillis
-			} else if(!isCanceledByReferee && System.currentTimeMillis - lastLoserTimeStamp < GAME_LOST_THRESHOLD) {
+			} else if(refereeResult == null && System.currentTimeMillis - lastLoserTimeStamp < GAME_LOST_THRESHOLD) {
 				// robots were losing almost simultaneously: a draw
-				loser = null
+				gameResult = draw
 			}
 			gameOver = true
 		}
@@ -139,8 +122,7 @@ class Game {
 			runnable.run()
 		} catch(Exception e) {
 			LOG.error(e.message, e)
-			if (exception == null)
-				exception = e
+			gameResult = canceled(e.message)
 			gameOver = true
 		}
 	}

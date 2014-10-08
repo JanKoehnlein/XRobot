@@ -151,7 +151,6 @@ class BrickConnector {
 		val executor = new RobotExecutor(input, robot)
 		val clientState = new RobotClientState
 		var isRelease = false
-		var isDead = false
 		var connectorState = ConnectorState.SEND
 		do {
 			switch (connectorState) {
@@ -162,13 +161,6 @@ class BrickConnector {
 					for (key : writeSelector.selectedKeys) {
 						if (key.writable) {
 							clientState.sample(robot)
-							if (clientState.dead) {
-								isDead = true
-								LOG.debug('Dead robot detected')
-							} else if (isDead) {
-								// Manipulate the robot state so the server receives the dead flag
-								clientState.dead = true 
-							}
 							clientState.write(output)
 							output.send
 						}
@@ -179,14 +171,14 @@ class BrickConnector {
 				case RECEIVE: {
 					// Execute a command received from the server
 					if (input.available > 0) {
-						isRelease = !executor.dispatchAndExecute(!isDead)
+						isRelease = !executor.dispatchAndExecute(!clientState.dead)
 					} else {
 						readSelector.select(UPDATE_INTERVAL)
 						for (key : readSelector.selectedKeys) {
 							if (key.readable) {
 								input.receive
 								if (input.available > 0) {
-									isRelease = !executor.dispatchAndExecute(!isDead)
+									isRelease = !executor.dispatchAndExecute(!clientState.dead)
 								}
 							}
 						}
@@ -196,7 +188,6 @@ class BrickConnector {
 				
 			}
 			if (robot.escapePressed) {
-				isDead = true
 				isRelease = true
 			}
 			// Give some scheduling time to the Lejos threads
@@ -208,9 +199,6 @@ class BrickConnector {
 		for (key : writeSelector.selectedKeys) {
 			if (key.writable) {
 				clientState.sample(robot)
-				if (isDead) {
-					clientState.dead = true 
-				}
 				clientState.write(output)
 				output.send
 			}

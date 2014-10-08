@@ -19,6 +19,8 @@ import static org.xtext.xrobot.game.PlayerStatus.*
 import com.google.inject.Singleton
 import org.xtext.xrobot.game.IGameListener
 import javafx.application.Platform
+import static extension org.xtext.xrobot.game.GameResult.*
+
 
 @Singleton
 class GameControlWindow implements IGameListener {
@@ -79,6 +81,7 @@ class GameControlWindow implements IGameListener {
 			padding = new Insets(10)
 			children += new Label('Slots')
 			children += slotButtons = new HBox => [
+				spacing = 10
 				children += releaseBlueButton = new Button('Expunge Blue') => [
 					onAction = [
 						slots.findFirst[robotID == Blue].release
@@ -93,6 +96,7 @@ class GameControlWindow implements IGameListener {
 			children += new Separator
 			children += new Label('Preparation')
 			children += preparationButtons = new HBox => [
+				spacing = 10
 				children += placeBlueButton = new Button('Place Blue') => [
 					onAction = [
 						slots.findFirst[robotID == Blue].ready
@@ -110,22 +114,22 @@ class GameControlWindow implements IGameListener {
 				spacing = 10
 				children += redButton = new Button('Blue wins') => [
 					onAction = [
-						currentGame.refereeSetLoser = Red
+						currentGame.refereeResult = win(Blue)
 					]
 				]
 				children += drawButton = new Button('Draw') => [
 					onAction = [
-						currentGame.refereeCancel(true)
+						currentGame.refereeResult = draw
 					]
 				]
 				children += blueButton = new Button('Red wins') => [
 					onAction = [
-						currentGame.refereeSetLoser = Blue
+						currentGame.refereeResult = win(Red)
 					]
 				]
 				children += cancelButton = new Button('Cancel') => [
 					onAction = [
-						currentGame.refereeCancel(true)
+						currentGame.refereeResult = canceled('Canceled by Referee')
 					]
 				]
 				disable = true

@@ -43,6 +43,8 @@ class Robot {
 	LED led
 	Audio audio
 	Power power
+	
+	boolean isDead
 
 	@SubComponent Motor leftMotor
 	@SubComponent Motor rightMotor
@@ -390,8 +392,10 @@ class Robot {
      * scoop is moved to neutral position, 
      * and speeds are set to maximal values.
      */
-	override void reset() {
+    @NoAPI@Zombie
+	def void reset() {
 		stop
+		isDead = false
 		scoop(0)
 		drivingSpeed = maxDrivingSpeed
 		rotationSpeed = maxRotationSpeed
@@ -476,14 +480,16 @@ class Robot {
 	 */
 	@NoAPI@Zombie
 	def boolean isDead() {
-		// When the robot tilts over, its color sensor cannot receive any reflections,
-		// so the reported color value is 0.
-		val result = lastColorSample < GAME_OVER_THRESHOLD
-		if (result && isMoving) {
-			// Emergency brake!
-			pilot.quickStop
+		if(!isDead) {
+			// When the robot tilts over, its color sensor cannot receive any reflections,
+			// so the reported color value is 0.
+			isDead = lastColorSample < GAME_OVER_THRESHOLD
+			if (isDead && isMoving) {
+				// Emergency brake!
+				pilot.quickStop
+			}
 		}
-		result
+		return isDead
 	}
 
 	/**

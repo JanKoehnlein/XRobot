@@ -108,6 +108,7 @@ class Display implements IErrorReporter {
 		new SequentialTransition => [
 			children += getPopupTransition(label, 'Steady')
 			children += getPopupTransition(label, 'Go!')
+			children += getPopupTransition(label, '')
 			onFinished = [
 				centerPane.children -= label
 			]

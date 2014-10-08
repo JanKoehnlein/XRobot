@@ -154,7 +154,7 @@ class MockRobot implements IRemoteRobot {
 		checkCanceled
 	}
 
-	override reset() {
+	def reset() {
 		checkCanceled
 	}
 
