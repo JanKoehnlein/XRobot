@@ -1,10 +1,11 @@
-package org.xtext.xrobot.game.tests
+package org.xtext.xrobot.game.tests.di
 
 import com.google.inject.Inject
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Data
 import org.xtext.xrobot.game.GameServer
 import org.xtext.xrobot.game.IScriptPoller
+import org.xtext.xrobot.game.tests.ITestScripts
 
 class MockScriptPoller implements IScriptPoller {
 	
