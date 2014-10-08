@@ -37,7 +37,7 @@ class RobotPreparer implements IRobotPreparer {
 	@Inject IErrorReporter errorReporter
 
 	override prepare() {
-		LOG.debug(slot.scriptName + ' getReady()')
+		LOG.debug(slot.robotID + ' getReady()')
 		LOG.debug(slot.robotID + ' getReady()')
 		if(thread?.isAlive) 
 			return;
