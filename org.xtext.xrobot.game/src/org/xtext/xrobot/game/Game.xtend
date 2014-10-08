@@ -24,8 +24,6 @@ class Game {
 	 
 	@Inject Provider<ScriptRunner> scriptRunnerProvider
 	
-	@Inject IGameListener controlWindow
-	
 	@Accessors
 	long gameDuration
 	
@@ -48,9 +46,7 @@ class Game {
 		gameOver = false
 		LOG.debug('Starting game')
 		runners.forEach[start]
-		controlWindow.gameStarted(this)
 		runners.forEach[executeSafely[join(gameDuration)]]
-		controlWindow.gameFinished(this)
 		LOG.debug('Game finished')
 		gameOver = true
 		slots.forEach[
