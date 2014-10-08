@@ -73,7 +73,7 @@ class IdleProgram extends StackPane {
 		new SequentialTransition => [
 			children += hallOfFameTable.show
 			children += hallOfFameTable.hide => [
-				delay = 5.seconds
+				delay = 7.5.seconds
 			]
 			children += new ParallelTransition => [
 				children += new RotateTransition => [
