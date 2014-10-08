@@ -1,5 +1,6 @@
 package org.xtext.xrobot.game.display
 
+import com.google.inject.Singleton
 import java.util.List
 import javafx.animation.FadeTransition
 import javafx.animation.Interpolator
@@ -21,13 +22,15 @@ import javafx.stage.Stage
 import javafx.stage.StageStyle
 import javafx.util.Duration
 import javax.inject.Inject
+import org.xtext.xrobot.game.IErrorReporter
 import org.xtext.xrobot.game.PlayerSlot
 
 import static javafx.scene.layout.Region.*
 
 import static extension javafx.util.Duration.*
 
-class Display {
+@Singleton
+class Display implements IErrorReporter {
 
 	@Inject RootPane rootPane
 	@Inject IdleProgram idleProgram
@@ -105,7 +108,6 @@ class Display {
 		new SequentialTransition => [
 			children += getPopupTransition(label, 'Steady')
 			children += getPopupTransition(label, 'Go!')
-			children += getPopupTransition(label, '')
 			onFinished = [
 				centerPane.children -= label
 			]
@@ -132,23 +134,21 @@ class Display {
 		]
 	}
 
-	def gameStarted() {
-	}
-
-	def gameFinished() {
-	}
-
 	def boolean askRepeat(Throwable exc) {
 		// TODO implement
 		false
 	}
 
-	def showError(String message, Duration duration) {
-		showMessage(message, 'error', duration)
+	override showError(String message) {
+		showMessage(message, 'error', 5.seconds)
 	}
 	
-	def showInfo(String message, Duration duration) {
-		showMessage(message, 'info', duration)
+	override showWarning(String message) {
+		showMessage(message, 'info', 5.seconds)
+	}
+	
+	override showInfo(String message) {
+		showMessage(message, 'info', 5.seconds)
 	}
 	
 	private def showMessage(String message, String stylePrefix, Duration duration) {

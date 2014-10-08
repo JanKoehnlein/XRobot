@@ -1,5 +1,6 @@
 package org.xtext.xrobot.game
 
+import com.google.inject.Inject
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.xtext.xrobot.api.Position
@@ -11,8 +12,6 @@ import static java.lang.Math.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.api.IArena.*
 import static org.xtext.xrobot.game.PlayerStatus.*
-
-import static extension javafx.util.Duration.*
 
 class RobotPreparer implements IRobotPreparer {
 	
@@ -34,23 +33,22 @@ class RobotPreparer implements IRobotPreparer {
 	
 	@Accessors(PUBLIC_SETTER)
 	PlayerSlot slot
-	
-	private def getDisplay() {
-		slot.display
-	}
+
+	@Inject IErrorReporter errorReporter
 
 	override prepare() {
 		LOG.debug(slot.scriptName + ' getReady()')
+		LOG.debug(slot.robotID + ' getReady()')
+		if(thread?.isAlive) 
+			return;
 		slot.status = PREPARING
 		isCanceled = false
-		if(thread?.isAlive)
-			throw new IllegalStateException('RobotPlacer is already running')
 		robot = slot.robotFactory.newRobot [isCanceled]
 		LOG.info(slot.robotID + ' battery ' + robot.batteryState)
 		if(robot.batteryState < MIN_BATTERY_CHARGE) 
-			display.showError(slot.scriptName + ': Change battery', 2.seconds)
+			errorReporter.showError(slot.robotID + ': Change battery')
 		if(robot.batteryState < LOW_BATTERY_CHARGE) 
-			display.showInfo(slot.scriptName + ': Battery low', 2.seconds)
+			errorReporter.showInfo(slot.robotID + ': Battery low')
 		thread = new Thread([
 			try {
 				goHome
@@ -66,7 +64,7 @@ class RobotPreparer implements IRobotPreparer {
 	}
 	
 	override waitReady() {
-		LOG.debug(slot.scriptName + ' waitReady()')
+		LOG.debug(slot.robotID + ' waitReady()')
 		thread?.join(PREPARATION_TIMEOUT)
 		isCanceled = true
 		thread?.join
@@ -79,11 +77,11 @@ class RobotPreparer implements IRobotPreparer {
 					&& abs(normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)) < ANGLE_ACCURACY
 		var newStatus = READY
 		if(!isAtHome) {
-			display.showError(slot.scriptName + ': Not at start position', 2.seconds)
+			errorReporter.showError(slot.robotID + ': Not at start position')
 			newStatus = NOT_AT_HOME
 		}
 		if(isBatteryEmpty) {
-			display.showError(slot.scriptName + ': Change batteries', 2.seconds)
+			errorReporter.showError(slot.robotID + ': Change batteries')
 			newStatus = BATTERY_EXHAUSTED
 		} 
 		newStatus

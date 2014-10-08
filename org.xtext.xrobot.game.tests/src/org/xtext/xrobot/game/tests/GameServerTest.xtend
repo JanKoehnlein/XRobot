@@ -1,14 +1,12 @@
 package org.xtext.xrobot.game.tests
 
-import org.xtext.xrobot.game.GameServer
-
-import static org.xtext.xrobot.game.GameServer.*
+import org.xtext.xrobot.game.GameServerApp
 
 class GameServerTest {
 	
 	def static void main(String[] args) {
-		GameServer.gameModule = new XRobotTestModule
-		GameServer.main(args)
+		GameServerApp.gameModule = new XRobotTestModule
+		GameServerApp.main(args)
 	}
 	
 }

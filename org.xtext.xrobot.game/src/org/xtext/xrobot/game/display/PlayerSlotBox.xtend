@@ -1,26 +1,28 @@
 package org.xtext.xrobot.game.display
 
+import javafx.animation.FadeTransition
 import javafx.animation.KeyFrame
 import javafx.animation.KeyValue
 import javafx.animation.Timeline
 import javafx.application.Platform
 import javafx.geometry.Pos
 import javafx.scene.control.Label
+import javafx.scene.effect.Bloom
 import javafx.scene.layout.Pane
 import javafx.scene.layout.StackPane
 import javafx.scene.layout.VBox
 import javafx.scene.shape.Rectangle
 import org.eclipse.xtext.util.CancelIndicator
+import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.game.PlayerSlot
 import org.xtext.xrobot.server.IRemoteRobot
 
-import static extension javafx.util.Duration.*
 import static org.xtext.xrobot.game.PlayerStatus.*
-import javafx.scene.effect.Bloom
-import javafx.animation.FadeTransition
 
-class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
+import static extension javafx.util.Duration.*
+
+class PlayerSlotBox extends VBox implements IRobotListener, PlayerSlot.Listener {
 	
 	static val MAX_MODES = 10 
 	
@@ -35,7 +37,8 @@ class PlayerSlotBox extends VBox implements PlayerSlot.Listener {
 	
 	new(PlayerSlot slot) {
 		this.slot = slot
-		slot.addChangeListener(this)
+		slot.addSlotListener(this)
+		slot.addRobotListener(this)
 		val style = slot.robotID.name.toLowerCase
 		val lightStyle = style + '-light'
 		styleClass += #[style, 'outer-box']

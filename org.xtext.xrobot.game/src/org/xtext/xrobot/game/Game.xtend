@@ -5,6 +5,7 @@ import com.google.inject.Provider
 import java.util.ArrayList
 import java.util.List
 import org.apache.log4j.Logger
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.IArena
@@ -12,8 +13,8 @@ import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.interpreter.ScriptRunner
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
+import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
-import org.eclipse.xtend.lib.annotations.Accessors
 
 class Game {
 	
@@ -22,6 +23,8 @@ class Game {
 	static val GAME_LOST_THRESHOLD = 500 
 	 
 	@Inject Provider<ScriptRunner> scriptRunnerProvider
+	
+	@Inject IGameListener controlWindow
 	
 	@Accessors
 	long gameDuration
@@ -33,15 +36,21 @@ class Game {
 	
 	long lastLoserTimeStamp = -1
 	RobotID loser
+	
+	@Accessors(PUBLIC_GETTER)
+	boolean isCanceledByReferee
 
 	def play(List<PlayerSlot> slots) {
 		val gameOverListener = createGameOverListener
 		// remember map is lazy, so make a real copy
 		runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener, it)])
 		gameOver = false
+		isCanceledByReferee = false
 		LOG.debug('Starting game')
 		runners.forEach[start]
+		controlWindow.gameStarted(this)
 		runners.forEach[executeSafely[join(gameDuration)]]
+		controlWindow.gameFinished(this)
 		LOG.debug('Game finished')
 		gameOver = true
 		slots.forEach[
@@ -54,6 +63,19 @@ class Game {
 			loser
 		else 
 			null
+	}
+	
+	def refereeCancel(boolean isDraw) {
+		gameOver = true
+		isCanceledByReferee = true
+		if(isDraw) 
+			gameException = new CanceledException('Canceled by referee')
+	}
+	
+	def refereeSetLoser(RobotID loser) {
+		this.loser = loser
+		isCanceledByReferee = true
+		gameOver = true
 	}
 	
 	def getException() { gameException }
@@ -83,7 +105,7 @@ class Game {
 			if(loser == null) {
 				loser = robot.robotID
 				lastLoserTimeStamp = System.currentTimeMillis
-			} else if(System.currentTimeMillis - lastLoserTimeStamp < GAME_LOST_THRESHOLD) {
+			} else if(!isCanceledByReferee && System.currentTimeMillis - lastLoserTimeStamp < GAME_LOST_THRESHOLD) {
 				// robots were losing almost simultaneously: a draw
 				loser = null
 			}

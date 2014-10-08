@@ -4,10 +4,9 @@ import com.google.gson.Gson
 import java.io.IOException
 import java.io.InputStreamReader
 import java.net.URL
+import javax.inject.Inject
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Data
-
-import static extension javafx.util.Duration.*
 
 class ScriptPoller implements IScriptPoller {
 	
@@ -15,11 +14,12 @@ class ScriptPoller implements IScriptPoller {
 	
 	static val ECLIPSE_SERVER_URL = 'http://10.10.1.3:8081/execute'
 
-	GameServer gameServer
+	@Inject GameServer gameServer
+	@Inject IErrorReporter errorReporter
 
 	boolean isStopped = false
 	
-	override start(GameServer gameServer) {
+	override void start() {
 		LOG.debug('Starting script polling thread')
 		this.gameServer = gameServer
 		isStopped = false
@@ -58,7 +58,7 @@ class ScriptPoller implements IScriptPoller {
 					]
 					Thread.sleep(500)
 				} catch (IOException exc) {
-					gameServer.showError('Cannot connect to script server', 2.seconds)
+					errorReporter.showError('Cannot connect to script server')
 					Thread.sleep(5000)
 				}
 			} catch (Exception exc) {

@@ -1,5 +1,6 @@
 package org.xtext.xrobot.game.tests
 
+import com.google.inject.Inject
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Data
 import org.xtext.xrobot.game.GameServer
@@ -9,11 +10,11 @@ class MockScriptPoller implements IScriptPoller {
 	
 	static val LOG = Logger.getLogger(MockScriptPoller)
 	
-	GameServer gameServer
+	@Inject GameServer gameServer
 
 	boolean isStopped = false
 	
-	override start(GameServer gameServer) {
+	override start() {
 		LOG.debug('Starting script polling thread')
 		this.gameServer = gameServer
 		isStopped = false

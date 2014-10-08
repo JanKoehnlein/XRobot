@@ -10,7 +10,6 @@ import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.interpreter.ScriptParser
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
-import org.xtext.xrobot.game.display.Display
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.game.PlayerStatus.*
@@ -21,14 +20,13 @@ class PlayerSlot implements IRobotListener {
 	
 		@Inject IRemoteRobot.Connector remoteRobotConnector
 		
+		@Inject IErrorReporter display
+		
 		@Inject Provider<IRobotPreparer> robotPreparerProvider
 		
 		@Inject Provider<XtextResourceSet> resourceSetProvider
 		
 		@Inject ScriptParser scriptParser
-		
-		@Accessors
-		Display display
 		
 		def create(RobotID robotID) {
 			new PlayerSlot(robotID, remoteRobotConnector, display, robotPreparerProvider,
@@ -45,7 +43,7 @@ class PlayerSlot implements IRobotListener {
 	val RobotID robotID
 
 	@Accessors(PUBLIC_GETTER)
-	val Display display
+	val IErrorReporter display
 
 	val IRemoteRobot.Connector connector
 	
@@ -53,8 +51,6 @@ class PlayerSlot implements IRobotListener {
 	
 	val ScriptParser scriptParser
 	
-	val listeners = new CopyOnWriteArrayList<Listener>
-
 	@Accessors(PUBLIC_GETTER)
 	Program program
 
@@ -66,9 +62,12 @@ class PlayerSlot implements IRobotListener {
 
 	IRemoteRobot.Factory robotFactory
 
+	val listeners = new CopyOnWriteArrayList<Listener>
+	val robotListeners = new CopyOnWriteArrayList<IRobotListener>
+
 	IRobotPreparer preparer
 	
-	private new(RobotID robotID, IRemoteRobot.Connector connector, Display display,
+	private new(RobotID robotID, IRemoteRobot.Connector connector, IErrorReporter display,
 			Provider<? extends IRobotPreparer> preparerProvider,
 			Provider<XtextResourceSet> resourceSetProvider,
 			ScriptParser scriptParser) {
@@ -116,12 +115,14 @@ class PlayerSlot implements IRobotListener {
 	
 	def waitReady() {
 		preparer.waitReady
-		if(status != READY) {
-			display?.addKeyAction[preparer.prepare]
-		}
 		return status == READY
+	}	
+	
+	def getReady() {
+		if(status != READY)
+			preparer.prepare
 	}
-
+	
 	def release() {
 		this.program = null
 		robotFactory?.release
@@ -130,36 +131,40 @@ class PlayerSlot implements IRobotListener {
 		listeners.forEach[slotChanged]
 	}
 
-	def addChangeListener(Listener listener) {
+	def addSlotListener(Listener listener) {
 		listeners += listener
+	}
+
+	def addRobotListener(IRobotListener listener) {
+		robotListeners += listener
 	}
 
 	def getScriptName() {
 		program.name
 	}
 
-	static interface Listener extends IRobotListener {
+	static interface Listener {
 		def void slotChanged()
 	}
 
 	override stateRead(IRemoteRobot robot) {
-		listeners.forEach[stateRead(robot)]
+		robotListeners.forEach[stateRead(robot)]
 	}
 
 	override modeChanged(IRemoteRobot robot, Mode newMode) {
-		listeners.forEach[modeChanged(robot, newMode)]
+		robotListeners.forEach[modeChanged(robot, newMode)]
 	}
 
 	override stateChanged(IRemoteRobot robot) {
-		listeners.forEach[stateChanged(robot)]
+		robotListeners.forEach[stateChanged(robot)]
 	}
 
 	override variableChanged(String name, Object value) {
-		listeners.forEach[variableChanged(name, value)]
+		robotListeners.forEach[variableChanged(name, value)]
 	}
 
 	override lineChanged(int line) {
-		listeners.forEach[lineChanged(line)]
+		robotListeners.forEach[lineChanged(line)]
 	}
 
 }

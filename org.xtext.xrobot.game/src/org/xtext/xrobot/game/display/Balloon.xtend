@@ -7,6 +7,7 @@ import javafx.scene.control.OverrunStyle
 import javafx.scene.layout.StackPane
 import javafx.scene.shape.Ellipse
 import org.xtext.xrobot.api.RobotPosition
+import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.game.PlayerSlot
 import org.xtext.xrobot.server.IRemoteRobot
@@ -17,11 +18,11 @@ import static org.xtext.xrobot.camera.ICamera.*
 
 import static extension org.xtext.xrobot.api.GeometryExtensions.*
 
-class Balloon extends Parent implements AudioService.Listener, PlayerSlot.Listener {
+class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 	
 	new(PlayerSlot slot) {
 		AudioService.instance.addAudioListener(slot.robotID, this)
-		slot.addChangeListener(this)
+		slot.addRobotListener(this)
 	}
 	
 	override audioStarted(String text) {
@@ -76,8 +77,4 @@ class Balloon extends Parent implements AudioService.Listener, PlayerSlot.Listen
 	
 	override lineChanged(int line) {
 	}
-	
-	override slotChanged() {
-	}
-	
 }
