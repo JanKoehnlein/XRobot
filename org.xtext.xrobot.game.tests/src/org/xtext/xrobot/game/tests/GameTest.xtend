@@ -1,5 +1,6 @@
 package org.xtext.xrobot.game.tests
 
+import com.google.common.base.Predicates
 import com.google.inject.Inject
 import com.google.inject.Provider
 import java.util.List
@@ -11,6 +12,7 @@ import org.junit.runner.RunWith
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.game.Game
 import org.xtext.xrobot.game.PlayerSlot
+import org.xtext.xrobot.game.tests.di.MockRobotConnector
 import org.xtext.xrobot.game.tests.di.MockUiTestModule
 
 import static org.junit.Assert.*
@@ -23,6 +25,8 @@ class GameTest {
 	@Inject Provider<Game> gameProvider
 
 	@Inject PlayerSlot.Factory playerSlotFactory
+	
+	@Inject MockRobotConnector mockRobotConnector
 
 	List<PlayerSlot> slots
 	
@@ -33,6 +37,8 @@ class GameTest {
 	
 	@Test
 	def void testDraw() {
+		mockRobotConnector.deadPredicate = Predicates.alwaysFalse
+		mockRobotConnector.blindPredicate = Predicates.alwaysFalse
 		val game = gameProvider.get()
 		game.gameDuration = 1000
 		slots.forEach[
@@ -46,17 +52,38 @@ class GameTest {
 		slots.forEach[release]
 	}
 	
-//	@Test
+	@Test
 	def void testDeath() {
+		mockRobotConnector.deadPredicate = [
+			robotID == RobotID.Blue && age > 1500
+		]
+		mockRobotConnector.blindPredicate = Predicates.alwaysFalse
 		val game = gameProvider.get()
 		slots.forEach[
 			acquire(ITestScripts.IDLE)
 			status = FIGHTING
 		]
-		// TODO configure robot connector such that a death is simulated
 		
 		game.play(slots)
 		assertEquals(game.loser, RobotID.Blue)
+		
+		slots.forEach[release]
+	}
+	
+	@Test
+	def void testCameraLoss() {
+		mockRobotConnector.deadPredicate = Predicates.alwaysFalse
+		mockRobotConnector.blindPredicate = [
+			robotID == RobotID.Blue && age > 1000
+		]
+		val game = gameProvider.get()
+		slots.forEach[
+			acquire(ITestScripts.IDLE)
+			status = FIGHTING
+		]
+		
+		game.play(slots)
+		assertNotNull(game.exception)
 		
 		slots.forEach[release]
 	}

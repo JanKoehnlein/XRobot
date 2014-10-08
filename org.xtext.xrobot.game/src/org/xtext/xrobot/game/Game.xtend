@@ -29,22 +29,26 @@ class Game {
 	@Accessors
 	long gameDuration
 	
-	List<Thread> runners
+	@Accessors(PUBLIC_GETTER)
+	Throwable exception
 
-	Throwable gameException
-	volatile boolean gameOver
-	
-	long lastLoserTimeStamp = -1
-	RobotID loser
-	
 	@Accessors(PUBLIC_GETTER)
 	boolean isCanceledByReferee
 
+	List<Thread> runners
+
+	volatile boolean gameOver
+	
+	long lastLoserTimeStamp = -1
+	
+	RobotID loser
+	
 	def play(List<PlayerSlot> slots) {
 		val gameOverListener = createGameOverListener
 		// remember map is lazy, so make a real copy
 		runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener, it)])
 		gameOver = false
+		exception = null
 		isCanceledByReferee = false
 		LOG.debug('Starting game')
 		runners.forEach[start]
@@ -59,7 +63,7 @@ class Game {
 	}
 	
 	def getLoser() {
-		if(gameException == null) 
+		if(exception == null) 
 			loser
 		else 
 			null
@@ -69,7 +73,7 @@ class Game {
 		gameOver = true
 		isCanceledByReferee = true
 		if(!isDraw) 
-			gameException = new CanceledException('Canceled by referee')
+			exception = new CanceledException('Canceled by referee')
 	}
 	
 	def refereeSetLoser(RobotID loser) {
@@ -77,8 +81,6 @@ class Game {
 		isCanceledByReferee = true
 		gameOver = true
 	}
-	
-	def getException() { gameException }
 	
 	private def createGameOverListener() {
 		new IRobotListener() {
@@ -137,7 +139,8 @@ class Game {
 			runnable.run()
 		} catch(Exception e) {
 			LOG.error(e.message, e)
-			gameException = e
+			if (exception == null)
+				exception = e
 			gameOver = true
 		}
 	}

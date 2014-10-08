@@ -15,34 +15,64 @@ import org.xtext.xrobot.util.AudioService
 import static org.xtext.xrobot.api.GeometryExtensions.*
 
 import static extension java.lang.Math.*
+import com.google.common.base.Predicate
 
-@Accessors
 class MockRobot implements IRemoteRobot {
 
+	@Accessors(PUBLIC_GETTER)
 	val RobotID robotID
 
 	val CancelIndicator cancelIndicator
+
+	val Predicate<MockRobot> deadPredicate
+	
+	val Predicate<MockRobot> blindPredicate
 
 	RobotPosition ownPosition
 
 	RobotPosition opponentPosition
 
+	@Accessors
 	double drivingSpeed
 
+	@Accessors
 	double rotationSpeed
+	
+	long creationTime
 
-	extension AudioService = AudioService.getInstance 
-
-	new(RobotID robotID, CancelIndicator cancelIndicator) {
+	extension AudioService = AudioService.getInstance
+	
+	new(RobotID robotID, CancelIndicator cancelIndicator, Predicate<MockRobot> deadPredicate,
+			Predicate<MockRobot> blindPredicate) {
 		this.robotID = robotID
 		this.cancelIndicator = cancelIndicator
+		this.deadPredicate = deadPredicate
+		this.blindPredicate = blindPredicate
 		this.ownPosition = new RobotPosition(0, 0, robotID, 0)
 		this.opponentPosition = new RobotPosition(0, 0, robotID.opponent, 0)
+		this.creationTime = System.currentTimeMillis
+	}
+	
+	def setState(MockRobot other) {
+		this.creationTime = other.creationTime
+		this.drivingSpeed = other.drivingSpeed
+		this.rotationSpeed = other.rotationSpeed
+		this.ownPosition = other.ownPosition
+		this.opponentPosition = other.opponentPosition
+	}
+	
+	def getAge() {
+		System.currentTimeMillis - creationTime
 	}
 
 	override waitForUpdate(int timeout) throws SocketTimeoutException {
 		checkCanceled
-		Thread.sleep(INetConfig.UPDATE_INTERVAL)
+		if (blindPredicate.apply(this)) {
+			Thread.sleep(timeout)
+			throw new SocketTimeoutException('No position update from camera after ' + timeout + 'ms.')
+		} else {
+			Thread.sleep(INetConfig.UPDATE_INTERVAL)
+		}
 	}
 
 	override release() {
@@ -65,6 +95,7 @@ class MockRobot implements IRemoteRobot {
 			robotID,
 			ownPosition.viewDirection
 		)
+		Thread.sleep(Math.round(1000 * distance / drivingSpeed))
 	}
 
 	override driveForward() {
@@ -76,7 +107,7 @@ class MockRobot implements IRemoteRobot {
 	}
 	
 	override getMaxDrivingSpeed() {
-		return 500
+		return 30
 	}
 
 	override rotate(double angle) {
@@ -87,6 +118,7 @@ class MockRobot implements IRemoteRobot {
 			robotID,
 			ownPosition.viewDirection + angle
 		)
+		Thread.sleep(Math.round(1000 * angle / rotationSpeed))
 	}
 
 	override rotateLeft() {
@@ -98,7 +130,7 @@ class MockRobot implements IRemoteRobot {
 	}
 
 	override getMaxRotationSpeed() {
-		return 500
+		return 360
 	}
 
 	override curveForward(double radius, double angle) {
@@ -184,7 +216,7 @@ class MockRobot implements IRemoteRobot {
 	}
 	
 	override isDead() {
-		false
+		deadPredicate.apply(this)
 	}
 	
 }
