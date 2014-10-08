@@ -1,4 +1,4 @@
-package org.xtext.xrobot.server.testing
+package org.xtext.xrobot.game.tests
 
 import java.net.SocketTimeoutException
 import org.eclipse.xtend.lib.annotations.Accessors

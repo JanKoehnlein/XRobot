@@ -9,7 +9,7 @@ import org.eclipse.xtend.lib.annotations.Data
 
 import static extension javafx.util.Duration.*
 
-class ScriptPoller {
+class ScriptPoller implements IScriptPoller {
 	
 	static val LOG = Logger.getLogger(ScriptPoller)
 	
@@ -19,7 +19,7 @@ class ScriptPoller {
 
 	boolean isStopped = false
 	
-	def void start(GameServer gameServer) {
+	override start(GameServer gameServer) {
 		LOG.debug('Starting script polling thread')
 		this.gameServer = gameServer
 		isStopped = false
@@ -34,7 +34,7 @@ class ScriptPoller {
 		]
 	}
 	
-	def stop() {
+	override stop() {
 		isStopped = true
 	}
 

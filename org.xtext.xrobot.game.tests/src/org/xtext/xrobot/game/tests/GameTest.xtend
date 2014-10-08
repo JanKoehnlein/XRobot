@@ -1,55 +1,68 @@
 package org.xtext.xrobot.game.tests
 
-import org.junit.Test
-import org.junit.Before
-import java.util.List
-import org.xtext.xrobot.game.PlayerSlot
-import org.xtext.xrobot.RobotID
+import com.google.inject.Guice
 import com.google.inject.Inject
 import com.google.inject.Provider
-import static org.xtext.xrobot.game.PlayerStatus.*
-import org.xtext.xrobot.game.Game
-import static org.junit.Assert.*
-import org.xtext.xrobot.dsl.interpreter.ScriptParser
-import org.eclipse.xtext.resource.XtextResourceSet
-import org.xtext.xrobot.game.ITestScripts
-import org.xtext.xrobot.server.testing.MockRobotConnector
+import java.util.List
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.resource.impl.BinaryGrammarResourceFactoryImpl
+import org.eclipse.xtext.xbase.XbaseStandaloneSetup
+import org.junit.Before
+import org.junit.Test
+import org.xtext.xrobot.RobotID
+import org.xtext.xrobot.dsl.XRobotDSLRuntimeModule
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
+import org.xtext.xrobot.game.Game
+import org.xtext.xrobot.game.PlayerSlot
+
+import static org.junit.Assert.*
+import static org.xtext.xrobot.game.PlayerStatus.*
 
 class GameTest {
 	
 	@Inject Provider<Game> gameProvider
-	@Inject Provider<MockRobotPreparer> robotPreparerProvider
-	@Inject Provider<XtextResourceSet> resourceSetProvider
-	@Inject MockRobotConnector remoteRobotConnector
-	@Inject ScriptParser scriptParser
-	
+
+	@Inject PlayerSlot.Factory playerSlotFactory
+
 	List<PlayerSlot> slots
 	
 	@Before
-	def void prepare() {
+	def void init() {
 		Resource.Factory.Registry.INSTANCE.extensionToFactoryMap.put('xtextbin', new BinaryGrammarResourceFactoryImpl())
-		new XRobotDSLStandaloneSetup().createInjectorAndDoEMFRegistration.injectMembers(this)
-		slots = #[
-			new PlayerSlot(RobotID.Blue, remoteRobotConnector, null, robotPreparerProvider),
-			new PlayerSlot(RobotID.Red, remoteRobotConnector, null, robotPreparerProvider)
-		]
+		XbaseStandaloneSetup.doSetup()
+		val injector = Guice.createInjector(new XRobotTestModule, new XRobotDSLRuntimeModule)
+		new XRobotDSLStandaloneSetup().register(injector)
+		injector.injectMembers(this)
+
+		slots = playerSlotFactory.createAll
 	}
 	
 	@Test
 	def void testDraw() {
-		val resourceSet = resourceSetProvider.get
-		val idleScript = scriptParser.parse(ITestScripts.IDLE, resourceSet)
-		slots.get(0).acquire(idleScript)
-		slots.get(1).acquire(idleScript)
 		val game = gameProvider.get()
 		game.gameDuration = 1000
-		slots.forEach[status = FIGHTING]
+		slots.forEach[
+			acquire(ITestScripts.IDLE)
+			status = FIGHTING
+		]
 		
 		game.play(slots)
 		assertNull(game.loser)
+		
+		slots.forEach[release]
+	}
+	
+//	@Test
+	def void testDeath() {
+		val game = gameProvider.get()
+		slots.forEach[
+			acquire(ITestScripts.IDLE)
+			status = FIGHTING
+		]
+		// TODO configure robot connector such that a death is simulated
+		
+		game.play(slots)
+		assertEquals(game.loser, RobotID.Blue)
 		
 		slots.forEach[release]
 	}

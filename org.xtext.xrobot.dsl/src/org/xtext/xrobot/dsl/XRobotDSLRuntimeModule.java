@@ -12,8 +12,6 @@ import org.xtext.xrobot.dsl.imports.XRobotImportsConfiguration;
 import org.xtext.xrobot.dsl.scoping.XRobotFeatureScopes;
 import org.xtext.xrobot.dsl.scoping.XRobotImplicitlyImportedFeatures;
 import org.xtext.xrobot.dsl.scoping.XRobotResourceDescriptionStrategy;
-import org.xtext.xrobot.server.IRemoteRobot;
-import org.xtext.xrobot.server.RemoteRobotConnector;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -23,10 +21,6 @@ public class XRobotDSLRuntimeModule extends org.xtext.xrobot.dsl.AbstractXRobotD
 
 	public Class<? extends ImplicitlyImportedFeatures> bindImplicitlyImportedFeatures() {
 		return XRobotImplicitlyImportedFeatures.class;
-	}
-	
-	public Class<? extends IRemoteRobot.Connector> bindIRemoteRobot$Connector() {
-		return RemoteRobotConnector.class;
 	}
 	
 	public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
@@ -44,4 +38,5 @@ public class XRobotDSLRuntimeModule extends org.xtext.xrobot.dsl.AbstractXRobotD
 	public Class<? extends IImportsConfiguration> bindIImportsConfiguration() {
 		return XRobotImportsConfiguration.class;
 	}
+	
 }

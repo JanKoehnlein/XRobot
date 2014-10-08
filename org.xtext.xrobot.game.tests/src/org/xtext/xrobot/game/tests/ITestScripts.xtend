@@ -1,4 +1,4 @@
-package org.xtext.xrobot.game
+package org.xtext.xrobot.game.tests
 
 interface ITestScripts {
 	

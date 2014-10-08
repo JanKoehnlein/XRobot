@@ -1,17 +1,19 @@
-package org.xtext.xrobot.game
+package org.xtext.xrobot.game.tests
 
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Data
+import org.xtext.xrobot.game.GameServer
+import org.xtext.xrobot.game.IScriptPoller
 
-class MockScriptPoller {
+class MockScriptPoller implements IScriptPoller {
 	
-	static val LOG = Logger.getLogger(ScriptPoller)
+	static val LOG = Logger.getLogger(MockScriptPoller)
 	
 	GameServer gameServer
 
 	boolean isStopped = false
 	
-	def void start(GameServer gameServer) {
+	override start(GameServer gameServer) {
 		LOG.debug('Starting script polling thread')
 		this.gameServer = gameServer
 		isStopped = false
@@ -22,7 +24,7 @@ class MockScriptPoller {
 		]
 	}
 	
-	def stop() {
+	override stop() {
 		isStopped = true
 	}
 

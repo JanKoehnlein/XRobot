@@ -1,6 +1,8 @@
 package org.xtext.xrobot.game
 
+import com.google.inject.Guice
 import com.google.inject.Inject
+import com.google.inject.Module
 import com.google.inject.Provider
 import java.util.List
 import javafx.application.Application
@@ -9,14 +11,13 @@ import javafx.stage.Stage
 import javafx.util.Duration
 import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.resource.XtextResourceSet
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.resource.impl.BinaryGrammarResourceFactoryImpl
-import org.xtext.xrobot.RobotID
+import org.eclipse.xtext.xbase.XbaseStandaloneSetup
+import org.xtext.xrobot.dsl.XRobotDSLRuntimeModule
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
-import org.xtext.xrobot.dsl.interpreter.ScriptParser
 import org.xtext.xrobot.game.display.Display
 import org.xtext.xrobot.game.ranking.RankingSystem
-import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.game.PlayerStatus.*
 
@@ -28,33 +29,39 @@ class GameServer extends Application {
 
 	static val LOG = Logger.getLogger(GameServer)
 	
+	public static Module gameModule = new XRobotModule
+	
 	def static void main(String[] args) {
-		launch()
+		launch(args)
 	}
 	
-	@Inject IRemoteRobot.Connector remoteRobotConnector
-	@Inject ScriptPoller scriptPoller
-//	@Inject MockRobotConnector remoteRobotConnector
-//	@Inject MockScriptPoller scriptPoller
-	@Inject Provider<XtextResourceSet> resourceSetProvider
-
-	@Inject ScriptParser scriptParser
+	@Inject PlayerSlot.Factory playerSlotFactory
+	
+	@Inject IScriptPoller scriptPoller
 	
 	@Inject Provider<Game> gameProvider
-	@Inject Provider<RobotPreparer> gamePreparerProvider
 	
 	@Inject Display display
+	
 	@Inject RankingSystem rankingSystem
 
-	val List<PlayerSlot> slots
+	@Accessors(PUBLIC_GETTER)
+	List<PlayerSlot> slots
 	
-	new() {
+	override init() {
+		// Load fonts
 		Font.loadFont(class.getResourceAsStream('/fonts/flipside.ttf'), 24)
 		Font.loadFont(class.getResourceAsStream('/fonts/Robotica.ttf'), 24)
+		
+		// Xtext initialization and dependency injection
 		Resource.Factory.Registry.INSTANCE.extensionToFactoryMap.put('xtextbin', new BinaryGrammarResourceFactoryImpl())
-		new XRobotDSLStandaloneSetup().createInjectorAndDoEMFRegistration.injectMembers(this)
-		slots = #[new PlayerSlot(RobotID.Blue, remoteRobotConnector, display, gamePreparerProvider),
-			new PlayerSlot(RobotID.Red, remoteRobotConnector, display, gamePreparerProvider)]
+		XbaseStandaloneSetup.doSetup()
+		val injector = Guice.createInjector(gameModule, new XRobotDSLRuntimeModule)
+		new XRobotDSLStandaloneSetup().register(injector)
+		injector.injectMembers(this)
+		
+		playerSlotFactory.display = display
+		slots = playerSlotFactory.createAll
 	}
 	
 	override start(Stage stage) throws Exception {
@@ -62,25 +69,17 @@ class GameServer extends Application {
 		scriptPoller.start(this)
 	}
 	
-	protected def getSlots() {
-		slots
-	}
-	
 	def register(AccessToken usedToken, String script) {
 		synchronized(slots) {
 			val slot = slots.findFirst[matches(usedToken) && isAvailable]
 			if(slot?.isAvailable) {
-				val resourceSet = resourceSetProvider.get
-				val program = scriptParser.parse(script, resourceSet)
-				if(program != null) {
-					try {
-						LOG.debug('Robot ' + program.name + ' has joined the game')
-						slot.acquire(program)
-					} catch (Exception exc) {
-						showError(exc.message, 2.seconds)
-						LOG.error('Error assigning robot', exc) 
-						slot.release
-					}
+				try {
+					slot.acquire(script)
+					LOG.debug('Robot ' + slot.program.name + ' has joined the game')
+				} catch (Exception exc) {
+					showError(exc.message, 2.seconds)
+					LOG.error('Error assigning robot', exc) 
+					slot.release
 				}
 			}	
 		}

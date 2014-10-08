@@ -1,6 +1,7 @@
 package org.xtext.xrobot.game
 
 import org.apache.log4j.Logger
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.xtext.xrobot.api.Position
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
@@ -12,9 +13,8 @@ import static org.xtext.xrobot.api.IArena.*
 import static org.xtext.xrobot.game.PlayerStatus.*
 
 import static extension javafx.util.Duration.*
-import org.eclipse.xtend.lib.annotations.Accessors
 
-class RobotPreparer {
+class RobotPreparer implements IRobotPreparer {
 	
 	static val LOG = Logger.getLogger(RobotPreparer)
 	
@@ -32,14 +32,14 @@ class RobotPreparer {
 	IRemoteRobot robot
 	Thread thread
 	
-	@Accessors(PROTECTED_GETTER, PROTECTED_SETTER)
+	@Accessors(PUBLIC_SETTER)
 	PlayerSlot slot
 	
 	private def getDisplay() {
 		slot.display
 	}
 
-	def void getReady() {
+	override prepare() {
 		LOG.debug(slot.scriptName + ' getReady()')
 		slot.status = PREPARING
 		isCanceled = false
@@ -65,7 +65,7 @@ class RobotPreparer {
 		thread.start
 	}
 	
-	def waitReady() {
+	override waitReady() {
 		LOG.debug(slot.scriptName + ' waitReady()')
 		thread?.join(PREPARATION_TIMEOUT)
 		isCanceled = true

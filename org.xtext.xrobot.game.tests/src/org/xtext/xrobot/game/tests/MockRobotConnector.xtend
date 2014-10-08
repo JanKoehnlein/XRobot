@@ -1,4 +1,4 @@
-package org.xtext.xrobot.server.testing
+package org.xtext.xrobot.game.tests
 
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.server.IRemoteRobot

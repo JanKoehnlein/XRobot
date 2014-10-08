@@ -1,4 +1,4 @@
-package org.xtext.xrobot.server.testing
+package org.xtext.xrobot.game.tests
 
 import java.net.SocketTimeoutException
 import org.eclipse.xtend.lib.annotations.Accessors
@@ -7,6 +7,7 @@ import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.Direction
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.api.Sample
+import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
 import org.xtext.xrobot.util.AudioService
@@ -14,7 +15,6 @@ import org.xtext.xrobot.util.AudioService
 import static org.xtext.xrobot.api.GeometryExtensions.*
 
 import static extension java.lang.Math.*
-import org.xtext.xrobot.net.INetConfig
 
 @Accessors
 class MockRobot implements IRemoteRobot {
