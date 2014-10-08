@@ -30,7 +30,7 @@ import static extension java.lang.Math.*
 class Robot {
 	
 	/** The threshold of the brightness value at which a game-over situation is detected. */
-	static val GAME_OVER_THRESHOLD = 0.05
+	static val GAME_OVER_THRESHOLD = 0.025
 
 	RobotID robotID
 
