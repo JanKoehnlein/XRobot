@@ -24,6 +24,7 @@ import org.xtext.xrobot.util.SystemSounds
 import static org.xtext.xrobot.api.IRobotGeometry.*
 
 import static extension java.lang.Math.*
+import static extension org.xtext.xrobot.api.GeometryExtensions.*
 
 @SimpleRMI
 class Robot {
@@ -105,16 +106,12 @@ class Robot {
 	/**
 	 * Set both motors into motion with the given speed values in centimeters/second.
 	 * If both speeds are positive, the robot moves forward. If they are negative, the robot
-	 * moves backward. If one speed value is positive and the other is negative, the robot rotates.
+	 * moves backward. If one speed value is positive and the other is negative, the robot rotates 
+	 * or drives a curve.
 	 * 
 	 * <p>This command is <em>non-blocking</em>, i.e. it returns immediately and the motors 
 	 * continue moving until they receive another command such as {@link #stop()}.</p>
-	 * 
-	 * <p>When the motors are started with two consecutive commands, the resulting movement
-	 * may be inaccurate due to the delay between the commands. Therefore this command may
-	 * be preferable in such situations, since it allows to start both motors with a single
-	 * command.</p>
-	 * 
+	 *  
 	 * @param leftSpeed the speed of the left motor in centimeters/second   
 	 * @param rightSpeed the speed of the right motor in centimeters/second   
 	 */
@@ -206,7 +203,7 @@ class Robot {
 	/**
 	 * Return the maximal driving speed in centimeters/second. This value depends on the
 	 * current status of the battery: faster movements are possible with a fresh battery.
-	 * The maximal driving speed with a fully charged battery is approximately 30 cm/s. 
+	 * The maximal driving speed with a fully charged battery is approximately 30cm/s. 
 	 * 
 	 * <p>The returned value can be used as a reference for {@link #setDrivingSpeed(double)}
 	 * commands. For example, {@code drivingSpeed = 0.5 * maxDrivingSpeed} sets the speed
@@ -304,15 +301,18 @@ class Robot {
 
 	/**
 	 * Let the robot travel a forward curve following a segment with the given {@code angle}
-	 * of a circle with the given {@code radius}.
+	 * in degrees of a circle with the given {@code radius} in centimeters.
 	 * A positive angle means a counter-clockwise curve (left), while a negative angle
 	 * means a clockwise curve (right). The sign of the radius is ignored.
 	 * The speed of this movement is set with {@link #setDrivingSpeed(double)}.
 	 * 
+	 * <p>This command blocks the current mode's execution until the rotation is complete.
+	 * Once finished, the motors are stopped.</p>
+	 * 
 	 * @param radius
 	 * 		The radius in centimeters of the circle on which to travel
 	 * @param angle
-	 * 		The angle of the circle segment that is actually covered
+	 * 		The angle in degrees of the circle segment that is actually covered
 	 */
 	@Blocking
 	override void curveForward(double radius, double angle) {
@@ -324,15 +324,18 @@ class Robot {
 
 	/**
 	 * Let the robot travel a backward curve following a segment with the given {@code angle}
-	 * of a circle with the given {@code radius}.
+	 * in degrees of a circle with the given {@code radius} in centimeters.
 	 * A positive angle means a clockwise curve (left), while a negative angle means a
 	 * counter-clockwise curve (right). The sign of the radius is ignored.
 	 * The speed of this movement is set with {@link #setDrivingSpeed(double)}.
+	 *
+	 * <p>This command blocks the current mode's execution until the rotation is complete.
+	 * Once finished, the motors are stopped.</p>
 	 * 
 	 * @param radius
 	 * 		The radius in centimeters of the circle on which to travel
 	 * @param angle
-	 * 		The angle of the circle segment that is actually covered
+	 * 		The angle in degrees of the circle segment that is actually covered
 	 */
 	@Blocking
 	override void curveBackward(double radius, double angle) {
@@ -343,26 +346,44 @@ class Robot {
 	}
 
 	/**
-	 * Let the robot travel a forward curve to the point with the relative polar
-	 * coordinates {@code angle} and {@code distance}.
-	 * A positive angle means a counter-clockwise curve (left), while a negative angle
-	 * means a clockwise curve (right).
+	 * Let the robot travel a forward curve to the point with the polar
+	 * coordinates {@code angle} in degrees and {@code distance} in centimeters.
+	 * You can directly use the values returned by {@link getOpponentDirection()} or
+	 * {@link getCenterDirection()} to drive a curve to the opponent resp. center. 
+	 * 
+	 * The following picture illustrates the curve: The own position is the blue marker. 
+	 * The arrow points into the view direction. The angle <code>a</code> and the distance 
+	 * <code>d</code> define the target point. The curve is the section of the circle that 
+	 * connects both points and is tangent to the view vector.
+	 * <img src="CurveTo.png" width="10cm">
+	 * 
+	 * The angle is normalized to be between -180 and 180 degrees. If the 
+	 * <code>angle</code> is close to 0&deg; the robot will drive <code>distance</code> 
+	 * centimeters forward, close to +/-180&deg; backward. A positive angle means a 
+	 * counter-clockwise curve (left), while a negative angle means a clockwise curve (right).
+	 * Note that the curve can leave the arena when the angle's absolute value is to large.
+	 * 
 	 * The speed of this movement is set with {@link #setDrivingSpeed(double)}.
 	 * 
+	 * <p>This command blocks the current mode's execution until the rotation is complete.
+	 * Once finished, the motors are stopped.</p>
+	 * 
 	 * @param distance
-	 * 		The distance of the targeted point from the robot's current position
+	 * 		The distance in centimeters of the targeted point from the robot's current position
 	 * @param angle
-	 * 		The angle of the targeted point relative to the robot's view direction
+	 * 		The angle in degrees of the targeted point relative to the robot's view direction. 
+	 * 		It will be normalized to be between -180 and 180 degrees.
 	 */
 	@Blocking
 	override void curveTo(double distance, double angle) {
-		if(abs(angle) < 1) {
+		val a = angle.normalizeAngle
+		if(abs(a) < 1) {
 			drive(distance)
-		} else if(abs(abs(angle) - 180) < 1) {
+		} else if(abs(abs(a) - 180) < 1) {
 			drive(-distance)
 		} else {
-			val radius = 0.5 * distance / sin(angle.toRadians)
-			curveForward(radius, 2 * angle)
+			val radius = 0.5 * distance / sin(a.toRadians)
+			curveForward(radius, 2 * a)
 		}
 	}
 
@@ -403,14 +424,17 @@ class Robot {
 
 	/**
 	 * Move the robot's scoop to the specified position:
-	 * 0 is on the floor (the starting position),
-	 * 1 is completely up, and
-	 * -1 is completely down (could roll the robot over).
+	 * <ul>
+	 * <li>0 is on the floor (the starting position),</li>
+	 * <li>1 is completely up, and</li>
+	 * <li>-1 is completely down (could roll the robot over).</li>
+	 * </ul>
 	 * Values below -1 or above 1 are truncated to these limits.   
 	 * 
-	 * <p>This command is <em>non-blocking</em>, i.e. it returns immediately and the scoop
-	 * motor continues moving until it reaches the specified position. If another scoop
-	 * command is given, it may be blocked until the first command has finished its movement.</p>
+	 * <p>This command is <em>non-blocking</em>, in the sense that it returns immediately 
+	 * and the scoop motor continues moving until it reaches the specified position. But
+	 * if another scoop command is given, it is blocked until the first command has finished 
+	 * its movement.</p>
 	 * 
 	 * @param position
 	 * 		The target position of the robot's scoop (between -1 and +1)
@@ -430,7 +454,7 @@ class Robot {
 	}
 	
 	/**
-	 * Play one of the predefined samples (see {@link Sample}).
+	 * Play one of the predefined audio samples (see {@link Sample}).
 	 * 
 	 * @param sample
 	 * 		A reference to a predefined sample
@@ -440,7 +464,7 @@ class Robot {
 	}
 
 	/**
-	 * Let the robot say something.
+	 * Let the robot say a line of text.
 	 * 
 	 * @param text
 	 * 		A text that shall be spoken by the robot
