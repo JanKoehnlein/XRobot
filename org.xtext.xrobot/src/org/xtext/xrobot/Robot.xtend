@@ -13,7 +13,6 @@ import org.xtext.xrobot.annotations.Blocking
 import org.xtext.xrobot.annotations.Calculated
 import org.xtext.xrobot.annotations.NoAPI
 import org.xtext.xrobot.annotations.SimpleRMI
-import org.xtext.xrobot.annotations.SubComponent
 import org.xtext.xrobot.annotations.Zombie
 import org.xtext.xrobot.api.Direction
 import org.xtext.xrobot.api.IRobotGeometry
@@ -49,20 +48,17 @@ class Robot {
 	
 	boolean isDead
 	boolean isInvincible
-
-	@SubComponent Motor leftMotor
-	@SubComponent Motor rightMotor
-	@SubComponent Motor scoopMotor
 	
+	NXTRegulatedMotor leftMotor
+	NXTRegulatedMotor rightMotor
+	NXTRegulatedMotor scoopMotor
 
 	new(Brick brick) {
 		robotID = RobotID.valueOf(brick.name)
-		val leftRegMotor = new NXTRegulatedMotor(brick.getPort('B'))
-		val rightRegMotor = new NXTRegulatedMotor(brick.getPort('C'))
-		leftMotor = new Motor(leftRegMotor)
-		rightMotor = new Motor(rightRegMotor)
-		pilot = new DifferentialPilot(WHEEL_DIAMETER, WHEEL_DISTANCE, leftRegMotor, rightRegMotor)
-		scoopMotor = new Motor(new NXTRegulatedMotor(brick.getPort('A')))
+		leftMotor = new NXTRegulatedMotor(brick.getPort('B'))
+		rightMotor = new NXTRegulatedMotor(brick.getPort('C'))
+		pilot = new DifferentialPilot(WHEEL_DIAMETER, WHEEL_DISTANCE, leftMotor, rightMotor)
+		scoopMotor = new NXTRegulatedMotor(brick.getPort('A'))
 		colorSensor = new EV3ColorSensor(brick.getPort('S3')).redMode
 		escapeKey = brick.getKey('Escape')
 		led = brick.LED

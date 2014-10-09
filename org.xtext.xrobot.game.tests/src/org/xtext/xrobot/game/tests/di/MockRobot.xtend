@@ -196,18 +196,6 @@ class MockRobot implements IRemoteRobot {
 		)
 	}
 
-	override getLeftMotor() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-
-	override getRightMotor() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-
-	override getScoopMotor() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-
 	private def checkCanceled() {
 		if (cancelIndicator.isCanceled)
 			throw new CanceledException
