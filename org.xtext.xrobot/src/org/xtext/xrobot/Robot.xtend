@@ -393,13 +393,12 @@ class Robot {
 	/**
      * Reset the robot to its starting state: left and right motors are stopped,
      * scoop is moved to neutral position, and speeds are set to maximal values.
-     * If the robot is dead, it is resurrected. Its invincible status is also reset.
+     * If the robot is dead, it is resurrected.
      */
     @NoAPI@Zombie
 	def void reset() {
 		stop
 		isDead = false
-		isInvincible = false
 		scoop(0)
 		drivingSpeed = maxDrivingSpeed
 		rotationSpeed = maxRotationSpeed

@@ -90,12 +90,12 @@ class GameControlWindow implements IGameListener {
 				spacing = 10
 				children += placeBlueButton = new Button('Place Blue') => [
 					onAction = [
-						slots.findFirst[robotID == Blue].ready
+						slots.findFirst[robotID == Blue].prepare
 					]
 				]
 				children += placeRedButton = new Button('Place Red') => [
 					onAction = [
-						slots.findFirst[robotID == Red].ready
+						slots.findFirst[robotID == Red].prepare
 					]
 				]
 			]

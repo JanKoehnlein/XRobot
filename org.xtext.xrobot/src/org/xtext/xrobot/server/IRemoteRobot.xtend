@@ -29,6 +29,8 @@ interface IRemoteRobot extends IRobot {
 	
 	def void release()
 	
+	def void reset()
+	
 	def double getBatteryState()
 	
 	def RobotID getRobotID()

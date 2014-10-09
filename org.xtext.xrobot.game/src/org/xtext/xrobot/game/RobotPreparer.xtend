@@ -39,8 +39,8 @@ class RobotPreparer implements IRobotPreparer {
 	@Inject IErrorReporter errorReporter
 
 	override prepare() {
-		LOG.debug(slot.robotID + ' getReady()')
-		LOG.debug(slot.robotID + ' getReady()')
+		LOG.debug(slot.robotID + ' prepare()')
+		LOG.debug(slot.robotID + ' prepare()')
 		if(thread?.isAlive) 
 			return;
 		slot.status = PREPARING
@@ -54,6 +54,7 @@ class RobotPreparer implements IRobotPreparer {
 		thread = new Thread([
 			try {
 				robot.invincible = true
+				robot.reset
 				goHome
 				robot.invincible = false
 			} catch (CanceledException exc) {

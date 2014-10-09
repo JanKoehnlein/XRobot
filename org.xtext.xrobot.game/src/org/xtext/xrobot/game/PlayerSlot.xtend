@@ -113,15 +113,15 @@ class PlayerSlot implements IRobotListener {
 		}
 	}
 	
+	def prepare() {
+		if(status != READY)
+			preparer.prepare
+	}
+	
 	def waitReady() {
 		preparer.waitReady
 		return status == READY
 	}	
-	
-	def getReady() {
-		if(status != READY)
-			preparer.prepare
-	}
 	
 	def release() {
 		this.program = null
