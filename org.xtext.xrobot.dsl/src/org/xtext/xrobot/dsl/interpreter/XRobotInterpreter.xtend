@@ -23,11 +23,11 @@ import org.xtext.xrobot.dsl.xRobotDSL.Sub
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
 
-import static org.xtext.xrobot.net.INetConfig.*
-
 class XRobotInterpreter extends XbaseInterpreter {
 	
 	static val LOG = Logger.getLogger(XRobotInterpreter)
+	
+	static val ROBOT_UPDATE_TIMEOUT = 2000
 	
 	static val ROBOT = QualifiedName.create('Dummy')
 	static val CURRENT_LINE = QualifiedName.create('currentLine')
@@ -99,7 +99,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 						}
 					}
 					Thread.yield
-					conditionRobot.waitForUpdate(SOCKET_TIMEOUT)
+					conditionRobot.waitForUpdate(ROBOT_UPDATE_TIMEOUT)
 					if(newMode == null)
 						listeners.forEach[ stateChanged(conditionRobot) ]
 				}

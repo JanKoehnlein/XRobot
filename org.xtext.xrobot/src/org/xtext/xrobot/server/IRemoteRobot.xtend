@@ -35,4 +35,6 @@ interface IRemoteRobot extends IRobot {
 	
 	def boolean isDead()
 	
+	def void setInvincible(boolean invincible)
+	
 }

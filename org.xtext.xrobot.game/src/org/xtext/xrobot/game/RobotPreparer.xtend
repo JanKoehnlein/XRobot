@@ -53,11 +53,15 @@ class RobotPreparer implements IRobotPreparer {
 			errorReporter.showInfo(slot.robotID + ': Battery low', 5.seconds)
 		thread = new Thread([
 			try {
+				robot.invincible = true
 				goHome
+				robot.invincible = false
 			} catch (CanceledException exc) {
 				// ignore
 			} catch (Exception exc) {
 				LOG.error('Error preparing robot', exc)
+			} finally {
+				slot.status = checkStatus
 			}
 		], 'RobotPlacer') => [
 			daemon = true
@@ -118,7 +122,6 @@ class RobotPreparer implements IRobotPreparer {
 			robot.waitForUpdate
 			angle = normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)
 		}
-		slot.status = checkStatus
 	}
 	
 	private def getHomeViewDirection() {

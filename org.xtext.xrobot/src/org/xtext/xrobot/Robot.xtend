@@ -31,6 +31,9 @@ class Robot {
 	
 	/** The threshold of the brightness value at which a game-over situation is detected. */
 	static val GAME_OVER_THRESHOLD = 0.025
+	
+	/** The voltage of the battery pack when it is full. */
+	static val FULL_BATTERY_VOLTAGE = 8.1
 
 	RobotID robotID
 
@@ -45,6 +48,7 @@ class Robot {
 	Power power
 	
 	boolean isDead
+	boolean isInvincible
 
 	@SubComponent Motor leftMotor
 	@SubComponent Motor rightMotor
@@ -387,15 +391,15 @@ class Robot {
 	}
 
 	/**
-     * Reset the robot to its starting state:
-     * Left and right motors are stopped,
-     * scoop is moved to neutral position, 
-     * and speeds are set to maximal values.
+     * Reset the robot to its starting state: left and right motors are stopped,
+     * scoop is moved to neutral position, and speeds are set to maximal values.
+     * If the robot is dead, it is resurrected. Its invincible status is also reset.
      */
     @NoAPI@Zombie
 	def void reset() {
 		stop
 		isDead = false
+		isInvincible = false
 		scoop(0)
 		drivingSpeed = maxDrivingSpeed
 		rotationSpeed = maxRotationSpeed
@@ -471,7 +475,7 @@ class Robot {
 	 */
 	@NoAPI@Zombie
 	def double getBatteryState() {
-		power.voltage / 8.1
+		power.voltage / FULL_BATTERY_VOLTAGE
 	}
 	
 	/**
@@ -480,7 +484,7 @@ class Robot {
 	 */
 	@NoAPI@Zombie
 	def boolean isDead() {
-		if(!isDead) {
+		if(!isDead && !isInvincible) {
 			// When the robot tilts over, its color sensor cannot receive any reflections,
 			// so the reported color value is 0.
 			isDead = lastColorSample < GAME_OVER_THRESHOLD
@@ -490,6 +494,18 @@ class Robot {
 			}
 		}
 		return isDead
+	}
+	
+	/**
+	 * Set the invincible status of the robot. When the robot is invincible, it cannot die,
+	 * thus {@link #isDead()} always returns {@code false}.
+	 */
+	@NoAPI@Zombie
+	def void setInvincible(boolean invincible) {
+		this.isInvincible = invincible
+		if (invincible) {
+			isDead = false
+		}
 	}
 
 	/**

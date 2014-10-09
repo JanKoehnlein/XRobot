@@ -28,7 +28,7 @@ class GameResult {
 	
 	val RobotID winner
 	val String cancelationReason
-	boolean replay
+	val boolean replay
 	
 	def RobotID getLoser() {
 		winner?.opponent

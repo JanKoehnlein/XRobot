@@ -38,6 +38,8 @@ class MockRobot implements IRemoteRobot {
 	@Accessors
 	double rotationSpeed
 	
+	boolean isInvincible
+	
 	long creationTime
 
 	extension AudioService = AudioService.getInstance
@@ -216,7 +218,11 @@ class MockRobot implements IRemoteRobot {
 	}
 	
 	override isDead() {
-		deadPredicate.apply(this)
+		!isInvincible && deadPredicate.apply(this)
+	}
+	
+	override setInvincible(boolean invincible) {
+		this.isInvincible = invincible
 	}
 	
 }

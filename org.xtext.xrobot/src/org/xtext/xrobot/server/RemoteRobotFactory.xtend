@@ -64,10 +64,9 @@ class RemoteRobotFactory implements IRemoteRobot.Factory {
 			throw new IllegalStateException
 		}
 		val nextCommandSerialNr = 10
-		val timeout = 10 * SOCKET_TIMEOUT
 		lastRobot = new RemoteRobot(robotID, nextCommandSerialNr, socket, writeLock, stateReceiver,
 				cancelIndicator, cameraClient)
-		lastRobot.waitForUpdate(timeout)
+		lastRobot.waitForUpdate(10 * SOCKET_TIMEOUT)
 		lastRobot
 	}
 	
