@@ -23,6 +23,8 @@ interface IRemoteRobot extends IRobot {
 		def IRemoteRobot newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException
 
 		def IRemoteRobot newRobot(CancelIndicator cancelIndicator, IRemoteRobot existingRobot)
+		
+		def IRemoteRobot getLastRobot()
 	}
 	
 	def void waitForUpdate(int timeout) throws SocketTimeoutException

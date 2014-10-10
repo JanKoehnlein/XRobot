@@ -2,6 +2,7 @@ package org.xtext.xrobot.server
 
 import java.net.SocketTimeoutException
 import java.nio.channels.SocketChannel
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.camera.CameraClient
@@ -23,6 +24,7 @@ class RemoteRobotFactory implements IRemoteRobot.Factory {
 	
 	var boolean isReleased
 	
+	@Accessors(PUBLIC_GETTER)
 	var RemoteRobot lastRobot
 	
 	new(RobotID robotID, SocketChannel socket, CameraClient cameraClient) throws SocketTimeoutException {
@@ -60,7 +62,7 @@ class RemoteRobotFactory implements IRemoteRobot.Factory {
 	}
 	
 	override newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException {
-		if (isReleased) {
+		if (!alive) {
 			throw new IllegalStateException
 		}
 		val nextCommandSerialNr = 10
@@ -71,7 +73,7 @@ class RemoteRobotFactory implements IRemoteRobot.Factory {
 	}
 	
 	override newRobot(CancelIndicator cancelIndicator, IRemoteRobot existingRobot) {
-		if (isReleased) {
+		if (!alive) {
 			throw new IllegalStateException
 		}
 		val nextCommandSerialNr = lastRobot.nextCommandSerialNr + 10
@@ -81,4 +83,5 @@ class RemoteRobotFactory implements IRemoteRobot.Factory {
 		lastRobot.setState(existingRemoteRobot.state, existingRemoteRobot.cameraSample)
 		lastRobot
 	}
+	
 }

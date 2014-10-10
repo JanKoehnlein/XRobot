@@ -1,5 +1,6 @@
 package org.xtext.xrobot.game.tests.di
 
+import com.google.common.base.Predicate
 import java.net.SocketTimeoutException
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.util.CancelIndicator
@@ -7,6 +8,7 @@ import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.Direction
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.api.Sample
+import org.xtext.xrobot.camera.CameraTimeoutException
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
@@ -15,7 +17,6 @@ import org.xtext.xrobot.util.AudioService
 import static org.xtext.xrobot.api.GeometryExtensions.*
 
 import static extension java.lang.Math.*
-import com.google.common.base.Predicate
 
 class MockRobot implements IRemoteRobot {
 
@@ -71,7 +72,7 @@ class MockRobot implements IRemoteRobot {
 		checkCanceled
 		if (blindPredicate.apply(this)) {
 			Thread.sleep(timeout)
-			throw new SocketTimeoutException('No position update from camera after ' + timeout + 'ms.')
+			throw new CameraTimeoutException('No position update from camera after ' + timeout + 'ms.')
 		} else {
 			Thread.sleep(INetConfig.UPDATE_INTERVAL)
 		}

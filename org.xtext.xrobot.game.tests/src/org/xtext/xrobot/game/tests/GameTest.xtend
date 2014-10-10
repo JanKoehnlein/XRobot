@@ -65,8 +65,8 @@ class GameTest {
 		]
 		
 		game.play(slots)
-		assertEquals(game.gameResult.winner, RobotID.Red)
-		assertEquals(game.gameResult.loser, RobotID.Blue)
+		assertEquals(RobotID.Red, game.gameResult.winner)
+		assertEquals(RobotID.Blue, game.gameResult.loser)
 		
 		slots.forEach[release]
 	}
@@ -86,6 +86,86 @@ class GameTest {
 		game.play(slots)
 		assertTrue(game.gameResult.isCanceled)
 		assertNotNull(game.gameResult.cancelationReason)
+		
+		slots.forEach[release]
+	}
+	
+	@Test
+	def void testDeathWithCameraLoss() {
+		mockRobotConnector.deadPredicate = [
+			robotID == RobotID.Blue && age > 1000
+		]
+		mockRobotConnector.blindPredicate = [
+			robotID == RobotID.Blue && age > 500
+		]
+		val game = gameProvider.get()
+		slots.forEach[
+			acquire(ITestScripts.IDLE)
+			status = FIGHTING
+		]
+		
+		game.play(slots)
+		assertEquals(RobotID.Red, game.gameResult.winner)
+		assertEquals(RobotID.Blue, game.gameResult.loser)
+		
+		slots.forEach[release]
+	}
+	
+	@Test
+	def void testSimultaneousDeath() {
+		mockRobotConnector.deadPredicate = [
+			switch (robotID) {
+				case Blue: {
+					age > 1200
+				}
+				case Red: {
+					age > 1500
+				}
+			}
+		]
+		mockRobotConnector.blindPredicate = Predicates.alwaysFalse
+		val game = gameProvider.get()
+		slots.forEach[
+			acquire(ITestScripts.IDLE)
+			status = FIGHTING
+		]
+		
+		game.play(slots)
+		assertTrue(game.gameResult.isDraw)
+		
+		slots.forEach[release]
+	}
+	
+	@Test
+	def void testSimultaneousDeathWithCameraLoss() {
+		mockRobotConnector.deadPredicate = [
+			switch (robotID) {
+				case Blue: {
+					age > 1000
+				}
+				case Red: {
+					age > 1200
+				}
+			}
+		]
+		mockRobotConnector.blindPredicate = [
+			switch (robotID) {
+				case Blue: {
+					age > 500
+				}
+				case Red: {
+					age > 1000
+				}
+			}
+		]
+		val game = gameProvider.get()
+		slots.forEach[
+			acquire(ITestScripts.IDLE)
+			status = FIGHTING
+		]
+		
+		game.play(slots)
+		assertTrue(game.gameResult.isDraw)
 		
 		slots.forEach[release]
 	}

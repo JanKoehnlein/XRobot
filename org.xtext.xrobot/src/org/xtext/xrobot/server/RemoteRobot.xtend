@@ -13,6 +13,7 @@ import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.net.INetConfig.*
 import org.xtext.xrobot.util.AudioService
 import com.google.common.base.Predicates
+import org.xtext.xrobot.camera.CameraTimeoutException
 
 class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
@@ -56,13 +57,13 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 		while (!isValid(newCameraSample)) {
 			checkCanceled
 			if (tries-- <= 0) {
-				// Check whether the robot is dead, don't throw an exception in this case
 				newState = stateProvider.state
+				setState(newState)
+				// Check whether the robot is dead, don't throw an exception in this case
 				if (newState.dead) {
-					setState(newState)
 					return
 				}
-				throw new SocketTimeoutException('No position update from camera after ' + timeout + 'ms.')
+				throw new CameraTimeoutException('No position update from camera after ' + timeout + 'ms.')
 			}
 			Thread.sleep(UPDATE_INTERVAL)
 			newCameraSample = cameraClient.getCameraSample(robotID)

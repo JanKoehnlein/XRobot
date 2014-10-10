@@ -1,11 +1,11 @@
 package org.xtext.xrobot.game.tests.di
 
+import com.google.common.base.Predicate
 import java.net.SocketTimeoutException
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.server.IRemoteRobot
-import com.google.common.base.Predicate
 
 @Accessors
 class MockRobotFactory implements IRemoteRobot.Factory {
@@ -15,6 +15,9 @@ class MockRobotFactory implements IRemoteRobot.Factory {
 	val Predicate<MockRobot> deadPredicate
 	
 	val Predicate<MockRobot> blindPredicate
+	
+	@Accessors(PUBLIC_GETTER)
+	var MockRobot lastRobot
 	
 	@Accessors(NONE)
 	var boolean isReleased
@@ -31,13 +34,13 @@ class MockRobotFactory implements IRemoteRobot.Factory {
 	}
 	
 	override newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException {
-		new MockRobot(robotID, cancelIndicator, deadPredicate, blindPredicate)
+		lastRobot = new MockRobot(robotID, cancelIndicator, deadPredicate, blindPredicate)
 	}
 	
 	override newRobot(CancelIndicator cancelIndicator, IRemoteRobot existingRobot) {
-		val newRobot = new MockRobot(robotID, cancelIndicator, deadPredicate, blindPredicate)
-		newRobot.setState(existingRobot as MockRobot)
-		newRobot
+		lastRobot = new MockRobot(robotID, cancelIndicator, deadPredicate, blindPredicate)
+		lastRobot.setState(existingRobot as MockRobot)
+		lastRobot
 	}
 	
 }

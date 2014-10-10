@@ -8,6 +8,7 @@ import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.api.IArena
+import org.xtext.xrobot.camera.CameraTimeoutException
 import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.interpreter.ScriptRunner
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
@@ -15,15 +16,16 @@ import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.game.GameResult.*
+import static org.xtext.xrobot.net.INetConfig.*
 
 class Game {
 	
 	static val LOG = Logger.getLogger(Game)
 	
-	static val GAME_LOST_THRESHOLD = 500 
+	static val GAME_LOST_THRESHOLD = 1000
 	 
 	@Inject Provider<ScriptRunner> scriptRunnerProvider
-	
+
 	@Accessors
 	long gameDuration
 	
@@ -31,7 +33,9 @@ class Game {
 
 	volatile boolean gameOver
 	
-	long lastLoserTimeStamp = -1
+	long lastLoserTimeStamp
+	
+	Exception lastError
 	
 	@Accessors(PUBLIC_GETTER)
 	GameResult gameResult
@@ -50,7 +54,7 @@ class Game {
 		LOG.debug('Game finished')
 		gameOver = true
 		slots.forEach[
-			executeSafely[ robotFactory.release ]
+			executeSafely[ robotFactory.checkAndRelease ]
 		]
 		if(gameResult == null)
 			gameResult = draw
@@ -82,16 +86,35 @@ class Game {
 	}
 
 	private def checkGameOver(IRemoteRobot robot) {
-		if(robot.centerDirection.distance > IArena.ARENA_OUTER_RADIUS || robot.isDead) {
-			if(gameResult == null) {
-				gameResult = defeat(robot.robotID)
-				lastLoserTimeStamp = System.currentTimeMillis
-			} else if(refereeResult == null && System.currentTimeMillis - lastLoserTimeStamp < GAME_LOST_THRESHOLD) {
-				// robots were losing almost simultaneously: a draw
-				gameResult = draw
+		if (robot.centerDirection.distance > IArena.ARENA_OUTER_RADIUS || robot.isDead) {
+			if (refereeResult == null && lastError == null) {
+				if (gameResult == null || gameResult.canceled) {
+					gameResult = defeat(robot.robotID)
+					lastLoserTimeStamp = System.currentTimeMillis
+				} else if (gameResult.winner == robot.robotID
+						&& System.currentTimeMillis - lastLoserTimeStamp < GAME_LOST_THRESHOLD) {
+					// Robots were losing almost simultaneously: a draw
+					gameResult = draw
+				}
 			}
 			gameOver = true
 		}
+	}
+	
+	private def checkAndRelease(IRemoteRobot.Factory robotFactory) {
+		if (refereeResult == null && lastError == null) {
+			val robot = robotFactory.newRobot(CancelIndicator.NullImpl, robotFactory.lastRobot)
+			do {
+				try {
+					robot.waitForUpdate(SOCKET_TIMEOUT / 4)
+				} catch (Exception e) {
+					// Ignore exception
+				}
+				checkGameOver(robot)
+			} while (gameResult != null && gameResult.winner == robotFactory.robotID
+					&& System.currentTimeMillis - lastLoserTimeStamp < GAME_LOST_THRESHOLD)
+		}
+		robotFactory.release
 	}
 
 	private def prepareScriptRunner(Program program, IRemoteRobot.Factory robotFactory, IRobotListener... listeners) {
@@ -101,14 +124,16 @@ class Game {
 			executeSafely [
 				if (!robotFactory.isAlive)
 					throw new RuntimeException('Robot ' + robotFactory.robotID + ' not ready')
-				scriptExecutor.run(
-					program,
-					robotFactory,
-					new CancelIndicator() {
-						override isCanceled() {
-							gameOver
-						}
-					})
+				try {
+					scriptExecutor.run(
+						program,
+						robotFactory,
+						[gameOver])
+				} catch (CameraTimeoutException cte) {
+					if (gameResult == null)
+						gameResult = canceled("Camera drop out")
+					gameOver = true
+				}
 			]
 		]
 	}
@@ -116,11 +141,11 @@ class Game {
 	private def executeSafely(Runnable runnable) {
 		try {
 			runnable.run()
-		} catch(Exception e) {
+		} catch (Exception e) {
 			LOG.error(e.message, e)
-			gameResult = canceled(e.message)
+			gameResult = canceled("An error occurred")
+			lastError = e
 			gameOver = true
 		}
 	}
 }
-
