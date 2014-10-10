@@ -55,7 +55,7 @@ import static extension org.xtext.xrobot.api.GeometryExtensions.*
 class Robot {
 	
 	/** The threshold of the brightness value at which a game-over situation is detected. */
-	static val GAME_OVER_THRESHOLD = 0.025
+	static val GAME_OVER_THRESHOLD = 0.035
 	
 	/** The voltage of the battery pack when it is full. */
 	static val FULL_BATTERY_VOLTAGE = 8.1
