@@ -1,7 +1,8 @@
 package org.xtext.xrobot.api;
 
 /**
- * Definition of samples that can be played by robots:
+ * Definition of pre-defined audio samples that can be played by robots.
+ * 
  * <ul>
  *   <li>{@link #ARNOLD}</li>
  *   <li>{@link #BORG}</li>

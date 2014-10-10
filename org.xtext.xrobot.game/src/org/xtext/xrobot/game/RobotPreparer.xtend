@@ -81,7 +81,7 @@ class RobotPreparer implements IRobotPreparer {
 	private def checkStatus() {
 		val isBatteryEmpty = robot.batteryState < MIN_BATTERY_CHARGE 
 		val isAtHome = robot.ownPosition.getRelativeDirection(homePosition).distance < DISTANCE_ACCURACY
-					&& abs(normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)) < ANGLE_ACCURACY
+					&& abs(minimizeAngle(homeViewDirection - robot.ownPosition.viewDirection)) < ANGLE_ACCURACY
 		var newStatus = READY
 		if(!isAtHome) {
 			errorReporter.showError(slot.robotID + ': Not at start position', 5.seconds)
@@ -104,24 +104,24 @@ class RobotPreparer implements IRobotPreparer {
 		while (direction.distance > DISTANCE_ACCURACY && moveCount++ < MAX_PLACEMENT_MOVES) {
 			if (abs(direction.angle) <= ANGLE_ACCURACY) {
 				robot.drive(direction.distance)
-			} else if (abs(normalizeAngle(direction.angle - 180)) <= ANGLE_ACCURACY) {
+			} else if (abs(minimizeAngle(direction.angle - 180)) <= ANGLE_ACCURACY) {
 				robot.drive(-direction.distance)
 			} else if (abs(direction.angle) <= 120) {
 				robot.rotate(direction.angle)
 			} else {
-				robot.rotate(normalizeAngle(direction.angle - 180))
+				robot.rotate(minimizeAngle(direction.angle - 180))
 			}
 			robot.waitForUpdate
 			direction = robot.ownPosition.getRelativeDirection(homePosition)
 		}
 
 		val homeViewDirection = getHomeViewDirection()
-		var angle = normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)
+		var angle = minimizeAngle(homeViewDirection - robot.ownPosition.viewDirection)
 		moveCount = 0
 		while (abs(angle) > ANGLE_ACCURACY && moveCount++ < MAX_PLACEMENT_MOVES) {
 			robot.rotate(angle)
 			robot.waitForUpdate
-			angle = normalizeAngle(homeViewDirection - robot.ownPosition.viewDirection)
+			angle = minimizeAngle(homeViewDirection - robot.ownPosition.viewDirection)
 		}
 	}
 	

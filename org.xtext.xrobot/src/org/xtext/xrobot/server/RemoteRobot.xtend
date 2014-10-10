@@ -118,7 +118,7 @@ class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	override getCenterDirection() {
 		val negOwnDirection = (-ownPosition).toDirection
 		new Direction(negOwnDirection.distance,
-			normalizeAngle(negOwnDirection.angle - ownPosition.viewDirection)
+			minimizeAngle(negOwnDirection.angle - ownPosition.viewDirection)
 		)
 	}
 	

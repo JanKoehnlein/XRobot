@@ -58,7 +58,7 @@ class Robot {
 		robotID = RobotID.valueOf(brick.name)
 		leftMotor = new NXTRegulatedMotor(brick.getPort('B'))
 		rightMotor = new NXTRegulatedMotor(brick.getPort('C'))
-		pilot = new DifferentialPilot(WHEEL_DIAMETER, WHEEL_DISTANCE, leftMotor, rightMotor)
+		pilot = new DifferentialPilot(ROBOT_WHEEL_DIAMETER, ROBOT_WHEEL_DISTANCE, leftMotor, rightMotor)
 		scoopMotor = new NXTRegulatedMotor(brick.getPort('A'))
 		colorSensor = new EV3ColorSensor(brick.getPort('S3')).redMode
 		escapeKey = brick.getKey('Escape')
@@ -116,8 +116,8 @@ class Robot {
 	 * @param rightSpeed the speed of the right motor in centimeters/second   
 	 */
 	override void startMotors(double leftSpeed, double rightSpeed) {
-		leftMotor.speed = (360 * abs(leftSpeed) / WHEEL_DIAMETER) as int
-		rightMotor.speed = (360 * abs(rightSpeed) / WHEEL_DIAMETER) as int
+		leftMotor.speed = (360 * abs(leftSpeed) / ROBOT_WHEEL_DIAMETER) as int
+		rightMotor.speed = (360 * abs(rightSpeed) / ROBOT_WHEEL_DIAMETER) as int
 		if (leftSpeed < 0)
 			leftMotor.backward
 		else
@@ -376,7 +376,7 @@ class Robot {
 	 */
 	@Blocking
 	override void curveTo(double distance, double angle) {
-		val a = angle.normalizeAngle
+		val a = angle.minimizeAngle
 		if(abs(a) < 1) {
 			drive(distance)
 		} else if(abs(abs(a) - 180) < 1) {
@@ -553,10 +553,14 @@ class Robot {
 	}
 
 	/**
-	 * Get the current absolute position of the robot. This includes (x,y) coordinates relative
-	 * to the center of the arena and the view direction.
+	 * Get the current absolute position of the robot. This includes (x,y) coordinates in
+	 * centimeters and the view direction in degrees. 
 	 * 
-	 * <p>Robot positions refer to the center of the axis (see {@link IRobotGeometry}).</p>
+	 * <p>The coordinates are relative to the center of the arena in a right handed coordinate
+	 * system. The view direction ranges from -180&deg; to 180&deg; and is relative to the 
+	 * x-axis. A positive view direction means the robot is looking into the positive 
+	 * y-direction. The value denotes the center of the robot's rear axle 
+	 * (see {@link IRobotGeometry}).</p>
 	 * 
 	 * <p>If this command is called repeatedly in the same mode, it returns the same values
 	 * unless the robot state is updated with the {@link #update()} command.</p>
@@ -568,10 +572,14 @@ class Robot {
 	}
 
 	/**
-	 * Get the current absolute position of your opponent. This includes (x,y) coordinates relative
-	 * to the center of the arena and the view direction.
+	 * Get the current absolute position of your opponent. This includes x- and y-coordinates in
+	 * centimeters and the view direction in degrees. 
 	 * 
-	 * <p>Robot positions refer to the center of the axis (see {@link IRobotGeometry}).</p>
+	 * <p>The coordinates are relative to the center of the arena in a right handed coordinate
+	 * system. The view direction ranges from -180&deg; to 180&deg; and is relative to the 
+	 * x-axis. A positive view direction means the robot is looking into the positive 
+	 * y-direction. The reference point is the center of the robot's rear axle 
+	 * (see {@link IRobotGeometry}).</p>
 	 * 
 	 * <p>If this command is called repeatedly in the same mode, it returns the same values
 	 * unless the robot state is updated with the {@link #update()} command.</p>
@@ -583,12 +591,12 @@ class Robot {
 	}
 
 	/**
-	 * Get the direction of your opponent. This is given in polar coordinates (distance and angle)
-	 * relative to your current position.
+	 * Get the direction of your opponent. This is given in polar coordinates relative to 
+	 * your robot's current position. The distance is in centimeter. The angle is relative 
+	 * to your robot's view direction in degrees, and ranges between -180&deg; and 180&deg;.
 	 * 
-	 * <p>Robot positions refer to the center of the axis (see {@link IRobotGeometry}),
-	 * which means that the distance reported by this command is the distance from the
-	 * opponent's axis to your robot's axis.</p>
+	 * <p>The reference points are the centers of the robots' rear axles 
+	 * (see {@link IRobotGeometry}).</p>
 	 * 
 	 * <p>If this command is called repeatedly in the same mode, it returns the same values
 	 * unless the robot state is updated with the {@link #update()} command.</p>
@@ -600,12 +608,12 @@ class Robot {
 	}
 
 	/**
-	 * Get the direction of the center of the arena. This is given in polar coordinates
-	 * (distance and angle) relative to your current position.
+	 * Get the direction of the arenas center. This is given in polar coordinates relative to 
+	 * your robot's current position. The distance is in centimeter. The angle is relative 
+	 * to your robot's view direction in degrees, and ranges between -180&deg; and 180&deg;.
 	 * 
-	 * <p>Robot positions refer to the center of the axis (see {@link IRobotGeometry}),
-	 * which means that the distance reported by this command is the distance from the
-	 * center to your robot's axis.</p>
+	 * <p>The reference point is the center of the robot's rear axles 
+	 * (see {@link IRobotGeometry}).</p>
 	 * 
 	 * <p>If this command is called repeatedly in the same mode, it returns the same values
 	 * unless the robot state is updated with the {@link #update()} command.</p>

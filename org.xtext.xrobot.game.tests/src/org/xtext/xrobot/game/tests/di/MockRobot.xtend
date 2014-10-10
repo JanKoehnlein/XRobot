@@ -192,7 +192,7 @@ class MockRobot implements IRemoteRobot {
 		val negOwnDirection = (-ownPosition).toDirection
 		new Direction(
 			negOwnDirection.distance,
-			normalizeAngle(negOwnDirection.angle - ownPosition.viewDirection)
+			minimizeAngle(negOwnDirection.angle - ownPosition.viewDirection)
 		)
 	}
 

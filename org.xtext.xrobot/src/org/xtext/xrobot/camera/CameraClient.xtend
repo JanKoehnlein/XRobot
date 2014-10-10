@@ -75,11 +75,11 @@ class CameraClient {
 		val filteredAngle = angleFilters.get(index).apply(angle)
 		
 		// Compute the offset to the axis
-		val offsetX = IRobotGeometry.MARKER_OFFSET * cos(toRadians(filteredAngle))
-		val offsetY = IRobotGeometry.MARKER_OFFSET * sin(toRadians(filteredAngle))
+		val offsetX = IRobotGeometry.ROBOT_MARKER_OFFSET * cos(toRadians(filteredAngle))
+		val offsetY = IRobotGeometry.ROBOT_MARKER_OFFSET * sin(toRadians(filteredAngle))
 
 		val robotPosition = new RobotPosition(filteredX - offsetX, filteredY - offsetY,
-				robotID, normalizeAngle(filteredAngle))
+				robotID, minimizeAngle(filteredAngle))
 		synchronized (this) {
 			robotPositions.set(index, robotPosition)
 			timestamps.set(index, timestamp)

@@ -1,9 +1,9 @@
 package org.xtext.xrobot.camera
 
 import org.xtext.xrobot.api.IArena
-import org.xtext.xrobot.api.IRobotGeometry
 
 import static java.lang.Math.*
+import static org.xtext.xrobot.api.IRobotGeometry.*
 
 interface ICamera {
 
@@ -32,6 +32,6 @@ interface ICamera {
 	val CAM_HEIGHT = HEIGHT_IN_CM / (2 * tan(toRadians(VIEW_ANGLE / 2)))
 	
 	/** A factor to be multiplied with values measured by the tracker (in polar coordinates). */
-	val PERSPECTIVE_CORRECTION = (CAM_HEIGHT - IRobotGeometry.HEIGHT) / CAM_HEIGHT
+	val PERSPECTIVE_CORRECTION = (CAM_HEIGHT - ROBOT_HEIGHT) / CAM_HEIGHT
 	
 }
