@@ -1,6 +1,6 @@
 package org.xtext.xrobot.game.tests
 
-interface ITestScripts {
+interface TestScripts {
 	
 	val DANCER = '''
 		robot Dancer
@@ -25,6 +25,15 @@ interface ITestScripts {
 			play(R2D2)
 			println("working hard...")
 			Thread.sleep(4000)
+		}
+	'''
+	
+	val FILE_READ = '''
+		robot FileReader
+		author Miro
+		
+		Evil {
+			println(new FileReader("/Users/spoenemann/.profile ").read())
 		}
 	'''
 	

@@ -34,7 +34,7 @@ class PlayerSlot implements IRobotListener {
 		}
 		
 		def createAll() {
-			#[ create(RobotID.Blue), create(RobotID.Red) ]
+			RobotID.values.map[create]
 		}
 		
 	}
@@ -101,6 +101,9 @@ class PlayerSlot implements IRobotListener {
 	}
 
 	def acquire(Program program) {
+		if (program.name.nullOrEmpty) {
+			throw new IllegalArgumentException("Unnamed program")
+		}
 		this.program = program
 		preparer.prepare
 	}
