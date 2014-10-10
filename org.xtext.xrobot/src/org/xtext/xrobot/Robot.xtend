@@ -26,6 +26,31 @@ import static org.xtext.xrobot.api.IRobotGeometry.*
 import static extension java.lang.Math.*
 import static extension org.xtext.xrobot.api.GeometryExtensions.*
 
+// The following JavaDoc goes into the derived IRobot interface
+/**
+ * The interface to interact with your robot.
+ * 
+ * <p>An instance of {@link IRobot} is globally bound to the <code>this</code> 
+ * variable in your script, such that all methods can be called directly at
+ * all locations.</p>
+ * 
+ * <p>This interface defines methods to steer the robot, to read its state, to
+ * use its sensors, to access positions, and to play audio.</p>
+ * 
+ * <p>
+ * There are two variants of movement methods: blocking and non-blocking. 
+ * Non-blocking methods start a move and return immediately. They do not 
+ * define a target where the move should stop. Instead, the move continues 
+ * until another move method is called or the game is over.
+ * On the other hand, blocking methods define a target of the move. They 
+ * will not move the robot beyond this target, and they do not return 
+ * until the target is reached. This allows to build exact maneuvers without 
+ * using timers. If the robot is performing a blocking move while the current 
+ * mode is canceled and the next mode calls a move method, the move is 
+ * interrupted even if the target has not been reached. If not interrupted, 
+ * the move will be finished.
+ * </p>
+ */
 @SimpleRMI
 class Robot {
 	
@@ -181,7 +206,7 @@ class Robot {
 	 * The maximal speed can be obtained with {@link #getMaxDrivingSpeed()}.
 	 * The sign of the given speed value is ignored.</p>
 	 * 
-	 * @param the driving speed in centimeters/second
+	 * @param speed the driving speed in centimeters/second
 	 */
 	override void setDrivingSpeed(double speed) {
 		pilot.travelSpeed = abs(speed)
@@ -265,7 +290,7 @@ class Robot {
 	 * The maximal speed can be obtained with {@link #getMaxRotationSpeed()}.
 	 * The sign of the given speed value is ignored.</p>
 	 * 
-	 * @param the rotation speed in degrees/second
+	 * @param rotationSpeed the rotation speed in degrees/second
 	 */
 	override void setRotationSpeed(double rotationSpeed) {
 		pilot.rotateSpeed = abs(rotationSpeed)
@@ -348,22 +373,29 @@ class Robot {
 	/**
 	 * Let the robot travel a forward curve to the point with the polar
 	 * coordinates {@code angle} in degrees and {@code distance} in centimeters.
-	 * You can directly use the values returned by {@link getOpponentDirection()} or
-	 * {@link getCenterDirection()} to drive a curve to the opponent resp. center. 
+	 * You can directly use the values returned by {@link #getOpponentDirection()} or
+	 * {@link #getCenterDirection()} to drive a curve to the opponent resp. center. 
 	 * 
+	 * <p>
 	 * The following picture illustrates the curve: The own position is the blue marker. 
 	 * The arrow points into the view direction. The angle <code>a</code> and the distance 
 	 * <code>d</code> define the target point. The curve is the section of the circle that 
 	 * connects both points and is tangent to the view vector.
-	 * <img src="CurveTo.png" width="10cm">
+	 * </p>
 	 * 
+	 * <p><img src="doc-files/CurveTo.png" width="375"/></p>
+	 * 
+	 * <p>
 	 * The angle is normalized to be between -180 and 180 degrees. If the 
 	 * <code>angle</code> is close to 0&deg; the robot will drive <code>distance</code> 
 	 * centimeters forward, close to +/-180&deg; backward. A positive angle means a 
 	 * counter-clockwise curve (left), while a negative angle means a clockwise curve (right).
 	 * Note that the curve can leave the arena when the angle's absolute value is to large.
+	 * </p>
 	 * 
+	 * <p>
 	 * The speed of this movement is set with {@link #setDrivingSpeed(double)}.
+	 * </p>
 	 * 
 	 * <p>This command blocks the current mode's execution until the rotation is complete.
 	 * Once finished, the motors are stopped.</p>
@@ -423,13 +455,17 @@ class Robot {
 	}
 
 	/**
-	 * Move the robot's scoop to the specified position:
+	 * Move the robot's scoop to the specified position.
+	 * 
+	 * <p>
+	 * Values are
 	 * <ul>
 	 * <li>0 is on the floor (the starting position),</li>
 	 * <li>1 is completely up, and</li>
 	 * <li>-1 is completely down (could roll the robot over).</li>
 	 * </ul>
 	 * Values below -1 or above 1 are truncated to these limits.   
+	 * </p>
 	 * 
 	 * <p>This command is <em>non-blocking</em>, in the sense that it returns immediately 
 	 * and the scoop motor continues moving until it reaches the specified position. But
@@ -529,9 +565,12 @@ class Robot {
 
 	/**
 	 * Update the robot with the latest sensor data and robot state. 
+	 * 
+	 * <p>
 	 * The state is usually only updated when the modes' conditions are checked. 
 	 * A new mode is entered with exactly that state to make sure the condition still holds.
 	 * Use this method if you need fresh data during a mode's execution.
+	 * </p>
 	 * 
 	 * <p>The following commands are affected by state updates:
 	 * <ul>

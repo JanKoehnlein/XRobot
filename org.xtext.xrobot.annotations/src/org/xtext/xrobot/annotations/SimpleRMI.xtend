@@ -78,6 +78,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 	
 	override doTransform(MutableClassDeclaration annotatedClass, extension TransformationContext context) {
 		val clientInterface = annotatedClass.clientInterfaceName.findInterface
+		clientInterface.docComment = annotatedClass.docComment
 		annotatedClass.implementedInterfaces = annotatedClass.implementedInterfaces + #[clientInterface.newTypeReference]
 		val clientStateClass = annotatedClass.clientStateName.findClass
 		val serverStateClass = annotatedClass.serverStateName.findClass

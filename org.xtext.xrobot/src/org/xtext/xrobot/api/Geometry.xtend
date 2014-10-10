@@ -114,7 +114,7 @@ class Direction {
 	 *   by <code>scalar</code>.
 	 * 
 	 * @param scalar the scaling factor.
-	 * @returns a new {@link Direction} with the same angle as this and the distance multiplied 
+	 * @return a new {@link Direction} with the same angle as this and the distance multiplied 
 	 *   by <code>scalar</code>.
 	 */
 	def *(double scalar) {
@@ -124,13 +124,13 @@ class Direction {
 
 /** 
  * The position of a robot, including its Cartesian coordinates {@link #x} and {@link #y} and 
- * its {@link viewDirection}.
+ * its {@link #viewDirection}.
  * 
  * The Coordinates are in centimeters relative to the center of the arena 
  * As opposed to screen coordinates, this is using a right-handed coordinate
  * system.
  *
- * The {@link viewDirection} in degrees is relative to the x-axis and ranges between 
+ * The {@link #viewDirection} in degrees is relative to the x-axis and ranges between 
  * -180&deg; to 180&deg;.
  */
 @Data
@@ -165,11 +165,12 @@ class RobotPosition extends Position {
  */
 class GeometryExtensions {
 	/**
-	 * Returns a new {@link Position} with the coordinates of this multiplied 
+	 * Returns a new {@link Position} with the coordinates of {@code p} multiplied 
 	 * by the given <code>scalar</code>.
 	 * 
 	 * @param scalar the factor to multiply the coordinates with.
-	 * @return a new {@link Position} with the coordinates of this multiplied 
+	 * @param p the position
+	 * @return a new {@link Position} with the coordinates of {@code p} multiplied 
 	 *    by the given <code>scalar</code>.
 	 */
 	static def *(double scalar, Position p) {
@@ -177,11 +178,12 @@ class GeometryExtensions {
 	}
 
 	/**
-	 * Returns a new {@link Direction} with the same angle as this and the distance multiplied 
+	 * Returns a new {@link Direction} with the same angle as {@code d} and its distance multiplied 
 	 *   by <code>scalar</code>.
 	 * 
 	 * @param scalar the scaling factor.
-	 * @returns a new {@link Direction} with the same angle as this and the distance multiplied 
+	 * @param d the direction
+	 * @return a new {@link Direction} with the same angle as {@code d} and its distance multiplied 
 	 *   by <code>scalar</code>.
 	 */
 	static def *(double scalar, Direction d) {
