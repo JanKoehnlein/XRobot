@@ -22,6 +22,8 @@ import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.dsl.xRobotDSL.Sub
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
+import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
+import org.eclipse.xtext.xbase.XConstructorCall
 
 class XRobotInterpreter extends XbaseInterpreter {
 	
@@ -36,7 +38,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 
 	Mode currentMode
 
-	ModeCancelIndicator currentModeCancelIndicator
+	InternalCancelIndicator currentModeCancelIndicator
 	
 	IRemoteRobot conditionRobot
 	
@@ -55,25 +57,27 @@ class XRobotInterpreter extends XbaseInterpreter {
 				baseContext.newValue(QualifiedName.create(field.name), null)
 			}
 		}
-		conditionRobot = robotFactory.newRobot(cancelIndicator)
+		val conditionCancelIndicator = new InternalCancelIndicator(cancelIndicator)
+		conditionRobot = robotFactory.newRobot(conditionCancelIndicator)
 		val conditionContext = baseContext.fork()
 		conditionContext.newValue(ROBOT, conditionRobot)
 		try {
+			RobotSecurityManager.start
+			
 			do {
-//				LOG.debug('Checking mode conditions')
 				listeners.forEach[stateRead(conditionRobot)]
-				if(!cancelIndicator.isCanceled) {
+				if(!conditionCancelIndicator.isCanceled) {
 					val newMode = program.modes.findFirst [
 						if(condition == null)
 							return true
-						val result = condition?.evaluate(conditionContext, cancelIndicator)
+						val result = condition?.evaluate(conditionContext, conditionCancelIndicator)
 						return result != null && result?.result as Boolean
 					]
 					if(newMode != currentMode || currentModeCancelIndicator?.isCanceled) {
 						if(currentMode != null)
 							LOG.debug('Canceling running mode ' +  currentMode.name)
 						currentModeCancelIndicator?.cancel
-						currentModeCancelIndicator = new ModeCancelIndicator(cancelIndicator)
+						currentModeCancelIndicator = new InternalCancelIndicator(cancelIndicator)
 						currentMode = newMode
 						if (newMode != null) {
 							LOG.debug('Starting mode ' +  newMode.name)
@@ -86,13 +90,16 @@ class XRobotInterpreter extends XbaseInterpreter {
 							}
 							new Thread([
 									try {
+										RobotSecurityManager.start
 										currentMode.execute(modeContext, currentModeCancelIndicator)
 									} catch (CanceledException exc) {
 										LOG.debug('Mode ' + newMode.name + ' canceled')
 									} catch (Exception exc) {
 										LOG.error('Error executing mode ' + newMode.name, exc)
+										conditionCancelIndicator.cancel
 									} finally {
 										currentModeCancelIndicator.cancel
+										RobotSecurityManager.stop
 									}
 								], 'Robot ' + modeRobot.robotID.name + ' in mode ' + newMode.name)
 								.start
@@ -103,8 +110,12 @@ class XRobotInterpreter extends XbaseInterpreter {
 					if(newMode == null)
 						listeners.forEach[ stateChanged(conditionRobot) ]
 				}
-			} while(!cancelIndicator.canceled)
+			} while(!conditionCancelIndicator.canceled)
+			
 		} catch(CanceledException exc) {
+			currentModeCancelIndicator?.cancel
+		} finally {
+			RobotSecurityManager.stop
 		}
 	}
 	
@@ -115,13 +126,19 @@ class XRobotInterpreter extends XbaseInterpreter {
 				modeChanged(robot, mode)
 				stateChanged(robot)
 			]
-			mode.action.evaluate(context, cancelIndicator)
+			val result = mode.action.evaluate(context, cancelIndicator)
+			if (result.exception != null) {
+				throw result.exception
+			}
 		} catch(CanceledException exc) {
-			mode.whenCanceled?.evaluate(context, cancelIndicator)
+			val result = mode.whenCanceled?.evaluate(context, cancelIndicator)
+			if (result?.exception != null) {
+				throw result.exception
+			}
 		}
 	}
 	
-	static class ModeCancelIndicator implements CancelIndicator {
+	static class InternalCancelIndicator implements CancelIndicator {
 		
 		CancelIndicator baseCancelindicator
 		boolean canceled
@@ -172,7 +189,23 @@ class XRobotInterpreter extends XbaseInterpreter {
 			}
 			return result.result
 		} else {
-			super.invokeOperation(operation, receiver, argumentValues)
+			// Make sure our security manager is active while invoking the method
+			try {
+				RobotSecurityManager.active = true
+				super.invokeOperation(operation, receiver, argumentValues)
+			} finally {
+				RobotSecurityManager.active = false
+			}
+		}
+	}
+	
+	override protected _doEvaluate(XConstructorCall constructorCall, IEvaluationContext context, CancelIndicator indicator) {
+		// Make sure our security manager is active while invoking the constructor
+		try {
+			RobotSecurityManager.active = true
+			super._doEvaluate(constructorCall, context, indicator)
+		} finally {
+			RobotSecurityManager.active = false
 		}
 	}
 	

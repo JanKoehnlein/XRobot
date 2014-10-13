@@ -33,12 +33,18 @@ class SecurityTest {
 	@Test
 	def void testFileRead() {
 		val game = gameProvider.get()
-		slots.get(0).acquire(TestScripts.FILE_READ)
+		slots.get(0).acquire('''
+			robot Test author Test
+			Evil {
+				say(new java.io.FileReader("/bin/kill").read().toString)
+			}
+		''')
 		slots.get(1).acquire(TestScripts.IDLE)
 		
 		game.play(slots)
 		assertTrue(game.gameResult.canceled)
 		assertThat(game.lastError, instanceOf(SecurityException))
+		assertNull(System.securityManager)
 		
 		slots.forEach[release]
 	}

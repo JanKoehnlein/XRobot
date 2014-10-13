@@ -17,7 +17,6 @@ import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.game.GameResult.*
 import static org.xtext.xrobot.net.INetConfig.*
-import org.xtext.xrobot.game.security.RobotSecurityManager
 
 class Game {
 	
@@ -47,8 +46,6 @@ class Game {
 	
 	def play(List<PlayerSlot> slots) {
 		try {
-			// Install the security manager for robots
-			RobotSecurityManager.install(getThreadGroup)
 			// Remember map is lazy, so make a real copy
 			runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener, it)])
 			gameOver = false
@@ -60,7 +57,6 @@ class Game {
 			LOG.debug('Game finished')
 		
 		} finally {
-			RobotSecurityManager.release
 			slots.forEach[
 				executeSafely[ robotFactory.checkAndRelease ]
 			]
@@ -134,6 +130,9 @@ class Game {
 	}
 
 	private def prepareScriptRunner(Program program, IRemoteRobot.Factory robotFactory, IRobotListener... listeners) {
+		if (program == null) {
+			throw new IllegalStateException("No program is assigned to player slot " + robotFactory.robotID)
+		}
 		val scriptExecutor = scriptRunnerProvider.get
 		listeners.forEach[scriptExecutor.addRobotListener(it)]
 		new Thread(getThreadGroup, robotFactory.robotID.name) {
@@ -148,11 +147,11 @@ class Game {
 							[gameOver])
 					} catch (CameraTimeoutException cte) {
 						if (gameResult == null)
-							gameResult = canceled('Camera drop out')
+							gameResult = canceled('Camera dropped out')
 						gameOver = true
 					} catch (SecurityException se) {
 						LOG.info('Caught security exception: ' + se.message)
-						gameResult = canceled(program.name + ' caught cheating')
+						gameResult = canceled(program.name + ' was caught cheating')
 						lastError = se
 						gameOver = true
 					}

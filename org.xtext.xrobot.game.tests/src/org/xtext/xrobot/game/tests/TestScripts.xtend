@@ -28,13 +28,4 @@ interface TestScripts {
 		}
 	'''
 	
-	val FILE_READ = '''
-		robot FileReader
-		author Miro
-		
-		Evil {
-			println(new FileReader("/Users/spoenemann/.profile ").read())
-		}
-	'''
-	
 }
