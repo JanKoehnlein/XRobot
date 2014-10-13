@@ -20,8 +20,7 @@
          id="org.xtext.xrobot"
          download-size="0"
          install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+         version="0.0.0"/>
 
    <plugin
          id="org.xtext.xrobot.dsl"
@@ -32,6 +31,20 @@
 
    <plugin
          id="org.xtext.xrobot.dsl.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.xtext.dsl.server"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.xtext.xrobot.annotations"
          download-size="0"
          install-size="0"
          version="0.0.0"
