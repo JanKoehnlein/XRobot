@@ -4,9 +4,11 @@ import java.net.SocketTimeoutException
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.IRobot
+import com.google.inject.ImplementedBy
 
 interface IRemoteRobot extends IRobot {
 	
+	@ImplementedBy(RemoteRobotConnector)
 	interface Connector {
 		def Factory getRobotFactory(RobotID robotID)
 	}

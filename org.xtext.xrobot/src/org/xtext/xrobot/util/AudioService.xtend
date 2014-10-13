@@ -6,6 +6,7 @@ import com.sun.speech.freetts.VoiceManager
 import javafx.scene.media.AudioClip
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.Sample
+import com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory
 
 class AudioService {
 
@@ -27,8 +28,9 @@ class AudioService {
 	}
 
 	private new() {
+		System.setProperty("freetts.voices", KevinVoiceDirectory.canonicalName)
 		val voiceManager = VoiceManager.getInstance
-		kevin = voiceManager.getVoice('kevin16');
+		kevin = voiceManager.getVoice('kevin16')
 		kevin.pitch = 30 // low pitch sounds more artificial
 		kevin.allocate
 	}
