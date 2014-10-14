@@ -17,6 +17,7 @@ import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.game.GameResult.*
 import static org.xtext.xrobot.net.INetConfig.*
+import org.xtext.xrobot.dsl.interpreter.MemoryException
 
 class Game {
 	
@@ -154,6 +155,10 @@ class Game {
 					} catch (CameraTimeoutException cte) {
 						if (gameResult == null)
 							gameResult = canceled('Camera dropped out')
+						gameOver = true
+					} catch (MemoryException me) {
+						gameResult = canceled(me.message)
+						lastError = me
 						gameOver = true
 					} catch (SecurityException se) {
 						LOG.info('Caught security exception: ' + se.message)

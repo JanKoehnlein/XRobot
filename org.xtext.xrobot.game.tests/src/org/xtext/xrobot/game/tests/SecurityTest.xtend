@@ -14,6 +14,7 @@ import org.xtext.xrobot.game.tests.di.MockUiTestModule
 
 import static org.junit.Assert.*
 import static org.hamcrest.CoreMatchers.instanceOf
+import org.xtext.xrobot.dsl.interpreter.MemoryException
 
 @RunWith(XtextRunner)
 @InjectWith(MockUiTestModule.InjectorProvider)
@@ -176,6 +177,27 @@ class SecurityTest {
 				init = false
 			}
 		''')
+	}
+	
+	@Test
+	def testRecursionLimit() {
+		val game = gameProvider.get()
+		slots.get(0).acquire('''
+			robot Test author Test
+			Evil {
+				recurse
+			}
+			sub void recurse() {
+				recurse
+			}
+		''')
+		slots.get(1).acquire(TestScripts.IDLE)
+		
+		game.play(slots)
+		assertTrue(game.gameResult.canceled)
+		assertThat(game.lastError, instanceOf(MemoryException))
+		
+		slots.forEach[release]
 	}
 	
 }

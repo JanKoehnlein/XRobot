@@ -26,12 +26,14 @@ import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
 import org.eclipse.xtext.xbase.XConstructorCall
 import org.eclipse.xtext.common.types.util.JavaReflectAccess
 import org.xtext.xrobot.api.IRobot
+import java.util.HashMap
 
 class XRobotInterpreter extends XbaseInterpreter {
 	
 	static val LOG = Logger.getLogger(XRobotInterpreter)
 	
 	static val ROBOT_UPDATE_TIMEOUT = 2000
+	static val RECURSION_LIMIT = 100
 	
 	static val ROBOT = QualifiedName.create('Dummy')
 	static val CURRENT_LINE = QualifiedName.create('currentLine')
@@ -51,6 +53,8 @@ class XRobotInterpreter extends XbaseInterpreter {
 	List<IRobotListener> listeners
 	
 	Exception lastModeException
+	
+	val recursionCounter = new HashMap<JvmOperation, Integer>
 	
 	def void execute(Program program, IRemoteRobot.Factory robotFactory, List<IRobotListener> listeners, CancelIndicator cancelIndicator) {
 		this.listeners = listeners
@@ -201,6 +205,22 @@ class XRobotInterpreter extends XbaseInterpreter {
 		super.internalEvaluate(expression, context, indicator)
 	}
 	
+	private def increaseRecursion(JvmOperation operation) {
+		val c = recursionCounter.get(operation) ?: 0
+		if (c > RECURSION_LIMIT) {
+			throw new MemoryException("Recursion limit exceeded by '" + operation.simpleName + "'")
+		}
+		recursionCounter.put(operation, c + 1)
+	}
+	
+	private def decreaseRecursion(JvmOperation operation) {
+		val c = recursionCounter.get(operation)
+		if (c == null || c == 0) {
+			throw new IllegalStateException
+		}
+		recursionCounter.put(operation, c - 1)
+	}
+	
 	override protected invokeOperation(JvmOperation operation, Object receiver, List<Object> argumentValues, IEvaluationContext context, CancelIndicator indicator) {
 		val executable = operation.sourceElements.head
 		if (executable instanceof Sub) {
@@ -211,19 +231,26 @@ class XRobotInterpreter extends XbaseInterpreter {
 				newContext.newValue(QualifiedName.create(param.name), argumentValues.get(index))
 				index = index + 1	
 			}
-			return evaluateChecked(executable.body, newContext, indicator)
+			operation.increaseRecursion
+			try {
+				return evaluateChecked(executable.body, newContext, indicator)
+			} finally {
+				operation.decreaseRecursion
+			}
 		} else {
 			val receiverDeclaredType = javaReflectAccess.getRawType(operation.declaringType)
 			if (receiverDeclaredType == IRobot) {
 				super.invokeOperation(operation, receiver, argumentValues)
 			} else {
-				// Make sure our security manager is active while invoking the method
+				operation.increaseRecursion
 				try {
+					// Make sure our security manager is active while invoking the method
 					RobotSecurityManager.active = true
 					System.securityManager.checkPackageAccess(operation.declaringType.packageName)
 					return super.invokeOperation(operation, receiver, argumentValues)
 				} finally {
 					RobotSecurityManager.active = false
+					operation.decreaseRecursion
 				}
 			}
 		}
