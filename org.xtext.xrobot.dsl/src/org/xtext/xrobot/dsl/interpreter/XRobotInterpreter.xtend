@@ -111,7 +111,8 @@ class XRobotInterpreter extends XbaseInterpreter {
 									} catch (CanceledException exc) {
 										LOG.debug('Mode ' + newMode.name + ' canceled')
 									} catch (Exception exc) {
-										LOG.error('Error executing mode ' + newMode.name, exc)
+										LOG.error('Error executing mode ' + newMode.name
+											+ " (" + exc.class.simpleName + ")")
 										lastModeException = exc
 										conditionCancelIndicator.cancel
 									} finally {

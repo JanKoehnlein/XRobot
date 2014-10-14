@@ -30,24 +30,58 @@ class SecurityTest {
 		slots = playerSlotFactory.createAll
 	}
 	
-	@Test
-	def void testFileRead() {
+	private def performSecurityTest(String evilProgram) {
 		val game = gameProvider.get()
-		slots.get(0).acquire('''
-			robot Test author Test
-			Evil {
-				say(new java.io.FileReader("/bin/kill").read().toString)
-			}
-		''')
+		slots.get(0).acquire(evilProgram)
 		slots.get(1).acquire(TestScripts.IDLE)
 		
 		game.play(slots)
 		assertTrue(game.gameResult.canceled)
 		assertThat(game.lastError, instanceOf(SecurityException))
+		
 		game.waitThreadsTermination
 		assertNull(System.securityManager)
-		
 		slots.forEach[release]
+	}
+	
+	@Test
+	def void testFileRead() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				say(new java.io.FileReader("/bin/kill").read().toString)
+			}
+		''')
+	}
+	
+	@Test
+	def void testFileWrite() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				new java.io.FileWriter("/tmp/output").write("i kill u")
+			}
+		''')
+	}
+	
+	@Test
+	def void testExit() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				System.exit(0)
+			}
+		''')
+	}
+	
+	@Test
+	def void testThreadCreate() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				new Thread[while(true){}].start
+			}
+		''')
 	}
 	
 }

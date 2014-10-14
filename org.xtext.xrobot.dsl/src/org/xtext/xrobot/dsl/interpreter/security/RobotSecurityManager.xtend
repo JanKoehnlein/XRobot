@@ -138,6 +138,8 @@ class RobotSecurityManager extends SecurityManager {
 		'sun.misc.URLClassPath',
 		'sun.misc.Resource',
 		'sun.misc.FileURLMapper',
+		'sun.net.www.protocol.jar.JarFileFactory',
+		'sun.net.www.protocol.jar.JarURLConnection',
 		'sun.reflect.DelegatingClassLoader',
 		'sun.reflect.ClassDefiner',
 		'sun.reflect.MethodAccessorGenerator',
