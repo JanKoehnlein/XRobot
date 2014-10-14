@@ -1,7 +1,6 @@
 package org.xtext.xrobot.api
 
 import org.eclipse.xtend.lib.annotations.Data
-import org.xtext.xrobot.RobotID
 
 import static org.xtext.xrobot.api.GeometryExtensions.*
 
@@ -135,7 +134,6 @@ class Direction {
  */
 @Data
 class RobotPosition extends Position {
-	RobotID robotID
 	
 	/**
 	 * The direction in degrees in which the robot is heading. 

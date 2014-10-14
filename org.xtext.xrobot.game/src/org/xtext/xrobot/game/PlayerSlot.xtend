@@ -13,6 +13,7 @@ import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.game.PlayerStatus.*
+import java.util.ArrayList
 
 class PlayerSlot implements IRobotListener {
 	
@@ -34,7 +35,7 @@ class PlayerSlot implements IRobotListener {
 		}
 		
 		def createAll() {
-			#[ create(RobotID.Blue), create(RobotID.Red) ]
+			new ArrayList(RobotID.values.map[create])
 		}
 		
 	}
@@ -81,6 +82,14 @@ class PlayerSlot implements IRobotListener {
 		preparer.slot = this
 	}
 	
+	override toString() {
+		if (program == null) {
+			class.simpleName + ' ' + robotID
+		} else {
+			class.simpleName + ' ' + robotID + '[' + program.name + ']'
+		}
+	}
+	
 	def getRobotFactory() {
 		if(robotFactory == null || !robotFactory.isAlive)
 			robotFactory = connector.getRobotFactory(robotID)
@@ -101,6 +110,9 @@ class PlayerSlot implements IRobotListener {
 	}
 
 	def acquire(Program program) {
+		if (program.name.nullOrEmpty) {
+			throw new IllegalArgumentException("Unnamed program")
+		}
 		this.program = program
 		preparer.prepare
 	}

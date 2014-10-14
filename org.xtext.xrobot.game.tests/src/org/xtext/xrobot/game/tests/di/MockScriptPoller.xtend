@@ -5,7 +5,7 @@ import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Data
 import org.xtext.xrobot.game.GameServer
 import org.xtext.xrobot.game.IScriptPoller
-import org.xtext.xrobot.game.tests.ITestScripts
+import org.xtext.xrobot.game.tests.TestScripts
 
 class MockScriptPoller implements IScriptPoller {
 	
@@ -33,9 +33,9 @@ class MockScriptPoller implements IScriptPoller {
 	private def run() {
 		while(!isStopped) {
 			Thread.sleep(10000)
-			gameServer.register(gameServer.slots.head.token, ITestScripts.DANCER)
+			gameServer.register(gameServer.slots.head.token, TestScripts.DANCER)
 			Thread.sleep(2000)
-			gameServer.register(gameServer.slots.last.token, ITestScripts.IDLE)
+			gameServer.register(gameServer.slots.last.token, TestScripts.IDLE)
 		}			
 	}
 	

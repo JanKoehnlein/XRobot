@@ -51,8 +51,8 @@ class MockRobot implements IRemoteRobot {
 		this.cancelIndicator = cancelIndicator
 		this.deadPredicate = deadPredicate
 		this.blindPredicate = blindPredicate
-		this.ownPosition = new RobotPosition(0, 0, robotID, 0)
-		this.opponentPosition = new RobotPosition(0, 0, robotID.opponent, 0)
+		this.ownPosition = new RobotPosition(0, 0, 0)
+		this.opponentPosition = new RobotPosition(0, 0, 0)
 		this.creationTime = System.currentTimeMillis
 	}
 	
@@ -95,7 +95,6 @@ class MockRobot implements IRemoteRobot {
 		ownPosition = new RobotPosition(
 			ownPosition.x + distance * cos(ownPosition.viewDirection.toRadians),
 			ownPosition.y + distance * sin(ownPosition.viewDirection.toRadians),
-			robotID,
 			ownPosition.viewDirection
 		)
 		Thread.sleep(Math.round(1000 * distance / drivingSpeed))
@@ -118,7 +117,6 @@ class MockRobot implements IRemoteRobot {
 		ownPosition = new RobotPosition(
 			ownPosition.x,
 			ownPosition.y,
-			robotID,
 			ownPosition.viewDirection + angle
 		)
 		Thread.sleep(Math.round(1000 * angle / rotationSpeed))

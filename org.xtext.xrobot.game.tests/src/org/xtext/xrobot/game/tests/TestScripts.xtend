@@ -1,6 +1,6 @@
 package org.xtext.xrobot.game.tests
 
-interface ITestScripts {
+interface TestScripts {
 	
 	val DANCER = '''
 		robot Dancer

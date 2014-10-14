@@ -35,6 +35,7 @@ class Game {
 	
 	long lastLoserTimeStamp
 	
+	@Accessors(PUBLIC_GETTER)
 	Exception lastError
 	
 	@Accessors(PUBLIC_GETTER)
@@ -44,18 +45,22 @@ class Game {
 	GameResult refereeResult
 	
 	def play(List<PlayerSlot> slots) {
-		val gameOverListener = createGameOverListener
-		// remember map is lazy, so make a real copy
-		runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener, it)])
-		gameOver = false
-		LOG.debug('Starting game')
-		runners.forEach[start]
-		runners.forEach[executeSafely[join(gameDuration)]]
-		LOG.debug('Game finished')
-		gameOver = true
-		slots.forEach[
-			executeSafely[ robotFactory.checkAndRelease ]
-		]
+		try {
+			// Remember map is lazy, so make a real copy
+			runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener, it)])
+			gameOver = false
+			
+			LOG.debug('Starting game')
+			runners.forEach[start]
+			runners.forEach[executeSafely[join(gameDuration)]]
+			gameOver = true
+			LOG.debug('Game finished')
+		
+		} finally {
+			slots.forEach[
+				executeSafely[ robotFactory.checkAndRelease ]
+			]
+		}
 		if(gameResult == null)
 			gameResult = draw
 	}
@@ -65,8 +70,7 @@ class Game {
 		gameOver = true
 	}
 	
-	private def createGameOverListener() {
-		new IRobotListener() {
+	val gameOverListener = new IRobotListener() {
 			override modeChanged(IRemoteRobot robot, Mode newMode) {
 			}
 			
@@ -83,7 +87,6 @@ class Game {
 				checkGameOver(robot)
 			}
 		}
-	}
 
 	private def checkGameOver(IRemoteRobot robot) {
 		if (robot.centerDirection.distance > IArena.ARENA_OUTER_RADIUS || robot.isDead) {
@@ -102,7 +105,7 @@ class Game {
 	}
 	
 	private def checkAndRelease(IRemoteRobot.Factory robotFactory) {
-		if (refereeResult == null && lastError == null) {
+		if (refereeResult == null && lastError == null && robotFactory.lastRobot != null) {
 			val robot = robotFactory.newRobot(CancelIndicator.NullImpl, robotFactory.lastRobot)
 			do {
 				try {
@@ -116,26 +119,51 @@ class Game {
 		}
 		robotFactory.release
 	}
+	
+	static ThreadGroup threadGroup
+	
+	private static synchronized def getThreadGroup() {
+		if (threadGroup == null) {
+			threadGroup = new ThreadGroup("Robots")
+		}
+		threadGroup
+	}
+	
+	public def waitThreadsTermination() {
+		val threads = <Thread>newArrayOfSize(16)
+		getThreadGroup.enumerate(threads)
+		threads.forEach[it?.join]
+	}
 
 	private def prepareScriptRunner(Program program, IRemoteRobot.Factory robotFactory, IRobotListener... listeners) {
+		if (program == null) {
+			throw new IllegalStateException("No program is assigned to player slot " + robotFactory.robotID)
+		}
 		val scriptExecutor = scriptRunnerProvider.get
 		listeners.forEach[scriptExecutor.addRobotListener(it)]
-		new Thread [
-			executeSafely [
-				if (!robotFactory.isAlive)
-					throw new RuntimeException('Robot ' + robotFactory.robotID + ' not ready')
-				try {
-					scriptExecutor.run(
-						program,
-						robotFactory,
-						[gameOver])
-				} catch (CameraTimeoutException cte) {
-					if (gameResult == null)
-						gameResult = canceled("Camera drop out")
-					gameOver = true
-				}
-			]
-		]
+		new Thread(getThreadGroup, robotFactory.robotID.name) {
+			override run() {
+				executeSafely [
+					if (!robotFactory.isAlive)
+						throw new RuntimeException('Robot ' + robotFactory.robotID + ' not ready')
+					try {
+						scriptExecutor.run(
+							program,
+							robotFactory,
+							[gameOver])
+					} catch (CameraTimeoutException cte) {
+						if (gameResult == null)
+							gameResult = canceled('Camera dropped out')
+						gameOver = true
+					} catch (SecurityException se) {
+						LOG.info('Caught security exception: ' + se.message)
+						gameResult = canceled(program.name + ' was caught cheating')
+						lastError = se
+						gameOver = true
+					}
+				]
+			}
+		}
 	}
 
 	private def executeSafely(Runnable runnable) {
@@ -143,7 +171,7 @@ class Game {
 			runnable.run()
 		} catch (Exception e) {
 			LOG.error(e.message, e)
-			gameResult = canceled("An error occurred")
+			gameResult = canceled('An error occurred')
 			lastError = e
 			gameOver = true
 		}

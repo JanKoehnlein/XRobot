@@ -46,7 +46,7 @@ class RobotPreparer implements IRobotPreparer {
 		slot.status = PREPARING
 		isCanceled = false
 		robot = slot.robotFactory.newRobot [isCanceled]
-		LOG.info(slot.robotID + ' battery ' + robot.batteryState)
+		LOG.info(slot.robotID + ' battery ' + round(robot.batteryState * 100) + '%')
 		if(robot.batteryState < MIN_BATTERY_CHARGE) 
 			errorReporter.showError(slot.robotID + ': Change battery', 5.seconds)
 		if(robot.batteryState < LOW_BATTERY_CHARGE) 
