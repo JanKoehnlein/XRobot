@@ -87,7 +87,7 @@ class HallOfFameTable extends VBox {
 		addCell('D', 3, 1, styles + #['hof-number'])
 		addCell('L', 4, 1, styles + #['hof-number'])
 		addCell('Score', 5, 1, styles + #['hof-score'])
-		hallOfFame.forEach [ entry, i |
+		hallOfFame.take(10).forEach [ entry, i |
 			addRow(i+2, i+1, entry)
 		]
 		children.setAll(spacerRectangle)
