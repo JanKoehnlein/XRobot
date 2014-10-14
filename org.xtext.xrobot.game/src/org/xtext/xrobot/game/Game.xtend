@@ -128,6 +128,12 @@ class Game {
 		}
 		threadGroup
 	}
+	
+	public def waitThreadsTermination() {
+		val threads = <Thread>newArrayOfSize(16)
+		getThreadGroup.enumerate(threads)
+		threads.forEach[it?.join]
+	}
 
 	private def prepareScriptRunner(Program program, IRemoteRobot.Factory robotFactory, IRobotListener... listeners) {
 		if (program == null) {

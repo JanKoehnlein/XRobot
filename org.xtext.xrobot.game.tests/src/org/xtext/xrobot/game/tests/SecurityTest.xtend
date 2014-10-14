@@ -44,6 +44,7 @@ class SecurityTest {
 		game.play(slots)
 		assertTrue(game.gameResult.canceled)
 		assertThat(game.lastError, instanceOf(SecurityException))
+		game.waitThreadsTermination
 		assertNull(System.securityManager)
 		
 		slots.forEach[release]

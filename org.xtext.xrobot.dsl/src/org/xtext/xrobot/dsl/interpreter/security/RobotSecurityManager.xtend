@@ -99,7 +99,7 @@ class RobotSecurityManager extends SecurityManager {
 	
 	private def isActiveThread() {
 		synchronized (activeThreads) {
-			activeThreads.get(Thread.currentThread)
+			activeThreads.get(Thread.currentThread) ?: false
 		}
 	}
 	
@@ -226,6 +226,15 @@ class RobotSecurityManager extends SecurityManager {
 		} else {
 			super.checkPackageAccess(pkg)
 		}
+	}
+	
+	override getThreadGroup() {
+		// Return the top-level group in order to avoid foreign threads in our internal group
+		var group = Thread.currentThread.threadGroup
+		while (group?.parent != null) {
+			group = group.parent
+		}
+		group
 	}
 	
 }

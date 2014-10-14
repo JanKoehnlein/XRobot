@@ -24,6 +24,8 @@ import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
 import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
 import org.eclipse.xtext.xbase.XConstructorCall
+import org.eclipse.xtext.common.types.util.JavaReflectAccess
+import org.xtext.xrobot.api.IRobot
 
 class XRobotInterpreter extends XbaseInterpreter {
 	
@@ -34,6 +36,10 @@ class XRobotInterpreter extends XbaseInterpreter {
 	static val ROBOT = QualifiedName.create('Dummy')
 	static val CURRENT_LINE = QualifiedName.create('currentLine')
 
+	@Inject extension IJvmModelAssociations
+	
+	@Inject JavaReflectAccess javaReflectAccess
+	
 	IEvaluationContext baseContext
 
 	Mode currentMode
@@ -42,27 +48,32 @@ class XRobotInterpreter extends XbaseInterpreter {
 	
 	IRemoteRobot conditionRobot
 	
-	@Inject extension IJvmModelAssociations 
-	
 	List<IRobotListener> listeners
+	
+	Exception lastModeException
 	
 	def void execute(Program program, IRemoteRobot.Factory robotFactory, List<IRobotListener> listeners, CancelIndicator cancelIndicator) {
 		this.listeners = listeners
 		baseContext = createContext
-		for(field: program.fields) {
-			if(field.initializer != null) {
+		
+		// Start the security manager in order to block all illegal operations
+		RobotSecurityManager.start
+		
+		// Initialize program fields
+		for (field: program.fields) {
+			if (field.initializer != null) {
 				val initialValue = field.initializer.evaluate(baseContext, cancelIndicator)
 				baseContext.newValue(QualifiedName.create(field.name), initialValue.result)
 			} else {
 				baseContext.newValue(QualifiedName.create(field.name), null)
 			}
 		}
+		
 		val conditionCancelIndicator = new InternalCancelIndicator(cancelIndicator)
 		conditionRobot = robotFactory.newRobot(conditionCancelIndicator)
 		val conditionContext = baseContext.fork()
 		conditionContext.newValue(ROBOT, conditionRobot)
 		try {
-			RobotSecurityManager.start
 			
 			do {
 				listeners.forEach[stateRead(conditionRobot)]
@@ -80,6 +91,8 @@ class XRobotInterpreter extends XbaseInterpreter {
 						currentModeCancelIndicator = new InternalCancelIndicator(cancelIndicator)
 						currentMode = newMode
 						if (newMode != null) {
+							
+							// Start a new thread executing the activated mode
 							LOG.debug('Starting mode ' +  newMode.name)
 							val modeRobot = robotFactory.newRobot(currentModeCancelIndicator, conditionRobot)
 							val modeContext = baseContext.fork
@@ -88,7 +101,10 @@ class XRobotInterpreter extends XbaseInterpreter {
 							if (modeNode != null) {
 								modeContext.newValue(CURRENT_LINE, modeNode.startLine)
 							}
-							new Thread([
+							val threadGroup = Thread.currentThread.threadGroup
+							val thread = new Thread(threadGroup,
+									'Robot ' + modeRobot.robotID.name + ' in mode ' + newMode.name) {
+								override run() {
 									try {
 										RobotSecurityManager.start
 										currentMode.execute(modeContext, currentModeCancelIndicator)
@@ -96,13 +112,16 @@ class XRobotInterpreter extends XbaseInterpreter {
 										LOG.debug('Mode ' + newMode.name + ' canceled')
 									} catch (Exception exc) {
 										LOG.error('Error executing mode ' + newMode.name, exc)
+										lastModeException = exc
 										conditionCancelIndicator.cancel
 									} finally {
 										currentModeCancelIndicator.cancel
 										RobotSecurityManager.stop
 									}
-								], 'Robot ' + modeRobot.robotID.name + ' in mode ' + newMode.name)
-								.start
+								}
+							}
+							thread.start
+							
 						}
 					}
 					Thread.yield
@@ -110,11 +129,13 @@ class XRobotInterpreter extends XbaseInterpreter {
 					if(newMode == null)
 						listeners.forEach[ stateChanged(conditionRobot) ]
 				}
-			} while(!conditionCancelIndicator.canceled)
+			} while(!conditionCancelIndicator.isCanceled)
 			
-		} catch(CanceledException exc) {
-			currentModeCancelIndicator?.cancel
+			if (lastModeException != null) {
+				throw lastModeException
+			}
 		} finally {
+			currentModeCancelIndicator?.cancel
 			RobotSecurityManager.stop
 		}
 	}
@@ -189,12 +210,17 @@ class XRobotInterpreter extends XbaseInterpreter {
 			}
 			return result.result
 		} else {
-			// Make sure our security manager is active while invoking the method
-			try {
-				RobotSecurityManager.active = true
+			val receiverDeclaredType = javaReflectAccess.getRawType(operation.declaringType)
+			if (receiverDeclaredType == IRobot) {
 				super.invokeOperation(operation, receiver, argumentValues)
-			} finally {
-				RobotSecurityManager.active = false
+			} else {
+				// Make sure our security manager is active while invoking the method
+				try {
+					RobotSecurityManager.active = true
+					super.invokeOperation(operation, receiver, argumentValues)
+				} finally {
+					RobotSecurityManager.active = false
+				}
 			}
 		}
 	}
