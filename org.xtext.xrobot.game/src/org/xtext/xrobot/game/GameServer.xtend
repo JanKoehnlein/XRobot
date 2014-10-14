@@ -68,9 +68,9 @@ class GameServer {
 		do {
 			while(!slots.map[waitReady; status == READY].reduce[$0 && $1]) 
 				Thread.sleep(5000)
-			display.prepareGame
 			val game = gameProvider.get()
 			game.gameDuration = GAME_DURATION
+			display.prepareGame(game)
 			slots.forEach[status = FIGHTING]
 			controlWindow.gameStarted(game)
 			game.play(slots)

@@ -10,5 +10,4 @@ interface IGameListener {
 	def void gameStarted(Game game)
 
 	def void gameFinished(Game game)
-	
 }

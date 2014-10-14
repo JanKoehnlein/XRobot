@@ -15,6 +15,7 @@ class XRobotModule implements Module {
 		binder.bind(IRobotPreparer).to(RobotPreparer)
 		binder.bind(IErrorReporter).to(Display)
 		binder.bind(IGameListener).to(GameControlWindow)
+		binder.bind(ITimeListener).to(Display)
 	}
 	
 }

@@ -28,14 +28,18 @@ import org.xtext.xrobot.game.PlayerSlot
 import static javafx.scene.layout.Region.*
 
 import static extension javafx.util.Duration.*
+import org.xtext.xrobot.game.ITimeListener
+import javafx.geometry.Pos
+import org.xtext.xrobot.game.Game
 
 @Singleton
-class Display implements IErrorReporter {
+class Display implements IErrorReporter, ITimeListener {
 
 	@Inject RootPane rootPane
 	@Inject IdleProgram idleProgram
 	@Inject StackPane centerPane
 	@Inject VBox messagePane
+	@Inject Label timeLabel
 
 	List<PlayerSlotBox> slotBoxes
 	
@@ -48,6 +52,10 @@ class Display implements IErrorReporter {
 				rootPane => [
 					styleClass += 'border-pane'
 					center = centerPane => [
+						children += timeLabel => [
+							styleClass += 'time'
+							StackPane.setAlignment(timeLabel, Pos.TOP_CENTER)
+						]
 						children += idleProgram
 						children += messagePane => [
 							styleClass += 'message-pane'
@@ -86,7 +94,8 @@ class Display implements IErrorReporter {
 		]
 	}
 
-	def prepareGame() {
+	def prepareGame(Game game) {
+		updateTime(game.gameDuration)
 		Platform.runLater[
 			idleProgram.stop
 			countdown()
@@ -106,8 +115,7 @@ class Display implements IErrorReporter {
 		]
 		centerPane.children += label
 		new SequentialTransition => [
-			children += getPopupTransition(label, 'Steady')
-			children += getPopupTransition(label, 'Go!')
+			children += getPopupTransition(label, 'Fight!')
 			children += getPopupTransition(label, '')
 			onFinished = [
 				centerPane.children -= label
@@ -184,4 +192,13 @@ class Display implements IErrorReporter {
 			}
 		]
 	}
+	
+	override updateTime(long millisLeft) {
+		Platform.runLater[
+			val minutesLeft = millisLeft / 1000 / 60
+			val secondsLeft = millisLeft / 1000
+			timeLabel.setText(String.format('%1d:%02d', minutesLeft, secondsLeft))
+		]
+	}
+	
 }

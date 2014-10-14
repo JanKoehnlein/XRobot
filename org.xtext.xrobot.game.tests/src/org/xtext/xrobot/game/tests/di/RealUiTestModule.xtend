@@ -11,12 +11,14 @@ import org.eclipse.xtext.xbase.XbaseStandaloneSetup
 import org.xtext.xrobot.dsl.XRobotDSLRuntimeModule
 import com.google.inject.Guice
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
+import org.xtext.xrobot.game.ITimeListener
 
 class RealUiTestModule implements Module {
 	
 	override configure(Binder binder) {
 		binder.bind(IErrorReporter).to(Display)
 		binder.bind(IGameListener).to(GameControlWindow)
+		binder.bind(ITimeListener).to(Display)
 	}
 	
 	

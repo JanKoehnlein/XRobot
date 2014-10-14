@@ -9,12 +9,14 @@ import org.xtext.xrobot.dsl.XRobotDSLRuntimeModule
 import org.xtext.xrobot.dsl.XRobotDSLStandaloneSetup
 import org.xtext.xrobot.game.IErrorReporter
 import org.xtext.xrobot.game.IGameListener
+import org.xtext.xrobot.game.ITimeListener
 
 class MockUiTestModule implements Module {
 	
 	override configure(Binder binder) {
 		binder.bind(IErrorReporter).to(MockErrorReporter)
 		binder.bind(IGameListener).to(MockGameListener)
+		binder.bind(ITimeListener).to(MockTimeListener)
 	}
 	
 	

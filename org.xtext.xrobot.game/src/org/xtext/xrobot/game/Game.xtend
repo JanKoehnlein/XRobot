@@ -15,6 +15,8 @@ import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.IRemoteRobot
 
+import static java.lang.Math.*
+import static org.xtext.xrobot.game.Game.*
 import static org.xtext.xrobot.game.GameResult.*
 import static org.xtext.xrobot.net.INetConfig.*
 import org.xtext.xrobot.dsl.interpreter.MemoryException
@@ -26,6 +28,8 @@ class Game {
 	static val GAME_LOST_THRESHOLD = 1000
 	 
 	@Inject Provider<ScriptRunner> scriptRunnerProvider
+	
+	@Inject ITimeListener timeListener
 
 	@Accessors
 	long gameDuration
@@ -53,10 +57,13 @@ class Game {
 			
 			LOG.debug('Starting game')
 			runners.forEach[start]
-			runners.forEach[executeSafely[join(gameDuration)]]
+			timer => [
+				start
+				join
+			]
+			runners.forEach[executeSafely[join(100)]]
 			gameOver = true
 			LOG.debug('Game finished')
-		
 		} finally {
 			slots.forEach[
 				executeSafely[ robotFactory.checkAndRelease ]
@@ -169,6 +176,21 @@ class Game {
 				]
 			}
 		}
+	}
+	
+	private def getTimer() {
+		new Thread([
+			val endTime = System.currentTimeMillis + gameDuration
+			var long left = 0
+			do {
+				Thread.sleep(1000)
+				left = max(0, endTime - System.currentTimeMillis())
+				timeListener.updateTime(left)
+			} while(left > 0 && !gameOver)
+			gameOver = true
+		], 'XRobot Timer') => [
+			daemon = true
+		] 
 	}
 
 	private def executeSafely(Runnable runnable) {

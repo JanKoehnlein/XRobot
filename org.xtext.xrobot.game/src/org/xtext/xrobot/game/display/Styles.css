@@ -154,3 +154,8 @@
 	-fx-font-family: 'Consolas';
 	-fx-font-size: 28pt;
 }
+
+.time {
+	-fx-font-size: 36pt;
+	-fx-text-fill: darkcyan;
+}
