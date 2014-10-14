@@ -72,10 +72,12 @@ class RobotSecurityManager extends SecurityManager {
 		'com.google.common.collect',
 		'org.apache.log4j.spi',
 		'org.xtext.xrobot*',
-		'org.eclipse.xtext*'
+		'org.eclipse.xtext*',
+		'org.eclipse.emf.ecore.util'
 	]
 	
 	static val ALLOWED_PROPERTIES = #[
+		'os.name',
 		'line.separator',
 		'sun.invoke.util.ValueConversions.MAX_ARITY'
 	]

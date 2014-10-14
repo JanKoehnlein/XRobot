@@ -15,7 +15,7 @@ import org.xtext.xrobot.util.AudioService
 import com.google.common.base.Predicates
 import org.xtext.xrobot.camera.CameraTimeoutException
 
-class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
+final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
 	static val MAX_POSITION_AGE = 500
 	static val RELEASE_MESSAGE = -1

@@ -18,7 +18,7 @@ import static org.xtext.xrobot.api.GeometryExtensions.*
 
 import static extension java.lang.Math.*
 
-class MockRobot implements IRemoteRobot {
+final class MockRobot implements IRemoteRobot {
 
 	@Accessors(PUBLIC_GETTER)
 	val RobotID robotID

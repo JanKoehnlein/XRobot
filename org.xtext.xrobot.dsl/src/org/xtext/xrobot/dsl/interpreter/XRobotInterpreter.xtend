@@ -63,11 +63,8 @@ class XRobotInterpreter extends XbaseInterpreter {
 			// Initialize program fields
 			for (field: program.fields) {
 				if (field.initializer != null) {
-					val initialValue = field.initializer.evaluate(baseContext, cancelIndicator)
-					if (initialValue.exception != null) {
-						throw initialValue.exception
-					}
-					baseContext.newValue(QualifiedName.create(field.name), initialValue.result)
+					val initialValue = field.initializer.evaluateChecked(baseContext, cancelIndicator)
+					baseContext.newValue(QualifiedName.create(field.name), initialValue)
 				} else {
 					baseContext.newValue(QualifiedName.create(field.name), null)
 				}
@@ -84,11 +81,8 @@ class XRobotInterpreter extends XbaseInterpreter {
 					val newMode = program.modes.findFirst [
 						if(condition == null)
 							return true
-						val result = condition?.evaluate(conditionContext, conditionCancelIndicator)
-						if (result.exception != null) {
-							throw result.exception
-						}
-						return result?.result as Boolean ?: false
+						val result = condition.evaluateChecked(conditionContext, conditionCancelIndicator)
+						return result as Boolean ?: false
 					]
 					if(newMode != currentMode || currentModeCancelIndicator?.isCanceled) {
 						if(currentMode != null)
@@ -154,15 +148,21 @@ class XRobotInterpreter extends XbaseInterpreter {
 				modeChanged(robot, mode)
 				stateChanged(robot)
 			]
-			val result = mode.action.evaluate(context, cancelIndicator)
+			mode.action.evaluateChecked(context, cancelIndicator)
+		} catch(CanceledException exc) {
+			mode.whenCanceled?.evaluateChecked(context, cancelIndicator)
+		}
+	}
+	
+	private def evaluateChecked(XExpression expression, IEvaluationContext context, CancelIndicator indicator) {
+		try {
+			val result = super.evaluate(expression, context, indicator)
 			if (result.exception != null) {
 				throw result.exception
 			}
-		} catch(CanceledException exc) {
-			val result = mode.whenCanceled?.evaluate(context, cancelIndicator)
-			if (result?.exception != null) {
-				throw result.exception
-			}
+			return result.result
+		} catch (ExceptionInInitializerError error) {
+			throw error.cause
 		}
 	}
 	
@@ -211,11 +211,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 				newContext.newValue(QualifiedName.create(param.name), argumentValues.get(index))
 				index = index + 1	
 			}
-			val result = evaluate(executable.body, newContext, indicator)
-			if (result.exception != null) {
-				throw new EvaluationException(result.exception) 
-			}
-			return result.result
+			return evaluateChecked(executable.body, newContext, indicator)
 		} else {
 			val receiverDeclaredType = javaReflectAccess.getRawType(operation.declaringType)
 			if (receiverDeclaredType == IRobot) {
@@ -224,7 +220,8 @@ class XRobotInterpreter extends XbaseInterpreter {
 				// Make sure our security manager is active while invoking the method
 				try {
 					RobotSecurityManager.active = true
-					super.invokeOperation(operation, receiver, argumentValues)
+					System.securityManager.checkPackageAccess(operation.declaringType.packageName)
+					return super.invokeOperation(operation, receiver, argumentValues)
 				} finally {
 					RobotSecurityManager.active = false
 				}
@@ -236,6 +233,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 		// Make sure our security manager is active while invoking the constructor
 		try {
 			RobotSecurityManager.active = true
+			System.securityManager.checkPackageAccess(constructorCall.constructor.declaringType.packageName)
 			super._doEvaluate(constructorCall, context, indicator)
 		} finally {
 			RobotSecurityManager.active = false

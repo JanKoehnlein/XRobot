@@ -36,7 +36,7 @@ class Game {
 	long lastLoserTimeStamp
 	
 	@Accessors(PUBLIC_GETTER)
-	Exception lastError
+	Throwable lastError
 	
 	@Accessors(PUBLIC_GETTER)
 	GameResult gameResult
@@ -169,10 +169,10 @@ class Game {
 	private def executeSafely(Runnable runnable) {
 		try {
 			runnable.run()
-		} catch (Exception e) {
-			LOG.error(e.message, e)
+		} catch (Throwable t) {
+			LOG.error(t.message, t)
 			gameResult = canceled('An error occurred')
-			lastError = e
+			lastError = t
 			gameOver = true
 		}
 	}

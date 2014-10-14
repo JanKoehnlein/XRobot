@@ -65,6 +65,16 @@ class SecurityTest {
 	}
 	
 	@Test
+	def void testFileDelete() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				new java.io.File("/tmp/dummy").delete
+			}
+		''')
+	}
+	
+	@Test
 	def void testExit() {
 		performSecurityTest('''
 			robot Test author Test
@@ -85,6 +95,16 @@ class SecurityTest {
 	}
 	
 	@Test
+	def void testExecute() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				Runtime.runtime.exec(#['/bin/rm', '/tmp/*'])
+			}
+		''')
+	}
+	
+	@Test
 	def void testVariableInitializer() {
 		performSecurityTest('''
 			robot Test author Test
@@ -97,6 +117,64 @@ class SecurityTest {
 		performSecurityTest('''
 			robot Test author Test
 			Evil on (new java.io.FileWriter("/tmp/output") != null) {}
+		''')
+	}
+	
+	@Test
+	def void testSocket() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				val socket = new java.net.Socket()
+				socket.connect(new java.net.InetSocketAddress("www.google.com", 80))
+			}
+		''')
+	}
+	
+	@Test
+	def void testSocketChannel() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				val socket = java.nio.channels.SocketChannel.open()
+				socket.connect(new java.net.InetSocketAddress("www.google.com", 80))
+			}
+		''')
+	}
+	
+	@Test
+	def void testDatagramSocket() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				val buf = newByteArrayOfSize(1024)
+				new java.net.DatagramSocket().receive(new java.net.DatagramPacket(buf, 1024))
+			}
+		''')
+	}
+	
+	@Test
+	def void testServerSocket() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				new java.net.ServerSocket().bind(new java.net.InetSocketAddress("127.0.0.1", 80))
+			}
+		''')
+	}
+	
+	@Test
+	def void testSwing() {
+		performSecurityTest('''
+			robot Test author Test
+			var init = true
+			Evil on init {
+				val frame = new javax.swing.JFrame("Dr. Evil")
+				frame.getContentPane().add(new javax.swing.JLabel("Hahaha!"))
+				frame.pack()
+				frame.setVisible(true)
+				init = false
+			}
 		''')
 	}
 	
