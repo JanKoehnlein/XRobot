@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<site>
+<site
+      mirrorsURL="fofo">
    <feature url="features/org.xtext.xrobot.feature_1.0.0.jar" id="org.xtext.xrobot.feature" version="1.0.0"/>
+   <category-def name="new_category_1" label="New Category 1"/>
 </site>
