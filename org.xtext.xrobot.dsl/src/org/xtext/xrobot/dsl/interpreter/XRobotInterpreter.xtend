@@ -1,33 +1,36 @@
 package org.xtext.xrobot.dsl.interpreter
 
 import com.google.inject.Inject
+import java.util.HashMap
 import java.util.List
 import org.apache.log4j.Logger
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.common.types.JvmDeclaredType
 import org.eclipse.xtext.common.types.JvmField
 import org.eclipse.xtext.common.types.JvmIdentifiableElement
 import org.eclipse.xtext.common.types.JvmOperation
+import org.eclipse.xtext.common.types.util.JavaReflectAccess
 import org.eclipse.xtext.naming.QualifiedName
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 import org.eclipse.xtext.util.CancelIndicator
 import org.eclipse.xtext.xbase.XAbstractFeatureCall
+import org.eclipse.xtext.xbase.XConstructorCall
 import org.eclipse.xtext.xbase.XExpression
 import org.eclipse.xtext.xbase.interpreter.IEvaluationContext
 import org.eclipse.xtext.xbase.interpreter.impl.EvaluationException
 import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations
+import org.xtext.xrobot.api.IRobot
+import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
 import org.xtext.xrobot.dsl.xRobotDSL.Field
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.dsl.xRobotDSL.Sub
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
-import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
-import org.eclipse.xtext.xbase.XConstructorCall
-import org.eclipse.xtext.common.types.util.JavaReflectAccess
-import org.xtext.xrobot.api.IRobot
-import java.util.HashMap
-import org.eclipse.xtend.lib.annotations.Accessors
+
+import static org.xtext.xrobot.dsl.interpreter.XRobotInterpreter.*
+import static org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager.*
 
 class XRobotInterpreter extends XbaseInterpreter {
 	
@@ -179,7 +182,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 	private def evaluateChecked(XExpression expression, IEvaluationContext context, CancelIndicator indicator) {
 		try {
 			val result = super.evaluate(expression, context, indicator)
-			if (result.exception != null) {
+			if (result?.exception != null) {
 				throw result.exception
 			}
 			return result.result
