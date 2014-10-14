@@ -56,24 +56,27 @@ class XRobotInterpreter extends XbaseInterpreter {
 		this.listeners = listeners
 		baseContext = createContext
 		
-		// Start the security manager in order to block all illegal operations
-		RobotSecurityManager.start
-		
-		// Initialize program fields
-		for (field: program.fields) {
-			if (field.initializer != null) {
-				val initialValue = field.initializer.evaluate(baseContext, cancelIndicator)
-				baseContext.newValue(QualifiedName.create(field.name), initialValue.result)
-			} else {
-				baseContext.newValue(QualifiedName.create(field.name), null)
-			}
-		}
-		
-		val conditionCancelIndicator = new InternalCancelIndicator(cancelIndicator)
-		conditionRobot = robotFactory.newRobot(conditionCancelIndicator)
-		val conditionContext = baseContext.fork()
-		conditionContext.newValue(ROBOT, conditionRobot)
 		try {
+			// Start the security manager in order to block all illegal operations
+			RobotSecurityManager.start
+			
+			// Initialize program fields
+			for (field: program.fields) {
+				if (field.initializer != null) {
+					val initialValue = field.initializer.evaluate(baseContext, cancelIndicator)
+					if (initialValue.exception != null) {
+						throw initialValue.exception
+					}
+					baseContext.newValue(QualifiedName.create(field.name), initialValue.result)
+				} else {
+					baseContext.newValue(QualifiedName.create(field.name), null)
+				}
+			}
+			
+			val conditionCancelIndicator = new InternalCancelIndicator(cancelIndicator)
+			conditionRobot = robotFactory.newRobot(conditionCancelIndicator)
+			val conditionContext = baseContext.fork()
+			conditionContext.newValue(ROBOT, conditionRobot)
 			
 			do {
 				listeners.forEach[stateRead(conditionRobot)]
@@ -82,7 +85,10 @@ class XRobotInterpreter extends XbaseInterpreter {
 						if(condition == null)
 							return true
 						val result = condition?.evaluate(conditionContext, conditionCancelIndicator)
-						return result != null && result?.result as Boolean
+						if (result.exception != null) {
+							throw result.exception
+						}
+						return result?.result as Boolean ?: false
 					]
 					if(newMode != currentMode || currentModeCancelIndicator?.isCanceled) {
 						if(currentMode != null)

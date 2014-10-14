@@ -10,6 +10,7 @@ import java.util.List
 import java.lang.reflect.ReflectPermission
 import java.util.HashMap
 import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 class RobotSecurityManager extends SecurityManager {
 	
@@ -130,7 +131,8 @@ class RobotSecurityManager extends SecurityManager {
 		XbaseInterpreter, RobotSecurityManager, SecurityManager, AccessController, Class,
 		ClassLoader, System, java.io.File, java.io.FileInputStream, java.util.zip.ZipFile,
 		java.util.jar.JarFile, java.lang.reflect.Constructor, java.lang.reflect.Method,
-		java.lang.reflect.AccessibleObject
+		java.lang.reflect.AccessibleObject, org.eclipse.xtext.util.PolymorphicDispatcher,
+		org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
 	]
 	
 	static val SECURE_CLASS_NAMES = #[
@@ -138,6 +140,7 @@ class RobotSecurityManager extends SecurityManager {
 		'sun.misc.URLClassPath',
 		'sun.misc.Resource',
 		'sun.misc.FileURLMapper',
+		'sun.net.www.protocol.file.FileURLConnection',
 		'sun.net.www.protocol.jar.JarFileFactory',
 		'sun.net.www.protocol.jar.JarURLConnection',
 		'sun.reflect.DelegatingClassLoader',
@@ -170,7 +173,8 @@ class RobotSecurityManager extends SecurityManager {
 				checkClass = checkClass.enclosingClass
 			if (!SECURE_CLASSES.contains(checkClass) && !SECURE_CLASS_NAMES.contains(checkClass.name))
 				return false
-			else if (XbaseInterpreter.isAssignableFrom(checkClass))
+			else if (XbaseInterpreter.isAssignableFrom(checkClass)
+					|| IQualifiedNameProvider.isAssignableFrom(checkClass))
 				return true
 		}
 		false

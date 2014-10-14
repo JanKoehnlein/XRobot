@@ -84,4 +84,20 @@ class SecurityTest {
 		''')
 	}
 	
+	@Test
+	def void testVariableInitializer() {
+		performSecurityTest('''
+			robot Test author Test
+			var evil = new java.io.FileWriter("/tmp/output")
+		''')
+	}
+	
+	@Test
+	def void testModeCondition() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil on (new java.io.FileWriter("/tmp/output") != null) {}
+		''')
+	}
+	
 }
