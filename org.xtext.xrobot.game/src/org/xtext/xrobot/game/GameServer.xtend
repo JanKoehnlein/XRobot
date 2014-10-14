@@ -45,12 +45,12 @@ class GameServer {
 		scriptPoller.start()
 	}
 	
-	def register(AccessToken usedToken, String script) {
+	def register(AccessToken usedToken, String uri, String script) {
 		synchronized(slots) {
 			val slot = slots.findFirst[matches(usedToken) && isAvailable]
 			if(slot?.isAvailable) {
 				try {
-					slot.acquire(script)
+					slot.acquire(uri, script)
 					LOG.debug('Robot ' + slot.program.name + ' has joined the game')
 				} catch (Exception exc) {
 					display.showError(exc.message, 5.seconds)
@@ -122,7 +122,7 @@ class GameServer {
 			if(showResultAgain)
 				display.showInfo(infoPrefix + 'A draw', 10.seconds)
 			slots.forEach[ status = DRAW ]
-			rankingSystem.addDraw(slots.head.scriptName, slots.last.scriptName)
+			rankingSystem.addDraw(slots.head.program, slots.last.program)
 		} else {
 			val winnerSlot = slots.findFirst[robotID == finalResult.winner]
 			winnerSlot.status = WINNER
@@ -130,7 +130,7 @@ class GameServer {
 			loserSlot.status = LOSER
 			if(showResultAgain)
 				display.showInfo(infoPrefix + winnerSlot.scriptName + ' wins', 10.seconds)
-			rankingSystem.addWin(winnerSlot.scriptName, loserSlot.scriptName)
+			rankingSystem.addWin(winnerSlot.program, loserSlot.program)
 		}
 		if(showResultAgain)
 			Thread.sleep(10000)

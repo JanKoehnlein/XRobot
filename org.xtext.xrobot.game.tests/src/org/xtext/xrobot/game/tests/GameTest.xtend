@@ -42,7 +42,7 @@ class GameTest {
 		val game = gameProvider.get()
 		game.gameDuration = 1000
 		slots.forEach[
-			acquire(TestScripts.IDLE)
+			acquire('idle.xrobot', TestScripts.IDLE)
 			status = FIGHTING
 		]
 		
@@ -59,8 +59,9 @@ class GameTest {
 		]
 		mockRobotConnector.blindPredicate = Predicates.alwaysFalse
 		val game = gameProvider.get()
+		game.gameDuration = 2000
 		slots.forEach[
-			acquire(TestScripts.IDLE)
+			acquire('idle.xrobot', TestScripts.IDLE)
 			status = FIGHTING
 		]
 		
@@ -78,8 +79,9 @@ class GameTest {
 			robotID == RobotID.Blue && age > 1000
 		]
 		val game = gameProvider.get()
+		game.gameDuration = 3000
 		slots.forEach[
-			acquire(TestScripts.IDLE)
+			acquire('idle.xrobot', TestScripts.IDLE)
 			status = FIGHTING
 		]
 		
@@ -100,7 +102,7 @@ class GameTest {
 		]
 		val game = gameProvider.get()
 		slots.forEach[
-			acquire(TestScripts.IDLE)
+			acquire('idle.xrobot', TestScripts.IDLE)
 			status = FIGHTING
 		]
 		
@@ -126,7 +128,7 @@ class GameTest {
 		mockRobotConnector.blindPredicate = Predicates.alwaysFalse
 		val game = gameProvider.get()
 		slots.forEach[
-			acquire(TestScripts.IDLE)
+			acquire('idle.xrobot', TestScripts.IDLE)
 			status = FIGHTING
 		]
 		
@@ -160,7 +162,7 @@ class GameTest {
 		]
 		val game = gameProvider.get()
 		slots.forEach[
-			acquire(TestScripts.IDLE)
+			acquire('idle.xrobot', TestScripts.IDLE)
 			status = FIGHTING
 		]
 		

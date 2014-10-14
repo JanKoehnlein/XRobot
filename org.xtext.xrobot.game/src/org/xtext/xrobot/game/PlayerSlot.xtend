@@ -117,9 +117,9 @@ class PlayerSlot implements IRobotListener {
 		preparer.prepare
 	}
 	
-	def acquire(String serializedProgram) {
+	def acquire(String uri, String serializedProgram) {
 		val resourceSet = resourceSetProvider.get
-		val program = scriptParser.parse(serializedProgram, resourceSet)
+		val program = scriptParser.parse(uri, serializedProgram, resourceSet)
 		if (program != null) {
 			acquire(program)
 		}

@@ -19,7 +19,6 @@ class MockUiTestModule implements Module {
 		binder.bind(ITimeListener).to(MockTimeListener)
 	}
 	
-	
 	static class InjectorProvider extends XRobotDSLInjectorProvider {
 	
 		override internalCreateInjector() {

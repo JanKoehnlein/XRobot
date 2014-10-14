@@ -13,7 +13,7 @@ class AccessToken {
 	String value 
 	
 	new(String token) {
-		value = token.substring(0, min(TOKEN_SIZE, token.length))
+		value = token.substring(0, min(TOKEN_SIZE, token.length)).toUpperCase
 	}
 	
 	new() {

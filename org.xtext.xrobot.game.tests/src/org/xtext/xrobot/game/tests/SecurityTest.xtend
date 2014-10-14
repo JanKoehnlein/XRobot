@@ -33,8 +33,8 @@ class SecurityTest {
 	
 	private def performSecurityTest(String evilProgram) {
 		val game = gameProvider.get()
-		slots.get(0).acquire(evilProgram)
-		slots.get(1).acquire(TestScripts.IDLE)
+		slots.get(0).acquire('evil.xrobot', evilProgram)
+		slots.get(1).acquire('idle.xrobot', TestScripts.IDLE)
 		
 		game.play(slots)
 		assertTrue(game.gameResult.canceled)
@@ -181,8 +181,8 @@ class SecurityTest {
 	
 	private def performMemoryTest(String evilProgram) {
 		val game = gameProvider.get()
-		slots.get(0).acquire(evilProgram)
-		slots.get(1).acquire(TestScripts.IDLE)
+		slots.get(0).acquire('evil.xrobot', evilProgram)
+		slots.get(1).acquire('idle.xrobot', TestScripts.IDLE)
 		
 		game.play(slots)
 		assertTrue(game.gameResult.canceled)

@@ -8,6 +8,7 @@ import java.io.FileWriter
 import java.io.Reader
 import java.io.Writer
 import java.util.List
+import org.xtext.xrobot.dsl.xRobotDSL.Program
 
 @Singleton
 class RankingProvider {
@@ -50,13 +51,21 @@ class RankingProvider {
 			}
 		}
 	}
+	
+	def clear() {
+		index.clear	
+	}
 
-	def getRanking(String name) {
-		index.get(name) ?: {
-			val newEntry = new PlayerRanking(name)
-			index.put(name, newEntry)
+	def getRanking(Program program) {
+		index.get(program.ID) ?: {
+			val newEntry = new PlayerRanking(program.ID, program.name)
+			index.put(program.ID, newEntry)
 			newEntry
 		}
+	}
+	
+	private def getID(Program it) {
+		eResource.URI.trimFileExtension.lastSegment.toString
 	}
 }
 

@@ -33,9 +33,9 @@ class MockScriptPoller implements IScriptPoller {
 	private def run() {
 		while(!isStopped) {
 			Thread.sleep(10000)
-			gameServer.register(gameServer.slots.head.token, TestScripts.DANCER)
+			gameServer.register(gameServer.slots.head.token, 'dancer.xrobot', TestScripts.DANCER)
 			Thread.sleep(2000)
-			gameServer.register(gameServer.slots.last.token, TestScripts.IDLE)
+			gameServer.register(gameServer.slots.last.token, 'idle.xrobot', TestScripts.IDLE)
 		}			
 	}
 	

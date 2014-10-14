@@ -3,12 +3,13 @@ package org.xtext.xrobot.game.ranking
 import com.google.inject.Inject
 
 import static java.lang.Math.*
+import org.xtext.xrobot.dsl.xRobotDSL.Program
 
 class RankingSystem {
 	
 	@Inject RankingProvider rankingProvider
 	
-	def addWin(String winner, String loser) {
+	def addWin(Program winner, Program loser) {
 		val ranking1 = rankingProvider.getRanking(winner)
 		val ranking2 = rankingProvider.getRanking(loser)
 		updateElo(ranking1, ranking2, 1)
@@ -17,7 +18,7 @@ class RankingSystem {
 		rankingProvider.save
 	}
 	
-	def addDraw(String player1, String player2) {
+	def addDraw(Program player1, Program player2) {
 		val ranking1 = rankingProvider.getRanking(player1)
 		val ranking2 = rankingProvider.getRanking(player2)
 		updateElo(ranking1, ranking2, 0.5)
