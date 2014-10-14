@@ -146,7 +146,7 @@ class Game {
 			override run() {
 				executeSafely [
 					if (!robotFactory.isAlive)
-						throw new RuntimeException('Robot ' + robotFactory.robotID + ' not ready')
+						throw new RuntimeException(program.name + ' (' + robotFactory.robotID + ') not ready')
 					try {
 						scriptExecutor.run(
 							program,
@@ -154,10 +154,10 @@ class Game {
 							[gameOver])
 					} catch (CameraTimeoutException cte) {
 						if (gameResult == null)
-							gameResult = canceled('Camera dropped out')
+							gameResult = canceled('Camera dropped out for ' + program.name)
 						gameOver = true
 					} catch (MemoryException me) {
-						gameResult = canceled(me.message)
+						gameResult = canceled(robotFactory.robotID + ': ' + me.message)
 						lastError = me
 						gameOver = true
 					} catch (SecurityException se) {

@@ -179,10 +179,21 @@ class SecurityTest {
 		''')
 	}
 	
+	private def performMemoryTest(String evilProgram) {
+		val game = gameProvider.get()
+		slots.get(0).acquire(evilProgram)
+		slots.get(1).acquire(TestScripts.IDLE)
+		
+		game.play(slots)
+		assertTrue(game.gameResult.canceled)
+		assertThat(game.lastError, instanceOf(MemoryException))
+		
+		slots.forEach[release]
+	}
+	
 	@Test
 	def testRecursionLimit() {
-		val game = gameProvider.get()
-		slots.get(0).acquire('''
+		performMemoryTest('''
 			robot Test author Test
 			Evil {
 				recurse
@@ -191,13 +202,29 @@ class SecurityTest {
 				recurse
 			}
 		''')
-		slots.get(1).acquire(TestScripts.IDLE)
-		
-		game.play(slots)
-		assertTrue(game.gameResult.canceled)
-		assertThat(game.lastError, instanceOf(MemoryException))
-		
-		slots.forEach[release]
+	}
+	
+	@Test
+	def testArraySizeLimit() {
+		performMemoryTest('''
+			robot Test author Test
+			Evil {
+				val a = newIntArrayOfSize(10000000)
+			}
+		''')
+	}
+	
+	@Test
+	def testFreeMemoryLimit() {
+		performMemoryTest('''
+			robot Test author Test
+			Evil {
+				val list = newLinkedList
+				while (true) {
+					list.add(newDoubleArrayOfSize(1024))
+				}
+			}
+		''')
 	}
 	
 }

@@ -27,6 +27,7 @@ import org.eclipse.xtext.xbase.XConstructorCall
 import org.eclipse.xtext.common.types.util.JavaReflectAccess
 import org.xtext.xrobot.api.IRobot
 import java.util.HashMap
+import org.eclipse.xtend.lib.annotations.Accessors
 
 class XRobotInterpreter extends XbaseInterpreter {
 	
@@ -34,6 +35,8 @@ class XRobotInterpreter extends XbaseInterpreter {
 	
 	static val ROBOT_UPDATE_TIMEOUT = 2000
 	static val RECURSION_LIMIT = 100
+	static val MAX_ARRAY_SIZE = 5000
+	static val MIN_FREE_MEMORY = 134217728l
 	
 	static val ROBOT = QualifiedName.create('Dummy')
 	static val CURRENT_LINE = QualifiedName.create('currentLine')
@@ -41,6 +44,9 @@ class XRobotInterpreter extends XbaseInterpreter {
 	@Inject extension IJvmModelAssociations
 	
 	@Inject JavaReflectAccess javaReflectAccess
+	
+	@Accessors
+	boolean trackLineChanges
 	
 	IEvaluationContext baseContext
 
@@ -52,7 +58,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 	
 	List<IRobotListener> listeners
 	
-	Exception lastModeException
+	Throwable lastModeException
 	
 	val recursionCounter = new HashMap<JvmOperation, Integer>
 	
@@ -112,12 +118,10 @@ class XRobotInterpreter extends XbaseInterpreter {
 									try {
 										RobotSecurityManager.start
 										currentMode.execute(modeContext, currentModeCancelIndicator)
-									} catch (CanceledException exc) {
-										LOG.debug('Mode ' + newMode.name + ' canceled')
-									} catch (Exception exc) {
+									} catch (Throwable thr) {
 										LOG.error('Error executing mode ' + newMode.name
-											+ " (" + exc.class.simpleName + ")")
-										lastModeException = exc
+											+ " (" + thr.class.simpleName + ")")
+										lastModeException = thr
 										conditionCancelIndicator.cancel
 									} finally {
 										currentModeCancelIndicator.cancel
@@ -139,6 +143,12 @@ class XRobotInterpreter extends XbaseInterpreter {
 			if (lastModeException != null) {
 				throw lastModeException
 			}
+		} catch (CanceledException exc) {
+			if (lastModeException != null) {
+				throw lastModeException
+			}
+		} catch (OutOfMemoryError err) {
+			throw new MemoryException("Heap memory limit exceeded", err)
 		} finally {
 			currentModeCancelIndicator?.cancel
 			RobotSecurityManager.stop
@@ -154,7 +164,15 @@ class XRobotInterpreter extends XbaseInterpreter {
 			]
 			mode.action.evaluateChecked(context, cancelIndicator)
 		} catch(CanceledException exc) {
-			mode.whenCanceled?.evaluateChecked(context, cancelIndicator)
+			try {
+				mode.whenCanceled?.evaluateChecked(context, cancelIndicator)
+			} catch(CanceledException exc2) {
+				// Ignore exception
+			} catch (OutOfMemoryError err) {
+				throw new MemoryException("Heap memory limit exceeded", err)
+			}
+		} catch (OutOfMemoryError err) {
+			throw new MemoryException("Heap memory limit exceeded", err)
 		}
 	}
 	
@@ -189,19 +207,33 @@ class XRobotInterpreter extends XbaseInterpreter {
 	}
 	
 	override protected internalEvaluate(XExpression expression, IEvaluationContext context, CancelIndicator indicator) throws EvaluationException {
-		if(indicator.isCanceled) 
+		if (indicator.isCanceled) 
 			throw new CanceledException()
-		val node = NodeModelUtils.findActualNodeFor(expression)
-		if(node != null) {
-			val startLine = node.startLine
-			val lastLine = context.getValue(CURRENT_LINE)
-			if(lastLine instanceof Integer) {
-				if(lastLine.intValue != startLine) {
-					context.assignValue(CURRENT_LINE, startLine)
-					listeners.forEach[lineChanged(startLine)]
+		if (trackLineChanges) {
+			val node = NodeModelUtils.findActualNodeFor(expression)
+			if (node != null) {
+				val startLine = node.startLine
+				val lastLine = context.getValue(CURRENT_LINE)
+				if (lastLine instanceof Integer) {
+					if (lastLine.intValue != startLine) {
+						context.assignValue(CURRENT_LINE, startLine)
+						listeners.forEach[lineChanged(startLine)]
+					}
 				}
 			}
 		}
+		
+		// Check current memory status
+		val runtime = Runtime.runtime
+		if (runtime.freeMemory < MIN_FREE_MEMORY) {
+			LOG.info("Program is about to exceed heap memory limit.")
+			runtime.gc
+			if (runtime.freeMemory < MIN_FREE_MEMORY) {
+				// Garbage collection did not help, so abort program execution
+				throw new MemoryException("Heap memory limit exceeded")
+			}
+		}
+		
 		super.internalEvaluate(expression, context, indicator)
 	}
 	
@@ -240,6 +272,12 @@ class XRobotInterpreter extends XbaseInterpreter {
 		} else {
 			val receiverDeclaredType = javaReflectAccess.getRawType(operation.declaringType)
 			if (receiverDeclaredType == IRobot) {
+				super.invokeOperation(operation, receiver, argumentValues)
+			} else if (receiverDeclaredType == ArrayLiterals) {
+				val size = argumentValues.head as Integer ?: 0
+				if (size > MAX_ARRAY_SIZE) {
+					throw new MemoryException("Size limit exceeded by array")
+				}
 				super.invokeOperation(operation, receiver, argumentValues)
 			} else {
 				operation.increaseRecursion
