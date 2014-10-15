@@ -110,7 +110,7 @@ class PlayerSlotBox extends VBox implements IRobotListener, PlayerSlot.Listener 
 	override modeChanged(IRemoteRobot robot, Mode newMode) {
 		Platform.runLater [
 			val modeLabels = modesBox.children
-			if((modeLabels.head as Label)?.text == newMode.name) {
+			if(modeLabels.filter(Label).head?.text == newMode.name) {
 				new FadeTransition => [
 					node = modeLabels.head
 					fromValue = 0
