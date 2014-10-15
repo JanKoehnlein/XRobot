@@ -144,7 +144,8 @@ class PlayerSlotBox extends VBox implements IRobotListener, PlayerSlot.Listener 
 				onFinished = [
 					if (modeLabels.size > MAX_MODES) 
 					 	modeLabels -= modeLabels.last
-					modeLabels.set(0, newLabel)
+					modeLabels.remove(rect)
+					modeLabels.add(0, newLabel)
 			 	]
 			 	play
 		 	]
