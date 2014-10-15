@@ -4,22 +4,24 @@
 package org.xtext.xrobot.dsl.validation
 
 import com.google.inject.Inject
+import java.util.List
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.xtext.common.types.JvmOperation
 import org.eclipse.xtext.common.types.JvmType
 import org.eclipse.xtext.common.types.util.JavaReflectAccess
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 import org.eclipse.xtext.validation.Check
 import org.eclipse.xtext.xbase.XAbstractFeatureCall
 import org.eclipse.xtext.xbase.XConstructorCall
+import org.eclipse.xtext.xbase.XExpression
+import org.eclipse.xtext.xbase.XNumberLiteral
 import org.eclipse.xtext.xbase.XbasePackage
 import org.eclipse.xtext.xtype.XImportDeclaration
 import org.eclipse.xtext.xtype.XtypePackage
-import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
-import java.util.List
-import org.eclipse.xtext.xbase.XExpression
-import org.eclipse.xtext.xbase.XNumberLiteral
 import org.xtext.xrobot.dsl.interpreter.XRobotInterpreter
+import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
+import org.xtext.xrobot.dsl.xRobotDSL.Program
 
 /**
  * Custom validation rules. 
@@ -54,6 +56,14 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 			operation.checkMethodReferenceAllowed(call.actualArguments, call,
 					XbasePackage.eINSTANCE.XAbstractFeatureCall_Feature)
 		}
+	}
+	
+	@Check 
+	def checkScriptTooLong(Program program) {
+		val documentLength = NodeModelUtils.findActualNodeFor(program).rootNode.totalLength
+		if(documentLength > 65536) {
+			error('Script exceeds limit of 64k characters', program, null)			
+		} 
 	}
 	
 	private def checkTypeReferenceAllowed(JvmType type, EObject source, EStructuralFeature feature) {
