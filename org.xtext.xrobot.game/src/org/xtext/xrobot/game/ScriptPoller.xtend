@@ -14,7 +14,7 @@ class ScriptPoller implements IScriptPoller {
 	
 	static val LOG = Logger.getLogger(ScriptPoller)
 	
-	static val ECLIPSE_SERVER_URL = 'http://10.10.1.3:8081/execute'
+	static val ECLIPSE_SERVER_URL = 'http://xrobots.itemis.de/execute'
 
 	@Inject GameServer gameServer
 	@Inject IErrorReporter errorReporter
