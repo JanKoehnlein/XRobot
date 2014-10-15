@@ -105,7 +105,13 @@ class HallOfFameTable extends VBox {
 	}
 	
 	private def addRow(int row, int rank, PlayerRanking entry) {
-		val styles = #['hof-light', 'boxed-label']
+		val styles = newArrayList('hof-light', 'boxed-label')
+		switch entry {
+			case hallOfFameProvider.blue:
+				styles.add('hof-blue')
+			case hallOfFameProvider.red:
+				styles.add('hof-red')
+		}
 		addCell(String.format('%3d', rank), 0, row, styles + #['hof-score'])
 		addCell(entry.name, 1, row, styles + #['hof-name'])
 		addCell(entry.wins, 2, row, styles + #['hof-number'])

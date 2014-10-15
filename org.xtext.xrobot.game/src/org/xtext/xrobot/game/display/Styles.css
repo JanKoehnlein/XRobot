@@ -79,6 +79,14 @@
 	-fx-text-alignment: right;
 }
 
+.hof-blue {
+	-fx-text-fill: rgba(140.0,179.0,223.0, 0.9);
+}
+
+.hof-red {
+	-fx-text-fill: rgba(252.0,123.0,107.0, 0.9);
+}
+
 .blue {
 	-fx-background-color: rgba(140.0,179.0,223.0, 0.9);
 }
@@ -112,6 +120,16 @@
 
 .error-label {
 	-fx-text-fill: white
+	-fx-font-size: 40pt;
+}
+
+.warning-box {
+	-fx-background-color: rgb(115.0,191.0,205.0);
+}
+
+.warning-label {
+	-fx-text-fill: white
+	-fx-font-size: 40pt;
 }
 
 .info-box {
@@ -119,7 +137,8 @@
 }
 
 .info-label {
-	-fx-text-fill: white
+	-fx-text-fill: white;
+	-fx-font-size: 40pt;
 }
 
 .message-pane {

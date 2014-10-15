@@ -8,6 +8,7 @@ import java.io.FileWriter
 import java.io.Reader
 import java.io.Writer
 import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 
 @Singleton
@@ -16,9 +17,20 @@ class RankingProvider {
 	static val FILE_NAME = 'rankings.json'
 	
 	val index = <String, PlayerRanking>newHashMap
-		
+	
 	new() {
 		load		
+	}
+	
+	@Accessors(PUBLIC_GETTER)
+	PlayerRanking red
+
+	@Accessors(PUBLIC_GETTER)
+	PlayerRanking blue
+	
+	def setBlueAndRed(Program blue, Program red) {
+		blue = getRanking(blue)
+		red = getRanking(red)
 	}
 	
 	def getHallOfFame() {

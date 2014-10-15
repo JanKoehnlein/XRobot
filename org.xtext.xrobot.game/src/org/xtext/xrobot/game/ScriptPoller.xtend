@@ -64,7 +64,7 @@ class ScriptPoller implements IScriptPoller {
 					Thread.sleep(5000)
 				}
 			} catch (Exception exc) {
-				LOG.error('Error connecting to Eclipse server', exc)
+				LOG.error('Error connecting to ScriptServer', exc)
 			}
 		}			
 	}

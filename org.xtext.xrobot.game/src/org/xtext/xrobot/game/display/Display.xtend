@@ -153,7 +153,7 @@ class Display implements IErrorReporter, ITimeListener {
 	}
 	
 	override showWarning(String message, Duration duration) {
-		showMessage(message, 'info', duration)
+		showMessage(message, 'warning', duration)
 	}
 	
 	override showInfo(String message, Duration duration) {

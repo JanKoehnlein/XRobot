@@ -8,11 +8,15 @@ import javafx.stage.Stage
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.xtext.xrobot.game.display.Display
+import org.xtext.xrobot.game.ranking.RankingProvider
 import org.xtext.xrobot.game.ranking.RankingSystem
 import org.xtext.xrobot.game.ui.GameControlWindow
 
+import static org.xtext.xrobot.RobotID.*
 import static org.xtext.xrobot.game.PlayerStatus.*
+
 import static extension javafx.util.Duration.*
+
 @Singleton
 class GameServer {
 
@@ -27,6 +31,8 @@ class GameServer {
 	@Inject Display display
 	
 	@Inject RankingSystem rankingSystem
+
+	@Inject RankingProvider rankingProvider
 	
 	@Inject GameControlWindow controlWindow
 
@@ -82,10 +88,10 @@ class GameServer {
 	
 	def evaluateGame(Game game) {
 		var hasShownResult = false
-		if(game.refereeResult == null) {
+		if(game.refereeResult == null || game.refereeResult.canceled) {
 			// show preliminary result, don't apply until referee's veto time has expired
 			val gameResult = game.gameResult
-			if(gameResult.canceled) {
+			if(gameResult.canceled || game?.refereeResult?.canceled) {
 				display.showError(game.gameResult.cancelationReason, 10.seconds)
 			} else if(gameResult.isDraw) {
 				display.showInfo('A draw', 10.seconds)
@@ -130,8 +136,14 @@ class GameServer {
 				display.showInfo(infoPrefix + winnerSlot.scriptName + ' wins', 10.seconds)
 			rankingSystem.addWin(winnerSlot.program, loserSlot.program)
 		}
+		if(!finalResult.canceled) {
+			rankingProvider.setBlueAndRed(
+				slots.findFirst[robotID==Blue]?.program, 
+				slots.findFirst[robotID==Red]?.program
+			)
+		}
 		if(showResultAgain)
-			Thread.sleep(10000)
+			Thread.sleep(7000)
 		return finalResult
 	}
 	
