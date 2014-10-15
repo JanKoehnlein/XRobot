@@ -115,6 +115,7 @@ class Display implements IErrorReporter, ITimeListener {
 		]
 		centerPane.children += label
 		new SequentialTransition => [
+			children += getPopupTransition(label, 'Steady')
 			children += getPopupTransition(label, 'Fight!')
 			children += getPopupTransition(label, '')
 			onFinished = [

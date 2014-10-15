@@ -14,10 +14,11 @@ import org.xtext.xrobot.game.ranking.PlayerRanking
 import org.xtext.xrobot.game.ranking.RankingProvider
 
 import static extension javafx.util.Duration.*
+import java.util.List
 
 class HallOfFameTable extends VBox {
 
-	@Inject GridPane content
+	List<GridPane> pages = newArrayList
 	
 	@Inject RankingProvider hallOfFameProvider
 	
@@ -43,9 +44,15 @@ class HallOfFameTable extends VBox {
 		]
 	}
 
-	def show() {
-		new SequentialTransition => [ 
-			children += new Timeline => [
+	def getAnimation() {
+		new SequentialTransition => [ t |
+			t.children += new FadeTransition => [
+				node = this
+				fromValue = 0
+				toValue = 1
+				duration = 1.millis
+			]
+			t.children += new Timeline => [
 				cycleCount = 1
 				autoReverse = false
 				keyFrames += new KeyFrame(
@@ -54,48 +61,70 @@ class HallOfFameTable extends VBox {
 				)
 				onFinished = [
 					this.children.clear
-					this.children += content
+					if(!pages.empty)
+						this.children += pages.get(0)
 				]
 			]
-			onFinished = [
-				new SequentialTransition => [
-					children += content.children.map [ child |
-						new FadeTransition => [
-							node = child
-							fromValue = 0
-							toValue = 1
-							cycleCount = 1
-							duration = 10.millis
-						]
+			pages.forEach [ page, pageNr |
+				t.children += page.children.map [ child |
+					new FadeTransition => [
+						node = child
+						fromValue = 0
+						toValue = 1
+						cycleCount = 1
+						duration = 10.millis
 					]
-					play
+				]
+				t.children += new FadeTransition => [
+					node = page
+					fromValue = 1
+					toValue = 0
+					cycleCount = 1
+					delay = 8.seconds
+					duration = 200.millis
+					onFinished = [
+						this.children.clear
+						if(page != pages.last) 
+							this.children += pages.get(pageNr + 1)
+					]
 				]
 			]
+			t.children += new FadeTransition => [
+				node = this
+				fromValue = 1
+				toValue = 0
+				duration = 100.millis
+			]
+			
 		]
 	}
 
 	def update() {
-		val hallOfFame = hallOfFameProvider.hallOfFame
-		content.children.clear 
-		content.styleClass += 'hof-content'
-		val heading = addCell('Hall Of Fame', 0, 0, #['hof', 'title-label'])
-		GridPane.setConstraints(heading, 0, 0, 6, 1)
-		val styles = #['hof', 'boxed-label']
-		addCell('#', 0, 1, styles + #['hof-rank'])
-		addCell('Name', 1, 1, styles + #['hof-name'])
-		addCell('W', 2, 1, styles + #['hof-number'])
-		addCell('D', 3, 1, styles + #['hof-number'])
-		addCell('L', 4, 1, styles + #['hof-number'])
-		addCell('Score', 5, 1, styles + #['hof-score'])
-		hallOfFame.take(10).forEach [ entry, i |
-			addRow(i+2, i+1, entry)
-		]
+		val hallOfFame = hallOfFameProvider.hallOfFame.iterator
+		pages.clear
+		var rank = 1
+		do {
+			val page = new GridPane
+			pages.add(page)
+			page.styleClass += 'hof-content'
+			val heading = page.addCell('Hall Of Fame', 0, 0, #['hof', 'title-label'])
+			GridPane.setConstraints(heading, 0, 0, 6, 1)
+			val styles = #['hof', 'boxed-label']
+			page.addCell('#', 0, 1, styles + #['hof-rank'])
+			page.addCell('Name', 1, 1, styles + #['hof-name'])
+			page.addCell('W', 2, 1, styles + #['hof-number'])
+			page.addCell('D', 3, 1, styles + #['hof-number'])
+			page.addCell('L', 4, 1, styles + #['hof-number'])
+			page.addCell('Score', 5, 1, styles + #['hof-score'])
+			for(var i=0; i<10 && hallOfFame.hasNext; i++) 
+				page.addRow(i+2, rank++, hallOfFame.next)
+		} while(hallOfFame.hasNext)
 		children.setAll(spacerRectangle)
 	}
 	
-	private def addCell(Object value, int column, int row, String... styles) {
+	private def addCell(GridPane page, Object value, int column, int row, String... styles) {
 		val cell = new VBox
-		content.add(cell => [
+		page.add(cell => [
 			styleClass += styles
 			children += new Label(value.toString) => [
 				styleClass += styles
@@ -104,7 +133,7 @@ class HallOfFameTable extends VBox {
 		cell 
 	}
 	
-	private def addRow(int row, int rank, PlayerRanking entry) {
+	private def addRow(GridPane page, int row, int rank, PlayerRanking entry) {
 		val styles = newArrayList('hof-light', 'boxed-label')
 		switch entry {
 			case hallOfFameProvider.blue:
@@ -112,11 +141,11 @@ class HallOfFameTable extends VBox {
 			case hallOfFameProvider.red:
 				styles.add('hof-red')
 		}
-		addCell(String.format('%3d', rank), 0, row, styles + #['hof-score'])
-		addCell(entry.name, 1, row, styles + #['hof-name'])
-		addCell(entry.wins, 2, row, styles + #['hof-number'])
-		addCell(entry.draws, 3, row, styles + #['hof-number'])
-		addCell(entry.defeats, 4, row, styles + #['hof-number'])
-		addCell(String.format('%4d', entry.score as int), 5, row, styles + #['hof-score'])
+		page.addCell(String.format('%3d', rank), 0, row, styles + #['hof-score'])
+		page.addCell(entry.name, 1, row, styles + #['hof-name'])
+		page.addCell(entry.wins, 2, row, styles + #['hof-number'])
+		page.addCell(entry.draws, 3, row, styles + #['hof-number'])
+		page.addCell(entry.defeats, 4, row, styles + #['hof-number'])
+		page.addCell(String.format('%4d', entry.score as int), 5, row, styles + #['hof-score'])
 	}
 }

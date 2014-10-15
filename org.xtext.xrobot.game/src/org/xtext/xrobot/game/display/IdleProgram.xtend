@@ -52,17 +52,20 @@ class IdleProgram extends StackPane {
 				]
 			]
 		}
-		animation = createAnimation
 	}
 
 	def start() {
+		joinUs.opacity = 0
+		logo.scaleX = 0
+		logo.scaleY = 0
 		visible = true
 		hallOfFameTable.update
-		animation.playFromStart
+		animation = createAnimation
+		animation.play
 	}
 
 	def stop() {
-		animation.pause
+		animation.stop
 		hallOfFameTable.hide
 		joinUs.opacity = 0
 		logo.opacity = 0
@@ -71,10 +74,7 @@ class IdleProgram extends StackPane {
 
 	private def createAnimation() {
 		new SequentialTransition => [
-			children += hallOfFameTable.show
-			children += hallOfFameTable.hide => [
-				delay = 7.5.seconds
-			]
+			children += hallOfFameTable.animation
 			children += new ParallelTransition => [
 				children += new RotateTransition => [
 					axis = new Point3D(1, 1, 1)

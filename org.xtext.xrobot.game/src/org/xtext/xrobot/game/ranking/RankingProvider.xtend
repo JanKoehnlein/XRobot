@@ -29,8 +29,8 @@ class RankingProvider {
 	PlayerRanking blue
 	
 	def setBlueAndRed(Program blue, Program red) {
-		blue = getRanking(blue)
-		red = getRanking(red)
+		blue = blue?.ranking
+		red = red ?.ranking
 	}
 	
 	def getHallOfFame() {

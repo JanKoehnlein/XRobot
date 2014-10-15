@@ -83,7 +83,7 @@ class PlayerSlotBox extends VBox implements IRobotListener, PlayerSlot.Listener 
 			]
 			statusLabel.text = slot.status.label
 			effect = if(slot.status == WINNER) 
-						new Bloom(0.6)
+						new Bloom(0.8)
 			 		else 
 			 			null
 			val program = slot.program
