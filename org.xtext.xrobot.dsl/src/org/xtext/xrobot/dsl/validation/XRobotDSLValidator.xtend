@@ -3,7 +3,23 @@
  */
 package org.xtext.xrobot.dsl.validation
 
-//import org.eclipse.xtext.validation.Check
+import com.google.inject.Inject
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.xtext.common.types.JvmOperation
+import org.eclipse.xtext.common.types.JvmType
+import org.eclipse.xtext.common.types.util.JavaReflectAccess
+import org.eclipse.xtext.validation.Check
+import org.eclipse.xtext.xbase.XAbstractFeatureCall
+import org.eclipse.xtext.xbase.XConstructorCall
+import org.eclipse.xtext.xbase.XbasePackage
+import org.eclipse.xtext.xtype.XImportDeclaration
+import org.eclipse.xtext.xtype.XtypePackage
+import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
+import java.util.List
+import org.eclipse.xtext.xbase.XExpression
+import org.eclipse.xtext.xbase.XNumberLiteral
+import org.xtext.xrobot.dsl.interpreter.XRobotInterpreter
 
 /**
  * Custom validation rules. 
@@ -11,15 +27,71 @@ package org.xtext.xrobot.dsl.validation
  * see http://www.eclipse.org/Xtext/documentation.html#validation
  */
 class XRobotDSLValidator extends AbstractXRobotDSLValidator {
-
-//  public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					MyDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	
+	@Inject extension JavaReflectAccess javaReflectAccess
+	
+	@Check
+	def checkImportAllowed(XImportDeclaration declaration) {
+		val pkg = declaration.importedType?.packageName
+		if (pkg != null && !RobotSecurityManager.containedIn(pkg, RobotSecurityManager.ALLOWED_PACKAGES)) {
+			error('Access to package ' + pkg + ' is not allowed.',
+				declaration, XtypePackage.eINSTANCE.XImportDeclaration_ImportedType)
+		}
+	}
+	
+	@Check
+	def checkConstructorCallAllowed(XConstructorCall call) {
+		call.constructor?.declaringType?.checkTypeReferenceAllowed(call,
+				XbasePackage.eINSTANCE.XConstructorCall_Constructor)
+	}
+	
+	@Check
+	def checkFeatureCallAllowed(XAbstractFeatureCall call) {
+		if (call.feature instanceof JvmOperation) {
+			val operation = call.feature as JvmOperation
+			operation.declaringType?.checkTypeReferenceAllowed(call,
+					XbasePackage.eINSTANCE.XAbstractFeatureCall_Feature)
+			operation.checkMethodReferenceAllowed(call.actualArguments, call,
+					XbasePackage.eINSTANCE.XAbstractFeatureCall_Feature)
+		}
+	}
+	
+	private def checkTypeReferenceAllowed(JvmType type, EObject source, EStructuralFeature feature) {
+		val clazz = type.rawType
+		if (clazz != null) {
+			val pkg = clazz.package.name
+			if (pkg != null && !RobotSecurityManager.containedIn(pkg, RobotSecurityManager.ALLOWED_PACKAGES)) {
+				error('Access to package ' + pkg + ' is not allowed.',
+					source, feature)
+			} else if (RobotSecurityManager.RESTRICTED_CLASSES.exists[isAssignableFrom(clazz)]) {
+				error('Use of class ' + clazz.simpleName + ' is not allowed.',
+					source, feature)
+			}
+		}
+	}
+	
+	private def checkMethodReferenceAllowed(JvmOperation operation, List<XExpression> arguments,
+			EObject source, EStructuralFeature feature) {
+		val clazz = operation.declaringType?.rawType
+		if (clazz != null) {
+			if (clazz == InputOutput) {
+				warning('You will not see the output of this statement.',
+					source, feature)
+			} else if (clazz == ArrayLiterals) {
+				val arg = arguments.head
+				if (arg instanceof XNumberLiteral) {
+					try {
+						val size = Integer.parseInt((arg as XNumberLiteral).value)
+						if (size > XRobotInterpreter.MAX_ARRAY_SIZE) {
+							warning('The maximal allowed array size is ' + XRobotInterpreter.MAX_ARRAY_SIZE + '.',
+								arg, XbasePackage.eINSTANCE.XNumberLiteral_Value)
+						}
+					} catch (NumberFormatException e) {
+						// Ignore exception
+					}
+				}
+			}
+		}
+	}
+	
 }

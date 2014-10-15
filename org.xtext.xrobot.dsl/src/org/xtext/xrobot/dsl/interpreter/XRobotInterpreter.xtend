@@ -31,15 +31,18 @@ import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.dsl.interpreter.XRobotInterpreter.*
 import static org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager.*
+import org.xtext.xrobot.api.Sample
 
 class XRobotInterpreter extends XbaseInterpreter {
+
+	public static val RECURSION_LIMIT = 100
+	public static val MAX_ARRAY_SIZE = 5000
+	public static val NOISE_CALL_LIMIT = 20
 	
 	static val LOG = Logger.getLogger(XRobotInterpreter)
 	
 	static val ROBOT_UPDATE_TIMEOUT = 2000
-	static val RECURSION_LIMIT = 100
-	static val MAX_ARRAY_SIZE = 5000
-	static val MIN_FREE_MEMORY = 134217728l
+	static val long MIN_FREE_MEMORY = 64 * 1024 * 1024
 	
 	static val ROBOT = QualifiedName.create('Dummy')
 	static val CURRENT_LINE = QualifiedName.create('currentLine')
@@ -62,6 +65,8 @@ class XRobotInterpreter extends XbaseInterpreter {
 	List<IRobotListener> listeners
 	
 	Throwable lastModeException
+	
+	var int noiseCount
 	
 	val recursionCounter = new HashMap<JvmOperation, Integer>
 	
@@ -185,7 +190,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 			if (result?.exception != null) {
 				throw result.exception
 			}
-			return result.result
+			return result?.result
 		} catch (ExceptionInInitializerError error) {
 			throw error.cause
 		}
@@ -256,6 +261,9 @@ class XRobotInterpreter extends XbaseInterpreter {
 		recursionCounter.put(operation, c - 1)
 	}
 	
+	val sayMethod = IRobot.getMethod("say", String)
+	val playMethod = IRobot.getMethod("play", Sample)
+	
 	override protected invokeOperation(JvmOperation operation, Object receiver, List<Object> argumentValues, IEvaluationContext context, CancelIndicator indicator) {
 		val executable = operation.sourceElements.head
 		if (executable instanceof Sub) {
@@ -275,7 +283,15 @@ class XRobotInterpreter extends XbaseInterpreter {
 		} else {
 			val receiverDeclaredType = javaReflectAccess.getRawType(operation.declaringType)
 			if (receiverDeclaredType == IRobot) {
-				super.invokeOperation(operation, receiver, argumentValues)
+				val method = javaReflectAccess.getMethod(operation)
+				if (method == sayMethod || method == playMethod) {
+					if (noiseCount <= NOISE_CALL_LIMIT) {
+						noiseCount++
+						super.invokeOperation(operation, receiver, argumentValues)
+					}
+				} else {
+					super.invokeOperation(operation, receiver, argumentValues)
+				}
 			} else if (receiverDeclaredType == ArrayLiterals) {
 				val size = argumentValues.head as Integer ?: 0
 				if (size > MAX_ARRAY_SIZE) {

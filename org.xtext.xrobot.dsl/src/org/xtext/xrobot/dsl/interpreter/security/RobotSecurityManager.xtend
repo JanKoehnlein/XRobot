@@ -55,7 +55,7 @@ class RobotSecurityManager extends SecurityManager {
 		}
 	}
 	
-	static val ALLOWED_PACKAGES = #[
+	public static val ALLOWED_PACKAGES = #[
 		'java.lang',
 		'java.lang.reflect',
 		'java.lang.invoke',
@@ -71,15 +71,26 @@ class RobotSecurityManager extends SecurityManager {
 		'com.google.common.base',
 		'com.google.common.collect',
 		'org.apache.log4j.spi',
-		'org.xtext.xrobot*',
+		'org.xtext.xrobot',
+		'org.xtext.xrobot.api',
+		'org.xtext.xrobot.camera',
+		'org.xtext.xrobot.game',
 		'org.eclipse.xtext*',
 		'org.eclipse.emf.ecore.util'
 	]
 	
-	static val ALLOWED_PROPERTIES = #[
+	public static val ALLOWED_PROPERTIES = #[
 		'os.name',
 		'line.separator',
 		'sun.invoke.util.ValueConversions.MAX_ARITY'
+	]
+	
+	public static val RESTRICTED_CLASSES = #[
+		java.io.File, java.io.FileDescriptor, java.io.FileReader, java.io.FileWriter,
+		java.io.FileInputStream, java.io.FileOutputStream, java.net.Socket, java.net.ServerSocket,
+		java.net.DatagramSocket, java.net.HttpURLConnection, java.nio.channels.DatagramChannel,
+		java.nio.channels.FileChannel, java.nio.channels.SocketChannel,
+		java.nio.channels.ServerSocketChannel
 	]
 	
 	static def containedIn(String searchString, List<String> list) {
