@@ -40,7 +40,6 @@ class RobotPreparer implements IRobotPreparer {
 
 	override prepare() {
 		LOG.debug(slot.robotID + ' prepare()')
-		LOG.debug(slot.robotID + ' prepare()')
 		if(thread?.isAlive) 
 			return;
 		slot.status = PREPARING
@@ -56,12 +55,12 @@ class RobotPreparer implements IRobotPreparer {
 				robot.invincible = true
 				robot.reset
 				goHome
-				robot.invincible = false
 			} catch (CanceledException exc) {
 				// ignore
 			} catch (Exception exc) {
 				LOG.error('Error preparing robot', exc)
 			} finally {
+				robot.invincible = false
 				slot.status = checkStatus
 			}
 		], 'RobotPlacer') => [

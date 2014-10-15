@@ -64,7 +64,8 @@ class GameServer {
 	def void startGame() {
 		var GameResult result = null
 		do {
-			while(!slots.map[waitReady; status == READY].reduce[$0 && $1]) 
+			slots.forEach[prepare]
+			while(!slots.forall[ waitReady ])
 				Thread.sleep(5000)
 			val game = gameProvider.get()
 			display.prepareGame(game)
@@ -73,9 +74,9 @@ class GameServer {
 			game.play(slots)
 			result = evaluateGame(game)
 			controlWindow.gameFinished(game)
-			LOG.debug('Releasing player slots')
-			slots.forEach[release]
 		} while(result?.replay)
+		LOG.debug('Releasing player slots')
+		slots.forEach[release]
 		display.startIdleProgram
 	}
 	
