@@ -359,9 +359,9 @@ ruleSub returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='sub' 
+(	otherlv_0='def' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getSubAccess().getSubKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getSubAccess().getDefKeyword_0());
     }
 (
 (

@@ -45,6 +45,7 @@
 'canceled'=55
 'case'=74
 'catch'=86
+'def'=56
 'default'=73
 'do'=77
 'else'=70
@@ -62,7 +63,6 @@
 'return'=82
 'robot'=51
 'static'=46
-'sub'=56
 'super'=49
 'switch'=71
 'synchronized'=85

@@ -4091,11 +4091,11 @@ rule__Sub__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getSubAccess().getSubKeyword_0()); }
+{ before(grammarAccess.getSubAccess().getDefKeyword_0()); }
 
-	'sub' 
+	'def' 
 
-{ after(grammarAccess.getSubAccess().getSubKeyword_0()); }
+{ after(grammarAccess.getSubAccess().getDefKeyword_0()); }
 )
 
 ;

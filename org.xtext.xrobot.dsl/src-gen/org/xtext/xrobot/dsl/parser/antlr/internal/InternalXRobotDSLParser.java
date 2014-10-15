@@ -22,7 +22,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'robot'", "'author'", "'on'", "'when'", "'canceled'", "'sub'", "'('", "','", "')'", "'var'", "'='", "'+='", "'-='", "'*='", "'/='", "'%='", "'<'", "'>'", "'>='", "'||'", "'&&'", "'=='", "'!='", "'==='", "'!=='", "'instanceof'", "'->'", "'..<'", "'..'", "'=>'", "'<>'", "'?:'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'as'", "'++'", "'--'", "'.'", "'::'", "'?.'", "'#'", "'{'", "'}'", "'['", "']'", "'|'", "';'", "'if'", "'else'", "'switch'", "':'", "'default'", "'case'", "'for'", "'while'", "'do'", "'val'", "'extends'", "'static'", "'import'", "'extension'", "'super'", "'new'", "'false'", "'true'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'synchronized'", "'catch'", "'?'", "'&'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'robot'", "'author'", "'on'", "'when'", "'canceled'", "'def'", "'('", "','", "')'", "'var'", "'='", "'+='", "'-='", "'*='", "'/='", "'%='", "'<'", "'>'", "'>='", "'||'", "'&&'", "'=='", "'!='", "'==='", "'!=='", "'instanceof'", "'->'", "'..<'", "'..'", "'=>'", "'<>'", "'?:'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'as'", "'++'", "'--'", "'.'", "'::'", "'?.'", "'#'", "'{'", "'}'", "'['", "']'", "'|'", "';'", "'if'", "'else'", "'switch'", "':'", "'default'", "'case'", "'for'", "'while'", "'do'", "'val'", "'extends'", "'static'", "'import'", "'extension'", "'super'", "'new'", "'false'", "'true'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'synchronized'", "'catch'", "'?'", "'&'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -956,7 +956,7 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSub"
-    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:358:1: ruleSub returns [EObject current=null] : (otherlv_0= 'sub' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) ) ) ;
+    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:358:1: ruleSub returns [EObject current=null] : (otherlv_0= 'def' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) ) ) ;
     public final EObject ruleSub() throws RecognitionException {
         EObject current = null;
 
@@ -977,16 +977,16 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:361:28: ( (otherlv_0= 'sub' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) ) ) )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:362:1: (otherlv_0= 'sub' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) ) )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:361:28: ( (otherlv_0= 'def' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) ) ) )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:362:1: (otherlv_0= 'def' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) ) )
             {
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:362:1: (otherlv_0= 'sub' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) ) )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:362:3: otherlv_0= 'sub' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:362:1: (otherlv_0= 'def' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) ) )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:362:3: otherlv_0= 'def' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) )
             {
             otherlv_0=(Token)match(input,18,FOLLOW_18_in_ruleSub619); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_0, grammarAccess.getSubAccess().getSubKeyword_0());
+                  	newLeafNode(otherlv_0, grammarAccess.getSubAccess().getDefKeyword_0());
                   
             }
             // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:366:1: ( (lv_returnType_1_0= ruleJvmTypeReference ) )?

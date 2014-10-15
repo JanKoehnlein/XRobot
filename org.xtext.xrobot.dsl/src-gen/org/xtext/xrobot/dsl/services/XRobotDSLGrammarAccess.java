@@ -184,7 +184,7 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 	public class SubElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Sub");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSubKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cDefKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cReturnTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cReturnTypeJvmTypeReferenceParserRuleCall_1_0 = (RuleCall)cReturnTypeAssignment_1.eContents().get(0);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -202,16 +202,16 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBodyXBlockExpressionParserRuleCall_6_0 = (RuleCall)cBodyAssignment_6.eContents().get(0);
 		
 		//Sub:
-		//	"sub" returnType=JvmTypeReference? name=ID "(" (parameters+=JvmFormalParameter ("," parameters+=JvmFormalParameter)*)?
+		//	"def" returnType=JvmTypeReference? name=ID "(" (parameters+=JvmFormalParameter ("," parameters+=JvmFormalParameter)*)?
 		//	")" body=XBlockExpression;
 		public ParserRule getRule() { return rule; }
 
-		//"sub" returnType=JvmTypeReference? name=ID "(" (parameters+=JvmFormalParameter ("," parameters+=JvmFormalParameter)*)?
+		//"def" returnType=JvmTypeReference? name=ID "(" (parameters+=JvmFormalParameter ("," parameters+=JvmFormalParameter)*)?
 		//")" body=XBlockExpression
 		public Group getGroup() { return cGroup; }
 
-		//"sub"
-		public Keyword getSubKeyword_0() { return cSubKeyword_0; }
+		//"def"
+		public Keyword getDefKeyword_0() { return cDefKeyword_0; }
 
 		//returnType=JvmTypeReference?
 		public Assignment getReturnTypeAssignment_1() { return cReturnTypeAssignment_1; }
@@ -377,7 +377,7 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Sub:
-	//	"sub" returnType=JvmTypeReference? name=ID "(" (parameters+=JvmFormalParameter ("," parameters+=JvmFormalParameter)*)?
+	//	"def" returnType=JvmTypeReference? name=ID "(" (parameters+=JvmFormalParameter ("," parameters+=JvmFormalParameter)*)?
 	//	")" body=XBlockExpression;
 	public SubElements getSubAccess() {
 		return pSub;

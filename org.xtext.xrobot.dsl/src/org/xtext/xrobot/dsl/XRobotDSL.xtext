@@ -15,7 +15,7 @@ Mode:
 	
 	
 Sub:
-	'sub' returnType=JvmTypeReference? name=ID 
+	'def' returnType=JvmTypeReference? name=ID 
 	'(' (parameters+=JvmFormalParameter (',' parameters+=JvmFormalParameter)*)? ')' 
 	body=XBlockExpression;
 	
