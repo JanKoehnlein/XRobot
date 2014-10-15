@@ -21,6 +21,7 @@ import org.eclipse.xtext.xbase.interpreter.impl.EvaluationException
 import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations
 import org.xtext.xrobot.api.IRobot
+import org.xtext.xrobot.api.Sample
 import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
 import org.xtext.xrobot.dsl.xRobotDSL.Field
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
@@ -31,7 +32,6 @@ import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.dsl.interpreter.XRobotInterpreter.*
 import static org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager.*
-import org.xtext.xrobot.api.Sample
 
 class XRobotInterpreter extends XbaseInterpreter {
 
@@ -155,8 +155,6 @@ class XRobotInterpreter extends XbaseInterpreter {
 			if (lastModeException != null) {
 				throw lastModeException
 			}
-		} catch (OutOfMemoryError err) {
-			throw new MemoryException("Heap memory limit exceeded", err)
 		} finally {
 			currentModeCancelIndicator?.cancel
 			RobotSecurityManager.stop
@@ -214,6 +212,11 @@ class XRobotInterpreter extends XbaseInterpreter {
 		}
 	}
 	
+	private def getAvailableMemory() {
+		val runtime = Runtime.runtime
+		runtime.maxMemory() - runtime.totalMemory() + runtime.freeMemory()
+	}
+	
 	override protected internalEvaluate(XExpression expression, IEvaluationContext context, CancelIndicator indicator) throws EvaluationException {
 		if (indicator.isCanceled) 
 			throw new CanceledException()
@@ -232,11 +235,10 @@ class XRobotInterpreter extends XbaseInterpreter {
 		}
 		
 		// Check current memory status
-		val runtime = Runtime.runtime
-		if (runtime.freeMemory < MIN_FREE_MEMORY) {
+		if (availableMemory < MIN_FREE_MEMORY) {
 			LOG.info("Program is about to exceed heap memory limit.")
-			runtime.gc
-			if (runtime.freeMemory < MIN_FREE_MEMORY) {
+			Runtime.runtime.gc
+			if (availableMemory < MIN_FREE_MEMORY) {
 				// Garbage collection did not help, so abort program execution
 				throw new MemoryException("Heap memory limit exceeded")
 			}

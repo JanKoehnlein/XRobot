@@ -15,8 +15,6 @@ import static org.xtext.xrobot.game.PlayerStatus.*
 import static extension javafx.util.Duration.*
 @Singleton
 class GameServer {
-	
-	static val GAME_DURATION = 1000l * 45   // 45 seconds
 
 	static val LOG = Logger.getLogger(GameServer)
 	
@@ -69,7 +67,6 @@ class GameServer {
 			while(!slots.map[waitReady; status == READY].reduce[$0 && $1]) 
 				Thread.sleep(5000)
 			val game = gameProvider.get()
-			game.gameDuration = GAME_DURATION
 			display.prepareGame(game)
 			slots.forEach[status = FIGHTING]
 			controlWindow.gameStarted(game)

@@ -221,7 +221,7 @@ class SecurityTest {
 			Evil {
 				val list = newLinkedList
 				while (true) {
-					list.add(newDoubleArrayOfSize(1024))
+					list.add(newDoubleArrayOfSize(4096))
 				}
 			}
 		''')

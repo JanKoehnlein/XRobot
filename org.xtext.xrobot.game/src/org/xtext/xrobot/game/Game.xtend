@@ -22,6 +22,8 @@ import static org.xtext.xrobot.net.INetConfig.*
 import org.xtext.xrobot.dsl.interpreter.MemoryException
 
 class Game {
+
+	public static val DEFAULT_GAME_DURATION = 1000l * 45   // 45 seconds
 	
 	static val LOG = Logger.getLogger(Game)
 	
@@ -32,7 +34,7 @@ class Game {
 	@Inject ITimeListener timeListener
 
 	@Accessors
-	long gameDuration
+	long gameDuration = DEFAULT_GAME_DURATION
 	
 	List<Thread> runners
 
@@ -50,6 +52,9 @@ class Game {
 	GameResult refereeResult
 	
 	def play(List<PlayerSlot> slots) {
+		if (gameDuration <= 0) {
+			throw new IllegalStateException("Game duration is not configured.")
+		}
 		try {
 			// Remember map is lazy, so make a real copy
 			runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener, it)])
@@ -61,8 +66,8 @@ class Game {
 				start
 				join
 			]
-			runners.forEach[executeSafely[join(100)]]
 			gameOver = true
+			runners.forEach[executeSafely[join(100)]]
 			LOG.debug('Game finished')
 		} finally {
 			slots.forEach[
@@ -164,6 +169,7 @@ class Game {
 							gameResult = canceled('Camera dropped out for ' + program.name)
 						gameOver = true
 					} catch (MemoryException me) {
+						LOG.info(me.message)
 						gameResult = canceled(robotFactory.robotID + ': ' + me.message)
 						lastError = me
 						gameOver = true
@@ -184,7 +190,7 @@ class Game {
 			var long left = 0
 			do {
 				Thread.sleep(1000)
-				left = max(0, endTime - System.currentTimeMillis())
+				left = max(0, endTime - System.currentTimeMillis)
 				timeListener.updateTime(left)
 			} while(left > 0 && !gameOver)
 			gameOver = true
@@ -196,6 +202,11 @@ class Game {
 	private def executeSafely(Runnable runnable) {
 		try {
 			runnable.run()
+		} catch (OutOfMemoryError err) {
+			LOG.error(err)
+			lastError = new MemoryException("Heap memory limit exceeded", err)
+			gameResult = canceled(lastError.message)
+			gameOver = true
 		} catch (Throwable t) {
 			LOG.error(t.message, t)
 			gameResult = canceled('An error occurred')
