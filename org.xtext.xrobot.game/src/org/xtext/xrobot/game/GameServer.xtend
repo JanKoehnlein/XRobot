@@ -88,10 +88,11 @@ class GameServer {
 	
 	def evaluateGame(Game game) {
 		var hasShownResult = false
-		if(game.refereeResult == null || game.refereeResult.canceled) {
+		var inGameRefereeResult = game.refereeResult
+		if(game.refereeResult == null || inGameRefereeResult?.canceled) {
 			// show preliminary result, don't apply until referee's veto time has expired
 			val gameResult = game.gameResult
-			if(game.refereeResult?.canceled) {
+			if(inGameRefereeResult?.canceled) {
 				display.showError(game.refereeResult.cancelationReason, 10.seconds)
 			} else if(gameResult.canceled) {
 				display.showError(game.gameResult.cancelationReason, 10.seconds)
@@ -107,7 +108,7 @@ class GameServer {
 			}
 			hasShownResult = true
 			// poll referee result
-			for(var i=0; i<100 && game.refereeResult == null; i++) 
+			for(var i=0; i<100 && (game.refereeResult == inGameRefereeResult); i++) 
 				Thread.sleep(100)
 		}
 		val isRefereeOverrule = game.refereeResult != null && game.refereeResult != game.gameResult
