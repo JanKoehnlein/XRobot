@@ -8,13 +8,13 @@ import java.util.Collections
 import java.util.Date
 import java.util.List
 import org.xtext.xrobot.RobotID
-import org.xtext.xrobot.api.IRobotGeometry
 import org.xtext.xrobot.api.Position
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.util.AveragingFilter
 import org.xtext.xrobot.util.IValueStreamFilter
 
 import static java.lang.Math.*
+import static org.xtext.xrobot.api.IRobot.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.camera.CameraClient.*
 import static org.xtext.xrobot.camera.ICamera.*
@@ -75,8 +75,8 @@ class CameraClient {
 		val filteredAngle = angleFilters.get(index).apply(angle)
 		
 		// Compute the offset to the axis
-		val offsetX = IRobotGeometry.ROBOT_MARKER_OFFSET * cos(toRadians(filteredAngle))
-		val offsetY = IRobotGeometry.ROBOT_MARKER_OFFSET * sin(toRadians(filteredAngle))
+		val offsetX = ROBOT_MARKER_OFFSET * cos(toRadians(filteredAngle))
+		val offsetY = ROBOT_MARKER_OFFSET * sin(toRadians(filteredAngle))
 
 		val robotPosition = new RobotPosition(filteredX - offsetX, filteredY - offsetY,
 				minimizeAngle(filteredAngle))

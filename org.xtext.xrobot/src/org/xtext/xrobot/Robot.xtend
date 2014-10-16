@@ -15,13 +15,10 @@ import org.xtext.xrobot.annotations.NoAPI
 import org.xtext.xrobot.annotations.SimpleRMI
 import org.xtext.xrobot.annotations.Zombie
 import org.xtext.xrobot.api.Direction
-import org.xtext.xrobot.api.IRobotGeometry
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.api.Sample
 import org.xtext.xrobot.util.LEDPatterns
 import org.xtext.xrobot.util.SystemSounds
-
-import static org.xtext.xrobot.api.IRobotGeometry.*
 
 import static extension java.lang.Math.*
 import static extension org.xtext.xrobot.api.GeometryExtensions.*
@@ -53,6 +50,61 @@ import static extension org.xtext.xrobot.api.GeometryExtensions.*
  */
 @SimpleRMI
 class Robot {
+	
+	/**
+	 * The total length of the robot in centimeters including its scoop.
+	 * Value is 25cm.
+	 */
+	public static val ROBOT_LENGTH = 25.0
+
+	/**
+	 * The total width of the robot in centimeters.
+	 * Value is 12cm.
+	 */
+	public static val ROBOT_WIDTH = 12.0
+	
+	/**
+	 * The total height of the robot in centimeters.
+	 * Value is 23.7cm.
+	 */
+	public static val ROBOT_HEIGHT = 23.7
+	
+	/**
+	 * The diameter of the robot's wheels in centimeters.
+	 * Value is 4.32cm.
+	 */
+	public static val ROBOT_WHEEL_DIAMETER = 4.32
+
+	/**
+	 * The robot's track width (distance of wheels) in centimeters.
+	 * Value is 9.5cm.
+	 */
+	public static val ROBOT_WHEEL_DISTANCE = 9.5
+	
+	/**
+	 * The distance in centimeters between the robot's axis and the fiducial marker.
+	 * Value is 5cm.
+	 */
+	public static val ROBOT_MARKER_OFFSET = 5.0
+	
+	/**
+	 * The distance in centimeters between the robot's axis and the back of the robot.
+	 * Value is 4.5cm.
+	 */
+	public static val ROBOT_AXIS_OFFSET = 4.5
+	
+	/**
+	 * The radius of the outer edge of the boundary of the arena in centimeters.
+	 * Value is 60cm.
+	 */
+	public static val ARENA_OUTER_RADIUS = 60.0
+	
+	/**
+	 * The radius of the inner edge of the boundary of the arena in centimeters. 
+	 * Make sure you don't cross this edge, or you risk losing the game!
+	 * Value is 55cm
+	 */
+	public static val ARENA_INNER_RADIUS = 55.0
 	
 	/** The threshold of the brightness value at which a game-over situation is detected. */
 	static val GAME_OVER_THRESHOLD = 0.035
@@ -598,8 +650,7 @@ class Robot {
 	 * <p>The coordinates are relative to the center of the arena in a right handed coordinate
 	 * system. The view direction ranges from -180&deg; to 180&deg; and is relative to the 
 	 * x-axis. A positive view direction means the robot is looking into the positive 
-	 * y-direction. The value denotes the center of the robot's rear axle 
-	 * (see {@link IRobotGeometry}).</p>
+	 * y-direction. The value denotes the center of the robot's rear axle.</p>
 	 * 
 	 * <p>If this command is called repeatedly in the same mode, it returns the same values
 	 * unless the robot state is updated with the {@link #update()} command.</p>
@@ -617,8 +668,7 @@ class Robot {
 	 * <p>The coordinates are relative to the center of the arena in a right handed coordinate
 	 * system. The view direction ranges from -180&deg; to 180&deg; and is relative to the 
 	 * x-axis. A positive view direction means the robot is looking into the positive 
-	 * y-direction. The reference point is the center of the robot's rear axle 
-	 * (see {@link IRobotGeometry}).</p>
+	 * y-direction. The reference point is the center of the robot's rear axle.</p>
 	 * 
 	 * <p>If this command is called repeatedly in the same mode, it returns the same values
 	 * unless the robot state is updated with the {@link #update()} command.</p>
@@ -634,8 +684,7 @@ class Robot {
 	 * your robot's current position. The distance is in centimeter. The angle is relative 
 	 * to your robot's view direction in degrees, and ranges between -180&deg; and 180&deg;.
 	 * 
-	 * <p>The reference points are the centers of the robots' rear axles 
-	 * (see {@link IRobotGeometry}).</p>
+	 * <p>The reference points are the centers of the robots' rear axle.</p>
 	 * 
 	 * <p>If this command is called repeatedly in the same mode, it returns the same values
 	 * unless the robot state is updated with the {@link #update()} command.</p>
@@ -651,8 +700,7 @@ class Robot {
 	 * your robot's current position. The distance is in centimeter. The angle is relative 
 	 * to your robot's view direction in degrees, and ranges between -180&deg; and 180&deg;.
 	 * 
-	 * <p>The reference point is the center of the robot's rear axles 
-	 * (see {@link IRobotGeometry}).</p>
+	 * <p>The reference point is the center of the robot's rear axle.</p>
 	 * 
 	 * <p>If this command is called repeatedly in the same mode, it returns the same values
 	 * unless the robot state is updated with the {@link #update()} command.</p>

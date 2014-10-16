@@ -1,9 +1,7 @@
 package org.xtext.xrobot.camera
 
-import org.xtext.xrobot.api.IArena
-
 import static java.lang.Math.*
-import static org.xtext.xrobot.api.IRobotGeometry.*
+import static org.xtext.xrobot.api.IRobot.*
 
 interface ICamera {
 
@@ -22,7 +20,7 @@ interface ICamera {
 	val ARENA_RADIUS_IN_PX = 450
 
 	/** The width in centimeters of the tracked camera image. */	
-	val WIDTH_IN_CM = RESOLUTION_X * IArena.ARENA_OUTER_RADIUS / ARENA_RADIUS_IN_PX
+	val WIDTH_IN_CM = RESOLUTION_X * ARENA_OUTER_RADIUS / ARENA_RADIUS_IN_PX
 	/** The height in centimeters of the tracked camera image. */	
 	val HEIGHT_IN_CM = WIDTH_IN_CM / ASPECT_RATIO
 	

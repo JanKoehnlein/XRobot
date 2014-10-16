@@ -42,7 +42,8 @@ import org.xtext.xrobot.dsl.ui.internal.XRobotDSLActivator
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.server.IRemoteRobot
 import org.xtext.xrobot.server.RemoteRobot
-import org.xtext.xrobot.api.IArena
+
+import static org.xtext.xrobot.api.IRobot.*
 
 @Singleton
 class ExecuteScriptHandler extends AbstractHandler {
@@ -103,7 +104,7 @@ class ExecuteScriptHandler extends AbstractHandler {
 				override stateRead(IRemoteRobot robot) { }
 				override modeChanged(IRemoteRobot robot, Mode newMode) { }
 				override stateChanged(IRemoteRobot robot) {
-					if (robot.centerDirection.distance > IArena.ARENA_OUTER_RADIUS || robot.isDead) {
+					if (robot.centerDirection.distance > ARENA_OUTER_RADIUS || robot.isDead) {
 						gameOver = true
 					}
 				}

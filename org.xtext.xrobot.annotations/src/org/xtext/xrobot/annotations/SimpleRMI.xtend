@@ -85,6 +85,20 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		val subCompontentAnnotation = SubComponent.findTypeGlobally
 		val subComponentFields = annotatedClass.declaredFields.filter[findAnnotation(subCompontentAnnotation) != null]
 
+		annotatedClass.declaredFields
+			.filter [visibility == Visibility.PUBLIC && static && final]
+			.forEach [ sourceField |
+				clientInterface.addField(sourceField.simpleName, [
+					static = true
+					visibility = Visibility.PUBLIC
+					final = true
+					type = sourceField.type
+					docComment = sourceField.docComment
+					initializer = sourceField.initializer  
+				])
+				sourceField.remove
+			]
+
 		val serverImpl = annotatedClass.serverImplName.findClass
 		serverImpl.implementedInterfaces = #[clientInterface.newTypeReference]
 		serverImpl.addField('state') [

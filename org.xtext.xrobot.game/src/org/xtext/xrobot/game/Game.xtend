@@ -7,19 +7,19 @@ import java.util.List
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.util.CancelIndicator
-import org.xtext.xrobot.api.IArena
 import org.xtext.xrobot.camera.CameraTimeoutException
 import org.xtext.xrobot.dsl.interpreter.IRobotListener
+import org.xtext.xrobot.dsl.interpreter.MemoryException
 import org.xtext.xrobot.dsl.interpreter.ScriptRunner
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static java.lang.Math.*
+import static org.xtext.xrobot.api.IRobot.*
 import static org.xtext.xrobot.game.Game.*
 import static org.xtext.xrobot.game.GameResult.*
 import static org.xtext.xrobot.net.INetConfig.*
-import org.xtext.xrobot.dsl.interpreter.MemoryException
 
 class Game {
 
@@ -102,7 +102,7 @@ class Game {
 		}
 
 	private def checkGameOver(IRemoteRobot robot) {
-		if (robot.centerDirection.distance > IArena.ARENA_OUTER_RADIUS || robot.isDead) {
+		if (robot.centerDirection.distance > ARENA_OUTER_RADIUS || robot.isDead) {
 			if (refereeResult == null && lastError == null) {
 				if (gameResult == null || gameResult.canceled) {
 					gameResult = defeat(robot.robotID)
