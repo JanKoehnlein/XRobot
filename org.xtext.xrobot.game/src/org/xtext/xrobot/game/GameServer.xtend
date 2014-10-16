@@ -4,6 +4,7 @@ import com.google.inject.Inject
 import com.google.inject.Provider
 import com.google.inject.Singleton
 import java.util.List
+import javafx.stage.Modality
 import javafx.stage.Stage
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
@@ -41,11 +42,13 @@ class GameServer {
 		
 	def start(Stage stage) throws Exception {
 		slots = playerSlotFactory.createAll
-		val displayStage = new Stage()
-		displayStage.initOwner = stage
-		display.start(displayStage, slots)
-		displayStage.toBack
-		controlWindow.start(stage, slots)
+		display.start(stage, slots)
+		val controlStage = new Stage
+		controlStage.initModality(Modality.APPLICATION_MODAL)
+		controlWindow.start(controlStage, slots)
+		controlStage.onCloseRequest = [
+			stage.close
+		]
 		scriptPoller.start()
 	}
 	
