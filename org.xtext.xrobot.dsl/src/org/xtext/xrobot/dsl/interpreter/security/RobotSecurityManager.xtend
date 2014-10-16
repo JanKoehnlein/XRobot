@@ -74,6 +74,7 @@ class RobotSecurityManager extends SecurityManager {
 		'org.xtext.xrobot',
 		'org.xtext.xrobot.api',
 		'org.xtext.xrobot.camera',
+		'org.xtext.xrobot.server',
 		'org.xtext.xrobot.game',
 		'org.eclipse.xtext*',
 		'org.eclipse.emf.ecore.util'
