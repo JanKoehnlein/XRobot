@@ -28,4 +28,14 @@ interface TestScripts {
 		}
 	'''
 	
+	val LAMBDA = '''
+		robot lambda_robot
+		author lambda_author
+		
+		var foo = [|rotate(90)]
+		
+		now {
+			foo.apply
+		}
+	'''
 }

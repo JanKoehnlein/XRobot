@@ -174,5 +174,21 @@ class GameTest {
 		
 		slots.forEach[release]
 	}
-	
+
+
+	@Test def void testLambda() {
+		val game = gameProvider.get
+		game.gameDuration = 3000
+		slots.head => [
+			acquire('Lambda.xrobot', TestScripts.LAMBDA)
+			status = FIGHTING
+		]
+		slots.last => [
+			acquire('Idle.xrobot', TestScripts.IDLE)
+			status = FIGHTING
+		]
+		game.play(slots)
+		assertFalse(game.gameResult.canceled)
+	}
+		
 }

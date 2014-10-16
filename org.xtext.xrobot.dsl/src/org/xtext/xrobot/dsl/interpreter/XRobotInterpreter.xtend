@@ -71,10 +71,13 @@ class XRobotInterpreter extends XbaseInterpreter {
 	val recursionCounter = new HashMap<JvmOperation, Integer>
 	
 	def void execute(Program program, IRemoteRobot.Factory robotFactory, List<IRobotListener> listeners, CancelIndicator cancelIndicator) {
-		this.listeners = listeners
-		baseContext = createContext
-		
 		try {
+			this.listeners = listeners
+			val conditionCancelIndicator = new InternalCancelIndicator(cancelIndicator)
+			conditionRobot = robotFactory.newRobot(conditionCancelIndicator)
+			baseContext = createContext
+			baseContext.newValue(ROBOT, conditionRobot)
+			val conditionContext = baseContext.fork()
 			// Start the security manager in order to block all illegal operations
 			RobotSecurityManager.start
 			
@@ -87,11 +90,6 @@ class XRobotInterpreter extends XbaseInterpreter {
 					baseContext.newValue(QualifiedName.create(field.name), null)
 				}
 			}
-			
-			val conditionCancelIndicator = new InternalCancelIndicator(cancelIndicator)
-			conditionRobot = robotFactory.newRobot(conditionCancelIndicator)
-			val conditionContext = baseContext.fork()
-			conditionContext.newValue(ROBOT, conditionRobot)
 			
 			do {
 				listeners.forEach[stateRead(conditionRobot)]
