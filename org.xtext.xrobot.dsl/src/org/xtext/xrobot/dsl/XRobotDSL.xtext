@@ -15,9 +15,12 @@ Mode:
 	
 	
 Sub:
-	'def' returnType=JvmTypeReference? name=ID 
+	'def' returnType=JvmTypeReference? name=ValidID 
 	'(' (parameters+=JvmFormalParameter (',' parameters+=JvmFormalParameter)*)? ')' 
 	body=XBlockExpression;
 	
 Field:
-	'var' type=JvmTypeReference? name=ID ('=' initializer=XExpression)?;
+	'var' type=JvmTypeReference? name=ValidID ('=' initializer=XExpression)?;
+
+ValidID:
+	ID | 'robot' | 'author' | 'on' | 'when' | 'canceled';

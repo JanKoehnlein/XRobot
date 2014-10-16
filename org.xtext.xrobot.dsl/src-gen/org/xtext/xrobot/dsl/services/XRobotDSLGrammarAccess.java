@@ -188,7 +188,7 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cReturnTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cReturnTypeJvmTypeReferenceParserRuleCall_1_0 = (RuleCall)cReturnTypeAssignment_1.eContents().get(0);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameValidIDParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Assignment cParametersAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
@@ -202,12 +202,12 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBodyXBlockExpressionParserRuleCall_6_0 = (RuleCall)cBodyAssignment_6.eContents().get(0);
 		
 		//Sub:
-		//	"def" returnType=JvmTypeReference? name=ID "(" (parameters+=JvmFormalParameter ("," parameters+=JvmFormalParameter)*)?
-		//	")" body=XBlockExpression;
+		//	"def" returnType=JvmTypeReference? name=ValidID "(" (parameters+=JvmFormalParameter (","
+		//	parameters+=JvmFormalParameter)*)? ")" body=XBlockExpression;
 		public ParserRule getRule() { return rule; }
 
-		//"def" returnType=JvmTypeReference? name=ID "(" (parameters+=JvmFormalParameter ("," parameters+=JvmFormalParameter)*)?
-		//")" body=XBlockExpression
+		//"def" returnType=JvmTypeReference? name=ValidID "(" (parameters+=JvmFormalParameter (","
+		//parameters+=JvmFormalParameter)*)? ")" body=XBlockExpression
 		public Group getGroup() { return cGroup; }
 
 		//"def"
@@ -219,11 +219,11 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//JvmTypeReference
 		public RuleCall getReturnTypeJvmTypeReferenceParserRuleCall_1_0() { return cReturnTypeJvmTypeReferenceParserRuleCall_1_0; }
 
-		//name=ID
+		//name=ValidID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//ValidID
+		public RuleCall getNameValidIDParserRuleCall_2_0() { return cNameValidIDParserRuleCall_2_0; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
@@ -266,17 +266,17 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTypeJvmTypeReferenceParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNameValidIDParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cInitializerAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cInitializerXExpressionParserRuleCall_3_1_0 = (RuleCall)cInitializerAssignment_3_1.eContents().get(0);
 		
 		//Field:
-		//	"var" type=JvmTypeReference? name=ID ("=" initializer=XExpression)?;
+		//	"var" type=JvmTypeReference? name=ValidID ("=" initializer=XExpression)?;
 		public ParserRule getRule() { return rule; }
 
-		//"var" type=JvmTypeReference? name=ID ("=" initializer=XExpression)?
+		//"var" type=JvmTypeReference? name=ValidID ("=" initializer=XExpression)?
 		public Group getGroup() { return cGroup; }
 
 		//"var"
@@ -288,11 +288,11 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//JvmTypeReference
 		public RuleCall getTypeJvmTypeReferenceParserRuleCall_1_0() { return cTypeJvmTypeReferenceParserRuleCall_1_0; }
 
-		//name=ID
+		//name=ValidID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		//ValidID
+		public RuleCall getNameValidIDParserRuleCall_2_0() { return cNameValidIDParserRuleCall_2_0; }
 
 		//("=" initializer=XExpression)?
 		public Group getGroup_3() { return cGroup_3; }
@@ -306,12 +306,49 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//XExpression
 		public RuleCall getInitializerXExpressionParserRuleCall_3_1_0() { return cInitializerXExpressionParserRuleCall_3_1_0; }
 	}
+
+	public class ValidIDElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ValidID");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Keyword cRobotKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cAuthorKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cOnKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cWhenKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cCanceledKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		
+		//ValidID:
+		//	ID | "robot" | "author" | "on" | "when" | "canceled";
+		public ParserRule getRule() { return rule; }
+
+		//ID | "robot" | "author" | "on" | "when" | "canceled"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+
+		//"robot"
+		public Keyword getRobotKeyword_1() { return cRobotKeyword_1; }
+
+		//"author"
+		public Keyword getAuthorKeyword_2() { return cAuthorKeyword_2; }
+
+		//"on"
+		public Keyword getOnKeyword_3() { return cOnKeyword_3; }
+
+		//"when"
+		public Keyword getWhenKeyword_4() { return cWhenKeyword_4; }
+
+		//"canceled"
+		public Keyword getCanceledKeyword_5() { return cCanceledKeyword_5; }
+	}
 	
 	
 	private final ProgramElements pProgram;
 	private final ModeElements pMode;
 	private final SubElements pSub;
 	private final FieldElements pField;
+	private final ValidIDElements pValidID;
 	
 	private final Grammar grammar;
 
@@ -326,6 +363,7 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMode = new ModeElements();
 		this.pSub = new SubElements();
 		this.pField = new FieldElements();
+		this.pValidID = new ValidIDElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -377,8 +415,8 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Sub:
-	//	"def" returnType=JvmTypeReference? name=ID "(" (parameters+=JvmFormalParameter ("," parameters+=JvmFormalParameter)*)?
-	//	")" body=XBlockExpression;
+	//	"def" returnType=JvmTypeReference? name=ValidID "(" (parameters+=JvmFormalParameter (","
+	//	parameters+=JvmFormalParameter)*)? ")" body=XBlockExpression;
 	public SubElements getSubAccess() {
 		return pSub;
 	}
@@ -388,13 +426,23 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Field:
-	//	"var" type=JvmTypeReference? name=ID ("=" initializer=XExpression)?;
+	//	"var" type=JvmTypeReference? name=ValidID ("=" initializer=XExpression)?;
 	public FieldElements getFieldAccess() {
 		return pField;
 	}
 	
 	public ParserRule getFieldRule() {
 		return getFieldAccess().getRule();
+	}
+
+	//ValidID:
+	//	ID | "robot" | "author" | "on" | "when" | "canceled";
+	public ValidIDElements getValidIDAccess() {
+		return pValidID;
+	}
+	
+	public ParserRule getValidIDRule() {
+		return getValidIDAccess().getRule();
 	}
 
 	//XExpression:
@@ -1191,16 +1239,6 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getQualifiedNameWithWildcardRule() {
 		return getQualifiedNameWithWildcardAccess().getRule();
-	}
-
-	//ValidID:
-	//	ID;
-	public XtypeGrammarAccess.ValidIDElements getValidIDAccess() {
-		return gaXbase.getValidIDAccess();
-	}
-	
-	public ParserRule getValidIDRule() {
-		return getValidIDAccess().getRule();
 	}
 
 	//XImportSection:

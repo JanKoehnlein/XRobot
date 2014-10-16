@@ -1207,7 +1207,7 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=JvmTypeReference? name=ID initializer=XExpression?)
+	 *     (type=JvmTypeReference? name=ValidID initializer=XExpression?)
 	 */
 	protected void sequence_Field(EObject context, Field semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1234,7 +1234,7 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (returnType=JvmTypeReference? name=ID (parameters+=JvmFormalParameter parameters+=JvmFormalParameter*)? body=XBlockExpression)
+	 *     (returnType=JvmTypeReference? name=ValidID (parameters+=JvmFormalParameter parameters+=JvmFormalParameter*)? body=XBlockExpression)
 	 */
 	protected void sequence_Sub(EObject context, Sub semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

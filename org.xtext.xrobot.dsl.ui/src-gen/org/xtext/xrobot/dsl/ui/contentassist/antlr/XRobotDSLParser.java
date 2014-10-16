@@ -40,6 +40,7 @@ public class XRobotDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProgramAccess().getAlternatives_2(), "rule__Program__Alternatives_2");
 					put(grammarAccess.getProgramAccess().getAlternatives_4(), "rule__Program__Alternatives_4");
 					put(grammarAccess.getProgramAccess().getAlternatives_5(), "rule__Program__Alternatives_5");
+					put(grammarAccess.getValidIDAccess().getAlternatives(), "rule__ValidID__Alternatives");
 					put(grammarAccess.getXAssignmentAccess().getAlternatives(), "rule__XAssignment__Alternatives");
 					put(grammarAccess.getOpMultiAssignAccess().getAlternatives(), "rule__OpMultiAssign__Alternatives");
 					put(grammarAccess.getOpEqualityAccess().getAlternatives(), "rule__OpEquality__Alternatives");

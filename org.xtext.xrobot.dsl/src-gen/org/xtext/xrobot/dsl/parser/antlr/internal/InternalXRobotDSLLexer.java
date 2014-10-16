@@ -1778,10 +1778,10 @@ public class InternalXRobotDSLLexer extends Lexer {
         try {
             int _type = RULE_HEX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6551:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6551:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6591:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6591:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             {
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6551:12: ( '0x' | '0X' )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6591:12: ( '0x' | '0X' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1809,7 +1809,7 @@ public class InternalXRobotDSLLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6551:13: '0x'
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6591:13: '0x'
                     {
                     match("0x"); 
 
@@ -1817,7 +1817,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6551:18: '0X'
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6591:18: '0X'
                     {
                     match("0X"); 
 
@@ -1827,7 +1827,7 @@ public class InternalXRobotDSLLexer extends Lexer {
 
             }
 
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6551:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6591:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
             int cnt2=0;
             loop2:
             do {
@@ -1865,7 +1865,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                 cnt2++;
             } while (true);
 
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6551:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6591:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1874,10 +1874,10 @@ public class InternalXRobotDSLLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6551:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6591:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     {
                     match('#'); 
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6551:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6591:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -1895,7 +1895,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6551:64: ( 'b' | 'B' ) ( 'i' | 'I' )
+                            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6591:64: ( 'b' | 'B' ) ( 'i' | 'I' )
                             {
                             if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                                 input.consume();
@@ -1919,7 +1919,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6551:84: ( 'l' | 'L' )
+                            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6591:84: ( 'l' | 'L' )
                             {
                             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
                                 input.consume();
@@ -1958,11 +1958,11 @@ public class InternalXRobotDSLLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6553:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6553:12: '0' .. '9' ( '0' .. '9' | '_' )*
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6593:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6593:12: '0' .. '9' ( '0' .. '9' | '_' )*
             {
             matchRange('0','9'); 
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6553:21: ( '0' .. '9' | '_' )*
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6593:21: ( '0' .. '9' | '_' )*
             loop5:
             do {
                 int alt5=2;
@@ -2011,11 +2011,11 @@ public class InternalXRobotDSLLexer extends Lexer {
         try {
             int _type = RULE_DECIMAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6555:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6555:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6595:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6595:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             {
             mRULE_INT(); 
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6555:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6595:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2024,7 +2024,7 @@ public class InternalXRobotDSLLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6555:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6595:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -2035,7 +2035,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6555:36: ( '+' | '-' )?
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6595:36: ( '+' | '-' )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -2068,7 +2068,7 @@ public class InternalXRobotDSLLexer extends Lexer {
 
             }
 
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6555:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6595:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             int alt8=3;
             int LA8_0 = input.LA(1);
 
@@ -2080,7 +2080,7 @@ public class InternalXRobotDSLLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6555:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6595:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
                     {
                     if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                         input.consume();
@@ -2104,7 +2104,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6555:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6595:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
                     {
                     if ( input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='L'||input.LA(1)=='d'||input.LA(1)=='f'||input.LA(1)=='l' ) {
                         input.consume();
@@ -2137,10 +2137,10 @@ public class InternalXRobotDSLLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6557:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6557:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6597:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6597:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             {
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6557:11: ( '^' )?
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6597:11: ( '^' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -2149,7 +2149,7 @@ public class InternalXRobotDSLLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6557:11: '^'
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6597:11: '^'
                     {
                     match('^'); 
 
@@ -2167,7 +2167,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6557:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6597:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             loop10:
             do {
                 int alt10=2;
@@ -2216,10 +2216,10 @@ public class InternalXRobotDSLLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? ) )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? ) )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
             {
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -2237,10 +2237,10 @@ public class InternalXRobotDSLLexer extends Lexer {
             }
             switch (alt15) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )?
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )?
                     {
                     match('\"'); 
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -2256,7 +2256,7 @@ public class InternalXRobotDSLLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:21: '\\\\' .
+                    	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2264,7 +2264,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2284,7 +2284,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                         }
                     } while (true);
 
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:44: ( '\"' )?
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:44: ( '\"' )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -2293,7 +2293,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                     }
                     switch (alt12) {
                         case 1 :
-                            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:44: '\"'
+                            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:44: '\"'
                             {
                             match('\"'); 
 
@@ -2306,10 +2306,10 @@ public class InternalXRobotDSLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:49: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )?
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:49: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )?
                     {
                     match('\''); 
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:54: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:54: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop13:
                     do {
                         int alt13=3;
@@ -2325,7 +2325,7 @@ public class InternalXRobotDSLLexer extends Lexer {
 
                         switch (alt13) {
                     	case 1 :
-                    	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:55: '\\\\' .
+                    	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:55: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2333,7 +2333,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:62: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:62: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2353,7 +2353,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                         }
                     } while (true);
 
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:79: ( '\\'' )?
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:79: ( '\\'' )?
                     int alt14=2;
                     int LA14_0 = input.LA(1);
 
@@ -2362,7 +2362,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                     }
                     switch (alt14) {
                         case 1 :
-                            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6559:79: '\\''
+                            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6599:79: '\\''
                             {
                             match('\''); 
 
@@ -2393,12 +2393,12 @@ public class InternalXRobotDSLLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6561:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6561:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6601:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6601:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6561:24: ( options {greedy=false; } : . )*
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6601:24: ( options {greedy=false; } : . )*
             loop16:
             do {
                 int alt16=2;
@@ -2423,7 +2423,7 @@ public class InternalXRobotDSLLexer extends Lexer {
 
                 switch (alt16) {
             	case 1 :
-            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6561:52: .
+            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6601:52: .
             	    {
             	    matchAny(); 
 
@@ -2453,12 +2453,12 @@ public class InternalXRobotDSLLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6563:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6563:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6603:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6603:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6563:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6603:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop17:
             do {
                 int alt17=2;
@@ -2471,7 +2471,7 @@ public class InternalXRobotDSLLexer extends Lexer {
 
                 switch (alt17) {
             	case 1 :
-            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6563:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6603:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2491,7 +2491,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6563:40: ( ( '\\r' )? '\\n' )?
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6603:40: ( ( '\\r' )? '\\n' )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -2500,9 +2500,9 @@ public class InternalXRobotDSLLexer extends Lexer {
             }
             switch (alt19) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6563:41: ( '\\r' )? '\\n'
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6603:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6563:41: ( '\\r' )?
+                    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6603:41: ( '\\r' )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
 
@@ -2511,7 +2511,7 @@ public class InternalXRobotDSLLexer extends Lexer {
                     }
                     switch (alt18) {
                         case 1 :
-                            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6563:41: '\\r'
+                            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6603:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2543,10 +2543,10 @@ public class InternalXRobotDSLLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6565:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6565:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6605:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6605:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6565:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6605:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt20=0;
             loop20:
             do {
@@ -2600,8 +2600,8 @@ public class InternalXRobotDSLLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6567:16: ( . )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6567:18: .
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6607:16: ( . )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:6607:18: .
             {
             matchAny(); 
 
