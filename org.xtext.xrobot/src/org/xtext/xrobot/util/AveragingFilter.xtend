@@ -31,12 +31,18 @@ class AveragingFilter extends AbstractValueStreamFilter {
 		
 		// Compute the new average value
 		var sum = lastValue * buffer.size
-		buffer.addFirst(currentValue)
-		sum += currentValue
-		if (buffer.size > maxBufferSize) {
-			sum -= buffer.removeLast
+		if (!Double.isNaN(currentValue)) {
+			buffer.addFirst(currentValue)
+			sum += currentValue
+			if (buffer.size > maxBufferSize) {
+				sum -= buffer.removeLast
+			}
 		}
-		lastValue = sum / buffer.size
+		if (buffer.empty) {
+			lastValue = Double.NaN
+		} else {
+			lastValue = sum / buffer.size
+		}
 		
 		return lastValue
 	}

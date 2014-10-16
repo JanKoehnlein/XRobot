@@ -137,11 +137,25 @@ class RobotPosition extends Position {
 	
 	/**
 	 * The direction in degrees in which the robot is heading. 
-	 * 
 	 * It is relative to the x-axis and ranges between -180&deg; to 180&deg;. A positive angle
 	 * means the robot is looking into the positive y-direction
 	 */
 	double viewDirection
+	
+	/**
+	 * The actual horizontal motion speed in centimeters per second.
+	 */
+	double xSpeed
+	
+	/**
+	 * The actual vertical motion speed in centimeters per second.
+	 */
+	double ySpeed
+	
+	/**
+	 * The actual rotation speed in degrees per second.
+	 */
+	double rotationSpeed
 	
 	/**
 	 * Returns the direction to the given <code>position</code> taking the {@link #viewDirection} 

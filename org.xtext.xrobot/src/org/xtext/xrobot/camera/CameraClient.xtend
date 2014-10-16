@@ -19,10 +19,12 @@ import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.camera.CameraClient.*
 import static org.xtext.xrobot.camera.ICamera.*
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
+import org.eclipse.xtend.lib.annotations.Accessors
 
 class CameraClient {
 	
 	static val POSITION_BUFFER_SIZE = 10
+	static val SPEED_BUFFER_SIZE = 10
 	static val ANGLE_BUFFER_SIZE = 6
 	static val TUIO_PORT = 3333
 	
@@ -32,8 +34,14 @@ class CameraClient {
 	val IValueStreamFilter[] xposFilters = newArrayOfSize(ROBOT_NUM)
 	val IValueStreamFilter[] yposFilters = newArrayOfSize(ROBOT_NUM)
 	val IValueStreamFilter[] angleFilters = newArrayOfSize(ROBOT_NUM)
+	val IValueStreamFilter[] xspeedFilters = newArrayOfSize(ROBOT_NUM)
+	val IValueStreamFilter[] yspeedFilters = newArrayOfSize(ROBOT_NUM)
+	val IValueStreamFilter[] rotSpeedFilters = newArrayOfSize(ROBOT_NUM)
 	
 	var OSCPortIn oscPort
+	
+	@Accessors(PUBLIC_SETTER)
+	var boolean invertYAxis = true
 
 	new() {
 		RobotID.values.forEach[ robotID |
@@ -41,6 +49,9 @@ class CameraClient {
 			xposFilters.set(index, new AveragingFilter(POSITION_BUFFER_SIZE))
 			yposFilters.set(index, new AveragingFilter(POSITION_BUFFER_SIZE))
 			angleFilters.set(index, new AveragingFilter(ANGLE_BUFFER_SIZE, 360))
+			xspeedFilters.set(index, new AveragingFilter(SPEED_BUFFER_SIZE))
+			yspeedFilters.set(index, new AveragingFilter(SPEED_BUFFER_SIZE))
+			rotSpeedFilters.set(index, new AveragingFilter(SPEED_BUFFER_SIZE))
 		]
 	}
 	
@@ -59,9 +70,14 @@ class CameraClient {
 	}
 	
 	private def setRobotPosition(RobotID robotID, long timestamp,
-			float rawXpos, float rawYpos, float rawAngle) {
+			float rawXpos, float rawYpos, float rawAngle, float rawXspeed, float rawYspeed,
+			float rawRotSpeed) {
 		val rawPos = new Position((rawXpos - 0.5) * WIDTH_IN_CM,
-				(0.5 - rawYpos) * HEIGHT_IN_CM)
+				(if (invertYAxis)
+					(0.5 - rawYpos)
+				else
+					(rawYpos - 0.5)
+				) * HEIGHT_IN_CM)
 		// TUIO 0° means NORTH and 90° means EAST
 		val angle = 90 - toDegrees(rawAngle)
 		
@@ -73,13 +89,16 @@ class CameraClient {
 		val filteredX = xposFilters.get(index).apply(correctedPos.x)
 		val filteredY = yposFilters.get(index).apply(correctedPos.y)
 		val filteredAngle = angleFilters.get(index).apply(angle)
+		val filteredXspeed = xspeedFilters.get(index).apply(rawXspeed * WIDTH_IN_CM)
+		val filteredYspeed = yspeedFilters.get(index).apply(rawYspeed * HEIGHT_IN_CM)
+		val filteredRotSpeed = rotSpeedFilters.get(index).apply(toDegrees(rawRotSpeed))
 		
 		// Compute the offset to the axis
 		val offsetX = ROBOT_MARKER_OFFSET * cos(toRadians(filteredAngle))
 		val offsetY = ROBOT_MARKER_OFFSET * sin(toRadians(filteredAngle))
 
 		val robotPosition = new RobotPosition(filteredX - offsetX, filteredY - offsetY,
-				minimizeAngle(filteredAngle))
+				minimizeAngle(filteredAngle), filteredXspeed, filteredYspeed, filteredRotSpeed)
 		synchronized (this) {
 			robotPositions.set(index, robotPosition)
 			timestamps.set(index, timestamp)
@@ -160,11 +179,15 @@ class CameraClient {
 						RobotID.values.forEach[ robotID |
 							val index = robotID.ordinal
 							val setComArgs = setCommands.get(index)
-							if (aliveCommands.get(index) && setComArgs.size > 5) {
+							if (aliveCommands.get(index) && setComArgs.size >= 9) {
 								val float xpos = setComArgs.get(3) as Float
 								val float ypos = setComArgs.get(4) as Float
 								val float angle = setComArgs.get(5) as Float
-								client.setRobotPosition(robotID, timestamp, xpos, ypos, angle)
+								val float xspeed = setComArgs.get(6) as Float
+								val float yspeed = setComArgs.get(7) as Float
+								val float rotSpeed = setComArgs.get(8) as Float
+								client.setRobotPosition(robotID, timestamp, xpos, ypos, angle,
+										xspeed, yspeed, rotSpeed)
 							}
 						]
 					}

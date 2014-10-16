@@ -17,7 +17,9 @@ class MultiplyingFilter extends AbstractValueStreamFilter {
 	}
 
 	override protected double doApply(double currentValue, double historyOffset) {
-		lastValue = lastValueFactor * lastValue + (1 - lastValueFactor) * currentValue
+		if (!Double.isNaN(currentValue)) {
+			lastValue = lastValueFactor * lastValue + (1 - lastValueFactor) * currentValue
+		}
 
 		return lastValue
 	}
