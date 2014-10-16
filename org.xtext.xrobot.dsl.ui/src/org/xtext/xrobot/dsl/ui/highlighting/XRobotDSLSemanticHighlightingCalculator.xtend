@@ -14,6 +14,8 @@ import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
+import org.xtext.xrobot.dsl.xRobotDSL.Field
+import org.eclipse.xtext.xbase.ui.highlighting.XbaseHighlightingConfiguration
 
 class XRobotDSLSemanticHighlightingCalculator extends XbaseHighlightingCalculator {
 	
@@ -28,6 +30,8 @@ class XRobotDSLSemanticHighlightingCalculator extends XbaseHighlightingCalculato
 	override protected highlightElement(EObject object, IHighlightedPositionAcceptor acceptor) {
 		if(object instanceof Mode) 
 			highlightFeature(acceptor, object, XRobotDSLPackage.Literals.MODE__NAME, XRobotDSLHighlightingConfiguration.MODE_NAME)
+		if(object instanceof Field) 
+			highlightFeature(acceptor, object, XRobotDSLPackage.Literals.FIELD__NAME, XbaseHighlightingConfiguration.FIELD)
 		super.highlightElement(object, acceptor)
 	}
 	
