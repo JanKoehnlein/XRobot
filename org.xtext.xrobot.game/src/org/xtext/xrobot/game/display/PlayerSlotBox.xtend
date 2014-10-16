@@ -68,10 +68,6 @@ class PlayerSlotBox extends VBox implements IRobotListener, PlayerSlot.Listener 
 		slot.robotFactory.release
 	}
 	
-	override isResizable() {
-		false
-	}
-	
 	def getRobotID() {
 		slot.robotID
 	}

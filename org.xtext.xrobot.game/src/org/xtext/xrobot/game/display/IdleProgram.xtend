@@ -42,7 +42,7 @@ class IdleProgram extends StackPane {
 			]
 			children += logo => [
 				setMaxSize(USE_PREF_SIZE, USE_PREF_SIZE)
-				styleClass += 'logo'
+				styleClass += #['logo', 'logo-big']
 				textOverrun = OverrunStyle.CLIP
 				opacity = 0
 				effect = new InnerShadow => [

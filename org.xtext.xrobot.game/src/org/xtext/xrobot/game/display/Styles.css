@@ -8,17 +8,21 @@
 }
 
 .root-pane {
-	-fx-padding: 20;
+	-fx-padding: 10;
 }
 
 .border-pane {
 	-fx-background-color: rgba(255.0,255.0,255.0, 0);
 }
 
+.side-container-label {
+	-fx-font-size: 16pt;
+}
+
 .outer-box {
+	-fx-spacing: 10.0;
 	-fx-background-radius: 10.0;
 	-fx-padding: 20.0;
-	-fx-spacing: 20.0;
 	-fx-vgap: 20.0;
 	-fx-orientation: vertical;
 	-fx-fill-width: true;
@@ -104,6 +108,7 @@
 .bluewins-label {
 	-fx-text-fill: white;
 	-fx-font-size: 40pt;
+	-fx-text-alignment: center;
 }
 
 .blue-error {
@@ -127,6 +132,7 @@
 .redwins-label {
 	-fx-text-fill: white;
 	-fx-font-size: 40pt;
+	-fx-text-alignment: center;
 }
 
 .red-error {
@@ -140,6 +146,7 @@
 
 .draw-label {
 	-fx-text-fill: white;
+	-fx-text-alignment: center;
 	-fx-font-size: 40pt;
 }
 
@@ -151,6 +158,7 @@
 .error-label {
 	-fx-text-fill: white;
 	-fx-font-size: 40pt;
+	-fx-text-alignment: center;
 }
 
 .warning-box {
@@ -160,6 +168,7 @@
 .warning-label {
 	-fx-text-fill: white;
 	-fx-font-size: 40pt;
+	-fx-text-alignment: center;
 }
 
 .info-box {
@@ -169,6 +178,7 @@
 .info-label {
 	-fx-text-fill: white;
 	-fx-font-size: 40pt;
+	-fx-text-alignment: center;
 }
 
 .message-pane {
@@ -187,9 +197,12 @@
 
 .logo {
 	-fx-font-family: 'Magenta';
-	-fx-font-size: 150;
 	-fx-scale-x: 0.8;
 	-fx-text-fill: yellow
+}
+
+.logo-big {
+	-fx-font-size: 150;
 }
 
 .balloon {

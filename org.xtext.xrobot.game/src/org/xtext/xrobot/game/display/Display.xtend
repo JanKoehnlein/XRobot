@@ -8,11 +8,14 @@ import javafx.animation.ScaleTransition
 import javafx.animation.SequentialTransition
 import javafx.application.Platform
 import javafx.event.EventHandler
+import javafx.geometry.Pos
 import javafx.scene.Group
 import javafx.scene.Scene
 import javafx.scene.control.Button
 import javafx.scene.control.Label
 import javafx.scene.effect.InnerShadow
+import javafx.scene.image.Image
+import javafx.scene.image.ImageView
 import javafx.scene.input.KeyEvent
 import javafx.scene.layout.StackPane
 import javafx.scene.layout.VBox
@@ -22,15 +25,15 @@ import javafx.stage.Stage
 import javafx.stage.StageStyle
 import javafx.util.Duration
 import javax.inject.Inject
+import org.xtext.xrobot.game.Game
 import org.xtext.xrobot.game.IErrorReporter
+import org.xtext.xrobot.game.ITimeListener
 import org.xtext.xrobot.game.PlayerSlot
 
 import static javafx.scene.layout.Region.*
 
 import static extension javafx.util.Duration.*
-import org.xtext.xrobot.game.ITimeListener
-import javafx.geometry.Pos
-import org.xtext.xrobot.game.Game
+import javafx.scene.text.TextAlignment
 
 @Singleton
 class Display implements IErrorReporter, ITimeListener {
@@ -65,7 +68,33 @@ class Display implements IErrorReporter, ITimeListener {
 					val xtextBox = new PlayerSlotBox(slots.last)
 					slotBoxes = #[xtendBox, xtextBox]
 					left = xtendBox 
+					bottomLeft = new VBox => [
+						styleClass += #['outer-box', 'hof', 'hof-box']
+						children += new Label => [
+							text = 'XRobots'
+							styleClass += #['boxed-label', 'logo']
+							effect = new InnerShadow => [
+								color = Color.RED
+								width = 3.2
+								height = 3.2
+							]
+						]
+						children += new Label => [
+							textAlignment = TextAlignment.CENTER
+							text = 'Join the game at\nhttp://xrobots.itemis.de'
+							styleClass += #['boxed-label', 'side-container-label']
+						]
+					]
 					right = xtextBox
+					bottomRight = new VBox => [
+						styleClass += #['outer-box', 'hof', 'hof-box']
+						spacing = 5
+						children += new ImageView => [
+							image = new Image(IdleProgram.getResourceAsStream('/qrcode.jpg'))
+							fitWidth = image.width * 0.5
+							fitHeight = image.height * 0.5
+						]
+					]
 					overlay = new Group => [
 						children += slots.map[new Balloon(it)]
 					]

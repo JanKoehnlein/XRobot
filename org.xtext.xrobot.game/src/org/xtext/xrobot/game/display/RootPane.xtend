@@ -11,8 +11,10 @@ import org.eclipse.xtend.lib.annotations.Accessors
 class RootPane extends Region {
 
 	ObjectProperty<Node> leftProperty = new SimpleObjectProperty
+	ObjectProperty<Node> bottomLeftProperty = new SimpleObjectProperty
 	ObjectProperty<Node> centerProperty = new SimpleObjectProperty
 	ObjectProperty<Node> rightProperty = new SimpleObjectProperty
+	ObjectProperty<Node> bottomRightProperty = new SimpleObjectProperty
 	ObjectProperty<Node> overlayProperty = new SimpleObjectProperty
 	
 	new() {
@@ -24,13 +26,19 @@ class RootPane extends Region {
 				children += n
 		] 
 		leftProperty.addListener(listener)
+		bottomLeftProperty.addListener(listener)
 		centerProperty.addListener(listener)
 		rightProperty.addListener(listener)
+		bottomRightProperty.addListener(listener)
 		overlayProperty.addListener(listener)
 	}
 
 	def getLeft() {
 		leftProperty.get
+	}
+
+	def getBottomLeft() {
+		bottomLeftProperty.get
 	}
 
 	def getCenter() {
@@ -41,12 +49,20 @@ class RootPane extends Region {
 		rightProperty.get
 	}
 
+	def getBottomRight() {
+		bottomRightProperty.get
+	}
+
 	def getOverlay() {
 		overlayProperty.get
 	}
 
 	def setLeft(Node left) {
 		leftProperty.set(left)
+	}
+	
+	def setBottomLeft(Node left) {
+		bottomLeftProperty.set(left)
 	}
 	
 	def setCenter(Node center) {
@@ -57,6 +73,10 @@ class RootPane extends Region {
 		rightProperty.set(right)
 	}
 	
+	def setBottomRight(Node right) {
+		bottomRightProperty.set(right)
+	}
+	
 	def setOverlay(Node right) {
 		overlayProperty.set(right)
 	}
@@ -64,9 +84,14 @@ class RootPane extends Region {
 	override protected layoutChildren() {
 		val bounds = scene
 		val boxWidth = (bounds.width - bounds.height) / 2
+		val topHeight = bounds.height * 0.75
 		left => [
 			relocate(padding.left, padding.top)
-			resize(boxWidth - padding.left - padding.right, bounds.height - padding.top - padding.bottom)
+			resize(boxWidth - padding.left - padding.right, topHeight - padding.top - padding.bottom)
+		]
+		bottomLeft => [
+			relocate(padding.left, topHeight + padding.top)
+			resize(boxWidth - padding.left - padding.right, bounds.height - topHeight - padding.top - padding.bottom)
 		]
 		center => [
 			relocate(boxWidth + padding.left, padding.top)
@@ -74,11 +99,14 @@ class RootPane extends Region {
 		]
 		right => [
 			relocate(boxWidth + bounds.height + padding.left, padding.top)
-			resize(boxWidth - padding.left - padding.right, bounds.height - padding.top - padding.bottom)
+			resize(boxWidth - padding.left - padding.right, topHeight - padding.top - padding.bottom)
+		]
+		bottomRight => [
+			relocate(boxWidth + bounds.height + padding.left, topHeight + padding.top)
+			resize(boxWidth - padding.left - padding.right, bounds.height - topHeight - padding.top - padding.bottom)
 		]
 		overlay => [
 			relocate(bounds.width / 2, bounds.height / 2)
 		]
 	}
-	
 }
