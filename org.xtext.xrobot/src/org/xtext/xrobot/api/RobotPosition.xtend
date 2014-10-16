@@ -109,7 +109,7 @@ class RobotPosition {
 	 * 
 	 * @param speed
 	 * 		a speed vector
-	 * @param the corresponding speed vector from the perspective of this robot
+	 * @return the corresponding speed vector from the perspective of this robot
 	 */
 	def getRelativeSpeed(Vector speed) {
 		Vector.polar(speed.length, speed.angle - viewDirection)

@@ -36,6 +36,7 @@ class Vector {
 	
 	/** Whether the Cartesian coordinates are already defined. */
 	boolean cartesianDefined = false
+	
 	/** Whether the polar coordinates are already defined. */
 	boolean polarDefined = false
 	

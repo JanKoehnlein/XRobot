@@ -426,8 +426,8 @@ class Robot {
 	/**
 	 * Let the robot travel a forward curve to the point with the polar
 	 * coordinates {@code angle} in degrees and {@code distance} in centimeters.
-	 * You can directly use the values returned by {@link #getOpponentDirection()} or
-	 * {@link #getCenterDirection()} to drive a curve to the opponent resp. center. 
+	 * You can directly use the values returned by {@link #getOpponentBearing()} or
+	 * {@link #getCenterBearing()} to drive a curve to the opponent resp. center. 
 	 * 
 	 * <p>
 	 * The following picture illustrates the curve: The own position is the blue marker. 
@@ -627,12 +627,12 @@ class Robot {
 	 * 
 	 * <p>The following commands are affected by state updates:
 	 * <ul>
-	 *   <li>{@link #getCenterDirection()}</li>
+	 *   <li>{@link #getCenterBearing()}</li>
 	 *   <li>{@link #getDrivingSpeed()}</li>
 	 *   <li>{@link #getGroundColor()}</li>
 	 *   <li>{@link #getMaxDrivingSpeed()}</li>
 	 *   <li>{@link #getMaxRotationSpeed()}</li>
-	 *   <li>{@link #getOpponentDirection()}</li>
+	 *   <li>{@link #getOpponentBearing()}</li>
 	 *   <li>{@link #getOpponentPosition()}</li>
 	 *   <li>{@link #getOwnPosition()}</li>
 	 *   <li>{@link #getRotationSpeed()}</li>
@@ -685,7 +685,7 @@ class Robot {
 	 * your robot's current position. The distance is in centimeter. The angle is relative 
 	 * to your robot's view direction in degrees, and ranges between -180&deg; and 180&deg;.
 	 * 
-	 * <p>The reference points are the centers of the robots' rear axle.</p>
+	 * <p>The reference points are the centers of the robots' rear axles.</p>
 	 * 
 	 * <p>If this command is called repeatedly in the same mode, it returns the same values
 	 * unless the robot state is updated with the {@link #update()} command.</p>
