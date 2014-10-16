@@ -74,7 +74,7 @@ class Game {
 				executeSafely[ robotFactory.checkAndRelease ]
 			]
 		}
-		if(gameResult == null)
+		if(gameResult == null && refereeResult == null)
 			gameResult = draw
 	}
 	

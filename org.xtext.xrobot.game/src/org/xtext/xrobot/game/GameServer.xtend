@@ -100,14 +100,14 @@ class GameServer {
 			} else if(gameResult.canceled) {
 				display.showError(game.gameResult.cancelationReason, 10.seconds)
 			} else if(gameResult.isDraw) {
-				display.showInfo('A draw', 10.seconds)
+				display.showMessage('A draw', 'draw', 10.seconds)
 				slots.forEach[ status = DRAW ]
 			} else {
 				val winnerSlot = slots.findFirst[robotID == gameResult.winner]
 				winnerSlot.status = WINNER
 				val loserSlot = slots.findFirst[robotID == gameResult.loser]
 				loserSlot.status = LOSER
-				display.showInfo(winnerSlot.scriptName + ' wins', 10.seconds)
+				display.showMessage(winnerSlot.scriptName + ' wins', winnerSlot.robotID.name.toLowerCase + 'wins', 10.seconds)
 			}
 			hasShownResult = true
 			// poll referee result
@@ -130,7 +130,7 @@ class GameServer {
 				display.showError(finalResult.cancelationReason, 7.seconds)
 		} else if(finalResult.isDraw) {
 			if(showResultAgain)
-				display.showInfo(infoPrefix + 'A draw', 7.seconds)
+				display.showMessage(infoPrefix + 'A draw', 'draw', 7.seconds)
 			slots.forEach[ status = DRAW ]
 			rankingSystem.addDraw(slots.head.program, slots.last.program)
 		} else {
@@ -139,7 +139,7 @@ class GameServer {
 			val loserSlot = slots.findFirst[robotID == finalResult.loser]
 			loserSlot.status = LOSER
 			if(showResultAgain)
-				display.showInfo(infoPrefix + winnerSlot.scriptName + ' wins', 7.seconds)
+				display.showMessage(infoPrefix + winnerSlot.scriptName + ' wins', winnerSlot.robotID.name.toLowerCase + 'wins', 7.seconds)
 			rankingSystem.addWin(winnerSlot.program, loserSlot.program)
 		}
 		if(!finalResult.canceled) {

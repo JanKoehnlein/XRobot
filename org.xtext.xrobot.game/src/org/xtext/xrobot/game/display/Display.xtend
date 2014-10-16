@@ -161,7 +161,7 @@ class Display implements IErrorReporter, ITimeListener {
 		showMessage(message, 'info', duration)
 	}
 	
-	private def showMessage(String message, String stylePrefix, Duration duration) {
+	override showMessage(String message, String stylePrefix, Duration duration) {
 		Platform.runLater [
 			val errorBox = new VBox => [
 				setMaxSize(USE_PREF_SIZE, USE_PREF_SIZE)

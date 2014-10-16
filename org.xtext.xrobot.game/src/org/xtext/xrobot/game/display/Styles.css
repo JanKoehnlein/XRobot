@@ -12,7 +12,7 @@
 }
 
 .border-pane {
-	-fx-background-color: rgba(255.0,255.0,255.0,0.0);
+	-fx-background-color: rgba(255.0,255.0,255.0, 0);
 }
 
 .outer-box {
@@ -80,20 +80,30 @@
 }
 
 .hof-blue {
-	-fx-text-fill: rgba(140.0,179.0,223.0, 0.9);
+	-fx-text-fill: rgb(140.0,179.0,223.0);
 }
 
 .hof-red {
-	-fx-text-fill: rgba(252.0,123.0,107.0, 0.9);
+	-fx-text-fill: rgb(252.0,123.0,107.0);
 }
 
 .blue {
-	-fx-background-color: rgba(140.0,179.0,223.0, 0.9);
+	-fx-background-color: rgb(140.0,179.0,223.0);
 }
 
 .blue-light {
-	-fx-background-color: rgba(160.0,205.0,255.0, 1.0);
+	-fx-background-color: rgb(160.0,205.0,255.0);
 	-fx-fill: rgba(160.0,205.0,255.0, 1.0);
+}
+
+.bluewins-box {
+	-fx-background-color: rgb(160.0,205.0,255.0);
+	-fx-fill: rgb(160.0,205.0,255.0);
+}
+
+.bluewins-label {
+	-fx-text-fill: white;
+	-fx-font-size: 40pt;
 }
 
 .blue-error {
@@ -101,16 +111,36 @@
 }
 
 .red {
-	-fx-background-color: rgba(252.0,123.0,107.0, 0.9);
+	-fx-background-color: rgb(252.0,123.0,107.0);
 }
 
 .red-light {
-	-fx-background-color: rgba(218.0,88.0,96.0, 1.0);
-	-fx-fill: rgba(218.0,88.0,96.0, 1.0);
+	-fx-background-color: rgb(218.0,88.0,96.0);
+	-fx-fill: rgb(218.0,88.0,96.0);
+}
+
+.redwins-box {
+	-fx-background-color: rgb(218.0,88.0,96.0);
+	-fx-fill: rgb(218.0,88.0,96.0);
+}
+
+.redwins-label {
+	-fx-text-fill: white;
+	-fx-font-size: 40pt;
 }
 
 .red-error {
 	-fx-background-color: red
+}
+
+.draw-box {
+	-fx-background-color: linear-gradient(to right, rgb(160.0,205.0,255.0), rgb(218.0,88.0,96.0));
+	-fx-fill: linear-gradient(to right, rgb(160.0,205.0,255.0), rgb(218.0,88.0,96.0));
+}
+
+.draw-label {
+	-fx-text-fill: white;
+	-fx-font-size: 40pt;
 }
 
 .error-box {

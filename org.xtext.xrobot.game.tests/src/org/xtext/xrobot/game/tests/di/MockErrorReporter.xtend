@@ -17,4 +17,8 @@ class MockErrorReporter implements IErrorReporter {
 		println("##Warning: " + message)
 	}
 	
+	override showMessage(String message, String stylePrefix, Duration duration) {
+		println("##Message: " + message)
+	}
+	
 }
