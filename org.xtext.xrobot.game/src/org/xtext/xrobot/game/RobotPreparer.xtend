@@ -3,17 +3,17 @@ package org.xtext.xrobot.game
 import com.google.inject.Inject
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
-import org.xtext.xrobot.api.Position
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static java.lang.Math.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
-import static org.xtext.xrobot.api.IRobot.*
 import static org.xtext.xrobot.game.PlayerStatus.*
+import static org.xtext.xrobot.api.IRobot.*
 
 import static extension javafx.util.Duration.*
+import org.xtext.xrobot.api.Vector
 
 class RobotPreparer implements IRobotPreparer {
 	
@@ -79,7 +79,7 @@ class RobotPreparer implements IRobotPreparer {
 	
 	private def checkStatus() {
 		val isBatteryEmpty = robot.batteryState < MIN_BATTERY_CHARGE 
-		val isAtHome = robot.ownPosition.getRelativeDirection(homePosition).distance < DISTANCE_ACCURACY
+		val isAtHome = robot.ownPosition.getRelativePosition(homePosition).length < DISTANCE_ACCURACY
 					&& abs(minimizeAngle(homeViewDirection - robot.ownPosition.viewDirection)) < ANGLE_ACCURACY
 		var newStatus = READY
 		if(!isAtHome) {
@@ -98,20 +98,20 @@ class RobotPreparer implements IRobotPreparer {
 		robot.drivingSpeed = robot.maxDrivingSpeed
 
 		val homePosition = getHomePosition()
-		var direction = robot.ownPosition.getRelativeDirection(homePosition)
+		var direction = robot.ownPosition.getRelativePosition(homePosition)
 		var moveCount = 0
-		while (direction.distance > DISTANCE_ACCURACY && moveCount++ < MAX_PLACEMENT_MOVES) {
+		while (direction.length > DISTANCE_ACCURACY && moveCount++ < MAX_PLACEMENT_MOVES) {
 			if (abs(direction.angle) <= ANGLE_ACCURACY) {
-				robot.drive(direction.distance)
+				robot.drive(direction.length)
 			} else if (abs(minimizeAngle(direction.angle - 180)) <= ANGLE_ACCURACY) {
-				robot.drive(-direction.distance)
+				robot.drive(-direction.length)
 			} else if (abs(direction.angle) <= 120) {
 				robot.rotate(direction.angle)
 			} else {
 				robot.rotate(minimizeAngle(direction.angle - 180))
 			}
 			robot.waitForUpdate
-			direction = robot.ownPosition.getRelativeDirection(homePosition)
+			direction = robot.ownPosition.getRelativePosition(homePosition)
 		}
 
 		val homeViewDirection = getHomeViewDirection()
@@ -133,8 +133,8 @@ class RobotPreparer implements IRobotPreparer {
 	
 	private def getHomePosition() {
 		switch robot.robotID {
-			case Blue: new Position(-ARENA_OUTER_RADIUS * 0.4, 0)
-			case Red: new Position(ARENA_OUTER_RADIUS * 0.4, 0)
+			case Blue: Vector.cartesian(-ARENA_OUTER_RADIUS * 0.4, 0)
+			case Red: Vector.cartesian(ARENA_OUTER_RADIUS * 0.4, 0)
 		}
 	}
 	

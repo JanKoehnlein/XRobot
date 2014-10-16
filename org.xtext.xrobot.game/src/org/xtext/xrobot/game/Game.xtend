@@ -102,7 +102,7 @@ class Game {
 		}
 
 	private def checkGameOver(IRemoteRobot robot) {
-		if (robot.centerDirection.distance > ARENA_OUTER_RADIUS || robot.isDead) {
+		if (robot.centerBearing.length > ARENA_OUTER_RADIUS || robot.isDead) {
 			if (refereeResult == null && lastError == null) {
 				if (gameResult == null || gameResult.canceled) {
 					gameResult = defeat(robot.robotID)

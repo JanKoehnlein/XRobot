@@ -14,9 +14,10 @@ import org.xtext.xrobot.annotations.Calculated
 import org.xtext.xrobot.annotations.NoAPI
 import org.xtext.xrobot.annotations.SimpleRMI
 import org.xtext.xrobot.annotations.Zombie
-import org.xtext.xrobot.api.Direction
+import org.xtext.xrobot.api.IRobot
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.api.Sample
+import org.xtext.xrobot.api.Vector
 import org.xtext.xrobot.util.LEDPatterns
 import org.xtext.xrobot.util.SystemSounds
 
@@ -680,7 +681,7 @@ class Robot {
 	}
 
 	/**
-	 * Get the direction of your opponent. This is given in polar coordinates relative to 
+	 * Get the bearing of your opponent. This is given in polar coordinates relative to 
 	 * your robot's current position. The distance is in centimeter. The angle is relative 
 	 * to your robot's view direction in degrees, and ranges between -180&deg; and 180&deg;.
 	 * 
@@ -692,12 +693,12 @@ class Robot {
 	 * @return the relative distance and angle to the opponent
 	 */
 	@Calculated
-	override Direction getOpponentDirection() {
+	override Vector getOpponentBearing() {
 	}
 
 	/**
-	 * Get the direction of the arenas center. This is given in polar coordinates relative to 
-	 * your robot's current position. The distance is in centimeter. The angle is relative 
+	 * Get the bearing of the center of the arena. This is given in polar coordinates relative
+	 * to your robot's current position. The distance is in centimeter. The angle is relative 
 	 * to your robot's view direction in degrees, and ranges between -180&deg; and 180&deg;.
 	 * 
 	 * <p>The reference point is the center of the robot's rear axle.</p>
@@ -708,7 +709,7 @@ class Robot {
 	 * @return the relative distance and angle to the center of the arena
 	 */
 	@Calculated
-	override Direction getCenterDirection() {
+	override Vector getCenterBearing() {
 	}
 	
 }

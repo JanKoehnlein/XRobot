@@ -7,19 +7,19 @@ import java.util.Arrays
 import java.util.Collections
 import java.util.Date
 import java.util.List
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.xtext.xrobot.RobotID
-import org.xtext.xrobot.api.Position
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.util.AveragingFilter
 import org.xtext.xrobot.util.IValueStreamFilter
 
 import static java.lang.Math.*
-import static org.xtext.xrobot.api.IRobot.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
+import static org.xtext.xrobot.api.IRobot.*
 import static org.xtext.xrobot.camera.CameraClient.*
 import static org.xtext.xrobot.camera.ICamera.*
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
-import org.eclipse.xtend.lib.annotations.Accessors
+import org.xtext.xrobot.api.Vector
 
 class CameraClient {
 	
@@ -72,7 +72,7 @@ class CameraClient {
 	private def setRobotPosition(RobotID robotID, long timestamp,
 			float rawXpos, float rawYpos, float rawAngle, float rawXspeed, float rawYspeed,
 			float rawRotSpeed) {
-		val rawPos = new Position((rawXpos - 0.5) * WIDTH_IN_CM,
+		val rawPos = Vector.cartesian((rawXpos - 0.5) * WIDTH_IN_CM,
 				(if (invertYAxis)
 					(0.5 - rawYpos)
 				else
@@ -98,25 +98,18 @@ class CameraClient {
 		val offsetY = ROBOT_MARKER_OFFSET * sin(toRadians(filteredAngle))
 
 		val robotPosition = new RobotPosition(filteredX - offsetX, filteredY - offsetY,
-				minimizeAngle(filteredAngle), filteredXspeed, filteredYspeed, filteredRotSpeed)
+				Vector.cartesian(filteredXspeed, filteredYspeed),
+				minimizeAngle(filteredAngle), filteredRotSpeed)
 		synchronized (this) {
 			robotPositions.set(index, robotPosition)
 			timestamps.set(index, timestamp)
 		}
 	}
 	
-	private def Position correctCameraPerspective(Position rawPosition) {
-		var x = rawPosition.x
-		var y = rawPosition.y
-		// Transform to polar coordinates
-		val a = atan2(y, x)
-		var d = sqrt(x*x+y*y)
+	private def Vector correctCameraPerspective(Vector rawPosition) {
 		// Apply the perspective correction factor
-		d *= PERSPECTIVE_CORRECTION
-		// Transform back to (x,y) coordinates
-		x = d * cos(a)
-		y = d * sin(a)
-		new Position(x, y)
+		val d = rawPosition.length * PERSPECTIVE_CORRECTION
+		Vector.polar(rawPosition.angle, d)
 	}
 	
 	def getCameraSample(RobotID robotID) {

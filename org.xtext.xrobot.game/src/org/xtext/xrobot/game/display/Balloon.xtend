@@ -61,7 +61,7 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 	}
 	
 	private def placeBubble(RobotPosition own, RobotPosition opponent) {
-	 	val bubblePosition = 2 * own - opponent
+	 	val bubblePosition = 2 * own.toVector - opponent.toVector
 		layoutX = bubblePosition.x * RESOLUTION_X / WIDTH_IN_CM
 		layoutY = bubblePosition.y * RESOLUTION_Y / HEIGHT_IN_CM
 	}

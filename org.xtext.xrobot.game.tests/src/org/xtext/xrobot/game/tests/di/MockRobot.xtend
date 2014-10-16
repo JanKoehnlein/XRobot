@@ -5,16 +5,14 @@ import java.net.SocketTimeoutException
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
-import org.xtext.xrobot.api.Direction
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.api.Sample
+import org.xtext.xrobot.api.Vector
 import org.xtext.xrobot.camera.CameraTimeoutException
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
 import org.xtext.xrobot.util.AudioService
-
-import static org.xtext.xrobot.api.GeometryExtensions.*
 
 import static extension java.lang.Math.*
 
@@ -51,8 +49,8 @@ final class MockRobot implements IRemoteRobot {
 		this.cancelIndicator = cancelIndicator
 		this.deadPredicate = deadPredicate
 		this.blindPredicate = blindPredicate
-		this.ownPosition = new RobotPosition(0, 0, 0, 0, 0, 0)
-		this.opponentPosition = new RobotPosition(0, 0, 0, 0, 0, 0)
+		this.ownPosition = new RobotPosition(0, 0, Vector.cartesian(0, 0), 0, 0)
+		this.opponentPosition = new RobotPosition(0, 0, Vector.cartesian(0, 0), 0, 0)
 		this.creationTime = System.currentTimeMillis
 	}
 	
@@ -95,7 +93,8 @@ final class MockRobot implements IRemoteRobot {
 		ownPosition = new RobotPosition(
 			ownPosition.x + distance * cos(ownPosition.viewDirection.toRadians),
 			ownPosition.y + distance * sin(ownPosition.viewDirection.toRadians),
-			ownPosition.viewDirection, 0, 0, 0
+			Vector.cartesian(0, 0),
+			ownPosition.viewDirection, 0
 		)
 		Thread.sleep(Math.round(1000 * distance / drivingSpeed))
 	}
@@ -117,8 +116,8 @@ final class MockRobot implements IRemoteRobot {
 		ownPosition = new RobotPosition(
 			ownPosition.x,
 			ownPosition.y,
-			ownPosition.viewDirection + angle,
-			0, 0, 0
+			Vector.cartesian(0, 0),
+			ownPosition.viewDirection + angle, 0
 		)
 		Thread.sleep(Math.round(1000 * angle / rotationSpeed))
 	}
@@ -184,16 +183,13 @@ final class MockRobot implements IRemoteRobot {
 		opponentPosition
 	}
 
-	override getOpponentDirection() {
-		ownPosition.getRelativeDirection(opponentPosition)
+	override getOpponentBearing() {
+		ownPosition.getRelativePosition(opponentPosition.toVector)
 	}
-
-	override getCenterDirection() {
-		val negOwnDirection = (-ownPosition).toDirection
-		new Direction(
-			negOwnDirection.distance,
-			minimizeAngle(negOwnDirection.angle - ownPosition.viewDirection)
-		)
+	
+	override getCenterBearing() {
+		val negOwnPos = -ownPosition.toVector
+		Vector.polar(negOwnPos.length, negOwnPos.angle - ownPosition.viewDirection)
 	}
 
 	private def checkCanceled() {

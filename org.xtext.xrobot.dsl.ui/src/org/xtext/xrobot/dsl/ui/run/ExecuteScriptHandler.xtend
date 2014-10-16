@@ -104,7 +104,7 @@ class ExecuteScriptHandler extends AbstractHandler {
 				override stateRead(IRemoteRobot robot) { }
 				override modeChanged(IRemoteRobot robot, Mode newMode) { }
 				override stateChanged(IRemoteRobot robot) {
-					if (robot.centerDirection.distance > ARENA_OUTER_RADIUS || robot.isDead) {
+					if (robot.centerBearing.length > ARENA_OUTER_RADIUS || robot.isDead) {
 						gameOver = true
 					}
 				}
@@ -213,8 +213,8 @@ class ExecuteScriptHandler extends AbstractHandler {
 				content.put('Opponent position', '''
 					x=«robot.opponentPosition.x as int» y=«robot.opponentPosition.y as int» a=«robot.opponentPosition.viewDirection as int»
 				''')
-				content.put('Opponent distance', robot.opponentDirection.distance.toString)
-				content.put('Opponent angle', robot.opponentDirection.angle.toString)
+				content.put('Opponent distance', robot.opponentBearing.length.toString)
+				content.put('Opponent angle', robot.opponentBearing.angle.toString)
 				content.put('Battery', ((robot.batteryState * 100) as int).toString + '%')
 				content.put('isMoving', robot.moving.toString)
 				content.put('Command number', (robot as RemoteRobot).state.lastExecutedCommandSerialNr.toString)

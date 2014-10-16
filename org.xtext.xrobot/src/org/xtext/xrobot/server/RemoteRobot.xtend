@@ -1,19 +1,18 @@
 package org.xtext.xrobot.server
 
+import com.google.common.base.Predicates
 import java.net.SocketTimeoutException
 import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
-import org.xtext.xrobot.api.Direction
 import org.xtext.xrobot.api.Sample
+import org.xtext.xrobot.api.Vector
 import org.xtext.xrobot.camera.CameraClient
 import org.xtext.xrobot.camera.CameraSample
-
-import static org.xtext.xrobot.api.GeometryExtensions.*
-import static org.xtext.xrobot.net.INetConfig.*
-import org.xtext.xrobot.util.AudioService
-import com.google.common.base.Predicates
 import org.xtext.xrobot.camera.CameraTimeoutException
+import org.xtext.xrobot.util.AudioService
+
+import static org.xtext.xrobot.net.INetConfig.*
 
 final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
@@ -112,15 +111,13 @@ final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 		cameraSample.opponentPosition
 	}
 	
-	override getOpponentDirection() {
-		ownPosition.getRelativeDirection(opponentPosition)
+	override getOpponentBearing() {
+		ownPosition.getRelativePosition(opponentPosition.toVector)
 	}
 	
-	override getCenterDirection() {
-		val negOwnDirection = (-ownPosition).toDirection
-		new Direction(negOwnDirection.distance,
-			minimizeAngle(negOwnDirection.angle - ownPosition.viewDirection)
-		)
+	override getCenterBearing() {
+		val negOwnPos = -ownPosition.toVector
+		Vector.polar(negOwnPos.length, negOwnPos.angle - ownPosition.viewDirection)
 	}
 	
 	override void update() {
