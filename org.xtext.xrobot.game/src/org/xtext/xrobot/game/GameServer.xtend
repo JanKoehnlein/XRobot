@@ -65,19 +65,20 @@ class GameServer {
 					slot.release
 				}
 			}	
+			if(slots.forall[!isAvailable])
+				startGame
 		}
-		if(slots.forall[!isAvailable])
-			startGame
 	}
 	
 	def void startGame() {
 		var GameResult result = null
 		do {
+			val game = gameProvider.get()
+			controlWindow.prepareGame(game)
 			slots.forEach[prepare]
 			while(!slots.forall[ waitReady ])
 				Thread.sleep(5000)
-			val game = gameProvider.get()
-			display.prepareGame(game)
+			display.aboutToStart(game)
 			slots.forEach[status = FIGHTING]
 			controlWindow.gameStarted(game)
 			game.play(slots)

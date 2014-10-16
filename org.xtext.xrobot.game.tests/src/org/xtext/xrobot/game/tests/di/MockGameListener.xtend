@@ -8,6 +8,10 @@ import org.xtext.xrobot.game.PlayerSlot
 
 class MockGameListener implements IGameListener {
 	
+	override prepareGame(Game game) {
+		println("# game preparation")
+	}
+
 	override gameFinished(Game game) {
 		println("# game finished")
 	}
@@ -18,5 +22,4 @@ class MockGameListener implements IGameListener {
 	
 	override start(Stage stage, List<PlayerSlot> slots) {
 	}
-	
 }

@@ -123,7 +123,7 @@ class Display implements IErrorReporter, ITimeListener {
 		]
 	}
 
-	def prepareGame(Game game) {
+	def aboutToStart(Game game) {
 		updateTime(game.gameDuration)
 		Platform.runLater[
 			idleProgram.stop

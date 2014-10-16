@@ -108,7 +108,7 @@ class PlayerSlotBox extends VBox implements IRobotListener, PlayerSlot.Listener 
 			val modeLabels = modesBox.children
 			if(modeLabels.filter(Label).head?.text == newMode.name) {
 				new FadeTransition => [
-					node = modeLabels.head
+					node = modeLabels.filter(Label).head
 					fromValue = 0
 					toValue = 1
 					duration = 300.millis
@@ -127,7 +127,7 @@ class PlayerSlotBox extends VBox implements IRobotListener, PlayerSlot.Listener 
 				modeLabels.add(newLabel)
 				return
 			}
-			val height = modeLabels.head.boundsInLocal.height
+			val height = modeLabels.filter(Label).head.boundsInLocal.height
 		 	val rect = new Rectangle(0,0,0,0)
 			modeLabels.add(0, rect)
 			new Timeline => [

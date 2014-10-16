@@ -1,22 +1,30 @@
 package org.xtext.xrobot.game.ui
 
+import com.google.inject.Inject
 import com.google.inject.Singleton
 import java.util.List
 import javafx.application.Platform
 import javafx.geometry.Insets
+import javafx.geometry.Orientation
+import javafx.scene.Node
 import javafx.scene.Scene
 import javafx.scene.control.Button
+import javafx.scene.control.ComboBox
 import javafx.scene.control.Label
 import javafx.scene.control.Separator
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Pane
+import javafx.scene.layout.TilePane
 import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.game.Game
+import org.xtext.xrobot.game.GameServer
 import org.xtext.xrobot.game.IGameListener
 import org.xtext.xrobot.game.PlayerSlot
+import org.xtext.xrobot.game.example.ExampleRobot
 
+import static javafx.scene.layout.Region.*
 import static org.xtext.xrobot.RobotID.*
 import static org.xtext.xrobot.game.GameResult.*
 import static org.xtext.xrobot.game.PlayerStatus.*
@@ -24,14 +32,21 @@ import static org.xtext.xrobot.game.PlayerStatus.*
 @Singleton
 class GameControlWindow implements IGameListener {
 
-	Pane slotButtons
-	Pane preparationButtons
+	@Inject ExampleRobot.Provider exampleProvider
+	@Inject GameServer gameServer
+	
+	List<Node> slotButtons = newArrayList
+	
 	Pane refereeButtons
 
 	Game currentGame
 	
 	List<PlayerSlot> slots
 	
+	ComboBox<ExampleRobot> chooseBlueCombo
+
+	ComboBox<ExampleRobot> chooseRedCombo
+
 	Button placeBlueButton
 	
 	Button placeRedButton
@@ -39,17 +54,18 @@ class GameControlWindow implements IGameListener {
 	Button releaseBlueButton
 	
 	Button releaseRedButton
+	
 
 	override start(Stage stage, List<PlayerSlot> slots) {
 		this.slots = slots
 		stage.title = 'Game control'
 		stage.scene = new Scene(createRoot(), 640, 480)
 		stage.show
-		addSlotListener(Blue, releaseBlueButton, placeBlueButton)
-		addSlotListener(Red, releaseRedButton, placeRedButton)
+		addSlotListener(Blue, chooseBlueCombo, releaseBlueButton, placeBlueButton)
+		addSlotListener(Red, chooseRedCombo, releaseRedButton, placeRedButton)
 	}
 	
-	private def addSlotListener(RobotID robotID, Button releaseButton, Button placeButton) {
+	private def addSlotListener(RobotID robotID, ComboBox<ExampleRobot> chooseCombo, Button releaseButton, Button placeButton) {
 		val slot = slots.findFirst[it.robotID == robotID]
 		slot.addSlotListener [
 			Platform.runLater [
@@ -60,43 +76,59 @@ class GameControlWindow implements IGameListener {
 					default:
 						placeButton.disable = true
 				}
-				releaseButton.disable = (slot.status == AVAILABLE)
+				releaseButton.disable = slot.isAvailable || #{FIGHTING, WINNER, LOSER, DRAW}.contains(slot.status) 
+				chooseCombo.disable = !slot.isAvailable
 			]
 		]
-		
 	}
 
 	def createRoot() {
 		new VBox => [
 			spacing = 10
 			padding = new Insets(10)
-			children += new Label('Slots')
-			children += slotButtons = new HBox => [
-				spacing = 10
-				children += releaseBlueButton = new Button('Expunge Blue') => [
-					onAction = [
-						slots.findFirst[robotID == Blue].release
-					]
+			val blue = slots.findFirst[robotID == Blue]
+			val red = slots.findFirst[robotID == Red]
+			children += new TilePane => [
+				minWidth = USE_PREF_SIZE
+				orientation = Orientation.VERTICAL
+				hgap = 20
+				vgap = 10
+				prefRows = 4
+				children += new Label('Blue')
+				children += chooseBlueCombo = createExampleCombo(blue) => [
+					slotButtons += it
+					minWidth = USE_PREF_SIZE
+					maxWidth = Double.MAX_VALUE
 				]
-				children += releaseRedButton = new Button('Expunge Red') => [
-					onAction = [
-						slots.findFirst[robotID == Red].release
-					]
+				children += releaseBlueButton = new Button('Expunge') => [
+					slotButtons += it
+					onAction = [ blue.release ]
+					minWidth = USE_PREF_SIZE
+					maxWidth = Double.MAX_VALUE
 				]
-			]
-			children += new Separator
-			children += new Label('Preparation')
-			children += preparationButtons = new HBox => [
-				spacing = 10
-				children += placeBlueButton = new Button('Place Blue') => [
-					onAction = [
-						slots.findFirst[robotID == Blue].prepare
-					]
+				children += placeBlueButton = new Button('Place') => [
+					slotButtons += it
+					onAction = [ blue.prepare ]
+					minWidth = USE_PREF_SIZE
+					maxWidth = Double.MAX_VALUE
 				]
-				children += placeRedButton = new Button('Place Red') => [
-					onAction = [
-						slots.findFirst[robotID == Red].prepare
-					]
+				children += new Label('Red')
+				children += chooseRedCombo = createExampleCombo(red) => [
+					slotButtons += it
+					minWidth = USE_PREF_SIZE
+					maxWidth = Double.MAX_VALUE
+				]
+				children += releaseRedButton = new Button('Expunge') => [
+					slotButtons += it
+					onAction = [ red.release ]
+					minWidth = USE_PREF_SIZE
+					maxWidth = Double.MAX_VALUE
+				]
+				children += placeRedButton = new Button('Place') => [
+					slotButtons += it
+					onAction = [ red.prepare ]
+					minWidth = USE_PREF_SIZE
+					maxWidth = Double.MAX_VALUE
 				]
 			]
 			children += new Separator
@@ -132,11 +164,37 @@ class GameControlWindow implements IGameListener {
 			]
 		]
 	}
+	
+	private def createExampleCombo(PlayerSlot slot) {
+		new ComboBox => [ cb |
+			cb.items += exampleProvider.exampleRobots
+			cb.onAction = [
+				val example = cb.selectionModel.selectedItem
+				if(example != null) {
+					new Thread([
+						gameServer.register(
+							slot.token,
+							example.URI,
+							example.code
+						)
+					], 'Example Robot Chooser') => [
+						daemon = true
+						start
+					]
+				}
+			]
+		]
+	}
 
+	override prepareGame(Game game) {
+		Platform.runLater [
+			slotButtons.forEach[disable = true]
+			currentGame = game
+		]
+	}
+	
 	override gameStarted(Game game) {
 		Platform.runLater [
-			slotButtons.disable = true
-			currentGame = game
 			refereeButtons.disable = false
 		]
 	}
@@ -144,8 +202,10 @@ class GameControlWindow implements IGameListener {
 	override gameFinished(Game game) {
 		Platform.runLater [
 			currentGame = null
+			chooseBlueCombo.selectionModel.select(null)
+			chooseRedCombo.selectionModel.select(null)
 			refereeButtons.disable = true
-			slotButtons.disable = false
+			slotButtons.forEach[disable = false]
 		]
 	}
 }
