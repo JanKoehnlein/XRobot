@@ -11,11 +11,15 @@ class AveragingFilter extends AbstractValueStreamFilter {
 	val int maxBufferSize;
 		
 	new(int maxBufferSize) {
+		if (maxBufferSize <= 0)
+			throw new IllegalArgumentException
 		this.maxBufferSize = maxBufferSize
 	}
 	
 	new(int maxBufferSize, double periodicity) {
 		super(periodicity)
+		if (maxBufferSize <= 0)
+			throw new IllegalArgumentException
 		this.maxBufferSize = maxBufferSize
 	}
 

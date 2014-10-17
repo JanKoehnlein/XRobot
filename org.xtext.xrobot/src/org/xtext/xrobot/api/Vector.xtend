@@ -1,5 +1,6 @@
 package org.xtext.xrobot.api
 
+import static org.eclipse.xtext.xbase.lib.IntegerExtensions.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
 
 import static extension java.lang.Math.*
@@ -82,6 +83,26 @@ class Vector {
 		return v
 	}
 	
+	override toString() {
+		if (cartesianDefined) {
+			'(x=' + x + ', y=' + y + ')'
+		} else {
+			'(l=' + length + ', a=' + angle + ')'
+		}
+	}
+	
+	override equals(Object obj) {
+		if (obj instanceof Vector) {
+			val other = obj as Vector
+			this.getX == other.getX && this.getY == other.getY
+		}
+		false
+	}
+	
+	override hashCode() {
+		 bitwiseXor(getX.hashCode, getY.hashCode)
+	}
+	
 	/**
 	 * Check whether the Cartesian coordinates are already defined, and compute them if necessary.
 	 */
@@ -131,9 +152,16 @@ class Vector {
 	
 	/**
 	 * Return the length of the vector in centimeters (for positions) or centimeters per
-	 * second (for speeds).
+	 * second (for speeds). The meaning of this value depends on how the vector is used:
+	 * <ul>
+	 *   <li>If this represents an absolute position, the length corresponds to the distance
+	 *     to the center of the arena.</li>
+	 *   <li>If this represents a relative position, the length corresponds to the distance
+	 *     between the two compared points.</li>
+	 *   <li>If this represents a speed, the length corresponds to the absolute speed value.</li>
+	 * </ul>
 	 * 
-	 * @return the length
+	 * @return the length of this vector
 	 */
 	def getLength() {
 		checkPolar()
@@ -145,7 +173,7 @@ class Vector {
 	 * The angle is interpreted mathematically, that means a vector with angle 0 points to
 	 * the right and increasing the angle corresponds to a counter-clockwise rotation.
 	 * 
-	 * @return the angle
+	 * @return the angle of this vector
 	 */
 	def getAngle() {
 		checkPolar()
@@ -153,11 +181,11 @@ class Vector {
 	}
 	
 	/**
-	 * Create a new {@link Vector} with the added coordinates of this and <code>v</code>.
+	 * Create a new {@link Vector} with the added coordinates of this and {@code v}.
 	 * 
 	 * @param v
 	 * 		the vector to be added
-	 * @return a new vector with the added coordinates of this and <code>v</code>
+	 * @return a new vector with the added coordinates of this and {@code v}
 	 */
 	def +(Vector v) {
 		cartesian(this.getX + v.getX, this.getY + v.getY)
@@ -165,11 +193,11 @@ class Vector {
 	
 	/**
 	 * Create a new {@link Vector} with the coordinates of this minus the coordinates
-	 * of <code>v</code>.
+	 * of {@code v}.
 	 * 
 	 * @param v
 	 * 		the vector to be subtracted
-	 * @return a new vector with the coordinates of this minus the coordinates of <code>v</code>
+	 * @return a new vector with the coordinates of this minus the coordinates of {@code v}
 	 */
 	def -(Vector v) {
 		cartesian(this.getX - v.getX, this.getY - v.getY)
@@ -194,11 +222,13 @@ class Vector {
 	 * 
 	 * @param scalar
 	 * 		the factor to multiply the coordinates with
-	 * @return a new vector with the coordinates of this multiplied by the given <code>scalar</code>
+	 * @return a new vector with the coordinates of this multiplied by the given {@code scalar}
 	 */
 	def *(double scalar) {
 		if (cartesianDefined) {
 			cartesian(x * scalar, y * scalar)
+		} else if (scalar < 0) {
+			polar(-length * scalar, angle + 180)
 		} else {
 			polar(length * scalar, angle)
 		}
@@ -209,7 +239,7 @@ class Vector {
 	 * 
 	 * @param scalar
 	 * 		the value to divide the coordinates by
-	 * @return a new vector with the coordinates of this divided by the given <code>scalar</code>
+	 * @return a new vector with the coordinates of this divided by the given {@code scalar}
 	 */
 	def /(double scalar) {
 		if (cartesianDefined) {
@@ -217,6 +247,17 @@ class Vector {
 		} else {
 			polar(length / scalar, angle)
 		}
+	}
+	
+	/**
+	 * Create a new {@link Vector} with the coordinates of this rotated by the given angle.
+	 * 
+	 * @param rotationAngle
+	 * 		the angle to rotate the coordinates by
+	 * @return a new vector with the coordinates of this rotated by the given {@code rotationAngle}
+	 */
+	def rotate(double rotationAngle) {
+		polar(getLength, getAngle + rotationAngle)
 	}
 	
 }

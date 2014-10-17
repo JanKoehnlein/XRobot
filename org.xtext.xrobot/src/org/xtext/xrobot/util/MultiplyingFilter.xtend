@@ -8,11 +8,15 @@ class MultiplyingFilter extends AbstractValueStreamFilter {
 	val double lastValueFactor;
 	
 	new(double lastValueFactor) {
+		if (lastValueFactor < 0 || lastValueFactor > 1)
+			throw new IllegalArgumentException
 		this.lastValueFactor = lastValueFactor
 	}
 	
 	new(double lastValueFactor, double periodicity) {
 		super(periodicity)
+		if (lastValueFactor < 0 || lastValueFactor > 1)
+			throw new IllegalArgumentException
 		this.lastValueFactor = lastValueFactor
 	}
 

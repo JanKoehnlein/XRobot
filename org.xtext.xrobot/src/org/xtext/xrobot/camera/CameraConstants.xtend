@@ -3,7 +3,7 @@ package org.xtext.xrobot.camera
 import static java.lang.Math.*
 import static org.xtext.xrobot.api.IRobot.*
 
-interface ICamera {
+interface CameraConstants {
 
 	/** The horizontal resolution of the tracked camera image. */	
 	val RESOLUTION_X = 1080

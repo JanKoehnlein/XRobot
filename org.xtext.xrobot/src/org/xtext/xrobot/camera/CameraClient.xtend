@@ -10,16 +10,17 @@ import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.RobotPosition
+import org.xtext.xrobot.api.Vector
 import org.xtext.xrobot.util.AveragingFilter
 import org.xtext.xrobot.util.IValueStreamFilter
 
-import static extension java.lang.Math.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.api.IRobot.*
 import static org.xtext.xrobot.camera.CameraClient.*
-import static org.xtext.xrobot.camera.ICamera.*
+import static org.xtext.xrobot.camera.CameraConstants.*
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
-import org.xtext.xrobot.api.Vector
+
+import static extension java.lang.Math.*
 
 /**
  * A UDP client listening for TUIO messages with tracking data from a camera.
@@ -131,7 +132,7 @@ class CameraClient {
 	static def Vector correctPositionPerspective(Vector rawPosition) {
 		// Apply the perspective correction factor to the center distance
 		val d = rawPosition.length * PERSPECTIVE_CORRECTION
-		Vector.polar(rawPosition.angle, d)
+		Vector.polar(d, rawPosition.angle)
 	}
 	
 	/**
