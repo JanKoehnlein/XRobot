@@ -698,6 +698,10 @@ class Robot {
 	 * 
 	 * <p>The reference points are the centers of the robots' rear axles.</p>
 	 * 
+	 * <p>The following picture illustrates the values of the angle <code>a</code> and 
+	 * <code>length</code> with respect to the own view direction.
+	 * <img src="doc-files/Bearing.jpg"/></p>
+	 * 
 	 * <p>If this command is called repeatedly in the same mode, it returns the same values
 	 * unless the robot state is updated with the {@link #update()} command.</p>
 	 * 
