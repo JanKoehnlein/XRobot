@@ -14,7 +14,7 @@ import org.xtext.xrobot.server.IRemoteRobot
 import org.xtext.xrobot.util.AudioService
 
 import static java.lang.Math.*
-import static org.xtext.xrobot.camera.ICamera.*
+import static org.xtext.xrobot.camera.CameraConstants.*
 
 import static extension org.xtext.xrobot.api.GeometryExtensions.*
 
