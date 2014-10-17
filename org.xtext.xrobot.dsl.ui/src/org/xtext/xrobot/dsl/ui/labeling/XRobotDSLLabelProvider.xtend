@@ -6,6 +6,12 @@ package org.xtext.xrobot.dsl.ui.labeling
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider
+import org.eclipse.jface.resource.ImageDescriptor
+import org.xtext.xrobot.dsl.xRobotDSL.Mode
+import org.eclipse.xtext.xbase.ui.labeling.XbaseImages2
+import static org.eclipse.xtext.common.types.JvmVisibility.*
+import org.xtext.xrobot.dsl.xRobotDSL.Sub
+import org.xtext.xrobot.dsl.xRobotDSL.Field
 
 /**
  * Provides labels for a EObjects.
@@ -14,18 +20,23 @@ import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider
  */
 class XRobotDSLLabelProvider extends XbaseLabelProvider {
 
+	@Inject XbaseImages2 images 
+	
 	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 
-	// Labels and icons can be computed like this:
-	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
-//
-//	def image(Greeting ele) {
-//		'Greeting.gif'
-//	}
+	protected def dispatch ImageDescriptor imageDescriptor(Mode mode) {
+		images.forOperation(DEFAULT, 0)
+	}
+
+	protected def dispatch ImageDescriptor imageDescriptor(Sub sub) {
+		images.forOperation(PUBLIC, 0)
+	}
+
+	protected def dispatch ImageDescriptor imageDescriptor(Field sub) {
+		images.forField(PRIVATE, 0)
+	}
+
 }
