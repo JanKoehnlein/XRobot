@@ -11,11 +11,7 @@ import javafx.geometry.Point3D
 import javafx.scene.control.Label
 import javafx.scene.control.OverrunStyle
 import javafx.scene.effect.InnerShadow
-import javafx.scene.image.Image
-import javafx.scene.image.ImageView
-import javafx.scene.layout.Pane
 import javafx.scene.layout.StackPane
-import javafx.scene.layout.VBox
 import javafx.scene.paint.Color
 
 import static extension javafx.util.Duration.*
@@ -24,8 +20,6 @@ class IdleProgram extends StackPane {
 
 	@Inject HallOfFameTable hallOfFameTable
 
-	Pane joinUs = new VBox
-
 	Label logo = new Label('XRobots')
 
 	SequentialTransition animation
@@ -33,13 +27,6 @@ class IdleProgram extends StackPane {
 	def init() {
 		if (children.empty) {
 			children += hallOfFameTable
-			children += joinUs => [
-				setMaxSize(USE_PREF_SIZE, USE_PREF_SIZE)
-				styleClass += #['hof-light', 'outer-box']
-				children += new Label('Enter Your Own Program')
-				children += new ImageView(new Image(IdleProgram.getResourceAsStream('/qrcode.jpg')))
-				opacity = 0
-			]
 			children += logo => [
 				setMaxSize(USE_PREF_SIZE, USE_PREF_SIZE)
 				styleClass += #['logo', 'logo-big']
@@ -55,7 +42,6 @@ class IdleProgram extends StackPane {
 	}
 
 	def start() {
-		joinUs.opacity = 0
 		logo.scaleX = 0
 		logo.scaleY = 0
 		visible = true
@@ -67,7 +53,6 @@ class IdleProgram extends StackPane {
 	def stop() {
 		animation.stop
 		hallOfFameTable.hide
-		joinUs.opacity = 0
 		logo.opacity = 0
 		visible = false
 	}
@@ -98,19 +83,6 @@ class IdleProgram extends StackPane {
 				fromValue = 1
 				toValue = 0
 				node = logo
-				delay = 5.seconds
-				duration = 100.millis
-			]
-			children += new FadeTransition => [
-				fromValue = 0
-				toValue = 1
-				node = joinUs
-				duration = 300.millis
-			]
-			children += new FadeTransition => [
-				fromValue = 1
-				toValue = 0
-				node = joinUs
 				delay = 5.seconds
 				duration = 100.millis
 			]

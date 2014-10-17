@@ -1,6 +1,7 @@
 package org.xtext.xrobot.game.tests
 
 import org.junit.Test
+import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.api.Vector
 import org.xtext.xrobot.camera.CameraClient
 import org.xtext.xrobot.camera.CameraConstants
@@ -11,7 +12,6 @@ import static org.junit.Assert.*
 
 import static extension java.lang.Math.*
 import static extension org.xtext.xrobot.api.GeometryExtensions.*
-import org.xtext.xrobot.api.RobotPosition
 
 class GeometryTest {
 	

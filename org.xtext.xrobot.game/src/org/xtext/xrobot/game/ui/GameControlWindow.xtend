@@ -51,9 +51,9 @@ class GameControlWindow implements IGameListener {
 	
 	Button placeRedButton
 	
-	Button releaseBlueButton
+	Button expungeBlueButton
 	
-	Button releaseRedButton
+	Button expungeRedButton
 	
 
 	override start(Stage stage, List<PlayerSlot> slots) {
@@ -61,13 +61,13 @@ class GameControlWindow implements IGameListener {
 		stage.title = 'Game control'
 		stage.scene = new Scene(createRoot(), 640, 480)
 		stage.show
-		addSlotListener(Blue, chooseBlueCombo, releaseBlueButton, placeBlueButton)
-		addSlotListener(Red, chooseRedCombo, releaseRedButton, placeRedButton)
+		addSlotListener(Blue, chooseBlueCombo, expungeBlueButton, placeBlueButton)
+		addSlotListener(Red, chooseRedCombo, expungeRedButton, placeRedButton)
 	}
 	
-	private def addSlotListener(RobotID robotID, ComboBox<ExampleRobot> chooseCombo, Button releaseButton, Button placeButton) {
+	private def addSlotListener(RobotID robotID, ComboBox<ExampleRobot> chooseCombo, Button expungeButton, Button placeButton) {
 		val slot = slots.findFirst[it.robotID == robotID]
-		slot.addSlotListener [
+		val PlayerSlot.Listener listener = [
 			Platform.runLater [
 				switch slot.status {
 					case NOT_AT_HOME,
@@ -76,10 +76,12 @@ class GameControlWindow implements IGameListener {
 					default:
 						placeButton.disable = true
 				}
-				releaseButton.disable = slot.isAvailable || #{FIGHTING, WINNER, LOSER, DRAW}.contains(slot.status) 
+				expungeButton.disable = slot.isAvailable || #{FIGHTING, WINNER, LOSER, DRAW}.contains(slot.status) 
 				chooseCombo.disable = !slot.isAvailable
 			]
 		]
+		listener.slotChanged
+		slot.addSlotListener(listener)
 	}
 
 	def createRoot() {
@@ -100,7 +102,7 @@ class GameControlWindow implements IGameListener {
 					minWidth = USE_PREF_SIZE
 					maxWidth = Double.MAX_VALUE
 				]
-				children += releaseBlueButton = new Button('Expunge') => [
+				children += expungeBlueButton = new Button('Expunge') => [
 					slotButtons += it
 					onAction = [ blue.release ]
 					minWidth = USE_PREF_SIZE
@@ -118,7 +120,7 @@ class GameControlWindow implements IGameListener {
 					minWidth = USE_PREF_SIZE
 					maxWidth = Double.MAX_VALUE
 				]
-				children += releaseRedButton = new Button('Expunge') => [
+				children += expungeRedButton = new Button('Expunge') => [
 					slotButtons += it
 					onAction = [ red.release ]
 					minWidth = USE_PREF_SIZE
@@ -205,7 +207,6 @@ class GameControlWindow implements IGameListener {
 			chooseBlueCombo.selectionModel.select(null)
 			chooseRedCombo.selectionModel.select(null)
 			refereeButtons.disable = true
-			slotButtons.forEach[disable = false]
 		]
 	}
 }
