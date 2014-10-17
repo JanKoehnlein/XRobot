@@ -10,6 +10,7 @@ import org.xtext.xrobot.server.IRemoteRobot
 
 import static java.lang.Math.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
+import static org.xtext.xrobot.api.IRobot.*
 import static org.xtext.xrobot.game.PlayerStatus.*
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.ignoreExceptions
 
