@@ -69,13 +69,7 @@ class GameControlWindow implements IGameListener {
 		val slot = slots.findFirst[it.robotID == robotID]
 		val PlayerSlot.Listener listener = [
 			Platform.runLater [
-				switch slot.status {
-					case NOT_AT_HOME,
-					case AVAILABLE:
-						placeButton.disable = false
-					default:
-						placeButton.disable = true
-				}
+				placeButton.disable = !#{NOT_AT_HOME, AVAILABLE}.contains(slot.status)
 				expungeButton.disable = slot.isAvailable || #{FIGHTING, WINNER, LOSER, DRAW}.contains(slot.status) 
 				chooseCombo.disable = !slot.isAvailable
 			]
@@ -104,13 +98,19 @@ class GameControlWindow implements IGameListener {
 				]
 				children += expungeBlueButton = new Button('Expunge') => [
 					slotButtons += it
-					onAction = [ blue.release ]
+					onAction = [
+						if (!#{FIGHTING, WINNER, LOSER, DRAW}.contains(blue.status))
+							blue.release
+					]
 					minWidth = USE_PREF_SIZE
 					maxWidth = Double.MAX_VALUE
 				]
 				children += placeBlueButton = new Button('Place') => [
 					slotButtons += it
-					onAction = [ blue.prepare ]
+					onAction = [
+						if (#{NOT_AT_HOME, AVAILABLE}.contains(blue.status))
+							blue.prepare
+					]
 					minWidth = USE_PREF_SIZE
 					maxWidth = Double.MAX_VALUE
 				]
@@ -122,13 +122,19 @@ class GameControlWindow implements IGameListener {
 				]
 				children += expungeRedButton = new Button('Expunge') => [
 					slotButtons += it
-					onAction = [ red.release ]
+					onAction = [
+						if (!#{FIGHTING, WINNER, LOSER, DRAW}.contains(red.status))
+							red.release
+					]
 					minWidth = USE_PREF_SIZE
 					maxWidth = Double.MAX_VALUE
 				]
 				children += placeRedButton = new Button('Place') => [
 					slotButtons += it
-					onAction = [ red.prepare ]
+					onAction = [
+						if (#{NOT_AT_HOME, AVAILABLE}.contains(red.status))
+							red.prepare
+					]
 					minWidth = USE_PREF_SIZE
 					maxWidth = Double.MAX_VALUE
 				]
@@ -139,27 +145,32 @@ class GameControlWindow implements IGameListener {
 				spacing = 10
 				children += new Button('Blue wins') => [
 					onAction = [
-						currentGame.refereeResult = win(Blue)
+						if (currentGame != null)
+							currentGame.refereeResult = win(Blue)
 					]
 				]
 				children += new Button('Draw') => [
 					onAction = [
-						currentGame.refereeResult = draw
+						if (currentGame != null)
+							currentGame.refereeResult = draw
 					]
 				]
 				children += new Button('Red wins') => [
 					onAction = [
-						currentGame.refereeResult = win(Red)
+						if (currentGame != null)
+							currentGame.refereeResult = win(Red)
 					]
 				]
 				children += new Button('Cancel') => [
 					onAction = [
-						currentGame.refereeResult = canceled('Canceled by Referee')
+						if (currentGame != null)
+							currentGame.refereeResult = canceled('Canceled by Referee')
 					]
 				]
 				children += new Button('Replay') => [
 					onAction = [
-						currentGame.refereeResult = replay
+						if (currentGame != null)
+							currentGame.refereeResult = replay
 					]
 				]
 				disable = true
@@ -172,7 +183,7 @@ class GameControlWindow implements IGameListener {
 			cb.items += exampleProvider.exampleRobots
 			cb.onAction = [
 				val example = cb.selectionModel.selectedItem
-				if(example != null) {
+				if (example != null && slot.available) {
 					new Thread([
 						gameServer.register(
 							slot.token,

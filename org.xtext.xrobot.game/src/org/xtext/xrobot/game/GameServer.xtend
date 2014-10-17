@@ -76,14 +76,18 @@ class GameServer {
 			val game = gameProvider.get()
 			controlWindow.prepareGame(game)
 			slots.forEach[prepare]
-			while(!slots.forall[ waitReady ])
+			while(!slots.forall[ available || waitReady ]) {
 				Thread.sleep(5000)
-			display.aboutToStart(game)
-			slots.forEach[status = FIGHTING]
-			controlWindow.gameStarted(game)
-			game.play(slots)
-			result = evaluateGame(game)
-			controlWindow.gameFinished(game)
+			}
+			// The slots may have been released during preparation
+			if (slots.forall[ !available ]) {
+				slots.forEach[status = FIGHTING]
+				display.aboutToStart(game)
+				controlWindow.gameStarted(game)
+				game.play(slots)
+				result = evaluateGame(game)
+				controlWindow.gameFinished(game)
+			}
 		} while(result?.replay)
 		LOG.debug('Releasing player slots')
 		slots.forEach[release]

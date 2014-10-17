@@ -3,6 +3,7 @@ package org.xtext.xrobot.game
 import com.google.inject.Inject
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.xtext.xrobot.api.Vector
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
@@ -10,10 +11,9 @@ import org.xtext.xrobot.server.IRemoteRobot
 import static java.lang.Math.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.game.PlayerStatus.*
-import static org.xtext.xrobot.api.IRobot.*
+import static org.xtext.xrobot.util.IgnoreExceptionsExtension.ignoreExceptions
 
 import static extension javafx.util.Duration.*
-import org.xtext.xrobot.api.Vector
 
 class RobotPreparer implements IRobotPreparer {
 	
@@ -60,8 +60,7 @@ class RobotPreparer implements IRobotPreparer {
 			} catch (Exception exc) {
 				LOG.error('Error preparing robot', exc)
 			} finally {
-				robot.invincible = false
-				slot.status = checkStatus
+				ignoreExceptions[ robot.invincible = false ]
 			}
 		], 'RobotPlacer') => [
 			daemon = true
@@ -78,17 +77,22 @@ class RobotPreparer implements IRobotPreparer {
 	}
 	
 	private def checkStatus() {
-		val isBatteryEmpty = robot.batteryState < MIN_BATTERY_CHARGE 
-		val isAtHome = robot.ownPosition.getRelativePosition(homePosition).length < DISTANCE_ACCURACY
-					&& abs(minimizeAngle(homeViewDirection - robot.ownPosition.viewDirection)) < ANGLE_ACCURACY
 		var newStatus = READY
-		if(!isAtHome) {
-			errorReporter.showError(slot.robotID + ': Not at start position', 5.seconds)
-			newStatus = NOT_AT_HOME
-		}
-		if(isBatteryEmpty) {
-			errorReporter.showError(slot.robotID + ': Change batteries', 5.seconds)
-			newStatus = BATTERY_EXHAUSTED
+		if (slot.available) {
+			// The slot has been released during preparation
+			newStatus = AVAILABLE
+		} else {
+			val isAtHome = robot.ownPosition.getRelativePosition(homePosition).length < DISTANCE_ACCURACY
+						&& abs(minimizeAngle(homeViewDirection - robot.ownPosition.viewDirection)) < ANGLE_ACCURACY
+			if(!isAtHome) {
+				errorReporter.showError(slot.robotID + ': Not at start position', 5.seconds)
+				newStatus = NOT_AT_HOME
+			}
+			val isBatteryEmpty = robot.batteryState < MIN_BATTERY_CHARGE 
+			if(isBatteryEmpty) {
+				errorReporter.showError(slot.robotID + ': Change batteries', 5.seconds)
+				newStatus = BATTERY_EXHAUSTED
+			}
 		} 
 		newStatus
 	}
