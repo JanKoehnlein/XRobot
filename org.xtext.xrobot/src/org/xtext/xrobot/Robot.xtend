@@ -54,63 +54,74 @@ class Robot {
 	
 	/**
 	 * The total length of the robot in centimeters including its scoop.
-	 * Value is 25cm.
+	 * Value is 25&nbsp;cm.
 	 */
 	public static val ROBOT_LENGTH = 25.0
 
 	/**
 	 * The total width of the robot in centimeters.
-	 * Value is 12cm.
+	 * Value is 12&nbsp;cm.
 	 */
 	public static val ROBOT_WIDTH = 12.0
 	
 	/**
 	 * The total height of the robot in centimeters.
-	 * Value is 23.7cm.
+	 * Value is 23.8&nbsp;cm.
 	 */
-	public static val ROBOT_HEIGHT = 23.7
+	public static val ROBOT_HEIGHT = 23.8
 	
 	/**
 	 * The diameter of the robot's wheels in centimeters.
-	 * Value is 4.32cm.
+	 * Value is 4.32&nbsp;cm.
 	 */
 	public static val ROBOT_WHEEL_DIAMETER = 4.32
 
 	/**
 	 * The robot's track width (distance of wheels) in centimeters.
-	 * Value is 9.5cm.
+	 * Value is 9.5&nbsp;cm.
 	 */
 	public static val ROBOT_WHEEL_DISTANCE = 9.5
 	
 	/**
-	 * The distance in centimeters between the robot's axis and the fiducial marker.
-	 * Value is 5cm.
+	 * The length of the robot's scoop (only the part that extends beyond the front
+	 * of the robot).
+	 * Value is 11.5&nbsp;cm.
 	 */
-	public static val ROBOT_MARKER_OFFSET = 5.0
+	public static val ROBOT_SCOOP_LENGTH = 11.5
+	
+	/**
+	 * The distance in centimeters between the robot's axis and the fiducial marker.
+	 * Value is 4&nbsp;cm.
+	 */
+	public static val ROBOT_MARKER_OFFSET = 4.0
 	
 	/**
 	 * The distance in centimeters between the robot's axis and the back of the robot.
-	 * Value is 4.5cm.
+	 * Value is 4.5&nbsp;cm.
 	 */
 	public static val ROBOT_AXIS_OFFSET = 4.5
 	
 	/**
 	 * The radius of the outer edge of the boundary of the arena in centimeters.
-	 * Value is 60cm.
+	 * Value is 60&nbsp;cm.
 	 */
 	public static val ARENA_OUTER_RADIUS = 60.0
 	
 	/**
 	 * The radius of the inner edge of the boundary of the arena in centimeters. 
 	 * Make sure you don't cross this edge, or you risk losing the game!
-	 * Value is 55cm
+	 * Value is 55&nbsp;cm.
 	 */
 	public static val ARENA_INNER_RADIUS = 55.0
 	
-	/** The threshold of the brightness value at which a game-over situation is detected. */
+	/**
+	 * The threshold of the brightness value at which a game-over situation is detected.
+	 */
 	static val GAME_OVER_THRESHOLD = 0.035
 	
-	/** The voltage of the battery pack when it is full. */
+	/**
+	 * The voltage of the battery pack when it is full.
+	 */
 	static val FULL_BATTERY_VOLTAGE = 8.1
 
 	RobotID robotID

@@ -13,7 +13,7 @@ import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.util.AveragingFilter
 import org.xtext.xrobot.util.IValueStreamFilter
 
-import static java.lang.Math.*
+import static extension java.lang.Math.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
 import static org.xtext.xrobot.api.IRobot.*
 import static org.xtext.xrobot.camera.CameraClient.*
@@ -21,10 +21,14 @@ import static org.xtext.xrobot.camera.ICamera.*
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 import org.xtext.xrobot.api.Vector
 
+/**
+ * A UDP client listening for TUIO messages with tracking data from a camera.
+ * See {@link http://www.tuio.org}.
+ */
 class CameraClient {
 	
 	static val POSITION_BUFFER_SIZE = 10
-	static val SPEED_BUFFER_SIZE = 10
+	static val SPEED_BUFFER_SIZE = 12
 	static val ANGLE_BUFFER_SIZE = 6
 	static val TUIO_PORT = 3333
 	
@@ -55,12 +59,18 @@ class CameraClient {
 		]
 	}
 	
+	/**
+	 * Start listening to the TUIO port.
+	 */
 	def connect() {
 		oscPort = new OSCPortIn(TUIO_PORT);
 		oscPort.addListener("/tuio/2Dobj", new TuioListener(this));
 		oscPort.startListening();
 	}
 	
+	/**
+	 * Stop listening to the TUIO port.
+	 */
 	def disconnect() {
 		if (oscPort != null) {
 			oscPort.stopListening();
@@ -69,6 +79,11 @@ class CameraClient {
 		}
 	}
 	
+	/**
+	 * Store tracking information of a robot so it can be accessed with
+	 * {@link #getCameraSample(RobotID)}. The information is processed with filtering and
+	 * perspective correction.
+	 */
 	private def setRobotPosition(RobotID robotID, long timestamp,
 			float rawXpos, float rawYpos, float rawAngle, float rawXspeed, float rawYspeed,
 			float rawRotSpeed) {
@@ -78,24 +93,28 @@ class CameraClient {
 				else
 					(rawYpos - 0.5)
 				) * HEIGHT_IN_CM)
+		val rawSpeed = Vector.cartesian(rawXspeed * WIDTH_IN_CM, rawYspeed * HEIGHT_IN_CM)
 		// TUIO 0° means NORTH and 90° means EAST
-		val angle = 90 - toDegrees(rawAngle)
+		val angle = 90 - rawAngle.toDegrees
+		val rotSpeed = rawRotSpeed.toDegrees
 		
 		// Apply perspective correction
-		val correctedPos = correctCameraPerspective(rawPos)
+		val correctedPos = correctPositionPerspective(rawPos)
+		val correctedSpeed = correctSpeedPerspective(rawSpeed, correctedPos)
 
 		// Apply the filters			
 		val index = robotID.ordinal
 		val filteredX = xposFilters.get(index).apply(correctedPos.x)
 		val filteredY = yposFilters.get(index).apply(correctedPos.y)
+		val filteredXspeed = xspeedFilters.get(index).apply(correctedSpeed.x)
+		val filteredYspeed = yspeedFilters.get(index).apply(correctedSpeed.y)
 		val filteredAngle = angleFilters.get(index).apply(angle)
-		val filteredXspeed = xspeedFilters.get(index).apply(rawXspeed * WIDTH_IN_CM)
-		val filteredYspeed = yspeedFilters.get(index).apply(rawYspeed * HEIGHT_IN_CM)
-		val filteredRotSpeed = rotSpeedFilters.get(index).apply(toDegrees(rawRotSpeed))
+		val filteredRotSpeed = rotSpeedFilters.get(index).apply(rotSpeed)
 		
 		// Compute the offset to the axis
-		val offsetX = ROBOT_MARKER_OFFSET * cos(toRadians(filteredAngle))
-		val offsetY = ROBOT_MARKER_OFFSET * sin(toRadians(filteredAngle))
+		val filteredAngleRad = filteredAngle.toRadians
+		val offsetX = ROBOT_MARKER_OFFSET * cos(filteredAngleRad)
+		val offsetY = ROBOT_MARKER_OFFSET * sin(filteredAngleRad)
 
 		val robotPosition = new RobotPosition(filteredX - offsetX, filteredY - offsetY,
 				Vector.cartesian(filteredXspeed, filteredYspeed),
@@ -106,12 +125,36 @@ class CameraClient {
 		}
 	}
 	
-	private def Vector correctCameraPerspective(Vector rawPosition) {
-		// Apply the perspective correction factor
+	/**
+	 * Correct the given position vector to consider the height of the robot.
+	 */
+	static def Vector correctPositionPerspective(Vector rawPosition) {
+		// Apply the perspective correction factor to the center distance
 		val d = rawPosition.length * PERSPECTIVE_CORRECTION
 		Vector.polar(rawPosition.angle, d)
 	}
 	
+	/**
+	 * Correct the given speed vector to consider the height of the robot.
+	 */
+	static def Vector correctSpeedPerspective(Vector rawSpeed, Vector position) {
+		// The angle between the speed vector and the center position
+		val angleToCenterRad = toRadians(position.angle - rawSpeed.angle)
+		// The speed component parallel to the axis to the center
+		val axialSpeed = rawSpeed.length * cos(angleToCenterRad)
+		// Apply the perspective correction factor to the axial speed
+		val axialVector = Vector.polar(abs(axialSpeed * PERSPECTIVE_CORRECTION), position.angle)
+		// The speed component orthogonal to the axis to the center
+		val coaxialSpeed = rawSpeed.length * sin(angleToCenterRad)
+		val coaxialVector = Vector.polar(abs(coaxialSpeed), position.angle - 90)
+		// Combine axial and coaxial speed components to get the result
+		axialVector * axialSpeed.signum + coaxialVector * coaxialSpeed.signum
+	}
+	
+	/**
+	 * Return the last sample received from the camera server for the given robot.
+	 * The sample data are already processed with filtering and perspective correction.
+	 */
 	def getCameraSample(RobotID robotID) {
 		synchronized (this) {
 			val ownPosition = robotPositions.get(robotID.ordinal)
@@ -122,6 +165,9 @@ class CameraClient {
 		}
 	}
 	
+	/**
+	 * A UDP package listener for TUIO.
+	 */
 	private static class TuioListener implements OSCListener {
 		
 		val CameraClient client
@@ -157,7 +203,7 @@ class CameraClient {
 						}
 					}
 	
-				} else if (command.equals("set") && args.size > 2) {
+				} else if (command.equals("set") && args.size >= 3) {
 					val int fid_id  = args.get(2) as Integer
 					val robotID = RobotID.forFiducialID(fid_id)
 					if (robotID != null) {

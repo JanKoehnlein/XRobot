@@ -23,7 +23,7 @@ class GeometryExtensions {
 	/**
 	 * Return the <code>angle</code> minimized to be in the range from -180&deg; to 180&deg;.
 	 * Use to minimize movements, e.g. instead of rotating 300&deg; to the left you should
-	 * rather move 60&deg; to the right.
+	 * rather rotate 60&deg; to the right.
 	 */
 	static def minimizeAngle(double angle) {
 		var result = angle
@@ -31,7 +31,7 @@ class GeometryExtensions {
 			result -= 360
 		while(result <= -180) 
 			result += 360
-		result			
+		result
 	}
 	
 }

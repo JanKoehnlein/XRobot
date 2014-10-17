@@ -85,7 +85,7 @@ class RobotPosition {
 	}
 	
 	/**
-	 * Return the bearing to the given <code>position</code> taking the {@link #viewDirection} 
+	 * Compute the bearing to the given <code>position</code> taking the {@link #viewDirection} 
 	 * into account. This means that the given position vector is translated into the
 	 * local coordinate system of this robot. If the given position is directly in front of
 	 * this robot, the resulting vector has an angle of 0.
@@ -100,7 +100,7 @@ class RobotPosition {
 	}
 	
 	/**
-	 * Return the relative speed taking the {@link #viewDirection} into account. For example,
+	 * Compute the relative speed taking the {@link #viewDirection} into account. For example,
 	 * given a {@link RobotPosition} instance {@code p},
 	 * <pre> p.relativeSpeed(p.actualSpeed) </pre>
 	 * yields the robot's own speed relative to its orientation. If this resulting speed vector
