@@ -86,7 +86,6 @@ class HallOfFameTable extends VBox {
 					delay = 8.seconds
 					duration = 200.millis
 					onFinished = [
-						println(layoutBounds)
 						this.children.clear
 						if(pageNr == 0) {
 							spacerHeight = page.layoutBounds.height 

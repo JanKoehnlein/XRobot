@@ -20,6 +20,7 @@ import static org.xtext.xrobot.api.IRobot.*
 import static org.xtext.xrobot.game.Game.*
 import static org.xtext.xrobot.game.GameResult.*
 import static org.xtext.xrobot.net.INetConfig.*
+import com.google.common.base.Throwables
 
 class Game {
 
@@ -27,7 +28,7 @@ class Game {
 	
 	static val LOG = Logger.getLogger(Game)
 	
-	static val GAME_LOST_THRESHOLD = 1000
+	static val GAME_LOST_THRESHOLD = 800
 	 
 	@Inject Provider<ScriptRunner> scriptRunnerProvider
 	
@@ -178,6 +179,14 @@ class Game {
 						gameResult = canceled(program.name + ' was caught cheating')
 						lastError = se
 						gameOver = true
+					} catch (Exception e) {
+						if (Throwables.getRootCause(e) instanceof SecurityException) {
+							gameResult = canceled(program.name + ' was caught cheating')
+							lastError = Throwables.getRootCause(e)
+							gameOver = true
+						} else {
+							throw e
+						}
 					}
 				]
 			}

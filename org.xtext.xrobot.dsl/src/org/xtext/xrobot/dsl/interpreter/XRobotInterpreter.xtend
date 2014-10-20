@@ -251,19 +251,23 @@ class XRobotInterpreter extends XbaseInterpreter {
 	}
 	
 	private def increaseRecursion(JvmOperation operation) {
-		val c = recursionCounter.get(operation) ?: 0
-		if (c > RECURSION_LIMIT) {
-			throw new MemoryException("Recursion limit exceeded by '" + operation.simpleName + "'")
+		synchronized (recursionCounter) {
+			val c = recursionCounter.get(operation) ?: 0
+			if (c > RECURSION_LIMIT) {
+				throw new MemoryException("Recursion limit exceeded by '" + operation.simpleName + "'")
+			}
+			recursionCounter.put(operation, c + 1)
 		}
-		recursionCounter.put(operation, c + 1)
 	}
 	
 	private def decreaseRecursion(JvmOperation operation) {
-		val c = recursionCounter.get(operation)
-		if (c == null || c == 0) {
-			throw new IllegalStateException
+		synchronized (recursionCounter) {
+			val c = recursionCounter.get(operation)
+			if (c == null || c == 0) {
+				throw new IllegalStateException
+			}
+			recursionCounter.put(operation, c - 1)
 		}
-		recursionCounter.put(operation, c - 1)
 	}
 	
 	val sayMethod = IRobot.getMethod("say", String)

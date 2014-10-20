@@ -143,7 +143,7 @@ class RobotSecurityManager extends SecurityManager {
 	
 	static val SECURE_CLASSES = #[
 		XbaseInterpreter, RobotSecurityManager, SecurityManager, AccessController, Class,
-		ClassLoader, System, java.io.File, java.io.FileInputStream, java.util.zip.ZipFile,
+		ClassLoader, System, FilePermission, java.io.File, java.io.FileInputStream, java.util.zip.ZipFile,
 		java.util.jar.JarFile, java.lang.reflect.Constructor, java.lang.reflect.Method,
 		java.lang.reflect.AccessibleObject, org.eclipse.xtext.util.PolymorphicDispatcher,
 		org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
@@ -151,6 +151,7 @@ class RobotSecurityManager extends SecurityManager {
 	
 	static val SECURE_CLASS_NAMES = #[
 		'java.net.URLClassLoader',
+		'java.io.WinNTFileSystem',
 		'sun.misc.URLClassPath',
 		'sun.misc.Resource',
 		'sun.misc.FileURLMapper',
