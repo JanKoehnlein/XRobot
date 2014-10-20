@@ -40,7 +40,7 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 					styleClass += 'balloon'
 					textOverrun = OverrunStyle.ELLIPSIS
 					wrapText = true
-					setMaxSize(200, 100)
+					setMaxSize(250, 100)
 					setMinSize(50, 50)
 				]
 			]

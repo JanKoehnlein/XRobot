@@ -93,8 +93,8 @@ class Display implements IErrorReporter, ITimeListener {
 						spacing = 5
 						children += new ImageView => [
 							image = new Image(IdleProgram.getResourceAsStream('/qrcode.jpg'))
-							fitWidth = image.width * 0.6
-							fitHeight = image.height * 0.6
+							fitWidth = image.width * 0.67
+							fitHeight = image.height * 0.67
 						]
 					]
 					overlay = new Group => [
