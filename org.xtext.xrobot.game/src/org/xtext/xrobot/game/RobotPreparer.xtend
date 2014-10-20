@@ -62,8 +62,10 @@ class RobotPreparer implements IRobotPreparer {
 						LOG.error('Error preparing robot', exc)
 					} finally {
 						ignoreExceptions[ robot.invincible = false ]
-						synchronized (slot) {
-							slot.status = checkStatus
+						if (!slot.available) {
+							synchronized (slot) {
+								slot.status = checkStatus
+							}
 						}
 					}
 				], 'RobotPlacer') => [
@@ -86,7 +88,7 @@ class RobotPreparer implements IRobotPreparer {
 	
 	override cancel() {
 		isCanceled = true
-		thread?.join
+		thread?.join(1000)
 	}
 	
 	private def checkStatus() {
