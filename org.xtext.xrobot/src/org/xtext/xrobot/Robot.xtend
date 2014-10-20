@@ -205,8 +205,8 @@ class Robot {
 	 * @param rightSpeed the speed of the right motor in centimeters/second   
 	 */
 	override void startMotors(double leftSpeed, double rightSpeed) {
-		leftMotor.speed = (360 * abs(leftSpeed) / ROBOT_WHEEL_DIAMETER) as int
-		rightMotor.speed = (360 * abs(rightSpeed) / ROBOT_WHEEL_DIAMETER) as int
+		leftMotor.speed = (360 * leftSpeed / ROBOT_WHEEL_DIAMETER) as int
+		rightMotor.speed = (360 * rightSpeed / ROBOT_WHEEL_DIAMETER) as int
 		if (leftSpeed < 0)
 			leftMotor.backward
 		else
