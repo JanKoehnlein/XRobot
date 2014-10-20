@@ -140,7 +140,13 @@
 }
 
 .draw-box {
-	-fx-background-color: linear-gradient(to right, rgb(160.0,205.0,255.0), rgb(218.0,88.0,96.0));
+	-fx-background-color: linear-gradient(
+		from 0% 0% to 100% 100%, 
+		rgb(160.0,205.0,255.0) 0%,
+		rgb(160.0,205.0,255.0) 50%,
+		rgb(218.0,88.0,96.0) 50%,
+		rgb(218.0,88.0,96.0) 100%
+		);
 	-fx-fill: linear-gradient(to right, rgb(160.0,205.0,255.0), rgb(218.0,88.0,96.0));
 }
 

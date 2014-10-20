@@ -17,7 +17,7 @@ class XRobotImplicitlyImportedFeatures extends ImplicitlyImportedFeatures {
 		val result = super.getStaticImportClasses
 		result += Math
 		result += Sample
+		result += GeometryExtensions
 		result
 	}
-	
 }

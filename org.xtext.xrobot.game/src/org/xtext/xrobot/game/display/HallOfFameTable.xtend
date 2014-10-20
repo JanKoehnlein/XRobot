@@ -1,12 +1,14 @@
 package org.xtext.xrobot.game.display
 
 import com.google.inject.Inject
+import java.util.List
 import javafx.animation.FadeTransition
 import javafx.animation.KeyFrame
 import javafx.animation.KeyValue
 import javafx.animation.SequentialTransition
 import javafx.animation.Timeline
 import javafx.scene.control.Label
+import javafx.scene.control.OverrunStyle
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.VBox
 import javafx.scene.shape.Rectangle
@@ -14,7 +16,6 @@ import org.xtext.xrobot.game.ranking.PlayerRanking
 import org.xtext.xrobot.game.ranking.RankingProvider
 
 import static extension javafx.util.Duration.*
-import java.util.List
 
 class HallOfFameTable extends VBox {
 
@@ -22,10 +23,12 @@ class HallOfFameTable extends VBox {
 	
 	@Inject RankingProvider hallOfFameProvider
 	
-	val spacerRectangle = new Rectangle(0, 0, 323, 0) => [
+	val spacerRectangle = new Rectangle(0, 0, 0, 0) => [
 			visible = false
 	]
 	
+	double spacerHeight 
+
 	new() {
 		styleClass += #['hof', 'outer-box']
 		setMaxSize(USE_PREF_SIZE, USE_PREF_SIZE)
@@ -57,7 +60,7 @@ class HallOfFameTable extends VBox {
 				autoReverse = false
 				keyFrames += new KeyFrame(
 					500.millis,
-					new KeyValue(spacerRectangle.heightProperty, 560)
+					new KeyValue(spacerRectangle.heightProperty, spacerHeight)
 				)
 				onFinished = [
 					this.children.clear
@@ -83,7 +86,12 @@ class HallOfFameTable extends VBox {
 					delay = 8.seconds
 					duration = 200.millis
 					onFinished = [
+						println(layoutBounds)
 						this.children.clear
+						if(pageNr == 0) {
+							spacerHeight = page.layoutBounds.height 
+							spacerRectangle.width = page.layoutBounds.width
+						}
 						if(pageNr < pages.size - 1) 
 							this.children += pages.get(pageNr + 1)
 					]
@@ -93,9 +101,12 @@ class HallOfFameTable extends VBox {
 				node = this
 				fromValue = 1
 				toValue = 0
-				duration = 100.millis
+				duration = 100.millis 
+				onFinished = [
+					spacerRectangle.height = 0
+					children.setAll(spacerRectangle)
+				]
 			]
-			
 		]
 	}
 
@@ -127,7 +138,9 @@ class HallOfFameTable extends VBox {
 		page.add(cell => [
 			styleClass += styles
 			children += new Label(value.toString) => [
+				setMaxSize(300, 30)
 				styleClass += styles
+				textOverrun = OverrunStyle.ELLIPSIS
 			]
 		], column, row)
 		cell 

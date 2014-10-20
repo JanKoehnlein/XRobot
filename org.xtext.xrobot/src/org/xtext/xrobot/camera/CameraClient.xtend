@@ -88,16 +88,23 @@ class CameraClient {
 	private def setRobotPosition(RobotID robotID, long timestamp,
 			float rawXpos, float rawYpos, float rawAngle, float rawXspeed, float rawYspeed,
 			float rawRotSpeed) {
-		val rawPos = Vector.cartesian((rawXpos - 0.5) * WIDTH_IN_CM,
-				(if (invertYAxis)
-					(0.5 - rawYpos)
-				else
-					(rawYpos - 0.5)
-				) * HEIGHT_IN_CM)
-		val rawSpeed = Vector.cartesian(rawXspeed * WIDTH_IN_CM, rawYspeed * HEIGHT_IN_CM)
-		// TUIO 0° means NORTH and 90° means EAST
-		val angle = 90 - rawAngle.toDegrees
-		val rotSpeed = rawRotSpeed.toDegrees
+		var Vector rawPos
+		var Vector rawSpeed
+		var double angle
+		var double rotSpeed
+		if (invertYAxis) {
+			rawPos = Vector.cartesian((rawXpos - 0.5) * WIDTH_IN_CM,
+					(0.5 - rawYpos) * HEIGHT_IN_CM)
+			rawSpeed = Vector.cartesian(rawXspeed * WIDTH_IN_CM, -rawYspeed * HEIGHT_IN_CM)
+			angle = 90 - rawAngle.toDegrees
+			rotSpeed = -rawRotSpeed.toDegrees
+		} else {
+			rawPos = Vector.cartesian((rawXpos - 0.5) * WIDTH_IN_CM,
+					(rawYpos - 0.5) * HEIGHT_IN_CM)
+			rawSpeed = Vector.cartesian(rawXspeed * WIDTH_IN_CM, rawYspeed * HEIGHT_IN_CM)
+			angle = rawAngle.toDegrees - 90
+			rotSpeed = rawRotSpeed.toDegrees
+		}
 		
 		// Apply perspective correction
 		val correctedPos = correctPositionPerspective(rawPos)
