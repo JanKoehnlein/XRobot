@@ -29,6 +29,18 @@ class ExampleRobot {
 					scoop(1)
 					scoop(0)
 				}
+			'''),
+			new ExampleRobot('Circles', '''
+				robot Circles
+				author Archimedes
+				
+				Adjust on (centerBearing.angle - 90).abs > 10 {
+					rotate(centerBearing.angle - 85)
+				}
+				
+				Circle {
+					curveForward(max(10, centerBearing.length-10), 360)
+				}
 			''')
 		]
 	}
