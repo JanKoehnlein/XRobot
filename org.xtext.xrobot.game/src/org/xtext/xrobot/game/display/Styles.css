@@ -16,7 +16,7 @@
 }
 
 .side-container-label {
-	-fx-font-size: 16pt;
+	-fx-font-size: 20pt;
 }
 
 .outer-box {
@@ -198,6 +198,7 @@
 .logo {
 	-fx-font-family: 'Magenta';
 	-fx-scale-x: 0.8;
+	-fx-font-size: 48pt;
 	-fx-text-fill: yellow
 }
 

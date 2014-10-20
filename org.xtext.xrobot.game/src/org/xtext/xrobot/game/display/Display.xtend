@@ -70,6 +70,7 @@ class Display implements IErrorReporter, ITimeListener {
 					left = xtendBox 
 					bottomLeft = new VBox => [
 						styleClass += #['outer-box', 'hof', 'hof-box']
+						alignment = Pos.CENTER
 						children += new Label => [
 							text = 'XRobots'
 							styleClass += #['boxed-label', 'logo']
@@ -88,11 +89,12 @@ class Display implements IErrorReporter, ITimeListener {
 					right = xtextBox
 					bottomRight = new VBox => [
 						styleClass += #['outer-box', 'hof', 'hof-box']
+						alignment = Pos.CENTER
 						spacing = 5
 						children += new ImageView => [
 							image = new Image(IdleProgram.getResourceAsStream('/qrcode.jpg'))
-							fitWidth = image.width * 0.5
-							fitHeight = image.height * 0.5
+							fitWidth = image.width * 0.6
+							fitHeight = image.height * 0.6
 						]
 					]
 					overlay = new Group => [

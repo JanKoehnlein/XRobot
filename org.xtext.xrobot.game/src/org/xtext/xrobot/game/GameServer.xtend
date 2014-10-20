@@ -44,7 +44,7 @@ class GameServer {
 		slots = playerSlotFactory.createAll
 		display.start(stage, slots)
 		val controlStage = new Stage
-		controlStage.initModality(Modality.APPLICATION_MODAL)
+//		controlStage.initModality(Modality.APPLICATION_MODAL)
 		controlWindow.start(controlStage, slots)
 		controlStage.onCloseRequest = [
 			stage.close
