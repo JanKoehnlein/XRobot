@@ -42,7 +42,7 @@ class RobotPreparer implements IRobotPreparer {
 	override prepare() {
 		LOG.debug(slot.robotID + ' prepare()')
 		synchronized (slot) {
-			if (!slot.available && slot.status != READY && !thread?.isAlive) {
+			if (slot.status != READY && !thread?.isAlive) {
 				slot.status = PREPARING
 				isCanceled = false
 				robot = slot.robotFactory.newRobot [isCanceled]
@@ -82,6 +82,11 @@ class RobotPreparer implements IRobotPreparer {
 		synchronized (slot) {
 			slot.status = checkStatus
 		}
+	}
+	
+	override cancel() {
+		isCanceled = true
+		thread?.join
 	}
 	
 	private def checkStatus() {

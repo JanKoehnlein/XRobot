@@ -4,7 +4,6 @@ import com.google.inject.Inject
 import com.google.inject.Provider
 import com.google.inject.Singleton
 import java.util.List
-import javafx.stage.Modality
 import javafx.stage.Stage
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
@@ -44,7 +43,6 @@ class GameServer {
 		slots = playerSlotFactory.createAll
 		display.start(stage, slots)
 		val controlStage = new Stage
-//		controlStage.initModality(Modality.APPLICATION_MODAL)
 		controlWindow.start(controlStage, slots)
 		controlStage.onCloseRequest = [
 			stage.close
@@ -84,7 +82,6 @@ class GameServer {
 				slots.forEach[prepare]
 				ready = slots.forall[waitReady]
 				abort = slots.exists[available]
-				Thread.sleep(5000)
 			} while (!abort && !ready)
 			
 			// The slots may have been released during preparation

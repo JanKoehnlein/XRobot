@@ -136,6 +136,7 @@ class PlayerSlot implements IRobotListener {
 	
 	def release() {
 		this.program = null
+		preparer.cancel
 		robotFactory?.release
 		token = new AccessToken
 		status = AVAILABLE

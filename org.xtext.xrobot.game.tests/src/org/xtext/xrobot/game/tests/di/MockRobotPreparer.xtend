@@ -13,7 +13,7 @@ class MockRobotPreparer implements IRobotPreparer {
 	
 	override prepare() {
 		synchronized (slot) {
-			if (!slot.available && slot.status != READY)
+			if (slot.status != READY)
 				slot.status = PREPARING
 		}
 	}
@@ -23,6 +23,9 @@ class MockRobotPreparer implements IRobotPreparer {
 			if (!slot.available)
 				slot.status = READY
 		}
+	}
+	
+	override cancel() {
 	}
 	
 }

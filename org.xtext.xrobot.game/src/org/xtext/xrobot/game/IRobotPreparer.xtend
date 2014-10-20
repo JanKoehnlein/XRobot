@@ -8,4 +8,6 @@ interface IRobotPreparer {
 	
 	def void waitReady()
 	
+	def void cancel()
+	
 }
