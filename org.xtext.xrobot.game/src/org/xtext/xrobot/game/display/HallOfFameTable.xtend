@@ -84,7 +84,7 @@ class HallOfFameTable extends VBox {
 					duration = 200.millis
 					onFinished = [
 						this.children.clear
-						if(page != pages.last) 
+						if(pageNr < pages.size - 1) 
 							this.children += pages.get(pageNr + 1)
 					]
 				]

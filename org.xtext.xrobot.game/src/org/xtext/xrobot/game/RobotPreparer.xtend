@@ -23,8 +23,8 @@ class RobotPreparer implements IRobotPreparer {
 	static double LOW_BATTERY_CHARGE = 0.65
 	static double MIN_BATTERY_CHARGE = 0.60
 	
-	static val DISTANCE_ACCURACY = 5.0
-	static val ANGLE_ACCURACY = 8.0
+	static val DISTANCE_ACCURACY = 4.0
+	static val ANGLE_ACCURACY = 6.0
 	static val MAX_PLACEMENT_MOVES = 5
 	
 	static val PREPARATION_TIMEOUT = 10000
@@ -41,32 +41,37 @@ class RobotPreparer implements IRobotPreparer {
 
 	override prepare() {
 		LOG.debug(slot.robotID + ' prepare()')
-		if(thread?.isAlive) 
-			return;
-		slot.status = PREPARING
-		isCanceled = false
-		robot = slot.robotFactory.newRobot [isCanceled]
-		LOG.info(slot.robotID + ' battery ' + round(robot.batteryState * 100) + '%')
-		if(robot.batteryState < MIN_BATTERY_CHARGE) 
-			errorReporter.showError(slot.robotID + ': Change battery', 5.seconds)
-		if(robot.batteryState < LOW_BATTERY_CHARGE) 
-			errorReporter.showInfo(slot.robotID + ': Battery low', 5.seconds)
-		thread = new Thread([
-			try {
-				robot.invincible = true
-				robot.reset
-				goHome
-			} catch (CanceledException exc) {
-				// ignore
-			} catch (Exception exc) {
-				LOG.error('Error preparing robot', exc)
-			} finally {
-				ignoreExceptions[ robot.invincible = false ]
+		synchronized (slot) {
+			if (!slot.available && slot.status != READY && !thread?.isAlive) {
+				slot.status = PREPARING
+				isCanceled = false
+				robot = slot.robotFactory.newRobot [isCanceled]
+				LOG.info(slot.robotID + ' battery ' + round(robot.batteryState * 100) + '%')
+				if(robot.batteryState < MIN_BATTERY_CHARGE) 
+					errorReporter.showError(slot.robotID + ': Change battery', 5.seconds)
+				if(robot.batteryState < LOW_BATTERY_CHARGE) 
+					errorReporter.showInfo(slot.robotID + ': Battery low', 5.seconds)
+				thread = new Thread([
+					try {
+						robot.invincible = true
+						robot.reset
+						goHome
+					} catch (CanceledException exc) {
+						// ignore
+					} catch (Exception exc) {
+						LOG.error('Error preparing robot', exc)
+					} finally {
+						ignoreExceptions[ robot.invincible = false ]
+						synchronized (slot) {
+							slot.status = checkStatus
+						}
+					}
+				], 'RobotPlacer') => [
+					daemon = true
+				]
+				thread.start
 			}
-		], 'RobotPlacer') => [
-			daemon = true
-		]
-		thread.start
+		}
 	}
 	
 	override waitReady() {
@@ -74,7 +79,9 @@ class RobotPreparer implements IRobotPreparer {
 		thread?.join(PREPARATION_TIMEOUT)
 		isCanceled = true
 		thread?.join
-		slot.status = checkStatus
+		synchronized (slot) {
+			slot.status = checkStatus
+		}
 	}
 	
 	private def checkStatus() {
@@ -131,8 +138,8 @@ class RobotPreparer implements IRobotPreparer {
 	
 	private def getHomeViewDirection() {
 		switch robot.robotID {
-			case Blue: 180
-			case Red: 0
+			case Blue: 180.0
+			case Red: 0.0
 		}
 	}
 	

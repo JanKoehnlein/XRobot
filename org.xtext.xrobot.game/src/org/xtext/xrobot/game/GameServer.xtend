@@ -55,42 +55,62 @@ class GameServer {
 	def register(AccessToken usedToken, String uri, String script) {
 		synchronized(slots) {
 			val slot = slots.findFirst[matches(usedToken) && isAvailable]
-			if(slot?.isAvailable) {
+			if (slot?.available) {
 				try {
 					slot.acquire(uri, script)
 					LOG.debug('Robot ' + slot.program.name + ' has joined the game')
 				} catch (Exception exc) {
 					display.showError(exc.message, 5.seconds)
-					LOG.error('Error assigning robot', exc) 
+					LOG.error('Error assigning robot', exc)
 					slot.release
 				}
-			}	
-			if(slots.forall[!isAvailable])
+			}
+			if (slots.forall[!available])
 				startGame
 		}
 	}
 	
 	def void startGame() {
-		var GameResult result = null
+		var GameResult result
+		var gamePlayed = false
 		do {
+			result = null
 			val game = gameProvider.get()
+			
 			controlWindow.prepareGame(game)
-			slots.forEach[prepare]
-			while(!slots.forall[ available || waitReady ]) {
+			var boolean ready
+			var boolean abort
+			do {
+				slots.forEach[prepare]
+				ready = slots.forall[waitReady]
+				abort = slots.exists[available]
 				Thread.sleep(5000)
-			}
+			} while (!abort && !ready)
+			
 			// The slots may have been released during preparation
-			if (slots.forall[ !available ]) {
-				slots.forEach[status = FIGHTING]
+			for (slot : slots) {
+				synchronized (slot) {
+					if (slot.status == READY)
+						slot.status = FIGHTING
+				}
+			}
+			
+			if (slots.forall[status == FIGHTING]) {
 				display.aboutToStart(game)
 				controlWindow.gameStarted(game)
 				game.play(slots)
 				result = evaluateGame(game)
 				controlWindow.gameFinished(game)
+				gamePlayed = true
 			}
-		} while(result?.replay)
-		LOG.debug('Releasing player slots')
-		slots.forEach[release]
+			
+		} while(result != null && result.replay)
+		if (gamePlayed) {
+			LOG.debug('Releasing player slots')
+			slots.forEach[release]
+		} else {
+			slots.forEach[if (!available) prepare]
+		}
 		display.startIdleProgram
 	}
 	

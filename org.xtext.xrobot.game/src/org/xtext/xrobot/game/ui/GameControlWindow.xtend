@@ -99,8 +99,12 @@ class GameControlWindow implements IGameListener {
 				children += expungeBlueButton = new Button('Expunge') => [
 					slotButtons += it
 					onAction = [
-						if (!#{FIGHTING, WINNER, LOSER, DRAW}.contains(blue.status))
-							blue.release
+						synchronized (blue) {
+							if (!#{FIGHTING, WINNER, LOSER, DRAW}.contains(blue.status)) {
+								chooseBlueCombo.selectionModel.select(null)
+								blue.release
+							}
+						}
 					]
 					minWidth = USE_PREF_SIZE
 					maxWidth = Double.MAX_VALUE
@@ -123,8 +127,12 @@ class GameControlWindow implements IGameListener {
 				children += expungeRedButton = new Button('Expunge') => [
 					slotButtons += it
 					onAction = [
-						if (!#{FIGHTING, WINNER, LOSER, DRAW}.contains(red.status))
-							red.release
+						synchronized (red) {
+							if (!#{FIGHTING, WINNER, LOSER, DRAW}.contains(red.status)) {
+								chooseRedCombo.selectionModel.select(null)
+								red.release
+							}
+						}
 					]
 					minWidth = USE_PREF_SIZE
 					maxWidth = Double.MAX_VALUE

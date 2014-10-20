@@ -126,8 +126,7 @@ class PlayerSlot implements IRobotListener {
 	}
 	
 	def prepare() {
-		if(status != READY)
-			preparer.prepare
+		preparer.prepare
 	}
 	
 	def waitReady() {
@@ -152,7 +151,7 @@ class PlayerSlot implements IRobotListener {
 	}
 
 	def getScriptName() {
-		program.name
+		program?.name
 	}
 
 	static interface Listener {
