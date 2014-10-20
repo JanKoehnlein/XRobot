@@ -5,16 +5,15 @@ import com.google.inject.Singleton
 import java.util.List
 import javafx.application.Platform
 import javafx.geometry.Insets
-import javafx.geometry.Orientation
 import javafx.scene.Node
 import javafx.scene.Scene
 import javafx.scene.control.Button
 import javafx.scene.control.ComboBox
 import javafx.scene.control.Label
 import javafx.scene.control.Separator
+import javafx.scene.layout.GridPane
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Pane
-import javafx.scene.layout.TilePane
 import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import org.xtext.xrobot.RobotID
@@ -24,7 +23,6 @@ import org.xtext.xrobot.game.IGameListener
 import org.xtext.xrobot.game.PlayerSlot
 import org.xtext.xrobot.game.example.ExampleRobot
 
-import static javafx.scene.layout.Region.*
 import static org.xtext.xrobot.RobotID.*
 import static org.xtext.xrobot.game.GameResult.*
 import static org.xtext.xrobot.game.PlayerStatus.*
@@ -84,19 +82,15 @@ class GameControlWindow implements IGameListener {
 			padding = new Insets(10)
 			val blue = slots.findFirst[robotID == Blue]
 			val red = slots.findFirst[robotID == Red]
-			children += new TilePane => [
-				minWidth = USE_PREF_SIZE
-				orientation = Orientation.VERTICAL
+			children += new GridPane => [
 				hgap = 20
 				vgap = 10
-				prefRows = 4
-				children += new Label('Blue')
-				children += chooseBlueCombo = createExampleCombo(blue) => [
+				add(new Label('Blue'), 0, 0)
+				add(chooseBlueCombo = createExampleCombo(blue) => [
 					slotButtons += it
-					minWidth = USE_PREF_SIZE
-					maxWidth = Double.MAX_VALUE
-				]
-				children += expungeBlueButton = new Button('Expunge') => [
+					setMaxWidth(Double.MAX_VALUE)
+				], 0, 1)
+				add(expungeBlueButton = new Button('Expunge') => [
 					slotButtons += it
 					onAction = [
 						synchronized (blue) {
@@ -106,25 +100,22 @@ class GameControlWindow implements IGameListener {
 							}
 						}
 					]
-					minWidth = USE_PREF_SIZE
-					maxWidth = Double.MAX_VALUE
-				]
-				children += placeBlueButton = new Button('Place') => [
+					setMaxWidth(Double.MAX_VALUE)
+				], 0, 2)
+				add(placeBlueButton = new Button('Place') => [
 					slotButtons += it
 					onAction = [
 						if (#{NOT_AT_HOME, AVAILABLE}.contains(blue.status))
 							blue.prepare
 					]
-					minWidth = USE_PREF_SIZE
-					maxWidth = Double.MAX_VALUE
-				]
-				children += new Label('Red')
-				children += chooseRedCombo = createExampleCombo(red) => [
+					setMaxWidth(Double.MAX_VALUE)
+				], 0, 3)
+				add(new Label('Red'), 1, 0)
+				add(chooseRedCombo = createExampleCombo(red) => [
 					slotButtons += it
-					minWidth = USE_PREF_SIZE
-					maxWidth = Double.MAX_VALUE
-				]
-				children += expungeRedButton = new Button('Expunge') => [
+					setMaxWidth(Double.MAX_VALUE)
+				], 1, 1)
+				add(expungeRedButton = new Button('Expunge') => [
 					slotButtons += it
 					onAction = [
 						synchronized (red) {
@@ -134,18 +125,16 @@ class GameControlWindow implements IGameListener {
 							}
 						}
 					]
-					minWidth = USE_PREF_SIZE
-					maxWidth = Double.MAX_VALUE
-				]
-				children += placeRedButton = new Button('Place') => [
+					setMaxWidth(Double.MAX_VALUE)
+				], 1, 2)
+				add(placeRedButton = new Button('Place') => [
 					slotButtons += it
 					onAction = [
 						if (#{NOT_AT_HOME, AVAILABLE}.contains(red.status))
 							red.prepare
 					]
-					minWidth = USE_PREF_SIZE
-					maxWidth = Double.MAX_VALUE
-				]
+					setMaxWidth(Double.MAX_VALUE)
+				], 1, 3)
 			]
 			children += new Separator
 			children += new Label('Referee')
