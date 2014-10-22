@@ -87,6 +87,10 @@ class RobotSecurityManager extends SecurityManager {
 	]
 	
 	public static val RESTRICTED_CLASSES = #[
+		org.xtext.xrobot.Robot, org.xtext.xrobot.camera.CameraClient, org.xtext.xrobot.server.RemoteRobot,
+		org.xtext.xrobot.server.RemoteRobotConnector, org.xtext.xrobot.server.RemoteRobotFactory,
+		org.xtext.xrobot.server.RemoteRobotProxy, org.xtext.xrobot.server.RobotServerState,
+		org.xtext.xrobot.server.StateProvider, org.xtext.xrobot.server.StateReceiver,
 		java.io.File, java.io.FileDescriptor, java.io.FileReader, java.io.FileWriter,
 		java.io.FileInputStream, java.io.FileOutputStream, java.net.Socket, java.net.ServerSocket,
 		java.net.DatagramSocket, java.net.HttpURLConnection, java.nio.channels.DatagramChannel,

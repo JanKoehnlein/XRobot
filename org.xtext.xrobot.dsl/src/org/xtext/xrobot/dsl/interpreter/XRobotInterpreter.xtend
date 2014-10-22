@@ -42,7 +42,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 	/** Limit on the number of calls to {@link IRobot#play(Sample)} and {@link IRobot#say(String)}. */
 	public static val NOISE_CALL_LIMIT = 20
 	/** Limit on the number of characters in a text string passed to {@link IRobot#say(String)}. */
-	public static val SAY_TEXT_LENGTH_LIMIT = 16
+	public static val SAY_TEXT_LENGTH_LIMIT = 24
 	
 	static val LOG = Logger.getLogger(XRobotInterpreter)
 	
