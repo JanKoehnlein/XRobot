@@ -91,8 +91,6 @@ class RobotSecurityManager extends SecurityManager {
 		org.xtext.xrobot.server.RemoteRobotConnector, org.xtext.xrobot.server.RemoteRobotFactory,
 		org.xtext.xrobot.server.RemoteRobotProxy, org.xtext.xrobot.server.RobotServerState,
 		org.xtext.xrobot.server.StateProvider, org.xtext.xrobot.server.StateReceiver,
-		org.xtext.xrobot.game.Game, org.xtext.xrobot.game.GameServer, org.xtext.xrobot.game.GameServerLauncher,
-		org.xtext.xrobot.game.PlayerSlot, org.xtext.xrobot.game.RobotPreparer, org.xtext.xrobot.game.ScriptPoller,
 		java.io.File, java.io.FileDescriptor, java.io.FileReader, java.io.FileWriter,
 		java.io.FileInputStream, java.io.FileOutputStream, java.net.Socket, java.net.ServerSocket,
 		java.net.DatagramSocket, java.net.HttpURLConnection, java.nio.channels.DatagramChannel,
