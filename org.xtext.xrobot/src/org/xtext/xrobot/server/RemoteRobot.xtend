@@ -21,7 +21,7 @@ final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
 	val CameraClient cameraClient
 	
-	var CameraSample cameraSample
+	var CameraSample cameraSample = CameraSample.zeroSample
 
 	val RobotID robotID
 	
@@ -46,7 +46,7 @@ final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 		while (newState == null || lastStateUpdate >= newState.sampleTime) {
 			checkCanceled
 			if (tries-- <= 0) {
-				throw new SocketTimeoutException('No state update from robot after ' + timeout + 'ms.')
+				throw new SocketTimeoutException('No state update from robot')
 			}
 			Thread.sleep(UPDATE_INTERVAL)
 			newState = stateProvider.state
@@ -62,7 +62,7 @@ final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 				if (newState.dead) {
 					return
 				}
-				throw new CameraTimeoutException('No position update from camera after ' + timeout + 'ms.')
+				throw new CameraTimeoutException('No position update from camera')
 			}
 			Thread.sleep(UPDATE_INTERVAL)
 			newCameraSample = cameraClient.getCameraSample(robotID)

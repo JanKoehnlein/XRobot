@@ -35,14 +35,14 @@ class RemoteRobotConnector implements IRemoteRobot.Connector {
 		try {
 			val ipAddress = robotID.ipAddress
 			if(ipAddress == null) 
-				throw new SocketTimeoutException('Brick \'' + robotID + '\' not located')			
+				throw new SocketTimeoutException(robotID + ' robot not located')			
 			socket = SocketChannel.open()
 			socket.configureBlocking(false)
 			if(!socket.connect(new InetSocketAddress(ipAddress, SERVER_PORT))) {
 				val selector = Selector.open
 				socket.register(selector, SelectionKey.OP_CONNECT)
 				if(selector.select(4 * SOCKET_TIMEOUT) == 0) 
-					throw new SocketTimeoutException('Timeout connecting to  \'' + robotID + '\'')
+					throw new SocketTimeoutException('Timeout connecting to ' + robotID + ' robot')
 				socket.finishConnect
 			}
 			val remoteRobotFactory = new RemoteRobotFactory(robotID, socket, cameraClient)

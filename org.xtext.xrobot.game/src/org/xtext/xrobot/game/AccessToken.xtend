@@ -9,6 +9,7 @@ import static java.lang.Math.*
 class AccessToken {
 	
 	static val TOKEN_SIZE = 4
+	static val random = new Random()
 	
 	String value 
 	
@@ -18,7 +19,6 @@ class AccessToken {
 	
 	new() {
 		val b = newCharArrayOfSize(TOKEN_SIZE)
-		val random = new Random()
 		for(i: 1..TOKEN_SIZE) {
 			val n = random.nextDouble * 36 as int
 			b.set(i - 1, switch n {

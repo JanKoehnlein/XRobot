@@ -54,6 +54,7 @@ class Vector {
 	 * 		The horizontal coordinate in centimeters
 	 * @param y
 	 * 		The vertical coordinate in centimeters
+	 * @return a new vector defined with Cartesian coordinates.
 	 */
 	static def Vector cartesian(double x, double y) {
 		val v = new Vector()
@@ -71,6 +72,7 @@ class Vector {
 	 * 		The length in centimeters (must not be negative)
 	 * @param angle
 	 * 		The angle in degrees (this is normalized to the range from -180&deg; to +180&deg;)
+	 * @return a new vector defined with polar coordinates
 	 */
 	static def Vector polar(double length, double angle) {
 		if (length < 0) {
@@ -79,6 +81,18 @@ class Vector {
 		val v = new Vector()
 		v.length = length
 		v.angle = minimizeAngle(angle)
+		v.polarDefined = true
+		return v
+	}
+
+	/**
+	 * Create a zero vector. The coordinates and length are all set to 0.
+	 * 
+	 * @return a new vector with zero length 
+	 */	
+	static def Vector zero() {
+		val v = new Vector()
+		v.cartesianDefined = true
 		v.polarDefined = true
 		return v
 	}

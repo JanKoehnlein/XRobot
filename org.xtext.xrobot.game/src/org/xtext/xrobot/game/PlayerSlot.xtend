@@ -30,8 +30,10 @@ class PlayerSlot implements IRobotListener {
 		@Inject ScriptParser scriptParser
 		
 		def create(RobotID robotID) {
-			new PlayerSlot(robotID, remoteRobotConnector, display, robotPreparerProvider,
+			val slot = new PlayerSlot(robotID, remoteRobotConnector, display, robotPreparerProvider,
 					resourceSetProvider, scriptParser)
+			slot.scriptParser.robotID = robotID
+			return slot
 		}
 		
 		def createAll() {

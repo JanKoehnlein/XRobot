@@ -105,8 +105,14 @@ class GameControlWindow implements IGameListener {
 				add(placeBlueButton = new Button('Place') => [
 					slotButtons += it
 					onAction = [
-						if (#{NOT_AT_HOME, AVAILABLE}.contains(blue.status))
-							blue.prepare
+						if (#{NOT_AT_HOME, AVAILABLE}.contains(blue.status)) {
+							new Thread([
+								blue.prepare
+							], 'Robot Preparer') => [
+								daemon = true
+								start
+							]
+						}
 					]
 					setMaxWidth(Double.MAX_VALUE)
 				], 0, 3)
@@ -130,8 +136,14 @@ class GameControlWindow implements IGameListener {
 				add(placeRedButton = new Button('Place') => [
 					slotButtons += it
 					onAction = [
-						if (#{NOT_AT_HOME, AVAILABLE}.contains(red.status))
-							red.prepare
+						if (#{NOT_AT_HOME, AVAILABLE}.contains(red.status)) {
+							new Thread([
+								red.prepare
+							], 'Robot Preparer') => [
+								daemon = true
+								start
+							]
+						}
 					]
 					setMaxWidth(Double.MAX_VALUE)
 				], 1, 3)
@@ -187,6 +199,9 @@ class GameControlWindow implements IGameListener {
 							example.URI,
 							example.code
 						)
+						// Registration may fail if the camera image is not available
+						if (slot.available)
+							cb.selectionModel.select(null)
 					], 'Example Robot Chooser') => [
 						daemon = true
 						start
