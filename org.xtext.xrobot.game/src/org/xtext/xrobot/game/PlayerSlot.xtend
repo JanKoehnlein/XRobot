@@ -17,6 +17,8 @@ import java.util.ArrayList
 
 class PlayerSlot implements IRobotListener {
 	
+	static val MAX_PARSE_TIME = 10000
+	
 	static class Factory {
 	
 		@Inject IRemoteRobot.Connector remoteRobotConnector
@@ -52,6 +54,7 @@ class PlayerSlot implements IRobotListener {
 	
 	val Provider<XtextResourceSet> resourceSetProvider
 	
+	@Accessors(PUBLIC_GETTER)
 	val ScriptParser scriptParser
 	
 	@Accessors(PUBLIC_GETTER)
@@ -120,8 +123,9 @@ class PlayerSlot implements IRobotListener {
 	}
 	
 	def acquire(String uri, String serializedProgram) {
-		val resourceSet = resourceSetProvider.get
-		val program = scriptParser.parse(uri, serializedProgram, resourceSet)
+		val startTime = System.currentTimeMillis
+		scriptParser.cancelIndicator = [System.currentTimeMillis - startTime > MAX_PARSE_TIME]
+		val program = scriptParser.parse(uri, serializedProgram, resourceSetProvider.get)
 		if (program != null) {
 			acquire(program)
 		}

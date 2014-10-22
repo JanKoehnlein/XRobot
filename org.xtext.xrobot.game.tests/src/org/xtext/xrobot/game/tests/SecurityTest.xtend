@@ -8,13 +8,13 @@ import org.eclipse.xtext.junit4.XtextRunner
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.xtext.xrobot.dsl.interpreter.MemoryException
 import org.xtext.xrobot.game.Game
 import org.xtext.xrobot.game.PlayerSlot
 import org.xtext.xrobot.game.tests.di.MockUiTestModule
 
-import static org.junit.Assert.*
 import static org.hamcrest.CoreMatchers.instanceOf
-import org.xtext.xrobot.dsl.interpreter.MemoryException
+import static org.junit.Assert.*
 
 @RunWith(XtextRunner)
 @InjectWith(MockUiTestModule.InjectorProvider)
@@ -29,6 +29,7 @@ class SecurityTest {
 	@Before
 	def void init() {
 		slots = playerSlotFactory.createAll
+		slots.forEach[scriptParser.validate = false]
 	}
 	
 	private def performSecurityTest(String evilProgram) {
@@ -198,7 +199,7 @@ class SecurityTest {
 			Evil {
 				recurse
 			}
-			sub void recurse() {
+			def void recurse() {
 				recurse
 			}
 		''')

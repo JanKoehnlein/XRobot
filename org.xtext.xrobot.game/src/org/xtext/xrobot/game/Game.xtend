@@ -21,6 +21,7 @@ import static org.xtext.xrobot.game.Game.*
 import static org.xtext.xrobot.game.GameResult.*
 import static org.xtext.xrobot.net.INetConfig.*
 import com.google.common.base.Throwables
+import org.xtext.xrobot.dsl.interpreter.XRobotInterpreter.RobotThread
 
 class Game {
 
@@ -146,7 +147,7 @@ class Game {
 	public def waitThreadsTermination() {
 		val threads = <Thread>newArrayOfSize(16)
 		getThreadGroup.enumerate(threads)
-		threads.forEach[it?.join]
+		threads.filter[it instanceof RobotThread].forEach[join]
 	}
 
 	private def prepareScriptRunner(Program program, IRemoteRobot.Factory robotFactory, IRobotListener... listeners) {
@@ -155,7 +156,7 @@ class Game {
 		}
 		val scriptExecutor = scriptRunnerProvider.get
 		listeners.forEach[scriptExecutor.addRobotListener(it)]
-		new Thread(getThreadGroup, robotFactory.robotID.name) {
+		new RobotThread(getThreadGroup, robotFactory.robotID.name) {
 			override run() {
 				executeSafely [
 					if (!robotFactory.isAlive)

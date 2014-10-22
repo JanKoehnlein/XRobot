@@ -24,9 +24,12 @@ class ScriptParser {
 	@Accessors
 	RobotID robotID
 	
-	@Accessors
-	CancelIndicator cancelIndicator
+	@Accessors(PUBLIC_SETTER)
+	boolean validate = true
 
+	@Accessors(PUBLIC_SETTER)
+	CancelIndicator cancelIndicator
+	
 	/**
 	 * Parse the given model.
 	 * 
@@ -39,12 +42,14 @@ class ScriptParser {
 		if (!resource.errors.empty)
 			throw new ParseException(label + ' syntax error:\n'
 					+ resource.errors.map[message].join('\n'))
-			
-		val issues = validator.validate(resource, CheckMode.ALL,
-				cancelIndicator ?: CancelIndicator.NullImpl)
-		if (issues.exists[severity == ERROR])
-			throw new ParseException(label + ' validation error:\n'
-					+ issues.filter[severity == ERROR].map[message].join('\n'))
+		
+		if (validate) {
+			val issues = validator.validate(resource, CheckMode.ALL,
+					cancelIndicator ?: CancelIndicator.NullImpl)
+			if (issues.exists[severity == ERROR])
+				throw new ParseException(label + ' validation error:\n'
+						+ issues.filter[severity == ERROR].map[message].join('\n'))
+		}
 			
 		resource.contents.head() as Program
 	}

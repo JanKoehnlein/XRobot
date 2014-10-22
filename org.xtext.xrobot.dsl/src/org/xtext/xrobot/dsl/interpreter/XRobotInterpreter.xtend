@@ -44,6 +44,13 @@ class XRobotInterpreter extends XbaseInterpreter {
 	/** Limit on the number of characters in a text string passed to {@link IRobot#say(String)}. */
 	public static val SAY_TEXT_LENGTH_LIMIT = 24
 	
+	/** Thread class used for executing robots. */
+	static class RobotThread extends Thread {
+		new(ThreadGroup group, String name) {
+			super(group, name)
+		}
+	}
+	
 	static val LOG = Logger.getLogger(XRobotInterpreter)
 	
 	static val ROBOT_UPDATE_TIMEOUT = 2000
@@ -122,8 +129,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 							if (modeNode != null) {
 								modeContext.newValue(CURRENT_LINE, modeNode.startLine)
 							}
-							val threadGroup = Thread.currentThread.threadGroup
-							val thread = new Thread(threadGroup,
+							val thread = new RobotThread(Thread.currentThread.threadGroup,
 									'Robot ' + modeRobot.robotID.name + ' in mode ' + newMode.name) {
 								override run() {
 									try {
