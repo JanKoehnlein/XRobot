@@ -161,8 +161,8 @@ class RobotPreparer implements IRobotPreparer {
 	
 	private def getHomePosition() {
 		switch robot.robotID {
-			case Blue: Vector.cartesian(-ARENA_OUTER_RADIUS * 0.4, 0)
-			case Red: Vector.cartesian(ARENA_OUTER_RADIUS * 0.4, 0)
+			case Blue: Vector.cartesian(-ARENA_OUTER_RADIUS * 0.38, 0)
+			case Red: Vector.cartesian(ARENA_OUTER_RADIUS * 0.38, 0)
 		}
 	}
 	

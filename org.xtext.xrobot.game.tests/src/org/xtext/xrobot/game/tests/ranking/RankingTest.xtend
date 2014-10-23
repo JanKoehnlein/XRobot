@@ -1,6 +1,5 @@
 package org.xtext.xrobot.game.tests.ranking
 
-import java.io.File
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl
 import org.junit.Test

@@ -152,7 +152,7 @@ class GameControlWindow implements IGameListener {
 			children += new Label('Referee')
 			children += refereeButtons = new HBox => [
 				spacing = 10
-				children += new Button('Blue wins') => [
+				children += new Button('Blue Wins') => [
 					onAction = [
 						if (currentGame != null)
 							currentGame.refereeResult = win(Blue)
@@ -164,7 +164,7 @@ class GameControlWindow implements IGameListener {
 							currentGame.refereeResult = draw
 					]
 				]
-				children += new Button('Red wins') => [
+				children += new Button('Red Wins') => [
 					onAction = [
 						if (currentGame != null)
 							currentGame.refereeResult = win(Red)

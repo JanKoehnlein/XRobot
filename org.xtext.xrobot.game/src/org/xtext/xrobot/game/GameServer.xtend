@@ -111,10 +111,10 @@ class GameServer {
 		display.startIdleProgram
 	}
 	
-	def evaluateGame(Game game) {
+	private def evaluateGame(Game game) {
 		var hasShownResult = false
 		var inGameRefereeResult = game.refereeResult
-		if(game.refereeResult == null || inGameRefereeResult?.canceled) {
+		if (inGameRefereeResult == null || inGameRefereeResult.canceled) {
 			// show preliminary result, don't apply until referee's veto time has expired
 			val gameResult = game.gameResult
 			if(inGameRefereeResult?.canceled) {
@@ -122,14 +122,14 @@ class GameServer {
 			} else if(gameResult.canceled) {
 				display.showError(game.gameResult.cancelationReason, 10.seconds)
 			} else if(gameResult.isDraw) {
-				display.showMessage('A draw', 'draw', 10.seconds)
+				display.showMessage('A Draw', 'draw', 10.seconds)
 				slots.forEach[ status = DRAW ]
 			} else {
 				val winnerSlot = slots.findFirst[robotID == gameResult.winner]
 				winnerSlot.status = WINNER
 				val loserSlot = slots.findFirst[robotID == gameResult.loser]
 				loserSlot.status = LOSER
-				display.showMessage(winnerSlot.scriptName + ' wins', winnerSlot.robotID.name.toLowerCase + 'wins', 10.seconds)
+				display.showMessage(winnerSlot.scriptName + ' Wins', winnerSlot.robotID.name.toLowerCase + 'wins', 10.seconds)
 			}
 			hasShownResult = true
 			// poll referee result
@@ -137,22 +137,23 @@ class GameServer {
 				Thread.sleep(100)
 		}
 		val isRefereeOverrule = game.refereeResult != null && game.refereeResult != game.gameResult
+				&& !game.refereeResult.canceled
 		val showResultAgain = !hasShownResult || isRefereeOverrule
 		val infoPrefix = if(isRefereeOverrule)
 				'Referee overrule:\n'
-			else 
+			else
 				''
 		val finalResult = game.refereeResult ?: game.gameResult
 		// apply final result
 		if(finalResult.isReplay) {
 			if(showResultAgain)
-				display.showWarning(infoPrefix + 'Replay game', 7.seconds)
+				display.showWarning(infoPrefix + 'Replay Game', 7.seconds)
 		} else if(finalResult.isCanceled) {
 			if(showResultAgain)
 				display.showError(finalResult.cancelationReason, 7.seconds)
 		} else if(finalResult.isDraw) {
 			if(showResultAgain)
-				display.showMessage(infoPrefix + 'A draw', 'draw', 7.seconds)
+				display.showMessage(infoPrefix + 'A Draw', 'draw', 7.seconds)
 			slots.forEach[ status = DRAW ]
 			rankingSystem.addDraw(slots.head.program, slots.last.program)
 		} else {
@@ -161,7 +162,7 @@ class GameServer {
 			val loserSlot = slots.findFirst[robotID == finalResult.loser]
 			loserSlot.status = LOSER
 			if(showResultAgain)
-				display.showMessage(infoPrefix + winnerSlot.scriptName + ' wins', winnerSlot.robotID.name.toLowerCase + 'wins', 7.seconds)
+				display.showMessage(infoPrefix + winnerSlot.scriptName + ' Wins', winnerSlot.robotID.name.toLowerCase + 'wins', 7.seconds)
 			rankingSystem.addWin(winnerSlot.program, loserSlot.program)
 		}
 		if(!finalResult.canceled) {

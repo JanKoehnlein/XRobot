@@ -8,13 +8,23 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 class PlayerRanking implements Comparable<PlayerRanking> {
 
 	val String id
-	val String name
+	
+	@Accessors
+	String name
+	
 	int wins
+	
 	int draws
+	
 	int defeats
 	
 	@Accessors
-	double score 
+	double score
+	
+	new(String id, String name) {
+		this.id = id
+		this.name = name
+	}
 	
 	def addWin() {
 		wins++

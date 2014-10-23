@@ -69,11 +69,16 @@ class RankingProvider {
 	}
 
 	def getRanking(Program program) {
-		index.get(program.ID) ?: {
+		val ranking = index.get(program.ID) ?: {
 			val newEntry = new PlayerRanking(program.ID, program.name)
 			index.put(program.ID, newEntry)
 			newEntry
 		}
+		if (ranking.name != program.name) {
+			// The user has changed his program name
+			ranking.name = program.name
+		}
+		return ranking
 	}
 	
 	private def getID(Program it) {
