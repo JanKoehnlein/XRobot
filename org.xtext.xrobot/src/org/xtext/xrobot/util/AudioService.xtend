@@ -3,10 +3,12 @@ package org.xtext.xrobot.util
 import com.google.common.collect.HashMultimap
 import com.sun.speech.freetts.Voice
 import com.sun.speech.freetts.VoiceManager
+import com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory
+import java.util.EnumMap
 import javafx.scene.media.AudioClip
+import org.apache.log4j.Logger
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.Sample
-import com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory
 
 class AudioService {
 
@@ -14,14 +16,20 @@ class AudioService {
 		def void audioStarted(String text)
 		def void audioStopped()
 	}
+	
+	static val MAX_TEXT_LENGTH = 64
 
-	static var INSTANCE = new AudioService
+	static val INSTANCE = new AudioService
+
+	static val LOG = Logger.getLogger(AudioService)
 
 	val Voice kevin
 
 	val samples = <Sample, AudioClip>newHashMap
 
-	val listeners = HashMultimap.<RobotID, Listener>create 
+	val listeners = HashMultimap.<RobotID, Listener>create
+	
+	val threads = new EnumMap<RobotID, Thread>(RobotID) 
 
 	static def getInstance() {
 		INSTANCE
@@ -45,7 +53,7 @@ class AudioService {
 
 	def speak(String text, RobotID robotID) {
 		playInBackground([
-			kevin.speak(text)
+			kevin.speak(text.substring(0, Math.min(text.length, MAX_TEXT_LENGTH)))
 		], text, robotID)
 	}
 
@@ -70,8 +78,8 @@ class AudioService {
 	}
 
 	private def playInBackground(Runnable runnable, String text, RobotID robotID) {
-		new Thread(
-			[
+		val playThread = new Thread(robotID + ' Audio Player') {
+			override run() {
 				listeners.get(robotID).forEach[
 					audioStarted(text)
 				]
@@ -79,10 +87,19 @@ class AudioService {
 				listeners.get(robotID).forEach[
 					audioStopped
 				]
-			], 'AudioPlayer') => [
-				daemon = true
-				priority = Thread.MIN_PRIORITY
-				start
-			]
+			}
+		} => [
+			daemon = true
+			priority = Thread.MIN_PRIORITY
+		]
+		synchronized (threads) {
+			val previousThread = threads.get(robotID)
+			if (previousThread == null || !previousThread.alive) {
+				playThread.start
+				threads.put(robotID, playThread)
+			} else {
+				LOG.info('Ignored audio message: ' + text)
+			}
+		}
 	}
 }
