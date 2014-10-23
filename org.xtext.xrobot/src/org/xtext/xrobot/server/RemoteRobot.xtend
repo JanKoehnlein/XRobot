@@ -16,9 +16,10 @@ import static org.xtext.xrobot.net.INetConfig.*
 
 final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
+	public static val MAX_SLEEP_TIME = 10000
+	
 	static val MAX_POSITION_AGE = 500
 	static val RELEASE_MESSAGE = -1
-	static val MAX_SLEEP_TIME = 10000
 	
 	val CameraClient cameraClient
 	

@@ -12,6 +12,7 @@ import org.xtext.xrobot.camera.CameraTimeoutException
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
+import org.xtext.xrobot.server.RemoteRobot
 import org.xtext.xrobot.util.AudioService
 
 import static extension java.lang.Math.*
@@ -169,6 +170,12 @@ final class MockRobot implements IRemoteRobot {
 
 	override say(String text) {
 		text.speak(robotID)
+	}
+	
+	override sleep(long milliseconds) {
+		if (milliseconds > 0) {
+			Thread.sleep(Math.min(milliseconds, RemoteRobot.MAX_SLEEP_TIME))
+		}
 	}
 
 	override update() {
