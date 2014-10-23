@@ -18,6 +18,7 @@ import java.util.ArrayList
 class PlayerSlot implements IRobotListener {
 	
 	static val MAX_PARSE_TIME = 10000
+	static val MAX_LABEL_LENGTH = 20
 	
 	static class Factory {
 	
@@ -116,7 +117,16 @@ class PlayerSlot implements IRobotListener {
 
 	def acquire(Program program) {
 		if (program.name.nullOrEmpty) {
-			throw new IllegalArgumentException("Unnamed program")
+			throw new IllegalArgumentException("Program has no name")
+		}
+		if (program.author.nullOrEmpty) {
+			throw new IllegalArgumentException("Author has no name")
+		}
+		if (program.name.length > MAX_LABEL_LENGTH) {
+			program.name = program.name.substring(0, MAX_LABEL_LENGTH) + "..."
+		}
+		if (program.author.length > MAX_LABEL_LENGTH) {
+			program.author = program.author.substring(0, MAX_LABEL_LENGTH) + "..."
 		}
 		this.program = program
 		preparer.prepare
