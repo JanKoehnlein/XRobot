@@ -297,6 +297,9 @@ class XRobotInterpreter extends XbaseInterpreter {
 					throw new MemoryException("Size limit exceeded by array")
 				}
 				super.invokeOperation(operation, receiver, argumentValues)
+			} else if (receiverDeclaredType == Object && operation.simpleName == 'wait') {
+				LOG.info("Blocked invocation of Object#wait().")
+				return null
 			} else {
 				operation.increaseRecursion
 				// Make sure our security manager is active while invoking the method
