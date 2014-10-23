@@ -31,6 +31,8 @@ import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.dsl.interpreter.XRobotInterpreter.*
 import org.xtext.xrobot.util.AudioService
+import java.lang.reflect.Method
+import java.lang.reflect.Constructor
 
 class XRobotInterpreter extends XbaseInterpreter {
 
@@ -300,6 +302,9 @@ class XRobotInterpreter extends XbaseInterpreter {
 			} else if (receiverDeclaredType == Object && operation.simpleName == 'wait') {
 				LOG.info("Blocked invocation of Object#wait().")
 				return null
+			} else if (receiverDeclaredType == Method || receiverDeclaredType == Constructor
+					|| receiverDeclaredType == Field) {
+				throw new SecurityException("Reflection is not allowed.")
 			} else {
 				operation.increaseRecursion
 				// Make sure our security manager is active while invoking the method

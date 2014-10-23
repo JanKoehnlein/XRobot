@@ -107,6 +107,20 @@ class SecurityTest {
 	}
 	
 	@Test
+	def void testReflection() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				val thread = Thread.getMethod('currentThread').invoke(null) as Thread
+				val tokenMap = org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
+					.getField('deactivationTokens').get(System.securityManager) as java.util.HashMap<Thread, Long>
+				org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager.getMethod('deactivate', long)
+					.invoke(System.securityManager, tokenMap.get(thread))
+			}
+		''')
+	}
+	
+	@Test
 	def void testThreadCreate() {
 		performSecurityTest('''
 			robot Test author Test
