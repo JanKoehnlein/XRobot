@@ -8,8 +8,6 @@ import static org.xtext.xrobot.net.INetConfig.*
 
 class SocketOutputBuffer {
 		
-//	static val LOG = Logger.getLogger(SocketOutputBuffer)
-	
 	val ByteBuffer buffer = ByteBuffer.allocate(BUFFER_SIZE)
 	
 	val SocketChannel channel
@@ -22,7 +20,6 @@ class SocketOutputBuffer {
 		buffer.limit = buffer.position
 		buffer.rewind
 		channel.write(buffer)
-//		LOG.debug('...sent ' + buffer.limit + ' bytes.')
 		buffer.rewind
 		buffer.limit = BUFFER_SIZE
 	}

@@ -4,11 +4,13 @@ import com.google.common.collect.HashMultimap
 import com.sun.speech.freetts.Voice
 import com.sun.speech.freetts.VoiceManager
 import com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory
-import java.util.EnumMap
+import java.util.Arrays
 import javafx.scene.media.AudioClip
 import org.apache.log4j.Logger
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.Sample
+
+import static org.xtext.xrobot.util.AudioService.*
 
 class AudioService {
 
@@ -17,7 +19,10 @@ class AudioService {
 		def void audioStopped()
 	}
 	
-	static val MAX_TEXT_LENGTH = 64
+	/** Limit on the number of audio invocations. */
+	public static val AUDIO_CALL_LIMIT = 20
+	/** Limit on the number of characters in a text string. */
+	public static val TEXT_LENGTH_LIMIT = 24
 
 	static val INSTANCE = new AudioService
 
@@ -29,7 +34,9 @@ class AudioService {
 
 	val listeners = HashMultimap.<RobotID, Listener>create
 	
-	val threads = new EnumMap<RobotID, Thread>(RobotID) 
+	val threads = <Thread>newArrayOfSize(RobotID.values.length)
+	
+	val audioCounters = newIntArrayOfSize(RobotID.values.length)
 
 	static def getInstance() {
 		INSTANCE
@@ -50,11 +57,19 @@ class AudioService {
 	def removeAudioListener(RobotID robotID, Listener listener) {
 		listeners.remove(robotID, listener)
 	}
+	
+	def resetCounters() {
+		Arrays.fill(audioCounters, 0)
+	}
 
 	def speak(String text, RobotID robotID) {
-		playInBackground([
-			kevin.speak(text.substring(0, Math.min(text.length, MAX_TEXT_LENGTH)))
-		], text, robotID)
+		if (text.length > TEXT_LENGTH_LIMIT) {
+			LOG.info("Blocked audio message due to excessive length.")
+		} else {
+			playInBackground([
+				kevin.speak(text)
+			], text, robotID)
+		}
 	}
 
 	def play(Sample sample, RobotID robotID) {
@@ -78,27 +93,33 @@ class AudioService {
 	}
 
 	private def playInBackground(Runnable runnable, String text, RobotID robotID) {
-		val playThread = new Thread(robotID + ' Audio Player') {
-			override run() {
-				listeners.get(robotID).forEach[
-					audioStarted(text)
-				]
-				runnable.run
-				listeners.get(robotID).forEach[
-					audioStopped
-				]
-			}
-		} => [
-			daemon = true
-			priority = Thread.MIN_PRIORITY
-		]
 		synchronized (threads) {
-			val previousThread = threads.get(robotID)
+			val index = robotID.ordinal
+			val previousThread = threads.get(index)
 			if (previousThread == null || !previousThread.alive) {
-				playThread.start
-				threads.put(robotID, playThread)
+				audioCounters.set(index, audioCounters.get(index) + 1)
+				if (audioCounters.get(index) > AUDIO_CALL_LIMIT) {
+					LOG.info("Blocked audio message due to excessive number of calls: " + text)
+				} else {
+					val playThread = new Thread(robotID + ' Audio Player') {
+						override run() {
+							listeners.get(robotID).forEach[
+								audioStarted(text)
+							]
+							runnable.run
+							listeners.get(robotID).forEach[
+								audioStopped
+							]
+						}
+					} => [
+						daemon = true
+						priority = Thread.MIN_PRIORITY
+					]
+					playThread.start
+					threads.set(index, playThread)
+				}
 			} else {
-				LOG.info('Ignored audio message: ' + text)
+				LOG.info('Blocked audio message because audio is already playing: ' + text)
 			}
 		}
 	}

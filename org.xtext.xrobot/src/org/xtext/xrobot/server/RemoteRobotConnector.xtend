@@ -46,7 +46,7 @@ class RemoteRobotConnector implements IRemoteRobot.Connector {
 				socket.finishConnect
 			}
 			val remoteRobotFactory = new RemoteRobotFactory(robotID, socket, cameraClient)
-			LOG.info('Connected to ' + robotID + ' at ' + (socket.remoteAddress as InetSocketAddress).address)
+			LOG.info('Connected to ' + robotID + ' at ' + (socket.remoteAddress as InetSocketAddress).address.hostAddress)
 			remoteRobotFactory
 		} catch(Exception exc) {
 			socket?.close

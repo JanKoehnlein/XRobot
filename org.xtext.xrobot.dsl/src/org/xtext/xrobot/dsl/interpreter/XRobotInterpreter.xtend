@@ -21,7 +21,6 @@ import org.eclipse.xtext.xbase.interpreter.impl.EvaluationException
 import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations
 import org.xtext.xrobot.api.IRobot
-import org.xtext.xrobot.api.Sample
 import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
 import org.xtext.xrobot.dsl.xRobotDSL.Field
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
@@ -31,7 +30,7 @@ import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.dsl.interpreter.XRobotInterpreter.*
-import static org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager.*
+import org.xtext.xrobot.util.AudioService
 
 class XRobotInterpreter extends XbaseInterpreter {
 
@@ -39,10 +38,6 @@ class XRobotInterpreter extends XbaseInterpreter {
 	public static val RECURSION_LIMIT = 100
 	/** Limit on the number of elements in allocated arrays. */
 	public static val MAX_ARRAY_SIZE = 5000
-	/** Limit on the number of calls to {@link IRobot#play(Sample)} and {@link IRobot#say(String)}. */
-	public static val NOISE_CALL_LIMIT = 20
-	/** Limit on the number of characters in a text string passed to {@link IRobot#say(String)}. */
-	public static val SAY_TEXT_LENGTH_LIMIT = 24
 	
 	/** Thread class used for executing robots. */
 	static class RobotThread extends Thread {
@@ -78,8 +73,6 @@ class XRobotInterpreter extends XbaseInterpreter {
 	
 	Throwable lastModeException
 	
-	var int noiseCount
-	
 	val recursionCounter = new HashMap<JvmOperation, Integer>
 	
 	def void execute(Program program, IRemoteRobot.Factory robotFactory, List<IRobotListener> listeners, CancelIndicator cancelIndicator) {
@@ -90,6 +83,8 @@ class XRobotInterpreter extends XbaseInterpreter {
 			baseContext = createContext
 			baseContext.newValue(ROBOT, conditionRobot)
 			val conditionContext = baseContext.fork()
+			// Reset the audio call counters of the audio service
+			AudioService.getInstance.resetCounters
 			// Start the security manager in order to block all illegal operations
 			RobotSecurityManager.start
 			
@@ -113,7 +108,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 						return result as Boolean ?: false
 					]
 					if(newMode != currentMode || currentModeCancelIndicator?.isCanceled) {
-						if(currentMode != null)
+						if(currentMode != null && !currentModeCancelIndicator.isCanceled)
 							LOG.debug('Canceling running mode ' +  currentMode.name)
 						currentModeCancelIndicator?.cancel
 						currentModeCancelIndicator = new InternalCancelIndicator(cancelIndicator)
@@ -276,9 +271,6 @@ class XRobotInterpreter extends XbaseInterpreter {
 		}
 	}
 	
-	val sayMethod = IRobot.getMethod("say", String)
-	val playMethod = IRobot.getMethod("play", Sample)
-	
 	override protected invokeOperation(JvmOperation operation, Object receiver, List<Object> argumentValues, IEvaluationContext context, CancelIndicator indicator) {
 		val executable = operation.sourceElements.head
 		if (executable instanceof Sub) {
@@ -298,25 +290,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 		} else {
 			val receiverDeclaredType = javaReflectAccess.getRawType(operation.declaringType)
 			if (receiverDeclaredType == IRobot) {
-				val method = javaReflectAccess.getMethod(operation)
-				var blocked = false
-				if (method == sayMethod || method == playMethod) {
-					if (method == sayMethod) {
-						val text = argumentValues.head as String ?: ""
-						if (text.length > SAY_TEXT_LENGTH_LIMIT) {
-							LOG.info("Command 'say' blocked: text is too long (" + text.length + " characters).")
-							blocked = true
-						}
-					}
-					if (noiseCount > NOISE_CALL_LIMIT) {
-						LOG.info("Command '" + method.name + "' blocked: robot is too noisy.")
-						blocked = true
-					}
-					noiseCount++
-				}
-				if (!blocked) {
-					super.invokeOperation(operation, receiver, argumentValues)
-				}
+				super.invokeOperation(operation, receiver, argumentValues)
 			} else if (receiverDeclaredType == ArrayLiterals) {
 				val size = argumentValues.head as Integer ?: 0
 				if (size > MAX_ARRAY_SIZE) {

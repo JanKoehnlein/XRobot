@@ -17,7 +17,6 @@ abstract class AbstractExecutor {
 	
 	def dispatchAndExecute(boolean isAlive) throws IOException {
 		val componentID = input.readInt
-//		LOG.debug('componentID=' + componentID)
 		val subComponent = getSubComponent(componentID)
 		if(subComponent != null)
 			return subComponent.executeNext(isAlive)
@@ -29,7 +28,6 @@ abstract class AbstractExecutor {
 	
 	protected def boolean executeNext(boolean isAlive) {
 		val messageType = input.readInt
-//		LOG.debug('messageType=' + messageType)
 		execute(messageType, isAlive)
 	}
 

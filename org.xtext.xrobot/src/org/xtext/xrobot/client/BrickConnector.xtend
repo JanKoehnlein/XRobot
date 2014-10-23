@@ -66,7 +66,7 @@ class BrickConnector {
 		robot.led = ORANGE_BLINK
 		isStopped = false
 		while (!isStopped) {
-			LOG.info('Accepting connections...')
+			LOG.debug('Accepting connections...')
 			serverSelector.select(SOCKET_TIMEOUT)
 			for (key : serverSelector.selectedKeys) {
 				if (robot.escapePressed)
@@ -75,7 +75,7 @@ class BrickConnector {
 					val socket = server.accept()
 					if (socket != null) {
 						socket.configureBlocking(false)
-						LOG.info('Connected to ' + (socket.remoteAddress as InetSocketAddress).address)
+						LOG.debug('Connected to ' + (socket.remoteAddress as InetSocketAddress).address)
 						robot.led = GREEN
 						robot.systemSound(BEEP)
 						return socket
@@ -91,10 +91,10 @@ class BrickConnector {
 			}
 		}
 		robot.systemSound(DESCENDING_ARPEGGIO)
-		LOG.info('Shutting down server...')
+		LOG.debug('Shutting down server...')
 		ignoreExceptions[serverSelector?.close]
 		ignoreExceptions[server?.close]
-		LOG.info('...done.')
+		LOG.debug('...done.')
 		return null
 	}
 
