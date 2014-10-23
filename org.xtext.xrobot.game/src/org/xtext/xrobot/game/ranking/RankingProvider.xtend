@@ -7,7 +7,6 @@ import java.io.FileReader
 import java.io.FileWriter
 import java.io.Reader
 import java.io.Writer
-import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 
@@ -19,7 +18,7 @@ class RankingProvider {
 	val index = <String, PlayerRanking>newHashMap
 	
 	new() {
-		load		
+		load
 	}
 	
 	@Accessors(PUBLIC_GETTER)
@@ -41,9 +40,8 @@ class RankingProvider {
 		val gson = new Gson
 		var Writer writer = null 
 		try {
-			writer = new FileWriter(new File(FILE_NAME))
-			gson.toJson(index.values, writer)
-			
+			writer = new FileWriter(FILE_NAME)
+			gson.toJson(index.values.toArray(<PlayerRanking>newArrayOfSize(index.size)), writer)
 		} finally {
 			writer?.close
 		}
@@ -56,8 +54,8 @@ class RankingProvider {
 			var Reader reader = null
 			try {
 				reader = new FileReader(file)
-				val List<PlayerRanking> values = gson.fromJson(reader, typeof(PlayerRanking[]))
-				values.forEach[index.put(name, it)]
+				val values = gson.fromJson(reader, typeof(PlayerRanking[]))
+				values.forEach[index.put(id, it)]
 			} finally {
 				reader?.close
 			}

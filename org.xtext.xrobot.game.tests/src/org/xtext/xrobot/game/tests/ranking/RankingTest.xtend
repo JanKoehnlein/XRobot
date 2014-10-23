@@ -15,8 +15,8 @@ class RankingTest {
 	@Test
 	def void testPersistence() {
 		clear
-		val foo = createProgram('foo.xrobot', 'foo')
-		val bar = createProgram('bar.xrobot', 'bar')
+		val foo = createProgram('foo.xrobot', 'Foo')
+		val bar = createProgram('bar.xrobot', 'Bar')
 		foo.ranking.score = 20
 		bar.ranking.addWin
 		save
@@ -32,6 +32,7 @@ class RankingTest {
 		val resource = new XMIResourceImpl(URI.createURI(uri))
 		val program = XRobotDSLFactory.eINSTANCE.createProgram => [
 			it.name = name
+			it.author = 'test'
 		]
 		resource.contents += program
 		program
