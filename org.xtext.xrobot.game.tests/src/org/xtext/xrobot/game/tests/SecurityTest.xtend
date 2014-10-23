@@ -87,6 +87,26 @@ class SecurityTest {
 	}
 	
 	@Test
+	def void testChangeSecurityManager() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				System.setSecurityManager(null)
+			}
+		''')
+	}
+	
+	@Test
+	def void testDeactivateSecurityManager() {
+		performSecurityTest('''
+			robot Test author Test
+			Evil {
+				org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager.deactivate(0xdeadbeef)
+			}
+		''')
+	}
+	
+	@Test
 	def void testThreadCreate() {
 		performSecurityTest('''
 			robot Test author Test

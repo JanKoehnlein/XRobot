@@ -35,7 +35,7 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 	@Check
 	def checkImportAllowed(XImportDeclaration declaration) {
 		val pkg = declaration.importedType?.packageName
-		if (pkg != null && !RobotSecurityManager.containedIn(pkg, RobotSecurityManager.ALLOWED_PACKAGES)) {
+		if (pkg != null && !RobotSecurityManager.ALLOWED_PACKAGES.contains(pkg)) {
 			error('Access to package ' + pkg + ' is not allowed.',
 				declaration, XtypePackage.eINSTANCE.XImportDeclaration_ImportedType)
 		}
@@ -70,7 +70,7 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 		val clazz = type.rawType
 		if (clazz != null) {
 			val pkg = clazz.package.name
-			if (pkg != null && !RobotSecurityManager.containedIn(pkg, RobotSecurityManager.ALLOWED_PACKAGES)) {
+			if (pkg != null && !RobotSecurityManager.ALLOWED_PACKAGES.contains(pkg)) {
 				error('Access to package ' + pkg + ' is not allowed.',
 					source, feature)
 			} else if (RobotSecurityManager.RESTRICTED_CLASSES.exists[isAssignableFrom(clazz)]) {

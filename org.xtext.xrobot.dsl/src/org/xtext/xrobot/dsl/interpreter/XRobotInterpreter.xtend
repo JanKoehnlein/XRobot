@@ -325,13 +325,13 @@ class XRobotInterpreter extends XbaseInterpreter {
 				super.invokeOperation(operation, receiver, argumentValues)
 			} else {
 				operation.increaseRecursion
+				// Make sure our security manager is active while invoking the method
+				val token = RobotSecurityManager.activate
 				try {
-					// Make sure our security manager is active while invoking the method
-					RobotSecurityManager.active = true
 					System.securityManager.checkPackageAccess(operation.declaringType.packageName)
 					return super.invokeOperation(operation, receiver, argumentValues)
 				} finally {
-					RobotSecurityManager.active = false
+					RobotSecurityManager.deactivate(token)
 					operation.decreaseRecursion
 				}
 			}
@@ -340,12 +340,12 @@ class XRobotInterpreter extends XbaseInterpreter {
 	
 	override protected _doEvaluate(XConstructorCall constructorCall, IEvaluationContext context, CancelIndicator indicator) {
 		// Make sure our security manager is active while invoking the constructor
+		val token = RobotSecurityManager.activate
 		try {
-			RobotSecurityManager.active = true
 			System.securityManager.checkPackageAccess(constructorCall.constructor.declaringType.packageName)
 			super._doEvaluate(constructorCall, context, indicator)
 		} finally {
-			RobotSecurityManager.active = false
+			RobotSecurityManager.deactivate(token)
 		}
 	}
 	

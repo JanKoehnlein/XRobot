@@ -1,19 +1,42 @@
 package org.xtext.xrobot.dsl.interpreter.security
 
+import java.io.File
+import java.io.FileInputStream
 import java.io.FilePermission
+import java.lang.reflect.AccessibleObject
+import java.lang.reflect.Constructor
+import java.lang.reflect.Method
+import java.lang.reflect.ReflectPermission
 import java.security.AccessController
 import java.security.Permission
+import java.security.SecureRandom
+import java.util.EnumMap
+import java.util.HashMap
+import java.util.List
+import java.util.Properties
+import java.util.PropertyPermission
+import java.util.PropertyResourceBundle
+import java.util.ResourceBundle
+import java.util.jar.JarFile
+import java.util.zip.ZipFile
+import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.eclipse.xtext.util.PolymorphicDispatcher
+import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter
 
 import static java.lang.System.*
-import java.util.PropertyPermission
-import java.util.List
-import java.lang.reflect.ReflectPermission
-import java.util.HashMap
-import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter
-import org.eclipse.xtext.naming.IQualifiedNameProvider
 
+/**
+ * The security manager for the XRobot interpreter.
+ */
 class RobotSecurityManager extends SecurityManager {
 	
+	static val random = new SecureRandom
+	
+	/**
+	 * Start the security manager for the current thread. The security manager is initially
+	 * inactive.
+	 */
 	static synchronized def start() {
 		var RobotSecurityManager robotManager
 		val currentManager = System.securityManager
@@ -28,11 +51,17 @@ class RobotSecurityManager extends SecurityManager {
 		}
 	}
 	
+	/**
+	 * Stop the security manager for the current thread.
+	 */
 	static synchronized def stop() {
 		val currentManager = System.securityManager
 		if (currentManager instanceof RobotSecurityManager) {
 			val robotManager = currentManager as RobotSecurityManager
 			synchronized (robotManager.activeThreads) {
+				if (robotManager.activeThreads.get(Thread.currentThread)) {
+					throw new SecurityException("Security manager is still active.")
+				}
 				robotManager.activeThreads.remove(Thread.currentThread)
 				if (robotManager.activeThreads.empty) {
 					System.securityManager = robotManager.defaultManager
@@ -43,23 +72,64 @@ class RobotSecurityManager extends SecurityManager {
 		}
 	}
 	
-	static synchronized def setActive(boolean active) {
+	/**
+	 * Activate the security manager for the current thread. The returned token number is
+	 * required to deactivate the security manager.
+	 */
+	static synchronized def activate() {
 		val currentManager = System.securityManager
 		if (currentManager instanceof RobotSecurityManager) {
 			val robotManager = currentManager as RobotSecurityManager
+			val thread = Thread.currentThread
+			val token = random.nextLong
 			synchronized (robotManager.activeThreads) {
-				robotManager.activeThreads.put(Thread.currentThread, active)
+				robotManager.activeThreads.put(thread, true)
+				robotManager.deactivationTokens.put(thread, token)
 			}
+			return token
 		} else {
 			throw new IllegalStateException("Robot security manager is not installed.")
 		}
 	}
 	
+	/**
+	 * Deactivate the security manager for the current thread.
+	 */
+	static synchronized def deactivate(long token) {
+		val currentManager = System.securityManager
+		if (currentManager instanceof RobotSecurityManager) {
+			val robotManager = currentManager as RobotSecurityManager
+			val thread = Thread.currentThread
+			synchronized (robotManager.activeThreads) {
+				if (robotManager.deactivationTokens.get(thread) != token) {
+					throw new SecurityException
+				}
+				robotManager.activeThreads.put(thread, false)
+			}
+			return token
+		} else {
+			throw new IllegalStateException("Robot security manager is not installed.")
+		}
+	}
+	
+	/**
+	 * Packages for which access is allowed through the XRobot API.
+	 */
 	public static val ALLOWED_PACKAGES = #[
 		'java.lang',
+		'java.util',
+		'com.google.common.base',
+		'com.google.common.collect',
+		'org.xtext.xrobot.api',
+		'org.eclipse.xtext.xbase.lib'
+	]
+	
+	/**
+	 * Packages with forbidden API access but allowed indirect access through the interpreter.
+	 */
+	public static val RESTRICTED_PACKAGES = #[
 		'java.lang.reflect',
 		'java.lang.invoke',
-		'java.util',
 		'java.util.concurrent',
 		'java.util.concurrent.atomic',
 		'java.io',
@@ -68,34 +138,27 @@ class RobotSecurityManager extends SecurityManager {
 		'javafx.scene.media',
 		'sun.misc',
 		'sun.reflect',
-		'com.google.common.base',
-		'com.google.common.collect',
 		'org.apache.log4j.spi',
-		'org.xtext.xrobot',
-		'org.xtext.xrobot.api',
-		'org.xtext.xrobot.camera',
-		'org.xtext.xrobot.server',
-		'org.xtext.xrobot.game',
+		'org.xtext.xrobot*',
 		'org.eclipse.xtext*',
 		'org.eclipse.emf.ecore.util'
 	]
 	
+	/**
+	 * System properties for which access is allowed.
+	 */
 	public static val ALLOWED_PROPERTIES = #[
 		'os.name',
 		'line.separator',
 		'sun.invoke.util.ValueConversions.MAX_ARITY'
 	]
 	
+	/**
+	 * Classes that are excluded from API access.
+	 */
 	public static val RESTRICTED_CLASSES = #[
-		org.xtext.xrobot.Robot, org.xtext.xrobot.camera.CameraClient, org.xtext.xrobot.server.RemoteRobot,
-		org.xtext.xrobot.server.RemoteRobotConnector, org.xtext.xrobot.server.RemoteRobotFactory,
-		org.xtext.xrobot.server.RemoteRobotProxy, org.xtext.xrobot.server.RobotServerState,
-		org.xtext.xrobot.server.StateProvider, org.xtext.xrobot.server.StateReceiver,
-		java.io.File, java.io.FileDescriptor, java.io.FileReader, java.io.FileWriter,
-		java.io.FileInputStream, java.io.FileOutputStream, java.net.Socket, java.net.ServerSocket,
-		java.net.DatagramSocket, java.net.HttpURLConnection, java.nio.channels.DatagramChannel,
-		java.nio.channels.FileChannel, java.nio.channels.SocketChannel,
-		java.nio.channels.ServerSocketChannel
+		ClassLoader, Compiler, Process, ProcessBuilder, Runtime, SecurityManager, Thread,
+		ThreadGroup, Properties, PropertyResourceBundle, ResourceBundle, RobotSecurityManager
 	]
 	
 	static def containedIn(String searchString, List<String> list) {
@@ -109,6 +172,8 @@ class RobotSecurityManager extends SecurityManager {
 	}
 	
 	val activeThreads = new HashMap<Thread, Boolean>
+
+	val deactivationTokens = new HashMap<Thread, Long>
 	
 	val SecurityManager defaultManager
 	
@@ -147,14 +212,14 @@ class RobotSecurityManager extends SecurityManager {
 	
 	static val SECURE_CLASSES = #[
 		XbaseInterpreter, RobotSecurityManager, SecurityManager, AccessController, Class,
-		ClassLoader, System, FilePermission, java.io.File, java.io.FileInputStream, java.util.zip.ZipFile,
-		java.util.jar.JarFile, java.lang.reflect.Constructor, java.lang.reflect.Method,
-		java.lang.reflect.AccessibleObject, org.eclipse.xtext.util.PolymorphicDispatcher,
-		org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
+		ClassLoader, System, FilePermission, File, FileInputStream, ZipFile, JarFile,
+		Constructor, Method, AccessibleObject, PolymorphicDispatcher,
+		DefaultDeclarativeQualifiedNameProvider
 	]
 	
 	static val SECURE_CLASS_NAMES = #[
 		'java.net.URLClassLoader',
+		'java.io.UnixFileSystem',
 		'java.io.WinNTFileSystem',
 		'sun.misc.URLClassPath',
 		'sun.misc.Resource',
@@ -217,7 +282,7 @@ class RobotSecurityManager extends SecurityManager {
 			var checkClass = clazz
 			while (checkClass.enclosingClass != null)
 				checkClass = checkClass.enclosingClass
-			if (checkClass == java.util.EnumMap)
+			if (checkClass == EnumMap)
 				return true
 			else if (!SECURE_CLASSES.contains(checkClass) && !SECURE_CLASS_NAMES.contains(checkClass.name))
 				return false
@@ -245,7 +310,7 @@ class RobotSecurityManager extends SecurityManager {
 	
 	override checkPackageAccess(String pkg) {
 		if (isActiveThread) {
-			if (!pkg.containedIn(ALLOWED_PACKAGES)) {
+			if (!pkg.containedIn(ALLOWED_PACKAGES) && !pkg.containedIn(RESTRICTED_PACKAGES)) {
 				throw new SecurityException("Package not allowed: " + pkg)
 			}
 		} else {
