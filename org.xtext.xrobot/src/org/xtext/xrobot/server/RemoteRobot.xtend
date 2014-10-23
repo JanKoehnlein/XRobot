@@ -18,6 +18,7 @@ final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
 	static val MAX_POSITION_AGE = 500
 	static val RELEASE_MESSAGE = -1
+	static val MAX_SLEEP_TIME = 10000
 	
 	val CameraClient cameraClient
 	
@@ -131,4 +132,11 @@ final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	override say(String text) {
 		text.speak(robotID)
 	}
+	
+	override sleep(long milliseconds) {
+		if (milliseconds > 0) {
+			Thread.sleep(Math.min(milliseconds, MAX_SLEEP_TIME))
+		}
+	}
+	
 }

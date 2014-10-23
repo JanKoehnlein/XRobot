@@ -574,6 +574,18 @@ class Robot {
 	}
 
 	/**
+	 * Wait for the specified number of milliseconds before executing the next command.
+	 * Non-blocking commands that have been executed earlier may still continue.
+	 * Negative values are treated as zero.
+	 * 
+	 * @param milliseconds
+	 * 		The number of milliseconds to wait
+	 */	
+	@Calculated
+	override void sleep(long milliseconds) {
+	}
+
+	/**
 	 * @see {@link SystemSounds} for values
 	 */
 	@NoAPI@Zombie
