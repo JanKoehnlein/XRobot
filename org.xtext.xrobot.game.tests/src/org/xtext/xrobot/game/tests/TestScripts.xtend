@@ -24,7 +24,7 @@ interface TestScripts {
 		Idle {
 			play(R2D2)
 			println("working hard...")
-			Thread.sleep(4000)
+			sleep(4000)
 		}
 	'''
 	

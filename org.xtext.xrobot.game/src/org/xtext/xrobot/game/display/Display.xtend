@@ -47,6 +47,7 @@ class Display implements IErrorReporter, ITimeListener {
 	List<PlayerSlotBox> slotBoxes
 	
 	def start(Stage stage, List<PlayerSlot> slots) throws Exception {
+		stage.title = 'Game Display'
 		idleProgram.init
 		val screenBounds = Screen.getPrimary.bounds
 		stage => [

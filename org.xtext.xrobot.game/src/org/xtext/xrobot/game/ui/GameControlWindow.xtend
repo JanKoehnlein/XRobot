@@ -56,7 +56,7 @@ class GameControlWindow implements IGameListener {
 
 	override start(Stage stage, List<PlayerSlot> slots) {
 		this.slots = slots
-		stage.title = 'Game control'
+		stage.title = 'Game Control'
 		stage.scene = new Scene(createRoot(), 640, 480)
 		stage.show
 		addSlotListener(Blue, chooseBlueCombo, expungeBlueButton, placeBlueButton)
