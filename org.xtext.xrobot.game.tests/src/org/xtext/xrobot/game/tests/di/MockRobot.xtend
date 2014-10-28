@@ -172,7 +172,7 @@ final class MockRobot implements IRemoteRobot {
 		text.speak(robotID)
 	}
 	
-	override sleep(long milliseconds) {
+	override sleep(int milliseconds) {
 		if (milliseconds > 0) {
 			Thread.sleep(Math.min(milliseconds, RemoteRobot.MAX_SLEEP_TIME))
 		}

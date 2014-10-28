@@ -134,7 +134,7 @@ final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 		text.speak(robotID)
 	}
 	
-	override sleep(long milliseconds) {
+	override sleep(int milliseconds) {
 		if (milliseconds > 0) {
 			Thread.sleep(Math.min(milliseconds, MAX_SLEEP_TIME))
 		}
