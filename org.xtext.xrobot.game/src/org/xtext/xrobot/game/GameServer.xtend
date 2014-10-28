@@ -4,6 +4,7 @@ import com.google.inject.Inject
 import com.google.inject.Provider
 import com.google.inject.Singleton
 import java.util.List
+import javafx.scene.media.AudioClip
 import javafx.stage.Stage
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
@@ -38,6 +39,12 @@ class GameServer {
 
 	@Accessors(PUBLIC_GETTER)
 	List<PlayerSlot> slots
+	
+	AudioClip gameStartClip
+	
+	AudioClip gameDrawClip
+	
+	AudioClip gameWinClip
 		
 	def start(Stage stage) throws Exception {
 		slots = playerSlotFactory.createAll
@@ -48,6 +55,9 @@ class GameServer {
 			stage.close
 		]
 		scriptPoller.start()
+		gameStartClip = new AudioClip(GameServer.getResource('/samples/boxing_bell.mp3').toString)
+		gameDrawClip = new AudioClip(GameServer.getResource('/samples/buzzer.wav').toString)
+		gameWinClip = new AudioClip(GameServer.getResource('/samples/fanfare.wav').toString)
 	}
 	
 	def register(AccessToken usedToken, String uri, String script) {
@@ -95,6 +105,7 @@ class GameServer {
 			if (slots.forall[status == FIGHTING]) {
 				display.aboutToStart(game)
 				controlWindow.gameStarted(game)
+				gameStartClip.play
 				game.play(slots)
 				result = evaluateGame(game)
 				controlWindow.gameFinished(game)
@@ -124,12 +135,14 @@ class GameServer {
 			} else if(gameResult.isDraw) {
 				display.showMessage('A Draw', 'draw', 10.seconds)
 				slots.forEach[ status = DRAW ]
+				gameDrawClip.play
 			} else {
 				val winnerSlot = slots.findFirst[robotID == gameResult.winner]
 				winnerSlot.status = WINNER
 				val loserSlot = slots.findFirst[robotID == gameResult.loser]
 				loserSlot.status = LOSER
 				display.showMessage(winnerSlot.scriptName + ' Wins', winnerSlot.robotID.name.toLowerCase + 'wins', 10.seconds)
+				gameWinClip.play
 			}
 			hasShownResult = true
 			// poll referee result
@@ -152,8 +165,10 @@ class GameServer {
 			if(showResultAgain)
 				display.showError(finalResult.cancelationReason, 7.seconds)
 		} else if(finalResult.isDraw) {
-			if(showResultAgain)
+			if(showResultAgain) {
 				display.showMessage(infoPrefix + 'A Draw', 'draw', 7.seconds)
+				gameDrawClip.play
+			}
 			slots.forEach[ status = DRAW ]
 			rankingSystem.addDraw(slots.head.program, slots.last.program)
 		} else {
@@ -161,8 +176,10 @@ class GameServer {
 			winnerSlot.status = WINNER
 			val loserSlot = slots.findFirst[robotID == finalResult.loser]
 			loserSlot.status = LOSER
-			if(showResultAgain)
+			if (showResultAgain) {
 				display.showMessage(infoPrefix + winnerSlot.scriptName + ' Wins', winnerSlot.robotID.name.toLowerCase + 'wins', 7.seconds)
+				gameWinClip.play
+			}
 			rankingSystem.addWin(winnerSlot.program, loserSlot.program)
 		}
 		if(!finalResult.canceled) {
