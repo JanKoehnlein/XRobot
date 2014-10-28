@@ -123,10 +123,17 @@ class Robot {
 	 * The voltage of the battery pack when it is full.
 	 */
 	static val FULL_BATTERY_VOLTAGE = 8.1
+	
+	/**
+	 * The minimal time in milliseconds where {@link #isMoving()} returns true after a blocking
+	 * movement command has been called.
+	 */
+	static val MIN_MOVE_DELAY = 10
 
 	RobotID robotID
 
 	DifferentialPilot pilot
+	long lastMoveTime
 
 	SensorMode colorSensor
 	double lastColorSample
@@ -230,6 +237,7 @@ class Robot {
 	@Blocking
 	override void drive(double distance) {
 		pilot.travel(distance, true)
+		updateMoveTime
 	}
 
 	/**
@@ -317,6 +325,7 @@ class Robot {
 	@Blocking
 	override void rotate(double angle) {
 		pilot.rotate(angle, true)
+		updateMoveTime
 	}
 
 	/**
@@ -409,6 +418,7 @@ class Robot {
 			pilot.arc(-abs(radius), angle, true)
 		else
 			pilot.arc(abs(radius), angle, true)
+		updateMoveTime
 	}
 
 	/**
@@ -432,6 +442,7 @@ class Robot {
 			pilot.arc(-abs(radius), -angle, true)
 		else
 			pilot.arc(abs(radius), -angle, true)
+		updateMoveTime
 	}
 
 	/**
@@ -481,6 +492,14 @@ class Robot {
 			val radius = 0.5 * distance / sin(a.toRadians)
 			curveForward(radius, 2 * a)
 		}
+		updateMoveTime
+	}
+	
+	/**
+	 * Update the timestamp of the last blocking movement command.
+	 */
+	private def void updateMoveTime() {
+		lastMoveTime = System.currentTimeMillis
 	}
 
 	/**
@@ -492,7 +511,11 @@ class Robot {
 	 * @return true if any of the motors is moving
 	 */
 	override boolean isMoving() {
-		pilot.isMoving
+		val time = System.currentTimeMillis
+		if (time - lastMoveTime < MIN_MOVE_DELAY)
+			true
+		else
+			pilot.isMoving
 	}
 
 	/**
@@ -501,6 +524,7 @@ class Robot {
 	@Zombie
 	override void stop() {
 		pilot.quickStop
+		lastMoveTime = 0
 	}
 
 	/**
@@ -582,7 +606,7 @@ class Robot {
 	 * 		The number of milliseconds to wait
 	 */	
 	@Calculated
-	override void sleep(long milliseconds) {
+	override void sleep(int milliseconds) {
 	}
 
 	/**
