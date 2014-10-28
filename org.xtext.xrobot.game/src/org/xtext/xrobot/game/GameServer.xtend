@@ -20,6 +20,8 @@ import static extension javafx.util.Duration.*
 
 @Singleton
 class GameServer {
+	
+	static val GAME_SOUND_VOLUME = 0.8
 
 	static val LOG = Logger.getLogger(GameServer)
 	
@@ -105,7 +107,7 @@ class GameServer {
 			if (slots.forall[status == FIGHTING]) {
 				display.aboutToStart(game)
 				controlWindow.gameStarted(game)
-				gameStartClip.play
+				gameStartClip.play(GAME_SOUND_VOLUME)
 				game.play(slots)
 				result = evaluateGame(game)
 				controlWindow.gameFinished(game)
@@ -135,14 +137,14 @@ class GameServer {
 			} else if(gameResult.isDraw) {
 				display.showMessage('A Draw', 'draw', 10.seconds)
 				slots.forEach[ status = DRAW ]
-				gameDrawClip.play
+				gameDrawClip.play(GAME_SOUND_VOLUME)
 			} else {
 				val winnerSlot = slots.findFirst[robotID == gameResult.winner]
 				winnerSlot.status = WINNER
 				val loserSlot = slots.findFirst[robotID == gameResult.loser]
 				loserSlot.status = LOSER
 				display.showMessage(winnerSlot.scriptName + ' Wins', winnerSlot.robotID.name.toLowerCase + 'wins', 10.seconds)
-				gameWinClip.play
+				gameWinClip.play(GAME_SOUND_VOLUME)
 			}
 			hasShownResult = true
 			// poll referee result
@@ -167,7 +169,7 @@ class GameServer {
 		} else if(finalResult.isDraw) {
 			if(showResultAgain) {
 				display.showMessage(infoPrefix + 'A Draw', 'draw', 7.seconds)
-				gameDrawClip.play
+				gameDrawClip.play(GAME_SOUND_VOLUME)
 			}
 			slots.forEach[ status = DRAW ]
 			rankingSystem.addDraw(slots.head.program, slots.last.program)
@@ -178,7 +180,7 @@ class GameServer {
 			loserSlot.status = LOSER
 			if (showResultAgain) {
 				display.showMessage(infoPrefix + winnerSlot.scriptName + ' Wins', winnerSlot.robotID.name.toLowerCase + 'wins', 7.seconds)
-				gameWinClip.play
+				gameWinClip.play(GAME_SOUND_VOLUME)
 			}
 			rankingSystem.addWin(winnerSlot.program, loserSlot.program)
 		}

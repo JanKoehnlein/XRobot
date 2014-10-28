@@ -208,13 +208,18 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			addParameter('commandSerialNr', int.newTypeReference())
 			addParameter('isMoving', Predicate.newTypeReference(serverStateClass.newTypeReference))
 			body = '''
-				«serverStateClass.newTypeReference» newState = stateProvider.getState();
-				while(newState.getLastExecutedCommandSerialNr() < commandSerialNr
-					|| (newState.getLastExecutedCommandSerialNr() == commandSerialNr 
-					&& isMoving.apply(newState))) {
-					checkCanceled();
-					Thread.yield();
-					newState = stateProvider.getState();
+				try {
+					Thread.sleep(10);
+					«serverStateClass.newTypeReference» newState = stateProvider.getState();
+					while(newState.getLastExecutedCommandSerialNr() < commandSerialNr
+						|| (newState.getLastExecutedCommandSerialNr() == commandSerialNr 
+						&& isMoving.apply(newState))) {
+						checkCanceled();
+						Thread.yield();
+						newState = stateProvider.getState();
+					}
+				} catch (InterruptedException e) {
+					// Ignore exception
 				}
 			'''
 		]

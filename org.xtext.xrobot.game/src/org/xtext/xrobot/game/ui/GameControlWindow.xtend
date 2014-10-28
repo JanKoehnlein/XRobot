@@ -201,7 +201,7 @@ class GameControlWindow implements IGameListener {
 						)
 						// Registration may fail if the camera image is not available
 						if (slot.available)
-							cb.selectionModel.select(null)
+							Platform.runLater [ cb.selectionModel.select(null) ]
 					], 'Example Robot Chooser') => [
 						daemon = true
 						start
