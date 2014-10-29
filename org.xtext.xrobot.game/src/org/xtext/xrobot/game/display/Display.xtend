@@ -49,7 +49,7 @@ class Display implements IErrorReporter, ITimeListener {
 	def start(Stage stage, List<PlayerSlot> slots) throws Exception {
 		stage.title = 'Game Display'
 		idleProgram.init
-		val screenBounds = Screen.getPrimary.bounds
+		val screenBounds = Screen.getScreens.last.bounds
 		stage => [
 			initStyle(StageStyle.TRANSPARENT);
 			scene = new Scene(
@@ -105,6 +105,8 @@ class Display implements IErrorReporter, ITimeListener {
 				fill = null
 				stylesheets += 'org/xtext/xrobot/game/display/Styles.css'
 			]
+			x = screenBounds.minX
+			y = screenBounds.minY
 			show
 		]
 		startIdleProgram
