@@ -82,6 +82,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 			this.listeners = listeners
 			val conditionCancelIndicator = new InternalCancelIndicator(cancelIndicator)
 			conditionRobot = robotFactory.newRobot(conditionCancelIndicator)
+			conditionRobot.reset
 			baseContext = createContext
 			baseContext.newValue(ROBOT, conditionRobot)
 			val conditionContext = baseContext.fork()
