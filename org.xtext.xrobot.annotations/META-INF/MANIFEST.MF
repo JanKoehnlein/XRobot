@@ -4,5 +4,6 @@ Bundle-Name: Annotations
 Bundle-SymbolicName: org.xtext.xrobot.annotations
 Bundle-Version: 1.0.0.qualifier
 Export-Package: org.xtext.xrobot.annotations
-Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.7.0"
+Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.7.0",
+ org.eclipse.xtext.util;bundle-version="2.7.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

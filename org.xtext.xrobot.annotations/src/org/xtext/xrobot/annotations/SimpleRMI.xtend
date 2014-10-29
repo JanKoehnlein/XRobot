@@ -17,6 +17,7 @@ import org.eclipse.xtend.lib.macro.declaration.MutableClassDeclaration
 import org.eclipse.xtend.lib.macro.declaration.Type
 import org.eclipse.xtend.lib.macro.declaration.TypeReference
 import org.eclipse.xtend.lib.macro.declaration.Visibility
+import org.eclipse.xtext.util.Wrapper
 
 @Target(ElementType.TYPE)
 @Active(SimpleRemoteProcessor)
@@ -122,7 +123,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		serverImpl.addField('writeLock') [
 			type = Object.newTypeReference
 			final = true
-			visibility = Visibility.PRIVATE
+			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addField('componentID') [
 			type = int.newTypeReference
@@ -145,7 +146,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 			visibility = Visibility.PROTECTED
 		]
 		serverImpl.addField('nextCommandSerialNr') [
-			type = int.newTypeReference
+			type = Wrapper.newTypeReference(Integer.newTypeReference)
 			visibility = Visibility.PROTECTED
 		] 
 		serverImpl.addField('cancelIndicator') [
@@ -156,7 +157,7 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		serverImpl.addConstructor [
 			primarySourceElement = annotatedClass
 			addParameter('componentID', int.newTypeReference)
-			addParameter('nextCommandSerialNr', int.newTypeReference)
+			addParameter('nextCommandSerialNr', Wrapper.newTypeReference(Integer.newTypeReference))
 			addParameter('socket', SocketChannel.newTypeReference)
 			addParameter('writeLock', Object.newTypeReference)
 			addParameter('stateProvider', 'org.xtext.xrobot.server.StateProvider'.newTypeReference(serverStateClass.newTypeReference))
@@ -288,7 +289,8 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 							«FOR p: sourceMethod.parameters»
 								«getWriteCalls(p.type, p.simpleName)»
 							«ENDFOR»
-							commandSerialNr = nextCommandSerialNr++;
+							commandSerialNr = nextCommandSerialNr.get() + 1;
+							nextCommandSerialNr.set(commandSerialNr);
 							output.writeInt(commandSerialNr);
 							output.send();
 						}

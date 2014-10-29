@@ -4,6 +4,7 @@ import com.google.common.base.Predicates
 import java.net.SocketTimeoutException
 import java.nio.channels.SocketChannel
 import org.eclipse.xtext.util.CancelIndicator
+import org.eclipse.xtext.util.Wrapper
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.Sample
 import org.xtext.xrobot.api.Vector
@@ -29,7 +30,7 @@ final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	
 	extension AudioService = AudioService.getInstance 
 
-	protected new(RobotID robotID, int nextCommandSerialNr, SocketChannel socket,
+	protected new(RobotID robotID, Wrapper<Integer> nextCommandSerialNr, SocketChannel socket,
 			Object writeLock, StateProvider<RobotServerState> stateProvider,
 			CancelIndicator cancelIndicator, CameraClient cameraClient) {
 		super(0, nextCommandSerialNr, socket, writeLock, stateProvider, cancelIndicator)
@@ -88,11 +89,15 @@ final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 
 	override release() {
 		stop
-		output.writeInt(componentID)
-		output.writeInt(RELEASE_MESSAGE)
-    	var commandSerialNr = nextCommandSerialNr++
-    	output.writeInt(commandSerialNr)
-    	output.send
+		var commandSerialNr = 0
+	    synchronized (writeLock) {
+			output.writeInt(componentID)
+			output.writeInt(RELEASE_MESSAGE)
+	    	commandSerialNr = nextCommandSerialNr.get + 1
+	    	nextCommandSerialNr.set(commandSerialNr)
+	    	output.writeInt(commandSerialNr)
+	    	output.send
+    	}
 	    waitFinished(commandSerialNr, Predicates.alwaysFalse)
 	}
 	
