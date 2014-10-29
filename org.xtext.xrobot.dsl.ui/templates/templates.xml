@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <templates>
-  <template id="field" autoinsert="true" context="org.xtext.xrobot.dsl.XRobotDSL.Field" deleted="false" description="create a new field" enabled="true" name="field">var ${fieldName} = ${initialValue}</template>
+  <template id="variable" autoinsert="true" context="org.xtext.xrobot.dsl.XRobotDSL.Field" deleted="false" description="create a new variable" enabled="true" name="variable">var ${variableName} = ${initialValue}</template>
   <template id="mode" autoinsert="true" context="org.xtext.xrobot.dsl.XRobotDSL.Mode" deleted="false" description="create a new mode" enabled="true" name="mode">${modeName} on ${triggerCondition} {
 	${cursor}
 }</template>
-  <template id="sub" autoinsert="true" context="org.xtext.xrobot.dsl.XRobotDSL.Sub" deleted="false" description="create a new subprogram" enabled="true" name="sub">sub ${returnType} ${subName}(${parameters}) {
+  <template id="function" autoinsert="true" context="org.xtext.xrobot.dsl.XRobotDSL.Sub" deleted="false" description="create a new function" enabled="true" name="function">def ${returnType} ${functionName}(${parameters}) {
 	${cursor}
 }</template>
 </templates>

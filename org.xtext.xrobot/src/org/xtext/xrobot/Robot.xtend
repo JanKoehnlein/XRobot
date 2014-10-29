@@ -128,7 +128,7 @@ class Robot {
 	 * The minimal time in milliseconds where {@link #isMoving()} returns true after a blocking
 	 * movement command has been called.
 	 */
-	static val MIN_MOVE_DELAY = 10
+	static val MIN_MOVE_DELAY = 20
 
 	RobotID robotID
 
