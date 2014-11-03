@@ -32,7 +32,7 @@ class ExampleRobot {
 			'''),
 			new ExampleRobot('Circles', '''
 				robot Circles
-				author Archimedes
+				author itemis
 				
 				Adjust on (centerBearing.angle - 90).abs > 10 {
 					rotate(centerBearing.angle - 85)

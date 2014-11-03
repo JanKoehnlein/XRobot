@@ -12,6 +12,9 @@ class PlayerRanking implements Comparable<PlayerRanking> {
 	@Accessors
 	String name
 	
+	@Accessors
+	String author
+	
 	int wins
 	
 	int draws
@@ -21,9 +24,10 @@ class PlayerRanking implements Comparable<PlayerRanking> {
 	@Accessors
 	double score
 	
-	new(String id, String name) {
+	new(String id, String name, String author) {
 		this.id = id
 		this.name = name
+		this.author = author
 	}
 	
 	def addWin() {
