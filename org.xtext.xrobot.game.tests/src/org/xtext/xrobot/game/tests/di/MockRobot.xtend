@@ -163,6 +163,9 @@ final class MockRobot implements IRemoteRobot {
 	override scoop(double angle) {
 		checkCanceled
 	}
+	
+	override calibrateScoop() {
+	}
 
 	override play(Sample sample) {
 		sample.play(robotID)

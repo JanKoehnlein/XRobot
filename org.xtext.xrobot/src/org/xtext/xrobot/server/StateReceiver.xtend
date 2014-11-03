@@ -68,8 +68,7 @@ class StateReceiver implements StateProvider<RobotServerState> {
 			} catch(ClosedSelectorException e) {
 				return
 			} catch(Exception e) {
-				LOG.error(e.message)
-				e.printStackTrace
+				LOG.error(e.message, e)
 			}
 		}
 	}

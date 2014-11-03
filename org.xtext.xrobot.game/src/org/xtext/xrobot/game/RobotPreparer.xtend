@@ -62,6 +62,7 @@ class RobotPreparer implements IRobotPreparer {
 						robot.invincible = true
 						robot.reset
 						goHome
+						robot.calibrateScoop
 					} catch (CanceledException exc) {
 						// ignore
 					} catch (Exception exc) {

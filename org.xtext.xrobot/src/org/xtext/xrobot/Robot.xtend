@@ -149,6 +149,8 @@ class Robot {
 	NXTRegulatedMotor leftMotor
 	NXTRegulatedMotor rightMotor
 	NXTRegulatedMotor scoopMotor
+	
+	int scoopNeutralPos
 
 	new(Brick brick) {
 		robotID = RobotID.valueOf(brick.name)
@@ -565,8 +567,27 @@ class Robot {
 	 */
 	@Blocking('getScoopMoving')
 	override void scoop(double position) {
-		val intAngle = (min(1, max(position, -1)) * 200) as int
-		scoopMotor.rotateTo(intAngle)
+		val limitPos = min(1.0, max(position, -1.0))
+		val intAngle = (limitPos * 200) as int + scoopNeutralPos
+		scoopMotor.rotateTo(intAngle, true)
+	}
+	
+	/**
+	 * Calibrate the scoop such that it barely touches the ground at its neutral position 0.
+	 */
+	@NoAPI@Zombie
+	def void calibrateScoop() {
+		scoopMotor.rotateTo(60, false)
+		val startColor = groundColor
+		for (a : (50..-50).withStep(-10)) {
+			scoopMotor.rotateTo(a, false)
+			if (startColor - groundColor > 0.05) {
+				// We found a position where the robot is lifted up
+				scoopNeutralPos = a + 10
+				scoopMotor.rotateTo(scoopNeutralPos, true)
+				return
+			}
+		}
 	}
 
 	/**

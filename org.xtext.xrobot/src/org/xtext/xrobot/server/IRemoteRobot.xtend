@@ -43,4 +43,6 @@ interface IRemoteRobot extends IRobot {
 	
 	def void setInvincible(boolean invincible)
 	
+	def void calibrateScoop()
+	
 }

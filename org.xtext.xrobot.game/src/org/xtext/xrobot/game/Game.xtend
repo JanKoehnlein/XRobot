@@ -212,7 +212,7 @@ class Game {
 			gameOver = true
 		], 'XRobot Timer') => [
 			daemon = true
-		] 
+		]
 	}
 
 	private def executeSafely(Runnable runnable) {
