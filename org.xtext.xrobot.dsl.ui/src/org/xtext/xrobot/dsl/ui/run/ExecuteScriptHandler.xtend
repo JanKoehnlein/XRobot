@@ -117,7 +117,7 @@ class ExecuteScriptHandler extends AbstractHandler {
 						Display.getDefault.asyncExec [
 							dialog.open(monitor)
 						]
-						val program = scriptParser.parse('dummy.xrobot', model, resourceSet)
+						val program = scriptParser.parse('dummy.xrobot', model, resourceSet, null)
 						gameOver = false
 						scriptRunner.run(program, robotFactory,
 							new CancelIndicator() {

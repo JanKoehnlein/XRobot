@@ -78,7 +78,7 @@ class REPL {
 						}
 						try {
 							val resourceSet = resourceSetProvider.get()
-							val program = parser.parse('dummy.xrobot', model, resourceSet)
+							val program = parser.parse('dummy.xrobot', model, resourceSet, null)
 							runner.run(program, currentRobotFactory, cancelIndicator)					
 						} catch (CanceledException exc) {
 						}

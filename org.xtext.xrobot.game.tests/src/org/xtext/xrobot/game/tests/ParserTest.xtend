@@ -25,7 +25,7 @@ class ParserTest {
 	
 	@Test
 	def void testParse() {
-		val result = scriptParser.parse('dummy.xrobot', TestScripts.IDLE, resourceSetProvider.get)
+		val result = scriptParser.parse('dummy.xrobot', TestScripts.IDLE, resourceSetProvider.get, null)
 		assertThat(result, instanceOf(Program))
 	}
 	
@@ -36,7 +36,7 @@ class ParserTest {
 			Test {
 				valz x = 0
 			}
-		''', resourceSetProvider.get)
+		''', resourceSetProvider.get, null)
 	}
 	
 	@Test(expected = ParseException)
@@ -46,7 +46,7 @@ class ParserTest {
 			Test {
 				val int x = 0.0
 			}
-		''', resourceSetProvider.get)
+		''', resourceSetProvider.get, null)
 	}
 	
 	@Test(expected = ParseException)
@@ -56,7 +56,7 @@ class ParserTest {
 			Test {
 				val x = new org.nonsense.Universe()
 			}
-		''', resourceSetProvider.get)
+		''', resourceSetProvider.get, null)
 	}
 	
 	@Test(expected = ParseException)
@@ -66,7 +66,7 @@ class ParserTest {
 			Test {
 				new java.io.File("/etc/ftpd.conf")
 			}
-		''', resourceSetProvider.get)
+		''', resourceSetProvider.get, null)
 	}
 	
 	@Test(expected = ParseException)
@@ -76,7 +76,7 @@ class ParserTest {
 			Test {
 				java.io.File.createTempFile("test", ".txt")
 			}
-		''', resourceSetProvider.get)
+		''', resourceSetProvider.get, null)
 	}
 	
 }

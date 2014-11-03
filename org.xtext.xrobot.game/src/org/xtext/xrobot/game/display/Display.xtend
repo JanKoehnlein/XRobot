@@ -20,6 +20,7 @@ import javafx.scene.input.KeyEvent
 import javafx.scene.layout.StackPane
 import javafx.scene.layout.VBox
 import javafx.scene.paint.Color
+import javafx.scene.text.TextAlignment
 import javafx.stage.Screen
 import javafx.stage.Stage
 import javafx.stage.StageStyle
@@ -33,15 +34,20 @@ import org.xtext.xrobot.game.PlayerSlot
 import static javafx.scene.layout.Region.*
 
 import static extension javafx.util.Duration.*
-import javafx.scene.text.TextAlignment
 
 @Singleton
 class Display implements IErrorReporter, ITimeListener {
+	
+	private static val WORD_WRAP_WIDTH = 32
 
 	@Inject RootPane rootPane
+	
 	@Inject IdleProgram idleProgram
+	
 	@Inject StackPane centerPane
+	
 	@Inject VBox messagePane
+	
 	@Inject Label timeLabel
 
 	List<PlayerSlotBox> slotBoxes
@@ -200,7 +206,7 @@ class Display implements IErrorReporter, ITimeListener {
 			val errorBox = new VBox => [
 				setMaxSize(USE_PREF_SIZE, USE_PREF_SIZE)
 				styleClass += #['outer-box', stylePrefix + '-box']
-				children += new Label(message) => [
+				children += new Label(message.wordWrap) => [
 					styleClass += #[stylePrefix + '-label']
 				]
 			]
@@ -234,6 +240,46 @@ class Display implements IErrorReporter, ITimeListener {
 			val secondsLeft = millisLeft / 1000
 			timeLabel.setText(String.format('%1d:%02d', minutesLeft, secondsLeft))
 		]
+	}
+	
+	private def wordWrap(String s) {
+		val builder = new StringBuilder
+		var pos = 0
+		var wordStart = 0
+		var inword = false
+		for (i : 0 .. s.length-1) {
+			val c = s.charAt(i)
+			if (c == 32 || c == 9) {          // Word separator
+				inword = false
+			} else if (c == 10 || c == 13) {  // Line separator
+				pos = 0
+				inword = false
+			} else if (!inword) {
+				wordStart = builder.length
+				inword = true
+			}
+			pos++
+			if (pos >= WORD_WRAP_WIDTH) {
+				if (inword) {
+					if (builder.length + 1 - wordStart >= WORD_WRAP_WIDTH) {
+						builder.append('\n')
+						pos = 1
+						wordStart = builder.length
+					} else {
+						builder.insert(wordStart, '\n')
+						pos = builder.length - wordStart
+						wordStart++
+					}
+					builder.append(c)
+				} else {
+					builder.append('\n')
+					pos = 0
+				}
+			} else {
+				builder.append(c)
+			}
+		}
+		builder.toString
 	}
 	
 }

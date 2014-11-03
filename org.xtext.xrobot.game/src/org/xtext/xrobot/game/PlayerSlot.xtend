@@ -33,10 +33,8 @@ class PlayerSlot implements IRobotListener {
 		@Inject ScriptParser scriptParser
 		
 		def create(RobotID robotID) {
-			val slot = new PlayerSlot(robotID, remoteRobotConnector, display, robotPreparerProvider,
+			new PlayerSlot(robotID, remoteRobotConnector, display, robotPreparerProvider,
 					resourceSetProvider, scriptParser)
-			slot.scriptParser.robotID = robotID
-			return slot
 		}
 		
 		def createAll() {
@@ -72,7 +70,7 @@ class PlayerSlot implements IRobotListener {
 	val listeners = new CopyOnWriteArrayList<Listener>
 	val robotListeners = new CopyOnWriteArrayList<IRobotListener>
 
-	IRobotPreparer preparer
+	val IRobotPreparer preparer
 	
 	private new(RobotID robotID, IRemoteRobot.Connector connector, IErrorReporter display,
 			Provider<? extends IRobotPreparer> preparerProvider,
@@ -134,8 +132,8 @@ class PlayerSlot implements IRobotListener {
 	
 	def acquire(String uri, String serializedProgram) {
 		val startTime = System.currentTimeMillis
-		scriptParser.cancelIndicator = [System.currentTimeMillis - startTime > MAX_PARSE_TIME]
-		val program = scriptParser.parse(uri, serializedProgram, resourceSetProvider.get)
+		val program = scriptParser.parse(uri, serializedProgram, resourceSetProvider.get,
+				[System.currentTimeMillis - startTime > MAX_PARSE_TIME])
 		if (program != null) {
 			acquire(program)
 		}

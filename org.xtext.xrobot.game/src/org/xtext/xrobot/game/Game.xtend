@@ -1,7 +1,9 @@
 package org.xtext.xrobot.game
 
+import com.google.common.base.Throwables
 import com.google.inject.Inject
 import com.google.inject.Provider
+import java.net.SocketTimeoutException
 import java.util.ArrayList
 import java.util.List
 import org.apache.log4j.Logger
@@ -11,6 +13,7 @@ import org.xtext.xrobot.camera.CameraTimeoutException
 import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.interpreter.MemoryException
 import org.xtext.xrobot.dsl.interpreter.ScriptRunner
+import org.xtext.xrobot.dsl.interpreter.XRobotInterpreter.RobotThread
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.IRemoteRobot
@@ -20,8 +23,6 @@ import static org.xtext.xrobot.api.IRobot.*
 import static org.xtext.xrobot.game.Game.*
 import static org.xtext.xrobot.game.GameResult.*
 import static org.xtext.xrobot.net.INetConfig.*
-import com.google.common.base.Throwables
-import org.xtext.xrobot.dsl.interpreter.XRobotInterpreter.RobotThread
 
 class Game {
 
@@ -62,7 +63,7 @@ class Game {
 			runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener, it)])
 			gameOver = false
 			
-			LOG.debug('Starting game')
+			LOG.info('Starting game: ' + slots.map[program.name + ' on ' + robotID].join(', '))
 			runners.forEach[start]
 			timer => [
 				start
@@ -70,14 +71,14 @@ class Game {
 			]
 			gameOver = true
 			runners.forEach[executeSafely[join(100)]]
-			LOG.debug('Game finished')
 		} finally {
 			slots.forEach[
 				executeSafely[ robotFactory.checkAndRelease ]
 			]
+			if (gameResult == null && refereeResult == null)
+				gameResult = draw
+			LOG.info('Game finished: ' + (refereeResult ?: gameResult))
 		}
-		if(gameResult == null && refereeResult == null)
-			gameResult = draw
 	}
 	
 	def setRefereeResult(GameResult refereeResult) {
@@ -160,7 +161,7 @@ class Game {
 			override run() {
 				executeSafely [
 					if (!robotFactory.isAlive)
-						throw new RuntimeException(program.name + ' (' + robotFactory.robotID + ') not ready')
+						throw new IllegalStateException(robotFactory.robotID + ' robot not ready')
 					try {
 						scriptExecutor.run(
 							program,
@@ -168,21 +169,26 @@ class Game {
 							[gameOver])
 					} catch (CameraTimeoutException cte) {
 						if (gameResult == null)
-							gameResult = canceled('Camera dropped out for ' + program.name)
+							gameResult = canceled('Camera dropped out for ' + robotFactory.robotID + ' robot')
+						gameOver = true
+					} catch (SocketTimeoutException ste) {
+						LOG.info(ste.message)
+						gameResult = canceled('Connection to ' + robotFactory.robotID + ' robot was lost')
+						lastError = ste
 						gameOver = true
 					} catch (MemoryException me) {
-						LOG.info(me.message)
+						LOG.info('Caught memory exception.', me)
 						gameResult = canceled(robotFactory.robotID + ': ' + me.message)
 						lastError = me
 						gameOver = true
 					} catch (SecurityException se) {
-						LOG.info('Caught security exception: ' + se.message)
-						gameResult = canceled(program.name + ' was caught cheating')
+						LOG.info('Caught security exception.', se)
+						gameResult = canceled(program.name + ' (' + robotFactory.robotID + ')' + ' was caught cheating')
 						lastError = se
 						gameOver = true
 					} catch (Exception e) {
 						if (Throwables.getRootCause(e) instanceof SecurityException) {
-							gameResult = canceled(program.name + ' was caught cheating')
+							gameResult = canceled(program.name + ' (' + robotFactory.robotID + ')' + ' was caught cheating')
 							lastError = Throwables.getRootCause(e)
 							gameOver = true
 						} else {

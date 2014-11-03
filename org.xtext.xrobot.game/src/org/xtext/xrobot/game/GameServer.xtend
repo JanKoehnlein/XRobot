@@ -70,8 +70,8 @@ class GameServer {
 					slot.acquire(uri, script)
 					LOG.debug('Robot ' + slot.program.name + ' has joined the game')
 				} catch (Exception exc) {
-					display.showError('Program refused:\n' + exc.message, 5.seconds)
-					LOG.error('Error assigning robot', exc)
+					display.showError('Program refused on ' + slot.robotID + ' slot:\n' + exc.message, 6.seconds)
+					LOG.error('Error assigning robot to slot ' + slot.robotID, exc)
 					slot.release
 				}
 			}
