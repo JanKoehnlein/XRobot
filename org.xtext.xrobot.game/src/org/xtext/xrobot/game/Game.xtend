@@ -77,7 +77,7 @@ class Game {
 			try {
 				slots.forEach[robotFactory.checkAndRelease]
 			} catch (Throwable t) {
-				LOG.info(t.message, t)
+				LOG.info('Error during game cleanup', t)
 			}
 			if (gameResult == null && refereeResult == null)
 				gameResult = draw
@@ -176,40 +176,41 @@ class Game {
 						robotFactory,
 						[gameOver])
 				} catch (CameraTimeoutException cte) {
+					LOG.info(cte.message)
 					if (gameResult == null)
 						gameResult = canceled('Camera dropped out for ' + robotFactory.robotID + ' robot')
 				} catch (SocketTimeoutException ste) {
-					LOG.info(ste.message)
+					LOG.warn(ste.message)
 					gameResult = canceled('Connection to ' + robotFactory.robotID + ' robot was lost')
 					lastError = ste
 				} catch (SocketException se) {
-					LOG.info(se.message)
+					LOG.warn(se.message)
 					gameResult = canceled('Connection to ' + robotFactory.robotID + ' robot was lost')
 					lastError = se
 				} catch (MemoryException me) {
-					LOG.info('Caught memory exception.', me)
+					LOG.warn('Caught memory exception.', me)
 					gameResult = canceled(robotFactory.robotID + ': ' + me.message)
 					lastError = me
 				} catch (SecurityException se) {
-					LOG.info('Caught security exception.', se)
+					LOG.warn('Caught security exception.', se)
 					gameResult = canceled(program.name + ' (' + robotFactory.robotID + ')' + ' was caught cheating')
 					lastError = se
 				} catch (Exception e) {
 					if (Throwables.getRootCause(e) instanceof SecurityException) {
-						LOG.info('Caught security exception.', e)
+						LOG.warn('Caught security exception.', e)
 						gameResult = canceled(program.name + ' (' + robotFactory.robotID + ')' + ' was caught cheating')
 						lastError = Throwables.getRootCause(e)
 					} else {
-						LOG.error(e.message, e)
+						LOG.error('Error during robot execution', e)
 						gameResult = canceled('An error occurred')
 						lastError = e
 					}
 				} catch (OutOfMemoryError err) {
-					LOG.error(err)
+					LOG.error('Out of memory')
 					lastError = new MemoryException("Heap memory limit exceeded", err)
 					gameResult = canceled(lastError.message)
 				} catch (Throwable t) {
-					LOG.error(t.message, t)
+					LOG.error('Error during robot execution', t)
 					gameResult = canceled('An error occurred')
 					lastError = t
 				}

@@ -2,10 +2,14 @@ package org.xtext.xrobot.game
 
 import com.google.inject.Inject
 import com.google.inject.Provider
+import java.net.SocketTimeoutException
+import java.util.ArrayList
 import java.util.concurrent.CopyOnWriteArrayList
+import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.xtext.xrobot.RobotID
+import org.xtext.xrobot.camera.CameraTimeoutException
 import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.interpreter.ScriptParser
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
@@ -13,12 +17,13 @@ import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.game.PlayerStatus.*
-import java.util.ArrayList
 
 class PlayerSlot implements IRobotListener {
 	
 	static val MAX_PARSE_TIME = 10000
 	static val MAX_LABEL_LENGTH = 20
+	
+	static val LOG = Logger.getLogger(PlayerSlot)
 	
 	static class Factory {
 	
@@ -127,7 +132,7 @@ class PlayerSlot implements IRobotListener {
 			program.author = program.author.substring(0, MAX_LABEL_LENGTH) + "..."
 		}
 		this.program = program
-		preparer.prepare
+		prepare
 	}
 	
 	def acquire(String uri, String serializedProgram) {
@@ -140,7 +145,15 @@ class PlayerSlot implements IRobotListener {
 	}
 	
 	def prepare() {
-		preparer.prepare
+		try {
+			preparer.prepare
+		} catch (CameraTimeoutException cte) {
+			LOG.info(cte.message)
+			setStatus(NOT_AT_HOME)
+		} catch (SocketTimeoutException ste) {
+			LOG.warn(ste.message)
+			setStatus(NOT_AT_HOME)
+		}
 	}
 	
 	def waitReady() {

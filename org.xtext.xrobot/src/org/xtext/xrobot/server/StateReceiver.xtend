@@ -73,8 +73,8 @@ class StateReceiver implements StateProvider<RobotServerState> {
 			}
 		} catch(ClosedSelectorException e) {
 			// Connection was closed softly -- ignore the exception
-		} catch(Exception e) {
-			LOG.error(e.message, e)
+		} catch(Throwable t) {
+			LOG.error('Error in state receiver', t)
 		}
 	}
 	

@@ -21,7 +21,9 @@ import static extension javafx.util.Duration.*
 @Singleton
 class GameServer {
 	
-	static val GAME_SOUND_VOLUME = 0.8
+	static val START_SOUND_VOLUME = 0.6
+	static val WIN_SOUND_VOLUME = 0.6
+	static val DRAW_SOUND_VOLUME = 0.9
 
 	static val LOG = Logger.getLogger(GameServer)
 	
@@ -75,8 +77,14 @@ class GameServer {
 					slot.release
 				}
 			}
-			if (slots.forall[!available])
-				startGame
+			
+			if (slots.forall[!available]) {
+				try {
+					startGame
+				} catch (Exception exc) {
+					LOG.error('Error during game execution', exc)
+				}
+			}
 		}
 	}
 	
@@ -107,7 +115,7 @@ class GameServer {
 			if (slots.forall[status == FIGHTING]) {
 				display.aboutToStart(game)
 				controlWindow.gameStarted(game)
-				gameStartClip.play(GAME_SOUND_VOLUME)
+				gameStartClip.play(START_SOUND_VOLUME)
 				game.play(slots)
 				result = evaluateGame(game)
 				controlWindow.gameFinished(game)
@@ -137,14 +145,14 @@ class GameServer {
 			} else if(gameResult.isDraw) {
 				display.showMessage('A Draw', 'draw', 10.seconds)
 				slots.forEach[ status = DRAW ]
-				gameDrawClip.play(GAME_SOUND_VOLUME)
+				gameDrawClip.play(DRAW_SOUND_VOLUME)
 			} else {
 				val winnerSlot = slots.findFirst[robotID == gameResult.winner]
 				winnerSlot.status = WINNER
 				val loserSlot = slots.findFirst[robotID == gameResult.loser]
 				loserSlot.status = LOSER
 				display.showMessage(winnerSlot.scriptName + ' Wins', winnerSlot.robotID.name.toLowerCase + 'wins', 10.seconds)
-				gameWinClip.play(GAME_SOUND_VOLUME)
+				gameWinClip.play(WIN_SOUND_VOLUME)
 			}
 			hasShownResult = true
 			// poll referee result
@@ -169,7 +177,7 @@ class GameServer {
 		} else if(finalResult.isDraw) {
 			if(showResultAgain) {
 				display.showMessage(infoPrefix + 'A Draw', 'draw', 7.seconds)
-				gameDrawClip.play(GAME_SOUND_VOLUME)
+				gameDrawClip.play(DRAW_SOUND_VOLUME)
 			}
 			slots.forEach[ status = DRAW ]
 			rankingSystem.addDraw(slots.head.program, slots.last.program)
@@ -180,7 +188,7 @@ class GameServer {
 			loserSlot.status = LOSER
 			if (showResultAgain) {
 				display.showMessage(infoPrefix + winnerSlot.scriptName + ' Wins', winnerSlot.robotID.name.toLowerCase + 'wins', 7.seconds)
-				gameWinClip.play(GAME_SOUND_VOLUME)
+				gameWinClip.play(WIN_SOUND_VOLUME)
 			}
 			rankingSystem.addWin(winnerSlot.program, loserSlot.program)
 		}

@@ -1,9 +1,11 @@
 package org.xtext.xrobot.game
 
 import com.google.inject.Inject
+import java.net.SocketTimeoutException
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.xtext.xrobot.api.Vector
+import org.xtext.xrobot.camera.CameraTimeoutException
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
@@ -51,7 +53,7 @@ class RobotPreparer implements IRobotPreparer {
 			if (slot.status != READY && !thread?.isAlive) {
 				slot.status = PREPARING
 				isCanceled = false
-				robot = slot.robotFactory.newRobot [isCanceled]
+				robot = slot.robotFactory.newRobot[isCanceled]
 				LOG.info(slot.robotID + ' battery ' + round(robot.batteryState * 100) + '%')
 				if (robot.batteryState < MIN_BATTERY_CHARGE) 
 					errorReporter.showError(slot.robotID + ': Change battery', MESSAGE_DURATION.seconds)
@@ -65,6 +67,10 @@ class RobotPreparer implements IRobotPreparer {
 						robot.calibrateScoop
 					} catch (CanceledException exc) {
 						// ignore
+					} catch (CameraTimeoutException cte) {
+						LOG.warn(cte.message)
+					} catch (SocketTimeoutException ste) {
+						LOG.error(ste.message)
 					} catch (Exception exc) {
 						LOG.error('Error preparing robot', exc)
 					} finally {

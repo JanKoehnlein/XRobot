@@ -31,7 +31,7 @@ class ScriptPoller implements IScriptPoller {
 				priority = 9
 				start
 			} catch(Exception exc) {
-				LOG.error('Error polling scripts', exc)
+				LOG.error('Error starting script poller', exc)
 			}
 		]
 	}
@@ -51,22 +51,22 @@ class ScriptPoller implements IScriptPoller {
 					»]}
 				'''.toString.trim
 				val url = new URL(urlAsString)
-				try {
-					val resultStream = url.openStream
-					val serverAnswer = new Gson().fromJson(new InputStreamReader(resultStream), typeof(ServerAnswer[]))
-					serverAnswer?.forEach[
-						if(token != null && uri != null && sourceCode != null)
-							gameServer.register(new AccessToken(token), uri, sourceCode)
-					]
-					Thread.sleep(500)
-				} catch (IOException exc) {
-					errorReporter.showError('Cannot connect to script server', 5.seconds)
-					Thread.sleep(5000)
-				}
-			} catch (Exception exc) {
-				LOG.error('Error connecting to ScriptServer', exc)
+				val resultStream = url.openStream
+				val serverAnswer = new Gson().fromJson(new InputStreamReader(resultStream), typeof(ServerAnswer[]))
+				serverAnswer?.forEach[
+					if (token != null && uri != null && sourceCode != null) {
+						gameServer.register(new AccessToken(token), uri, sourceCode)
+					}
+				]
+				Thread.sleep(500)
+			} catch (IOException exc) {
+				LOG.error('Error connecting to script server', exc)
+				errorReporter.showError('Cannot connect to script server', 5.seconds)
+				Thread.sleep(5000)
+			} catch (Throwable t) {
+				LOG.error('Error in script poller', t)
 			}
-		}			
+		}
 	}
 	
 	@Data
