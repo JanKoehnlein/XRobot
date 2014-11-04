@@ -38,7 +38,7 @@ import static extension javafx.util.Duration.*
 @Singleton
 class Display implements IErrorReporter, ITimeListener {
 	
-	private static val WORD_WRAP_WIDTH = 32
+	private static val WORD_WRAP_WIDTH = 35
 
 	@Inject RootPane rootPane
 	

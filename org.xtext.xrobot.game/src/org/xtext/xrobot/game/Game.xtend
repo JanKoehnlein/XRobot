@@ -63,7 +63,9 @@ class Game {
 			runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener, it)])
 			gameOver = false
 			
-			LOG.info('Starting game: ' + slots.map[program.name + ' on ' + robotID].join(', '))
+			if (LOG.infoEnabled)
+				LOG.info('Starting game: ' + slots.map[program.name + ' on ' + robotID].join(', '))
+			
 			runners.forEach[start]
 			timer => [
 				start
@@ -77,7 +79,12 @@ class Game {
 			]
 			if (gameResult == null && refereeResult == null)
 				gameResult = draw
-			LOG.info('Game finished: ' + (refereeResult ?: gameResult))
+			
+			if (LOG.infoEnabled) {
+				val finalResult = refereeResult ?: gameResult
+				LOG.info('Game finished: winner = ' + finalResult.winner
+						+ ', cancelationReason = ' + finalResult.cancelationReason)
+			}
 		}
 	}
 	

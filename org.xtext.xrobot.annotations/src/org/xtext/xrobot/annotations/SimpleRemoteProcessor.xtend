@@ -479,50 +479,52 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		val sourceMethods = annotatedClass
 					.declaredMethods
 					.filter[!static && visibility == Visibility.PUBLIC]
-		sourceMethods.filter[it.findAnnotation(calculatedAnnotation) == null].forEach[sourceMethod, i |
-			serverImpl.addMethod(sourceMethod.simpleName, [
-				serverMethod |
-				serverMethod.primarySourceElement = sourceMethod 
-				sourceMethod.parameters.forEach[
-					serverMethod.addParameter(it.simpleName, it.type)
-				]
-				serverMethod.returnType = sourceMethod.returnType
-				if (!serverMethod.returnType.isVoid)
-					serverMethod.body = '''
-						«IF sourceMethod.findAnnotation(zombieAnnotation) == null»
-							checkCanceled();
-						«ENDIF»
-						LOG.debug("«sourceMethod.simpleName» " + state.get«serverMethod.fieldName.toFirstUpper»());
-						return state.get«serverMethod.fieldName.toFirstUpper»();
-					'''
-				else
-					serverMethod.body = '''
-						«IF sourceMethod.findAnnotation(zombieAnnotation) == null»
-							checkCanceled();
-						«ENDIF»
-						int commandSerialNr = 0;
-						synchronized (writeLock) {
-							output.writeInt(componentID);
-							output.writeInt(«i»);
-							«FOR p: sourceMethod.parameters»
-								«getWriteCalls(p.type, p.simpleName)»
-							«ENDFOR»
-							commandSerialNr = nextCommandSerialNr.get() + 1;
-							nextCommandSerialNr.set(commandSerialNr);
-							output.writeInt(commandSerialNr);
-							output.send();
-						}
-						LOG.debug("«sourceMethod.simpleName» " + commandSerialNr);
-						«IF sourceMethod.getBlockingValue(context) != null»
-							waitFinished(commandSerialNr, new Predicate<«serverStateClass»>() {
-								@Override 
-								public boolean apply(«serverStateClass» state) {
-									return state.«sourceMethod.getBlockingValue(context)»();
-								}
-							});
-						«ENDIF»
-					'''
-			])
+		sourceMethods.forEach[sourceMethod, i |
+			if (sourceMethod.findAnnotation(calculatedAnnotation) == null) {
+				serverImpl.addMethod(sourceMethod.simpleName, [
+					serverMethod |
+					serverMethod.primarySourceElement = sourceMethod 
+					sourceMethod.parameters.forEach[
+						serverMethod.addParameter(it.simpleName, it.type)
+					]
+					serverMethod.returnType = sourceMethod.returnType
+					if (!serverMethod.returnType.isVoid)
+						serverMethod.body = '''
+							«IF sourceMethod.findAnnotation(zombieAnnotation) == null»
+								checkCanceled();
+							«ENDIF»
+							LOG.debug("«sourceMethod.simpleName» " + state.get«serverMethod.fieldName.toFirstUpper»());
+							return state.get«serverMethod.fieldName.toFirstUpper»();
+						'''
+					else
+						serverMethod.body = '''
+							«IF sourceMethod.findAnnotation(zombieAnnotation) == null»
+								checkCanceled();
+							«ENDIF»
+							int commandSerialNr = 0;
+							synchronized (writeLock) {
+								output.writeInt(componentID);
+								output.writeInt(«i»);
+								«FOR p: sourceMethod.parameters»
+									«getWriteCalls(p.type, p.simpleName)»
+								«ENDFOR»
+								commandSerialNr = nextCommandSerialNr.get() + 1;
+								nextCommandSerialNr.set(commandSerialNr);
+								output.writeInt(commandSerialNr);
+								output.send();
+							}
+							LOG.debug("«sourceMethod.simpleName» " + commandSerialNr);
+							«IF sourceMethod.getBlockingValue(context) != null»
+								waitFinished(commandSerialNr, new Predicate<«serverStateClass»>() {
+									@Override 
+									public boolean apply(«serverStateClass» state) {
+										return state.«sourceMethod.getBlockingValue(context)»();
+									}
+								});
+							«ENDIF»
+						'''
+				])
+			}
 		]
 		for (subComponent: subComponentFields) {
 			serverImpl.addField(subComponent.simpleName, [
