@@ -1,5 +1,6 @@
 package org.xtext.xrobot.server
 
+import java.net.SocketException
 import java.nio.channels.ClosedSelectorException
 import java.nio.channels.SelectionKey
 import java.nio.channels.Selector
@@ -12,15 +13,17 @@ import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
 
 class StateReceiver implements StateProvider<RobotServerState> {
 	
+	static val MAX_FAILURE_COUNT = 2000
+	
 	static val LOG = Logger.getLogger(StateReceiver)
 	
-	SocketInputBuffer input
+	val SocketInputBuffer input
 
-	Selector selector
+	val Selector selector
 	
 	volatile boolean isStopped = false
 	
-	long failureCount 
+	long failureCount
 	long successCount
 	
 	volatile RobotServerState lastState
@@ -39,8 +42,8 @@ class StateReceiver implements StateProvider<RobotServerState> {
 	}
 
 	private def run() {
-		while(!isStopped) {
-			try {
+		try {
+			while(!isStopped) {
 				selector.select(SOCKET_TIMEOUT)
 				for(key: selector.selectedKeys) {
 					if(key.isReadable) {
@@ -54,40 +57,51 @@ class StateReceiver implements StateProvider<RobotServerState> {
 									val before = input.available
 									state.read(input)
 									packetSize = before - input.available
-								} 
+								}
 								successCount++
 							}
 							lastState = state
 							LOG.debug('Received state ' +  state.sampleTime)
 						} catch(Exception exc) {
-							failureCount++  
+							failureCount++
+							if (failureCount >= MAX_FAILURE_COUNT)
+								throw exc
 							LOG.error('State read failures ' + failureCount + " successes " + successCount)
-						}							
-					} 
+						}
+					}
 				}
-			} catch(ClosedSelectorException e) {
-				return
-			} catch(Exception e) {
-				LOG.error(e.message, e)
 			}
+		} catch(ClosedSelectorException e) {
+			// Connection was closed softly -- ignore the exception
+		} catch(Exception e) {
+			LOG.error(e.message, e)
 		}
 	}
 	
 	def start() {
+		if (thread == null)
+			throw new IllegalStateException('State receiver is already shut down.')
 		thread.start
 	}
 
 	def isAlive() {
-		thread.alive
+		if (thread == null)
+			false
+		else
+			thread.alive
 	}
 
 	override getState() {
+		if (!alive) {
+			throw new SocketException('Connection to robot was closed.')
+		}
 		lastState
-	}	
+	}
 	
 	def shutdown() {
 		isStopped = true
 		ignoreExceptions[ thread.join(SOCKET_TIMEOUT) ]
 		thread = null
 	}
+	
 }
