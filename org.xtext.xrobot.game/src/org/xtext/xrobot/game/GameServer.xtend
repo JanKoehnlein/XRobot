@@ -82,6 +82,7 @@ class GameServer {
 				try {
 					startGame
 				} catch (Exception exc) {
+					display.showError('An error occurred', 5.seconds)
 					LOG.error('Error during game execution', exc)
 				}
 			}
@@ -101,7 +102,7 @@ class GameServer {
 			do {
 				slots.forEach[prepare]
 				ready = slots.forall[waitReady]
-				abort = slots.exists[available]
+				abort = slots.exists[available || status == BATTERY_EXHAUSTED]
 			} while (!abort && !ready)
 			
 			// The slots may have been released during preparation

@@ -22,8 +22,8 @@ class RobotPreparer implements IRobotPreparer {
 	
 	static val LOG = Logger.getLogger(RobotPreparer)
 	
-	static double LOW_BATTERY_CHARGE = 0.86
-	static double MIN_BATTERY_CHARGE = 0.75
+	static double LOW_BATTERY_CHARGE = 0.80
+	static double MIN_BATTERY_CHARGE = 0.70
 	
 	static val DISTANCE_ACCURACY = 4.0
 	static val ANGLE_ACCURACY = 6.0
@@ -49,41 +49,39 @@ class RobotPreparer implements IRobotPreparer {
 
 	override prepare() {
 		LOG.debug(slot.robotID + ' prepare()')
-		synchronized (slot) {
-			if (slot.status != READY && !thread?.isAlive) {
-				slot.status = PREPARING
-				isCanceled = false
-				robot = slot.robotFactory.newRobot[isCanceled]
-				LOG.info(slot.robotID + ' battery ' + round(robot.batteryState * 100) + '%')
-				if (robot.batteryState < MIN_BATTERY_CHARGE) 
-					errorReporter.showError(slot.robotID + ': Change battery', MESSAGE_DURATION.seconds)
-				else if (robot.batteryState < LOW_BATTERY_CHARGE) 
-					errorReporter.showInfo(slot.robotID + ': Battery low', MESSAGE_DURATION.seconds)
-				thread = new Thread([
-					try {
-						robot.invincible = true
-						robot.reset
-						goHome
-						robot.calibrateScoop
-					} catch (CanceledException exc) {
-						// ignore
-					} catch (CameraTimeoutException cte) {
-						LOG.warn(cte.message)
-					} catch (SocketTimeoutException ste) {
-						LOG.error(ste.message)
-					} catch (Exception exc) {
-						LOG.error('Error preparing robot', exc)
-					} finally {
-						ignoreExceptions[ robot.invincible = false ]
-						synchronized (statusLock) {
-							slot.status = checkStatus
-						}
+		if (slot.status != READY && !thread?.isAlive) {
+			slot.status = PREPARING
+			isCanceled = false
+			robot = slot.robotFactory.newRobot[isCanceled]
+			LOG.info(slot.robotID + ' battery ' + round(robot.batteryState * 100) + '%')
+			if (robot.batteryState < MIN_BATTERY_CHARGE) 
+				checkAndShowError('Change batteries for ' + slot.robotID + ' robot')
+			else if (robot.batteryState < LOW_BATTERY_CHARGE) 
+				checkAndShowError(slot.robotID + ' robot: Battery low')
+			thread = new Thread([
+				try {
+					robot.invincible = true
+					robot.reset
+					goHome
+					robot.calibrateScoop
+				} catch (CanceledException exc) {
+					// ignore
+				} catch (CameraTimeoutException cte) {
+					LOG.warn(cte.message)
+				} catch (SocketTimeoutException ste) {
+					LOG.error(ste.message)
+				} catch (Exception exc) {
+					LOG.error('Error preparing robot', exc)
+				} finally {
+					ignoreExceptions[ robot.invincible = false ]
+					synchronized (statusLock) {
+						slot.status = checkStatus
 					}
-				], 'RobotPlacer') => [
-					daemon = true
-				]
-				thread.start
-			}
+				}
+			], 'RobotPlacer') => [
+				daemon = true
+			]
+			thread.start
 		}
 	}
 	
@@ -107,17 +105,18 @@ class RobotPreparer implements IRobotPreparer {
 		if (slot.available) {
 			// The slot has been released during preparation
 			newStatus = AVAILABLE
+		} else if (robot == null) {
+			checkAndShowError(slot.robotID + ' robot could not be located')
+			newStatus = NOT_AT_HOME
+		} else if (robot.batteryState < MIN_BATTERY_CHARGE ) {
+			checkAndShowError('Change batteries for ' + slot.robotID + ' robot')
+			newStatus = BATTERY_EXHAUSTED
 		} else {
 			val isAtHome = robot.ownPosition.getRelativePosition(homePosition).length < DISTANCE_ACCURACY
 						&& abs(minimizeAngle(homeViewDirection - robot.ownPosition.viewDirection)) < ANGLE_ACCURACY
 			if (!isAtHome) {
-				checkAndShowError(slot.robotID + ': Not at start position')
+				checkAndShowError(slot.robotID + ' robot is not at start position')
 				newStatus = NOT_AT_HOME
-			}
-			val isBatteryEmpty = robot.batteryState < MIN_BATTERY_CHARGE 
-			if (isBatteryEmpty) {
-				checkAndShowError(slot.robotID + ': Change batteries')
-				newStatus = BATTERY_EXHAUSTED
 			}
 		} 
 		newStatus

@@ -80,16 +80,17 @@ class XRobotInterpreter extends XbaseInterpreter {
 	def void execute(Program program, IRemoteRobot.Factory robotFactory, List<IRobotListener> listeners, CancelIndicator cancelIndicator) {
 		try {
 			this.listeners = listeners
+			// Reset the audio call counters of the audio service
+			AudioService.getInstance.resetCounters
+			// Start the security manager in order to block all illegal operations
+			RobotSecurityManager.start
+			
 			val conditionCancelIndicator = new InternalCancelIndicator(cancelIndicator)
 			conditionRobot = robotFactory.newRobot(conditionCancelIndicator)
 			conditionRobot.reset
 			baseContext = createContext
 			baseContext.newValue(ROBOT, conditionRobot)
 			val conditionContext = baseContext.fork()
-			// Reset the audio call counters of the audio service
-			AudioService.getInstance.resetCounters
-			// Start the security manager in order to block all illegal operations
-			RobotSecurityManager.start
 			
 			// Initialize program fields
 			for (field: program.fields) {
