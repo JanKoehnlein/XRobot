@@ -577,13 +577,13 @@ class Robot {
 	 */
 	@NoAPI@Zombie
 	def void calibrateScoop() {
-		scoopMotor.rotateTo(60, false)
+		scoopMotor.rotateTo(40, false)
 		val startColor = groundColor
-		for (a : (50..-50).withStep(-10)) {
+		for (a : (20..-200).withStep(-20)) {
 			scoopMotor.rotateTo(a, false)
-			if (startColor - groundColor > 0.05) {
+			if (startColor - groundColor > 0.025) {
 				// We found a position where the robot is lifted up
-				scoopNeutralPos = a + 10
+				scoopNeutralPos = a + 40
 				scoopMotor.rotateTo(scoopNeutralPos, true)
 				return
 			}
