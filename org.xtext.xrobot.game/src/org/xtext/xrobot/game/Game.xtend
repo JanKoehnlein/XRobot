@@ -23,6 +23,7 @@ import static org.xtext.xrobot.api.IRobot.*
 import static org.xtext.xrobot.game.Game.*
 import static org.xtext.xrobot.game.GameResult.*
 import static org.xtext.xrobot.net.INetConfig.*
+import java.net.SocketException
 
 class Game {
 
@@ -60,7 +61,7 @@ class Game {
 		}
 		try {
 			// Remember map is lazy, so make a real copy
-			runners = new ArrayList(slots.map[ prepareScriptRunner(program, robotFactory, gameOverListener, it)])
+			runners = new ArrayList(slots.map[prepareScriptRunner(program, robotFactory, gameOverListener, it)])
 			gameOver = false
 			
 			if (LOG.infoEnabled)
@@ -71,12 +72,13 @@ class Game {
 				start
 				join
 			]
-			gameOver = true
-			runners.forEach[executeSafely[join(100)]]
+			runners.forEach[join(100)]
 		} finally {
-			slots.forEach[
-				executeSafely[ robotFactory.checkAndRelease ]
-			]
+			try {
+				slots.forEach[robotFactory.checkAndRelease]
+			} catch (Throwable t) {
+				LOG.info(t.message, t)
+			}
 			if (gameResult == null && refereeResult == null)
 				gameResult = draw
 			
@@ -166,43 +168,52 @@ class Game {
 		listeners.forEach[scriptExecutor.addRobotListener(it)]
 		new RobotThread(getThreadGroup, robotFactory.robotID.name) {
 			override run() {
-				executeSafely [
-					if (!robotFactory.isAlive)
-						throw new IllegalStateException(robotFactory.robotID + ' robot not ready')
-					try {
-						scriptExecutor.run(
-							program,
-							robotFactory,
-							[gameOver])
-					} catch (CameraTimeoutException cte) {
-						if (gameResult == null)
-							gameResult = canceled('Camera dropped out for ' + robotFactory.robotID + ' robot')
-						gameOver = true
-					} catch (SocketTimeoutException ste) {
-						LOG.info(ste.message)
-						gameResult = canceled('Connection to ' + robotFactory.robotID + ' robot was lost')
-						lastError = ste
-						gameOver = true
-					} catch (MemoryException me) {
-						LOG.info('Caught memory exception.', me)
-						gameResult = canceled(robotFactory.robotID + ': ' + me.message)
-						lastError = me
-						gameOver = true
-					} catch (SecurityException se) {
-						LOG.info('Caught security exception.', se)
+				if (!robotFactory.isAlive)
+					throw new IllegalStateException(robotFactory.robotID + ' robot not ready')
+				try {
+					scriptExecutor.run(
+						program,
+						robotFactory,
+						[gameOver])
+				} catch (CameraTimeoutException cte) {
+					if (gameResult == null)
+						gameResult = canceled('Camera dropped out for ' + robotFactory.robotID + ' robot')
+				} catch (SocketTimeoutException ste) {
+					LOG.info(ste.message)
+					gameResult = canceled('Connection to ' + robotFactory.robotID + ' robot was lost')
+					lastError = ste
+				} catch (SocketException se) {
+					LOG.info(se.message)
+					gameResult = canceled('Connection to ' + robotFactory.robotID + ' robot was lost')
+					lastError = se
+				} catch (MemoryException me) {
+					LOG.info('Caught memory exception.', me)
+					gameResult = canceled(robotFactory.robotID + ': ' + me.message)
+					lastError = me
+				} catch (SecurityException se) {
+					LOG.info('Caught security exception.', se)
+					gameResult = canceled(program.name + ' (' + robotFactory.robotID + ')' + ' was caught cheating')
+					lastError = se
+				} catch (Exception e) {
+					if (Throwables.getRootCause(e) instanceof SecurityException) {
+						LOG.info('Caught security exception.', e)
 						gameResult = canceled(program.name + ' (' + robotFactory.robotID + ')' + ' was caught cheating')
-						lastError = se
-						gameOver = true
-					} catch (Exception e) {
-						if (Throwables.getRootCause(e) instanceof SecurityException) {
-							gameResult = canceled(program.name + ' (' + robotFactory.robotID + ')' + ' was caught cheating')
-							lastError = Throwables.getRootCause(e)
-							gameOver = true
-						} else {
-							throw e
-						}
+						lastError = Throwables.getRootCause(e)
+					} else {
+						LOG.error(e.message, e)
+						gameResult = canceled('An error occurred')
+						lastError = e
 					}
-				]
+				} catch (OutOfMemoryError err) {
+					LOG.error(err)
+					lastError = new MemoryException("Heap memory limit exceeded", err)
+					gameResult = canceled(lastError.message)
+				} catch (Throwable t) {
+					LOG.error(t.message, t)
+					gameResult = canceled('An error occurred')
+					lastError = t
+				}
+				gameOver = true
 			}
 		}
 	}
@@ -222,19 +233,4 @@ class Game {
 		]
 	}
 
-	private def executeSafely(Runnable runnable) {
-		try {
-			runnable.run()
-		} catch (OutOfMemoryError err) {
-			LOG.error(err)
-			lastError = new MemoryException("Heap memory limit exceeded", err)
-			gameResult = canceled(lastError.message)
-			gameOver = true
-		} catch (Throwable t) {
-			LOG.error(t.message, t)
-			gameResult = canceled('An error occurred')
-			lastError = t
-			gameOver = true
-		}
-	}
 }

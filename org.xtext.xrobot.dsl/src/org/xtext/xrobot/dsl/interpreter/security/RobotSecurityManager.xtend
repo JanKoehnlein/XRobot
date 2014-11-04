@@ -10,9 +10,9 @@ import java.lang.reflect.ReflectPermission
 import java.security.AccessController
 import java.security.Permission
 import java.security.SecureRandom
+import java.util.Collection
 import java.util.EnumMap
 import java.util.HashMap
-import java.util.List
 import java.util.Properties
 import java.util.PropertyPermission
 import java.util.PropertyResourceBundle
@@ -115,19 +115,19 @@ class RobotSecurityManager extends SecurityManager {
 	/**
 	 * Packages for which access is allowed through the XRobot API.
 	 */
-	public static val ALLOWED_PACKAGES = #[
+	public static val ALLOWED_PACKAGES = #{
 		'java.lang',
 		'java.util',
 		'com.google.common.base',
 		'com.google.common.collect',
 		'org.xtext.xrobot.api',
 		'org.eclipse.xtext.xbase.lib'
-	]
+	}
 	
 	/**
 	 * Packages with forbidden API access but allowed indirect access through the interpreter.
 	 */
-	public static val RESTRICTED_PACKAGES = #[
+	public static val RESTRICTED_PACKAGES = #{
 		'java.lang.reflect',
 		'java.lang.invoke',
 		'java.util.concurrent',
@@ -142,29 +142,30 @@ class RobotSecurityManager extends SecurityManager {
 		'org.xtext.xrobot*',
 		'org.eclipse.xtext*',
 		'org.eclipse.emf.ecore.util'
-	]
+	}
 	
 	/**
 	 * System properties for which access is allowed.
 	 */
-	public static val ALLOWED_PROPERTIES = #[
+	public static val ALLOWED_PROPERTIES = #{
 		'os.name',
 		'line.separator',
 		'sun.invoke.util.ValueConversions.MAX_ARITY'
-	]
+	}
 	
 	/**
 	 * Classes that are excluded from API access.
 	 */
-	public static val RESTRICTED_CLASSES = #[
+	public static val RESTRICTED_CLASSES = #{
 		ClassLoader, Compiler, Process, ProcessBuilder, Runtime, SecurityManager, Thread,
 		ThreadGroup, Properties, PropertyResourceBundle, ResourceBundle, RobotSecurityManager
-	]
+	}
 	
-	static def containedIn(String searchString, List<String> list) {
-		for (String s : list) {
-			if (s == searchString || s.endsWith('*')
-					&& searchString.startsWith(s.substring(0, s.length - 1))) {
+	static def containedIn(String searchString, Collection<String> coll) {
+		if (coll.contains(searchString))
+			return true
+		for (String s : coll) {
+			if (s.endsWith('*') && searchString.startsWith(s.substring(0, s.length - 1))) {
 				return true
 			}
 		}
@@ -210,14 +211,14 @@ class RobotSecurityManager extends SecurityManager {
 		}
 	}
 	
-	static val SECURE_CLASSES = #[
+	static val SECURE_CLASSES = #{
 		XbaseInterpreter, RobotSecurityManager, SecurityManager, AccessController, Class,
 		ClassLoader, System, FilePermission, File, FileInputStream, ZipFile, JarFile,
 		Constructor, Method, AccessibleObject, PolymorphicDispatcher,
 		DefaultDeclarativeQualifiedNameProvider
-	]
+	}
 	
-	static val SECURE_CLASS_NAMES = #[
+	static val SECURE_CLASS_NAMES = #{
 		'java.net.URLClassLoader',
 		'java.io.UnixFileSystem',
 		'java.io.WinNTFileSystem',
@@ -235,7 +236,7 @@ class RobotSecurityManager extends SecurityManager {
 		'sun.reflect.DelegatingConstructorAccessorImpl',
 		'sun.reflect.DelegatingMethodAccessorImpl',
 		'com.google.inject.internal.DefaultConstructionProxyFactory'
-	]
+	}
 	
 	private def classLoaderWorking() {
 		for (clazz : classContext) {
