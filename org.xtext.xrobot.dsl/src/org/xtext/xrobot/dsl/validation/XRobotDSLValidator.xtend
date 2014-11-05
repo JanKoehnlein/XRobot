@@ -100,6 +100,11 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 						// Ignore exception
 					}
 				}
+			} else if (clazz == Object) {
+				if (operation.simpleName == 'wait') {
+					error('Object synchronization methods are not allowed (use sleep(int) to delay execution).',
+						source, feature)
+				}
 			}
 		}
 	}

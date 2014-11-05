@@ -71,6 +71,7 @@ class ScriptPoller implements IScriptPoller {
 	
 	@Data
 	static class ServerAnswer {
+		long timestamp
 		String token
 		String uri
 		String sourceCode

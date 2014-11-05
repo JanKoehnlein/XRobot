@@ -32,21 +32,25 @@ import static extension org.xtext.xrobot.api.GeometryExtensions.*
  * variable in your script, such that all methods can be called directly at
  * all locations.</p>
  * 
- * <p>This interface defines methods to steer the robot, to read its state, to
+ * <p>This interface defines commands to steer the robot, to read its state, to
  * use its sensors, to access positions, and to play audio.</p>
  * 
  * <p>
- * There are two variants of movement methods: blocking and non-blocking. 
- * Non-blocking methods start a move and return immediately. They do not 
- * define a target where the move should stop. Instead, the move continues 
- * until another move method is called or the game is over.
- * On the other hand, blocking methods define a target of the move. They 
+ * There are two variants of movement commands: blocking and non-blocking. 
+ * Non-blocking commands start a move and return immediately. They do not 
+ * define a target where the movement should stop, but the movement continues 
+ * until another move command is called or the game is over. As a consequence,
+ * movements cannot be precisely controlled with non-blocking commands,
+ * but very smooth transitions between movements are possible.
+ * On the other hand, blocking commands define a target of the movement. They 
  * will not move the robot beyond this target, and they do not return 
  * until the target is reached. This allows to build exact maneuvers without 
  * using timers. If the robot is performing a blocking move while the current 
  * mode is canceled and the next mode calls a move method, the move is 
  * interrupted even if the target has not been reached. If not interrupted, 
- * the move will be finished.
+ * the move will be finished. Blocking commands allow much more precise control
+ * over the movements compared to non-blocking commands, but their disadvantage
+ * is a small delay between subsequent blocking commands.
  * </p>
  */
 @SimpleRMI
