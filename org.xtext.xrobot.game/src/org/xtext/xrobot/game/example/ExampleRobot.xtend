@@ -95,14 +95,14 @@ class ExampleRobot {
 				}
 			'''),
 			
-			new ExampleRobot('Friendly Seeker', '''
-				robot 'Friendly Seeker'
+			new ExampleRobot('Friend Seeker', '''
+				robot 'Friend Seeker'
 				author itemis
 				
 				var initMode = true
 				
 				Init on initMode {
-					drivingSpeed = 0.5 * maxDrivingSpeed
+					drivingSpeed = 0.8 * maxDrivingSpeed
 					rotationSpeed = 0.3 * maxRotationSpeed
 					scoop(1)
 					initMode = false

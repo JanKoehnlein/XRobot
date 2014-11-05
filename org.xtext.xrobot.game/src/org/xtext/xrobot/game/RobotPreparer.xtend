@@ -9,6 +9,7 @@ import org.xtext.xrobot.camera.CameraTimeoutException
 import org.xtext.xrobot.net.INetConfig
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
+import org.xtext.xrobot.util.EmptyBatteriesException
 
 import static java.lang.Math.*
 import static org.xtext.xrobot.api.GeometryExtensions.*
@@ -54,9 +55,9 @@ class RobotPreparer implements IRobotPreparer {
 			isCanceled = false
 			robot = slot.robotFactory.newRobot[isCanceled]
 			LOG.info(slot.robotID + ' battery ' + round(robot.batteryState * 100) + '%')
-			if (robot.batteryState < MIN_BATTERY_CHARGE) 
-				checkAndShowError('Change batteries for ' + slot.robotID + ' robot')
-			else if (robot.batteryState < LOW_BATTERY_CHARGE) 
+			if (robot.batteryState < MIN_BATTERY_CHARGE)
+				throw new EmptyBatteriesException('Change batteries for ' + slot.robotID + ' robot')
+			else if (robot.batteryState < LOW_BATTERY_CHARGE)
 				checkAndShowError(slot.robotID + ' robot: Battery low')
 			thread = new Thread([
 				try {

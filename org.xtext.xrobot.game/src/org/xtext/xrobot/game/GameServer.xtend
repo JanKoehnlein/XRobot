@@ -17,6 +17,7 @@ import static org.xtext.xrobot.RobotID.*
 import static org.xtext.xrobot.game.PlayerStatus.*
 
 import static extension javafx.util.Duration.*
+import org.xtext.xrobot.util.EmptyBatteriesException
 
 @Singleton
 class GameServer {
@@ -100,7 +101,13 @@ class GameServer {
 			var boolean ready
 			var boolean abort
 			do {
-				slots.forEach[prepare]
+				slots.forEach[
+					try {
+						prepare
+					} catch (EmptyBatteriesException ebe) {
+						LOG.warn(ebe.message)
+					}
+				]
 				ready = slots.forall[waitReady]
 				abort = slots.exists[available || status == BATTERY_EXHAUSTED]
 			} while (!abort && !ready)
@@ -124,12 +131,13 @@ class GameServer {
 			}
 			
 		} while(result != null && result.replay)
-		if (gamePlayed) {
-			LOG.debug('Releasing player slots')
-			slots.forEach[release]
-		} else {
-			slots.forEach[if (!available) prepare]
-		}
+		val finalGamePlayed = gamePlayed
+		slots.forEach[
+			if (finalGamePlayed || status == BATTERY_EXHAUSTED)
+				release
+			else if (!available)
+				prepare
+		]
 		display.startIdleProgram
 	}
 	
