@@ -2,8 +2,16 @@ package org.xtext.xrobot;
 
 public enum RobotID {
 	
-	Blue(0, "10.10.1.5"),
-	Red(1, "10.10.1.6");
+	Blue(0, RobotIpConfig.WIFI_IP_BLUE),
+	Red(1, RobotIpConfig.WIFI_IP_RED);
+
+	@SuppressWarnings("unused")
+	private static final class RobotIpConfig {
+		static final String WIFI_IP_BLUE = "10.10.1.5";
+		static final String WIFI_IP_RED = "10.10.1.6";
+		static final String BT_IP_BLUE = "10.0.1.1";
+		static final String BT_IP_RED = "10.0.1.2";
+	}
 	
 	private int fiducialID;
 	private String ipAddress;

@@ -68,26 +68,21 @@ class BrickConnector {
 		while (!isStopped) {
 			LOG.debug('Accepting connections...')
 			serverSelector.select(SOCKET_TIMEOUT)
-			for (key : serverSelector.selectedKeys) {
-				if (robot.escapePressed)
-					isStopped = true
-				else if (key.acceptable) {
-					val socket = server.accept()
-					if (socket != null) {
-						socket.configureBlocking(false)
-						LOG.debug('Connected to ' + (socket.remoteAddress as InetSocketAddress).address)
-						robot.led = GREEN
-						robot.systemSound(BEEP)
-						return socket
+			if (robot.escapePressed)
+				isStopped = true
+			else {
+				for (key : serverSelector.selectedKeys) {
+					if (key.acceptable) {
+						val socket = server.accept()
+						if (socket != null) {
+							socket.configureBlocking(false)
+							LOG.debug('Connected to ' + (socket.remoteAddress as InetSocketAddress).address)
+							robot.led = GREEN
+							robot.systemSound(BEEP)
+							return socket
+						}
 					}
 				}
-			}
-			// Check whether we can reach the camera server in order to verify that we have
-			// a working wifi connection
-			if(!CAMERA_SERVER_ADDRESS.isReachable(20 * SOCKET_TIMEOUT)) {
-				LOG.error('Network or camera server is down')
-				robot.systemSound(LOW_BUZZ)
-				isStopped = true
 			}
 		}
 		robot.systemSound(DESCENDING_ARPEGGIO)
@@ -120,7 +115,9 @@ class BrickConnector {
 			var Selector writeSelector = null
 			try {
 				socket = connect
-				if(socket != null) {
+				if (robot.escapePressed) {
+					isStopped = true
+				} else if (socket != null) {
 					robot.reset
 					readSelector = Selector.open()
 					writeSelector = Selector.open()
