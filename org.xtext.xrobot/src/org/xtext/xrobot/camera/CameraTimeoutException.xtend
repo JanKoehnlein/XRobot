@@ -1,15 +1,21 @@
 package org.xtext.xrobot.camera
 
-import java.lang.RuntimeException
+import org.eclipse.xtend.lib.annotations.Accessors
+import org.xtext.xrobot.RobotID
 
 class CameraTimeoutException extends RuntimeException {
 	
-	new() {
+	@Accessors
+	val RobotID robotID
+	
+	new(RobotID robotID) {
 		super()
+		this.robotID = robotID
 	}
 	
-	new(String message) {
+	new(RobotID robotID, String message) {
 		super(message)
+		this.robotID = robotID
 	}
 	
 }

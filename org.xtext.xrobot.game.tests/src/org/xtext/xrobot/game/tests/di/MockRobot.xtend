@@ -71,7 +71,7 @@ final class MockRobot implements IRemoteRobot {
 		checkCanceled
 		if (blindPredicate.apply(this)) {
 			Thread.sleep(timeout)
-			throw new CameraTimeoutException('No position update from camera after ' + timeout + 'ms.')
+			throw new CameraTimeoutException(robotID, 'No position update from camera after ' + timeout + 'ms.')
 		} else {
 			Thread.sleep(INetConfig.UPDATE_INTERVAL)
 		}

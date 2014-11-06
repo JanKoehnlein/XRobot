@@ -44,7 +44,7 @@ class ScriptPoller implements IScriptPoller {
 		while(!isStopped) {
 			try {
 				val urlAsString = '''
-					«ECLIPSE_SERVER_URL»?info={_tokens=[«
+					«ECLIPSE_SERVER_URL»?info={tokens=[«
 						FOR token: gameServer.slots.filter[available].map[token.value] SEPARATOR ','
 							»"«token»"«
 						ENDFOR

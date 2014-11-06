@@ -5,6 +5,7 @@ import java.net.SocketTimeoutException
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
+import org.xtext.xrobot.camera.CameraTimeoutException
 import org.xtext.xrobot.server.IRemoteRobot
 
 @Accessors
@@ -33,7 +34,7 @@ class MockRobotFactory implements IRemoteRobot.Factory {
 		!isReleased
 	}
 	
-	override newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException {
+	override newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException, CameraTimeoutException {
 		lastRobot = new MockRobot(robotID, cancelIndicator, deadPredicate, blindPredicate)
 	}
 	

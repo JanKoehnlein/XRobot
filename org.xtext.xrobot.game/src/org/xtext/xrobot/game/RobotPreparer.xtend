@@ -68,9 +68,11 @@ class RobotPreparer implements IRobotPreparer {
 				} catch (CanceledException exc) {
 					// ignore
 				} catch (CameraTimeoutException cte) {
-					LOG.warn(cte.message)
+					LOG.info(cte.message)
+					slot.status = NO_CAMERA
 				} catch (SocketTimeoutException ste) {
-					LOG.error(ste.message)
+					LOG.warn(ste.message)
+					slot.status = NO_CONNECTION
 				} catch (Exception exc) {
 					LOG.error('Error preparing robot', exc)
 				} finally {
@@ -103,7 +105,9 @@ class RobotPreparer implements IRobotPreparer {
 	
 	private def checkStatus() {
 		var newStatus = READY
-		if (slot.available) {
+		if (slot.status == NO_CAMERA || slot.status == NO_CONNECTION) {
+			newStatus = slot.status
+		} else if (slot.available) {
 			// The slot has been released during preparation
 			newStatus = AVAILABLE
 		} else if (robot == null) {

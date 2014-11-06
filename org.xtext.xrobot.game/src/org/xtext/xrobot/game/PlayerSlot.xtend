@@ -149,10 +149,10 @@ class PlayerSlot implements IRobotListener {
 			preparer.prepare
 		} catch (CameraTimeoutException cte) {
 			LOG.info(cte.message)
-			setStatus(NOT_AT_HOME)
+			setStatus(NO_CAMERA)
 		} catch (SocketTimeoutException ste) {
 			LOG.warn(ste.message)
-			setStatus(NOT_AT_HOME)
+			setStatus(NO_CONNECTION)
 		}
 	}
 	

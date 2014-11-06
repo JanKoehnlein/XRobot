@@ -178,7 +178,7 @@ class Game {
 				} catch (CameraTimeoutException cte) {
 					LOG.info(cte.message)
 					if (gameResult == null)
-						gameResult = canceled('Camera dropped out for ' + robotFactory.robotID + ' robot')
+						gameResult = canceled('Camera dropped out for ' + cte.robotID + ' robot')
 				} catch (SocketTimeoutException ste) {
 					LOG.warn(ste.message)
 					gameResult = canceled('Connection to ' + robotFactory.robotID + ' robot was lost')

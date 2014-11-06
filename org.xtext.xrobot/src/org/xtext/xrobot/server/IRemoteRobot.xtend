@@ -1,10 +1,11 @@
 package org.xtext.xrobot.server
 
+import com.google.inject.ImplementedBy
 import java.net.SocketTimeoutException
 import org.eclipse.xtext.util.CancelIndicator
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.api.IRobot
-import com.google.inject.ImplementedBy
+import org.xtext.xrobot.camera.CameraTimeoutException
 
 interface IRemoteRobot extends IRobot {
 	
@@ -22,14 +23,14 @@ interface IRemoteRobot extends IRobot {
 
 		def boolean isAlive()
 		
-		def IRemoteRobot newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException
+		def IRemoteRobot newRobot(CancelIndicator cancelIndicator) throws SocketTimeoutException, CameraTimeoutException
 
 		def IRemoteRobot newRobot(CancelIndicator cancelIndicator, IRemoteRobot existingRobot)
 		
 		def IRemoteRobot getLastRobot()
 	}
 	
-	def void waitForUpdate(int timeout) throws SocketTimeoutException
+	def void waitForUpdate(int timeout) throws SocketTimeoutException, CameraTimeoutException
 	
 	def void release()
 	

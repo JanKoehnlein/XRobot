@@ -7,6 +7,7 @@ import org.eclipse.xtext.util.CancelIndicator
 import org.eclipse.xtext.util.Wrapper
 import org.xtext.xrobot.RobotID
 import org.xtext.xrobot.camera.CameraClient
+import org.xtext.xrobot.camera.CameraTimeoutException
 
 import static org.xtext.xrobot.net.INetConfig.*
 import static org.xtext.xrobot.util.IgnoreExceptionsExtension.*
@@ -30,7 +31,7 @@ class RemoteRobotFactory implements IRemoteRobot.Factory {
 	@Accessors(PUBLIC_GETTER)
 	var RemoteRobot lastRobot
 	
-	new(RobotID robotID, SocketChannel socket, CameraClient cameraClient) throws SocketTimeoutException {
+	new(RobotID robotID, SocketChannel socket, CameraClient cameraClient) throws SocketTimeoutException, CameraTimeoutException {
 		try {
 			this.robotID = robotID
 			this.socket = socket

@@ -25,7 +25,7 @@ class ExampleRobot {
 				author itemis
 				
 				Spin {
-					startMotors(0.3 * maxDrivingSpeed, -0.3 * maxDrivingSpeed)
+					startMotors(0.1 * maxDrivingSpeed, -0.2 * maxDrivingSpeed)
 					scoop(1)
 					scoop(0)
 				}
@@ -80,7 +80,7 @@ class ExampleRobot {
 				robot Dodger
 				author itemis
 				
-				Dodge on opponentBearing.length < 30 {
+				Dodge on opponentBearing.length < 35 {
 					if (abs(centerBearing.angle) <= 90)
 						drive(30)
 					else
@@ -89,9 +89,9 @@ class ExampleRobot {
 				
 				Taunt {
 					if (opponentBearing.angle >= 0)
-						rotate(opponentBearing.angle - 80)
+						rotate(opponentBearing.angle - 75)
 					else
-						rotate(opponentBearing.angle + 80)
+						rotate(opponentBearing.angle + 75)
 				}
 			'''),
 			

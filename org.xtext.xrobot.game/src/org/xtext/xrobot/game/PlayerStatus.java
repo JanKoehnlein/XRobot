@@ -3,8 +3,10 @@ package org.xtext.xrobot.game;
 public enum PlayerStatus {
 	AVAILABLE("Available", ""),
 	PREPARING("Preparing...", "light"),
-	BATTERY_EXHAUSTED("Batteries empty", "error"),
-	NOT_AT_HOME("Place manually", "error"),
+	BATTERY_EXHAUSTED("Batteries Empty", "error"),
+	NOT_AT_HOME("Place Manually", "error"),
+	NO_CAMERA("No Camera Signal", "error"),
+	NO_CONNECTION("Connection Failed", "error"),
 	READY("Ready", "light"),
 	FIGHTING("Fighting", "light"),
 	WINNER("Winner", ""),
