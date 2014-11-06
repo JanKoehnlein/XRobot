@@ -139,7 +139,8 @@ class Game {
 					// Ignore exception
 				}
 				checkGameOver(robot)
-			} while (gameResult != null && gameResult.winner == robotFactory.robotID
+			} while (refereeResult == null && gameResult != null
+					&& gameResult.winner == robotFactory.robotID
 					&& System.currentTimeMillis - lastLoserTimeStamp < GAME_LOST_THRESHOLD)
 		}
 		robotFactory.release

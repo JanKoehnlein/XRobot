@@ -17,6 +17,7 @@ import org.xtext.xrobot.dsl.xRobotDSL.Program
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.game.PlayerStatus.*
+import org.xtext.xrobot.server.CanceledException
 
 class PlayerSlot implements IRobotListener {
 	
@@ -153,6 +154,8 @@ class PlayerSlot implements IRobotListener {
 		} catch (SocketTimeoutException ste) {
 			LOG.warn(ste.message)
 			setStatus(NO_CONNECTION)
+		} catch (CanceledException ce) {
+			// Ignore the exception
 		}
 	}
 	
