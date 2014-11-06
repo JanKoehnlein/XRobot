@@ -13,6 +13,7 @@ import org.eclipse.xtext.common.types.util.JavaReflectAccess
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 import org.eclipse.xtext.validation.Check
 import org.eclipse.xtext.xbase.XAbstractFeatureCall
+import org.eclipse.xtext.xbase.XBooleanLiteral
 import org.eclipse.xtext.xbase.XConstructorCall
 import org.eclipse.xtext.xbase.XExpression
 import org.eclipse.xtext.xbase.XNumberLiteral
@@ -22,6 +23,7 @@ import org.eclipse.xtext.xtype.XtypePackage
 import org.xtext.xrobot.dsl.interpreter.XRobotInterpreter
 import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
 import org.xtext.xrobot.dsl.xRobotDSL.Program
+import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage
 
 /**
  * Custom validation rules. 
@@ -33,10 +35,34 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 	@Inject extension JavaReflectAccess javaReflectAccess
 	
 	@Check
+	def checkProgramModes(Program program) {
+		var unreachable = false
+		var i = 0
+		val modeNames = <String>newHashSet()
+		for (mode : program.modes) {
+			if (unreachable || mode.condition instanceof XBooleanLiteral
+					&& !(mode.condition as XBooleanLiteral).isTrue) {
+				error('This mode is never executed',
+					program, XRobotDSLPackage.eINSTANCE.program_Modes, i)
+			} else if (mode.condition == null || mode.condition instanceof XBooleanLiteral
+					&& (mode.condition as XBooleanLiteral).isTrue) {
+				unreachable = true
+			}
+			if (modeNames.contains(mode.name)) {
+				warning('Duplicate mode name',
+					mode, XRobotDSLPackage.eINSTANCE.mode_Name)
+			} else {
+				modeNames.add(mode.name)
+			}
+			i++
+		}
+	}
+	
+	@Check
 	def checkImportAllowed(XImportDeclaration declaration) {
 		val pkg = declaration.importedType?.packageName
 		if (pkg != null && !RobotSecurityManager.ALLOWED_PACKAGES.contains(pkg)) {
-			error('Access to package ' + pkg + ' is not allowed.',
+			error('Access to package ' + pkg + ' is not allowed',
 				declaration, XtypePackage.eINSTANCE.XImportDeclaration_ImportedType)
 		}
 	}
@@ -71,10 +97,10 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 		if (clazz != null) {
 			val pkg = clazz.package.name
 			if (pkg != null && !RobotSecurityManager.ALLOWED_PACKAGES.contains(pkg)) {
-				error('Access to package ' + pkg + ' is not allowed.',
+				error('Access to package ' + pkg + ' is not allowed',
 					source, feature)
 			} else if (RobotSecurityManager.RESTRICTED_CLASSES.exists[isAssignableFrom(clazz)]) {
-				error('Use of class ' + clazz.simpleName + ' is not allowed.',
+				error('Use of class ' + clazz.simpleName + ' is not allowed',
 					source, feature)
 			}
 		}
@@ -85,7 +111,7 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 		val clazz = operation.declaringType?.rawType
 		if (clazz != null) {
 			if (clazz == InputOutput) {
-				warning('You will not see the output of this statement.',
+				warning('You will not see the output of this statement',
 					source, feature)
 			} else if (clazz == ArrayLiterals) {
 				val arg = arguments.head
@@ -93,7 +119,7 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 					try {
 						val size = Integer.parseInt((arg as XNumberLiteral).value)
 						if (size > XRobotInterpreter.MAX_ARRAY_SIZE) {
-							warning('The maximal allowed array size is ' + XRobotInterpreter.MAX_ARRAY_SIZE + '.',
+							warning('The maximal allowed array size is ' + XRobotInterpreter.MAX_ARRAY_SIZE,
 								arg, XbasePackage.eINSTANCE.XNumberLiteral_Value)
 						}
 					} catch (NumberFormatException e) {
@@ -102,7 +128,7 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 				}
 			} else if (clazz == Object) {
 				if (operation.simpleName == 'wait') {
-					error('Object synchronization methods are not allowed (use sleep(int) to delay execution).',
+					error('Object synchronization methods are not allowed (use sleep(int) to delay execution)',
 						source, feature)
 				}
 			}
