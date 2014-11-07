@@ -177,16 +177,12 @@ class XRobotInterpreter extends XbaseInterpreter {
 				stateChanged(robot)
 			]
 			mode.action.evaluateChecked(context, cancelIndicator)
-		} catch(CanceledException exc) {
+		} catch(CanceledException exc1) {
 			try {
 				mode.whenCanceled?.evaluateChecked(context, cancelIndicator)
 			} catch(CanceledException exc2) {
 				// Ignore exception
-			} catch (OutOfMemoryError err) {
-				throw new MemoryException("Heap memory limit exceeded", err)
 			}
-		} catch (OutOfMemoryError err) {
-			throw new MemoryException("Heap memory limit exceeded", err)
 		}
 	}
 	
@@ -199,6 +195,8 @@ class XRobotInterpreter extends XbaseInterpreter {
 			return result?.result
 		} catch (ExceptionInInitializerError error) {
 			throw error.cause
+		} catch (OutOfMemoryError err) {
+			throw new MemoryException("Heap memory limit exceeded", err)
 		}
 	}
 	
