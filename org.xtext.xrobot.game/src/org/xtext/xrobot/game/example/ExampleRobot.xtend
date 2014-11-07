@@ -102,28 +102,28 @@ class ExampleRobot {
 				var initMode = true
 				
 				Init on initMode {
-					drivingSpeed = 0.8 * maxDrivingSpeed
-					rotationSpeed = 0.3 * maxRotationSpeed
 					scoop(1)
 					initMode = false
 				}
 				
+				Greet on opponentBearing.length < ROBOT_LENGTH + 10 {
+					stop
+					say('Hello, friend!')
+					sleep(5000)
+				}
+				
 				SeekLeft on opponentBearing.angle > 15 {
+					rotationSpeed = 0.3 * maxRotationSpeed
 					rotateLeft
 				}
 				
 				SeekRight on opponentBearing.angle < -15 {
+					rotationSpeed = 0.3 * maxRotationSpeed
 					rotateRight
 				}
 				
-				SeekForward on opponentBearing.length > 30 {
+				SeekForward {
 					driveForward
-				}
-				
-				Greet {
-					stop
-					say('Hello, friend!')
-					sleep(5000)
 				}
 			''')
 			
