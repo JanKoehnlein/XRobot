@@ -2,6 +2,7 @@ package org.xtext.xrobot.game
 
 import com.google.inject.Inject
 import com.google.inject.Provider
+import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.util.ArrayList
 import java.util.concurrent.CopyOnWriteArrayList
@@ -14,10 +15,10 @@ import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.interpreter.ScriptParser
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
+import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
 
 import static org.xtext.xrobot.game.PlayerStatus.*
-import org.xtext.xrobot.server.CanceledException
 
 class PlayerSlot implements IRobotListener {
 	
@@ -154,7 +155,10 @@ class PlayerSlot implements IRobotListener {
 		} catch (SocketTimeoutException ste) {
 			LOG.warn(ste.message)
 			setStatus(NO_CONNECTION)
-		} catch (CanceledException ce) {
+		} catch (ConnectException coe) {
+			LOG.warn(coe.message)
+			setStatus(NO_CONNECTION)
+		} catch (CanceledException cae) {
 			// Ignore the exception
 		}
 	}
