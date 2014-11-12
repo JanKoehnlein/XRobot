@@ -1,4 +1,4 @@
-package org.xtext.xrobot.game.example
+package org.xtext.xrobot.game.demo
 
 import org.eclipse.xtend.lib.annotations.Data
 
@@ -53,7 +53,7 @@ class ExampleRobot {
 				Dance {
 					rotationSpeed = 0.5 * maxRotationSpeed
 					drivingSpeed = 0.8 * maxDrivingSpeed
-					val r = 0.6 * ARENA_INNER_RADIUS
+					val r = 0.5 * ARENA_INNER_RADIUS
 					val v1 = getBearingTo(Vector.cartesian(r, r))
 					rotate(v1.angle)
 					drive(v1.length)

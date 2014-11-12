@@ -8,16 +8,17 @@ import javafx.scene.media.AudioClip
 import javafx.stage.Stage
 import org.apache.log4j.Logger
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.xtext.xrobot.game.demo.DemoModeHandler
 import org.xtext.xrobot.game.display.Display
 import org.xtext.xrobot.game.ranking.RankingProvider
 import org.xtext.xrobot.game.ranking.RankingSystem
 import org.xtext.xrobot.game.ui.GameControlWindow
+import org.xtext.xrobot.util.EmptyBatteriesException
 
 import static org.xtext.xrobot.RobotID.*
 import static org.xtext.xrobot.game.PlayerStatus.*
 
 import static extension javafx.util.Duration.*
-import org.xtext.xrobot.util.EmptyBatteriesException
 
 @Singleton
 class GameServer {
@@ -41,6 +42,8 @@ class GameServer {
 	@Inject RankingProvider rankingProvider
 	
 	@Inject GameControlWindow controlWindow
+	
+	@Inject Provider<DemoModeHandler> demoModeHandlerProvider
 
 	@Accessors(PUBLIC_GETTER)
 	List<PlayerSlot> slots
@@ -50,9 +53,17 @@ class GameServer {
 	AudioClip gameDrawClip
 	
 	AudioClip gameWinClip
-		
+	
+	@Accessors(PUBLIC_GETTER)
+	boolean demoModeActive
+	
+	DemoModeHandler currentDemoHandler
+	
+	val demoLock = new Object
+	
 	def start(Stage stage) throws Exception {
 		slots = playerSlotFactory.createAll
+		slots.forEach[addSlotListener[handleDemoMode]]
 		display.start(stage, slots)
 		val controlStage = new Stage
 		controlWindow.start(controlStage, slots)
@@ -212,6 +223,33 @@ class GameServer {
 		if(showResultAgain)
 			Thread.sleep(7000)
 		return finalResult
+	}
+	
+	def startDemoMode() {
+		if (demoModeActive)
+			throw new IllegalStateException
+		demoModeActive = true
+		handleDemoMode
+	}
+	
+	def stopDemoMode() {
+		if (!demoModeActive)
+			throw new IllegalStateException
+		demoModeActive = false
+	}
+	
+	def handleDemoMode() {
+		synchronized (demoLock) {
+			if (demoModeActive && slots.forall[available]) {
+				if (currentDemoHandler == null || !currentDemoHandler.alive) {
+					currentDemoHandler = demoModeHandlerProvider.get
+					currentDemoHandler.start
+				}
+			} else if (currentDemoHandler != null) {
+				currentDemoHandler.cancel = true
+				currentDemoHandler = null
+			}
+		}
 	}
 	
 }

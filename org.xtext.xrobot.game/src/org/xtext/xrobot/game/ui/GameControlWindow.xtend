@@ -21,7 +21,7 @@ import org.xtext.xrobot.game.Game
 import org.xtext.xrobot.game.GameServer
 import org.xtext.xrobot.game.IGameListener
 import org.xtext.xrobot.game.PlayerSlot
-import org.xtext.xrobot.game.example.ExampleRobot
+import org.xtext.xrobot.game.demo.ExampleRobot
 
 import static org.xtext.xrobot.RobotID.*
 import static org.xtext.xrobot.game.GameResult.*
@@ -81,6 +81,21 @@ class GameControlWindow implements IGameListener {
 		new VBox => [
 			spacing = 10
 			padding = new Insets(10)
+			children += new HBox => [
+				spacing = 10
+				children += new Button('Start Demo Mode') => [ button |
+					button.onAction = [
+						if (gameServer.demoModeActive) {
+							gameServer.stopDemoMode
+							button.text = 'Start Demo Mode'
+						} else {
+							gameServer.startDemoMode
+							button.text = 'Stop Demo Mode'
+						}
+					]
+				]
+			]
+			children += new Separator
 			val blue = slots.findFirst[robotID == Blue]
 			val red = slots.findFirst[robotID == Red]
 			children += new GridPane => [
