@@ -243,7 +243,7 @@ class GameServer {
 		demoModeActive = false
 	}
 	
-	def handleDemoMode() {
+	private def handleDemoMode() {
 		synchronized (demoLock) {
 			if (demoModeActive && slots.forall[available]) {
 				if (currentDemoHandler == null || !currentDemoHandler.alive) {

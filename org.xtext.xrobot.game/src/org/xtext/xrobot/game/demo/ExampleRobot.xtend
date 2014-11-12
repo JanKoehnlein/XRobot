@@ -25,6 +25,11 @@ class ExampleRobot {
 	
 	@Data
 	static class Provider {
+		
+		def getNormalExampleRobots() {
+			exampleRobots.filter[type == RobotType.NORMAL].toList
+		}
+		
 		val exampleRobots = #[
 			
 			new ExampleRobot('Rotor', RobotType.SIMPLE_MOVE, '''
@@ -116,7 +121,8 @@ class ExampleRobot {
 				Greet on opponentBearing.length < ROBOT_LENGTH + 10 {
 					stop
 					say('Hello, friend!')
-					sleep(5000)
+					curveForward(10, 10)
+					curveForward(10, -10)
 				}
 				
 				SeekLeft on opponentBearing.angle > 15 {
@@ -152,6 +158,93 @@ class ExampleRobot {
 				def target() {
 					ownPosition.getRelativePosition(
 						opponentPosition.toVector + opponentPosition.actualSpeed)
+				}
+			'''),
+			
+			new ExampleRobot('Eat My Shorts', RobotType.NORMAL, '''
+				robot 'Eat My Shorts'
+				author itemis
+				
+				var init = true
+				var random = new java.util.Random
+				
+				Start on init {
+					if (random.nextBoolean)
+						rotate(90)
+					else
+						rotate(-90)
+					driveBackward
+					init = false
+				}
+				
+				Stop on centerBearing.length > ARENA_INNER_RADIUS - 25 {
+					rotate(minimizeAngle(centerBearing.angle + 180))
+					driveBackward
+					sleep(2000)
+				}
+				
+				Eat {
+					say('Eat my shorts')
+					val a = opponentBearing.angle
+					if (a >= 0)
+						startMotors((90 - a) / 90 * maxDrivingSpeed, -maxDrivingSpeed)
+					else
+						startMotors(-maxDrivingSpeed, (90 + a) / 90 * maxDrivingSpeed)
+				}
+			'''),
+			
+			new ExampleRobot('Johnny Cage', RobotType.NORMAL, '''
+				robot 'Johnny Cage'
+				author itemis
+				
+				var isFirstMove = true
+				
+				Brace on isFirstMove {
+					rotate(180)
+					isFirstMove = false
+				}
+				
+				Find on opponentBearing.length > 45 || opponentBearing.angle.abs > 30 {
+					rotate(opponentBearing.angle + 10 * opponentBearing.angle.signum)
+					drive(5)
+				}
+				
+				Kill {
+					driveForward
+					sleep(400)
+					say('I make this look easy')
+					scoop(1)
+				} when canceled { 
+					stop
+					scoop(0)
+				}
+			'''),
+			
+			new ExampleRobot('Superduck', RobotType.NORMAL, '''
+				robot Superduck
+				author itemis
+				
+				Quak on abs(opponentBearing.angle) < 15 && opponentBearing.length < 34 {
+					say('Kwark')
+					drive(8)
+					scoop(1)
+					drive(-4)
+					scoop(-0.1)
+				}
+				
+				Quok on abs(opponentBearing.angle) > 50 && opponentBearing.length < 40 {
+					say('Kwork')
+					if (abs(centerBearing.angle) < 90)
+						drive(30)
+					else
+						drive(-30)
+				}
+				
+				Quik {
+					scoop(-0.1)
+					rotate(ownPosition.getRelativePosition(
+						opponentPosition.toVector + opponentPosition.actualSpeed).angle)
+					drive(2)
 				}
 			''')
 			
