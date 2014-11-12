@@ -246,6 +246,25 @@ class ExampleRobot {
 						opponentPosition.toVector + opponentPosition.actualSpeed).angle)
 					drive(2)
 				}
+			'''),
+			
+			new ExampleRobot('Radioman', RobotType.NORMAL, '''
+				robot Radioman
+				author itemis
+				
+				var stepIn = true
+				
+				StepIn on stepIn {
+					rotate(minimizeAngle(centerBearing.angle + 180))
+					drive(-centerBearing.length - 5)
+					stepIn = false
+				}
+				
+				StepOut on !stepIn {
+					rotate(opponentBearing.angle)
+					drive(ARENA_INNER_RADIUS - 10)
+					stepIn = true
+				}
 			''')
 			
 		]
