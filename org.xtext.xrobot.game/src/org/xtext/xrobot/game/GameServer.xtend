@@ -104,6 +104,7 @@ class GameServer {
 	def void startGame(boolean demoMode) {
 		var GameResult result
 		var gamePlayed = false
+		display.demoMode = demoMode
 		do {
 			result = null
 			val game = gameProvider.get()
@@ -150,6 +151,7 @@ class GameServer {
 			else if (!available)
 				prepare
 		]
+		display.demoMode = false
 		display.startIdleProgram
 	}
 	

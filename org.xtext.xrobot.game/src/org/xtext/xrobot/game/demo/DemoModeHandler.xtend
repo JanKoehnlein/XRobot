@@ -7,7 +7,7 @@ import org.xtext.xrobot.game.GameServer
 
 class DemoModeHandler extends Thread {
 	
-	static val DEMO_MODE_IDLE_TIME = 1000
+	static val DEMO_MODE_IDLE_TIME = 10000
 	
 	@Accessors(PUBLIC_SETTER)
 	boolean cancel

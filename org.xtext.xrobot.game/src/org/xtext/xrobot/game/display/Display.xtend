@@ -49,6 +49,8 @@ class Display implements IErrorReporter, ITimeListener {
 	@Inject VBox messagePane
 	
 	@Inject Label timeLabel
+	
+	@Inject Label demoLabel
 
 	List<PlayerSlotBox> slotBoxes
 	
@@ -65,6 +67,10 @@ class Display implements IErrorReporter, ITimeListener {
 						children += timeLabel => [
 							styleClass += 'time'
 							StackPane.setAlignment(timeLabel, Pos.TOP_CENTER)
+						]
+						children += demoLabel => [
+							styleClass += 'demo-mode'
+							StackPane.setAlignment(demoLabel, Pos.BOTTOM_CENTER)
 						]
 						children += idleProgram
 						children += messagePane => [
@@ -121,6 +127,15 @@ class Display implements IErrorReporter, ITimeListener {
 	def startIdleProgram() {
 		Platform.runLater[
 			idleProgram.start
+		]
+	}
+	
+	def setDemoMode(boolean active) {
+		Platform.runLater[
+			if (active)
+				demoLabel.text = 'Demo Mode'
+			else
+				demoLabel.text = ''
 		]
 	}
 	

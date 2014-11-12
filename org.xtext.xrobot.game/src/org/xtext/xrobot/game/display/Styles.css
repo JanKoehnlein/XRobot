@@ -228,3 +228,8 @@
 	-fx-font-size: 36pt;
 	-fx-text-fill: darkcyan;
 }
+
+.demo-mode {
+	-fx-font-size: 24pt;
+	-fx-text-fill: rgba(180.0,180.0,180.0,128.0);
+}
