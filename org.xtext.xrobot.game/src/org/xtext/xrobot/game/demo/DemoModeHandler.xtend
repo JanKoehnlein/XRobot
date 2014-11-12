@@ -5,6 +5,8 @@ import java.util.Random
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.xtext.xrobot.game.GameServer
 
+import static org.xtext.xrobot.game.demo.ExampleRobot.RobotType.*
+
 class DemoModeHandler extends Thread {
 	
 	static val DEMO_MODE_IDLE_TIME = 3000
@@ -16,6 +18,8 @@ class DemoModeHandler extends Thread {
 	
 	@Inject ExampleRobot.Provider exampleProvider
 	
+	val random = new Random
+	
 	new() {
 		super('Demo Mode Handler')
 	}
@@ -23,11 +27,15 @@ class DemoModeHandler extends Thread {
 	override run() {
 		sleep(DEMO_MODE_IDLE_TIME)
 		if (gameServer.demoModeActive && !cancel) {
-			val random = new Random
+			val robots = <ExampleRobot>newArrayList
 			for (slot : gameServer.slots) {
-				val randomIndex = random.nextInt(exampleProvider.exampleRobots.size)
-				val demoRobot = exampleProvider.exampleRobots.get(randomIndex)
-				gameServer.register(slot.token, demoRobot.URI, demoRobot.code)
+				var ExampleRobot demoRobot
+				do {
+					val randomIndex = random.nextInt(exampleProvider.exampleRobots.size)
+					demoRobot = exampleProvider.exampleRobots.get(randomIndex)
+				} while (demoRobot.type == PASSIVE && !robots.empty && robots.forall[type == PASSIVE])
+				robots.add(demoRobot)
+				gameServer.register(slot.token, demoRobot.URI, demoRobot.code, true)
 			}
 		}
 	}

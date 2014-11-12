@@ -55,7 +55,7 @@ class ScriptPoller implements IScriptPoller {
 				val serverAnswer = new Gson().fromJson(new InputStreamReader(resultStream), typeof(ServerAnswer[]))
 				serverAnswer?.forEach[
 					if (token != null && uri != null && sourceCode != null) {
-						gameServer.register(new AccessToken(token), uri, sourceCode)
+						gameServer.register(new AccessToken(token), uri, sourceCode, false)
 					}
 				]
 				Thread.sleep(500)

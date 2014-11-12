@@ -210,11 +210,7 @@ class GameControlWindow implements IGameListener {
 				val example = cb.selectionModel.selectedItem
 				if (example != null && slot.available) {
 					new Thread([
-						gameServer.register(
-							slot.token,
-							example.URI,
-							example.code
-						)
+						gameServer.register(slot.token, example.URI, example.code, false)
 						// Registration may fail if the camera image is not available
 						if (slot.available)
 							Platform.runLater [ cb.selectionModel.select(null) ]

@@ -4,8 +4,15 @@ import org.eclipse.xtend.lib.annotations.Data
 
 @Data
 class ExampleRobot {
+	
+	enum RobotType {
+		NORMAL, PASSIVE, SIMPLE_MOVE
+	}
 
 	String id
+	
+	RobotType type
+
 	String code
 
 	def getURI() {
@@ -20,7 +27,7 @@ class ExampleRobot {
 	static class Provider {
 		val exampleRobots = #[
 			
-			new ExampleRobot('Rotor', '''
+			new ExampleRobot('Rotor', RobotType.SIMPLE_MOVE, '''
 				robot Rotor
 				author itemis
 				
@@ -31,7 +38,7 @@ class ExampleRobot {
 				}
 			'''),
 			
-			new ExampleRobot('Circles', '''
+			new ExampleRobot('Circles', RobotType.SIMPLE_MOVE, '''
 				robot Circles
 				author itemis
 				
@@ -46,7 +53,7 @@ class ExampleRobot {
 				}
 			'''),
 			
-			new ExampleRobot('Square Dance', '''
+			new ExampleRobot('Square Dance', RobotType.SIMPLE_MOVE, '''
 				robot 'Square Dance'
 				author itemis
 				
@@ -76,7 +83,7 @@ class ExampleRobot {
 				}
 			'''),
 			
-			new ExampleRobot('Dodger', '''
+			new ExampleRobot('Dodger', RobotType.PASSIVE, '''
 				robot Dodger
 				author itemis
 				
@@ -95,7 +102,7 @@ class ExampleRobot {
 				}
 			'''),
 			
-			new ExampleRobot('Friend Seeker', '''
+			new ExampleRobot('Friend Seeker', RobotType.NORMAL, '''
 				robot 'Friend Seeker'
 				author itemis
 				
@@ -124,6 +131,27 @@ class ExampleRobot {
 				
 				SeekForward {
 					driveForward
+				}
+			'''),
+			
+			new ExampleRobot('Mad Pirate', RobotType.NORMAL, '''
+				robot 'Mad Pirate'
+				author itemis
+				
+				YARRR on abs(target.angle) < 30 {
+					say('YARRR')
+					driveForward
+					scoop(1)
+				}
+				
+				HARRR {
+					scoop(0)
+					rotate(target.angle)
+				}
+				
+				def target() {
+					ownPosition.getRelativePosition(
+						opponentPosition.toVector + opponentPosition.actualSpeed)
 				}
 			''')
 			

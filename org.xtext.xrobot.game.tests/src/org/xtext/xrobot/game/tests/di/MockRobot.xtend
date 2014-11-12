@@ -120,7 +120,7 @@ final class MockRobot implements IRemoteRobot {
 			Vector.cartesian(0, 0),
 			ownPosition.viewDirection + angle, 0
 		)
-		Thread.sleep(Math.round(1000 * angle / rotationSpeed))
+		Thread.sleep(Math.round(1000 * abs(angle) / rotationSpeed))
 	}
 
 	override rotateLeft() {

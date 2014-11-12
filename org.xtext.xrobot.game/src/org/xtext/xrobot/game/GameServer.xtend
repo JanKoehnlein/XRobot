@@ -76,7 +76,7 @@ class GameServer {
 		gameWinClip = new AudioClip(GameServer.getResource('/samples/fanfare.wav').toString)
 	}
 	
-	def register(AccessToken usedToken, String uri, String script) {
+	def register(AccessToken usedToken, String uri, String script, boolean demoMode) {
 		synchronized(slots) {
 			val slot = slots.findFirst[matches(usedToken) && isAvailable]
 			if (slot?.available) {
@@ -92,7 +92,7 @@ class GameServer {
 			
 			if (slots.forall[!available]) {
 				try {
-					startGame
+					startGame(demoMode)
 				} catch (Exception exc) {
 					display.showError('An error occurred', 5.seconds)
 					LOG.error('Error during game execution', exc)
@@ -101,7 +101,7 @@ class GameServer {
 		}
 	}
 	
-	def void startGame() {
+	def void startGame(boolean demoMode) {
 		var GameResult result
 		var gamePlayed = false
 		do {
@@ -134,9 +134,10 @@ class GameServer {
 			if (slots.forall[status == FIGHTING]) {
 				display.aboutToStart(game)
 				controlWindow.gameStarted(game)
-				gameStartClip.play(START_SOUND_VOLUME)
+				val volume = if (demoMode) 0.5 * START_SOUND_VOLUME else START_SOUND_VOLUME
+				gameStartClip.play(volume)
 				game.play(slots)
-				result = evaluateGame(game)
+				result = evaluateGame(game, demoMode)
 				controlWindow.gameFinished(game)
 				gamePlayed = true
 			}
@@ -152,7 +153,9 @@ class GameServer {
 		display.startIdleProgram
 	}
 	
-	private def evaluateGame(Game game) {
+	private def evaluateGame(Game game, boolean demoMode) {
+		val drawVolume = if (demoMode) 0.5 * DRAW_SOUND_VOLUME else DRAW_SOUND_VOLUME
+		val winVolume = if (demoMode) 0.5 * WIN_SOUND_VOLUME else WIN_SOUND_VOLUME
 		var hasShownResult = false
 		var inGameRefereeResult = game.refereeResult
 		if (inGameRefereeResult == null || inGameRefereeResult.canceled) {
@@ -165,14 +168,14 @@ class GameServer {
 			} else if(gameResult.isDraw) {
 				display.showMessage('A Draw', 'draw', 10.seconds)
 				slots.forEach[ status = DRAW ]
-				gameDrawClip.play(DRAW_SOUND_VOLUME)
+				gameDrawClip.play(drawVolume)
 			} else {
 				val winnerSlot = slots.findFirst[robotID == gameResult.winner]
 				winnerSlot.status = WINNER
 				val loserSlot = slots.findFirst[robotID == gameResult.loser]
 				loserSlot.status = LOSER
 				display.showMessage(winnerSlot.scriptName + ' Wins', winnerSlot.robotID.name.toLowerCase + 'wins', 10.seconds)
-				gameWinClip.play(WIN_SOUND_VOLUME)
+				gameWinClip.play(winVolume)
 			}
 			hasShownResult = true
 			// poll referee result
@@ -197,10 +200,11 @@ class GameServer {
 		} else if(finalResult.isDraw) {
 			if(showResultAgain) {
 				display.showMessage(infoPrefix + 'A Draw', 'draw', 7.seconds)
-				gameDrawClip.play(DRAW_SOUND_VOLUME)
+				gameDrawClip.play(drawVolume)
 			}
 			slots.forEach[ status = DRAW ]
-			rankingSystem.addDraw(slots.head.program, slots.last.program)
+			if (!demoMode)
+				rankingSystem.addDraw(slots.head.program, slots.last.program)
 		} else {
 			val winnerSlot = slots.findFirst[robotID == finalResult.winner]
 			winnerSlot.status = WINNER
@@ -208,11 +212,12 @@ class GameServer {
 			loserSlot.status = LOSER
 			if (showResultAgain) {
 				display.showMessage(infoPrefix + winnerSlot.scriptName + ' Wins', winnerSlot.robotID.name.toLowerCase + 'wins', 7.seconds)
-				gameWinClip.play(WIN_SOUND_VOLUME)
+				gameWinClip.play(winVolume)
 			}
-			rankingSystem.addWin(winnerSlot.program, loserSlot.program)
+			if (!demoMode)
+				rankingSystem.addWin(winnerSlot.program, loserSlot.program)
 		}
-		if(!finalResult.canceled) {
+		if(!finalResult.canceled && !demoMode) {
 			rankingProvider.setBlueAndRed(
 				slots.findFirst[robotID==Blue]?.program, 
 				slots.findFirst[robotID==Red]?.program
