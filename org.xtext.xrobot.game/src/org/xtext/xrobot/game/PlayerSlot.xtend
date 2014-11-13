@@ -2,7 +2,7 @@ package org.xtext.xrobot.game
 
 import com.google.inject.Inject
 import com.google.inject.Provider
-import java.net.ConnectException
+import java.net.SocketException
 import java.net.SocketTimeoutException
 import java.util.ArrayList
 import java.util.concurrent.CopyOnWriteArrayList
@@ -155,8 +155,8 @@ class PlayerSlot implements IRobotListener {
 		} catch (SocketTimeoutException ste) {
 			LOG.warn(ste.message)
 			setStatus(NO_CONNECTION)
-		} catch (ConnectException coe) {
-			LOG.warn(coe.message)
+		} catch (SocketException se) {
+			LOG.warn(se.message)
 			setStatus(NO_CONNECTION)
 		} catch (CanceledException cae) {
 			// Ignore the exception
