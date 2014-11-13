@@ -298,10 +298,13 @@ class ExampleRobot {
 				}
 				
 				Keg on abs(opponentBearing.angle) <= 90 {
+					scoop(0.6)
 					curveTo(opponentBearing.length + 20, opponentBearing.angle)
+					scoop(0)
 				}
 				
 				Bottle {
+					scoop(-0.2)
 					say('Burp')
 					if (opponentBearing.angle > 0)
 						curveBackward(20, 2 * (180 - opponentBearing.angle) + 10)

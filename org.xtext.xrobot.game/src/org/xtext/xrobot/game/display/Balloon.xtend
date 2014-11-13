@@ -7,6 +7,7 @@ import javafx.scene.control.OverrunStyle
 import javafx.scene.layout.StackPane
 import javafx.scene.shape.Ellipse
 import org.xtext.xrobot.api.RobotPosition
+import org.xtext.xrobot.api.Vector
 import org.xtext.xrobot.dsl.interpreter.IRobotListener
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.game.PlayerSlot
@@ -14,9 +15,8 @@ import org.xtext.xrobot.server.IRemoteRobot
 import org.xtext.xrobot.util.AudioService
 
 import static java.lang.Math.*
+import static org.xtext.xrobot.api.IRobot.*
 import static org.xtext.xrobot.camera.CameraConstants.*
-
-import static extension org.xtext.xrobot.api.GeometryExtensions.*
 
 class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 	
@@ -49,7 +49,7 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 	
 	override audioStopped() {
 		Platform.runLater [
-			if(!children.empty) 
+			if (!children.empty)
 				children.remove(0)
 		]
 	}
@@ -61,9 +61,10 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 	}
 	
 	private def placeBubble(RobotPosition own, RobotPosition opponent) {
-	 	val bubblePosition = 2 * own.toVector - opponent.toVector
-		layoutX = bubblePosition.x * RESOLUTION_X / WIDTH_IN_CM
-		layoutY = bubblePosition.y * RESOLUTION_Y / HEIGHT_IN_CM
+		val delta = own.toVector - opponent.toVector
+		val bubblePosition = own.toVector + Vector.polar(ROBOT_LENGTH, delta.angle)
+		layoutX = (bubblePosition.x / WIDTH_IN_CM) * RESOLUTION_X
+		layoutY = (bubblePosition.y / HEIGHT_IN_CM) * RESOLUTION_Y
 	}
 	
 	override modeChanged(IRemoteRobot robot, Mode newMode) {
