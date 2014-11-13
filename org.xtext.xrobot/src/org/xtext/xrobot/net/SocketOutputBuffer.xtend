@@ -1,5 +1,6 @@
 package org.xtext.xrobot.net
 
+import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.channels.SocketChannel
 import java.nio.charset.Charset
@@ -16,7 +17,7 @@ class SocketOutputBuffer {
 		this.channel = channel
 	}
 	
-	def send() {
+	def send() throws IOException {
 		buffer.limit = buffer.position
 		buffer.rewind
 		channel.write(buffer)

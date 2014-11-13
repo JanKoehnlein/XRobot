@@ -60,7 +60,7 @@ class ScriptPoller implements IScriptPoller {
 				]
 				Thread.sleep(500)
 			} catch (IOException exc) {
-				LOG.error('Error connecting to script server', exc)
+				LOG.error('Cannot connect to script server')
 				errorReporter.showError('Cannot connect to script server', 5.seconds)
 				Thread.sleep(5000)
 			} catch (Throwable t) {

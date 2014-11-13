@@ -2,6 +2,7 @@ package org.xtext.xrobot.annotations
 
 import com.google.common.base.Predicate
 import java.io.IOException
+import java.net.SocketException
 import java.nio.channels.SocketChannel
 import org.eclipse.xtend.lib.macro.AbstractClassProcessor
 import org.eclipse.xtend.lib.macro.RegisterGlobalsContext
@@ -9,11 +10,11 @@ import org.eclipse.xtend.lib.macro.TransformationContext
 import org.eclipse.xtend.lib.macro.declaration.ClassDeclaration
 import org.eclipse.xtend.lib.macro.declaration.MethodDeclaration
 import org.eclipse.xtend.lib.macro.declaration.MutableClassDeclaration
+import org.eclipse.xtend.lib.macro.declaration.MutableInterfaceDeclaration
 import org.eclipse.xtend.lib.macro.declaration.Type
 import org.eclipse.xtend.lib.macro.declaration.TypeReference
 import org.eclipse.xtend.lib.macro.declaration.Visibility
 import org.eclipse.xtext.util.Wrapper
-import org.eclipse.xtend.lib.macro.declaration.MutableInterfaceDeclaration
 
 /**
  * A processor for RMI code generation.
@@ -456,15 +457,20 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 		]
 		serverImpl.addMethod('waitFinished') [
 			visibility = Visibility.PROTECTED
-			addParameter('commandSerialNr', int.newTypeReference())
+			addParameter('commandSerialNr', int.newTypeReference)
 			addParameter('isMoving', Predicate.newTypeReference(serverStateClass.newTypeReference))
+			addParameter('timeout', long.newTypeReference)
+			exceptions = IOException.newTypeReference
 			body = '''
 				try {
+					long startTime = System.currentTimeMillis();
 					Thread.sleep(10);
 					«serverStateClass.newTypeReference» newState = stateProvider.getState();
 					while(newState.getLastExecutedCommandSerialNr() < commandSerialNr
-						|| (newState.getLastExecutedCommandSerialNr() == commandSerialNr 
-						&& isMoving.apply(newState))) {
+							|| (newState.getLastExecutedCommandSerialNr() == commandSerialNr 
+							&& isMoving.apply(newState))) {
+						if (System.currentTimeMillis() - startTime > timeout)
+							throw new «SocketException.newTypeReference»("Timeout while waiting for client reply.");
 						checkCanceled();
 						Thread.yield();
 						newState = stateProvider.getState();
@@ -481,14 +487,13 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 					.filter[!static && visibility == Visibility.PUBLIC]
 		sourceMethods.forEach[sourceMethod, i |
 			if (sourceMethod.findAnnotation(calculatedAnnotation) == null) {
-				serverImpl.addMethod(sourceMethod.simpleName, [
-					serverMethod |
+				serverImpl.addMethod(sourceMethod.simpleName, [ serverMethod |
 					serverMethod.primarySourceElement = sourceMethod 
 					sourceMethod.parameters.forEach[
 						serverMethod.addParameter(it.simpleName, it.type)
 					]
 					serverMethod.returnType = sourceMethod.returnType
-					if (!serverMethod.returnType.isVoid)
+					if (!serverMethod.returnType.isVoid) {
 						serverMethod.body = '''
 							«IF sourceMethod.findAnnotation(zombieAnnotation) == null»
 								checkCanceled();
@@ -496,33 +501,38 @@ class SimpleRemoteProcessor extends AbstractClassProcessor {
 							LOG.debug("«sourceMethod.simpleName» " + state.get«serverMethod.fieldName.toFirstUpper»());
 							return state.get«serverMethod.fieldName.toFirstUpper»();
 						'''
-					else
+					} else {
 						serverMethod.body = '''
 							«IF sourceMethod.findAnnotation(zombieAnnotation) == null»
 								checkCanceled();
 							«ENDIF»
-							int commandSerialNr = 0;
-							synchronized (writeLock) {
-								output.writeInt(componentID);
-								output.writeInt(«i»);
-								«FOR p: sourceMethod.parameters»
-									«getWriteCalls(p.type, p.simpleName)»
-								«ENDFOR»
-								commandSerialNr = nextCommandSerialNr.get() + 1;
-								nextCommandSerialNr.set(commandSerialNr);
-								output.writeInt(commandSerialNr);
-								output.send();
+							try {
+								int commandSerialNr = 0;
+								synchronized (writeLock) {
+									output.writeInt(componentID);
+									output.writeInt(«i»);
+									«FOR p: sourceMethod.parameters»
+										«getWriteCalls(p.type, p.simpleName)»
+									«ENDFOR»
+									commandSerialNr = nextCommandSerialNr.get() + 1;
+									nextCommandSerialNr.set(commandSerialNr);
+									output.writeInt(commandSerialNr);
+									output.send();
+								}
+								LOG.debug("«sourceMethod.simpleName» " + commandSerialNr);
+								«IF sourceMethod.getBlockingValue(context) != null»
+									waitFinished(commandSerialNr, new Predicate<«serverStateClass»>() {
+										@Override 
+										public boolean apply(«serverStateClass» state) {
+											return state.«sourceMethod.getBlockingValue(context)»();
+										}
+									}, 60000);
+								«ENDIF»
+							} catch (IOException exc) {
+								throw «Exceptions.newTypeReference».sneakyThrow(exc);
 							}
-							LOG.debug("«sourceMethod.simpleName» " + commandSerialNr);
-							«IF sourceMethod.getBlockingValue(context) != null»
-								waitFinished(commandSerialNr, new Predicate<«serverStateClass»>() {
-									@Override 
-									public boolean apply(«serverStateClass» state) {
-										return state.«sourceMethod.getBlockingValue(context)»();
-									}
-								});
-							«ENDIF»
 						'''
+					}
 				])
 			}
 		]

@@ -100,7 +100,7 @@ final class RemoteRobot extends RemoteRobotProxy implements IRemoteRobot {
 	    	output.writeInt(commandSerialNr)
 	    	output.send
     	}
-	    waitFinished(commandSerialNr, Predicates.alwaysFalse)
+	    waitFinished(commandSerialNr, Predicates.alwaysFalse, 2000)
 	}
 	
 	def setState(RobotServerState state, CameraSample cameraSample) {
