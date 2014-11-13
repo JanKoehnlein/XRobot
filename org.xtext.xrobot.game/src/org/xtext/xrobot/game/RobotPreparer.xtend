@@ -28,7 +28,7 @@ class RobotPreparer implements IRobotPreparer {
 	
 	static val DISTANCE_ACCURACY = 4.0
 	static val ANGLE_ACCURACY = 6.0
-	static val MAX_PLACEMENT_MOVES = 5
+	static val MAX_PLACEMENT_MOVES = 6
 	static val MESSAGE_DURATION = 5
 	
 	static val PREPARATION_TIMEOUT = 10000
@@ -139,10 +139,10 @@ class RobotPreparer implements IRobotPreparer {
 		val homePosition = getHomePosition()
 		var direction = robot.ownPosition.getRelativePosition(homePosition)
 		var moveCount = 0
-		while (direction.length > DISTANCE_ACCURACY && moveCount++ < MAX_PLACEMENT_MOVES) {
-			if (abs(direction.angle) <= ANGLE_ACCURACY) {
+		while (direction.length > DISTANCE_ACCURACY - 1 && moveCount++ < MAX_PLACEMENT_MOVES) {
+			if (abs(direction.angle) <= ANGLE_ACCURACY + 2) {
 				robot.setAndDrive(direction.length)
-			} else if (abs(minimizeAngle(direction.angle - 180)) <= ANGLE_ACCURACY) {
+			} else if (abs(minimizeAngle(direction.angle - 180)) <= ANGLE_ACCURACY + 2) {
 				robot.setAndDrive(-direction.length)
 			} else if (abs(direction.angle) <= 120) {
 				robot.setAndRotate(direction.angle)
@@ -156,7 +156,7 @@ class RobotPreparer implements IRobotPreparer {
 		val homeViewDirection = getHomeViewDirection()
 		var angle = minimizeAngle(homeViewDirection - robot.ownPosition.viewDirection)
 		moveCount = 0
-		while (abs(angle) > ANGLE_ACCURACY && moveCount++ < MAX_PLACEMENT_MOVES) {
+		while (abs(angle) > ANGLE_ACCURACY - 2 && moveCount++ < MAX_PLACEMENT_MOVES / 2) {
 			robot.setAndRotate(angle)
 			robot.waitForUpdate
 			angle = minimizeAngle(homeViewDirection - robot.ownPosition.viewDirection)

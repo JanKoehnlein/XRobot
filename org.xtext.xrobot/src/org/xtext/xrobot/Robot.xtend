@@ -212,7 +212,7 @@ class Robot {
 	 * or drives a curve.
 	 * 
 	 * <p>This command is <em>non-blocking</em>, i.e. it returns immediately and the motors 
-	 * continue moving until they receive another command such as {@link #stop()}.</p>
+	 * continue moving until {@link #stop()} or any other movement command is called.</p>
 	 *  
 	 * @param leftSpeed the speed of the left motor in centimeters/second   
 	 * @param rightSpeed the speed of the right motor in centimeters/second   
@@ -236,7 +236,8 @@ class Robot {
 	 * is positive, the robot drives forward, otherwise it drives backward.
 	 *  
 	 * <p>This command blocks the current mode's execution until the movement is complete.
-	 * Once finished, the motors are stopped.</p>
+	 * Once finished, the motors are stopped. If the current mode is canceled and another
+	 * mode calls {@link #stop()} or any other movement command, this command is also canceled.</p>
 	 * 
 	 * @param distance the distance in centimeters 
 	 */
@@ -251,7 +252,7 @@ class Robot {
 	 * The speed is set with {@link #setDrivingSpeed(double)}.
 	 * 
 	 * <p>This command is <em>non-blocking</em>, i.e. it returns immediately and the motors
-	 * continue moving until they receive another command such as {@link #stop()}.</p>
+	 * continue moving until {@link #stop()} or any other movement command is called.</p>
 	 */
 	override void driveForward() {
 		pilot.forward
@@ -262,7 +263,7 @@ class Robot {
 	 * The speed is set with {@link #setDrivingSpeed(double)}.
 	 * 
 	 * <p>This command is <em>non-blocking</em>, i.e. it returns immediately and the motors 
-	 * continue moving until they receive another command such as {@link #stop()}.</p>
+	 * continue moving until {@link #stop()} or any other movement command is called.</p>
 	 */
 	override void driveBackward() {
 		pilot.backward
@@ -324,7 +325,8 @@ class Robot {
 	 * rotate counter-clockwise (left), while a negative angle means to rotate clockwise (right).
 	 * 
 	 * <p>This command blocks the current mode's execution until the rotation is complete.
-	 * Once finished, the motors are stopped.</p>
+	 * Once finished, the motors are stopped. If the current mode is canceled and another
+	 * mode calls {@link #stop()} or any other movement command, this command is also canceled.</p>
 	 * 
 	 * @param angle the rotation angle in degrees
 	 */
@@ -339,7 +341,7 @@ class Robot {
 	 * is stopped. The speed is set with {@link #setRotationSpeed(double)}.
 	 * 
 	 * <p>This method is <em>non-blocking</em>, i.e. it returns immediately and the motors 
-	 * continue moving until they receive another command such as {@link #stop()}.</p>
+	 * continue moving until {@link #stop()} or any other movement command is called.</p>
 	 */
 	override void rotateLeft() {
 		pilot.rotateLeft
@@ -350,7 +352,7 @@ class Robot {
 	 * The speed is set with {@link #setRotationSpeed(double)}.
 	 * 
 	 * <p>This method is <em>non-blocking</em>, i.e. it returns immediately and the motors 
-	 * continue moving until they receive another command such as {@link #stop()}.</p>
+	 * continue moving until {@link #stop()} or any other movement command is called.</p>
 	 */
 	override void rotateRight() {
 		pilot.rotateRight
@@ -411,7 +413,8 @@ class Robot {
 	 * The speed of this movement is set with {@link #setDrivingSpeed(double)}.
 	 * 
 	 * <p>This command blocks the current mode's execution until the rotation is complete.
-	 * Once finished, the motors are stopped.</p>
+	 * Once finished, the motors are stopped. If the current mode is canceled and another
+	 * mode calls {@link #stop()} or any other movement command, this command is also canceled.</p>
 	 * 
 	 * @param radius
 	 * 		The radius in centimeters of the circle on which to travel
@@ -435,7 +438,8 @@ class Robot {
 	 * The speed of this movement is set with {@link #setDrivingSpeed(double)}.
 	 *
 	 * <p>This command blocks the current mode's execution until the rotation is complete.
-	 * Once finished, the motors are stopped.</p>
+	 * Once finished, the motors are stopped. If the current mode is canceled and another
+	 * mode calls {@link #stop()} or any other movement command, this command is also canceled.</p>
 	 * 
 	 * @param radius
 	 * 		The radius in centimeters of the circle on which to travel
@@ -468,10 +472,11 @@ class Robot {
 	 * 
 	 * <p>
 	 * The angle is normalized to be between -180 and 180 degrees. If the 
-	 * <code>angle</code> is close to 0&deg; the robot will drive <code>distance</code> 
-	 * centimeters forward, close to +/-180&deg; backward. A positive angle means a 
-	 * counter-clockwise curve (left), while a negative angle means a clockwise curve (right).
-	 * Note that the curve can leave the arena when the angle's absolute value is to large.
+	 * <code>angle</code> is close to 0&deg; the robot drives <code>distance</code> 
+	 * centimeters forward, and if it is close to +/-180&deg; it drives backward.
+	 * A positive angle means a counter-clockwise curve (left), while a negative angle means
+	 * a clockwise curve (right). Note that the curve can leave the arena when the angle's
+	 * absolute value is too large.
 	 * </p>
 	 * 
 	 * <p>
@@ -479,7 +484,8 @@ class Robot {
 	 * </p>
 	 * 
 	 * <p>This command blocks the current mode's execution until the rotation is complete.
-	 * Once finished, the motors are stopped.</p>
+	 * Once finished, the motors are stopped. If the current mode is canceled and another
+	 * mode calls {@link #stop()} or any other movement command, this command is also canceled.</p>
 	 * 
 	 * @param distance
 	 * 		The distance in centimeters of the targeted point from the robot's current position

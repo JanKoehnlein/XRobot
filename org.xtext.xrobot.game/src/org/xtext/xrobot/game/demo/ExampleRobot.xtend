@@ -37,7 +37,7 @@ class ExampleRobot {
 				author itemis
 				
 				Spin {
-					startMotors(0.1 * maxDrivingSpeed, -0.2 * maxDrivingSpeed)
+					startMotors(0.1 * maxDrivingSpeed, -0.3 * maxDrivingSpeed)
 					scoop(1)
 					scoop(0)
 				}
@@ -126,12 +126,12 @@ class ExampleRobot {
 				}
 				
 				SeekLeft on opponentBearing.angle > 15 {
-					rotationSpeed = 0.3 * maxRotationSpeed
+					rotationSpeed = 0.4 * maxRotationSpeed
 					rotateLeft
 				}
 				
 				SeekRight on opponentBearing.angle < -15 {
-					rotationSpeed = 0.3 * maxRotationSpeed
+					rotationSpeed = 0.4 * maxRotationSpeed
 					rotateRight
 				}
 				
@@ -224,7 +224,7 @@ class ExampleRobot {
 				robot Superduck
 				author itemis
 				
-				Quak on abs(opponentBearing.angle) < 15 && opponentBearing.length < 34 {
+				Quak on abs(opponentBearing.angle) < 15 && opponentBearing.length < 40 {
 					say('Kwark')
 					drive(8)
 					scoop(1)
@@ -256,14 +256,57 @@ class ExampleRobot {
 				
 				StepIn on stepIn {
 					rotate(minimizeAngle(centerBearing.angle + 180))
-					drive(-centerBearing.length - 5)
+					update
+					val distance = -centerBearing.length - 5
+					if (targetPos(distance).length < ARENA_INNER_RADIUS
+						|| abs(opponentBearing.angle) > 160)
+						drive(distance)
 					stepIn = false
 				}
 				
 				StepOut on !stepIn {
 					rotate(opponentBearing.angle)
-					drive(ARENA_INNER_RADIUS - 10)
+					update
+					val distance = ARENA_INNER_RADIUS - 10
+					if (targetPos(distance).length < ARENA_INNER_RADIUS
+						|| abs(opponentBearing.angle) < 20)
+						drive(distance)
 					stepIn = true
+				}
+				
+				def targetPos(double distance) {
+					if (distance >= 0)
+						ownPosition.toVector + Vector.polar(distance, ownPosition.viewDirection)
+					else
+						ownPosition.toVector - Vector.polar(-distance, ownPosition.viewDirection)
+				}
+			'''),
+			
+			new ExampleRobot('Drunken Master', RobotType.NORMAL, '''
+				robot 'Drunken Master'
+				author itemis
+				
+				var start = true
+				
+				Hiccup on start {
+					val random = new java.util.Random
+					if (random.nextBoolean)
+						curveBackward(12, 150)
+					else
+						curveBackward(12, -150)
+					start = false
+				}
+				
+				Keg on abs(opponentBearing.angle) <= 90 {
+					curveTo(opponentBearing.length + 20, opponentBearing.angle)
+				}
+				
+				Bottle {
+					say('Burp')
+					if (opponentBearing.angle > 0)
+						curveBackward(20, 2 * (180 - opponentBearing.angle) + 10)
+					else
+						curveBackward(20, 2 * (180 + opponentBearing.angle) + 10)
 				}
 			''')
 			
