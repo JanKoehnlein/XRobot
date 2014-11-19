@@ -323,25 +323,25 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     // $ANTLR end "ruleMode"
 
 
-    // $ANTLR start "entryRuleSub"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:117:1: entryRuleSub : ruleSub EOF ;
-    public final void entryRuleSub() throws RecognitionException {
+    // $ANTLR start "entryRuleFunction"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:117:1: entryRuleFunction : ruleFunction EOF ;
+    public final void entryRuleFunction() throws RecognitionException {
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:118:1: ( ruleSub EOF )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:119:1: ruleSub EOF
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:118:1: ( ruleFunction EOF )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:119:1: ruleFunction EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubRule()); 
+               before(grammarAccess.getFunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleSub_in_entryRuleSub187);
-            ruleSub();
+            pushFollow(FOLLOW_ruleFunction_in_entryRuleFunction187);
+            ruleFunction();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubRule()); 
+               after(grammarAccess.getFunctionRule()); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSub194); if (state.failed) return ;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFunction194); if (state.failed) return ;
 
             }
 
@@ -354,30 +354,30 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "entryRuleSub"
+    // $ANTLR end "entryRuleFunction"
 
 
-    // $ANTLR start "ruleSub"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:126:1: ruleSub : ( ( rule__Sub__Group__0 ) ) ;
-    public final void ruleSub() throws RecognitionException {
+    // $ANTLR start "ruleFunction"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:126:1: ruleFunction : ( ( rule__Function__Group__0 ) ) ;
+    public final void ruleFunction() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:130:2: ( ( ( rule__Sub__Group__0 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:131:1: ( ( rule__Sub__Group__0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:130:2: ( ( ( rule__Function__Group__0 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:131:1: ( ( rule__Function__Group__0 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:131:1: ( ( rule__Sub__Group__0 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:132:1: ( rule__Sub__Group__0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:131:1: ( ( rule__Function__Group__0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:132:1: ( rule__Function__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getGroup()); 
+               before(grammarAccess.getFunctionAccess().getGroup()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:133:1: ( rule__Sub__Group__0 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:133:2: rule__Sub__Group__0
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:133:1: ( rule__Function__Group__0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:133:2: rule__Function__Group__0
             {
-            pushFollow(FOLLOW_rule__Sub__Group__0_in_ruleSub220);
-            rule__Sub__Group__0();
+            pushFollow(FOLLOW_rule__Function__Group__0_in_ruleFunction220);
+            rule__Function__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -385,7 +385,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getGroup()); 
+               after(grammarAccess.getFunctionAccess().getGroup()); 
             }
 
             }
@@ -405,28 +405,28 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "ruleSub"
+    // $ANTLR end "ruleFunction"
 
 
-    // $ANTLR start "entryRuleField"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:145:1: entryRuleField : ruleField EOF ;
-    public final void entryRuleField() throws RecognitionException {
+    // $ANTLR start "entryRuleVariable"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:145:1: entryRuleVariable : ruleVariable EOF ;
+    public final void entryRuleVariable() throws RecognitionException {
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:146:1: ( ruleField EOF )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:147:1: ruleField EOF
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:146:1: ( ruleVariable EOF )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:147:1: ruleVariable EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFieldRule()); 
+               before(grammarAccess.getVariableRule()); 
             }
-            pushFollow(FOLLOW_ruleField_in_entryRuleField247);
-            ruleField();
+            pushFollow(FOLLOW_ruleVariable_in_entryRuleVariable247);
+            ruleVariable();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFieldRule()); 
+               after(grammarAccess.getVariableRule()); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleField254); if (state.failed) return ;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVariable254); if (state.failed) return ;
 
             }
 
@@ -439,30 +439,30 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "entryRuleField"
+    // $ANTLR end "entryRuleVariable"
 
 
-    // $ANTLR start "ruleField"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:154:1: ruleField : ( ( rule__Field__Group__0 ) ) ;
-    public final void ruleField() throws RecognitionException {
+    // $ANTLR start "ruleVariable"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:154:1: ruleVariable : ( ( rule__Variable__Group__0 ) ) ;
+    public final void ruleVariable() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:158:2: ( ( ( rule__Field__Group__0 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:159:1: ( ( rule__Field__Group__0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:158:2: ( ( ( rule__Variable__Group__0 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:159:1: ( ( rule__Variable__Group__0 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:159:1: ( ( rule__Field__Group__0 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:160:1: ( rule__Field__Group__0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:159:1: ( ( rule__Variable__Group__0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:160:1: ( rule__Variable__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFieldAccess().getGroup()); 
+               before(grammarAccess.getVariableAccess().getGroup()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:161:1: ( rule__Field__Group__0 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:161:2: rule__Field__Group__0
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:161:1: ( rule__Variable__Group__0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:161:2: rule__Variable__Group__0
             {
-            pushFollow(FOLLOW_rule__Field__Group__0_in_ruleField280);
-            rule__Field__Group__0();
+            pushFollow(FOLLOW_rule__Variable__Group__0_in_ruleVariable280);
+            rule__Variable__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -470,7 +470,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFieldAccess().getGroup()); 
+               after(grammarAccess.getVariableAccess().getGroup()); 
             }
 
             }
@@ -490,7 +490,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "ruleField"
+    // $ANTLR end "ruleVariable"
 
 
     // $ANTLR start "entryRuleValidID"
@@ -7283,13 +7283,13 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__Alternatives_5"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2377:1: rule__Program__Alternatives_5 : ( ( ( rule__Program__SubsAssignment_5_0 ) ) | ( ( rule__Program__FieldsAssignment_5_1 ) ) | ( ( rule__Program__ModesAssignment_5_2 ) ) );
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2377:1: rule__Program__Alternatives_5 : ( ( ( rule__Program__FunctionsAssignment_5_0 ) ) | ( ( rule__Program__VariablesAssignment_5_1 ) ) | ( ( rule__Program__ModesAssignment_5_2 ) ) );
     public final void rule__Program__Alternatives_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2381:1: ( ( ( rule__Program__SubsAssignment_5_0 ) ) | ( ( rule__Program__FieldsAssignment_5_1 ) ) | ( ( rule__Program__ModesAssignment_5_2 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2381:1: ( ( ( rule__Program__FunctionsAssignment_5_0 ) ) | ( ( rule__Program__VariablesAssignment_5_1 ) ) | ( ( rule__Program__ModesAssignment_5_2 ) ) )
             int alt5=3;
             switch ( input.LA(1) ) {
             case 56:
@@ -7317,19 +7317,19 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
             switch (alt5) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2382:1: ( ( rule__Program__SubsAssignment_5_0 ) )
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2382:1: ( ( rule__Program__FunctionsAssignment_5_0 ) )
                     {
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2382:1: ( ( rule__Program__SubsAssignment_5_0 ) )
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2383:1: ( rule__Program__SubsAssignment_5_0 )
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2382:1: ( ( rule__Program__FunctionsAssignment_5_0 ) )
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2383:1: ( rule__Program__FunctionsAssignment_5_0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getProgramAccess().getSubsAssignment_5_0()); 
+                       before(grammarAccess.getProgramAccess().getFunctionsAssignment_5_0()); 
                     }
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2384:1: ( rule__Program__SubsAssignment_5_0 )
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2384:2: rule__Program__SubsAssignment_5_0
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2384:1: ( rule__Program__FunctionsAssignment_5_0 )
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2384:2: rule__Program__FunctionsAssignment_5_0
                     {
-                    pushFollow(FOLLOW_rule__Program__SubsAssignment_5_0_in_rule__Program__Alternatives_55030);
-                    rule__Program__SubsAssignment_5_0();
+                    pushFollow(FOLLOW_rule__Program__FunctionsAssignment_5_0_in_rule__Program__Alternatives_55030);
+                    rule__Program__FunctionsAssignment_5_0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -7337,7 +7337,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getProgramAccess().getSubsAssignment_5_0()); 
+                       after(grammarAccess.getProgramAccess().getFunctionsAssignment_5_0()); 
                     }
 
                     }
@@ -7346,19 +7346,19 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2388:6: ( ( rule__Program__FieldsAssignment_5_1 ) )
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2388:6: ( ( rule__Program__VariablesAssignment_5_1 ) )
                     {
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2388:6: ( ( rule__Program__FieldsAssignment_5_1 ) )
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2389:1: ( rule__Program__FieldsAssignment_5_1 )
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2388:6: ( ( rule__Program__VariablesAssignment_5_1 ) )
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2389:1: ( rule__Program__VariablesAssignment_5_1 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getProgramAccess().getFieldsAssignment_5_1()); 
+                       before(grammarAccess.getProgramAccess().getVariablesAssignment_5_1()); 
                     }
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2390:1: ( rule__Program__FieldsAssignment_5_1 )
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2390:2: rule__Program__FieldsAssignment_5_1
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2390:1: ( rule__Program__VariablesAssignment_5_1 )
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:2390:2: rule__Program__VariablesAssignment_5_1
                     {
-                    pushFollow(FOLLOW_rule__Program__FieldsAssignment_5_1_in_rule__Program__Alternatives_55048);
-                    rule__Program__FieldsAssignment_5_1();
+                    pushFollow(FOLLOW_rule__Program__VariablesAssignment_5_1_in_rule__Program__Alternatives_55048);
+                    rule__Program__VariablesAssignment_5_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -7366,7 +7366,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getProgramAccess().getFieldsAssignment_5_1()); 
+                       after(grammarAccess.getProgramAccess().getVariablesAssignment_5_1()); 
                     }
 
                     }
@@ -13479,23 +13479,23 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Mode__Group_3__2__Impl"
 
 
-    // $ANTLR start "rule__Sub__Group__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4132:1: rule__Sub__Group__0 : rule__Sub__Group__0__Impl rule__Sub__Group__1 ;
-    public final void rule__Sub__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__0"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4132:1: rule__Function__Group__0 : rule__Function__Group__0__Impl rule__Function__Group__1 ;
+    public final void rule__Function__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4136:1: ( rule__Sub__Group__0__Impl rule__Sub__Group__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4137:2: rule__Sub__Group__0__Impl rule__Sub__Group__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4136:1: ( rule__Function__Group__0__Impl rule__Function__Group__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4137:2: rule__Function__Group__0__Impl rule__Function__Group__1
             {
-            pushFollow(FOLLOW_rule__Sub__Group__0__Impl_in_rule__Sub__Group__08975);
-            rule__Sub__Group__0__Impl();
+            pushFollow(FOLLOW_rule__Function__Group__0__Impl_in_rule__Function__Group__08975);
+            rule__Function__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__Sub__Group__1_in_rule__Sub__Group__08978);
-            rule__Sub__Group__1();
+            pushFollow(FOLLOW_rule__Function__Group__1_in_rule__Function__Group__08978);
+            rule__Function__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -13514,12 +13514,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__0"
+    // $ANTLR end "rule__Function__Group__0"
 
 
-    // $ANTLR start "rule__Sub__Group__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4144:1: rule__Sub__Group__0__Impl : ( 'def' ) ;
-    public final void rule__Sub__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__0__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4144:1: rule__Function__Group__0__Impl : ( 'def' ) ;
+    public final void rule__Function__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -13531,11 +13531,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4150:1: 'def'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getDefKeyword_0()); 
+               before(grammarAccess.getFunctionAccess().getDefKeyword_0()); 
             }
-            match(input,56,FOLLOW_56_in_rule__Sub__Group__0__Impl9006); if (state.failed) return ;
+            match(input,56,FOLLOW_56_in_rule__Function__Group__0__Impl9006); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getDefKeyword_0()); 
+               after(grammarAccess.getFunctionAccess().getDefKeyword_0()); 
             }
 
             }
@@ -13555,26 +13555,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__0__Impl"
+    // $ANTLR end "rule__Function__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Sub__Group__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4163:1: rule__Sub__Group__1 : rule__Sub__Group__1__Impl rule__Sub__Group__2 ;
-    public final void rule__Sub__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4163:1: rule__Function__Group__1 : rule__Function__Group__1__Impl rule__Function__Group__2 ;
+    public final void rule__Function__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4167:1: ( rule__Sub__Group__1__Impl rule__Sub__Group__2 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4168:2: rule__Sub__Group__1__Impl rule__Sub__Group__2
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4167:1: ( rule__Function__Group__1__Impl rule__Function__Group__2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4168:2: rule__Function__Group__1__Impl rule__Function__Group__2
             {
-            pushFollow(FOLLOW_rule__Sub__Group__1__Impl_in_rule__Sub__Group__19037);
-            rule__Sub__Group__1__Impl();
+            pushFollow(FOLLOW_rule__Function__Group__1__Impl_in_rule__Function__Group__19037);
+            rule__Function__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__Sub__Group__2_in_rule__Sub__Group__19040);
-            rule__Sub__Group__2();
+            pushFollow(FOLLOW_rule__Function__Group__2_in_rule__Function__Group__19040);
+            rule__Function__Group__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -13593,26 +13593,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__1"
+    // $ANTLR end "rule__Function__Group__1"
 
 
-    // $ANTLR start "rule__Sub__Group__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4175:1: rule__Sub__Group__1__Impl : ( ( rule__Sub__ReturnTypeAssignment_1 )? ) ;
-    public final void rule__Sub__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__1__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4175:1: rule__Function__Group__1__Impl : ( ( rule__Function__ReturnTypeAssignment_1 )? ) ;
+    public final void rule__Function__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4179:1: ( ( ( rule__Sub__ReturnTypeAssignment_1 )? ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4180:1: ( ( rule__Sub__ReturnTypeAssignment_1 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4179:1: ( ( ( rule__Function__ReturnTypeAssignment_1 )? ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4180:1: ( ( rule__Function__ReturnTypeAssignment_1 )? )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4180:1: ( ( rule__Sub__ReturnTypeAssignment_1 )? )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4181:1: ( rule__Sub__ReturnTypeAssignment_1 )?
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4180:1: ( ( rule__Function__ReturnTypeAssignment_1 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4181:1: ( rule__Function__ReturnTypeAssignment_1 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getReturnTypeAssignment_1()); 
+               before(grammarAccess.getFunctionAccess().getReturnTypeAssignment_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4182:1: ( rule__Sub__ReturnTypeAssignment_1 )?
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4182:1: ( rule__Function__ReturnTypeAssignment_1 )?
             int alt50=2;
             switch ( input.LA(1) ) {
                 case RULE_ID:
@@ -13679,10 +13679,10 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
             switch (alt50) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4182:2: rule__Sub__ReturnTypeAssignment_1
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4182:2: rule__Function__ReturnTypeAssignment_1
                     {
-                    pushFollow(FOLLOW_rule__Sub__ReturnTypeAssignment_1_in_rule__Sub__Group__1__Impl9067);
-                    rule__Sub__ReturnTypeAssignment_1();
+                    pushFollow(FOLLOW_rule__Function__ReturnTypeAssignment_1_in_rule__Function__Group__1__Impl9067);
+                    rule__Function__ReturnTypeAssignment_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -13693,7 +13693,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getReturnTypeAssignment_1()); 
+               after(grammarAccess.getFunctionAccess().getReturnTypeAssignment_1()); 
             }
 
             }
@@ -13713,26 +13713,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__1__Impl"
+    // $ANTLR end "rule__Function__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Sub__Group__2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4192:1: rule__Sub__Group__2 : rule__Sub__Group__2__Impl rule__Sub__Group__3 ;
-    public final void rule__Sub__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__2"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4192:1: rule__Function__Group__2 : rule__Function__Group__2__Impl rule__Function__Group__3 ;
+    public final void rule__Function__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4196:1: ( rule__Sub__Group__2__Impl rule__Sub__Group__3 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4197:2: rule__Sub__Group__2__Impl rule__Sub__Group__3
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4196:1: ( rule__Function__Group__2__Impl rule__Function__Group__3 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4197:2: rule__Function__Group__2__Impl rule__Function__Group__3
             {
-            pushFollow(FOLLOW_rule__Sub__Group__2__Impl_in_rule__Sub__Group__29098);
-            rule__Sub__Group__2__Impl();
+            pushFollow(FOLLOW_rule__Function__Group__2__Impl_in_rule__Function__Group__29098);
+            rule__Function__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__Sub__Group__3_in_rule__Sub__Group__29101);
-            rule__Sub__Group__3();
+            pushFollow(FOLLOW_rule__Function__Group__3_in_rule__Function__Group__29101);
+            rule__Function__Group__3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -13751,30 +13751,30 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__2"
+    // $ANTLR end "rule__Function__Group__2"
 
 
-    // $ANTLR start "rule__Sub__Group__2__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4204:1: rule__Sub__Group__2__Impl : ( ( rule__Sub__NameAssignment_2 ) ) ;
-    public final void rule__Sub__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__2__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4204:1: rule__Function__Group__2__Impl : ( ( rule__Function__NameAssignment_2 ) ) ;
+    public final void rule__Function__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4208:1: ( ( ( rule__Sub__NameAssignment_2 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4209:1: ( ( rule__Sub__NameAssignment_2 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4208:1: ( ( ( rule__Function__NameAssignment_2 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4209:1: ( ( rule__Function__NameAssignment_2 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4209:1: ( ( rule__Sub__NameAssignment_2 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4210:1: ( rule__Sub__NameAssignment_2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4209:1: ( ( rule__Function__NameAssignment_2 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4210:1: ( rule__Function__NameAssignment_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getNameAssignment_2()); 
+               before(grammarAccess.getFunctionAccess().getNameAssignment_2()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4211:1: ( rule__Sub__NameAssignment_2 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4211:2: rule__Sub__NameAssignment_2
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4211:1: ( rule__Function__NameAssignment_2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4211:2: rule__Function__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__Sub__NameAssignment_2_in_rule__Sub__Group__2__Impl9128);
-            rule__Sub__NameAssignment_2();
+            pushFollow(FOLLOW_rule__Function__NameAssignment_2_in_rule__Function__Group__2__Impl9128);
+            rule__Function__NameAssignment_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -13782,7 +13782,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getNameAssignment_2()); 
+               after(grammarAccess.getFunctionAccess().getNameAssignment_2()); 
             }
 
             }
@@ -13802,26 +13802,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__2__Impl"
+    // $ANTLR end "rule__Function__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Sub__Group__3"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4221:1: rule__Sub__Group__3 : rule__Sub__Group__3__Impl rule__Sub__Group__4 ;
-    public final void rule__Sub__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__3"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4221:1: rule__Function__Group__3 : rule__Function__Group__3__Impl rule__Function__Group__4 ;
+    public final void rule__Function__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4225:1: ( rule__Sub__Group__3__Impl rule__Sub__Group__4 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4226:2: rule__Sub__Group__3__Impl rule__Sub__Group__4
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4225:1: ( rule__Function__Group__3__Impl rule__Function__Group__4 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4226:2: rule__Function__Group__3__Impl rule__Function__Group__4
             {
-            pushFollow(FOLLOW_rule__Sub__Group__3__Impl_in_rule__Sub__Group__39158);
-            rule__Sub__Group__3__Impl();
+            pushFollow(FOLLOW_rule__Function__Group__3__Impl_in_rule__Function__Group__39158);
+            rule__Function__Group__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__Sub__Group__4_in_rule__Sub__Group__39161);
-            rule__Sub__Group__4();
+            pushFollow(FOLLOW_rule__Function__Group__4_in_rule__Function__Group__39161);
+            rule__Function__Group__4();
 
             state._fsp--;
             if (state.failed) return ;
@@ -13840,12 +13840,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__3"
+    // $ANTLR end "rule__Function__Group__3"
 
 
-    // $ANTLR start "rule__Sub__Group__3__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4233:1: rule__Sub__Group__3__Impl : ( '(' ) ;
-    public final void rule__Sub__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__3__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4233:1: rule__Function__Group__3__Impl : ( '(' ) ;
+    public final void rule__Function__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -13857,11 +13857,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4239:1: '('
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getLeftParenthesisKeyword_3()); 
+               before(grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_3()); 
             }
-            match(input,57,FOLLOW_57_in_rule__Sub__Group__3__Impl9189); if (state.failed) return ;
+            match(input,57,FOLLOW_57_in_rule__Function__Group__3__Impl9189); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getLeftParenthesisKeyword_3()); 
+               after(grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_3()); 
             }
 
             }
@@ -13881,26 +13881,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__3__Impl"
+    // $ANTLR end "rule__Function__Group__3__Impl"
 
 
-    // $ANTLR start "rule__Sub__Group__4"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4252:1: rule__Sub__Group__4 : rule__Sub__Group__4__Impl rule__Sub__Group__5 ;
-    public final void rule__Sub__Group__4() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__4"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4252:1: rule__Function__Group__4 : rule__Function__Group__4__Impl rule__Function__Group__5 ;
+    public final void rule__Function__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4256:1: ( rule__Sub__Group__4__Impl rule__Sub__Group__5 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4257:2: rule__Sub__Group__4__Impl rule__Sub__Group__5
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4256:1: ( rule__Function__Group__4__Impl rule__Function__Group__5 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4257:2: rule__Function__Group__4__Impl rule__Function__Group__5
             {
-            pushFollow(FOLLOW_rule__Sub__Group__4__Impl_in_rule__Sub__Group__49220);
-            rule__Sub__Group__4__Impl();
+            pushFollow(FOLLOW_rule__Function__Group__4__Impl_in_rule__Function__Group__49220);
+            rule__Function__Group__4__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__Sub__Group__5_in_rule__Sub__Group__49223);
-            rule__Sub__Group__5();
+            pushFollow(FOLLOW_rule__Function__Group__5_in_rule__Function__Group__49223);
+            rule__Function__Group__5();
 
             state._fsp--;
             if (state.failed) return ;
@@ -13919,26 +13919,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__4"
+    // $ANTLR end "rule__Function__Group__4"
 
 
-    // $ANTLR start "rule__Sub__Group__4__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4264:1: rule__Sub__Group__4__Impl : ( ( rule__Sub__Group_4__0 )? ) ;
-    public final void rule__Sub__Group__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__4__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4264:1: rule__Function__Group__4__Impl : ( ( rule__Function__Group_4__0 )? ) ;
+    public final void rule__Function__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4268:1: ( ( ( rule__Sub__Group_4__0 )? ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4269:1: ( ( rule__Sub__Group_4__0 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4268:1: ( ( ( rule__Function__Group_4__0 )? ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4269:1: ( ( rule__Function__Group_4__0 )? )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4269:1: ( ( rule__Sub__Group_4__0 )? )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4270:1: ( rule__Sub__Group_4__0 )?
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4269:1: ( ( rule__Function__Group_4__0 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4270:1: ( rule__Function__Group_4__0 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getGroup_4()); 
+               before(grammarAccess.getFunctionAccess().getGroup_4()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4271:1: ( rule__Sub__Group_4__0 )?
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4271:1: ( rule__Function__Group_4__0 )?
             int alt51=2;
             int LA51_0 = input.LA(1);
 
@@ -13947,10 +13947,10 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
             switch (alt51) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4271:2: rule__Sub__Group_4__0
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4271:2: rule__Function__Group_4__0
                     {
-                    pushFollow(FOLLOW_rule__Sub__Group_4__0_in_rule__Sub__Group__4__Impl9250);
-                    rule__Sub__Group_4__0();
+                    pushFollow(FOLLOW_rule__Function__Group_4__0_in_rule__Function__Group__4__Impl9250);
+                    rule__Function__Group_4__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -13961,7 +13961,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getGroup_4()); 
+               after(grammarAccess.getFunctionAccess().getGroup_4()); 
             }
 
             }
@@ -13981,26 +13981,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__4__Impl"
+    // $ANTLR end "rule__Function__Group__4__Impl"
 
 
-    // $ANTLR start "rule__Sub__Group__5"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4281:1: rule__Sub__Group__5 : rule__Sub__Group__5__Impl rule__Sub__Group__6 ;
-    public final void rule__Sub__Group__5() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__5"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4281:1: rule__Function__Group__5 : rule__Function__Group__5__Impl rule__Function__Group__6 ;
+    public final void rule__Function__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4285:1: ( rule__Sub__Group__5__Impl rule__Sub__Group__6 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4286:2: rule__Sub__Group__5__Impl rule__Sub__Group__6
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4285:1: ( rule__Function__Group__5__Impl rule__Function__Group__6 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4286:2: rule__Function__Group__5__Impl rule__Function__Group__6
             {
-            pushFollow(FOLLOW_rule__Sub__Group__5__Impl_in_rule__Sub__Group__59281);
-            rule__Sub__Group__5__Impl();
+            pushFollow(FOLLOW_rule__Function__Group__5__Impl_in_rule__Function__Group__59281);
+            rule__Function__Group__5__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__Sub__Group__6_in_rule__Sub__Group__59284);
-            rule__Sub__Group__6();
+            pushFollow(FOLLOW_rule__Function__Group__6_in_rule__Function__Group__59284);
+            rule__Function__Group__6();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14019,12 +14019,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__5"
+    // $ANTLR end "rule__Function__Group__5"
 
 
-    // $ANTLR start "rule__Sub__Group__5__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4293:1: rule__Sub__Group__5__Impl : ( ')' ) ;
-    public final void rule__Sub__Group__5__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__5__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4293:1: rule__Function__Group__5__Impl : ( ')' ) ;
+    public final void rule__Function__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -14036,11 +14036,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4299:1: ')'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getRightParenthesisKeyword_5()); 
+               before(grammarAccess.getFunctionAccess().getRightParenthesisKeyword_5()); 
             }
-            match(input,58,FOLLOW_58_in_rule__Sub__Group__5__Impl9312); if (state.failed) return ;
+            match(input,58,FOLLOW_58_in_rule__Function__Group__5__Impl9312); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getRightParenthesisKeyword_5()); 
+               after(grammarAccess.getFunctionAccess().getRightParenthesisKeyword_5()); 
             }
 
             }
@@ -14060,21 +14060,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__5__Impl"
+    // $ANTLR end "rule__Function__Group__5__Impl"
 
 
-    // $ANTLR start "rule__Sub__Group__6"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4312:1: rule__Sub__Group__6 : rule__Sub__Group__6__Impl ;
-    public final void rule__Sub__Group__6() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__6"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4312:1: rule__Function__Group__6 : rule__Function__Group__6__Impl ;
+    public final void rule__Function__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4316:1: ( rule__Sub__Group__6__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4317:2: rule__Sub__Group__6__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4316:1: ( rule__Function__Group__6__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4317:2: rule__Function__Group__6__Impl
             {
-            pushFollow(FOLLOW_rule__Sub__Group__6__Impl_in_rule__Sub__Group__69343);
-            rule__Sub__Group__6__Impl();
+            pushFollow(FOLLOW_rule__Function__Group__6__Impl_in_rule__Function__Group__69343);
+            rule__Function__Group__6__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14093,119 +14093,30 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group__6"
+    // $ANTLR end "rule__Function__Group__6"
 
 
-    // $ANTLR start "rule__Sub__Group__6__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4323:1: rule__Sub__Group__6__Impl : ( ( rule__Sub__BodyAssignment_6 ) ) ;
-    public final void rule__Sub__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4327:1: ( ( ( rule__Sub__BodyAssignment_6 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4328:1: ( ( rule__Sub__BodyAssignment_6 ) )
-            {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4328:1: ( ( rule__Sub__BodyAssignment_6 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4329:1: ( rule__Sub__BodyAssignment_6 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getBodyAssignment_6()); 
-            }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4330:1: ( rule__Sub__BodyAssignment_6 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4330:2: rule__Sub__BodyAssignment_6
-            {
-            pushFollow(FOLLOW_rule__Sub__BodyAssignment_6_in_rule__Sub__Group__6__Impl9370);
-            rule__Sub__BodyAssignment_6();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getBodyAssignment_6()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Sub__Group__6__Impl"
-
-
-    // $ANTLR start "rule__Sub__Group_4__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4354:1: rule__Sub__Group_4__0 : rule__Sub__Group_4__0__Impl rule__Sub__Group_4__1 ;
-    public final void rule__Sub__Group_4__0() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group__6__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4323:1: rule__Function__Group__6__Impl : ( ( rule__Function__BodyAssignment_6 ) ) ;
+    public final void rule__Function__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4358:1: ( rule__Sub__Group_4__0__Impl rule__Sub__Group_4__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4359:2: rule__Sub__Group_4__0__Impl rule__Sub__Group_4__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4327:1: ( ( ( rule__Function__BodyAssignment_6 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4328:1: ( ( rule__Function__BodyAssignment_6 ) )
             {
-            pushFollow(FOLLOW_rule__Sub__Group_4__0__Impl_in_rule__Sub__Group_4__09414);
-            rule__Sub__Group_4__0__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_rule__Sub__Group_4__1_in_rule__Sub__Group_4__09417);
-            rule__Sub__Group_4__1();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Sub__Group_4__0"
-
-
-    // $ANTLR start "rule__Sub__Group_4__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4366:1: rule__Sub__Group_4__0__Impl : ( ( rule__Sub__ParametersAssignment_4_0 ) ) ;
-    public final void rule__Sub__Group_4__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4370:1: ( ( ( rule__Sub__ParametersAssignment_4_0 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4371:1: ( ( rule__Sub__ParametersAssignment_4_0 ) )
-            {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4371:1: ( ( rule__Sub__ParametersAssignment_4_0 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4372:1: ( rule__Sub__ParametersAssignment_4_0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4328:1: ( ( rule__Function__BodyAssignment_6 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4329:1: ( rule__Function__BodyAssignment_6 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getParametersAssignment_4_0()); 
+               before(grammarAccess.getFunctionAccess().getBodyAssignment_6()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4373:1: ( rule__Sub__ParametersAssignment_4_0 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4373:2: rule__Sub__ParametersAssignment_4_0
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4330:1: ( rule__Function__BodyAssignment_6 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4330:2: rule__Function__BodyAssignment_6
             {
-            pushFollow(FOLLOW_rule__Sub__ParametersAssignment_4_0_in_rule__Sub__Group_4__0__Impl9444);
-            rule__Sub__ParametersAssignment_4_0();
+            pushFollow(FOLLOW_rule__Function__BodyAssignment_6_in_rule__Function__Group__6__Impl9370);
+            rule__Function__BodyAssignment_6();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14213,7 +14124,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getParametersAssignment_4_0()); 
+               after(grammarAccess.getFunctionAccess().getBodyAssignment_6()); 
             }
 
             }
@@ -14233,21 +14144,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group_4__0__Impl"
+    // $ANTLR end "rule__Function__Group__6__Impl"
 
 
-    // $ANTLR start "rule__Sub__Group_4__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4383:1: rule__Sub__Group_4__1 : rule__Sub__Group_4__1__Impl ;
-    public final void rule__Sub__Group_4__1() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group_4__0"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4354:1: rule__Function__Group_4__0 : rule__Function__Group_4__0__Impl rule__Function__Group_4__1 ;
+    public final void rule__Function__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4387:1: ( rule__Sub__Group_4__1__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4388:2: rule__Sub__Group_4__1__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4358:1: ( rule__Function__Group_4__0__Impl rule__Function__Group_4__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4359:2: rule__Function__Group_4__0__Impl rule__Function__Group_4__1
             {
-            pushFollow(FOLLOW_rule__Sub__Group_4__1__Impl_in_rule__Sub__Group_4__19474);
-            rule__Sub__Group_4__1__Impl();
+            pushFollow(FOLLOW_rule__Function__Group_4__0__Impl_in_rule__Function__Group_4__09414);
+            rule__Function__Group_4__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_rule__Function__Group_4__1_in_rule__Function__Group_4__09417);
+            rule__Function__Group_4__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14266,26 +14182,110 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group_4__1"
+    // $ANTLR end "rule__Function__Group_4__0"
 
 
-    // $ANTLR start "rule__Sub__Group_4__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4394:1: rule__Sub__Group_4__1__Impl : ( ( rule__Sub__Group_4_1__0 )* ) ;
-    public final void rule__Sub__Group_4__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group_4__0__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4366:1: rule__Function__Group_4__0__Impl : ( ( rule__Function__ParametersAssignment_4_0 ) ) ;
+    public final void rule__Function__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4398:1: ( ( ( rule__Sub__Group_4_1__0 )* ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4399:1: ( ( rule__Sub__Group_4_1__0 )* )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4370:1: ( ( ( rule__Function__ParametersAssignment_4_0 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4371:1: ( ( rule__Function__ParametersAssignment_4_0 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4399:1: ( ( rule__Sub__Group_4_1__0 )* )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4400:1: ( rule__Sub__Group_4_1__0 )*
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4371:1: ( ( rule__Function__ParametersAssignment_4_0 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4372:1: ( rule__Function__ParametersAssignment_4_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getGroup_4_1()); 
+               before(grammarAccess.getFunctionAccess().getParametersAssignment_4_0()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4401:1: ( rule__Sub__Group_4_1__0 )*
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4373:1: ( rule__Function__ParametersAssignment_4_0 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4373:2: rule__Function__ParametersAssignment_4_0
+            {
+            pushFollow(FOLLOW_rule__Function__ParametersAssignment_4_0_in_rule__Function__Group_4__0__Impl9444);
+            rule__Function__ParametersAssignment_4_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getFunctionAccess().getParametersAssignment_4_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Function__Group_4__0__Impl"
+
+
+    // $ANTLR start "rule__Function__Group_4__1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4383:1: rule__Function__Group_4__1 : rule__Function__Group_4__1__Impl ;
+    public final void rule__Function__Group_4__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4387:1: ( rule__Function__Group_4__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4388:2: rule__Function__Group_4__1__Impl
+            {
+            pushFollow(FOLLOW_rule__Function__Group_4__1__Impl_in_rule__Function__Group_4__19474);
+            rule__Function__Group_4__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Function__Group_4__1"
+
+
+    // $ANTLR start "rule__Function__Group_4__1__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4394:1: rule__Function__Group_4__1__Impl : ( ( rule__Function__Group_4_1__0 )* ) ;
+    public final void rule__Function__Group_4__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4398:1: ( ( ( rule__Function__Group_4_1__0 )* ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4399:1: ( ( rule__Function__Group_4_1__0 )* )
+            {
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4399:1: ( ( rule__Function__Group_4_1__0 )* )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4400:1: ( rule__Function__Group_4_1__0 )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getFunctionAccess().getGroup_4_1()); 
+            }
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4401:1: ( rule__Function__Group_4_1__0 )*
             loop52:
             do {
                 int alt52=2;
@@ -14298,10 +14298,10 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
 
                 switch (alt52) {
             	case 1 :
-            	    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4401:2: rule__Sub__Group_4_1__0
+            	    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4401:2: rule__Function__Group_4_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__Sub__Group_4_1__0_in_rule__Sub__Group_4__1__Impl9501);
-            	    rule__Sub__Group_4_1__0();
+            	    pushFollow(FOLLOW_rule__Function__Group_4_1__0_in_rule__Function__Group_4__1__Impl9501);
+            	    rule__Function__Group_4_1__0();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -14315,7 +14315,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getGroup_4_1()); 
+               after(grammarAccess.getFunctionAccess().getGroup_4_1()); 
             }
 
             }
@@ -14335,26 +14335,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group_4__1__Impl"
+    // $ANTLR end "rule__Function__Group_4__1__Impl"
 
 
-    // $ANTLR start "rule__Sub__Group_4_1__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4415:1: rule__Sub__Group_4_1__0 : rule__Sub__Group_4_1__0__Impl rule__Sub__Group_4_1__1 ;
-    public final void rule__Sub__Group_4_1__0() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group_4_1__0"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4415:1: rule__Function__Group_4_1__0 : rule__Function__Group_4_1__0__Impl rule__Function__Group_4_1__1 ;
+    public final void rule__Function__Group_4_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4419:1: ( rule__Sub__Group_4_1__0__Impl rule__Sub__Group_4_1__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4420:2: rule__Sub__Group_4_1__0__Impl rule__Sub__Group_4_1__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4419:1: ( rule__Function__Group_4_1__0__Impl rule__Function__Group_4_1__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4420:2: rule__Function__Group_4_1__0__Impl rule__Function__Group_4_1__1
             {
-            pushFollow(FOLLOW_rule__Sub__Group_4_1__0__Impl_in_rule__Sub__Group_4_1__09536);
-            rule__Sub__Group_4_1__0__Impl();
+            pushFollow(FOLLOW_rule__Function__Group_4_1__0__Impl_in_rule__Function__Group_4_1__09536);
+            rule__Function__Group_4_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__Sub__Group_4_1__1_in_rule__Sub__Group_4_1__09539);
-            rule__Sub__Group_4_1__1();
+            pushFollow(FOLLOW_rule__Function__Group_4_1__1_in_rule__Function__Group_4_1__09539);
+            rule__Function__Group_4_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14373,12 +14373,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group_4_1__0"
+    // $ANTLR end "rule__Function__Group_4_1__0"
 
 
-    // $ANTLR start "rule__Sub__Group_4_1__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4427:1: rule__Sub__Group_4_1__0__Impl : ( ',' ) ;
-    public final void rule__Sub__Group_4_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group_4_1__0__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4427:1: rule__Function__Group_4_1__0__Impl : ( ',' ) ;
+    public final void rule__Function__Group_4_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -14390,11 +14390,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4433:1: ','
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getCommaKeyword_4_1_0()); 
+               before(grammarAccess.getFunctionAccess().getCommaKeyword_4_1_0()); 
             }
-            match(input,59,FOLLOW_59_in_rule__Sub__Group_4_1__0__Impl9567); if (state.failed) return ;
+            match(input,59,FOLLOW_59_in_rule__Function__Group_4_1__0__Impl9567); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getCommaKeyword_4_1_0()); 
+               after(grammarAccess.getFunctionAccess().getCommaKeyword_4_1_0()); 
             }
 
             }
@@ -14414,21 +14414,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group_4_1__0__Impl"
+    // $ANTLR end "rule__Function__Group_4_1__0__Impl"
 
 
-    // $ANTLR start "rule__Sub__Group_4_1__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4446:1: rule__Sub__Group_4_1__1 : rule__Sub__Group_4_1__1__Impl ;
-    public final void rule__Sub__Group_4_1__1() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group_4_1__1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4446:1: rule__Function__Group_4_1__1 : rule__Function__Group_4_1__1__Impl ;
+    public final void rule__Function__Group_4_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4450:1: ( rule__Sub__Group_4_1__1__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4451:2: rule__Sub__Group_4_1__1__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4450:1: ( rule__Function__Group_4_1__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4451:2: rule__Function__Group_4_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__Sub__Group_4_1__1__Impl_in_rule__Sub__Group_4_1__19598);
-            rule__Sub__Group_4_1__1__Impl();
+            pushFollow(FOLLOW_rule__Function__Group_4_1__1__Impl_in_rule__Function__Group_4_1__19598);
+            rule__Function__Group_4_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14447,30 +14447,30 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group_4_1__1"
+    // $ANTLR end "rule__Function__Group_4_1__1"
 
 
-    // $ANTLR start "rule__Sub__Group_4_1__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4457:1: rule__Sub__Group_4_1__1__Impl : ( ( rule__Sub__ParametersAssignment_4_1_1 ) ) ;
-    public final void rule__Sub__Group_4_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Function__Group_4_1__1__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4457:1: rule__Function__Group_4_1__1__Impl : ( ( rule__Function__ParametersAssignment_4_1_1 ) ) ;
+    public final void rule__Function__Group_4_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4461:1: ( ( ( rule__Sub__ParametersAssignment_4_1_1 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4462:1: ( ( rule__Sub__ParametersAssignment_4_1_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4461:1: ( ( ( rule__Function__ParametersAssignment_4_1_1 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4462:1: ( ( rule__Function__ParametersAssignment_4_1_1 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4462:1: ( ( rule__Sub__ParametersAssignment_4_1_1 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4463:1: ( rule__Sub__ParametersAssignment_4_1_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4462:1: ( ( rule__Function__ParametersAssignment_4_1_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4463:1: ( rule__Function__ParametersAssignment_4_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getParametersAssignment_4_1_1()); 
+               before(grammarAccess.getFunctionAccess().getParametersAssignment_4_1_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4464:1: ( rule__Sub__ParametersAssignment_4_1_1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4464:2: rule__Sub__ParametersAssignment_4_1_1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4464:1: ( rule__Function__ParametersAssignment_4_1_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4464:2: rule__Function__ParametersAssignment_4_1_1
             {
-            pushFollow(FOLLOW_rule__Sub__ParametersAssignment_4_1_1_in_rule__Sub__Group_4_1__1__Impl9625);
-            rule__Sub__ParametersAssignment_4_1_1();
+            pushFollow(FOLLOW_rule__Function__ParametersAssignment_4_1_1_in_rule__Function__Group_4_1__1__Impl9625);
+            rule__Function__ParametersAssignment_4_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14478,7 +14478,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getParametersAssignment_4_1_1()); 
+               after(grammarAccess.getFunctionAccess().getParametersAssignment_4_1_1()); 
             }
 
             }
@@ -14498,26 +14498,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__Group_4_1__1__Impl"
+    // $ANTLR end "rule__Function__Group_4_1__1__Impl"
 
 
-    // $ANTLR start "rule__Field__Group__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4478:1: rule__Field__Group__0 : rule__Field__Group__0__Impl rule__Field__Group__1 ;
-    public final void rule__Field__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__Variable__Group__0"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4478:1: rule__Variable__Group__0 : rule__Variable__Group__0__Impl rule__Variable__Group__1 ;
+    public final void rule__Variable__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4482:1: ( rule__Field__Group__0__Impl rule__Field__Group__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4483:2: rule__Field__Group__0__Impl rule__Field__Group__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4482:1: ( rule__Variable__Group__0__Impl rule__Variable__Group__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4483:2: rule__Variable__Group__0__Impl rule__Variable__Group__1
             {
-            pushFollow(FOLLOW_rule__Field__Group__0__Impl_in_rule__Field__Group__09659);
-            rule__Field__Group__0__Impl();
+            pushFollow(FOLLOW_rule__Variable__Group__0__Impl_in_rule__Variable__Group__09659);
+            rule__Variable__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__Field__Group__1_in_rule__Field__Group__09662);
-            rule__Field__Group__1();
+            pushFollow(FOLLOW_rule__Variable__Group__1_in_rule__Variable__Group__09662);
+            rule__Variable__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14536,12 +14536,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__Group__0"
+    // $ANTLR end "rule__Variable__Group__0"
 
 
-    // $ANTLR start "rule__Field__Group__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4490:1: rule__Field__Group__0__Impl : ( 'var' ) ;
-    public final void rule__Field__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Variable__Group__0__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4490:1: rule__Variable__Group__0__Impl : ( 'var' ) ;
+    public final void rule__Variable__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -14553,11 +14553,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4496:1: 'var'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFieldAccess().getVarKeyword_0()); 
+               before(grammarAccess.getVariableAccess().getVarKeyword_0()); 
             }
-            match(input,60,FOLLOW_60_in_rule__Field__Group__0__Impl9690); if (state.failed) return ;
+            match(input,60,FOLLOW_60_in_rule__Variable__Group__0__Impl9690); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFieldAccess().getVarKeyword_0()); 
+               after(grammarAccess.getVariableAccess().getVarKeyword_0()); 
             }
 
             }
@@ -14577,26 +14577,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__Group__0__Impl"
+    // $ANTLR end "rule__Variable__Group__0__Impl"
 
 
-    // $ANTLR start "rule__Field__Group__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4509:1: rule__Field__Group__1 : rule__Field__Group__1__Impl rule__Field__Group__2 ;
-    public final void rule__Field__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__Variable__Group__1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4509:1: rule__Variable__Group__1 : rule__Variable__Group__1__Impl rule__Variable__Group__2 ;
+    public final void rule__Variable__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4513:1: ( rule__Field__Group__1__Impl rule__Field__Group__2 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4514:2: rule__Field__Group__1__Impl rule__Field__Group__2
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4513:1: ( rule__Variable__Group__1__Impl rule__Variable__Group__2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4514:2: rule__Variable__Group__1__Impl rule__Variable__Group__2
             {
-            pushFollow(FOLLOW_rule__Field__Group__1__Impl_in_rule__Field__Group__19721);
-            rule__Field__Group__1__Impl();
+            pushFollow(FOLLOW_rule__Variable__Group__1__Impl_in_rule__Variable__Group__19721);
+            rule__Variable__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__Field__Group__2_in_rule__Field__Group__19724);
-            rule__Field__Group__2();
+            pushFollow(FOLLOW_rule__Variable__Group__2_in_rule__Variable__Group__19724);
+            rule__Variable__Group__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14615,34 +14615,34 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__Group__1"
+    // $ANTLR end "rule__Variable__Group__1"
 
 
-    // $ANTLR start "rule__Field__Group__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4521:1: rule__Field__Group__1__Impl : ( ( rule__Field__TypeAssignment_1 )? ) ;
-    public final void rule__Field__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Variable__Group__1__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4521:1: rule__Variable__Group__1__Impl : ( ( rule__Variable__TypeAssignment_1 )? ) ;
+    public final void rule__Variable__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4525:1: ( ( ( rule__Field__TypeAssignment_1 )? ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4526:1: ( ( rule__Field__TypeAssignment_1 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4525:1: ( ( ( rule__Variable__TypeAssignment_1 )? ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4526:1: ( ( rule__Variable__TypeAssignment_1 )? )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4526:1: ( ( rule__Field__TypeAssignment_1 )? )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4527:1: ( rule__Field__TypeAssignment_1 )?
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4526:1: ( ( rule__Variable__TypeAssignment_1 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4527:1: ( rule__Variable__TypeAssignment_1 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFieldAccess().getTypeAssignment_1()); 
+               before(grammarAccess.getVariableAccess().getTypeAssignment_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4528:1: ( rule__Field__TypeAssignment_1 )?
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4528:1: ( rule__Variable__TypeAssignment_1 )?
             int alt53=2;
             alt53 = dfa53.predict(input);
             switch (alt53) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4528:2: rule__Field__TypeAssignment_1
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4528:2: rule__Variable__TypeAssignment_1
                     {
-                    pushFollow(FOLLOW_rule__Field__TypeAssignment_1_in_rule__Field__Group__1__Impl9751);
-                    rule__Field__TypeAssignment_1();
+                    pushFollow(FOLLOW_rule__Variable__TypeAssignment_1_in_rule__Variable__Group__1__Impl9751);
+                    rule__Variable__TypeAssignment_1();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -14653,7 +14653,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFieldAccess().getTypeAssignment_1()); 
+               after(grammarAccess.getVariableAccess().getTypeAssignment_1()); 
             }
 
             }
@@ -14673,26 +14673,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__Group__1__Impl"
+    // $ANTLR end "rule__Variable__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Field__Group__2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4538:1: rule__Field__Group__2 : rule__Field__Group__2__Impl rule__Field__Group__3 ;
-    public final void rule__Field__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__Variable__Group__2"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4538:1: rule__Variable__Group__2 : rule__Variable__Group__2__Impl rule__Variable__Group__3 ;
+    public final void rule__Variable__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4542:1: ( rule__Field__Group__2__Impl rule__Field__Group__3 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4543:2: rule__Field__Group__2__Impl rule__Field__Group__3
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4542:1: ( rule__Variable__Group__2__Impl rule__Variable__Group__3 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4543:2: rule__Variable__Group__2__Impl rule__Variable__Group__3
             {
-            pushFollow(FOLLOW_rule__Field__Group__2__Impl_in_rule__Field__Group__29782);
-            rule__Field__Group__2__Impl();
+            pushFollow(FOLLOW_rule__Variable__Group__2__Impl_in_rule__Variable__Group__29782);
+            rule__Variable__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__Field__Group__3_in_rule__Field__Group__29785);
-            rule__Field__Group__3();
+            pushFollow(FOLLOW_rule__Variable__Group__3_in_rule__Variable__Group__29785);
+            rule__Variable__Group__3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14711,30 +14711,30 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__Group__2"
+    // $ANTLR end "rule__Variable__Group__2"
 
 
-    // $ANTLR start "rule__Field__Group__2__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4550:1: rule__Field__Group__2__Impl : ( ( rule__Field__NameAssignment_2 ) ) ;
-    public final void rule__Field__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Variable__Group__2__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4550:1: rule__Variable__Group__2__Impl : ( ( rule__Variable__NameAssignment_2 ) ) ;
+    public final void rule__Variable__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4554:1: ( ( ( rule__Field__NameAssignment_2 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4555:1: ( ( rule__Field__NameAssignment_2 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4554:1: ( ( ( rule__Variable__NameAssignment_2 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4555:1: ( ( rule__Variable__NameAssignment_2 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4555:1: ( ( rule__Field__NameAssignment_2 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4556:1: ( rule__Field__NameAssignment_2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4555:1: ( ( rule__Variable__NameAssignment_2 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4556:1: ( rule__Variable__NameAssignment_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFieldAccess().getNameAssignment_2()); 
+               before(grammarAccess.getVariableAccess().getNameAssignment_2()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4557:1: ( rule__Field__NameAssignment_2 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4557:2: rule__Field__NameAssignment_2
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4557:1: ( rule__Variable__NameAssignment_2 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4557:2: rule__Variable__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__Field__NameAssignment_2_in_rule__Field__Group__2__Impl9812);
-            rule__Field__NameAssignment_2();
+            pushFollow(FOLLOW_rule__Variable__NameAssignment_2_in_rule__Variable__Group__2__Impl9812);
+            rule__Variable__NameAssignment_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14742,7 +14742,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFieldAccess().getNameAssignment_2()); 
+               after(grammarAccess.getVariableAccess().getNameAssignment_2()); 
             }
 
             }
@@ -14762,21 +14762,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__Group__2__Impl"
+    // $ANTLR end "rule__Variable__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Field__Group__3"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4567:1: rule__Field__Group__3 : rule__Field__Group__3__Impl ;
-    public final void rule__Field__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__Variable__Group__3"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4567:1: rule__Variable__Group__3 : rule__Variable__Group__3__Impl ;
+    public final void rule__Variable__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4571:1: ( rule__Field__Group__3__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4572:2: rule__Field__Group__3__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4571:1: ( rule__Variable__Group__3__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4572:2: rule__Variable__Group__3__Impl
             {
-            pushFollow(FOLLOW_rule__Field__Group__3__Impl_in_rule__Field__Group__39842);
-            rule__Field__Group__3__Impl();
+            pushFollow(FOLLOW_rule__Variable__Group__3__Impl_in_rule__Variable__Group__39842);
+            rule__Variable__Group__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14795,26 +14795,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__Group__3"
+    // $ANTLR end "rule__Variable__Group__3"
 
 
-    // $ANTLR start "rule__Field__Group__3__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4578:1: rule__Field__Group__3__Impl : ( ( rule__Field__Group_3__0 )? ) ;
-    public final void rule__Field__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Variable__Group__3__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4578:1: rule__Variable__Group__3__Impl : ( ( rule__Variable__Group_3__0 )? ) ;
+    public final void rule__Variable__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4582:1: ( ( ( rule__Field__Group_3__0 )? ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4583:1: ( ( rule__Field__Group_3__0 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4582:1: ( ( ( rule__Variable__Group_3__0 )? ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4583:1: ( ( rule__Variable__Group_3__0 )? )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4583:1: ( ( rule__Field__Group_3__0 )? )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4584:1: ( rule__Field__Group_3__0 )?
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4583:1: ( ( rule__Variable__Group_3__0 )? )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4584:1: ( rule__Variable__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFieldAccess().getGroup_3()); 
+               before(grammarAccess.getVariableAccess().getGroup_3()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4585:1: ( rule__Field__Group_3__0 )?
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4585:1: ( rule__Variable__Group_3__0 )?
             int alt54=2;
             int LA54_0 = input.LA(1);
 
@@ -14823,10 +14823,10 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
             switch (alt54) {
                 case 1 :
-                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4585:2: rule__Field__Group_3__0
+                    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4585:2: rule__Variable__Group_3__0
                     {
-                    pushFollow(FOLLOW_rule__Field__Group_3__0_in_rule__Field__Group__3__Impl9869);
-                    rule__Field__Group_3__0();
+                    pushFollow(FOLLOW_rule__Variable__Group_3__0_in_rule__Variable__Group__3__Impl9869);
+                    rule__Variable__Group_3__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -14837,7 +14837,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFieldAccess().getGroup_3()); 
+               after(grammarAccess.getVariableAccess().getGroup_3()); 
             }
 
             }
@@ -14857,26 +14857,26 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__Group__3__Impl"
+    // $ANTLR end "rule__Variable__Group__3__Impl"
 
 
-    // $ANTLR start "rule__Field__Group_3__0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4603:1: rule__Field__Group_3__0 : rule__Field__Group_3__0__Impl rule__Field__Group_3__1 ;
-    public final void rule__Field__Group_3__0() throws RecognitionException {
+    // $ANTLR start "rule__Variable__Group_3__0"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4603:1: rule__Variable__Group_3__0 : rule__Variable__Group_3__0__Impl rule__Variable__Group_3__1 ;
+    public final void rule__Variable__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4607:1: ( rule__Field__Group_3__0__Impl rule__Field__Group_3__1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4608:2: rule__Field__Group_3__0__Impl rule__Field__Group_3__1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4607:1: ( rule__Variable__Group_3__0__Impl rule__Variable__Group_3__1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4608:2: rule__Variable__Group_3__0__Impl rule__Variable__Group_3__1
             {
-            pushFollow(FOLLOW_rule__Field__Group_3__0__Impl_in_rule__Field__Group_3__09908);
-            rule__Field__Group_3__0__Impl();
+            pushFollow(FOLLOW_rule__Variable__Group_3__0__Impl_in_rule__Variable__Group_3__09908);
+            rule__Variable__Group_3__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__Field__Group_3__1_in_rule__Field__Group_3__09911);
-            rule__Field__Group_3__1();
+            pushFollow(FOLLOW_rule__Variable__Group_3__1_in_rule__Variable__Group_3__09911);
+            rule__Variable__Group_3__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14895,12 +14895,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__Group_3__0"
+    // $ANTLR end "rule__Variable__Group_3__0"
 
 
-    // $ANTLR start "rule__Field__Group_3__0__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4615:1: rule__Field__Group_3__0__Impl : ( '=' ) ;
-    public final void rule__Field__Group_3__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Variable__Group_3__0__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4615:1: rule__Variable__Group_3__0__Impl : ( '=' ) ;
+    public final void rule__Variable__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -14912,11 +14912,11 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4621:1: '='
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFieldAccess().getEqualsSignKeyword_3_0()); 
+               before(grammarAccess.getVariableAccess().getEqualsSignKeyword_3_0()); 
             }
-            match(input,13,FOLLOW_13_in_rule__Field__Group_3__0__Impl9939); if (state.failed) return ;
+            match(input,13,FOLLOW_13_in_rule__Variable__Group_3__0__Impl9939); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFieldAccess().getEqualsSignKeyword_3_0()); 
+               after(grammarAccess.getVariableAccess().getEqualsSignKeyword_3_0()); 
             }
 
             }
@@ -14936,21 +14936,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__Group_3__0__Impl"
+    // $ANTLR end "rule__Variable__Group_3__0__Impl"
 
 
-    // $ANTLR start "rule__Field__Group_3__1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4634:1: rule__Field__Group_3__1 : rule__Field__Group_3__1__Impl ;
-    public final void rule__Field__Group_3__1() throws RecognitionException {
+    // $ANTLR start "rule__Variable__Group_3__1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4634:1: rule__Variable__Group_3__1 : rule__Variable__Group_3__1__Impl ;
+    public final void rule__Variable__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4638:1: ( rule__Field__Group_3__1__Impl )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4639:2: rule__Field__Group_3__1__Impl
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4638:1: ( rule__Variable__Group_3__1__Impl )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4639:2: rule__Variable__Group_3__1__Impl
             {
-            pushFollow(FOLLOW_rule__Field__Group_3__1__Impl_in_rule__Field__Group_3__19970);
-            rule__Field__Group_3__1__Impl();
+            pushFollow(FOLLOW_rule__Variable__Group_3__1__Impl_in_rule__Variable__Group_3__19970);
+            rule__Variable__Group_3__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14969,30 +14969,30 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__Group_3__1"
+    // $ANTLR end "rule__Variable__Group_3__1"
 
 
-    // $ANTLR start "rule__Field__Group_3__1__Impl"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4645:1: rule__Field__Group_3__1__Impl : ( ( rule__Field__InitializerAssignment_3_1 ) ) ;
-    public final void rule__Field__Group_3__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Variable__Group_3__1__Impl"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4645:1: rule__Variable__Group_3__1__Impl : ( ( rule__Variable__InitializerAssignment_3_1 ) ) ;
+    public final void rule__Variable__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4649:1: ( ( ( rule__Field__InitializerAssignment_3_1 ) ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4650:1: ( ( rule__Field__InitializerAssignment_3_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4649:1: ( ( ( rule__Variable__InitializerAssignment_3_1 ) ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4650:1: ( ( rule__Variable__InitializerAssignment_3_1 ) )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4650:1: ( ( rule__Field__InitializerAssignment_3_1 ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4651:1: ( rule__Field__InitializerAssignment_3_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4650:1: ( ( rule__Variable__InitializerAssignment_3_1 ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4651:1: ( rule__Variable__InitializerAssignment_3_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFieldAccess().getInitializerAssignment_3_1()); 
+               before(grammarAccess.getVariableAccess().getInitializerAssignment_3_1()); 
             }
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4652:1: ( rule__Field__InitializerAssignment_3_1 )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4652:2: rule__Field__InitializerAssignment_3_1
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4652:1: ( rule__Variable__InitializerAssignment_3_1 )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:4652:2: rule__Variable__InitializerAssignment_3_1
             {
-            pushFollow(FOLLOW_rule__Field__InitializerAssignment_3_1_in_rule__Field__Group_3__1__Impl9997);
-            rule__Field__InitializerAssignment_3_1();
+            pushFollow(FOLLOW_rule__Variable__InitializerAssignment_3_1_in_rule__Variable__Group_3__1__Impl9997);
+            rule__Variable__InitializerAssignment_3_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15000,7 +15000,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFieldAccess().getInitializerAssignment_3_1()); 
+               after(grammarAccess.getVariableAccess().getInitializerAssignment_3_1()); 
             }
 
             }
@@ -15020,7 +15020,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__Group_3__1__Impl"
+    // $ANTLR end "rule__Variable__Group_3__1__Impl"
 
 
     // $ANTLR start "rule__XAssignment__Group_0__0"
@@ -52285,29 +52285,29 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Program__AuthorAssignment_4_1"
 
 
-    // $ANTLR start "rule__Program__SubsAssignment_5_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18275:1: rule__Program__SubsAssignment_5_0 : ( ruleSub ) ;
-    public final void rule__Program__SubsAssignment_5_0() throws RecognitionException {
+    // $ANTLR start "rule__Program__FunctionsAssignment_5_0"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18275:1: rule__Program__FunctionsAssignment_5_0 : ( ruleFunction ) ;
+    public final void rule__Program__FunctionsAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18279:1: ( ( ruleSub ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18280:1: ( ruleSub )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18279:1: ( ( ruleFunction ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18280:1: ( ruleFunction )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18280:1: ( ruleSub )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18281:1: ruleSub
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18280:1: ( ruleFunction )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18281:1: ruleFunction
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_5_0_0()); 
+               before(grammarAccess.getProgramAccess().getFunctionsFunctionParserRuleCall_5_0_0()); 
             }
-            pushFollow(FOLLOW_ruleSub_in_rule__Program__SubsAssignment_5_036777);
-            ruleSub();
+            pushFollow(FOLLOW_ruleFunction_in_rule__Program__FunctionsAssignment_5_036777);
+            ruleFunction();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_5_0_0()); 
+               after(grammarAccess.getProgramAccess().getFunctionsFunctionParserRuleCall_5_0_0()); 
             }
 
             }
@@ -52327,32 +52327,32 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Program__SubsAssignment_5_0"
+    // $ANTLR end "rule__Program__FunctionsAssignment_5_0"
 
 
-    // $ANTLR start "rule__Program__FieldsAssignment_5_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18290:1: rule__Program__FieldsAssignment_5_1 : ( ruleField ) ;
-    public final void rule__Program__FieldsAssignment_5_1() throws RecognitionException {
+    // $ANTLR start "rule__Program__VariablesAssignment_5_1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18290:1: rule__Program__VariablesAssignment_5_1 : ( ruleVariable ) ;
+    public final void rule__Program__VariablesAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18294:1: ( ( ruleField ) )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18295:1: ( ruleField )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18294:1: ( ( ruleVariable ) )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18295:1: ( ruleVariable )
             {
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18295:1: ( ruleField )
-            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18296:1: ruleField
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18295:1: ( ruleVariable )
+            // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18296:1: ruleVariable
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getProgramAccess().getFieldsFieldParserRuleCall_5_1_0()); 
+               before(grammarAccess.getProgramAccess().getVariablesVariableParserRuleCall_5_1_0()); 
             }
-            pushFollow(FOLLOW_ruleField_in_rule__Program__FieldsAssignment_5_136808);
-            ruleField();
+            pushFollow(FOLLOW_ruleVariable_in_rule__Program__VariablesAssignment_5_136808);
+            ruleVariable();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getProgramAccess().getFieldsFieldParserRuleCall_5_1_0()); 
+               after(grammarAccess.getProgramAccess().getVariablesVariableParserRuleCall_5_1_0()); 
             }
 
             }
@@ -52372,7 +52372,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Program__FieldsAssignment_5_1"
+    // $ANTLR end "rule__Program__VariablesAssignment_5_1"
 
 
     // $ANTLR start "rule__Program__ModesAssignment_5_2"
@@ -52596,9 +52596,9 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Mode__WhenCanceledAssignment_3_2"
 
 
-    // $ANTLR start "rule__Sub__ReturnTypeAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18380:1: rule__Sub__ReturnTypeAssignment_1 : ( ruleJvmTypeReference ) ;
-    public final void rule__Sub__ReturnTypeAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Function__ReturnTypeAssignment_1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18380:1: rule__Function__ReturnTypeAssignment_1 : ( ruleJvmTypeReference ) ;
+    public final void rule__Function__ReturnTypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -52610,15 +52610,15 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18386:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getReturnTypeJvmTypeReferenceParserRuleCall_1_0()); 
+               before(grammarAccess.getFunctionAccess().getReturnTypeJvmTypeReferenceParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__Sub__ReturnTypeAssignment_136994);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__Function__ReturnTypeAssignment_136994);
             ruleJvmTypeReference();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getReturnTypeJvmTypeReferenceParserRuleCall_1_0()); 
+               after(grammarAccess.getFunctionAccess().getReturnTypeJvmTypeReferenceParserRuleCall_1_0()); 
             }
 
             }
@@ -52638,12 +52638,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__ReturnTypeAssignment_1"
+    // $ANTLR end "rule__Function__ReturnTypeAssignment_1"
 
 
-    // $ANTLR start "rule__Sub__NameAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18395:1: rule__Sub__NameAssignment_2 : ( ruleValidID ) ;
-    public final void rule__Sub__NameAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__Function__NameAssignment_2"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18395:1: rule__Function__NameAssignment_2 : ( ruleValidID ) ;
+    public final void rule__Function__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -52655,15 +52655,15 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18401:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getNameValidIDParserRuleCall_2_0()); 
+               before(grammarAccess.getFunctionAccess().getNameValidIDParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__Sub__NameAssignment_237025);
+            pushFollow(FOLLOW_ruleValidID_in_rule__Function__NameAssignment_237025);
             ruleValidID();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getNameValidIDParserRuleCall_2_0()); 
+               after(grammarAccess.getFunctionAccess().getNameValidIDParserRuleCall_2_0()); 
             }
 
             }
@@ -52683,12 +52683,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__NameAssignment_2"
+    // $ANTLR end "rule__Function__NameAssignment_2"
 
 
-    // $ANTLR start "rule__Sub__ParametersAssignment_4_0"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18410:1: rule__Sub__ParametersAssignment_4_0 : ( ruleJvmFormalParameter ) ;
-    public final void rule__Sub__ParametersAssignment_4_0() throws RecognitionException {
+    // $ANTLR start "rule__Function__ParametersAssignment_4_0"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18410:1: rule__Function__ParametersAssignment_4_0 : ( ruleJvmFormalParameter ) ;
+    public final void rule__Function__ParametersAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -52700,15 +52700,15 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18416:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getParametersJvmFormalParameterParserRuleCall_4_0_0()); 
+               before(grammarAccess.getFunctionAccess().getParametersJvmFormalParameterParserRuleCall_4_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__Sub__ParametersAssignment_4_037056);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__Function__ParametersAssignment_4_037056);
             ruleJvmFormalParameter();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getParametersJvmFormalParameterParserRuleCall_4_0_0()); 
+               after(grammarAccess.getFunctionAccess().getParametersJvmFormalParameterParserRuleCall_4_0_0()); 
             }
 
             }
@@ -52728,12 +52728,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__ParametersAssignment_4_0"
+    // $ANTLR end "rule__Function__ParametersAssignment_4_0"
 
 
-    // $ANTLR start "rule__Sub__ParametersAssignment_4_1_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18425:1: rule__Sub__ParametersAssignment_4_1_1 : ( ruleJvmFormalParameter ) ;
-    public final void rule__Sub__ParametersAssignment_4_1_1() throws RecognitionException {
+    // $ANTLR start "rule__Function__ParametersAssignment_4_1_1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18425:1: rule__Function__ParametersAssignment_4_1_1 : ( ruleJvmFormalParameter ) ;
+    public final void rule__Function__ParametersAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -52745,15 +52745,15 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18431:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getParametersJvmFormalParameterParserRuleCall_4_1_1_0()); 
+               before(grammarAccess.getFunctionAccess().getParametersJvmFormalParameterParserRuleCall_4_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__Sub__ParametersAssignment_4_1_137087);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__Function__ParametersAssignment_4_1_137087);
             ruleJvmFormalParameter();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getParametersJvmFormalParameterParserRuleCall_4_1_1_0()); 
+               after(grammarAccess.getFunctionAccess().getParametersJvmFormalParameterParserRuleCall_4_1_1_0()); 
             }
 
             }
@@ -52773,12 +52773,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__ParametersAssignment_4_1_1"
+    // $ANTLR end "rule__Function__ParametersAssignment_4_1_1"
 
 
-    // $ANTLR start "rule__Sub__BodyAssignment_6"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18440:1: rule__Sub__BodyAssignment_6 : ( ruleXBlockExpression ) ;
-    public final void rule__Sub__BodyAssignment_6() throws RecognitionException {
+    // $ANTLR start "rule__Function__BodyAssignment_6"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18440:1: rule__Function__BodyAssignment_6 : ( ruleXBlockExpression ) ;
+    public final void rule__Function__BodyAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -52790,15 +52790,15 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18446:1: ruleXBlockExpression
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSubAccess().getBodyXBlockExpressionParserRuleCall_6_0()); 
+               before(grammarAccess.getFunctionAccess().getBodyXBlockExpressionParserRuleCall_6_0()); 
             }
-            pushFollow(FOLLOW_ruleXBlockExpression_in_rule__Sub__BodyAssignment_637118);
+            pushFollow(FOLLOW_ruleXBlockExpression_in_rule__Function__BodyAssignment_637118);
             ruleXBlockExpression();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSubAccess().getBodyXBlockExpressionParserRuleCall_6_0()); 
+               after(grammarAccess.getFunctionAccess().getBodyXBlockExpressionParserRuleCall_6_0()); 
             }
 
             }
@@ -52818,12 +52818,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Sub__BodyAssignment_6"
+    // $ANTLR end "rule__Function__BodyAssignment_6"
 
 
-    // $ANTLR start "rule__Field__TypeAssignment_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18455:1: rule__Field__TypeAssignment_1 : ( ruleJvmTypeReference ) ;
-    public final void rule__Field__TypeAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Variable__TypeAssignment_1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18455:1: rule__Variable__TypeAssignment_1 : ( ruleJvmTypeReference ) ;
+    public final void rule__Variable__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -52835,15 +52835,15 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18461:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFieldAccess().getTypeJvmTypeReferenceParserRuleCall_1_0()); 
+               before(grammarAccess.getVariableAccess().getTypeJvmTypeReferenceParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__Field__TypeAssignment_137149);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__Variable__TypeAssignment_137149);
             ruleJvmTypeReference();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFieldAccess().getTypeJvmTypeReferenceParserRuleCall_1_0()); 
+               after(grammarAccess.getVariableAccess().getTypeJvmTypeReferenceParserRuleCall_1_0()); 
             }
 
             }
@@ -52863,12 +52863,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__TypeAssignment_1"
+    // $ANTLR end "rule__Variable__TypeAssignment_1"
 
 
-    // $ANTLR start "rule__Field__NameAssignment_2"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18470:1: rule__Field__NameAssignment_2 : ( ruleValidID ) ;
-    public final void rule__Field__NameAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__Variable__NameAssignment_2"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18470:1: rule__Variable__NameAssignment_2 : ( ruleValidID ) ;
+    public final void rule__Variable__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -52880,15 +52880,15 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18476:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFieldAccess().getNameValidIDParserRuleCall_2_0()); 
+               before(grammarAccess.getVariableAccess().getNameValidIDParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__Field__NameAssignment_237180);
+            pushFollow(FOLLOW_ruleValidID_in_rule__Variable__NameAssignment_237180);
             ruleValidID();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFieldAccess().getNameValidIDParserRuleCall_2_0()); 
+               after(grammarAccess.getVariableAccess().getNameValidIDParserRuleCall_2_0()); 
             }
 
             }
@@ -52908,12 +52908,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__NameAssignment_2"
+    // $ANTLR end "rule__Variable__NameAssignment_2"
 
 
-    // $ANTLR start "rule__Field__InitializerAssignment_3_1"
-    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18485:1: rule__Field__InitializerAssignment_3_1 : ( ruleXExpression ) ;
-    public final void rule__Field__InitializerAssignment_3_1() throws RecognitionException {
+    // $ANTLR start "rule__Variable__InitializerAssignment_3_1"
+    // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18485:1: rule__Variable__InitializerAssignment_3_1 : ( ruleXExpression ) ;
+    public final void rule__Variable__InitializerAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -52925,15 +52925,15 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             // ../org.xtext.xrobot.dsl.ui/src-gen/org/xtext/xrobot/dsl/ui/contentassist/antlr/internal/InternalXRobotDSL.g:18491:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFieldAccess().getInitializerXExpressionParserRuleCall_3_1_0()); 
+               before(grammarAccess.getVariableAccess().getInitializerXExpressionParserRuleCall_3_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__Field__InitializerAssignment_3_137211);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__Variable__InitializerAssignment_3_137211);
             ruleXExpression();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFieldAccess().getInitializerXExpressionParserRuleCall_3_1_0()); 
+               after(grammarAccess.getVariableAccess().getInitializerXExpressionParserRuleCall_3_1_0()); 
             }
 
             }
@@ -52953,7 +52953,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Field__InitializerAssignment_3_1"
+    // $ANTLR end "rule__Variable__InitializerAssignment_3_1"
 
 
     // $ANTLR start "rule__XAssignment__FeatureAssignment_0_1"
@@ -62199,7 +62199,7 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
             this.transition = DFA53_transition;
         }
         public String getDescription() {
-            return "4528:1: ( rule__Field__TypeAssignment_1 )?";
+            return "4528:1: ( rule__Variable__TypeAssignment_1 )?";
         }
     }
     static final String DFA55_eotS =
@@ -65424,12 +65424,12 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_ruleMode_in_entryRuleMode127 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMode134 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Mode__Group__0_in_ruleMode160 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSub_in_entryRuleSub187 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSub194 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group__0_in_ruleSub220 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleField_in_entryRuleField247 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleField254 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Field__Group__0_in_ruleField280 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_entryRuleFunction187 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFunction194 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group__0_in_ruleFunction220 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariable_in_entryRuleVariable247 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVariable254 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Variable__Group__0_in_ruleVariable280 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleValidID_in_entryRuleValidID307 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleValidID314 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ValidID__Alternatives_in_ruleValidID340 = new BitSet(new long[]{0x0000000000000002L});
@@ -65664,8 +65664,8 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_rule__Program__NameAssignment_2_1_in_rule__Program__Alternatives_24946 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Program__AuthorAssignment_4_0_in_rule__Program__Alternatives_44979 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Program__AuthorAssignment_4_1_in_rule__Program__Alternatives_44997 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Program__SubsAssignment_5_0_in_rule__Program__Alternatives_55030 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Program__FieldsAssignment_5_1_in_rule__Program__Alternatives_55048 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Program__FunctionsAssignment_5_0_in_rule__Program__Alternatives_55030 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Program__VariablesAssignment_5_1_in_rule__Program__Alternatives_55048 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Program__ModesAssignment_5_2_in_rule__Program__Alternatives_55066 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__ValidID__Alternatives5099 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_16_in_rule__ValidID__Alternatives5117 = new BitSet(new long[]{0x0000000000000002L});
@@ -65835,52 +65835,52 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_20_in_rule__Mode__Group_3__1__Impl8881 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Mode__Group_3__2__Impl_in_rule__Mode__Group_3__28912 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Mode__WhenCanceledAssignment_3_2_in_rule__Mode__Group_3__2__Impl8939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group__0__Impl_in_rule__Sub__Group__08975 = new BitSet(new long[]{0x02000010001F0010L});
-    public static final BitSet FOLLOW_rule__Sub__Group__1_in_rule__Sub__Group__08978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_rule__Sub__Group__0__Impl9006 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group__1__Impl_in_rule__Sub__Group__19037 = new BitSet(new long[]{0x02000010001F0010L});
-    public static final BitSet FOLLOW_rule__Sub__Group__2_in_rule__Sub__Group__19040 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__ReturnTypeAssignment_1_in_rule__Sub__Group__1__Impl9067 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group__2__Impl_in_rule__Sub__Group__29098 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_rule__Sub__Group__3_in_rule__Sub__Group__29101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__NameAssignment_2_in_rule__Sub__Group__2__Impl9128 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group__3__Impl_in_rule__Sub__Group__39158 = new BitSet(new long[]{0x06000010001F0010L});
-    public static final BitSet FOLLOW_rule__Sub__Group__4_in_rule__Sub__Group__39161 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_rule__Sub__Group__3__Impl9189 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group__4__Impl_in_rule__Sub__Group__49220 = new BitSet(new long[]{0x06000010001F0010L});
-    public static final BitSet FOLLOW_rule__Sub__Group__5_in_rule__Sub__Group__49223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group_4__0_in_rule__Sub__Group__4__Impl9250 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group__5__Impl_in_rule__Sub__Group__59281 = new BitSet(new long[]{0x0000000000040000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_rule__Sub__Group__6_in_rule__Sub__Group__59284 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_rule__Sub__Group__5__Impl9312 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group__6__Impl_in_rule__Sub__Group__69343 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__BodyAssignment_6_in_rule__Sub__Group__6__Impl9370 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group_4__0__Impl_in_rule__Sub__Group_4__09414 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_rule__Sub__Group_4__1_in_rule__Sub__Group_4__09417 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__ParametersAssignment_4_0_in_rule__Sub__Group_4__0__Impl9444 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group_4__1__Impl_in_rule__Sub__Group_4__19474 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group_4_1__0_in_rule__Sub__Group_4__1__Impl9501 = new BitSet(new long[]{0x0800000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group_4_1__0__Impl_in_rule__Sub__Group_4_1__09536 = new BitSet(new long[]{0x02000010001F0010L});
-    public static final BitSet FOLLOW_rule__Sub__Group_4_1__1_in_rule__Sub__Group_4_1__09539 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_rule__Sub__Group_4_1__0__Impl9567 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__Group_4_1__1__Impl_in_rule__Sub__Group_4_1__19598 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Sub__ParametersAssignment_4_1_1_in_rule__Sub__Group_4_1__1__Impl9625 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Field__Group__0__Impl_in_rule__Field__Group__09659 = new BitSet(new long[]{0x02000010001F0010L});
-    public static final BitSet FOLLOW_rule__Field__Group__1_in_rule__Field__Group__09662 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_rule__Field__Group__0__Impl9690 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Field__Group__1__Impl_in_rule__Field__Group__19721 = new BitSet(new long[]{0x02000010001F0010L});
-    public static final BitSet FOLLOW_rule__Field__Group__2_in_rule__Field__Group__19724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Field__TypeAssignment_1_in_rule__Field__Group__1__Impl9751 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Field__Group__2__Impl_in_rule__Field__Group__29782 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__Field__Group__3_in_rule__Field__Group__29785 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Field__NameAssignment_2_in_rule__Field__Group__2__Impl9812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Field__Group__3__Impl_in_rule__Field__Group__39842 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Field__Group_3__0_in_rule__Field__Group__3__Impl9869 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Field__Group_3__0__Impl_in_rule__Field__Group_3__09908 = new BitSet(new long[]{0x82FC2181001F01F0L,0x00000000102FF8A5L});
-    public static final BitSet FOLLOW_rule__Field__Group_3__1_in_rule__Field__Group_3__09911 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Field__Group_3__0__Impl9939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Field__Group_3__1__Impl_in_rule__Field__Group_3__19970 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Field__InitializerAssignment_3_1_in_rule__Field__Group_3__1__Impl9997 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group__0__Impl_in_rule__Function__Group__08975 = new BitSet(new long[]{0x02000010001F0010L});
+    public static final BitSet FOLLOW_rule__Function__Group__1_in_rule__Function__Group__08978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_rule__Function__Group__0__Impl9006 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group__1__Impl_in_rule__Function__Group__19037 = new BitSet(new long[]{0x02000010001F0010L});
+    public static final BitSet FOLLOW_rule__Function__Group__2_in_rule__Function__Group__19040 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__ReturnTypeAssignment_1_in_rule__Function__Group__1__Impl9067 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group__2__Impl_in_rule__Function__Group__29098 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_rule__Function__Group__3_in_rule__Function__Group__29101 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__NameAssignment_2_in_rule__Function__Group__2__Impl9128 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group__3__Impl_in_rule__Function__Group__39158 = new BitSet(new long[]{0x06000010001F0010L});
+    public static final BitSet FOLLOW_rule__Function__Group__4_in_rule__Function__Group__39161 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_rule__Function__Group__3__Impl9189 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group__4__Impl_in_rule__Function__Group__49220 = new BitSet(new long[]{0x06000010001F0010L});
+    public static final BitSet FOLLOW_rule__Function__Group__5_in_rule__Function__Group__49223 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_4__0_in_rule__Function__Group__4__Impl9250 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group__5__Impl_in_rule__Function__Group__59281 = new BitSet(new long[]{0x0000000000040000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_rule__Function__Group__6_in_rule__Function__Group__59284 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_rule__Function__Group__5__Impl9312 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group__6__Impl_in_rule__Function__Group__69343 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__BodyAssignment_6_in_rule__Function__Group__6__Impl9370 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_4__0__Impl_in_rule__Function__Group_4__09414 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_rule__Function__Group_4__1_in_rule__Function__Group_4__09417 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__ParametersAssignment_4_0_in_rule__Function__Group_4__0__Impl9444 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_4__1__Impl_in_rule__Function__Group_4__19474 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_4_1__0_in_rule__Function__Group_4__1__Impl9501 = new BitSet(new long[]{0x0800000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_4_1__0__Impl_in_rule__Function__Group_4_1__09536 = new BitSet(new long[]{0x02000010001F0010L});
+    public static final BitSet FOLLOW_rule__Function__Group_4_1__1_in_rule__Function__Group_4_1__09539 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_rule__Function__Group_4_1__0__Impl9567 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__Group_4_1__1__Impl_in_rule__Function__Group_4_1__19598 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Function__ParametersAssignment_4_1_1_in_rule__Function__Group_4_1__1__Impl9625 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Variable__Group__0__Impl_in_rule__Variable__Group__09659 = new BitSet(new long[]{0x02000010001F0010L});
+    public static final BitSet FOLLOW_rule__Variable__Group__1_in_rule__Variable__Group__09662 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_rule__Variable__Group__0__Impl9690 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Variable__Group__1__Impl_in_rule__Variable__Group__19721 = new BitSet(new long[]{0x02000010001F0010L});
+    public static final BitSet FOLLOW_rule__Variable__Group__2_in_rule__Variable__Group__19724 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Variable__TypeAssignment_1_in_rule__Variable__Group__1__Impl9751 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Variable__Group__2__Impl_in_rule__Variable__Group__29782 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__Variable__Group__3_in_rule__Variable__Group__29785 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Variable__NameAssignment_2_in_rule__Variable__Group__2__Impl9812 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Variable__Group__3__Impl_in_rule__Variable__Group__39842 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Variable__Group_3__0_in_rule__Variable__Group__3__Impl9869 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Variable__Group_3__0__Impl_in_rule__Variable__Group_3__09908 = new BitSet(new long[]{0x82FC2181001F01F0L,0x00000000102FF8A5L});
+    public static final BitSet FOLLOW_rule__Variable__Group_3__1_in_rule__Variable__Group_3__09911 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__Variable__Group_3__0__Impl9939 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Variable__Group_3__1__Impl_in_rule__Variable__Group_3__19970 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Variable__InitializerAssignment_3_1_in_rule__Variable__Group_3__1__Impl9997 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__XAssignment__Group_0__0__Impl_in_rule__XAssignment__Group_0__010031 = new BitSet(new long[]{0x003C0000001F0010L});
     public static final BitSet FOLLOW_rule__XAssignment__Group_0__1_in_rule__XAssignment__Group_0__010034 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__XAssignment__Group_0__1__Impl_in_rule__XAssignment__Group_0__110092 = new BitSet(new long[]{0x0000000000002000L});
@@ -66961,21 +66961,21 @@ public class InternalXRobotDSLParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Program__NameAssignment_2_136684 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Program__AuthorAssignment_4_036715 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Program__AuthorAssignment_4_136746 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSub_in_rule__Program__SubsAssignment_5_036777 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleField_in_rule__Program__FieldsAssignment_5_136808 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_rule__Program__FunctionsAssignment_5_036777 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariable_in_rule__Program__VariablesAssignment_5_136808 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMode_in_rule__Program__ModesAssignment_5_236839 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Mode__NameAssignment_036870 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXExpression_in_rule__Mode__ConditionAssignment_1_136901 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXBlockExpression_in_rule__Mode__ActionAssignment_236932 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXBlockExpression_in_rule__Mode__WhenCanceledAssignment_3_236963 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__Sub__ReturnTypeAssignment_136994 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__Sub__NameAssignment_237025 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__Sub__ParametersAssignment_4_037056 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__Sub__ParametersAssignment_4_1_137087 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXBlockExpression_in_rule__Sub__BodyAssignment_637118 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__Field__TypeAssignment_137149 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__Field__NameAssignment_237180 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__Field__InitializerAssignment_3_137211 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__Function__ReturnTypeAssignment_136994 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__Function__NameAssignment_237025 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__Function__ParametersAssignment_4_037056 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__Function__ParametersAssignment_4_1_137087 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXBlockExpression_in_rule__Function__BodyAssignment_637118 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__Variable__TypeAssignment_137149 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__Variable__NameAssignment_237180 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__Variable__InitializerAssignment_3_137211 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFeatureCallID_in_rule__XAssignment__FeatureAssignment_0_137246 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXAssignment_in_rule__XAssignment__ValueAssignment_0_337281 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpMultiAssign_in_rule__XAssignment__FeatureAssignment_1_1_0_0_137316 = new BitSet(new long[]{0x0000000000000002L});

@@ -5,13 +5,14 @@ package org.xtext.xrobot.dsl.ui.labeling
 
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
-import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider
 import org.eclipse.jface.resource.ImageDescriptor
-import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.eclipse.xtext.xbase.ui.labeling.XbaseImages2
+import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider
+import org.xtext.xrobot.dsl.xRobotDSL.Function
+import org.xtext.xrobot.dsl.xRobotDSL.Mode
+import org.xtext.xrobot.dsl.xRobotDSL.Variable
+
 import static org.eclipse.xtext.common.types.JvmVisibility.*
-import org.xtext.xrobot.dsl.xRobotDSL.Sub
-import org.xtext.xrobot.dsl.xRobotDSL.Field
 
 /**
  * Provides labels for a EObjects.
@@ -31,11 +32,11 @@ class XRobotDSLLabelProvider extends XbaseLabelProvider {
 		images.forOperation(DEFAULT, 0)
 	}
 
-	protected def dispatch ImageDescriptor imageDescriptor(Sub sub) {
+	protected def dispatch ImageDescriptor imageDescriptor(Function function) {
 		images.forOperation(PUBLIC, 0)
 	}
 
-	protected def dispatch ImageDescriptor imageDescriptor(Field sub) {
+	protected def dispatch ImageDescriptor imageDescriptor(Variable variable) {
 		images.forField(PRIVATE, 0)
 	}
 

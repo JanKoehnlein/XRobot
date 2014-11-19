@@ -56,10 +56,10 @@ import org.eclipse.xtext.xtype.XImportDeclaration;
 import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.xtext.xrobot.dsl.services.XRobotDSLGrammarAccess;
-import org.xtext.xrobot.dsl.xRobotDSL.Field;
+import org.xtext.xrobot.dsl.xRobotDSL.Function;
 import org.xtext.xrobot.dsl.xRobotDSL.Mode;
 import org.xtext.xrobot.dsl.xRobotDSL.Program;
-import org.xtext.xrobot.dsl.xRobotDSL.Sub;
+import org.xtext.xrobot.dsl.xRobotDSL.Variable;
 import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
 
 @SuppressWarnings("all")
@@ -143,9 +143,9 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 				else break;
 			}
 		else if(semanticObject.eClass().getEPackage() == XRobotDSLPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case XRobotDSLPackage.FIELD:
-				if(context == grammarAccess.getFieldRule()) {
-					sequence_Field(context, (Field) semanticObject); 
+			case XRobotDSLPackage.FUNCTION:
+				if(context == grammarAccess.getFunctionRule()) {
+					sequence_Function(context, (Function) semanticObject); 
 					return; 
 				}
 				else break;
@@ -161,9 +161,9 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
-			case XRobotDSLPackage.SUB:
-				if(context == grammarAccess.getSubRule()) {
-					sequence_Sub(context, (Sub) semanticObject); 
+			case XRobotDSLPackage.VARIABLE:
+				if(context == grammarAccess.getVariableRule()) {
+					sequence_Variable(context, (Variable) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1207,9 +1207,9 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=JvmTypeReference? name=ValidID initializer=XExpression?)
+	 *     (returnType=JvmTypeReference? name=ValidID (parameters+=JvmFormalParameter parameters+=JvmFormalParameter*)? body=XBlockExpression)
 	 */
-	protected void sequence_Field(EObject context, Field semanticObject) {
+	protected void sequence_Function(EObject context, Function semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1225,7 +1225,7 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (imports=XImportSection? (name=ID | name=STRING) (author=ID | author=STRING) (subs+=Sub | fields+=Field | modes+=Mode)*)
+	 *     (imports=XImportSection? (name=ID | name=STRING) (author=ID | author=STRING) (functions+=Function | variables+=Variable | modes+=Mode)*)
 	 */
 	protected void sequence_Program(EObject context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1234,9 +1234,9 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (returnType=JvmTypeReference? name=ValidID (parameters+=JvmFormalParameter parameters+=JvmFormalParameter*)? body=XBlockExpression)
+	 *     (type=JvmTypeReference? name=ValidID initializer=XExpression?)
 	 */
-	protected void sequence_Sub(EObject context, Sub semanticObject) {
+	protected void sequence_Variable(EObject context, Variable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

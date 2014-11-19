@@ -11,8 +11,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/imports"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Program/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Program/author"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/subs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/fields"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/functions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/variables"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Program/modes"/>
     </genClasses>
     <genClasses ecoreClass="XRobotDSL.ecore#//Mode">
@@ -21,16 +21,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Mode/action"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Mode/whenCanceled"/>
     </genClasses>
-    <genClasses ecoreClass="XRobotDSL.ecore#//Sub">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Sub/returnType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Sub/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Sub/parameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Sub/body"/>
+    <genClasses ecoreClass="XRobotDSL.ecore#//Function">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Function/returnType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Function/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Function/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Function/body"/>
     </genClasses>
-    <genClasses ecoreClass="XRobotDSL.ecore#//Field">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Field/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Field/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Field/initializer"/>
+    <genClasses ecoreClass="XRobotDSL.ecore#//Variable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Variable/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Variable/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Variable/initializer"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

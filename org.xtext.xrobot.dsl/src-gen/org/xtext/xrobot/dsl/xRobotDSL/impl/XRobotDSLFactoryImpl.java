@@ -66,8 +66,8 @@ public class XRobotDSLFactoryImpl extends EFactoryImpl implements XRobotDSLFacto
     {
       case XRobotDSLPackage.PROGRAM: return createProgram();
       case XRobotDSLPackage.MODE: return createMode();
-      case XRobotDSLPackage.SUB: return createSub();
-      case XRobotDSLPackage.FIELD: return createField();
+      case XRobotDSLPackage.FUNCTION: return createFunction();
+      case XRobotDSLPackage.VARIABLE: return createVariable();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -100,10 +100,10 @@ public class XRobotDSLFactoryImpl extends EFactoryImpl implements XRobotDSLFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Sub createSub()
+  public Function createFunction()
   {
-    SubImpl sub = new SubImpl();
-    return sub;
+    FunctionImpl function = new FunctionImpl();
+    return function;
   }
 
   /**
@@ -111,10 +111,10 @@ public class XRobotDSLFactoryImpl extends EFactoryImpl implements XRobotDSLFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Field createField()
+  public Variable createVariable()
   {
-    FieldImpl field = new FieldImpl();
-    return field;
+    VariableImpl variable = new VariableImpl();
+    return variable;
   }
 
   /**

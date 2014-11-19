@@ -23,26 +23,26 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
 
 import org.eclipse.xtext.xbase.XExpression;
 
-import org.xtext.xrobot.dsl.xRobotDSL.Sub;
+import org.xtext.xrobot.dsl.xRobotDSL.Function;
 import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Sub</b></em>'.
+ * An implementation of the model object '<em><b>Function</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.SubImpl#getReturnType <em>Return Type</em>}</li>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.SubImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.SubImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.SubImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FunctionImpl#getReturnType <em>Return Type</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FunctionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FunctionImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FunctionImpl#getBody <em>Body</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SubImpl extends MinimalEObjectImpl.Container implements Sub
+public class FunctionImpl extends MinimalEObjectImpl.Container implements Function
 {
   /**
    * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
@@ -99,7 +99,7 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SubImpl()
+  protected FunctionImpl()
   {
     super();
   }
@@ -112,7 +112,7 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   @Override
   protected EClass eStaticClass()
   {
-    return XRobotDSLPackage.Literals.SUB;
+    return XRobotDSLPackage.Literals.FUNCTION;
   }
 
   /**
@@ -136,7 +136,7 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
     returnType = newReturnType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.SUB__RETURN_TYPE, oldReturnType, newReturnType);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.FUNCTION__RETURN_TYPE, oldReturnType, newReturnType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -153,14 +153,14 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
     {
       NotificationChain msgs = null;
       if (returnType != null)
-        msgs = ((InternalEObject)returnType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.SUB__RETURN_TYPE, null, msgs);
+        msgs = ((InternalEObject)returnType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.FUNCTION__RETURN_TYPE, null, msgs);
       if (newReturnType != null)
-        msgs = ((InternalEObject)newReturnType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.SUB__RETURN_TYPE, null, msgs);
+        msgs = ((InternalEObject)newReturnType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.FUNCTION__RETURN_TYPE, null, msgs);
       msgs = basicSetReturnType(newReturnType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.SUB__RETURN_TYPE, newReturnType, newReturnType));
+      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.FUNCTION__RETURN_TYPE, newReturnType, newReturnType));
   }
 
   /**
@@ -183,7 +183,7 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.SUB__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.FUNCTION__NAME, oldName, name));
   }
 
   /**
@@ -195,7 +195,7 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   {
     if (parameters == null)
     {
-      parameters = new EObjectContainmentEList<JvmFormalParameter>(JvmFormalParameter.class, this, XRobotDSLPackage.SUB__PARAMETERS);
+      parameters = new EObjectContainmentEList<JvmFormalParameter>(JvmFormalParameter.class, this, XRobotDSLPackage.FUNCTION__PARAMETERS);
     }
     return parameters;
   }
@@ -221,7 +221,7 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
     body = newBody;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.SUB__BODY, oldBody, newBody);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.FUNCTION__BODY, oldBody, newBody);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -238,14 +238,14 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
     {
       NotificationChain msgs = null;
       if (body != null)
-        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.SUB__BODY, null, msgs);
+        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.FUNCTION__BODY, null, msgs);
       if (newBody != null)
-        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.SUB__BODY, null, msgs);
+        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.FUNCTION__BODY, null, msgs);
       msgs = basicSetBody(newBody, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.SUB__BODY, newBody, newBody));
+      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.FUNCTION__BODY, newBody, newBody));
   }
 
   /**
@@ -258,11 +258,11 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   {
     switch (featureID)
     {
-      case XRobotDSLPackage.SUB__RETURN_TYPE:
+      case XRobotDSLPackage.FUNCTION__RETURN_TYPE:
         return basicSetReturnType(null, msgs);
-      case XRobotDSLPackage.SUB__PARAMETERS:
+      case XRobotDSLPackage.FUNCTION__PARAMETERS:
         return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
-      case XRobotDSLPackage.SUB__BODY:
+      case XRobotDSLPackage.FUNCTION__BODY:
         return basicSetBody(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -278,13 +278,13 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   {
     switch (featureID)
     {
-      case XRobotDSLPackage.SUB__RETURN_TYPE:
+      case XRobotDSLPackage.FUNCTION__RETURN_TYPE:
         return getReturnType();
-      case XRobotDSLPackage.SUB__NAME:
+      case XRobotDSLPackage.FUNCTION__NAME:
         return getName();
-      case XRobotDSLPackage.SUB__PARAMETERS:
+      case XRobotDSLPackage.FUNCTION__PARAMETERS:
         return getParameters();
-      case XRobotDSLPackage.SUB__BODY:
+      case XRobotDSLPackage.FUNCTION__BODY:
         return getBody();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -301,17 +301,17 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   {
     switch (featureID)
     {
-      case XRobotDSLPackage.SUB__RETURN_TYPE:
+      case XRobotDSLPackage.FUNCTION__RETURN_TYPE:
         setReturnType((JvmTypeReference)newValue);
         return;
-      case XRobotDSLPackage.SUB__NAME:
+      case XRobotDSLPackage.FUNCTION__NAME:
         setName((String)newValue);
         return;
-      case XRobotDSLPackage.SUB__PARAMETERS:
+      case XRobotDSLPackage.FUNCTION__PARAMETERS:
         getParameters().clear();
         getParameters().addAll((Collection<? extends JvmFormalParameter>)newValue);
         return;
-      case XRobotDSLPackage.SUB__BODY:
+      case XRobotDSLPackage.FUNCTION__BODY:
         setBody((XExpression)newValue);
         return;
     }
@@ -328,16 +328,16 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   {
     switch (featureID)
     {
-      case XRobotDSLPackage.SUB__RETURN_TYPE:
+      case XRobotDSLPackage.FUNCTION__RETURN_TYPE:
         setReturnType((JvmTypeReference)null);
         return;
-      case XRobotDSLPackage.SUB__NAME:
+      case XRobotDSLPackage.FUNCTION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case XRobotDSLPackage.SUB__PARAMETERS:
+      case XRobotDSLPackage.FUNCTION__PARAMETERS:
         getParameters().clear();
         return;
-      case XRobotDSLPackage.SUB__BODY:
+      case XRobotDSLPackage.FUNCTION__BODY:
         setBody((XExpression)null);
         return;
     }
@@ -354,13 +354,13 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
   {
     switch (featureID)
     {
-      case XRobotDSLPackage.SUB__RETURN_TYPE:
+      case XRobotDSLPackage.FUNCTION__RETURN_TYPE:
         return returnType != null;
-      case XRobotDSLPackage.SUB__NAME:
+      case XRobotDSLPackage.FUNCTION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case XRobotDSLPackage.SUB__PARAMETERS:
+      case XRobotDSLPackage.FUNCTION__PARAMETERS:
         return parameters != null && !parameters.isEmpty();
-      case XRobotDSLPackage.SUB__BODY:
+      case XRobotDSLPackage.FUNCTION__BODY:
         return body != null;
     }
     return super.eIsSet(featureID);
@@ -383,4 +383,4 @@ public class SubImpl extends MinimalEObjectImpl.Container implements Sub
     return result.toString();
   }
 
-} //SubImpl
+} //FunctionImpl

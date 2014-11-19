@@ -19,8 +19,8 @@ import org.eclipse.xtext.xtype.XImportSection;
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getImports <em>Imports</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getAuthor <em>Author</em>}</li>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getSubs <em>Subs</em>}</li>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getFields <em>Fields</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getFunctions <em>Functions</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getVariables <em>Variables</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getModes <em>Modes</em>}</li>
  * </ul>
  * </p>
@@ -110,36 +110,36 @@ public interface Program extends EObject
   void setAuthor(String value);
 
   /**
-   * Returns the value of the '<em><b>Subs</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.xrobot.dsl.xRobotDSL.Sub}.
+   * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.xrobot.dsl.xRobotDSL.Function}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Subs</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Functions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Subs</em>' containment reference list.
-   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getProgram_Subs()
+   * @return the value of the '<em>Functions</em>' containment reference list.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getProgram_Functions()
    * @model containment="true"
    * @generated
    */
-  EList<Sub> getSubs();
+  EList<Function> getFunctions();
 
   /**
-   * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.xrobot.dsl.xRobotDSL.Field}.
+   * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.xrobot.dsl.xRobotDSL.Variable}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Fields</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Fields</em>' containment reference list.
-   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getProgram_Fields()
+   * @return the value of the '<em>Variables</em>' containment reference list.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getProgram_Variables()
    * @model containment="true"
    * @generated
    */
-  EList<Field> getFields();
+  EList<Variable> getVariables();
 
   /**
    * Returns the value of the '<em><b>Modes</b></em>' containment reference list.

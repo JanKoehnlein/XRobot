@@ -22,10 +22,10 @@ class XRobotDSLJvmModelInferrer extends AbstractModelInferrer {
    			.accept(program.toClass("org.xtext.xrobot.dsl." +program.eResource.URI.trimFileExtension.lastSegment,
    			[
    				superTypes += typeRef(IRobot)
-   				for(field: program.fields) {
-   					var fieldType = field.type ?: field?.initializer?.inferredType ?: Object.typeRef  
-   					members += field.toField(field.name, fieldType) [
-   						initializer = field.initializer
+   				for (variable : program.variables) {
+   					var variableType = variable.type ?: variable?.initializer?.inferredType ?: Object.typeRef  
+   					members += variable.toField(variable.name, variableType) [
+   						initializer = variable.initializer
    					]
    				}
    				for(mode: program.modes) {
@@ -43,11 +43,11 @@ class XRobotDSLJvmModelInferrer extends AbstractModelInferrer {
 	   					]
 	   				} 
    				}
-   				for (sub : program.subs) {
-   					if (sub.body != null)
-	   					members += sub.toMethod(sub.name, sub.returnType ?: sub.body.inferredType) [
-	   						parameters += sub.parameters.map [ toParameter(name, parameterType) ]
-	   						body = sub.body
+   				for (function : program.functions) {
+   					if (function.body != null)
+	   					members += function.toMethod(function.name, function.returnType ?: function.body.inferredType) [
+	   						parameters += function.parameters.map [ toParameter(name, parameterType) ]
+	   						body = function.body
 	   					]
    				}
    			]

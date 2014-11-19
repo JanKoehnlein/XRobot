@@ -15,10 +15,10 @@ import org.eclipse.xtext.xbase.XbasePackage;
 
 import org.eclipse.xtext.xtype.XtypePackage;
 
-import org.xtext.xrobot.dsl.xRobotDSL.Field;
+import org.xtext.xrobot.dsl.xRobotDSL.Function;
 import org.xtext.xrobot.dsl.xRobotDSL.Mode;
 import org.xtext.xrobot.dsl.xRobotDSL.Program;
-import org.xtext.xrobot.dsl.xRobotDSL.Sub;
+import org.xtext.xrobot.dsl.xRobotDSL.Variable;
 import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLFactory;
 import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
 
@@ -49,14 +49,14 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass subEClass = null;
+  private EClass functionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass fieldEClass = null;
+  private EClass variableEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -170,7 +170,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProgram_Subs()
+  public EReference getProgram_Functions()
   {
     return (EReference)programEClass.getEStructuralFeatures().get(3);
   }
@@ -180,7 +180,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProgram_Fields()
+  public EReference getProgram_Variables()
   {
     return (EReference)programEClass.getEStructuralFeatures().get(4);
   }
@@ -250,9 +250,9 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSub()
+  public EClass getFunction()
   {
-    return subEClass;
+    return functionEClass;
   }
 
   /**
@@ -260,9 +260,9 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSub_ReturnType()
+  public EReference getFunction_ReturnType()
   {
-    return (EReference)subEClass.getEStructuralFeatures().get(0);
+    return (EReference)functionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -270,9 +270,9 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSub_Name()
+  public EAttribute getFunction_Name()
   {
-    return (EAttribute)subEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)functionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -280,9 +280,9 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSub_Parameters()
+  public EReference getFunction_Parameters()
   {
-    return (EReference)subEClass.getEStructuralFeatures().get(2);
+    return (EReference)functionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -290,9 +290,9 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSub_Body()
+  public EReference getFunction_Body()
   {
-    return (EReference)subEClass.getEStructuralFeatures().get(3);
+    return (EReference)functionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -300,9 +300,9 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getField()
+  public EClass getVariable()
   {
-    return fieldEClass;
+    return variableEClass;
   }
 
   /**
@@ -310,9 +310,9 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getField_Type()
+  public EReference getVariable_Type()
   {
-    return (EReference)fieldEClass.getEStructuralFeatures().get(0);
+    return (EReference)variableEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -320,9 +320,9 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getField_Name()
+  public EAttribute getVariable_Name()
   {
-    return (EAttribute)fieldEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -330,9 +330,9 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getField_Initializer()
+  public EReference getVariable_Initializer()
   {
-    return (EReference)fieldEClass.getEStructuralFeatures().get(2);
+    return (EReference)variableEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -369,8 +369,8 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     createEReference(programEClass, PROGRAM__IMPORTS);
     createEAttribute(programEClass, PROGRAM__NAME);
     createEAttribute(programEClass, PROGRAM__AUTHOR);
-    createEReference(programEClass, PROGRAM__SUBS);
-    createEReference(programEClass, PROGRAM__FIELDS);
+    createEReference(programEClass, PROGRAM__FUNCTIONS);
+    createEReference(programEClass, PROGRAM__VARIABLES);
     createEReference(programEClass, PROGRAM__MODES);
 
     modeEClass = createEClass(MODE);
@@ -379,16 +379,16 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     createEReference(modeEClass, MODE__ACTION);
     createEReference(modeEClass, MODE__WHEN_CANCELED);
 
-    subEClass = createEClass(SUB);
-    createEReference(subEClass, SUB__RETURN_TYPE);
-    createEAttribute(subEClass, SUB__NAME);
-    createEReference(subEClass, SUB__PARAMETERS);
-    createEReference(subEClass, SUB__BODY);
+    functionEClass = createEClass(FUNCTION);
+    createEReference(functionEClass, FUNCTION__RETURN_TYPE);
+    createEAttribute(functionEClass, FUNCTION__NAME);
+    createEReference(functionEClass, FUNCTION__PARAMETERS);
+    createEReference(functionEClass, FUNCTION__BODY);
 
-    fieldEClass = createEClass(FIELD);
-    createEReference(fieldEClass, FIELD__TYPE);
-    createEAttribute(fieldEClass, FIELD__NAME);
-    createEReference(fieldEClass, FIELD__INITIALIZER);
+    variableEClass = createEClass(VARIABLE);
+    createEReference(variableEClass, VARIABLE__TYPE);
+    createEAttribute(variableEClass, VARIABLE__NAME);
+    createEReference(variableEClass, VARIABLE__INITIALIZER);
   }
 
   /**
@@ -431,8 +431,8 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     initEReference(getProgram_Imports(), theXtypePackage.getXImportSection(), null, "imports", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getProgram_Author(), ecorePackage.getEString(), "author", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProgram_Subs(), this.getSub(), null, "subs", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProgram_Fields(), this.getField(), null, "fields", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProgram_Functions(), this.getFunction(), null, "functions", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProgram_Variables(), this.getVariable(), null, "variables", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Modes(), this.getMode(), null, "modes", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modeEClass, Mode.class, "Mode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -441,16 +441,16 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     initEReference(getMode_Action(), theXbasePackage.getXExpression(), null, "action", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMode_WhenCanceled(), theXbasePackage.getXExpression(), null, "whenCanceled", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(subEClass, Sub.class, "Sub", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSub_ReturnType(), theTypesPackage.getJvmTypeReference(), null, "returnType", null, 0, 1, Sub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSub_Name(), ecorePackage.getEString(), "name", null, 0, 1, Sub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSub_Parameters(), theTypesPackage.getJvmFormalParameter(), null, "parameters", null, 0, -1, Sub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSub_Body(), theXbasePackage.getXExpression(), null, "body", null, 0, 1, Sub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunction_ReturnType(), theTypesPackage.getJvmTypeReference(), null, "returnType", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Parameters(), theTypesPackage.getJvmFormalParameter(), null, "parameters", null, 0, -1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_Body(), theXbasePackage.getXExpression(), null, "body", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getField_Type(), theTypesPackage.getJvmTypeReference(), null, "type", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getField_Name(), ecorePackage.getEString(), "name", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getField_Initializer(), theXbasePackage.getXExpression(), null, "initializer", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVariable_Type(), theTypesPackage.getJvmTypeReference(), null, "type", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariable_Initializer(), theXbasePackage.getXExpression(), null, "initializer", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

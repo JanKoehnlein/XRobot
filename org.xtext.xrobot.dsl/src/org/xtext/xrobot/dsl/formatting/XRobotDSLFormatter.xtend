@@ -3,10 +3,10 @@
  */
 package org.xtext.xrobot.dsl.formatting
 
+import com.google.inject.Inject
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter
 import org.eclipse.xtext.formatting.impl.FormattingConfig
 import org.xtext.xrobot.dsl.services.XRobotDSLGrammarAccess
-import com.google.inject.Inject
 
 // import com.google.inject.Inject;
 // import org.xtext.xrobot.dsl.services.XRobotDSLGrammarAccess
@@ -26,8 +26,8 @@ class XRobotDSLFormatter extends AbstractDeclarativeFormatter {
 		autoLinewrap = 120
 
 		setLinewrap(1, 2, 3).around(modeRule)
-		setLinewrap(1, 2, 3).around(subRule)
-		setLinewrap(1, 2, 3).around(fieldRule)
+		setLinewrap(1, 2, 3).around(functionRule)
+		setLinewrap(1, 2, 3).around(variableRule)
 		setLinewrap(0, 1, 2).before(programAccess.robotKeyword_1)
 		setLinewrap(1, 2, 3).before(programAccess.authorKeyword_3)
 

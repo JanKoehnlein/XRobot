@@ -194,7 +194,7 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleProgram"
-    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:76:1: ruleProgram returns [EObject current=null] : ( ( (lv_imports_0_0= ruleXImportSection ) )? otherlv_1= 'robot' ( ( (lv_name_2_0= RULE_ID ) ) | ( (lv_name_3_0= RULE_STRING ) ) ) otherlv_4= 'author' ( ( (lv_author_5_0= RULE_ID ) ) | ( (lv_author_6_0= RULE_STRING ) ) ) ( ( (lv_subs_7_0= ruleSub ) ) | ( (lv_fields_8_0= ruleField ) ) | ( (lv_modes_9_0= ruleMode ) ) )* ) ;
+    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:76:1: ruleProgram returns [EObject current=null] : ( ( (lv_imports_0_0= ruleXImportSection ) )? otherlv_1= 'robot' ( ( (lv_name_2_0= RULE_ID ) ) | ( (lv_name_3_0= RULE_STRING ) ) ) otherlv_4= 'author' ( ( (lv_author_5_0= RULE_ID ) ) | ( (lv_author_6_0= RULE_STRING ) ) ) ( ( (lv_functions_7_0= ruleFunction ) ) | ( (lv_variables_8_0= ruleVariable ) ) | ( (lv_modes_9_0= ruleMode ) ) )* ) ;
     public final EObject ruleProgram() throws RecognitionException {
         EObject current = null;
 
@@ -206,9 +206,9 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
         Token lv_author_6_0=null;
         EObject lv_imports_0_0 = null;
 
-        EObject lv_subs_7_0 = null;
+        EObject lv_functions_7_0 = null;
 
-        EObject lv_fields_8_0 = null;
+        EObject lv_variables_8_0 = null;
 
         EObject lv_modes_9_0 = null;
 
@@ -216,11 +216,11 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:79:28: ( ( ( (lv_imports_0_0= ruleXImportSection ) )? otherlv_1= 'robot' ( ( (lv_name_2_0= RULE_ID ) ) | ( (lv_name_3_0= RULE_STRING ) ) ) otherlv_4= 'author' ( ( (lv_author_5_0= RULE_ID ) ) | ( (lv_author_6_0= RULE_STRING ) ) ) ( ( (lv_subs_7_0= ruleSub ) ) | ( (lv_fields_8_0= ruleField ) ) | ( (lv_modes_9_0= ruleMode ) ) )* ) )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:80:1: ( ( (lv_imports_0_0= ruleXImportSection ) )? otherlv_1= 'robot' ( ( (lv_name_2_0= RULE_ID ) ) | ( (lv_name_3_0= RULE_STRING ) ) ) otherlv_4= 'author' ( ( (lv_author_5_0= RULE_ID ) ) | ( (lv_author_6_0= RULE_STRING ) ) ) ( ( (lv_subs_7_0= ruleSub ) ) | ( (lv_fields_8_0= ruleField ) ) | ( (lv_modes_9_0= ruleMode ) ) )* )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:79:28: ( ( ( (lv_imports_0_0= ruleXImportSection ) )? otherlv_1= 'robot' ( ( (lv_name_2_0= RULE_ID ) ) | ( (lv_name_3_0= RULE_STRING ) ) ) otherlv_4= 'author' ( ( (lv_author_5_0= RULE_ID ) ) | ( (lv_author_6_0= RULE_STRING ) ) ) ( ( (lv_functions_7_0= ruleFunction ) ) | ( (lv_variables_8_0= ruleVariable ) ) | ( (lv_modes_9_0= ruleMode ) ) )* ) )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:80:1: ( ( (lv_imports_0_0= ruleXImportSection ) )? otherlv_1= 'robot' ( ( (lv_name_2_0= RULE_ID ) ) | ( (lv_name_3_0= RULE_STRING ) ) ) otherlv_4= 'author' ( ( (lv_author_5_0= RULE_ID ) ) | ( (lv_author_6_0= RULE_STRING ) ) ) ( ( (lv_functions_7_0= ruleFunction ) ) | ( (lv_variables_8_0= ruleVariable ) ) | ( (lv_modes_9_0= ruleMode ) ) )* )
             {
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:80:1: ( ( (lv_imports_0_0= ruleXImportSection ) )? otherlv_1= 'robot' ( ( (lv_name_2_0= RULE_ID ) ) | ( (lv_name_3_0= RULE_STRING ) ) ) otherlv_4= 'author' ( ( (lv_author_5_0= RULE_ID ) ) | ( (lv_author_6_0= RULE_STRING ) ) ) ( ( (lv_subs_7_0= ruleSub ) ) | ( (lv_fields_8_0= ruleField ) ) | ( (lv_modes_9_0= ruleMode ) ) )* )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:80:2: ( (lv_imports_0_0= ruleXImportSection ) )? otherlv_1= 'robot' ( ( (lv_name_2_0= RULE_ID ) ) | ( (lv_name_3_0= RULE_STRING ) ) ) otherlv_4= 'author' ( ( (lv_author_5_0= RULE_ID ) ) | ( (lv_author_6_0= RULE_STRING ) ) ) ( ( (lv_subs_7_0= ruleSub ) ) | ( (lv_fields_8_0= ruleField ) ) | ( (lv_modes_9_0= ruleMode ) ) )*
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:80:1: ( ( (lv_imports_0_0= ruleXImportSection ) )? otherlv_1= 'robot' ( ( (lv_name_2_0= RULE_ID ) ) | ( (lv_name_3_0= RULE_STRING ) ) ) otherlv_4= 'author' ( ( (lv_author_5_0= RULE_ID ) ) | ( (lv_author_6_0= RULE_STRING ) ) ) ( ( (lv_functions_7_0= ruleFunction ) ) | ( (lv_variables_8_0= ruleVariable ) ) | ( (lv_modes_9_0= ruleMode ) ) )* )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:80:2: ( (lv_imports_0_0= ruleXImportSection ) )? otherlv_1= 'robot' ( ( (lv_name_2_0= RULE_ID ) ) | ( (lv_name_3_0= RULE_STRING ) ) ) otherlv_4= 'author' ( ( (lv_author_5_0= RULE_ID ) ) | ( (lv_author_6_0= RULE_STRING ) ) ) ( ( (lv_functions_7_0= ruleFunction ) ) | ( (lv_variables_8_0= ruleVariable ) ) | ( (lv_modes_9_0= ruleMode ) ) )*
             {
             // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:80:2: ( (lv_imports_0_0= ruleXImportSection ) )?
             int alt1=2;
@@ -466,7 +466,7 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:180:3: ( ( (lv_subs_7_0= ruleSub ) ) | ( (lv_fields_8_0= ruleField ) ) | ( (lv_modes_9_0= ruleMode ) ) )*
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:180:3: ( ( (lv_functions_7_0= ruleFunction ) ) | ( (lv_variables_8_0= ruleVariable ) ) | ( (lv_modes_9_0= ruleMode ) ) )*
             loop4:
             do {
                 int alt4=4;
@@ -491,21 +491,21 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:180:4: ( (lv_subs_7_0= ruleSub ) )
+            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:180:4: ( (lv_functions_7_0= ruleFunction ) )
             	    {
-            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:180:4: ( (lv_subs_7_0= ruleSub ) )
-            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:181:1: (lv_subs_7_0= ruleSub )
+            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:180:4: ( (lv_functions_7_0= ruleFunction ) )
+            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:181:1: (lv_functions_7_0= ruleFunction )
             	    {
-            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:181:1: (lv_subs_7_0= ruleSub )
-            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:182:3: lv_subs_7_0= ruleSub
+            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:181:1: (lv_functions_7_0= ruleFunction )
+            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:182:3: lv_functions_7_0= ruleFunction
             	    {
             	    if ( state.backtracking==0 ) {
             	       
-            	      	        newCompositeNode(grammarAccess.getProgramAccess().getSubsSubParserRuleCall_5_0_0()); 
+            	      	        newCompositeNode(grammarAccess.getProgramAccess().getFunctionsFunctionParserRuleCall_5_0_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleSub_in_ruleProgram282);
-            	    lv_subs_7_0=ruleSub();
+            	    pushFollow(FOLLOW_ruleFunction_in_ruleProgram282);
+            	    lv_functions_7_0=ruleFunction();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -516,9 +516,9 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
             	      	        }
             	             		add(
             	             			current, 
-            	             			"subs",
-            	              		lv_subs_7_0, 
-            	              		"Sub");
+            	             			"functions",
+            	              		lv_functions_7_0, 
+            	              		"Function");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -532,21 +532,21 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:199:6: ( (lv_fields_8_0= ruleField ) )
+            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:199:6: ( (lv_variables_8_0= ruleVariable ) )
             	    {
-            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:199:6: ( (lv_fields_8_0= ruleField ) )
-            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:200:1: (lv_fields_8_0= ruleField )
+            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:199:6: ( (lv_variables_8_0= ruleVariable ) )
+            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:200:1: (lv_variables_8_0= ruleVariable )
             	    {
-            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:200:1: (lv_fields_8_0= ruleField )
-            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:201:3: lv_fields_8_0= ruleField
+            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:200:1: (lv_variables_8_0= ruleVariable )
+            	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:201:3: lv_variables_8_0= ruleVariable
             	    {
             	    if ( state.backtracking==0 ) {
             	       
-            	      	        newCompositeNode(grammarAccess.getProgramAccess().getFieldsFieldParserRuleCall_5_1_0()); 
+            	      	        newCompositeNode(grammarAccess.getProgramAccess().getVariablesVariableParserRuleCall_5_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleField_in_ruleProgram309);
-            	    lv_fields_8_0=ruleField();
+            	    pushFollow(FOLLOW_ruleVariable_in_ruleProgram309);
+            	    lv_variables_8_0=ruleVariable();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -557,9 +557,9 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
             	      	        }
             	             		add(
             	             			current, 
-            	             			"fields",
-            	              		lv_fields_8_0, 
-            	              		"Field");
+            	             			"variables",
+            	              		lv_variables_8_0, 
+            	              		"Variable");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -915,30 +915,30 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleMode"
 
 
-    // $ANTLR start "entryRuleSub"
-    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:349:1: entryRuleSub returns [EObject current=null] : iv_ruleSub= ruleSub EOF ;
-    public final EObject entryRuleSub() throws RecognitionException {
+    // $ANTLR start "entryRuleFunction"
+    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:349:1: entryRuleFunction returns [EObject current=null] : iv_ruleFunction= ruleFunction EOF ;
+    public final EObject entryRuleFunction() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSub = null;
+        EObject iv_ruleFunction = null;
 
 
         try {
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:350:2: (iv_ruleSub= ruleSub EOF )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:351:2: iv_ruleSub= ruleSub EOF
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:350:2: (iv_ruleFunction= ruleFunction EOF )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:351:2: iv_ruleFunction= ruleFunction EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSubRule()); 
+               newCompositeNode(grammarAccess.getFunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleSub_in_entryRuleSub572);
-            iv_ruleSub=ruleSub();
+            pushFollow(FOLLOW_ruleFunction_in_entryRuleFunction572);
+            iv_ruleFunction=ruleFunction();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleSub; 
+               current =iv_ruleFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSub582); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFunction582); if (state.failed) return current;
 
             }
 
@@ -952,12 +952,12 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSub"
+    // $ANTLR end "entryRuleFunction"
 
 
-    // $ANTLR start "ruleSub"
-    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:358:1: ruleSub returns [EObject current=null] : (otherlv_0= 'def' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= ruleValidID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) ) ) ;
-    public final EObject ruleSub() throws RecognitionException {
+    // $ANTLR start "ruleFunction"
+    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:358:1: ruleFunction returns [EObject current=null] : (otherlv_0= 'def' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= ruleValidID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) ) ) ;
+    public final EObject ruleFunction() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -984,10 +984,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
             // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:362:1: (otherlv_0= 'def' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= ruleValidID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) ) )
             // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:362:3: otherlv_0= 'def' ( (lv_returnType_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= ruleValidID ) ) otherlv_3= '(' ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )? otherlv_7= ')' ( (lv_body_8_0= ruleXBlockExpression ) )
             {
-            otherlv_0=(Token)match(input,18,FOLLOW_18_in_ruleSub619); if (state.failed) return current;
+            otherlv_0=(Token)match(input,18,FOLLOW_18_in_ruleFunction619); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_0, grammarAccess.getSubAccess().getDefKeyword_0());
+                  	newLeafNode(otherlv_0, grammarAccess.getFunctionAccess().getDefKeyword_0());
                   
             }
             // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:366:1: ( (lv_returnType_1_0= ruleJvmTypeReference ) )?
@@ -1064,10 +1064,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
                        
-                      	        newCompositeNode(grammarAccess.getSubAccess().getReturnTypeJvmTypeReferenceParserRuleCall_1_0()); 
+                      	        newCompositeNode(grammarAccess.getFunctionAccess().getReturnTypeJvmTypeReferenceParserRuleCall_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleJvmTypeReference_in_ruleSub640);
+                    pushFollow(FOLLOW_ruleJvmTypeReference_in_ruleFunction640);
                     lv_returnType_1_0=ruleJvmTypeReference();
 
                     state._fsp--;
@@ -1075,7 +1075,7 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       	        if (current==null) {
-                      	            current = createModelElementForParent(grammarAccess.getSubRule());
+                      	            current = createModelElementForParent(grammarAccess.getFunctionRule());
                       	        }
                              		set(
                              			current, 
@@ -1102,10 +1102,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getSubAccess().getNameValidIDParserRuleCall_2_0()); 
+              	        newCompositeNode(grammarAccess.getFunctionAccess().getNameValidIDParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleValidID_in_ruleSub662);
+            pushFollow(FOLLOW_ruleValidID_in_ruleFunction662);
             lv_name_2_0=ruleValidID();
 
             state._fsp--;
@@ -1113,7 +1113,7 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getSubRule());
+              	            current = createModelElementForParent(grammarAccess.getFunctionRule());
               	        }
                      		set(
                      			current, 
@@ -1129,10 +1129,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,19,FOLLOW_19_in_ruleSub674); if (state.failed) return current;
+            otherlv_3=(Token)match(input,19,FOLLOW_19_in_ruleFunction674); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_3, grammarAccess.getSubAccess().getLeftParenthesisKeyword_3());
+                  	newLeafNode(otherlv_3, grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_3());
                   
             }
             // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:406:1: ( ( (lv_parameters_4_0= ruleJvmFormalParameter ) ) (otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) ) )* )?
@@ -1154,10 +1154,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
                        
-                      	        newCompositeNode(grammarAccess.getSubAccess().getParametersJvmFormalParameterParserRuleCall_4_0_0()); 
+                      	        newCompositeNode(grammarAccess.getFunctionAccess().getParametersJvmFormalParameterParserRuleCall_4_0_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleJvmFormalParameter_in_ruleSub696);
+                    pushFollow(FOLLOW_ruleJvmFormalParameter_in_ruleFunction696);
                     lv_parameters_4_0=ruleJvmFormalParameter();
 
                     state._fsp--;
@@ -1165,7 +1165,7 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       	        if (current==null) {
-                      	            current = createModelElementForParent(grammarAccess.getSubRule());
+                      	            current = createModelElementForParent(grammarAccess.getFunctionRule());
                       	        }
                              		add(
                              			current, 
@@ -1196,10 +1196,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:424:4: otherlv_5= ',' ( (lv_parameters_6_0= ruleJvmFormalParameter ) )
                     	    {
-                    	    otherlv_5=(Token)match(input,20,FOLLOW_20_in_ruleSub709); if (state.failed) return current;
+                    	    otherlv_5=(Token)match(input,20,FOLLOW_20_in_ruleFunction709); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	          	newLeafNode(otherlv_5, grammarAccess.getSubAccess().getCommaKeyword_4_1_0());
+                    	          	newLeafNode(otherlv_5, grammarAccess.getFunctionAccess().getCommaKeyword_4_1_0());
                     	          
                     	    }
                     	    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:428:1: ( (lv_parameters_6_0= ruleJvmFormalParameter ) )
@@ -1210,10 +1210,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
-                    	      	        newCompositeNode(grammarAccess.getSubAccess().getParametersJvmFormalParameterParserRuleCall_4_1_1_0()); 
+                    	      	        newCompositeNode(grammarAccess.getFunctionAccess().getParametersJvmFormalParameterParserRuleCall_4_1_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleJvmFormalParameter_in_ruleSub730);
+                    	    pushFollow(FOLLOW_ruleJvmFormalParameter_in_ruleFunction730);
                     	    lv_parameters_6_0=ruleJvmFormalParameter();
 
                     	    state._fsp--;
@@ -1221,7 +1221,7 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
                     	    if ( state.backtracking==0 ) {
 
                     	      	        if (current==null) {
-                    	      	            current = createModelElementForParent(grammarAccess.getSubRule());
+                    	      	            current = createModelElementForParent(grammarAccess.getFunctionRule());
                     	      	        }
                     	             		add(
                     	             			current, 
@@ -1252,10 +1252,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,21,FOLLOW_21_in_ruleSub746); if (state.failed) return current;
+            otherlv_7=(Token)match(input,21,FOLLOW_21_in_ruleFunction746); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_7, grammarAccess.getSubAccess().getRightParenthesisKeyword_5());
+                  	newLeafNode(otherlv_7, grammarAccess.getFunctionAccess().getRightParenthesisKeyword_5());
                   
             }
             // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:450:1: ( (lv_body_8_0= ruleXBlockExpression ) )
@@ -1266,10 +1266,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getSubAccess().getBodyXBlockExpressionParserRuleCall_6_0()); 
+              	        newCompositeNode(grammarAccess.getFunctionAccess().getBodyXBlockExpressionParserRuleCall_6_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleXBlockExpression_in_ruleSub767);
+            pushFollow(FOLLOW_ruleXBlockExpression_in_ruleFunction767);
             lv_body_8_0=ruleXBlockExpression();
 
             state._fsp--;
@@ -1277,7 +1277,7 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getSubRule());
+              	            current = createModelElementForParent(grammarAccess.getFunctionRule());
               	        }
                      		set(
                      			current, 
@@ -1312,33 +1312,33 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSub"
+    // $ANTLR end "ruleFunction"
 
 
-    // $ANTLR start "entryRuleField"
-    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:476:1: entryRuleField returns [EObject current=null] : iv_ruleField= ruleField EOF ;
-    public final EObject entryRuleField() throws RecognitionException {
+    // $ANTLR start "entryRuleVariable"
+    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:476:1: entryRuleVariable returns [EObject current=null] : iv_ruleVariable= ruleVariable EOF ;
+    public final EObject entryRuleVariable() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleField = null;
+        EObject iv_ruleVariable = null;
 
 
         try {
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:477:2: (iv_ruleField= ruleField EOF )
-            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:478:2: iv_ruleField= ruleField EOF
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:477:2: (iv_ruleVariable= ruleVariable EOF )
+            // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:478:2: iv_ruleVariable= ruleVariable EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getFieldRule()); 
+               newCompositeNode(grammarAccess.getVariableRule()); 
             }
-            pushFollow(FOLLOW_ruleField_in_entryRuleField803);
-            iv_ruleField=ruleField();
+            pushFollow(FOLLOW_ruleVariable_in_entryRuleVariable803);
+            iv_ruleVariable=ruleVariable();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleField; 
+               current =iv_ruleVariable; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleField813); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVariable813); if (state.failed) return current;
 
             }
 
@@ -1352,12 +1352,12 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleField"
+    // $ANTLR end "entryRuleVariable"
 
 
-    // $ANTLR start "ruleField"
-    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:485:1: ruleField returns [EObject current=null] : (otherlv_0= 'var' ( (lv_type_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= ruleValidID ) ) (otherlv_3= '=' ( (lv_initializer_4_0= ruleXExpression ) ) )? ) ;
-    public final EObject ruleField() throws RecognitionException {
+    // $ANTLR start "ruleVariable"
+    // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:485:1: ruleVariable returns [EObject current=null] : (otherlv_0= 'var' ( (lv_type_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= ruleValidID ) ) (otherlv_3= '=' ( (lv_initializer_4_0= ruleXExpression ) ) )? ) ;
+    public final EObject ruleVariable() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -1378,10 +1378,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
             // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:489:1: (otherlv_0= 'var' ( (lv_type_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= ruleValidID ) ) (otherlv_3= '=' ( (lv_initializer_4_0= ruleXExpression ) ) )? )
             // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:489:3: otherlv_0= 'var' ( (lv_type_1_0= ruleJvmTypeReference ) )? ( (lv_name_2_0= ruleValidID ) ) (otherlv_3= '=' ( (lv_initializer_4_0= ruleXExpression ) ) )?
             {
-            otherlv_0=(Token)match(input,22,FOLLOW_22_in_ruleField850); if (state.failed) return current;
+            otherlv_0=(Token)match(input,22,FOLLOW_22_in_ruleVariable850); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_0, grammarAccess.getFieldAccess().getVarKeyword_0());
+                  	newLeafNode(otherlv_0, grammarAccess.getVariableAccess().getVarKeyword_0());
                   
             }
             // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:493:1: ( (lv_type_1_0= ruleJvmTypeReference ) )?
@@ -1396,10 +1396,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
                        
-                      	        newCompositeNode(grammarAccess.getFieldAccess().getTypeJvmTypeReferenceParserRuleCall_1_0()); 
+                      	        newCompositeNode(grammarAccess.getVariableAccess().getTypeJvmTypeReferenceParserRuleCall_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleJvmTypeReference_in_ruleField871);
+                    pushFollow(FOLLOW_ruleJvmTypeReference_in_ruleVariable871);
                     lv_type_1_0=ruleJvmTypeReference();
 
                     state._fsp--;
@@ -1407,7 +1407,7 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       	        if (current==null) {
-                      	            current = createModelElementForParent(grammarAccess.getFieldRule());
+                      	            current = createModelElementForParent(grammarAccess.getVariableRule());
                       	        }
                              		set(
                              			current, 
@@ -1434,10 +1434,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getFieldAccess().getNameValidIDParserRuleCall_2_0()); 
+              	        newCompositeNode(grammarAccess.getVariableAccess().getNameValidIDParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleValidID_in_ruleField893);
+            pushFollow(FOLLOW_ruleValidID_in_ruleVariable893);
             lv_name_2_0=ruleValidID();
 
             state._fsp--;
@@ -1445,7 +1445,7 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getFieldRule());
+              	            current = createModelElementForParent(grammarAccess.getVariableRule());
               	        }
                      		set(
                      			current, 
@@ -1472,10 +1472,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:529:4: otherlv_3= '=' ( (lv_initializer_4_0= ruleXExpression ) )
                     {
-                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleField906); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleVariable906); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_3, grammarAccess.getFieldAccess().getEqualsSignKeyword_3_0());
+                          	newLeafNode(otherlv_3, grammarAccess.getVariableAccess().getEqualsSignKeyword_3_0());
                           
                     }
                     // ../org.xtext.xrobot.dsl/src-gen/org/xtext/xrobot/dsl/parser/antlr/internal/InternalXRobotDSL.g:533:1: ( (lv_initializer_4_0= ruleXExpression ) )
@@ -1486,10 +1486,10 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
                        
-                      	        newCompositeNode(grammarAccess.getFieldAccess().getInitializerXExpressionParserRuleCall_3_1_0()); 
+                      	        newCompositeNode(grammarAccess.getVariableAccess().getInitializerXExpressionParserRuleCall_3_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleXExpression_in_ruleField927);
+                    pushFollow(FOLLOW_ruleXExpression_in_ruleVariable927);
                     lv_initializer_4_0=ruleXExpression();
 
                     state._fsp--;
@@ -1497,7 +1497,7 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
                     if ( state.backtracking==0 ) {
 
                       	        if (current==null) {
-                      	            current = createModelElementForParent(grammarAccess.getFieldRule());
+                      	            current = createModelElementForParent(grammarAccess.getVariableRule());
                       	        }
                              		set(
                              			current, 
@@ -1538,7 +1538,7 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleField"
+    // $ANTLR end "ruleVariable"
 
 
     // $ANTLR start "entryRuleValidID"
@@ -25739,8 +25739,8 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_14_in_ruleProgram208 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleProgram226 = new BitSet(new long[]{0x0000000000440012L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleProgram254 = new BitSet(new long[]{0x0000000000440012L});
-    public static final BitSet FOLLOW_ruleSub_in_ruleProgram282 = new BitSet(new long[]{0x0000000000440012L});
-    public static final BitSet FOLLOW_ruleField_in_ruleProgram309 = new BitSet(new long[]{0x0000000000440012L});
+    public static final BitSet FOLLOW_ruleFunction_in_ruleProgram282 = new BitSet(new long[]{0x0000000000440012L});
+    public static final BitSet FOLLOW_ruleVariable_in_ruleProgram309 = new BitSet(new long[]{0x0000000000440012L});
     public static final BitSet FOLLOW_ruleMode_in_ruleProgram336 = new BitSet(new long[]{0x0000000000440012L});
     public static final BitSet FOLLOW_ruleMode_in_entryRuleMode374 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMode384 = new BitSet(new long[]{0x0000000000000002L});
@@ -25751,24 +25751,24 @@ public class InternalXRobotDSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_16_in_ruleMode501 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_17_in_ruleMode513 = new BitSet(new long[]{0x0800000000008000L});
     public static final BitSet FOLLOW_ruleXBlockExpression_in_ruleMode534 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSub_in_entryRuleSub572 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSub582 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleSub619 = new BitSet(new long[]{0x00000400000BE010L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleSub640 = new BitSet(new long[]{0x000000000003E010L});
-    public static final BitSet FOLLOW_ruleValidID_in_ruleSub662 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleSub674 = new BitSet(new long[]{0x00000400002BE010L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleSub696 = new BitSet(new long[]{0x0000000000300000L});
-    public static final BitSet FOLLOW_20_in_ruleSub709 = new BitSet(new long[]{0x00000400000BE010L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleSub730 = new BitSet(new long[]{0x0000000000300000L});
-    public static final BitSet FOLLOW_21_in_ruleSub746 = new BitSet(new long[]{0x0800000000008000L});
-    public static final BitSet FOLLOW_ruleXBlockExpression_in_ruleSub767 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleField_in_entryRuleField803 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleField813 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_ruleField850 = new BitSet(new long[]{0x00000400000BE010L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleField871 = new BitSet(new long[]{0x000000000003E010L});
-    public static final BitSet FOLLOW_ruleValidID_in_ruleField893 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_23_in_ruleField906 = new BitSet(new long[]{0x2C086000200BE1F0L,0x0000000002FFFB8AL});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleField927 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFunction_in_entryRuleFunction572 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFunction582 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_ruleFunction619 = new BitSet(new long[]{0x00000400000BE010L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleFunction640 = new BitSet(new long[]{0x000000000003E010L});
+    public static final BitSet FOLLOW_ruleValidID_in_ruleFunction662 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleFunction674 = new BitSet(new long[]{0x00000400002BE010L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleFunction696 = new BitSet(new long[]{0x0000000000300000L});
+    public static final BitSet FOLLOW_20_in_ruleFunction709 = new BitSet(new long[]{0x00000400000BE010L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_ruleFunction730 = new BitSet(new long[]{0x0000000000300000L});
+    public static final BitSet FOLLOW_21_in_ruleFunction746 = new BitSet(new long[]{0x0800000000008000L});
+    public static final BitSet FOLLOW_ruleXBlockExpression_in_ruleFunction767 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariable_in_entryRuleVariable803 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVariable813 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_ruleVariable850 = new BitSet(new long[]{0x00000400000BE010L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleVariable871 = new BitSet(new long[]{0x000000000003E010L});
+    public static final BitSet FOLLOW_ruleValidID_in_ruleVariable893 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_23_in_ruleVariable906 = new BitSet(new long[]{0x2C086000200BE1F0L,0x0000000002FFFB8AL});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleVariable927 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleValidID_in_entryRuleValidID966 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleValidID977 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleValidID1017 = new BitSet(new long[]{0x0000000000000002L});

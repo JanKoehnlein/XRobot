@@ -2,9 +2,9 @@ package org.xtext.xrobot.dsl.ui.hover
 
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.xbase.ui.hover.XbaseHoverDocumentationProvider
-import org.xtext.xrobot.dsl.xRobotDSL.Field
+import org.xtext.xrobot.dsl.xRobotDSL.Function
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
-import org.xtext.xrobot.dsl.xRobotDSL.Sub
+import org.xtext.xrobot.dsl.xRobotDSL.Variable
 
 class XRobotHoverDocumentationProvider extends XbaseHoverDocumentationProvider {
 
@@ -57,13 +57,13 @@ class XRobotHoverDocumentationProvider extends XbaseHoverDocumentationProvider {
 		the cancelation block or by the new mode).
 	'''
 
-	protected def dispatch String getGeneralDocumentation(Field element) '''
+	protected def dispatch String getGeneralDocumentation(Variable element) '''
 		Global variables are accessible in the entire script. You define them in the same way
 		as Java fields, but using the <code>var</code> keyword. The type can be omitted
 		if it can be inferred from the initializer expression.
 	'''
 
-	protected def dispatch String getGeneralDocumentation(Sub element) '''
+	protected def dispatch String getGeneralDocumentation(Function element) '''
 		Use functions to define helper routines. The syntax is the same as in Java, but you
 		have to prefix the keyword <code>def</code>. If the return type can be inferred
 		from the body, you do not have to declare it. Within a function body you can reach

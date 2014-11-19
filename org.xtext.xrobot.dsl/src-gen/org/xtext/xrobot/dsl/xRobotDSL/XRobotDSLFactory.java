@@ -41,22 +41,22 @@ public interface XRobotDSLFactory extends EFactory
   Mode createMode();
 
   /**
-   * Returns a new object of class '<em>Sub</em>'.
+   * Returns a new object of class '<em>Function</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sub</em>'.
+   * @return a new object of class '<em>Function</em>'.
    * @generated
    */
-  Sub createSub();
+  Function createFunction();
 
   /**
-   * Returns a new object of class '<em>Field</em>'.
+   * Returns a new object of class '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Field</em>'.
+   * @return a new object of class '<em>Variable</em>'.
    * @generated
    */
-  Field createField();
+  Variable createVariable();
 
   /**
    * Returns the package supported by this factory.

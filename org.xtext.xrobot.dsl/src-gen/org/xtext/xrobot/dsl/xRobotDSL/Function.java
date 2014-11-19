@@ -13,24 +13,24 @@ import org.eclipse.xtext.xbase.XExpression;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Sub</b></em>'.
+ * A representation of the model object '<em><b>Function</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Sub#getReturnType <em>Return Type</em>}</li>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Sub#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Sub#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Sub#getBody <em>Body</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Function#getReturnType <em>Return Type</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Function#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Function#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Function#getBody <em>Body</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getSub()
+ * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getFunction()
  * @model
  * @generated
  */
-public interface Sub extends EObject
+public interface Function extends EObject
 {
   /**
    * Returns the value of the '<em><b>Return Type</b></em>' containment reference.
@@ -42,14 +42,14 @@ public interface Sub extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Return Type</em>' containment reference.
    * @see #setReturnType(JvmTypeReference)
-   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getSub_ReturnType()
+   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getFunction_ReturnType()
    * @model containment="true"
    * @generated
    */
   JvmTypeReference getReturnType();
 
   /**
-   * Sets the value of the '{@link org.xtext.xrobot.dsl.xRobotDSL.Sub#getReturnType <em>Return Type</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.xrobot.dsl.xRobotDSL.Function#getReturnType <em>Return Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Return Type</em>' containment reference.
@@ -68,14 +68,14 @@ public interface Sub extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getSub_Name()
+   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getFunction_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.xtext.xrobot.dsl.xRobotDSL.Sub#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.xrobot.dsl.xRobotDSL.Function#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -94,7 +94,7 @@ public interface Sub extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parameters</em>' containment reference list.
-   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getSub_Parameters()
+   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getFunction_Parameters()
    * @model containment="true"
    * @generated
    */
@@ -110,14 +110,14 @@ public interface Sub extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Body</em>' containment reference.
    * @see #setBody(XExpression)
-   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getSub_Body()
+   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getFunction_Body()
    * @model containment="true"
    * @generated
    */
   XExpression getBody();
 
   /**
-   * Sets the value of the '{@link org.xtext.xrobot.dsl.xRobotDSL.Sub#getBody <em>Body</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.xrobot.dsl.xRobotDSL.Function#getBody <em>Body</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Body</em>' containment reference.
@@ -126,4 +126,4 @@ public interface Sub extends EObject
    */
   void setBody(XExpression value);
 
-} // Sub
+} // Function

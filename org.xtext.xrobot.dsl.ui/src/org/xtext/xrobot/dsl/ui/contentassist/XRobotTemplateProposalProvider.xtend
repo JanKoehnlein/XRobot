@@ -9,7 +9,7 @@ import org.eclipse.xtext.xbase.ui.templates.XbaseTemplateProposalProvider
 
 class XRobotTemplateProposalProvider extends XbaseTemplateProposalProvider {
 
-	static val TEMPLATE_RELEVANCE = #{'mode'->1000, 'field'->900, 'sub'->800}
+	static val TEMPLATE_RELEVANCE = #{'mode'->1000, 'variable'->900, 'function'->800}
 	
 	@Inject
 	new(TemplateStore templateStore, ContextTypeRegistry registry, ContextTypeIdHelper helper) {

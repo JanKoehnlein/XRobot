@@ -15,25 +15,25 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
 
 import org.eclipse.xtext.xbase.XExpression;
 
-import org.xtext.xrobot.dsl.xRobotDSL.Field;
+import org.xtext.xrobot.dsl.xRobotDSL.Variable;
 import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Field</b></em>'.
+ * An implementation of the model object '<em><b>Variable</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FieldImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FieldImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FieldImpl#getInitializer <em>Initializer</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.VariableImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.VariableImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.VariableImpl#getInitializer <em>Initializer</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FieldImpl extends MinimalEObjectImpl.Container implements Field
+public class VariableImpl extends MinimalEObjectImpl.Container implements Variable
 {
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -80,7 +80,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FieldImpl()
+  protected VariableImpl()
   {
     super();
   }
@@ -93,7 +93,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
   @Override
   protected EClass eStaticClass()
   {
-    return XRobotDSLPackage.Literals.FIELD;
+    return XRobotDSLPackage.Literals.VARIABLE;
   }
 
   /**
@@ -117,7 +117,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     type = newType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.FIELD__TYPE, oldType, newType);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.VARIABLE__TYPE, oldType, newType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -134,14 +134,14 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     {
       NotificationChain msgs = null;
       if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.FIELD__TYPE, null, msgs);
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.VARIABLE__TYPE, null, msgs);
       if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.FIELD__TYPE, null, msgs);
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.VARIABLE__TYPE, null, msgs);
       msgs = basicSetType(newType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.FIELD__TYPE, newType, newType));
+      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.VARIABLE__TYPE, newType, newType));
   }
 
   /**
@@ -164,7 +164,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.FIELD__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.VARIABLE__NAME, oldName, name));
   }
 
   /**
@@ -188,7 +188,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     initializer = newInitializer;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.FIELD__INITIALIZER, oldInitializer, newInitializer);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.VARIABLE__INITIALIZER, oldInitializer, newInitializer);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -205,14 +205,14 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     {
       NotificationChain msgs = null;
       if (initializer != null)
-        msgs = ((InternalEObject)initializer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.FIELD__INITIALIZER, null, msgs);
+        msgs = ((InternalEObject)initializer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.VARIABLE__INITIALIZER, null, msgs);
       if (newInitializer != null)
-        msgs = ((InternalEObject)newInitializer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.FIELD__INITIALIZER, null, msgs);
+        msgs = ((InternalEObject)newInitializer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.VARIABLE__INITIALIZER, null, msgs);
       msgs = basicSetInitializer(newInitializer, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.FIELD__INITIALIZER, newInitializer, newInitializer));
+      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.VARIABLE__INITIALIZER, newInitializer, newInitializer));
   }
 
   /**
@@ -225,9 +225,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
   {
     switch (featureID)
     {
-      case XRobotDSLPackage.FIELD__TYPE:
+      case XRobotDSLPackage.VARIABLE__TYPE:
         return basicSetType(null, msgs);
-      case XRobotDSLPackage.FIELD__INITIALIZER:
+      case XRobotDSLPackage.VARIABLE__INITIALIZER:
         return basicSetInitializer(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -243,11 +243,11 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
   {
     switch (featureID)
     {
-      case XRobotDSLPackage.FIELD__TYPE:
+      case XRobotDSLPackage.VARIABLE__TYPE:
         return getType();
-      case XRobotDSLPackage.FIELD__NAME:
+      case XRobotDSLPackage.VARIABLE__NAME:
         return getName();
-      case XRobotDSLPackage.FIELD__INITIALIZER:
+      case XRobotDSLPackage.VARIABLE__INITIALIZER:
         return getInitializer();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -263,13 +263,13 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
   {
     switch (featureID)
     {
-      case XRobotDSLPackage.FIELD__TYPE:
+      case XRobotDSLPackage.VARIABLE__TYPE:
         setType((JvmTypeReference)newValue);
         return;
-      case XRobotDSLPackage.FIELD__NAME:
+      case XRobotDSLPackage.VARIABLE__NAME:
         setName((String)newValue);
         return;
-      case XRobotDSLPackage.FIELD__INITIALIZER:
+      case XRobotDSLPackage.VARIABLE__INITIALIZER:
         setInitializer((XExpression)newValue);
         return;
     }
@@ -286,13 +286,13 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
   {
     switch (featureID)
     {
-      case XRobotDSLPackage.FIELD__TYPE:
+      case XRobotDSLPackage.VARIABLE__TYPE:
         setType((JvmTypeReference)null);
         return;
-      case XRobotDSLPackage.FIELD__NAME:
+      case XRobotDSLPackage.VARIABLE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case XRobotDSLPackage.FIELD__INITIALIZER:
+      case XRobotDSLPackage.VARIABLE__INITIALIZER:
         setInitializer((XExpression)null);
         return;
     }
@@ -309,11 +309,11 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
   {
     switch (featureID)
     {
-      case XRobotDSLPackage.FIELD__TYPE:
+      case XRobotDSLPackage.VARIABLE__TYPE:
         return type != null;
-      case XRobotDSLPackage.FIELD__NAME:
+      case XRobotDSLPackage.VARIABLE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case XRobotDSLPackage.FIELD__INITIALIZER:
+      case XRobotDSLPackage.VARIABLE__INITIALIZER:
         return initializer != null;
     }
     return super.eIsSet(featureID);
@@ -336,4 +336,4 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     return result.toString();
   }
 
-} //FieldImpl
+} //VariableImpl

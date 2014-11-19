@@ -1,6 +1,9 @@
 package org.xtext.xrobot.dsl.interpreter
 
 import com.google.inject.Inject
+import java.lang.reflect.Constructor
+import java.lang.reflect.Field
+import java.lang.reflect.Method
 import java.util.HashMap
 import java.util.List
 import org.apache.log4j.Logger
@@ -22,17 +25,15 @@ import org.eclipse.xtext.xbase.interpreter.impl.XbaseInterpreter
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations
 import org.xtext.xrobot.api.IRobot
 import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
-import org.xtext.xrobot.dsl.xRobotDSL.Field
+import org.xtext.xrobot.dsl.xRobotDSL.Function
 import org.xtext.xrobot.dsl.xRobotDSL.Mode
 import org.xtext.xrobot.dsl.xRobotDSL.Program
-import org.xtext.xrobot.dsl.xRobotDSL.Sub
+import org.xtext.xrobot.dsl.xRobotDSL.Variable
 import org.xtext.xrobot.server.CanceledException
 import org.xtext.xrobot.server.IRemoteRobot
+import org.xtext.xrobot.util.AudioService
 
 import static org.xtext.xrobot.dsl.interpreter.XRobotInterpreter.*
-import org.xtext.xrobot.util.AudioService
-import java.lang.reflect.Method
-import java.lang.reflect.Constructor
 
 class XRobotInterpreter extends XbaseInterpreter {
 
@@ -93,12 +94,12 @@ class XRobotInterpreter extends XbaseInterpreter {
 			val conditionContext = baseContext.fork()
 			
 			// Initialize program fields
-			for (field: program.fields) {
-				if (field.initializer != null) {
-					val initialValue = field.initializer.evaluateChecked(baseContext, cancelIndicator)
-					baseContext.newValue(QualifiedName.create(field.name), initialValue)
+			for (variable : program.variables) {
+				if (variable.initializer != null) {
+					val initialValue = variable.initializer.evaluateChecked(baseContext, cancelIndicator)
+					baseContext.newValue(QualifiedName.create(variable.name), initialValue)
 				} else {
-					baseContext.newValue(QualifiedName.create(field.name), null)
+					baseContext.newValue(QualifiedName.create(variable.name), null)
 				}
 			}
 			
@@ -111,7 +112,8 @@ class XRobotInterpreter extends XbaseInterpreter {
 						val result = condition.evaluateChecked(conditionContext, conditionCancelIndicator)
 						return result as Boolean ?: false
 					]
-					if(newMode != currentMode || currentModeCancelIndicator?.isCanceled) {
+					if (newMode != currentMode
+							|| currentModeCancelIndicator != null && currentModeCancelIndicator.isCanceled) {
 						if(currentMode != null && !currentModeCancelIndicator.isCanceled)
 							LOG.debug('Canceling running mode ' +  currentMode.name)
 						currentModeCancelIndicator?.cancel
@@ -275,7 +277,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 	
 	override protected invokeOperation(JvmOperation operation, Object receiver, List<Object> argumentValues, IEvaluationContext context, CancelIndicator indicator) {
 		val executable = operation.sourceElements.head
-		if (executable instanceof Sub) {
+		if (executable instanceof Function) {
 			val newContext = baseContext.fork
 			newContext.newValue(ROBOT, context.getValue(ROBOT))
 			var index = 0
@@ -332,18 +334,18 @@ class XRobotInterpreter extends XbaseInterpreter {
 	}
 	
 	override protected featureCallField(JvmField jvmField, Object receiver) {
-		val field = jvmField.sourceElements.head
-		if(field instanceof Field) 
-			baseContext.getValue(QualifiedName.create(field.name))
+		val variable = jvmField.sourceElements.head
+		if (variable instanceof Variable) 
+			baseContext.getValue(QualifiedName.create(variable.name))
 		else
 			super.featureCallField(jvmField, receiver)
 	}
 
 	override protected _assigneValueTo(JvmField jvmField, XAbstractFeatureCall assignment, Object value, IEvaluationContext context, CancelIndicator indicator) {
-		val field = jvmField.sourceElements.head
-		if(field instanceof Field) {
-			context.assignValue(QualifiedName.create(field.name), value)
-			listeners.forEach[variableChanged(field.name, value)]
+		val variable = jvmField.sourceElements.head
+		if (variable instanceof Variable) {
+			context.assignValue(QualifiedName.create(variable.name), value)
+			listeners.forEach[variableChanged(variable.name, value)]
 		} else {
 			super._assigneValueTo(jvmField, assignment, value, context, indicator)
 		}

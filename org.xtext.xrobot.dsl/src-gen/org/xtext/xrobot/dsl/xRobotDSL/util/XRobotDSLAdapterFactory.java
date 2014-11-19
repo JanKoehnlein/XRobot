@@ -85,14 +85,14 @@ public class XRobotDSLAdapterFactory extends AdapterFactoryImpl
         return createModeAdapter();
       }
       @Override
-      public Adapter caseSub(Sub object)
+      public Adapter caseFunction(Function object)
       {
-        return createSubAdapter();
+        return createFunctionAdapter();
       }
       @Override
-      public Adapter caseField(Field object)
+      public Adapter caseVariable(Variable object)
       {
-        return createFieldAdapter();
+        return createVariableAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -147,31 +147,31 @@ public class XRobotDSLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.xrobot.dsl.xRobotDSL.Sub <em>Sub</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.xrobot.dsl.xRobotDSL.Function <em>Function</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.xrobot.dsl.xRobotDSL.Sub
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Function
    * @generated
    */
-  public Adapter createSubAdapter()
+  public Adapter createFunctionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.xrobot.dsl.xRobotDSL.Field <em>Field</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.xrobot.dsl.xRobotDSL.Variable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.xrobot.dsl.xRobotDSL.Field
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Variable
    * @generated
    */
-  public Adapter createFieldAdapter()
+  public Adapter createVariableAdapter()
   {
     return null;
   }

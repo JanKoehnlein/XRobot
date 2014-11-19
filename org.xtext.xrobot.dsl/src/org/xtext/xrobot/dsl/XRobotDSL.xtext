@@ -6,20 +6,19 @@ Program:
 	imports=XImportSection?
 	'robot' (name=ID | name = STRING)
 	'author' (author=ID | author=STRING)
-	(subs+=Sub | fields+=Field | modes+=Mode)*;
-	
+	(functions+=Function | variables+=Variable | modes+=Mode)*;
+
 Mode:
 	name=ID ('on' condition=XExpression)?
 	action=XBlockExpression
 	('when' 'canceled' whenCanceled=XBlockExpression)?;
-	
-	
-Sub:
+
+Function:
 	'def' returnType=JvmTypeReference? name=ValidID 
 	'(' (parameters+=JvmFormalParameter (',' parameters+=JvmFormalParameter)*)? ')' 
 	body=XBlockExpression;
-	
-Field:
+
+Variable:
 	'var' type=JvmTypeReference? name=ValidID ('=' initializer=XExpression)?;
 
 ValidID:

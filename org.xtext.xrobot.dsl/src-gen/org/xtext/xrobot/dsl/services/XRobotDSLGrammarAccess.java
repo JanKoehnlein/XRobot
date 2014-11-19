@@ -37,20 +37,20 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAuthorAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
 		private final RuleCall cAuthorSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cAuthorAssignment_4_1.eContents().get(0);
 		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
-		private final Assignment cSubsAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
-		private final RuleCall cSubsSubParserRuleCall_5_0_0 = (RuleCall)cSubsAssignment_5_0.eContents().get(0);
-		private final Assignment cFieldsAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
-		private final RuleCall cFieldsFieldParserRuleCall_5_1_0 = (RuleCall)cFieldsAssignment_5_1.eContents().get(0);
+		private final Assignment cFunctionsAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
+		private final RuleCall cFunctionsFunctionParserRuleCall_5_0_0 = (RuleCall)cFunctionsAssignment_5_0.eContents().get(0);
+		private final Assignment cVariablesAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
+		private final RuleCall cVariablesVariableParserRuleCall_5_1_0 = (RuleCall)cVariablesAssignment_5_1.eContents().get(0);
 		private final Assignment cModesAssignment_5_2 = (Assignment)cAlternatives_5.eContents().get(2);
 		private final RuleCall cModesModeParserRuleCall_5_2_0 = (RuleCall)cModesAssignment_5_2.eContents().get(0);
 		
 		//Program:
-		//	imports=XImportSection? "robot" (name=ID | name=STRING) "author" (author=ID | author=STRING) (subs+=Sub |
-		//	fields+=Field | modes+=Mode)*;
+		//	imports=XImportSection? "robot" (name=ID | name=STRING) "author" (author=ID | author=STRING) (functions+=Function |
+		//	variables+=Variable | modes+=Mode)*;
 		public ParserRule getRule() { return rule; }
 
-		//imports=XImportSection? "robot" (name=ID | name=STRING) "author" (author=ID | author=STRING) (subs+=Sub | fields+=Field
-		//| modes+=Mode)*
+		//imports=XImportSection? "robot" (name=ID | name=STRING) "author" (author=ID | author=STRING) (functions+=Function |
+		//variables+=Variable | modes+=Mode)*
 		public Group getGroup() { return cGroup; }
 
 		//imports=XImportSection?
@@ -95,20 +95,20 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getAuthorSTRINGTerminalRuleCall_4_1_0() { return cAuthorSTRINGTerminalRuleCall_4_1_0; }
 
-		//(subs+=Sub | fields+=Field | modes+=Mode)*
+		//(functions+=Function | variables+=Variable | modes+=Mode)*
 		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 
-		//subs+=Sub
-		public Assignment getSubsAssignment_5_0() { return cSubsAssignment_5_0; }
+		//functions+=Function
+		public Assignment getFunctionsAssignment_5_0() { return cFunctionsAssignment_5_0; }
 
-		//Sub
-		public RuleCall getSubsSubParserRuleCall_5_0_0() { return cSubsSubParserRuleCall_5_0_0; }
+		//Function
+		public RuleCall getFunctionsFunctionParserRuleCall_5_0_0() { return cFunctionsFunctionParserRuleCall_5_0_0; }
 
-		//fields+=Field
-		public Assignment getFieldsAssignment_5_1() { return cFieldsAssignment_5_1; }
+		//variables+=Variable
+		public Assignment getVariablesAssignment_5_1() { return cVariablesAssignment_5_1; }
 
-		//Field
-		public RuleCall getFieldsFieldParserRuleCall_5_1_0() { return cFieldsFieldParserRuleCall_5_1_0; }
+		//Variable
+		public RuleCall getVariablesVariableParserRuleCall_5_1_0() { return cVariablesVariableParserRuleCall_5_1_0; }
 
 		//modes+=Mode
 		public Assignment getModesAssignment_5_2() { return cModesAssignment_5_2; }
@@ -181,8 +181,8 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getWhenCanceledXBlockExpressionParserRuleCall_3_2_0() { return cWhenCanceledXBlockExpressionParserRuleCall_3_2_0; }
 	}
 
-	public class SubElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Sub");
+	public class FunctionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Function");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cDefKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cReturnTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -201,7 +201,7 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cBodyAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cBodyXBlockExpressionParserRuleCall_6_0 = (RuleCall)cBodyAssignment_6.eContents().get(0);
 		
-		//Sub:
+		//Function:
 		//	"def" returnType=JvmTypeReference? name=ValidID "(" (parameters+=JvmFormalParameter (","
 		//	parameters+=JvmFormalParameter)*)? ")" body=XBlockExpression;
 		public ParserRule getRule() { return rule; }
@@ -259,8 +259,8 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getBodyXBlockExpressionParserRuleCall_6_0() { return cBodyXBlockExpressionParserRuleCall_6_0; }
 	}
 
-	public class FieldElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Field");
+	public class VariableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Variable");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cVarKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -272,7 +272,7 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cInitializerAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cInitializerXExpressionParserRuleCall_3_1_0 = (RuleCall)cInitializerAssignment_3_1.eContents().get(0);
 		
-		//Field:
+		//Variable:
 		//	"var" type=JvmTypeReference? name=ValidID ("=" initializer=XExpression)?;
 		public ParserRule getRule() { return rule; }
 
@@ -346,8 +346,8 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ProgramElements pProgram;
 	private final ModeElements pMode;
-	private final SubElements pSub;
-	private final FieldElements pField;
+	private final FunctionElements pFunction;
+	private final VariableElements pVariable;
 	private final ValidIDElements pValidID;
 	
 	private final Grammar grammar;
@@ -361,8 +361,8 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaXbase = gaXbase;
 		this.pProgram = new ProgramElements();
 		this.pMode = new ModeElements();
-		this.pSub = new SubElements();
-		this.pField = new FieldElements();
+		this.pFunction = new FunctionElements();
+		this.pVariable = new VariableElements();
 		this.pValidID = new ValidIDElements();
 	}
 	
@@ -394,8 +394,8 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Program:
-	//	imports=XImportSection? "robot" (name=ID | name=STRING) "author" (author=ID | author=STRING) (subs+=Sub |
-	//	fields+=Field | modes+=Mode)*;
+	//	imports=XImportSection? "robot" (name=ID | name=STRING) "author" (author=ID | author=STRING) (functions+=Function |
+	//	variables+=Variable | modes+=Mode)*;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
 	}
@@ -414,25 +414,25 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getModeAccess().getRule();
 	}
 
-	//Sub:
+	//Function:
 	//	"def" returnType=JvmTypeReference? name=ValidID "(" (parameters+=JvmFormalParameter (","
 	//	parameters+=JvmFormalParameter)*)? ")" body=XBlockExpression;
-	public SubElements getSubAccess() {
-		return pSub;
+	public FunctionElements getFunctionAccess() {
+		return pFunction;
 	}
 	
-	public ParserRule getSubRule() {
-		return getSubAccess().getRule();
+	public ParserRule getFunctionRule() {
+		return getFunctionAccess().getRule();
 	}
 
-	//Field:
+	//Variable:
 	//	"var" type=JvmTypeReference? name=ValidID ("=" initializer=XExpression)?;
-	public FieldElements getFieldAccess() {
-		return pField;
+	public VariableElements getVariableAccess() {
+		return pVariable;
 	}
 	
-	public ParserRule getFieldRule() {
-		return getFieldAccess().getRule();
+	public ParserRule getVariableRule() {
+		return getVariableAccess().getRule();
 	}
 
 	//ValidID:
