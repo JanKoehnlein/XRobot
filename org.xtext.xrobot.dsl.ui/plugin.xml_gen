@@ -478,7 +478,7 @@
    </extension>
    <extension point="org.eclipse.ui.editorActions">
       <editorContribution targetID="org.xtext.xrobot.dsl.XRobotDSL" 
-                          id="org.xtext.xrobot.dsl.XRobotDSL.ide.rulerActions">
+                          id="org.xtext.xrobot.dsl.XRobotDSL.rulerActions">
 	     <action
 	             label="Not Used"
 	             class="org.xtext.xrobot.dsl.ui.XRobotDSLExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
@@ -489,26 +489,26 @@
    </extension>
    <extension point="org.eclipse.ui.popupMenus">
       <viewerContribution
-         targetID="org.xtext.xrobot.dsl.XRobotDSL.ide.rulerContextMenu"
-         id="org.xtext.xrobot.dsl.XRobotDSL.ide.RulerPopupActions">
+         targetID="org.xtext.xrobot.dsl.XRobotDSL.RulerContext"
+         id="org.xtext.xrobot.dsl.XRobotDSL.RulerPopupActions">
          <action
             label="Toggle Breakpoint"
             class="org.xtext.xrobot.dsl.ui.XRobotDSLExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
             menubarPath="debug"
-            id="org.xtext.xrobot.dsl.XRobotDSL.ide.rulerContextMenu.toggleBreakpointAction">
+            id="org.xtext.xrobot.dsl.XRobotDSL.rulerContextMenu.toggleBreakpointAction">
          </action>
          <action
             label="Not used"
             class="org.xtext.xrobot.dsl.ui.XRobotDSLExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerEnableDisableBreakpointActionDelegate"
             menubarPath="debug"
-            id="org.xtext.xrobot.dsl.XRobotDSL.ide.rulerContextMenu.enableDisableBreakpointAction">
+            id="org.xtext.xrobot.dsl.XRobotDSL.rulerContextMenu.enableDisableBreakpointAction">
          </action>
          <action
            label="Breakpoint Properties"
            helpContextId="breakpoint_properties_action_context"
            class="org.xtext.xrobot.dsl.ui.XRobotDSLExecutableExtensionFactory:org.eclipse.jdt.debug.ui.actions.JavaBreakpointPropertiesRulerActionDelegate"
            menubarPath="group.properties"
-           id="org.xtext.xrobot.dsl.XRobotDSL.ide.rulerContextMenu.openBreapointPropertiesAction">
+           id="org.xtext.xrobot.dsl.XRobotDSL.rulerContextMenu.openBreapointPropertiesAction">
          </action>
       </viewerContribution>
    </extension>
