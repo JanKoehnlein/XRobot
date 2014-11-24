@@ -6,6 +6,7 @@ import javafx.scene.control.Label
 import javafx.scene.control.OverrunStyle
 import javafx.scene.layout.StackPane
 import javafx.scene.shape.Ellipse
+import org.eclipse.xtend.lib.annotations.Accessors
 import org.xtext.xrobot.api.RobotPosition
 import org.xtext.xrobot.api.Vector
 import org.xtext.xrobot.camera.CameraConstants
@@ -26,6 +27,9 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 	static val POSITION_UPDATE_TIME = 200L
 	
 	var long lastPositionUpdate
+	
+	@Accessors(PUBLIC_SETTER)
+	var boolean invertYAxis = true
 	
 	new(PlayerSlot slot) {
 		AudioService.instance.addAudioListener(slot.robotID, this)
@@ -71,10 +75,14 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 	
 	private def placeBubble(RobotPosition own, RobotPosition opponent) {
 		val bounds = layoutBounds
-		val bubbleOffset = Math.max(bounds.width / 2, bounds.height / 2) + BUBBLE_DISTANCE
+		val bubbleOffset = max(bounds.width / 2, bounds.height / 2) + BUBBLE_DISTANCE
 		val delta = own.toVector - opponent.toVector
 		val bubblePosition = own.toVector * POS_TO_SCREEN + Vector.polar(bubbleOffset, delta.angle)
-		relocate(bubblePosition.x - bounds.width / 2, bubblePosition.y - bounds.height / 2)
+				- Vector.cartesian(bounds.width / 2, bounds.height / 2)
+		if (invertYAxis)
+			relocate(bubblePosition.x, -bubblePosition.y)
+		else
+			relocate(bubblePosition.x, bubblePosition.y)
 	}
 	
 	override modeChanged(IRemoteRobot robot, Mode newMode) {

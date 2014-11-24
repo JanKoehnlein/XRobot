@@ -187,7 +187,7 @@ class Vector {
 	 * The angle is interpreted mathematically, that means a vector with angle 0 points to
 	 * the right and increasing the angle corresponds to a counter-clockwise rotation.
 	 * 
-	 * @return the angle of this vector
+	 * @return the angle of this vector in degrees
 	 */
 	def getAngle() {
 		checkPolar()
