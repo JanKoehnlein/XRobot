@@ -23,11 +23,11 @@ class HallOfFameTable extends VBox {
 	
 	@Inject RankingProvider hallOfFameProvider
 	
-	val spacerRectangle = new Rectangle(0, 0, 0, 0) => [
+	val spacerRectangle = new Rectangle(0, 0, 200, 0) => [
 			visible = false
 	]
 	
-	double spacerHeight 
+	double spacerHeight = 200
 
 	new() {
 		styleClass += #['hof', 'outer-box']
@@ -55,7 +55,7 @@ class HallOfFameTable extends VBox {
 				toValue = 1
 				duration = 1.millis
 			]
-			t.children += new Timeline => [
+			val initTimeline = new Timeline => [
 				cycleCount = 1
 				autoReverse = false
 				keyFrames += new KeyFrame(
@@ -68,6 +68,7 @@ class HallOfFameTable extends VBox {
 						this.children += pages.get(0)
 				]
 			]
+			t.children += initTimeline
 			pages.forEach [ page, pageNr |
 				t.children += page.children.map [ child |
 					new FadeTransition => [
@@ -86,11 +87,18 @@ class HallOfFameTable extends VBox {
 					delay = 8.seconds
 					duration = 200.millis
 					onFinished = [
-						this.children.clear
 						if(pageNr == 0) {
-							spacerHeight = page.layoutBounds.height 
+							val oldSpacerHeight = spacerHeight
+							spacerHeight = page.layoutBounds.height
+							if (oldSpacerHeight != spacerHeight) {
+								initTimeline.keyFrames.set(0, new KeyFrame(
+									500.millis,
+									new KeyValue(spacerRectangle.heightProperty, spacerHeight)
+								))
+							}
 							spacerRectangle.width = page.layoutBounds.width
 						}
+						this.children.clear
 						if(pageNr < pages.size - 1) 
 							this.children += pages.get(pageNr + 1)
 					]

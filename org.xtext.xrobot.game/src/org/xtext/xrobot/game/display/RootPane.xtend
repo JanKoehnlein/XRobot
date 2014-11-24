@@ -107,7 +107,8 @@ class RootPane extends Region {
 			resize(boxWidth - padding.left - padding.right, bounds.height - topHeight - padding.bottom)
 		]
 		overlay => [
-			relocate(bounds.width / 2, bounds.height / 2)
+			translateX = bounds.width / 2
+			translateY = bounds.height / 2
 		]
 	}
 }

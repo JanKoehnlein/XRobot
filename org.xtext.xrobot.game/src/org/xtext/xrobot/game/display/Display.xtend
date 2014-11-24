@@ -1,6 +1,7 @@
 package org.xtext.xrobot.game.display
 
 import com.google.inject.Singleton
+import java.util.ArrayList
 import java.util.List
 import javafx.animation.FadeTransition
 import javafx.animation.Interpolator
@@ -52,8 +53,6 @@ class Display implements IErrorReporter, ITimeListener {
 	
 	@Inject Label demoLabel
 
-	List<PlayerSlotBox> slotBoxes
-	
 	def start(Stage stage, List<PlayerSlot> slots) throws Exception {
 		stage.title = 'Game Display'
 		idleProgram.init
@@ -77,10 +76,8 @@ class Display implements IErrorReporter, ITimeListener {
 							styleClass += 'message-pane'
 						]
 					]
-					val xtendBox = new PlayerSlotBox(slots.head)
-					val xtextBox = new PlayerSlotBox(slots.last)
-					slotBoxes = #[xtendBox, xtextBox]
-					left = xtendBox 
+					val slotBoxes = new ArrayList(slots.map[new PlayerSlotBox(it)])
+					left = slotBoxes.head
 					bottomLeft = new VBox => [
 						styleClass += #['outer-box', 'hof', 'hof-box']
 						alignment = Pos.CENTER
@@ -99,7 +96,7 @@ class Display implements IErrorReporter, ITimeListener {
 							styleClass += #['boxed-label', 'side-container-label']
 						]
 					]
-					right = xtextBox
+					right = slotBoxes.last
 					bottomRight = new VBox => [
 						styleClass += #['outer-box', 'hof', 'hof-box']
 						alignment = Pos.CENTER
