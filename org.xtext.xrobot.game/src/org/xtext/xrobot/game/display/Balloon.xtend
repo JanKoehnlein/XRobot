@@ -28,6 +28,10 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 	
 	var long lastPositionUpdate
 	
+	var RobotPosition lastOwnPosition
+	
+	var RobotPosition lastOpponentPosition
+	
 	@Accessors(PUBLIC_SETTER)
 	var boolean invertYAxis = true
 	
@@ -55,6 +59,9 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 					setMinSize(50, 50)
 				]
 			]
+			if (lastOwnPosition != null && lastOpponentPosition != null) {
+				placeBubble(lastOwnPosition, lastOpponentPosition)
+			}
 		]
 	}
 	
@@ -66,10 +73,15 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 	
 	override stateRead(IRemoteRobot robot) {
 		if (!children.empty && System.currentTimeMillis - lastPositionUpdate >= POSITION_UPDATE_TIME) {
+			lastOwnPosition = null
+			lastOpponentPosition = null
 			lastPositionUpdate = System.currentTimeMillis
 			Platform.runLater [
 				placeBubble(robot.ownPosition, robot.opponentPosition)
 			]
+		} else {
+			lastOwnPosition = robot.ownPosition
+			lastOpponentPosition = robot.opponentPosition
 		}
 	}
 	
@@ -78,11 +90,10 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 		val bounds = layoutBounds
 		val bubbleOffset = calcEllipseOffset(bounds.width, bounds.height, delta.angle) + BUBBLE_DISTANCE
 		val bubblePosition = own.toVector * POS_TO_SCREEN + Vector.polar(bubbleOffset, delta.angle)
-				- Vector.cartesian(bounds.width / 2, bounds.height / 2)
 		if (invertYAxis)
-			relocate(bubblePosition.x, -bubblePosition.y)
+			relocate(bubblePosition.x - bounds.width / 2, -bubblePosition.y - bounds.height / 2)
 		else
-			relocate(bubblePosition.x, bubblePosition.y)
+			relocate(bubblePosition.x - bounds.width / 2, bubblePosition.y - bounds.height / 2)
 	}
 	
 	private def calcEllipseOffset(double w, double h, double a) {

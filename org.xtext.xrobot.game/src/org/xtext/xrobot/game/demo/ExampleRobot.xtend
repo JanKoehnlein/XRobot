@@ -120,7 +120,6 @@ class ExampleRobot {
 				
 				Greet on opponentBearing.length < ROBOT_LENGTH + 10 {
 					stop
-					say('Hello, friend!')
 					curveForward(10, 10)
 					curveForward(10, -10)
 				}
@@ -145,7 +144,6 @@ class ExampleRobot {
 				author itemis
 				
 				YARRR on abs(target.angle) < 30 {
-					say('YARRR')
 					driveForward
 					scoop(1)
 				}
@@ -184,7 +182,6 @@ class ExampleRobot {
 				}
 				
 				Eat {
-					say('Eat my shorts')
 					val a = opponentBearing.angle
 					if (a >= 0)
 						startMotors((90 - a) / 90 * maxDrivingSpeed, -maxDrivingSpeed)
@@ -212,7 +209,6 @@ class ExampleRobot {
 				Kill {
 					driveForward
 					sleep(400)
-					say('I make this look easy')
 					scoop(1)
 				} when canceled { 
 					stop
@@ -225,7 +221,6 @@ class ExampleRobot {
 				author itemis
 				
 				Quak on abs(opponentBearing.angle) < 15 && opponentBearing.length < 40 {
-					say('Kwark')
 					drive(8)
 					scoop(1)
 					drive(-4)
@@ -233,7 +228,6 @@ class ExampleRobot {
 				}
 				
 				Quok on abs(opponentBearing.angle) > 50 && opponentBearing.length < 40 {
-					say('Kwork')
 					if (abs(centerBearing.angle) < 90)
 						drive(30)
 					else
@@ -305,7 +299,6 @@ class ExampleRobot {
 				
 				Bottle {
 					scoop(-0.2)
-					say('Burp')
 					if (opponentBearing.angle > 0)
 						curveBackward(20, 2 * (180 - opponentBearing.angle) + 10)
 					else
