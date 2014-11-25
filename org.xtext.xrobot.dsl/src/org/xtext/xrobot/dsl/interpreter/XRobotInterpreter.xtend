@@ -136,11 +136,16 @@ class XRobotInterpreter extends XbaseInterpreter {
 										if (oldMode != null && newMode != oldMode
 												&& oldMode.whenLeft != null) {
 											LOG.debug('Executing when-left code of mode ' + oldMode.name)
-											oldMode.whenLeft.evaluateChecked(oldModeContext, cancelIndicator)
+											val robot = oldModeContext.getValue(ROBOT) as IRemoteRobot
+											val context = baseContext.fork
+											context.newValue(ROBOT, robotFactory.newRobot(cancelIndicator, robot))
+											oldMode.whenLeft.evaluateChecked(context, cancelIndicator)
 										}
 										// Then execute the main block of the new mode
 										LOG.debug('Starting mode ' +  newMode.name)
 										newMode.execute(newModeContext, modeCancelIndicator)
+									} catch (CanceledException ce) {
+										// Mode execution was canceled - ignore the exception
 									} catch (Throwable thr) {
 										LOG.error('Error executing mode ' + newMode.name
 											+ " (" + thr.class.simpleName + ")")
