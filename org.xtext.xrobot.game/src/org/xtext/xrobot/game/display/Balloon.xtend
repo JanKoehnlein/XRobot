@@ -20,7 +20,7 @@ import static java.lang.Math.*
 
 class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 	
-	static val BUBBLE_DISTANCE = 30.0
+	static val BUBBLE_DISTANCE = 40.0
 	
 	static val POS_TO_SCREEN = CameraConstants.RESOLUTION_X as double / CameraConstants.WIDTH_IN_CM
 	
@@ -74,15 +74,31 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 	}
 	
 	private def placeBubble(RobotPosition own, RobotPosition opponent) {
-		val bounds = layoutBounds
-		val bubbleOffset = max(bounds.width / 2, bounds.height / 2) + BUBBLE_DISTANCE
 		val delta = own.toVector - opponent.toVector
+		val bounds = layoutBounds
+		val bubbleOffset = calcEllipseOffset(bounds.width, bounds.height, delta.angle) + BUBBLE_DISTANCE
 		val bubblePosition = own.toVector * POS_TO_SCREEN + Vector.polar(bubbleOffset, delta.angle)
 				- Vector.cartesian(bounds.width / 2, bounds.height / 2)
 		if (invertYAxis)
 			relocate(bubblePosition.x, -bubblePosition.y)
 		else
 			relocate(bubblePosition.x, bubblePosition.y)
+	}
+	
+	private def calcEllipseOffset(double w, double h, double a) {
+		val h2 = h * h
+		val w2 = w * w
+		if (w >= h) {
+			val cosa = cos(toRadians(a))
+			val cosa2 = cosa * cosa
+			val eccentricity2 = 1 - h2 / w2
+			return h / sqrt(1 - eccentricity2 * cosa2)
+		} else {
+			val cosa = cos(toRadians(a + 90))
+			val cosa2 = cosa * cosa
+			val eccentricity2 = 1 - w2 / h2
+			return w / sqrt(1 - eccentricity2 * cosa2)
+		}
 	}
 	
 	override modeChanged(IRemoteRobot robot, Mode newMode) {
