@@ -279,7 +279,7 @@ public class XRobotDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModeAccess().getNameAssignment_0(), "rule__Mode__NameAssignment_0");
 					put(grammarAccess.getModeAccess().getConditionAssignment_1_1(), "rule__Mode__ConditionAssignment_1_1");
 					put(grammarAccess.getModeAccess().getActionAssignment_2(), "rule__Mode__ActionAssignment_2");
-					put(grammarAccess.getModeAccess().getWhenCanceledAssignment_3_2(), "rule__Mode__WhenCanceledAssignment_3_2");
+					put(grammarAccess.getModeAccess().getWhenLeftAssignment_3_2(), "rule__Mode__WhenLeftAssignment_3_2");
 					put(grammarAccess.getFunctionAccess().getReturnTypeAssignment_1(), "rule__Function__ReturnTypeAssignment_1");
 					put(grammarAccess.getFunctionAccess().getNameAssignment_2(), "rule__Function__NameAssignment_2");
 					put(grammarAccess.getFunctionAccess().getParametersAssignment_4_0(), "rule__Function__ParametersAssignment_4_0");

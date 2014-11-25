@@ -17,7 +17,7 @@ import org.eclipse.xtext.xbase.XExpression;
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getAction <em>Action</em>}</li>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getWhenCanceled <em>When Canceled</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getWhenLeft <em>When Left</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,29 +106,29 @@ public interface Mode extends EObject
   void setAction(XExpression value);
 
   /**
-   * Returns the value of the '<em><b>When Canceled</b></em>' containment reference.
+   * Returns the value of the '<em><b>When Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>When Canceled</em>' containment reference isn't clear,
+   * If the meaning of the '<em>When Left</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>When Canceled</em>' containment reference.
-   * @see #setWhenCanceled(XExpression)
-   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getMode_WhenCanceled()
+   * @return the value of the '<em>When Left</em>' containment reference.
+   * @see #setWhenLeft(XExpression)
+   * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getMode_WhenLeft()
    * @model containment="true"
    * @generated
    */
-  XExpression getWhenCanceled();
+  XExpression getWhenLeft();
 
   /**
-   * Sets the value of the '{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getWhenCanceled <em>When Canceled</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getWhenLeft <em>When Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>When Canceled</em>' containment reference.
-   * @see #getWhenCanceled()
+   * @param value the new value of the '<em>When Left</em>' containment reference.
+   * @see #getWhenLeft()
    * @generated
    */
-  void setWhenCanceled(XExpression value);
+  void setWhenLeft(XExpression value);
 
 } // Mode

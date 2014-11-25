@@ -130,15 +130,15 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cActionXBlockExpressionParserRuleCall_2_0 = (RuleCall)cActionAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cWhenKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cCanceledKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cWhenCanceledAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cWhenCanceledXBlockExpressionParserRuleCall_3_2_0 = (RuleCall)cWhenCanceledAssignment_3_2.eContents().get(0);
+		private final Keyword cLeftKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cWhenLeftAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cWhenLeftXBlockExpressionParserRuleCall_3_2_0 = (RuleCall)cWhenLeftAssignment_3_2.eContents().get(0);
 		
 		//Mode:
-		//	name=ID ("on" condition=XExpression)? action=XBlockExpression ("when" "canceled" whenCanceled=XBlockExpression)?;
+		//	name=ID ("on" condition=XExpression)? action=XBlockExpression ("when" "left" whenLeft=XBlockExpression)?;
 		public ParserRule getRule() { return rule; }
 
-		//name=ID ("on" condition=XExpression)? action=XBlockExpression ("when" "canceled" whenCanceled=XBlockExpression)?
+		//name=ID ("on" condition=XExpression)? action=XBlockExpression ("when" "left" whenLeft=XBlockExpression)?
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -165,20 +165,20 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//XBlockExpression
 		public RuleCall getActionXBlockExpressionParserRuleCall_2_0() { return cActionXBlockExpressionParserRuleCall_2_0; }
 
-		//("when" "canceled" whenCanceled=XBlockExpression)?
+		//("when" "left" whenLeft=XBlockExpression)?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"when"
 		public Keyword getWhenKeyword_3_0() { return cWhenKeyword_3_0; }
 
-		//"canceled"
-		public Keyword getCanceledKeyword_3_1() { return cCanceledKeyword_3_1; }
+		//"left"
+		public Keyword getLeftKeyword_3_1() { return cLeftKeyword_3_1; }
 
-		//whenCanceled=XBlockExpression
-		public Assignment getWhenCanceledAssignment_3_2() { return cWhenCanceledAssignment_3_2; }
+		//whenLeft=XBlockExpression
+		public Assignment getWhenLeftAssignment_3_2() { return cWhenLeftAssignment_3_2; }
 
 		//XBlockExpression
-		public RuleCall getWhenCanceledXBlockExpressionParserRuleCall_3_2_0() { return cWhenCanceledXBlockExpressionParserRuleCall_3_2_0; }
+		public RuleCall getWhenLeftXBlockExpressionParserRuleCall_3_2_0() { return cWhenLeftXBlockExpressionParserRuleCall_3_2_0; }
 	}
 
 	public class FunctionElements extends AbstractParserRuleElementFinder {
@@ -405,7 +405,7 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Mode:
-	//	name=ID ("on" condition=XExpression)? action=XBlockExpression ("when" "canceled" whenCanceled=XBlockExpression)?;
+	//	name=ID ("on" condition=XExpression)? action=XBlockExpression ("when" "left" whenLeft=XBlockExpression)?;
 	public ModeElements getModeAccess() {
 		return pMode;
 	}

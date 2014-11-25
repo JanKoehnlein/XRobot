@@ -4082,11 +4082,11 @@ rule__Mode__Group_3__1__Impl
     }
 :
 (
-{ before(grammarAccess.getModeAccess().getCanceledKeyword_3_1()); }
+{ before(grammarAccess.getModeAccess().getLeftKeyword_3_1()); }
 
-	'canceled' 
+	'left' 
 
-{ after(grammarAccess.getModeAccess().getCanceledKeyword_3_1()); }
+{ after(grammarAccess.getModeAccess().getLeftKeyword_3_1()); }
 )
 
 ;
@@ -4112,9 +4112,9 @@ rule__Mode__Group_3__2__Impl
     }
 :
 (
-{ before(grammarAccess.getModeAccess().getWhenCanceledAssignment_3_2()); }
-(rule__Mode__WhenCanceledAssignment_3_2)
-{ after(grammarAccess.getModeAccess().getWhenCanceledAssignment_3_2()); }
+{ before(grammarAccess.getModeAccess().getWhenLeftAssignment_3_2()); }
+(rule__Mode__WhenLeftAssignment_3_2)
+{ after(grammarAccess.getModeAccess().getWhenLeftAssignment_3_2()); }
 )
 
 ;
@@ -18362,14 +18362,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Mode__WhenCanceledAssignment_3_2
+rule__Mode__WhenLeftAssignment_3_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getModeAccess().getWhenCanceledXBlockExpressionParserRuleCall_3_2_0()); }
-	ruleXBlockExpression{ after(grammarAccess.getModeAccess().getWhenCanceledXBlockExpressionParserRuleCall_3_2_0()); }
+{ before(grammarAccess.getModeAccess().getWhenLeftXBlockExpressionParserRuleCall_3_2_0()); }
+	ruleXBlockExpression{ after(grammarAccess.getModeAccess().getWhenLeftXBlockExpressionParserRuleCall_3_2_0()); }
 )
 
 ;

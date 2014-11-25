@@ -181,7 +181,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 			mode.action.evaluateChecked(context, cancelIndicator)
 		} catch(CanceledException exc1) {
 			try {
-				mode.whenCanceled?.evaluateChecked(context, cancelIndicator)
+				mode.whenLeft?.evaluateChecked(context, cancelIndicator)
 			} catch(CanceledException exc2) {
 				// Ignore exception
 			}

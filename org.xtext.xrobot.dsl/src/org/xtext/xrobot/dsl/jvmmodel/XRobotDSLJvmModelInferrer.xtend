@@ -37,9 +37,9 @@ class XRobotDSLJvmModelInferrer extends AbstractModelInferrer {
 		   					body = mode.condition
 		   				]
 	   				}
-	   				if(mode.whenCanceled != null) {
-			   			members += mode.toMethod('_' + mode.name + '_whenCanceled', void.typeRef) [
-		   					body = mode.whenCanceled
+	   				if(mode.whenLeft != null) {
+			   			members += mode.toMethod('_' + mode.name + '_whenLeft', void.typeRef) [
+		   					body = mode.whenLeft
 	   					]
 	   				} 
    				}

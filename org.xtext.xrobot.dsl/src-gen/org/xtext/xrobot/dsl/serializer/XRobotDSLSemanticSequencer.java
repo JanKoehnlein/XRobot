@@ -1216,7 +1216,7 @@ public class XRobotDSLSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID condition=XExpression? action=XBlockExpression whenCanceled=XBlockExpression?)
+	 *     (name=ID condition=XExpression? action=XBlockExpression whenLeft=XBlockExpression?)
 	 */
 	protected void sequence_Mode(EObject context, Mode semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

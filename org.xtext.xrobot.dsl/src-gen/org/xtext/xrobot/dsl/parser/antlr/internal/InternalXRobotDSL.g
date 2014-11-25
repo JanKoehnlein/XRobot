@@ -316,23 +316,23 @@ ruleMode returns [EObject current=null]
     {
     	newLeafNode(otherlv_4, grammarAccess.getModeAccess().getWhenKeyword_3_0());
     }
-	otherlv_5='canceled' 
+	otherlv_5='left' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getModeAccess().getCanceledKeyword_3_1());
+    	newLeafNode(otherlv_5, grammarAccess.getModeAccess().getLeftKeyword_3_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModeAccess().getWhenCanceledXBlockExpressionParserRuleCall_3_2_0()); 
+	        newCompositeNode(grammarAccess.getModeAccess().getWhenLeftXBlockExpressionParserRuleCall_3_2_0()); 
 	    }
-		lv_whenCanceled_6_0=ruleXBlockExpression		{
+		lv_whenLeft_6_0=ruleXBlockExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModeRule());
 	        }
        		set(
        			$current, 
-       			"whenCanceled",
-        		lv_whenCanceled_6_0, 
+       			"whenLeft",
+        		lv_whenLeft_6_0, 
         		"XBlockExpression");
 	        afterParserOrEnumRuleCall();
 	    }

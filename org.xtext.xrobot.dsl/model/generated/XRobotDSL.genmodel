@@ -19,7 +19,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XRobotDSL.ecore#//Mode/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Mode/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Mode/action"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Mode/whenCanceled"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Mode/whenLeft"/>
     </genClasses>
     <genClasses ecoreClass="XRobotDSL.ecore#//Function">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XRobotDSL.ecore#//Function/returnType"/>

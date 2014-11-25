@@ -240,7 +240,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMode_WhenCanceled()
+  public EReference getMode_WhenLeft()
   {
     return (EReference)modeEClass.getEStructuralFeatures().get(3);
   }
@@ -377,7 +377,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     createEAttribute(modeEClass, MODE__NAME);
     createEReference(modeEClass, MODE__CONDITION);
     createEReference(modeEClass, MODE__ACTION);
-    createEReference(modeEClass, MODE__WHEN_CANCELED);
+    createEReference(modeEClass, MODE__WHEN_LEFT);
 
     functionEClass = createEClass(FUNCTION);
     createEReference(functionEClass, FUNCTION__RETURN_TYPE);
@@ -439,7 +439,7 @@ public class XRobotDSLPackageImpl extends EPackageImpl implements XRobotDSLPacka
     initEAttribute(getMode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMode_Condition(), theXbasePackage.getXExpression(), null, "condition", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMode_Action(), theXbasePackage.getXExpression(), null, "action", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMode_WhenCanceled(), theXbasePackage.getXExpression(), null, "whenCanceled", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMode_WhenLeft(), theXbasePackage.getXExpression(), null, "whenLeft", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFunction_ReturnType(), theTypesPackage.getJvmTypeReference(), null, "returnType", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -11,7 +11,7 @@ Program:
 Mode:
 	name=ID ('on' condition=XExpression)?
 	action=XBlockExpression
-	('when' 'canceled' whenCanceled=XBlockExpression)?;
+	('when' 'left' whenLeft=XBlockExpression)?;
 
 Function:
 	'def' returnType=JvmTypeReference? name=ValidID 

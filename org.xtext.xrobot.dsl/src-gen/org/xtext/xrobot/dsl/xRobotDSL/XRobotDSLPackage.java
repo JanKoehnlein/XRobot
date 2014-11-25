@@ -167,13 +167,13 @@ public interface XRobotDSLPackage extends EPackage
   int MODE__ACTION = 2;
 
   /**
-   * The feature id for the '<em><b>When Canceled</b></em>' containment reference.
+   * The feature id for the '<em><b>When Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODE__WHEN_CANCELED = 3;
+  int MODE__WHEN_LEFT = 3;
 
   /**
    * The number of structural features of the '<em>Mode</em>' class.
@@ -406,15 +406,15 @@ public interface XRobotDSLPackage extends EPackage
   EReference getMode_Action();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getWhenCanceled <em>When Canceled</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getWhenLeft <em>When Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>When Canceled</em>'.
-   * @see org.xtext.xrobot.dsl.xRobotDSL.Mode#getWhenCanceled()
+   * @return the meta object for the containment reference '<em>When Left</em>'.
+   * @see org.xtext.xrobot.dsl.xRobotDSL.Mode#getWhenLeft()
    * @see #getMode()
    * @generated
    */
-  EReference getMode_WhenCanceled();
+  EReference getMode_WhenLeft();
 
   /**
    * Returns the meta object for class '{@link org.xtext.xrobot.dsl.xRobotDSL.Function <em>Function</em>}'.
@@ -629,12 +629,12 @@ public interface XRobotDSLPackage extends EPackage
     EReference MODE__ACTION = eINSTANCE.getMode_Action();
 
     /**
-     * The meta object literal for the '<em><b>When Canceled</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>When Left</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODE__WHEN_CANCELED = eINSTANCE.getMode_WhenCanceled();
+    EReference MODE__WHEN_LEFT = eINSTANCE.getMode_WhenLeft();
 
     /**
      * The meta object literal for the '{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FunctionImpl <em>Function</em>}' class.

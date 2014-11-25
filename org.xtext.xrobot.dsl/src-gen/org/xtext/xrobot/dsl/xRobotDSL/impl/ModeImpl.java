@@ -26,7 +26,7 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl#getAction <em>Action</em>}</li>
- *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl#getWhenCanceled <em>When Canceled</em>}</li>
+ *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl#getWhenLeft <em>When Left</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,14 +75,14 @@ public class ModeImpl extends MinimalEObjectImpl.Container implements Mode
   protected XExpression action;
 
   /**
-   * The cached value of the '{@link #getWhenCanceled() <em>When Canceled</em>}' containment reference.
+   * The cached value of the '{@link #getWhenLeft() <em>When Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWhenCanceled()
+   * @see #getWhenLeft()
    * @generated
    * @ordered
    */
-  protected XExpression whenCanceled;
+  protected XExpression whenLeft;
 
   /**
    * <!-- begin-user-doc -->
@@ -229,9 +229,9 @@ public class ModeImpl extends MinimalEObjectImpl.Container implements Mode
    * <!-- end-user-doc -->
    * @generated
    */
-  public XExpression getWhenCanceled()
+  public XExpression getWhenLeft()
   {
-    return whenCanceled;
+    return whenLeft;
   }
 
   /**
@@ -239,13 +239,13 @@ public class ModeImpl extends MinimalEObjectImpl.Container implements Mode
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetWhenCanceled(XExpression newWhenCanceled, NotificationChain msgs)
+  public NotificationChain basicSetWhenLeft(XExpression newWhenLeft, NotificationChain msgs)
   {
-    XExpression oldWhenCanceled = whenCanceled;
-    whenCanceled = newWhenCanceled;
+    XExpression oldWhenLeft = whenLeft;
+    whenLeft = newWhenLeft;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.MODE__WHEN_CANCELED, oldWhenCanceled, newWhenCanceled);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.MODE__WHEN_LEFT, oldWhenLeft, newWhenLeft);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -256,20 +256,20 @@ public class ModeImpl extends MinimalEObjectImpl.Container implements Mode
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setWhenCanceled(XExpression newWhenCanceled)
+  public void setWhenLeft(XExpression newWhenLeft)
   {
-    if (newWhenCanceled != whenCanceled)
+    if (newWhenLeft != whenLeft)
     {
       NotificationChain msgs = null;
-      if (whenCanceled != null)
-        msgs = ((InternalEObject)whenCanceled).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.MODE__WHEN_CANCELED, null, msgs);
-      if (newWhenCanceled != null)
-        msgs = ((InternalEObject)newWhenCanceled).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.MODE__WHEN_CANCELED, null, msgs);
-      msgs = basicSetWhenCanceled(newWhenCanceled, msgs);
+      if (whenLeft != null)
+        msgs = ((InternalEObject)whenLeft).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.MODE__WHEN_LEFT, null, msgs);
+      if (newWhenLeft != null)
+        msgs = ((InternalEObject)newWhenLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XRobotDSLPackage.MODE__WHEN_LEFT, null, msgs);
+      msgs = basicSetWhenLeft(newWhenLeft, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.MODE__WHEN_CANCELED, newWhenCanceled, newWhenCanceled));
+      eNotify(new ENotificationImpl(this, Notification.SET, XRobotDSLPackage.MODE__WHEN_LEFT, newWhenLeft, newWhenLeft));
   }
 
   /**
@@ -286,8 +286,8 @@ public class ModeImpl extends MinimalEObjectImpl.Container implements Mode
         return basicSetCondition(null, msgs);
       case XRobotDSLPackage.MODE__ACTION:
         return basicSetAction(null, msgs);
-      case XRobotDSLPackage.MODE__WHEN_CANCELED:
-        return basicSetWhenCanceled(null, msgs);
+      case XRobotDSLPackage.MODE__WHEN_LEFT:
+        return basicSetWhenLeft(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -308,8 +308,8 @@ public class ModeImpl extends MinimalEObjectImpl.Container implements Mode
         return getCondition();
       case XRobotDSLPackage.MODE__ACTION:
         return getAction();
-      case XRobotDSLPackage.MODE__WHEN_CANCELED:
-        return getWhenCanceled();
+      case XRobotDSLPackage.MODE__WHEN_LEFT:
+        return getWhenLeft();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -333,8 +333,8 @@ public class ModeImpl extends MinimalEObjectImpl.Container implements Mode
       case XRobotDSLPackage.MODE__ACTION:
         setAction((XExpression)newValue);
         return;
-      case XRobotDSLPackage.MODE__WHEN_CANCELED:
-        setWhenCanceled((XExpression)newValue);
+      case XRobotDSLPackage.MODE__WHEN_LEFT:
+        setWhenLeft((XExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -359,8 +359,8 @@ public class ModeImpl extends MinimalEObjectImpl.Container implements Mode
       case XRobotDSLPackage.MODE__ACTION:
         setAction((XExpression)null);
         return;
-      case XRobotDSLPackage.MODE__WHEN_CANCELED:
-        setWhenCanceled((XExpression)null);
+      case XRobotDSLPackage.MODE__WHEN_LEFT:
+        setWhenLeft((XExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -382,8 +382,8 @@ public class ModeImpl extends MinimalEObjectImpl.Container implements Mode
         return condition != null;
       case XRobotDSLPackage.MODE__ACTION:
         return action != null;
-      case XRobotDSLPackage.MODE__WHEN_CANCELED:
-        return whenCanceled != null;
+      case XRobotDSLPackage.MODE__WHEN_LEFT:
+        return whenLeft != null;
     }
     return super.eIsSet(featureID);
   }
