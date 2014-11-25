@@ -66,12 +66,6 @@ class XRobotInterpreter extends XbaseInterpreter {
 	
 	IEvaluationContext baseContext
 
-	Mode currentMode
-
-	InternalCancelIndicator currentModeCancelIndicator
-	
-	IRemoteRobot conditionRobot
-	
 	List<IRobotListener> listeners
 	
 	Throwable lastModeException
@@ -79,6 +73,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 	val recursionCounter = new HashMap<JvmOperation, Integer>
 	
 	def void execute(Program program, IRemoteRobot.Factory robotFactory, List<IRobotListener> listeners, CancelIndicator cancelIndicator) {
+		var InternalCancelIndicator currentModeCancelIndicator
 		try {
 			this.listeners = listeners
 			// Reset the audio call counters of the audio service
@@ -87,7 +82,7 @@ class XRobotInterpreter extends XbaseInterpreter {
 			RobotSecurityManager.start
 			
 			val conditionCancelIndicator = new InternalCancelIndicator(cancelIndicator)
-			conditionRobot = robotFactory.newRobot(conditionCancelIndicator)
+			val conditionRobot = robotFactory.newRobot(conditionCancelIndicator)
 			conditionRobot.reset
 			baseContext = createContext
 			baseContext.newValue(ROBOT, conditionRobot)
@@ -103,6 +98,8 @@ class XRobotInterpreter extends XbaseInterpreter {
 				}
 			}
 			
+			var Mode currentMode
+			var IEvaluationContext currentModeContext
 			do {
 				listeners.forEach[stateRead(conditionRobot)]
 				if(!conditionCancelIndicator.isCanceled) {
@@ -112,41 +109,52 @@ class XRobotInterpreter extends XbaseInterpreter {
 						val result = condition.evaluateChecked(conditionContext, conditionCancelIndicator)
 						return result as Boolean ?: false
 					]
-					if (newMode != currentMode
+					val oldMode = currentMode
+					if (newMode != oldMode
 							|| currentModeCancelIndicator != null && currentModeCancelIndicator.isCanceled) {
-						if(currentMode != null && !currentModeCancelIndicator.isCanceled)
-							LOG.debug('Canceling running mode ' +  currentMode.name)
 						currentModeCancelIndicator?.cancel
-						currentModeCancelIndicator = new InternalCancelIndicator(cancelIndicator)
-						currentMode = newMode
 						if (newMode != null) {
 							
 							// Start a new thread executing the activated mode
-							LOG.debug('Starting mode ' +  newMode.name)
-							val modeRobot = robotFactory.newRobot(currentModeCancelIndicator, conditionRobot)
-							val modeContext = baseContext.fork
-							modeContext.newValue(ROBOT, modeRobot)
-							val modeNode = NodeModelUtils.findActualNodeFor(newMode)
-							if (modeNode != null) {
-								modeContext.newValue(CURRENT_LINE, modeNode.startLine)
+							val oldModeContext = currentModeContext
+							val modeCancelIndicator = new InternalCancelIndicator(cancelIndicator)
+							val modeRobot = robotFactory.newRobot(modeCancelIndicator, conditionRobot)
+							val newModeContext = baseContext.fork
+							newModeContext.newValue(ROBOT, modeRobot)
+							if (trackLineChanges) {
+								val modeNode = NodeModelUtils.findActualNodeFor(newMode)
+								if (modeNode != null) {
+									newModeContext.newValue(CURRENT_LINE, modeNode.startLine)
+								}
 							}
 							val thread = new RobotThread(Thread.currentThread.threadGroup,
 									'Robot ' + modeRobot.robotID.name + ' in mode ' + newMode.name) {
 								override run() {
 									try {
 										RobotSecurityManager.start
-										currentMode.execute(modeContext, currentModeCancelIndicator)
+										// First execute the 'when left' block of the old mode
+										if (oldMode != null && newMode != oldMode
+												&& oldMode.whenLeft != null) {
+											LOG.debug('Executing when-left code of mode ' + oldMode.name)
+											oldMode.whenLeft.evaluateChecked(oldModeContext, cancelIndicator)
+										}
+										// Then execute the main block of the new mode
+										LOG.debug('Starting mode ' +  newMode.name)
+										newMode.execute(newModeContext, modeCancelIndicator)
 									} catch (Throwable thr) {
 										LOG.error('Error executing mode ' + newMode.name
 											+ " (" + thr.class.simpleName + ")")
 										lastModeException = thr
 										conditionCancelIndicator.cancel
 									} finally {
-										currentModeCancelIndicator.cancel
+										modeCancelIndicator.cancel
 										RobotSecurityManager.stop
 									}
 								}
 							}
+							currentMode = newMode
+							currentModeContext = newModeContext
+							currentModeCancelIndicator = modeCancelIndicator
 							thread.start
 							
 						}
@@ -172,20 +180,12 @@ class XRobotInterpreter extends XbaseInterpreter {
 	}
 	
 	protected def execute(Mode mode, IEvaluationContext context, CancelIndicator cancelIndicator) {
-		try {
-			listeners.forEach[
-				val robot = context.getValue(ROBOT) as IRemoteRobot
-				modeChanged(robot, mode)
-				stateChanged(robot)
-			]
-			mode.action.evaluateChecked(context, cancelIndicator)
-		} catch(CanceledException exc1) {
-			try {
-				mode.whenLeft?.evaluateChecked(context, cancelIndicator)
-			} catch(CanceledException exc2) {
-				// Ignore exception
-			}
-		}
+		listeners.forEach[
+			val robot = context.getValue(ROBOT) as IRemoteRobot
+			modeChanged(robot, mode)
+			stateChanged(robot)
+		]
+		mode.action.evaluateChecked(context, cancelIndicator)
 	}
 	
 	private def evaluateChecked(XExpression expression, IEvaluationContext context, CancelIndicator indicator) {
@@ -233,11 +233,9 @@ class XRobotInterpreter extends XbaseInterpreter {
 			if (node != null) {
 				val startLine = node.startLine
 				val lastLine = context.getValue(CURRENT_LINE)
-				if (lastLine instanceof Integer) {
-					if (lastLine.intValue != startLine) {
-						context.assignValue(CURRENT_LINE, startLine)
-						listeners.forEach[lineChanged(startLine)]
-					}
+				if (!(lastLine instanceof Integer) || (lastLine as Integer).intValue != startLine) {
+					context.assignValue(CURRENT_LINE, startLine)
+					listeners.forEach[lineChanged(startLine)]
 				}
 			}
 		}
