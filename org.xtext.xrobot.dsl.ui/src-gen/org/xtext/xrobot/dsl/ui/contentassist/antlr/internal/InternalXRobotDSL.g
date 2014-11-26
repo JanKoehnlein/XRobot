@@ -2446,11 +2446,11 @@ rule__ValidID__Alternatives
 )
 
     |(
-{ before(grammarAccess.getValidIDAccess().getCanceledKeyword_5()); }
+{ before(grammarAccess.getValidIDAccess().getLeftKeyword_5()); }
 
-	'canceled' 
+	'left' 
 
-{ after(grammarAccess.getValidIDAccess().getCanceledKeyword_5()); }
+{ after(grammarAccess.getValidIDAccess().getLeftKeyword_5()); }
 )
 
 ;

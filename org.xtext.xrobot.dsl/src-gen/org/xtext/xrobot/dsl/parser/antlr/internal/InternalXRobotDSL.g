@@ -606,10 +606,10 @@ ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
     }
 
     |
-	kw='canceled' 
+	kw='left' 
     {
         $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getValidIDAccess().getCanceledKeyword_5()); 
+        newLeafNode(kw, grammarAccess.getValidIDAccess().getLeftKeyword_5()); 
     }
 )
     ;
@@ -5223,7 +5223,7 @@ ruleXReturnExpression returns [EObject current=null]
  | 	'author' 
  | 	'on' 
  | 	'when' 
- | 	'canceled' 
+ | 	'left' 
  | 	'extends' 
  | 	'static' 
  | 	'import' 

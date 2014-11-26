@@ -315,13 +315,13 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAuthorKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		private final Keyword cOnKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		private final Keyword cWhenKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
-		private final Keyword cCanceledKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cLeftKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
 		
 		//ValidID:
-		//	ID | "robot" | "author" | "on" | "when" | "canceled";
+		//	ID | "robot" | "author" | "on" | "when" | "left";
 		public ParserRule getRule() { return rule; }
 
-		//ID | "robot" | "author" | "on" | "when" | "canceled"
+		//ID | "robot" | "author" | "on" | "when" | "left"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ID
@@ -339,8 +339,8 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"when"
 		public Keyword getWhenKeyword_4() { return cWhenKeyword_4; }
 
-		//"canceled"
-		public Keyword getCanceledKeyword_5() { return cCanceledKeyword_5; }
+		//"left"
+		public Keyword getLeftKeyword_5() { return cLeftKeyword_5; }
 	}
 	
 	
@@ -436,7 +436,7 @@ public class XRobotDSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ValidID:
-	//	ID | "robot" | "author" | "on" | "when" | "canceled";
+	//	ID | "robot" | "author" | "on" | "when" | "left";
 	public ValidIDElements getValidIDAccess() {
 		return pValidID;
 	}

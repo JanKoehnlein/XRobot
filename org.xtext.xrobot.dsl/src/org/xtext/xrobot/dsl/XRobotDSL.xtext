@@ -22,4 +22,4 @@ Variable:
 	'var' type=JvmTypeReference? name=ValidID ('=' initializer=XExpression)?;
 
 ValidID:
-	ID | 'robot' | 'author' | 'on' | 'when' | 'canceled';
+	ID | 'robot' | 'author' | 'on' | 'when' | 'left';
