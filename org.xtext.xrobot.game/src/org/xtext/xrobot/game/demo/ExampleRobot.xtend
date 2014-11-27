@@ -143,14 +143,26 @@ class ExampleRobot {
 				robot 'Mad Pirate'
 				author itemis
 				
-				YARRR on abs(target.angle) < 30 {
+				YARRR on abs(target.angle) < 20 {
 					driveForward
 					scoop(1)
+				} when left {
+					scoop(0)
 				}
 				
-				HARRR {
-					scoop(0)
+				NARRR on abs(target.angle) > 160 {
+					driveBackward
+				}
+				
+				HARRR on abs(target.angle) < 80 {
 					rotate(target.angle)
+				}
+				
+				TARRR {
+					if (target.angle < 0)
+						rotate(target.angle + 360)
+					else
+						rotate(target.angle - 360)
 				}
 				
 				def target() {
@@ -210,7 +222,7 @@ class ExampleRobot {
 					driveForward
 					sleep(400)
 					scoop(1)
-				} when canceled { 
+				} when left { 
 					stop
 					scoop(0)
 				}
