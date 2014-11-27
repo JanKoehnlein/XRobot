@@ -158,7 +158,7 @@ class Game {
 	public def waitThreadsTermination() {
 		val threads = <Thread>newArrayOfSize(16)
 		getThreadGroup.enumerate(threads)
-		threads.filter[it instanceof RobotThread].forEach[join]
+		threads.filter(RobotThread).forEach[join]
 	}
 
 	private def prepareScriptRunner(Program program, IRemoteRobot.Factory robotFactory, IRobotListener... listeners) {

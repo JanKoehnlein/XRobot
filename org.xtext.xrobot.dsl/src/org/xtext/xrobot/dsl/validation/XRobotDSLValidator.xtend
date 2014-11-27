@@ -16,13 +16,17 @@ import org.eclipse.xtext.xbase.XAbstractFeatureCall
 import org.eclipse.xtext.xbase.XBooleanLiteral
 import org.eclipse.xtext.xbase.XConstructorCall
 import org.eclipse.xtext.xbase.XExpression
+import org.eclipse.xtext.xbase.XFeatureCall
 import org.eclipse.xtext.xbase.XNumberLiteral
 import org.eclipse.xtext.xbase.XbasePackage
+import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations
 import org.eclipse.xtext.xtype.XImportDeclaration
 import org.eclipse.xtext.xtype.XtypePackage
 import org.xtext.xrobot.dsl.interpreter.XRobotInterpreter
 import org.xtext.xrobot.dsl.interpreter.security.RobotSecurityManager
+import org.xtext.xrobot.dsl.xRobotDSL.Function
 import org.xtext.xrobot.dsl.xRobotDSL.Program
+import org.xtext.xrobot.dsl.xRobotDSL.Variable
 import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage
 
 /**
@@ -32,7 +36,15 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage
  */
 class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 	
-	@Inject extension JavaReflectAccess javaReflectAccess
+	@Inject extension JavaReflectAccess
+	
+	@Inject extension IJvmModelAssociations
+	
+	extension XtypePackage = XtypePackage.eINSTANCE
+	
+	extension XbasePackage = XbasePackage.eINSTANCE
+	
+	extension XRobotDSLPackage = XRobotDSLPackage.eINSTANCE
 	
 	@Check
 	def checkProgramModes(Program program) {
@@ -42,15 +54,15 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 		for (mode : program.modes) {
 			if (unreachable || mode.condition instanceof XBooleanLiteral
 					&& !(mode.condition as XBooleanLiteral).isTrue) {
-				error('This mode is never executed',
-					program, XRobotDSLPackage.eINSTANCE.program_Modes, i)
+				error('The mode ' + mode.name + ' is never executed',
+					program, program_Modes, i)
 			} else if (mode.condition == null || mode.condition instanceof XBooleanLiteral
 					&& (mode.condition as XBooleanLiteral).isTrue) {
 				unreachable = true
 			}
 			if (modeNames.contains(mode.name)) {
 				warning('Duplicate mode name',
-					mode, XRobotDSLPackage.eINSTANCE.mode_Name)
+					mode, mode_Name)
 			} else {
 				modeNames.add(mode.name)
 			}
@@ -63,14 +75,14 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 		val pkg = declaration.importedType?.packageName
 		if (pkg != null && !RobotSecurityManager.ALLOWED_PACKAGES.contains(pkg)) {
 			error('Access to package ' + pkg + ' is not allowed',
-				declaration, XtypePackage.eINSTANCE.XImportDeclaration_ImportedType)
+				declaration, XImportDeclaration_ImportedType)
 		}
 	}
 	
 	@Check
 	def checkConstructorCallAllowed(XConstructorCall call) {
 		call.constructor?.declaringType?.checkTypeReferenceAllowed(call,
-				XbasePackage.eINSTANCE.XConstructorCall_Constructor)
+				XConstructorCall_Constructor)
 	}
 	
 	@Check
@@ -78,9 +90,9 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 		if (call.feature instanceof JvmOperation) {
 			val operation = call.feature as JvmOperation
 			operation.declaringType?.checkTypeReferenceAllowed(call,
-					XbasePackage.eINSTANCE.XAbstractFeatureCall_Feature)
+					XAbstractFeatureCall_Feature)
 			operation.checkMethodReferenceAllowed(call.actualArguments, call,
-					XbasePackage.eINSTANCE.XAbstractFeatureCall_Feature)
+					XAbstractFeatureCall_Feature)
 		}
 	}
 	
@@ -120,7 +132,7 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 						val size = Integer.parseInt((arg as XNumberLiteral).value)
 						if (size > XRobotInterpreter.MAX_ARRAY_SIZE) {
 							warning('The maximal allowed array size is ' + XRobotInterpreter.MAX_ARRAY_SIZE,
-								arg, XbasePackage.eINSTANCE.XNumberLiteral_Value)
+								arg, XNumberLiteral_Value)
 						}
 					} catch (NumberFormatException e) {
 						// Ignore exception
@@ -133,6 +145,34 @@ class XRobotDSLValidator extends AbstractXRobotDSLValidator {
 				}
 			}
 		}
+	}
+	
+	@Check 
+	def checkDefsUsed(Program program) {
+		val usedVariables = <Variable>newHashSet
+		val usedFunctions = <Function>newHashSet
+		program.eAllContents.filter(typeof(XFeatureCall)).forEach[ featureCall |
+			val sourceElem = featureCall.feature?.sourceElements?.head
+			if (sourceElem instanceof Variable) {
+				usedVariables += sourceElem
+			} else if (sourceElem instanceof Function) {
+				usedFunctions += sourceElem
+			}
+		]
+		
+		program.variables.forEach[ variable, i |
+			if (!usedVariables.contains(variable)) {
+				warning('The value of the global variable ' + variable.name + ' is not used',
+					program, program_Variables, i)
+			}
+		]
+		
+		program.functions.forEach[ function, i |
+			if (!usedFunctions.contains(function)) {
+				warning('The function ' + function.name + ' is not used',
+					program, program_Functions, i)
+			}
+		]
 	}
 	
 }

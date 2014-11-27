@@ -7,6 +7,8 @@ import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.xtext.xrobot.api.IRobot
 import org.xtext.xrobot.dsl.xRobotDSL.Program
 
+import static org.eclipse.xtext.common.types.JvmVisibility.*
+
 /**
  * <p>Infers a JVM model from the source model.</p> 
  *
@@ -26,29 +28,32 @@ class XRobotDSLJvmModelInferrer extends AbstractModelInferrer {
    					var variableType = variable.type ?: variable?.initializer?.inferredType ?: Object.typeRef  
    					members += variable.toField(variable.name, variableType) [
    						initializer = variable.initializer
+   						visibility = PRIVATE
    					]
    				}
    				for(mode: program.modes) {
 	   				members += mode.toMethod('_' + mode.name + '_action', void.typeRef) [
 	   					body = mode.action
 	   				]
-	   				if(mode.condition != null) {
+	   				if (mode.condition != null) {
 		   				members += mode.toMethod('_' + mode.name + '_condition', boolean.typeRef) [
 		   					body = mode.condition
 		   				]
 	   				}
-	   				if(mode.whenLeft != null) {
+	   				if (mode.whenLeft != null) {
 			   			members += mode.toMethod('_' + mode.name + '_whenLeft', void.typeRef) [
 		   					body = mode.whenLeft
 	   					]
 	   				} 
    				}
    				for (function : program.functions) {
-   					if (function.body != null)
+   					if (function.body != null) {
 	   					members += function.toMethod(function.name, function.returnType ?: function.body.inferredType) [
 	   						parameters += function.parameters.map [ toParameter(name, parameterType) ]
 	   						body = function.body
+   							visibility = PRIVATE
 	   					]
+   					}
    				}
    			]
    		))
