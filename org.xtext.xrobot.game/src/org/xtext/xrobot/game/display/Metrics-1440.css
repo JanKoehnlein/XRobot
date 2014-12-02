@@ -1,0 +1,98 @@
+.root {
+    -fx-font-size: 22pt;
+}
+
+.root-pane {
+	-fx-padding: 8;
+}
+
+.side-container-label {
+	-fx-font-size: 16pt;
+}
+
+.outer-box {
+	-fx-spacing: 10.0;
+	-fx-background-radius: 10.0;
+	-fx-padding: 16.0;
+	-fx-vgap: 18.0;
+}
+
+.inner-box {
+	-fx-background-radius: 5.0;
+	-fx-padding: 4.0;
+}
+
+.boxed-label {
+	-fx-background-radius: 3.0;
+	-fx-padding: 4.0;
+}
+
+.title-label {
+	-fx-padding: 4.0;
+}
+
+.hof {
+	-fx-font-size: 22pt;
+}
+
+.hof-content {
+	-fx-vgap: 10.0;
+	-fx-hgap: 10.0;
+}
+
+.bluewins-label {
+	-fx-font-size: 40pt;
+}
+
+.redwins-label {
+	-fx-font-size: 40pt;
+}
+
+.draw-label {
+	-fx-font-size: 40pt;
+}
+
+.error-label {
+	-fx-font-size: 34pt;
+}
+
+.warning-label {
+	-fx-font-size: 34pt;
+}
+
+.info-label {
+	-fx-font-size: 34pt;
+}
+
+.message-pane {
+	-fx-spacing: 10;
+}
+
+.countdown {
+	-fx-font-size: 86pt;
+}
+
+.energy-bar {
+	-fx-arc-width: 12;
+	-fx-arc-height: 12;
+}
+
+.logo {
+	-fx-font-size: 34pt;
+}
+
+.logo-big {
+	-fx-font-size: 100pt;
+}
+
+.token {
+	-fx-font-size: 30pt;
+}
+
+.time {
+	-fx-font-size: 34pt;
+}
+
+.demo-mode {
+	-fx-font-size: 22pt;
+}

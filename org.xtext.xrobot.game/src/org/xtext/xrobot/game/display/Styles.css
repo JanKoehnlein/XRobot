@@ -3,54 +3,35 @@
 }
 
 .root {
-    -fx-font-size: 26pt;
     -fx-font-family: 'Monkirta Pursuit NC';
-}
-
-.root-pane {
-	-fx-padding: 10;
 }
 
 .border-pane {
 	-fx-background-color: rgba(255.0,255.0,255.0, 0);
 }
 
-.side-container-label {
-	-fx-font-size: 20pt;
-}
-
 .outer-box {
-	-fx-spacing: 10.0;
-	-fx-background-radius: 10.0;
-	-fx-padding: 20.0;
-	-fx-vgap: 20.0;
 	-fx-orientation: vertical;
 	-fx-fill-width: true;
 	-fx-alignment: top-center;
 }
 
 .inner-box {
-	-fx-background-radius: 5.0;
-	-fx-padding: 4.0;
 	-fx-text-fill: white;
 	-fx-alignment: center;
 }
 
 .boxed-label {
-	-fx-background-radius: 3.0;
-	-fx-padding: 4.0;
 	-fx-text-fill: white;
 }
 
 .title-label {
-	-fx-padding: 4.0;
 	-fx-text-fill: white;
 	-fx-font-weight: bold
 }
 
 .hof {
 	-fx-background-color: rgba(115.0,191.0,205.0,0.9);
-	-fx-font-size: 24pt
 }
 
 .hof-light {
@@ -58,8 +39,6 @@
 }
 
 .hof-content {
-	-fx-vgap: 10.0;
-	-fx-hgap: 10.0;
 	-fx-fill-width: true;
 }
 
@@ -107,7 +86,6 @@
 
 .bluewins-label {
 	-fx-text-fill: white;
-	-fx-font-size: 40pt;
 	-fx-text-alignment: center;
 }
 
@@ -131,7 +109,6 @@
 
 .redwins-label {
 	-fx-text-fill: white;
-	-fx-font-size: 40pt;
 	-fx-text-alignment: center;
 }
 
@@ -153,7 +130,6 @@
 .draw-label {
 	-fx-text-fill: white;
 	-fx-text-alignment: center;
-	-fx-font-size: 40pt;
 }
 
 .error-box {
@@ -163,7 +139,6 @@
 
 .error-label {
 	-fx-text-fill: white;
-	-fx-font-size: 40pt;
 	-fx-text-alignment: center;
 }
 
@@ -173,7 +148,6 @@
 
 .warning-label {
 	-fx-text-fill: white;
-	-fx-font-size: 40pt;
 	-fx-text-alignment: center;
 }
 
@@ -183,33 +157,17 @@
 
 .info-label {
 	-fx-text-fill: white;
-	-fx-font-size: 40pt;
 	-fx-text-alignment: center;
 }
 
 .message-pane {
 	-fx-alignment: center;
-	-fx-spacing: 10;
-}
-
-.countdown {
-	-fx-font-size: 240;
-}
-
-.energy-bar {
-	-fx-arc-width: 12;
-	-fx-arc-height: 12;
 }
 
 .logo {
 	-fx-font-family: 'Magenta';
 	-fx-scale-x: 0.8;
-	-fx-font-size: 46pt;
 	-fx-text-fill: yellow
-}
-
-.logo-big {
-	-fx-font-size: 150;
 }
 
 .balloon {
@@ -221,15 +179,12 @@
 
 .token {
 	-fx-font-family: 'Consolas';
-	-fx-font-size: 28pt;
 }
 
 .time {
-	-fx-font-size: 36pt;
 	-fx-text-fill: darkcyan;
 }
 
 .demo-mode {
-	-fx-font-size: 24pt;
 	-fx-text-fill: rgba(160.0,160.0,160.0,128.0);
 }

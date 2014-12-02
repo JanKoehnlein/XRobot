@@ -103,17 +103,30 @@ class Display implements IErrorReporter, ITimeListener {
 						spacing = 5
 						children += new ImageView => [
 							image = new Image(IdleProgram.getResourceAsStream('/qrcode.jpg'))
-							val scale = screenBounds.width * 0.0003472
-							fitWidth = image.width * scale
-							fitHeight = image.height * scale
+							fitWidth = image.width * 0.0003472 * screenBounds.width
+							fitHeight = image.height * 0.0006173 * screenBounds.height
 						]
 					]
 					overlay = new Group => [
 						children += slots.map[new Balloon(it, screenBounds)]
 					]
-				], screenBounds.width, screenBounds.height) => [
+				],
+			screenBounds.width, screenBounds.height) => [
 				fill = null
 				stylesheets += 'org/xtext/xrobot/game/display/Styles.css'
+				if (screenBounds.width >= 1920) {
+					stylesheets += 'org/xtext/xrobot/game/display/Metrics-1920.css'
+				} else if (screenBounds.width >= 1600) {
+					stylesheets += 'org/xtext/xrobot/game/display/Metrics-1600.css'
+				} else if (screenBounds.width >= 1440) {
+					stylesheets += 'org/xtext/xrobot/game/display/Metrics-1440.css'
+				} else if (screenBounds.width >= 1280) {
+					stylesheets += 'org/xtext/xrobot/game/display/Metrics-1280.css'
+				} else if (screenBounds.width >= 1024) {
+					stylesheets += 'org/xtext/xrobot/game/display/Metrics-1024.css'
+				} else {
+					throw new Exception('The screen resolution is too small.')
+				}
 			]
 			x = screenBounds.minX
 			y = screenBounds.minY
