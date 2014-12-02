@@ -24,8 +24,6 @@ import static extension javafx.util.Duration.*
 
 class PlayerSlotBox extends VBox implements IRobotListener, PlayerSlot.Listener {
 	
-	static val MAX_MODES = 10 
-	
 	Pane statusBox
 	Label statusLabel
 	Pane programBox
@@ -120,8 +118,9 @@ class PlayerSlotBox extends VBox implements IRobotListener, PlayerSlot.Listener 
 			 	text = newMode.name
 			 	styleClass.setAll('boxed-label')
 		 	]
+		 	val maxModes = Math.max(6, modeLabels.filter(Label).size)
 		 	modeLabels.forEach [ it, i |
-		 		opacity = (1 - (1.0 + i) / MAX_MODES).squared
+		 		opacity = (1 - (1.0 + i) / maxModes).squared
 		 	]
 			if(modeLabels.empty) {
 				modeLabels.add(newLabel)
@@ -138,7 +137,7 @@ class PlayerSlotBox extends VBox implements IRobotListener, PlayerSlot.Listener 
 					new KeyValue(rect.heightProperty, height)
 				)
 				onFinished = [
-					if (modeLabels.size > MAX_MODES) 
+					if (modesBox.boundsInParent.maxY + height > this.boundsInLocal.height) 
 					 	modeLabels -= modeLabels.last
 					modeLabels.remove(rect)
 					modeLabels.add(0, newLabel)

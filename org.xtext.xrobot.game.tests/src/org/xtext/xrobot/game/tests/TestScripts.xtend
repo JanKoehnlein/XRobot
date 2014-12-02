@@ -28,6 +28,25 @@ interface TestScripts {
 		}
 	'''
 	
+	val PINGPONG = '''
+		robot PingPong
+		author Miro
+		
+		var doPing = true
+		
+		Ping on doPing {
+			say('Ping')
+			sleep(2000)
+			doPing = false
+		}
+		
+		Pong {
+			say('Pong')
+			sleep(2000)
+			doPing = true
+		}
+	'''
+	
 	val LAMBDA = '''
 		robot lambda_robot
 		author lambda_author

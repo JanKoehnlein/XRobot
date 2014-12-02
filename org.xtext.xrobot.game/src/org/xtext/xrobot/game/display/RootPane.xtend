@@ -84,7 +84,8 @@ class RootPane extends Region {
 	override protected layoutChildren() {
 		super.layoutChildren
 		val bounds = scene
-		val boxWidth = (bounds.width - bounds.height) / 2
+		// Screen format: 0.21875 = 3.5/16 = (16 - 9) / 2 / 16
+		val boxWidth = bounds.width * 0.21875
 		val topHeight = bounds.height * 0.75
 		left => [
 			relocate(padding.left, padding.top)
@@ -96,14 +97,14 @@ class RootPane extends Region {
 		]
 		center => [
 			relocate(boxWidth + padding.left, padding.top)
-			resize(bounds.height - padding.left - padding.right, bounds.height - padding.top - padding.bottom)
+			resize(bounds.width - 2 * boxWidth - padding.left - padding.right, bounds.height - padding.top - padding.bottom)
 		]
 		right => [
-			relocate(boxWidth + bounds.height + padding.left, padding.top)
+			relocate(bounds.width - boxWidth + padding.left, padding.top)
 			resize(boxWidth - padding.left - padding.right, topHeight - padding.top - padding.bottom)
 		]
 		bottomRight => [
-			relocate(boxWidth + bounds.height + padding.left, topHeight)
+			relocate(bounds.width - boxWidth + padding.left, topHeight)
 			resize(boxWidth - padding.left - padding.right, bounds.height - topHeight - padding.bottom)
 		]
 		overlay => [

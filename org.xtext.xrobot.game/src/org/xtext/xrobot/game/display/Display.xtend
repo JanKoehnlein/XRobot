@@ -103,12 +103,13 @@ class Display implements IErrorReporter, ITimeListener {
 						spacing = 5
 						children += new ImageView => [
 							image = new Image(IdleProgram.getResourceAsStream('/qrcode.jpg'))
-							fitWidth = image.width * 0.67
-							fitHeight = image.height * 0.67
+							val scale = screenBounds.width * 0.0003472
+							fitWidth = image.width * scale
+							fitHeight = image.height * scale
 						]
 					]
 					overlay = new Group => [
-						children += slots.map[new Balloon(it)]
+						children += slots.map[new Balloon(it, screenBounds)]
 					]
 				], screenBounds.width, screenBounds.height) => [
 				fill = null

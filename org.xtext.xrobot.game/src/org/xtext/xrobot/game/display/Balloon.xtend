@@ -1,6 +1,7 @@
 package org.xtext.xrobot.game.display
 
 import javafx.application.Platform
+import javafx.geometry.Rectangle2D
 import javafx.scene.Parent
 import javafx.scene.control.Label
 import javafx.scene.control.OverrunStyle
@@ -22,22 +23,25 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 	
 	static val BUBBLE_DISTANCE = 40.0
 	
-	static val POS_TO_SCREEN = CameraConstants.RESOLUTION_X as double / CameraConstants.WIDTH_IN_CM
-	
 	static val POSITION_UPDATE_TIME = 200L
 	
-	var long lastPositionUpdate
+	val Vector posToScreenFactor
 	
-	var RobotPosition lastOwnPosition
+	long lastPositionUpdate
 	
-	var RobotPosition lastOpponentPosition
+	RobotPosition lastOwnPosition
+	
+	RobotPosition lastOpponentPosition
 	
 	@Accessors(PUBLIC_SETTER)
 	var boolean invertYAxis = true
 	
-	new(PlayerSlot slot) {
+	new(PlayerSlot slot, Rectangle2D screenBounds) {
 		AudioService.instance.addAudioListener(slot.robotID, this)
 		slot.addRobotListener(this)
+		// Screen format: 0.5625 = 9/16
+		posToScreenFactor = Vector.cartesian(0.5625 * screenBounds.width / CameraConstants.WIDTH_IN_CM,
+				screenBounds.height / CameraConstants.WIDTH_IN_CM)
 	}
 	
 	override audioStarted(String text) {
@@ -89,7 +93,8 @@ class Balloon extends Parent implements AudioService.Listener, IRobotListener {
 		val delta = own.toVector - opponent.toVector
 		val bounds = layoutBounds
 		val bubbleOffset = calcEllipseOffset(bounds.width, bounds.height, delta.angle) + BUBBLE_DISTANCE
-		val bubblePosition = own.toVector * POS_TO_SCREEN + Vector.polar(bubbleOffset, delta.angle)
+		val ownScreenPos = Vector.cartesian(posToScreenFactor.x * own.x, posToScreenFactor.y * own.y)
+		val bubblePosition = ownScreenPos + Vector.polar(bubbleOffset, delta.angle)
 		if (invertYAxis)
 			relocate(bubblePosition.x - bounds.width / 2, -bubblePosition.y - bounds.height / 2)
 		else

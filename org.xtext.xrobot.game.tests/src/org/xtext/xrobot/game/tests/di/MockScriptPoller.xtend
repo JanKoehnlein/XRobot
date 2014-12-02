@@ -35,7 +35,7 @@ class MockScriptPoller implements IScriptPoller {
 			Thread.sleep(10000)
 			gameServer.register(gameServer.slots.head.token, 'dancer.xrobot', TestScripts.DANCER, false)
 			Thread.sleep(2000)
-			gameServer.register(gameServer.slots.last.token, 'idle.xrobot', TestScripts.IDLE, false)
+			gameServer.register(gameServer.slots.last.token, 'idle.xrobot', TestScripts.PINGPONG, false)
 		}			
 	}
 	
