@@ -35,7 +35,9 @@ class BrickConnector {
 	 * Entry method of the application.
 	 */
 	def static void main(String[] args) {
-		new BrickConnector(new Robot(BrickFinder.getLocal)).run
+		val robot = new Robot(BrickFinder.getLocal)
+		robot.led = ORANGE
+		new BrickConnector(robot).run
 	}
 
 	/**
@@ -43,7 +45,6 @@ class BrickConnector {
 	 */
 	new(Robot robot) {
 		this.robot = robot
-		robot.led = ORANGE
 		try {
 			server = ServerSocketChannel.open
 			server.configureBlocking(false)
@@ -63,7 +64,7 @@ class BrickConnector {
 	 * Connect to the server via a socket channel.
 	 */
 	private def connect() {
-		robot.led = ORANGE_BLINK
+		robot.led = GREEN_BLINK
 		isStopped = false
 		while (!isStopped) {
 			LOG.debug('Accepting connections...')
