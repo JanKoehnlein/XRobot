@@ -69,7 +69,7 @@
 }
 
 .countdown {
-	-fx-font-size: 120pt;
+	-fx-font-size: 110pt;
 }
 
 .energy-bar {
@@ -82,7 +82,7 @@
 }
 
 .logo-big {
-	-fx-font-size: 150pt;
+	-fx-font-size: 130pt;
 }
 
 .token {
