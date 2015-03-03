@@ -9,6 +9,7 @@
 package org.xtext.xrobot.game.display
 
 import com.google.inject.Inject
+import javafx.animation.Animation
 import javafx.animation.FadeTransition
 import javafx.animation.Interpolator
 import javafx.animation.ParallelTransition
@@ -16,10 +17,12 @@ import javafx.animation.RotateTransition
 import javafx.animation.ScaleTransition
 import javafx.animation.SequentialTransition
 import javafx.geometry.Point3D
+import javafx.geometry.Pos
 import javafx.scene.control.Label
 import javafx.scene.control.OverrunStyle
 import javafx.scene.effect.InnerShadow
 import javafx.scene.layout.StackPane
+import javafx.scene.layout.VBox
 import javafx.scene.paint.Color
 
 import static extension javafx.util.Duration.*
@@ -28,23 +31,38 @@ class IdleProgram extends StackPane {
 
 	@Inject HallOfFameTable hallOfFameTable
 
-	Label logo = new Label('XRobots')
+	val logo = new VBox
 
 	SequentialTransition animation
 
 	def init() {
 		if (children.empty) {
-			children += hallOfFameTable
 			children += logo => [
 				setMaxSize(USE_PREF_SIZE, USE_PREF_SIZE)
-				styleClass += #['logo', 'logo-big']
-				textOverrun = OverrunStyle.CLIP
 				opacity = 0
-				effect = new InnerShadow => [
-					color = Color.RED
-					width = 20
-					height = 20
+				alignment = Pos.CENTER
+				spacing = 30
+				children += new Label('XRobots') => [
+					styleClass += #['logo', 'logo-big']
+					textOverrun = OverrunStyle.CLIP
+					effect = new InnerShadow => [
+						color = Color.RED
+						width = 20
+						height = 20
+					]
 				]
+				children += new Label('powered by Xtext') => [
+					styleClass += #['poweredby']
+					textFill = Color.RED
+					effect = new InnerShadow => [
+						color = Color.YELLOW
+						width = 20
+						height = 20
+					]
+				]
+			]
+			children += hallOfFameTable => [
+				opacity = 0
 			]
 		}
 	}
@@ -67,7 +85,6 @@ class IdleProgram extends StackPane {
 
 	private def createAnimation() {
 		new SequentialTransition => [
-			children += hallOfFameTable.animation
 			children += new ParallelTransition => [
 				children += new RotateTransition => [
 					axis = new Point3D(1, 1, 1)
@@ -94,7 +111,8 @@ class IdleProgram extends StackPane {
 				delay = 5.seconds
 				duration = 100.millis
 			]
-			cycleCount = -1
+			children += hallOfFameTable.animation
+			cycleCount = Animation.INDEFINITE
 		]
 	}
 

@@ -72,6 +72,10 @@
 	-fx-font-size: 86pt;
 }
 
+.poweredby {
+	-fx-font-size: 45pt;
+}
+
 .energy-bar {
 	-fx-arc-width: 12;
 	-fx-arc-height: 12;

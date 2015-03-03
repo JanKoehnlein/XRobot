@@ -111,6 +111,11 @@ class Display implements IErrorReporter, ITimeListener {
 						spacing = 5
 						children += new ImageView => [
 							image = new Image(IdleProgram.getResourceAsStream('/qrcode.jpg'))
+							fitWidth = image.width * 0.0002604 * screenBounds.width
+							fitHeight = image.height * 0.0004630 * screenBounds.height
+						]
+						children += new ImageView => [
+							image = new Image(IdleProgram.getResourceAsStream('/itemis.png'))
 							fitWidth = image.width * 0.0003472 * screenBounds.width
 							fitHeight = image.height * 0.0006173 * screenBounds.height
 						]
@@ -180,9 +185,9 @@ class Display implements IErrorReporter, ITimeListener {
 	def countdown() {
 		val label = new Label('Ready') => [
 			styleClass += 'countdown'
-			textFill = Color.YELLOW
+			textFill = Color.RED
 			effect = new InnerShadow => [
-				color = Color.RED
+				color = Color.YELLOW
 				width = 20
 				height = 20
 			]
