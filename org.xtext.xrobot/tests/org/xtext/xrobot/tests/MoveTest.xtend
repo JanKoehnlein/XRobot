@@ -3,7 +3,7 @@ package org.xtext.xrobot.tests
 import lejos.hardware.BrickFinder
 import org.xtext.xrobot.Robot
 
-class WeaponTest {
+class MoveTest {
 	def static void main(String[] args) {
 		val robot = new Robot(BrickFinder.getDefault)
 		robot.drivingSpeed = robot.maxDrivingSpeed
