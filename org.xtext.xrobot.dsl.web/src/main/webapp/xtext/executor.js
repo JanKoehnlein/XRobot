@@ -1,27 +1,31 @@
-define("xtext/executor", ["xtext/services/AbstractXtextService"], function(AbstractXtextService) {
+define("xtext/executor", ["jquery"], function(jQuery) {
 	function Executor() {
-		var resourceUri = document.getElementById("uri").value;
-		this.initialize(serverUrl, resourceUri, "execute");
 	}
-	Executor.prototype = new AbstractXtextService();
-	Executor.prototype.execute = function() {
-		var token = document.getElementById("tokentext").value;
-		
-		var serverData = {
-			uri : uri,
-			token : token
-		};
-		this.sendRequest(editorContext, {
-			type : "POST",
-			data : serverData,
-			success : function(result) {
-				if (result) {
-					$("#tokenstatus").text(result.output);
-				} else {
-					$("#tokenstatus").text("Success");
+	
+	Executor.prototype = {
+		execute : function(token) {
+			var resourceUri = document.getElementById("uri").value;
+			var serverData = {
+				resource : resourceUri,
+				token : token
+			};
+			var settings = {
+				type : "POST",
+				async : true,
+				dataType : "json",
+				data : serverData,
+				success : function(result) {
+					if (result) {
+						$("#tokenstatus").text(result.output);
+					} else {
+						$("#tokenstatus").text("Success");
+					}
 				}
-			}
-		});
+			};
+			var requestUrl = "http://" + location.host + "/xtext-service/execute";
+			jQuery.ajax(requestUrl, settings);
+		}
 	};
+	
 	return Executor;
 });

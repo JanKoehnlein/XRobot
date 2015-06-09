@@ -76,7 +76,7 @@ require(["xtext/executor"], function(Executor){
 	var code = document.getElementById("sourceCode");
 	var executor = new Executor();
 	document.getElementById("send").onclick = function() {
-		executor.execute(document.getElementById("token").value);
+		executor.execute(document.getElementById("tokentext").value);
 	};
 	$("#tokentext").keyup(function(event){
 	    if(event.keyCode == 13)

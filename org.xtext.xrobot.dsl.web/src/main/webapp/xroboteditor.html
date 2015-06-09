@@ -28,7 +28,6 @@
 <body class="claro">
 	<div class="body-wrapper">
 		<input type="hidden" id="uri" value=""></input>
-		<input type="hidden" id="sourceCode" value=""></input>
 
 		<div class="toolbar">
 			<div class="toolbar-wrapper">
@@ -47,7 +46,7 @@
 			<div id="jqxSplitter">
 				<div id="xtext-editor"></div>
 				<div id="jqxWidget">
-					<div id='jqxTabs'>
+					<div id="jqxTabs">
 						<ul>
 							<li style="margin-left: 30px;">Welcome</li>
 							<li>Documentation</li>
@@ -60,7 +59,7 @@
 							<iframe id="documentation" src="documentation.html"  height="100%" width="100%"></iframe>
 						</div>
 						<div class="noscroll">
-							<iframe id="javadoc" src="" height="100%" width="100%"></iframe>
+							<iframe id="javadoc" src="doc/index.html" height="100%" width="100%"></iframe>
 						</div>
 					</div>
 				</div>
@@ -68,21 +67,16 @@
 		</div>
 		
 	</div>
-	<div id="contentassist" class="contentassist"></div>
-	<script type="text/javascript">
-		var query = window.location.search.substring(1);
-		document.getElementById("uri").setAttribute("value", query)
-		document.getElementById("javadoc").setAttribute("src", "http://" + location.host + "/doc/index.html")
-	</script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#jqxSplitter').jqxSplitter({
-				width: '100%',
-				height: '100%',
-				splitBarSize: 15,
-				panels: [{ size: '50%' }, { size: '50%' }]
-			});
-            $('#jqxTabs').jqxTabs({ height: '100%', position: 'top',  selectionTracker: true, animationType: 'fade'});
+</body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#jqxSplitter').jqxSplitter({
+			width: '100%',
+			height: '100%',
+			splitBarSize: 15,
+			panels: [{ size: '50%' }, { size: '50%' }]
 		});
-	</script>
+        $('#jqxTabs').jqxTabs({ height: '100%', position: 'top',  selectionTracker: true, animationType: 'fade'});
+	});
+</script>
 </html>
