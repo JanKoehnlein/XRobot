@@ -15,6 +15,7 @@ import org.eclipse.xtext.xtype.XImportSection;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getImports <em>Imports</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getName <em>Name</em>}</li>
@@ -23,7 +24,6 @@ import org.eclipse.xtext.xtype.XImportSection;
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getVariables <em>Variables</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Program#getModes <em>Modes</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getProgram()
  * @model

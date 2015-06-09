@@ -1,0 +1,57 @@
+plugins {
+	id 'org.xtend.xtend' version '0.4.7'
+	id 'eclipse'
+	id 'war'
+}
+
+sourceSets.main.xtendOutputDir = 'src/main/xtend-gen'
+
+dependencies {
+	compile group: 'org.eclipse.xtend', name: 'org.eclipse.xtend.lib', version: '2.9.0-SNAPSHOT'
+	compile group: 'org.eclipse.xtext', name: 'org.eclipse.xtext.web.servlet', version: '2.9.0-SNAPSHOT'
+	compile group: 'org.eclipse.xtext', name: 'org.eclipse.xtext.xbase.web', version: '2.9.0-SNAPSHOT'
+	compile project(':org.xtext.xrobot.dsl')
+	compile project(':org.xtext.xrobot.dsl.ide')
+	compile group: 'org.webjars', name: 'requirejs', version: '2.1.17'
+	compile group: 'org.webjars', name: 'requirejs-text', version: '2.0.10-3'
+	compile group: 'org.webjars', name: 'jquery', version: '2.1.4'
+	compile group: 'org.webjars', name: 'jquery-colorbox', version: '1.5.14'
+	compile group: 'org.webjars', name: 'jqwidgets', version: '3.8.0'
+	providedCompile group: 'org.eclipse.jetty', name: 'jetty-annotations', version: '9.2.+'
+	providedCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.+'
+}
+
+task jettyRun(type:JavaExec) {
+	dependsOn(sourceSets.main.runtimeClasspath)
+	classpath = sourceSets.main.runtimeClasspath.filter{it.exists()}
+	main = "org.xtext.xrobot.dsl.web.ServerLauncher"
+	standardInput = System.in
+}
+
+allprojects {
+	repositories {
+		jcenter()
+		maven {
+			url "https://oss.sonatype.org/content/repositories/snapshots/"
+		}
+	}
+}
+
+subprojects {
+	apply plugin: 'java'
+	sourceSets.main.java.srcDirs = ['src', 'src-gen', 'xtend-gen']
+	sourceSets.main.resources.srcDirs = ['src', 'src-gen']
+}
+
+configure(project(':org.xtext.xrobot.dsl')) {
+	dependencies {
+		compile group: 'org.eclipse.xtext', name: 'org.eclipse.xtext.common.types', version: '2.9.0-SNAPSHOT'
+	}
+}
+
+configure(project(':org.xtext.xrobot.dsl.ide')) {
+	dependencies { 
+		compile project(':org.xtext.xrobot.dsl')
+		compile group: 'org.eclipse.xtext', name: 'org.eclipse.xtext.ide', version: '2.9.0-SNAPSHOT' 
+	}
+}

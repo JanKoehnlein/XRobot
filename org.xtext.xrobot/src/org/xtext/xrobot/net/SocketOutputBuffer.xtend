@@ -58,4 +58,9 @@ class SocketOutputBuffer {
 		buffer.putInt(bytes.length)
 		buffer.put(bytes)
 	}
+	
+	private static def setLimit(ByteBuffer b, int x) {
+		b.limit(x)
+	}
+	
 }

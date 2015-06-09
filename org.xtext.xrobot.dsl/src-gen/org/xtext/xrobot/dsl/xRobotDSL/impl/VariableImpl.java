@@ -24,12 +24,12 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.VariableImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.VariableImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.VariableImpl#getInitializer <em>Initializer</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

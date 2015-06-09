@@ -1,0 +1,107 @@
+@import "orion/editor/editor.css";
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font: 12px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
+}
+
+.body-wrapper {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.toolbar {
+	display: table-row;
+	background: -webkit-linear-gradient(#cfcfcf, #ababab);
+	background: -o-linear-gradient(#cfcfcf, #ababab);
+	background: -moz-linear-gradient(#cfcfcf, #ababab);
+	background: linear-gradient(#cfcfcf, #ababab);
+}
+
+.content {
+    display: table-row;
+    height: 100%;
+}
+
+.toolbar-wrapper {
+	display: table;
+	padding: 4px 20px 4px 20px;
+	border-bottom: solid 2px #515151;
+}
+
+.toolbar-row {
+	display: table-row;
+}
+
+.toolbar-item {
+	display: table-cell;
+	padding-right: 10px;
+	white-space: nowrap;
+}
+
+.toolbar-stretch {
+	display: table-cell;
+	width: 100%;
+}
+
+a {
+	cursor: hand;
+	text-decoration: none;
+	color: #ffffff;
+}
+
+a:hover {
+	cursor: hand;
+	text-decoration: underline;
+	color: #ffffff;
+}
+
+.noscroll {
+	overflow: hidden;
+}
+
+.contentassist {
+	display: none;
+	background-color: #ffffff;
+	padding: 2px;
+	position: fixed;
+	top: 100px;
+	left: 100px;
+	border: 1px solid #cccccc;
+	z-index:10;
+	cursor: default;
+	overflow: auto;
+	height: 150px;
+	width: 200px;
+}
+
+.contentassist .selected {
+	background-color: #dddddd;
+}
+
+button {
+	font-weight: bold;
+	color: white;
+	width: 100px;
+	height: 30px;
+	border: 2px solid;
+	border-radius: 25px;
+}
+
+img.inline {
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+#save {
+	background: green;
+}
+
+#execute {
+	background: black;
+}

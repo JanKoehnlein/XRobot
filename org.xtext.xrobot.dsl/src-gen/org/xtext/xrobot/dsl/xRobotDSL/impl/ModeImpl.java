@@ -22,13 +22,13 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl#getAction <em>Action</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ModeImpl#getWhenLeft <em>When Left</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

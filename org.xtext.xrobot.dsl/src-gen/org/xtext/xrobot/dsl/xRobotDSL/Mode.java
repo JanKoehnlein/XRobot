@@ -13,13 +13,13 @@ import org.eclipse.xtext.xbase.XExpression;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getAction <em>Action</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Mode#getWhenLeft <em>When Left</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getMode()
  * @model

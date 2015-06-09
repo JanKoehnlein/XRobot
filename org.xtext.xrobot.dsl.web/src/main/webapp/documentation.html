@@ -1,0 +1,205 @@
+<html> 
+<head>
+<link rel="stylesheet" type="text/css" href="doc/stylesheet.css" title="Style">
+</head>
+<body style="font-size:100%;">
+<div class="contentContainer">
+
+<h1>XRobots</h1>
+XRobots is a game for two players. Each player writes a program to 
+control a robot in a sumo fight. The goal is to push the opponent off 
+the arena or turn it over. Robots can move, rotate, and lift their front 
+scoop. The game finishes as a draw after 45 seconds.
+<p>
+You can create your own program using this web editor. In order to prove 
+it in a real fight, you need an access token from the itemis booth.
+Click <em>execute</em> and enter one of the tokens shown on the screen at
+the booth.</p>
+<p>
+Each new script gets a unique ID which is coded in the URL of the 
+editor. If you want to access your script again later, we suggest you 
+save it to our server and add a bookmark in your browser.
+The same ID is also used internally to identify robots in the Hall Of Fame
+shown at the booth.</p>
+
+<h2>The Scripting Language</h2>
+XRobots are programmed with a scripting language that is similar to Java. A 
+script is built from the following elements.
+<dl>
+	<dt><b>Header</b></dt>
+	<dd>The header defines import statements (similar to Java), the 
+	robot's name, and an author name.
+	<p>Example:
+	<pre>
+robot 'Mr Roboto'
+author Styx
+	</pre></p>
+	</dd>
+	
+	<dt><b>Modes</b></dt>
+	<dd>A mode defines a type of behavior for your robot. It has a name, 
+	an optional trigger condition after the <code>on</code> keyword, a body 
+	describing the actions, and an optional <code>when left</code> action.
+	If the condition is omitted, it is regarded as <em>always true</em>.
+	The <code>when left</code> action is executed when the mode is left
+	and another mode is activated.
+	<p>Example:
+	<pre>
+Aim on abs(opponentBearing.angle) > 20 {
+    rotationSpeed = maxRotationSpeed / 2
+    rotate(opponentBearing.angle)
+} when left {
+    say('leaving')
+}
+	</pre></p>
+	</dd>
+	
+	<dt><b>Variables</b></dt>
+	<dd>Global variables can be defined with the <code>var</code> keyword.
+	The type can be omitted if it can be inferred from the initializer expression.
+	<p>Example:
+	<pre>
+var isFirstMove = true
+	</pre></p>
+	</dd>
+
+	<dt><b>Functions</b></dt>
+	<dd>Additional functions can be defined with the <code>def</code> keyword.
+	The return type can be omitted if it can be inferred from the function body.
+	<p>Example:
+	<pre>
+def doAttack(double throttle) {
+    drivingSpeed = throttle * maxDrivingSpeed
+    if (abs(opponentBearing.angle) <= 90)
+        driveForward
+    else
+        driveBackward
+}
+	</pre></p>
+	</dd>
+</dl>
+
+<h3>Expressions</h3> 
+All conditions and bodies are defined using the expression language <em>Xbase</em>.
+It is the same that is used in <a href="http://www.eclipse.org/xtend/" target="_blank">Xtend</a>
+and it is similar to  Java,
+e.g. you can use <code>if</code>, <code>while</code>, <code>for</code>, etc.
+The main differences to Java are the following.
+<ul>
+	<li>Local variables must be defined using the keywords 
+	<code>val</code> (final) or <code>var</code> (non-final).
+	<p>Example:
+	<pre>
+val myList = &lt;String&gt;newArrayList
+myList.add('Hello')
+	</pre></p>
+	</li>
+	
+	<li>Getters and setters can be called as if the underlying fields were public.
+	<p>Example: The following two statements are equivalent.
+	<pre>
+setDrivingSpeed(getMaxDrivingSpeed())
+drivingSpeed = maxDrivingSpeed
+	</pre></p>
+	</li>
+	
+	<li>Methods can be called as if they were defined on the type of the first
+	argument. For method calls without arguments the parentheses can be omitted.
+	<p>Example: The following two expressions are equivalent.
+	<pre>
+abs(opponentBearing.angle)
+opponentBearing.angle.abs
+	</pre></p>
+	</li>
+
+	<li>Types can be omitted if they can be inferred from the context.</li>
+	
+	<li>Semicolons are optional.</li>
+</ul>
+See the <a href="http://www.eclipse.org/xtend/documentation.html#Xtend_Expressions" target="_blank">
+documentation on Xtend expressions</a> for more details.
+
+<p>The variable <code>this</code> always points to an instance of 
+IRobot (see JavaDoc), which has methods to issue commands and access the robot's state 
+as well as its opponent's position and defines a bunch of constants 
+defining the geometries of the robots and the arena.
+</p>
+
+<h3>Execution Model</h3>
+The interface IRobot defines blocking and non-blocking commands. 
+<em>Blocking commands</em> are supplied with a target state, e.g. 
+<code>rotate(10)</code>. They do not return until this state is 
+reached. Use a sequence of blocking commands to define complex moves. 
+On the other hand, <em>non-blocking commands</em> just start a movement, 
+e.g. <code>rotateLeft</code>. They return immediately and the movement
+continues until another movement command is executed. Use non-blocking commands to 
+overlay moves, e.g. lift the scoop while rotating, and to avoid delays
+between moves.
+<p>
+Only one mode can be executed at a time. A background job continuously
+polls the conditions of all modes in the order they are defined. The
+first mode where the condition holds becomes the new mode, so modes defined
+earlier in your code have higher priority. If the new mode is the same as
+the currently executing mode, the execution is continued. 
+If it is different, the current mode is canceled and the new mode is 
+started. This means that as long as the condition of a mode remains true,
+its code block is repeated as if it was in a <code>while (true)</code> loop.</p>
+<p>
+The state (position, opponent position, sensor data, etc.) of a robot inside
+a mode is the same state that was sampled when that mode was started.
+It is not updated inside the mode unless you explicitly call <code>update</code>.
+For instance, in the following example the <code>update</code> command is
+used to get fresh positioning data inside a mode execution:
+<pre>
+PreciseAttack {
+    while (abs(opponentBearing.angle) > 5) {
+        rotate(opponentBearing.angle)
+        update
+    }
+    driveForward
+}
+</pre></p>
+<p>
+When a mode is canceled it no longer issues new commands. If it defines a
+<code>when left</code> block, that block is executed before the new mode
+is started. If a mode is canceled while it is executing a blocking command,
+that command continues until the next movement command is issued
+(either in the <code>when left</code> block or by the new mode) or the target
+state of the command is reached. Non-blocking commands continue until the next
+movement or <code>stop</code> command anyway. The <code>when left</code> block
+of a mode is also executed if the mode finishes its execution (without being
+canceled) and then another mode is activated.</p>
+<p>
+Be careful not to put long-running code into initializers of global variables,
+mode conditions, or <code>when left</code> blocks. Long-running code in a global
+variable initializer will delay the execution of the whole rest of your code.
+Long-running code in a mode condition will delay the condition checking loop,
+so your robot will react very slowly to changed conditions. Long-running code
+in a <code>when left</code> block will delay the execution of the freshly
+activated mode, again making the robot slow.</p>
+
+<h3>Units and Ranges</h3>
+Distances and positions are always given in centimeters. The coordinate system
+has its origin in the center of the arena. The x-axis points to the right, the 
+y-axis points up.
+<p>
+The arena is bounded by a thick black circle.
+If your robot drives onto that circle you lose. The distance from the center
+of the arena to the black line is given by the constant
+<code>ARENA_INNER_RADIUS</code>.</p>
+<p>
+Angles are always given in degrees. For absolute angles (e.g.
+<code>ownPosition.viewDirection</code>) 0&deg; denotes the positive direction
+on the x-axis. Increasing the angle corresponds to a counter-clockwise rotation,
+i.e. 90&deg; is the positive direction on the y-axis.
+Angles returned by the API are always in the range of -180&deg; to 180&deg;
+to minimize robot rotation. You can use the utility function <code>
+minimizeAngle(angle)</code> to translate a given angle into this range.</p>
+<p>
+More details on available commands, parameters and return values, and their
+units and ranges are found on the JavaDoc page.
+</p>
+</div>
+
+</body>
+</html>

@@ -32,13 +32,13 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FunctionImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FunctionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FunctionImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.FunctionImpl#getBody <em>Body</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

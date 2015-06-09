@@ -1,0 +1,5 @@
+bin/
+.gradle/
+.classpath
+*.xtendbin
+*._trace

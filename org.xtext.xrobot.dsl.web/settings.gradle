@@ -1,0 +1,2 @@
+includeFlat 'org.xtext.xrobot.dsl'
+includeFlat 'org.xtext.xrobot.dsl.ide'

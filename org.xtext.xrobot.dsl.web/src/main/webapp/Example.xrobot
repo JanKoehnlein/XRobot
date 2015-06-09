@@ -1,0 +1,35 @@
+// An example XRobots script.
+robot 'Mr Roboto'
+author Styx
+
+// Variables are defined like this:
+var isFirstMove = true
+
+// Modes define sequences of behavior which are triggered when the 'on' 
+// condition holds.
+OpeningMove on isFirstMove {
+	// 'this' always points to your IRobot. It can be skipped as in Java.
+	/*this.*/curveForward(10, 180)
+	isFirstMove = false
+}
+
+// This mode moves your robot towards the opponent.
+Approach on opponentBearing.length > ROBOT_LENGTH + 5
+		|| opponentBearing.angle.abs > 45 {
+	drivingSpeed = 0.6 * maxDrivingSpeed
+	// Use blocking commands for sequences of moves.
+	rotate(opponentBearing.angle)
+	drive(opponentBearing.length - ROBOT_LENGTH)
+}
+
+Rock {
+	say('Domo arigato')
+	// Use non-blocking commands to overlay moves.
+	rotateLeft
+	scoop(1)
+	rotateRight
+	scoop(0)
+} when left { 
+	// You can define some cleanup to execute when the mode is left.
+	scoop(0)
+}

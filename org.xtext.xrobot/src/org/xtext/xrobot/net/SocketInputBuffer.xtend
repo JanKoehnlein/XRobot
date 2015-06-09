@@ -71,4 +71,9 @@ class SocketInputBuffer {
 	def available() {
 		buffer.limit - buffer.position
 	}
+	
+	private static def setLimit(ByteBuffer b, int x) {
+		b.limit(x)
+	}
+	
 }

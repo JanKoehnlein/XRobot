@@ -15,12 +15,12 @@ import org.eclipse.xtext.xbase.XExpression;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Variable#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Variable#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Variable#getInitializer <em>Initializer</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getVariable()
  * @model

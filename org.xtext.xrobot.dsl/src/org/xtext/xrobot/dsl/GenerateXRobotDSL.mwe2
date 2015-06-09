@@ -18,6 +18,7 @@ var projectName = "org.xtext.xrobot.dsl"
 var runtimeProject = "../${projectName}"
 var generateXtendStub = true
 var encoding = "UTF-8"
+var javaScriptPath = "../org.xtext.xrobot.dsl.web/src/main/webapp/xtext"
 
 Workflow {
     bean = StandaloneSetup {
@@ -36,6 +37,10 @@ Workflow {
     	directory = "${runtimeProject}/model/generated"
     }
     
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}.ide/src-gen"
+	}
+    
     component = DirectoryCleaner {
     	directory = "${runtimeProject}.ui/src-gen"
     }
@@ -46,9 +51,11 @@ Workflow {
     
     component = Generator {
     	pathRtProject = runtimeProject
+		pathIdeProject = "${runtimeProject}.ide"
     	pathUiProject = "${runtimeProject}.ui"
     	pathTestProject = "${runtimeProject}.tests"
     	projectNameRt = projectName
+		projectNameIde = "${projectName}.ide"
     	projectNameUi = "${projectName}.ui"
     	encoding = encoding
     	language = auto-inject {
@@ -135,6 +142,11 @@ Workflow {
     
     		// provides a compare view
     		fragment = compare.CompareFragment auto-inject {}
+    		
+			// JavaScript-based syntax highlighting
+			fragment = org.eclipse.xtext.web.generator.OrionHighlightingFragment auto-inject {
+				javaScriptPath = javaScriptPath
+			}
     	}
     }
 }

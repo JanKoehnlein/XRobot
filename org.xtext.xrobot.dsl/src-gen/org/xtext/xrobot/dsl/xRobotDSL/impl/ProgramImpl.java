@@ -32,6 +32,7 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getName <em>Name</em>}</li>
@@ -40,7 +41,6 @@ import org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage;
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.impl.ProgramImpl#getModes <em>Modes</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.xrobot.dsl.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.xrobot.dsl.ide;singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.xtext.xrobot.dsl,
+ org.eclipse.xtext.ide;visibility:=reexport
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.xtext.xrobot.dsl.ide.contentassist.antlr,
+ org.xtext.xrobot.dsl.ide.contentassist.antlr.internal

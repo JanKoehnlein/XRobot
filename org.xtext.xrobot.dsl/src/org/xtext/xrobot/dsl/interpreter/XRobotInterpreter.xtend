@@ -352,13 +352,13 @@ class XRobotInterpreter extends XbaseInterpreter {
 			super.featureCallField(jvmField, receiver)
 	}
 
-	override protected _assigneValueTo(JvmField jvmField, XAbstractFeatureCall assignment, Object value, IEvaluationContext context, CancelIndicator indicator) {
+	override protected _assignValueTo(JvmField jvmField, XAbstractFeatureCall assignment, Object value, IEvaluationContext context, CancelIndicator indicator) {
 		val variable = jvmField.sourceElements.head
 		if (variable instanceof Variable) {
 			context.assignValue(QualifiedName.create(variable.name), value)
 			listeners.forEach[variableChanged(variable.name, value)]
 		} else {
-			super._assigneValueTo(jvmField, assignment, value, context, indicator)
+			super._assignValueTo(jvmField, assignment, value, context, indicator)
 		}
 		value 
 	}

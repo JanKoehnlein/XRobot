@@ -18,13 +18,13 @@ import org.eclipse.xtext.xbase.XExpression;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Function#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Function#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Function#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.xtext.xrobot.dsl.xRobotDSL.Function#getBody <em>Body</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.xrobot.dsl.xRobotDSL.XRobotDSLPackage#getFunction()
  * @model

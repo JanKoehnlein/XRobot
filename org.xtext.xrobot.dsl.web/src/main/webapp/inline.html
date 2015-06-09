@@ -1,0 +1,89 @@
+<!doctype html>
+<html style="height: 100%;">
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<style type="text/css">
+
+#top {
+	font: 18px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
+	text-align: center;
+}
+#second {
+	font: 18px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
+	text-align: center;
+}
+#tokentext {
+	text-align:center;
+	font: 18px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
+	size: 100%
+}
+#sendbutton {
+	text-align:center;
+	font: 18px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
+	size: 100%
+}
+#token {
+	text-align:center;
+	font: 18px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
+	size: 100%
+}
+#send {
+	text-align:center;
+	font: 18px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
+	size: 100%
+}
+#statusWrapper {
+	text-align: center;
+	height : 30px;
+}
+#tokenstatus {
+	text-align: center;
+	font: 18px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
+	color: red;
+}
+
+div.spacer {
+	 font-size: 0;
+    height: 10px;
+    line-height: 0;
+}
+</style>
+<script src="webjars/requirejs/2.1.17/require.min.js"></script>
+<script type="text/javascript">
+	require.config({
+		paths: {
+			"text": "webjars/requirejs-text/2.0.10-3/text",
+			"jquery": "webjars/jquery/2.1.4/jquery.min"
+		}
+	});
+</script>
+</head>
+<body>
+
+	<div id="top">Enter Access Token</div>
+	<div id="second">You will find it at the itemis booth.</div>
+	<div class = "spacer"></div>
+	<div id="token"><input id="tokentext" type="text" value="ABCD" autocomplete="off"></div>
+	<div class = "spacer"></div>
+	<div id="send"><button id="sendbutton">Request Token</button></div>
+	<div class = "spacer"></div>
+	<div id="statusWrapper"><span id="tokenstatus"></span></div>
+
+</body>
+<script type="text/javascript">
+require(["xtext/executor"], function(Executor){
+	var code = document.getElementById("sourceCode");
+	var executor = new Executor();
+	document.getElementById("send").onclick = function() {
+		executor.execute(document.getElementById("token").value);
+	};
+	$("#tokentext").keyup(function(event){
+	    if(event.keyCode == 13)
+	        $("#send").click();
+	    else
+	    	$("#tokenstatus").text("");
+	});
+});
+</script>
+</html>

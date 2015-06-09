@@ -1,0 +1,79 @@
+/* page styles */
+
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('entrypage/league_gothic-webfont.eot');
+    src: url('entrypage/league_gothic-webfont.eot?iefix') format('eot'),
+         url('entrypage/league_gothic-webfont.woff') format('woff'),
+         url('entrypage/league_gothic-webfont.ttf') format('truetype'),
+         url('entrypage/league_gothic-webfont.svg#webfontIQSKTUY8') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+	font: 11px/15px 'Lucida Grande', sans-serif;
+	background: #eaeaea url(entrypage/body.gif);
+	width: 1000px;
+	margin: 100px auto;
+}
+
+p {
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a:link, a:visited {
+	color: #555;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: #0080ff;
+}
+
+/* button styles */
+
+div.button {
+	margin-bottom: 10px;
+	border-radius: 20px;
+	background-clip: padding-box;
+	padding: 30px;
+	text-align: center;
+	position: relative;
+	background-image: url(entrypage/round.png);
+
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+a.round:link, a.round:visited {
+	width: 140px;
+	color: #fff;
+	font: 28px/30px LeagueGothicRegular;
+	text-transform: uppercase;
+	text-shadow: #6f0909 0 -1px 1px;
+	border: 1px solid #6F0909;
+	display: inline-block;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	border-radius: 70px;
+	box-shadow: inset rgba(255,255,255,.8) 0 2px 4px;
+	background: linear-gradient(top, rgba(180,9,9,1) 0%,rgba(111,9,9,1) 100%);
+	background-clip: padding-box;
+	transform: rotate(-12deg);
+}
+
+a.round:hover {
+	box-shadow: rgba(255,255,255,1) 0 0 20px, rgba(255,255,255,1) 0 0 30px, inset rgba(255,255,255,.8) 0 2px 4px;
+	transform: rotate(0deg);
+	transition: transform 0.3s ease-out;
+	}
+
+a.round:active {
+	box-shadow: rgba(255,255,255,1) 0 0 20px, rgba(255,255,255,1) 0 0 30px , inset rgba(0,0,0,.5) 0 4px 4px;
+	background: linear-gradient(top, rgba(111,9,9,1) 0%,rgba(180,9,9,1) 100%);
+	background-clip: padding-box;
+}
