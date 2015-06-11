@@ -4,7 +4,6 @@
 <meta http-equiv="Content-Language" content="en-us">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style type="text/css">
-
 #top {
 	font: 18px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
 	text-align: center;
@@ -42,7 +41,6 @@
 	font: 18px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
 	color: red;
 }
-
 div.spacer {
 	 font-size: 0;
     height: 10px;
@@ -56,6 +54,18 @@ div.spacer {
 			"text": "webjars/requirejs-text/2.0.10-3/text",
 			"jquery": "webjars/jquery/2.1.4/jquery.min"
 		}
+	});
+	require(["xtext/executor"], function(Executor){
+		var executor = new Executor();
+		document.getElementById("sendbutton").onclick = function() {
+			executor.execute(document.getElementById("tokentext").value, window.resourceId);
+		};
+		$("#tokentext").keyup(function(event){
+		    if(event.keyCode == 13)
+		        $("#sendbutton").click();
+		    else
+		    	$("#tokenstatus").text("");
+		});
 	});
 </script>
 </head>
@@ -71,19 +81,4 @@ div.spacer {
 	<div id="statusWrapper"><span id="tokenstatus"></span></div>
 
 </body>
-<script type="text/javascript">
-require(["xtext/executor"], function(Executor){
-	var code = document.getElementById("sourceCode");
-	var executor = new Executor();
-	document.getElementById("send").onclick = function() {
-		executor.execute(document.getElementById("tokentext").value);
-	};
-	$("#tokentext").keyup(function(event){
-	    if(event.keyCode == 13)
-	        $("#send").click();
-	    else
-	    	$("#tokenstatus").text("");
-	});
-});
-</script>
 </html>

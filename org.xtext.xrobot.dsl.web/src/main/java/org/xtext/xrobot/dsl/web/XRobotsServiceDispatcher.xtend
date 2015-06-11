@@ -10,12 +10,13 @@ package org.xtext.xrobot.dsl.web
 import com.google.inject.Inject
 import java.io.File
 import java.io.FileWriter
+import java.io.IOException
 import java.util.Map
-import org.eclipse.xtext.web.server.IServiceResult
 import org.eclipse.xtext.web.server.ISessionStore
 import org.eclipse.xtext.web.server.InvalidRequestException
 import org.eclipse.xtext.web.server.ServiceConflictResult
 import org.eclipse.xtext.web.server.XtextServiceDispatcher
+import org.eclipse.xtext.web.server.model.DocumentStateResult
 import org.eclipse.xtext.web.server.persistence.IResourceBaseProvider
 
 import static org.eclipse.xtext.web.server.InvalidRequestException.Type.*
@@ -45,7 +46,7 @@ class XRobotsServiceDispatcher extends XtextServiceDispatcher {
 					val uri = resourceBaseProvider.getFileURI(resourceId)
 					val file = new File(uri.toFileString)
 					if (file.exists) {
-						return new ServiceConflictResult('The resoruce URI is already reserved.')
+						return new ServiceConflictResult('The resource URI is already reserved.')
 					} else {
 						var FileWriter writer
 						try {
@@ -57,7 +58,10 @@ class XRobotsServiceDispatcher extends XtextServiceDispatcher {
 							if (writer !== null)
 								writer.close()
 						}
-						return new IServiceResult {}
+						val document = getResourceDocument(resourceId, sessionStore, [
+							throw new IOException('Failed to create the script file.')
+						])
+						return new DocumentStateResult(document.stateId)
 					}
 				} catch (Throwable throwable) {
 					handleError(throwable)
@@ -68,15 +72,25 @@ class XRobotsServiceDispatcher extends XtextServiceDispatcher {
 	}
 	
 	protected def getExecuteService(Map<String, String> parameters, ISessionStore sessionStore) throws InvalidRequestException {
+		val document = getDocumentAccess(parameters, sessionStore)
+		val token = parameters.get('token')
+		if (token === null)
+			throw new InvalidRequestException(INVALID_PARAMETERS, 'The parameter \'token\' is required.')
+		val address = parameters.get('remoteAddr')
+		if (address === null)
+			throw new AssertionError
 		new ServiceDescriptor => [
 			service = [
 				try {
-					
+					document.readOnly([ it, cancelIndicator |
+						ScriptProviderServlet.tokenStore.add(text, resourceId, token, address)
+					])
 				} catch (Throwable throwable) {
 					handleError(throwable)
 				}
 			]
 			hasSideEffects = true
+			hasTextInput = parameters.containsKey('fullText')
 		]
 	}
 	

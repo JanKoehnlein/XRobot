@@ -3,11 +3,10 @@ define("xtext/executor", ["jquery"], function(jQuery) {
 	}
 	
 	Executor.prototype = {
-		execute : function(token) {
-			var resourceUri = document.getElementById("uri").value;
+		execute : function(token, resourceId) {
 			var serverData = {
-				resource : resourceUri,
-				token : token
+				token : token,
+				resource : resourceId
 			};
 			var settings = {
 				type : "POST",

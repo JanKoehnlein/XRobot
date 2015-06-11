@@ -5,20 +5,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>XRobots</title>
 <link rel="stylesheet" type="text/css" href="webjars/jqwidgets/3.8.0/styles/jqx.base.css" />
+<link rel="stylesheet" type="text/css" href="colorbox.css" />
 <link rel="stylesheet" type="text/css" href="xtext/2.9.0-SNAPSHOT/xtext-orion.css" />
 <link rel="stylesheet" type="text/css" href="embeddededitor.css" />
 <script src="webjars/requirejs/2.1.17/require.min.js"></script>
-<script type="text/javascript" src="webjars/jqwidgets/3.8.0/jqxcore.js"></script>
-<script type="text/javascript" src="webjars/jqwidgets/3.8.0/jqxbuttons.js"></script>
-<script type="text/javascript" src="webjars/jqwidgets/3.8.0/jqxsplitter.js"></script>
-<script type="text/javascript" src="webjars/jqwidgets/3.8.0/jqxtabs.js"></script>
-<script type="text/javascript" src="webjars/jqwidgets/3.8.0/jqxcheckbox.js"></script>
 <script type="text/javascript">
 	require.config({
 		paths: {
 			"text": "webjars/requirejs-text/2.0.10-3/text",
 			"jquery": "webjars/jquery/2.1.4/jquery.min",
-			"colorbox" : "webjars/jquery-colorbox/1.5.14/jquery.colorbox-min",
 			"xtext/xtext-orion": "xtext/2.9.0-SNAPSHOT/xtext-orion"
 		}
 	});
@@ -27,7 +22,6 @@
 </head>
 <body class="claro">
 	<div class="body-wrapper">
-		<input type="hidden" id="uri" value=""></input>
 
 		<div class="toolbar">
 			<div class="toolbar-wrapper">
@@ -68,6 +62,13 @@
 		
 	</div>
 </body>
+<script src="webjars/jquery/2.1.4/jquery.min.js"></script>
+<script src="webjars/jquery-colorbox/1.5.14/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="webjars/jqwidgets/3.8.0/jqxcore.js"></script>
+<script type="text/javascript" src="webjars/jqwidgets/3.8.0/jqxbuttons.js"></script>
+<script type="text/javascript" src="webjars/jqwidgets/3.8.0/jqxsplitter.js"></script>
+<script type="text/javascript" src="webjars/jqwidgets/3.8.0/jqxtabs.js"></script>
+<script type="text/javascript" src="webjars/jqwidgets/3.8.0/jqxcheckbox.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#jqxSplitter').jqxSplitter({

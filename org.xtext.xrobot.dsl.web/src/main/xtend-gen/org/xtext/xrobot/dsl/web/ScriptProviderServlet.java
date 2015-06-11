@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +26,7 @@ import org.eclipse.xtext.xbase.lib.util.ToStringBuilder;
 import org.xtext.xrobot.dsl.web.ReservedTokenStore;
 
 @SuppressWarnings("all")
-public class ExecutorServlet extends HttpServlet {
+public class ScriptProviderServlet extends HttpServlet {
   @Data
   public static class QueryByToken {
     private final String[] tokens;
@@ -55,7 +54,7 @@ public class ExecutorServlet extends HttpServlet {
         return false;
       if (getClass() != obj.getClass())
         return false;
-      ExecutorServlet.QueryByToken other = (ExecutorServlet.QueryByToken) obj;
+      ScriptProviderServlet.QueryByToken other = (ScriptProviderServlet.QueryByToken) obj;
       if (this.tokens == null) {
         if (other.tokens != null)
           return false;
@@ -78,11 +77,22 @@ public class ExecutorServlet extends HttpServlet {
     }
   }
   
+  private static ReservedTokenStore reservedTokenStore;
+  
+  public static ReservedTokenStore getTokenStore() {
+    if ((ScriptProviderServlet.reservedTokenStore == null)) {
+      ReservedTokenStore _reservedTokenStore = new ReservedTokenStore();
+      ScriptProviderServlet.reservedTokenStore = _reservedTokenStore;
+    }
+    return ScriptProviderServlet.reservedTokenStore;
+  }
+  
   @Override
-  protected void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
+  public void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
     final Gson gson = new Gson();
-    final String parameter = req.getParameter("info");
-    final ExecutorServlet.QueryByToken queryByToken = gson.<ExecutorServlet.QueryByToken>fromJson(parameter, ExecutorServlet.QueryByToken.class);
+    final String parameter = request.getParameter("info");
+    final ScriptProviderServlet.QueryByToken queryByToken = gson.<ScriptProviderServlet.QueryByToken>fromJson(parameter, ScriptProviderServlet.QueryByToken.class);
+    final ReservedTokenStore store = ScriptProviderServlet.getTokenStore();
     String[] _kens = null;
     if (queryByToken!=null) {
       _kens=queryByToken.tokens;
@@ -92,31 +102,17 @@ public class ExecutorServlet extends HttpServlet {
       final Function1<String, ReservedTokenStore.Entry> _function = new Function1<String, ReservedTokenStore.Entry>() {
         @Override
         public ReservedTokenStore.Entry apply(final String it) {
-          ReservedTokenStore _tokenStore = ExecutorServlet.this.getTokenStore();
-          return _tokenStore.get(it);
+          return store.get(it);
         }
       };
       _map=ListExtensions.<String, ReservedTokenStore.Entry>map(((List<String>)Conversions.doWrapArray(_kens)), _function);
     }
     Iterable<ReservedTokenStore.Entry> _filterNull = IterableExtensions.<ReservedTokenStore.Entry>filterNull(_map);
     final List<ReservedTokenStore.Entry> matches = IterableExtensions.<ReservedTokenStore.Entry>toList(_filterNull);
-    resp.setContentType("text/x-json;charset=UTF-8");
-    resp.setHeader("Cache-Control", "no-cache");
-    resp.setStatus(HttpServletResponse.SC_OK);
-    final String json = gson.toJson(matches);
-    PrintWriter _writer = resp.getWriter();
-    _writer.write(json);
-  }
-  
-  private ReservedTokenStore getTokenStore() {
-    ServletContext _servletContext = this.getServletContext();
-    Object attribute = _servletContext.getAttribute("xrobotTokenStore");
-    if ((!(attribute instanceof ReservedTokenStore))) {
-      ReservedTokenStore _reservedTokenStore = new ReservedTokenStore();
-      attribute = _reservedTokenStore;
-      ServletContext _servletContext_1 = this.getServletContext();
-      _servletContext_1.setAttribute("xrobotTokenStore", attribute);
-    }
-    return ((ReservedTokenStore) attribute);
+    response.setContentType("text/x-json;charset=UTF-8");
+    response.setHeader("Cache-Control", "no-cache");
+    response.setStatus(HttpServletResponse.SC_OK);
+    PrintWriter _writer = response.getWriter();
+    gson.toJson(matches, _writer);
   }
 }

@@ -5,9 +5,9 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-define([ "xtext/xtext-orion" ],
+define([ "xtext/xtext-orion", "jquery" ],
 
-function(xtext) {
+function(xtext, jQuery) {
 	
 	var resourceId = location.search.substring(1);
 	var editor = xtext.createEditor({
@@ -27,17 +27,14 @@ function(xtext) {
 		}
 		if (hasError) {
 			window.alert('The program cannot be executed because it contains errors.');
-			$('#execute').removeClass('cboxElement');
+			jQuery('#execute').removeClass('cboxElement');
 		} else {
-			$('#execute').colorbox({
-				href : "inline.html",
-				onOpen : function() {
-					var text = editor.getTextView().getText();
-					document.getElementById("sourceCode").setAttribute("value", text);
-				},
+			window.resourceId = resourceId;
+			jQuery('#execute').colorbox({
+				href : "execute.html",
 				onComplete : function() {
-					$('#tokentext').focus();
-					$('#tokentext').select();
+					jQuery('#tokentext').focus();
+					jQuery('#tokentext').select();
 				}
 			});
 		}

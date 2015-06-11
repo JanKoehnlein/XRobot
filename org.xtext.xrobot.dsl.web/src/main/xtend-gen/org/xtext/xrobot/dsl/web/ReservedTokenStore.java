@@ -9,11 +9,12 @@ package org.xtext.xrobot.dsl.web;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.HashMultimap;
-import com.google.common.collect.LinkedHashMultimap;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Set;
 import org.eclipse.xtend.lib.annotations.Data;
+import org.eclipse.xtext.web.server.IServiceResult;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -129,7 +130,7 @@ public class ReservedTokenStore {
   }
   
   @Data
-  public static class ExecutorResult {
+  public static class ExecutorResult implements IServiceResult {
     private final String output;
     
     public ExecutorResult(final String output) {
@@ -188,50 +189,62 @@ public class ReservedTokenStore {
   
   private final HashMultimap<String, ReservedTokenStore.Entry> address2entry = HashMultimap.<String, ReservedTokenStore.Entry>create();
   
-  private final LinkedHashMultimap<Long, ReservedTokenStore.Entry> time2entry = LinkedHashMultimap.<Long, ReservedTokenStore.Entry>create();
-  
-  public ReservedTokenStore.ExecutorResult add(final ReservedTokenStore.Entry entry, final String address) {
+  public ReservedTokenStore.ExecutorResult add(final String source, final String uri, final String token, final String address) {
     try {
-      int _length = entry.source.length();
+      int _length = source.length();
       boolean _greaterThan = (_length > ReservedTokenStore.MAX_SCRIPT_SIZE);
       if (_greaterThan) {
         Thread.sleep(50);
         return new ReservedTokenStore.ExecutorResult("Script limit of 64k exceeded");
       }
-      Set<ReservedTokenStore.Entry> _get = this.address2entry.get(address);
-      int _size = _get.size();
-      boolean _greaterThan_1 = (_size > ReservedTokenStore.MAX_SCRIPTS_PER_ADDRESS);
-      if (_greaterThan_1) {
-        Thread.sleep(50);
-        return new ReservedTokenStore.ExecutorResult("Too many pending entries from the same address");
+      boolean _or = false;
+      boolean _matches = token.matches("\\w+");
+      boolean _not = (!_matches);
+      if (_not) {
+        _or = true;
+      } else {
+        int _length_1 = token.length();
+        boolean _notEquals = (_length_1 != 4);
+        _or = _notEquals;
       }
-      final String token = entry.token.toUpperCase();
-      final ReservedTokenStore.Entry existingEntry = this.token2entry.get(token);
-      boolean _notEquals = (!Objects.equal(existingEntry, null));
-      if (_notEquals) {
+      if (_or) {
         Thread.sleep(50);
-        return new ReservedTokenStore.ExecutorResult("Token already reserved");
+        return new ReservedTokenStore.ExecutorResult("The token format is incorrect.");
       }
-      boolean _startsWith = entry.uri.startsWith("src/");
-      if (_startsWith) {
-        final String fileName = entry.uri.substring(4);
-        boolean _and = false;
-        boolean _contains = fileName.contains("/");
-        boolean _not = (!_contains);
-        if (!_not) {
-          _and = false;
-        } else {
-          boolean _endsWith = fileName.endsWith(".xrobot");
-          _and = _endsWith;
-        }
-        if (_and) {
-          final long timestamp = System.currentTimeMillis();
-          final ReservedTokenStore.Entry newEntry = new ReservedTokenStore.Entry(timestamp, token, address, fileName, entry.source);
-          this.token2entry.put(token, newEntry);
-          this.address2entry.put(address, newEntry);
-          this.time2entry.put(Long.valueOf(timestamp), newEntry);
+      /* this.token2entry; */
+      synchronized (this.token2entry) {
+        {
           this.collectGarbage(ReservedTokenStore.MAX_AGE);
-          return new ReservedTokenStore.ExecutorResult("Token successfully reserved");
+          Set<ReservedTokenStore.Entry> _get = this.address2entry.get(address);
+          int _size = _get.size();
+          boolean _greaterThan_1 = (_size > ReservedTokenStore.MAX_SCRIPTS_PER_ADDRESS);
+          if (_greaterThan_1) {
+            Thread.sleep(50);
+            return new ReservedTokenStore.ExecutorResult("Too many pending entries from the same address");
+          }
+          final String ucToken = token.toUpperCase();
+          final ReservedTokenStore.Entry existingEntry = this.token2entry.get(ucToken);
+          boolean _notEquals_1 = (!Objects.equal(existingEntry, null));
+          if (_notEquals_1) {
+            Thread.sleep(50);
+            return new ReservedTokenStore.ExecutorResult("Token already reserved");
+          }
+          boolean _and = false;
+          boolean _contains = uri.contains("/");
+          boolean _not_1 = (!_contains);
+          if (!_not_1) {
+            _and = false;
+          } else {
+            boolean _endsWith = uri.endsWith(".xrobot");
+            _and = _endsWith;
+          }
+          if (_and) {
+            final long timestamp = System.currentTimeMillis();
+            final ReservedTokenStore.Entry newEntry = new ReservedTokenStore.Entry(timestamp, ucToken, address, uri, source);
+            this.token2entry.put(ucToken, newEntry);
+            this.address2entry.put(address, newEntry);
+            return new ReservedTokenStore.ExecutorResult("Token successfully reserved");
+          }
         }
       }
       Thread.sleep(50);
@@ -248,21 +261,15 @@ public class ReservedTokenStore {
   
   protected void collectGarbage(final long maxAge) {
     final long now = System.currentTimeMillis();
-    Set<Long> _keySet = this.time2entry.keySet();
-    ArrayList<Long> _arrayList = new ArrayList<Long>(_keySet);
-    for (final Long timeStamp : _arrayList) {
-      if ((((timeStamp).longValue() + maxAge) < now)) {
-        Set<ReservedTokenStore.Entry> _get = this.time2entry.get(timeStamp);
-        ArrayList<ReservedTokenStore.Entry> _arrayList_1 = new ArrayList<ReservedTokenStore.Entry>(_get);
-        for (final ReservedTokenStore.Entry entry : _arrayList_1) {
-          {
-            this.token2entry.remove(entry.token);
-            this.address2entry.remove(entry.address, entry);
-          }
+    Collection<ReservedTokenStore.Entry> _values = this.token2entry.values();
+    final Iterator<ReservedTokenStore.Entry> entryIter = _values.iterator();
+    while (entryIter.hasNext()) {
+      {
+        final ReservedTokenStore.Entry entry = entryIter.next();
+        if (((entry.timestamp + maxAge) < now)) {
+          entryIter.remove();
+          this.address2entry.remove(entry.address, entry);
         }
-        this.time2entry.removeAll(timeStamp);
-      } else {
-        return;
       }
     }
   }

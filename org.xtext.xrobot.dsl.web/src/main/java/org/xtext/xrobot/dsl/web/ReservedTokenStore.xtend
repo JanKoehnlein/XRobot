@@ -8,9 +8,8 @@
 package org.xtext.xrobot.dsl.web
 
 import com.google.common.collect.HashMultimap
-import com.google.common.collect.LinkedHashMultimap
-import java.util.ArrayList
 import org.eclipse.xtend.lib.annotations.Data
+import org.eclipse.xtext.web.server.IServiceResult
 
 class ReservedTokenStore {
 	
@@ -20,32 +19,33 @@ class ReservedTokenStore {
 	
 	val token2entry = <String, Entry>newHashMap
 	val address2entry = HashMultimap.<String, Entry>create
-	val time2entry = LinkedHashMultimap.<Long, Entry>create
 	
-	def ExecutorResult add(Entry entry, String address) {
-		if (entry.source.length > MAX_SCRIPT_SIZE) {
+	def ExecutorResult add(String source, String uri, String token, String address) {
+		if (source.length > MAX_SCRIPT_SIZE) {
 			Thread.sleep(50)
 			return new ExecutorResult('Script limit of 64k exceeded')
 		}
-		if (address2entry.get(address).size > MAX_SCRIPTS_PER_ADDRESS) {
+		if (!token.matches('\\w+') || token.length != 4) {
 			Thread.sleep(50)
-			return new ExecutorResult('Too many pending entries from the same address')
+			return new ExecutorResult('The token format is incorrect.')
 		}
-		val token = entry.token.toUpperCase
-		val existingEntry = token2entry.get(token)
-		if (existingEntry != null) {
-			Thread.sleep(50)
-			return new ExecutorResult('Token already reserved')
-		}
-		if (entry.uri.startsWith('src/')) {
-			val fileName = entry.uri.substring(4)
-			if (!fileName.contains('/') && fileName.endsWith('.xrobot')) {
+		synchronized (token2entry) {
+			collectGarbage(MAX_AGE)
+			if (address2entry.get(address).size > MAX_SCRIPTS_PER_ADDRESS) {
+				Thread.sleep(50)
+				return new ExecutorResult('Too many pending entries from the same address')
+			}
+			val ucToken = token.toUpperCase
+			val existingEntry = token2entry.get(ucToken)
+			if (existingEntry != null) {
+				Thread.sleep(50)
+				return new ExecutorResult('Token already reserved')
+			}
+			if (!uri.contains('/') && uri.endsWith('.xrobot')) {
 				val timestamp = System.currentTimeMillis
-				val newEntry = new Entry(timestamp, token, address, fileName, entry.source)
-				token2entry.put(token, newEntry)
+				val newEntry = new Entry(timestamp, ucToken, address, uri, source)
+				token2entry.put(ucToken, newEntry)
 				address2entry.put(address, newEntry)
-				time2entry.put(timestamp, newEntry)
-				collectGarbage(MAX_AGE)
 				return new ExecutorResult('Token successfully reserved')
 			}
 		}
@@ -59,15 +59,12 @@ class ReservedTokenStore {
 	
 	protected def collectGarbage(long maxAge) {
 		val now = System.currentTimeMillis
-		for (timeStamp: new ArrayList(time2entry.keySet)) {
-			if (timeStamp + maxAge < now) {
-				for (entry: new ArrayList<Entry>(time2entry.get(timeStamp))) {
-					token2entry.remove(entry.token)
-					address2entry.remove(entry.address, entry)
-				}
-				time2entry.removeAll(timeStamp)					
-			} else {
-				return
+		val entryIter = token2entry.values.iterator
+		while (entryIter.hasNext) {
+			val entry = entryIter.next
+			if (entry.timestamp + maxAge < now) {
+				entryIter.remove
+				address2entry.remove(entry.address, entry)					
 			}
 		}
 	}
@@ -82,7 +79,7 @@ class ReservedTokenStore {
 	}
 	
 	@Data
-	public static class ExecutorResult {
+	public static class ExecutorResult implements IServiceResult {
 		String output
 	}
 	

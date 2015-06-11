@@ -15,6 +15,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 import org.eclipse.xtext.ide.LexerIdeBindings
 import org.eclipse.xtext.ide.editor.contentassist.antlr.IContentAssistParser
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer
+import org.eclipse.xtext.web.server.XtextServiceDispatcher
 import org.eclipse.xtext.web.server.persistence.FileResourceHandler
 import org.eclipse.xtext.web.server.persistence.IResourceBaseProvider
 import org.eclipse.xtext.web.server.persistence.IServerResourceHandler
@@ -38,6 +39,10 @@ class XRobotDSLWebModule extends DefaultXbaseWebModule {
 
 	def Class<? extends IContentAssistParser> bindIContentAssistParser() {
 		XRobotDSLParser
+	}
+	
+	def Class<? extends XtextServiceDispatcher> bindXtextServiceDispatcher() {
+		XRobotsServiceDispatcher
 	}
 	
 	def Class<? extends IServerResourceHandler> bindIServerResourceHandler() {

@@ -8,20 +8,30 @@
 package org.xtext.xrobot.dsl.web;
 
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.xtext.util.CancelIndicator;
+import org.eclipse.xtext.util.concurrent.CancelableUnitOfWork;
 import org.eclipse.xtext.web.server.IServiceResult;
 import org.eclipse.xtext.web.server.ISessionStore;
 import org.eclipse.xtext.web.server.InvalidRequestException;
 import org.eclipse.xtext.web.server.ServiceConflictResult;
 import org.eclipse.xtext.web.server.XtextServiceDispatcher;
+import org.eclipse.xtext.web.server.model.DocumentStateResult;
+import org.eclipse.xtext.web.server.model.IXtextWebDocument;
+import org.eclipse.xtext.web.server.model.XtextWebDocument;
+import org.eclipse.xtext.web.server.model.XtextWebDocumentAccess;
 import org.eclipse.xtext.web.server.persistence.IResourceBaseProvider;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.xtext.xrobot.dsl.web.ReservedTokenStore;
+import org.xtext.xrobot.dsl.web.ScriptProviderServlet;
 
 @SuppressWarnings("all")
 public class XRobotsServiceDispatcher extends XtextServiceDispatcher {
@@ -70,7 +80,7 @@ public class XRobotsServiceDispatcher extends XtextServiceDispatcher {
                 final File file = new File(_fileString);
                 boolean _exists = file.exists();
                 if (_exists) {
-                  return new ServiceConflictResult("The resoruce URI is already reserved.");
+                  return new ServiceConflictResult("The resource URI is already reserved.");
                 } else {
                   FileWriter writer = null;
                   try {
@@ -85,8 +95,19 @@ public class XRobotsServiceDispatcher extends XtextServiceDispatcher {
                       writer.close();
                     }
                   }
-                  return new IServiceResult() {
+                  final Provider<XtextWebDocument> _function = new Provider<XtextWebDocument>() {
+                    @Override
+                    public XtextWebDocument get() {
+                      try {
+                        throw new IOException("Failed to create the script file.");
+                      } catch (Throwable _e) {
+                        throw Exceptions.sneakyThrow(_e);
+                      }
+                    }
                   };
+                  final XtextWebDocument document = XRobotsServiceDispatcher.this.getResourceDocument(resourceId, sessionStore, _function);
+                  String _stateId = document.getStateId();
+                  return new DocumentStateResult(_stateId);
                 }
               } catch (final Throwable _t) {
                 if (_t instanceof Throwable) {
@@ -109,31 +130,59 @@ public class XRobotsServiceDispatcher extends XtextServiceDispatcher {
   }
   
   protected XtextServiceDispatcher.ServiceDescriptor getExecuteService(final Map<String, String> parameters, final ISessionStore sessionStore) throws InvalidRequestException {
-    XtextServiceDispatcher.ServiceDescriptor _serviceDescriptor = new XtextServiceDispatcher.ServiceDescriptor();
-    final Procedure1<XtextServiceDispatcher.ServiceDescriptor> _function = new Procedure1<XtextServiceDispatcher.ServiceDescriptor>() {
-      @Override
-      public void apply(final XtextServiceDispatcher.ServiceDescriptor it) {
-        final Function0<IServiceResult> _function = new Function0<IServiceResult>() {
+    try {
+      XtextServiceDispatcher.ServiceDescriptor _xblockexpression = null;
+      {
+        final XtextWebDocumentAccess document = this.getDocumentAccess(parameters, sessionStore);
+        final String token = parameters.get("token");
+        if ((token == null)) {
+          throw new InvalidRequestException(InvalidRequestException.Type.INVALID_PARAMETERS, "The parameter \'token\' is required.");
+        }
+        final String address = parameters.get("remoteAddr");
+        if ((address == null)) {
+          throw new AssertionError();
+        }
+        XtextServiceDispatcher.ServiceDescriptor _serviceDescriptor = new XtextServiceDispatcher.ServiceDescriptor();
+        final Procedure1<XtextServiceDispatcher.ServiceDescriptor> _function = new Procedure1<XtextServiceDispatcher.ServiceDescriptor>() {
           @Override
-          public IServiceResult apply() {
-            ServiceConflictResult _xtrycatchfinallyexpression = null;
-            try {
-              _xtrycatchfinallyexpression = null;
-            } catch (final Throwable _t) {
-              if (_t instanceof Throwable) {
-                final Throwable throwable = (Throwable)_t;
-                _xtrycatchfinallyexpression = XRobotsServiceDispatcher.this.handleError(it, throwable);
-              } else {
-                throw Exceptions.sneakyThrow(_t);
+          public void apply(final XtextServiceDispatcher.ServiceDescriptor it) {
+            final Function0<IServiceResult> _function = new Function0<IServiceResult>() {
+              @Override
+              public IServiceResult apply() {
+                IServiceResult _xtrycatchfinallyexpression = null;
+                try {
+                  final CancelableUnitOfWork<ReservedTokenStore.ExecutorResult, IXtextWebDocument> _function = new CancelableUnitOfWork<ReservedTokenStore.ExecutorResult, IXtextWebDocument>() {
+                    @Override
+                    public ReservedTokenStore.ExecutorResult exec(final IXtextWebDocument it, final CancelIndicator cancelIndicator) throws Exception {
+                      ReservedTokenStore _tokenStore = ScriptProviderServlet.getTokenStore();
+                      String _text = it.getText();
+                      String _resourceId = it.getResourceId();
+                      return _tokenStore.add(_text, _resourceId, token, address);
+                    }
+                  };
+                  _xtrycatchfinallyexpression = document.<ReservedTokenStore.ExecutorResult>readOnly(_function);
+                } catch (final Throwable _t) {
+                  if (_t instanceof Throwable) {
+                    final Throwable throwable = (Throwable)_t;
+                    _xtrycatchfinallyexpression = XRobotsServiceDispatcher.this.handleError(it, throwable);
+                  } else {
+                    throw Exceptions.sneakyThrow(_t);
+                  }
+                }
+                return _xtrycatchfinallyexpression;
               }
-            }
-            return _xtrycatchfinallyexpression;
+            };
+            it.setService(_function);
+            it.setHasSideEffects(true);
+            boolean _containsKey = parameters.containsKey("fullText");
+            it.setHasTextInput(_containsKey);
           }
         };
-        it.setService(_function);
-        it.setHasSideEffects(true);
+        _xblockexpression = ObjectExtensions.<XtextServiceDispatcher.ServiceDescriptor>operator_doubleArrow(_serviceDescriptor, _function);
       }
-    };
-    return ObjectExtensions.<XtextServiceDispatcher.ServiceDescriptor>operator_doubleArrow(_serviceDescriptor, _function);
+      return _xblockexpression;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
 }

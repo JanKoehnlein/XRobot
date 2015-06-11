@@ -19,6 +19,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 import org.eclipse.xtext.ide.LexerIdeBindings;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.IContentAssistParser;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer;
+import org.eclipse.xtext.web.server.XtextServiceDispatcher;
 import org.eclipse.xtext.web.server.persistence.FileResourceHandler;
 import org.eclipse.xtext.web.server.persistence.IResourceBaseProvider;
 import org.eclipse.xtext.web.server.persistence.IServerResourceHandler;
@@ -27,6 +28,7 @@ import org.eclipse.xtext.xbase.web.DefaultXbaseWebModule;
 import org.xtext.xrobot.dsl.ide.contentassist.antlr.XRobotDSLParser;
 import org.xtext.xrobot.dsl.ide.contentassist.antlr.internal.InternalXRobotDSLLexer;
 import org.xtext.xrobot.dsl.web.XRobotsResourceBaseProvider;
+import org.xtext.xrobot.dsl.web.XRobotsServiceDispatcher;
 
 @Accessors
 @FinalFieldsConstructor
@@ -48,6 +50,10 @@ public class XRobotDSLWebModule extends DefaultXbaseWebModule {
   
   public Class<? extends IContentAssistParser> bindIContentAssistParser() {
     return XRobotDSLParser.class;
+  }
+  
+  public Class<? extends XtextServiceDispatcher> bindXtextServiceDispatcher() {
+    return XRobotsServiceDispatcher.class;
   }
   
   public Class<? extends IServerResourceHandler> bindIServerResourceHandler() {
